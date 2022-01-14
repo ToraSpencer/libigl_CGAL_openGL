@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/cgal/CMakeFiles/cgal-download"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/cgal/CMakeFiles/29de051924988402b03140cd9316a550/cgal-download.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/cgal/CMakeFiles/e1a89f2c9dd8bca297d19cc80fa81861/cgal-download-complete.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/cgal/CMakeFiles/2ca08521e308ee73bf7118fdabbb16a6/cgal-download-build.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/cgal/CMakeFiles/2ca08521e308ee73bf7118fdabbb16a6/cgal-download-configure.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/cgal/CMakeFiles/2ca08521e308ee73bf7118fdabbb16a6/cgal-download-download.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/cgal/CMakeFiles/2ca08521e308ee73bf7118fdabbb16a6/cgal-download-install.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/cgal/CMakeFiles/2ca08521e308ee73bf7118fdabbb16a6/cgal-download-mkdir.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/cgal/CMakeFiles/2ca08521e308ee73bf7118fdabbb16a6/cgal-download-patch.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/cgal/CMakeFiles/2ca08521e308ee73bf7118fdabbb16a6/cgal-download-test.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/cgal/CMakeFiles/2ca08521e308ee73bf7118fdabbb16a6/cgal-download-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"cgal-download"
+		],
+		"name" : "cgal-download"
+	}
+}

@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tetgen\CMakeFiles\4a449d6b6208ae56b9bb6ddea593a942\tetgen-download-mkdir.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tetgen\CMakeFiles\4a449d6b6208ae56b9bb6ddea593a942\tetgen-download-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tetgen\CMakeFiles\4a449d6b6208ae56b9bb6ddea593a942\tetgen-download-update.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tetgen\CMakeFiles\4a449d6b6208ae56b9bb6ddea593a942\tetgen-download-patch.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tetgen\CMakeFiles\4a449d6b6208ae56b9bb6ddea593a942\tetgen-download-configure.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tetgen\CMakeFiles\4a449d6b6208ae56b9bb6ddea593a942\tetgen-download-build.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tetgen\CMakeFiles\4a449d6b6208ae56b9bb6ddea593a942\tetgen-download-install.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tetgen\CMakeFiles\4a449d6b6208ae56b9bb6ddea593a942\tetgen-download-test.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tetgen\CMakeFiles\462490067a46d27f7da029a4aac22cdd\tetgen-download-complete.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tetgen\CMakeFiles\813a6b590f5f64e3575d6547d77e8b11\tetgen-download.rule">
+      <Filter>CMake Rules</Filter>
+    </CustomBuild>
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tetgen\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tetgen\CMakeFiles\tetgen-download" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="CMake Rules">
+      <UniqueIdentifier>{950C259E-E178-369E-8378-EB3C909B5710}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

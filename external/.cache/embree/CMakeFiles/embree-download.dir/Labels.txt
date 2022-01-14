@@ -1,0 +1,14 @@
+# Target labels
+ embree-download
+# Source files and their labels
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/embree/CMakeFiles/embree-download
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/embree/CMakeFiles/bf589cfdaf0bbd05010062fe1dcc95a8/embree-download.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/embree/CMakeFiles/b1f211f3b9939332cdf6484cc0cfea37/embree-download-complete.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/embree/CMakeFiles/0a46275fcae945d06f4372d9816fd051/embree-download-build.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/embree/CMakeFiles/0a46275fcae945d06f4372d9816fd051/embree-download-configure.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/embree/CMakeFiles/0a46275fcae945d06f4372d9816fd051/embree-download-download.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/embree/CMakeFiles/0a46275fcae945d06f4372d9816fd051/embree-download-install.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/embree/CMakeFiles/0a46275fcae945d06f4372d9816fd051/embree-download-mkdir.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/embree/CMakeFiles/0a46275fcae945d06f4372d9816fd051/embree-download-patch.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/embree/CMakeFiles/0a46275fcae945d06f4372d9816fd051/embree-download-test.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/embree/CMakeFiles/0a46275fcae945d06f4372d9816fd051/embree-download-update.rule

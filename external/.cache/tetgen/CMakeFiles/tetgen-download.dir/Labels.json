@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tetgen/CMakeFiles/tetgen-download"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tetgen/CMakeFiles/813a6b590f5f64e3575d6547d77e8b11/tetgen-download.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tetgen/CMakeFiles/462490067a46d27f7da029a4aac22cdd/tetgen-download-complete.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tetgen/CMakeFiles/4a449d6b6208ae56b9bb6ddea593a942/tetgen-download-build.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tetgen/CMakeFiles/4a449d6b6208ae56b9bb6ddea593a942/tetgen-download-configure.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tetgen/CMakeFiles/4a449d6b6208ae56b9bb6ddea593a942/tetgen-download-download.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tetgen/CMakeFiles/4a449d6b6208ae56b9bb6ddea593a942/tetgen-download-install.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tetgen/CMakeFiles/4a449d6b6208ae56b9bb6ddea593a942/tetgen-download-mkdir.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tetgen/CMakeFiles/4a449d6b6208ae56b9bb6ddea593a942/tetgen-download-patch.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tetgen/CMakeFiles/4a449d6b6208ae56b9bb6ddea593a942/tetgen-download-test.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tetgen/CMakeFiles/4a449d6b6208ae56b9bb6ddea593a942/tetgen-download-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"tetgen-download"
+		],
+		"name" : "tetgen-download"
+	}
+}

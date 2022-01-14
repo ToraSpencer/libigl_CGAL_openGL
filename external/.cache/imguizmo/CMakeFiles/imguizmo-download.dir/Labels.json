@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/imguizmo-download"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/e31f8a303f306b61a33b18002779fe0d/imguizmo-download.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/40334f2f6378f0b12ef86dc06fc2e798/imguizmo-download-complete.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/325ce9043c8b07ee81a9a469d89f8e42/imguizmo-download-build.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/325ce9043c8b07ee81a9a469d89f8e42/imguizmo-download-configure.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/325ce9043c8b07ee81a9a469d89f8e42/imguizmo-download-download.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/325ce9043c8b07ee81a9a469d89f8e42/imguizmo-download-install.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/325ce9043c8b07ee81a9a469d89f8e42/imguizmo-download-mkdir.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/325ce9043c8b07ee81a9a469d89f8e42/imguizmo-download-patch.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/325ce9043c8b07ee81a9a469d89f8e42/imguizmo-download-test.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/325ce9043c8b07ee81a9a469d89f8e42/imguizmo-download-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"imguizmo-download"
+		],
+		"name" : "imguizmo-download"
+	}
+}

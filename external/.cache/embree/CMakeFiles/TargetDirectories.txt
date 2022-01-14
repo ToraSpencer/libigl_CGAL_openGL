@@ -1,0 +1,3 @@
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/embree/CMakeFiles/embree-download.dir
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/embree/CMakeFiles/ALL_BUILD.dir
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/embree/CMakeFiles/ZERO_CHECK.dir

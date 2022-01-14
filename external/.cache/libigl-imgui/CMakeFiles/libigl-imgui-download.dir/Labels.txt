@@ -1,0 +1,14 @@
+# Target labels
+ libigl-imgui-download
+# Source files and their labels
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/CMakeFiles/libigl-imgui-download
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/CMakeFiles/e1114cf251d600f24547c52b1467e4b0/libigl-imgui-download.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/CMakeFiles/7b6899ed7a75dbbe0117d2b59381b173/libigl-imgui-download-complete.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/CMakeFiles/a4a74bb75f2b5584046d06ffbcbcfae2/libigl-imgui-download-build.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/CMakeFiles/a4a74bb75f2b5584046d06ffbcbcfae2/libigl-imgui-download-configure.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/CMakeFiles/a4a74bb75f2b5584046d06ffbcbcfae2/libigl-imgui-download-download.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/CMakeFiles/a4a74bb75f2b5584046d06ffbcbcfae2/libigl-imgui-download-install.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/CMakeFiles/a4a74bb75f2b5584046d06ffbcbcfae2/libigl-imgui-download-mkdir.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/CMakeFiles/a4a74bb75f2b5584046d06ffbcbcfae2/libigl-imgui-download-patch.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/CMakeFiles/a4a74bb75f2b5584046d06ffbcbcfae2/libigl-imgui-download-test.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/CMakeFiles/a4a74bb75f2b5584046d06ffbcbcfae2/libigl-imgui-download-update.rule

@@ -1,0 +1,3 @@
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/CMakeFiles/mpfr-download.dir
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/CMakeFiles/ALL_BUILD.dir
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/CMakeFiles/ZERO_CHECK.dir

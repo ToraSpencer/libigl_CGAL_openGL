@@ -1,0 +1,3 @@
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/CMakeFiles/triangle-download.dir
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/CMakeFiles/ALL_BUILD.dir
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/CMakeFiles/ZERO_CHECK.dir

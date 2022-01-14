@@ -1,0 +1,14 @@
+# Target labels
+ mpfr-download
+# Source files and their labels
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/CMakeFiles/mpfr-download
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/CMakeFiles/fbb26727d927292664371fc5d771c9f6/mpfr-download.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/CMakeFiles/e15dcd8b795e99ae6430fff278220cb3/mpfr-download-complete.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/CMakeFiles/565f56facd29cc4c4ddf9efeae40abbb/mpfr-download-build.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/CMakeFiles/565f56facd29cc4c4ddf9efeae40abbb/mpfr-download-configure.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/CMakeFiles/565f56facd29cc4c4ddf9efeae40abbb/mpfr-download-download.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/CMakeFiles/565f56facd29cc4c4ddf9efeae40abbb/mpfr-download-install.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/CMakeFiles/565f56facd29cc4c4ddf9efeae40abbb/mpfr-download-mkdir.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/CMakeFiles/565f56facd29cc4c4ddf9efeae40abbb/mpfr-download-patch.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/CMakeFiles/565f56facd29cc4c4ddf9efeae40abbb/mpfr-download-test.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/CMakeFiles/565f56facd29cc4c4ddf9efeae40abbb/mpfr-download-update.rule

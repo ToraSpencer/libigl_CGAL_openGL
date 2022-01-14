@@ -1,0 +1,14 @@
+# Target labels
+ glfw-download
+# Source files and their labels
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeFiles/glfw-download
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeFiles/ebd3105f43bd34c2b12ccc8479e929b8/glfw-download.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeFiles/430a0751eb5f68e49d303ef76492010b/glfw-download-complete.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeFiles/fec540ddf6fbfc90bdde64a9d73663f3/glfw-download-build.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeFiles/fec540ddf6fbfc90bdde64a9d73663f3/glfw-download-configure.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeFiles/fec540ddf6fbfc90bdde64a9d73663f3/glfw-download-download.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeFiles/fec540ddf6fbfc90bdde64a9d73663f3/glfw-download-install.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeFiles/fec540ddf6fbfc90bdde64a9d73663f3/glfw-download-mkdir.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeFiles/fec540ddf6fbfc90bdde64a9d73663f3/glfw-download-patch.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeFiles/fec540ddf6fbfc90bdde64a9d73663f3/glfw-download-test.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeFiles/fec540ddf6fbfc90bdde64a9d73663f3/glfw-download-update.rule

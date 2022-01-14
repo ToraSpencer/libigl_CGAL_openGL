@@ -1,0 +1,14 @@
+# Target labels
+ stb-download
+# Source files and their labels
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/stb-download
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/c3d097b224c7f1b07952bd9fefffdfea/stb-download.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/a23da636455b59b404c88861c5267e1d/stb-download-complete.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/72811cfae7714686e821d09e84b0413d/stb-download-build.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/72811cfae7714686e821d09e84b0413d/stb-download-configure.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/72811cfae7714686e821d09e84b0413d/stb-download-download.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/72811cfae7714686e821d09e84b0413d/stb-download-install.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/72811cfae7714686e821d09e84b0413d/stb-download-mkdir.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/72811cfae7714686e821d09e84b0413d/stb-download-patch.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/72811cfae7714686e821d09e84b0413d/stb-download-test.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/72811cfae7714686e821d09e84b0413d/stb-download-update.rule

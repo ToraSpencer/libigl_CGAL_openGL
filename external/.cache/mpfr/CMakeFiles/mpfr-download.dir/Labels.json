@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/CMakeFiles/mpfr-download"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/CMakeFiles/fbb26727d927292664371fc5d771c9f6/mpfr-download.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/CMakeFiles/e15dcd8b795e99ae6430fff278220cb3/mpfr-download-complete.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/CMakeFiles/565f56facd29cc4c4ddf9efeae40abbb/mpfr-download-build.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/CMakeFiles/565f56facd29cc4c4ddf9efeae40abbb/mpfr-download-configure.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/CMakeFiles/565f56facd29cc4c4ddf9efeae40abbb/mpfr-download-download.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/CMakeFiles/565f56facd29cc4c4ddf9efeae40abbb/mpfr-download-install.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/CMakeFiles/565f56facd29cc4c4ddf9efeae40abbb/mpfr-download-mkdir.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/CMakeFiles/565f56facd29cc4c4ddf9efeae40abbb/mpfr-download-patch.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/CMakeFiles/565f56facd29cc4c4ddf9efeae40abbb/mpfr-download-test.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/CMakeFiles/565f56facd29cc4c4ddf9efeae40abbb/mpfr-download-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"mpfr-download"
+		],
+		"name" : "mpfr-download"
+	}
+}

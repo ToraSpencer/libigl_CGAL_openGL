@@ -1,0 +1,14 @@
+# Target labels
+ imguizmo-download
+# Source files and their labels
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/imguizmo-download
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/e31f8a303f306b61a33b18002779fe0d/imguizmo-download.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/40334f2f6378f0b12ef86dc06fc2e798/imguizmo-download-complete.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/325ce9043c8b07ee81a9a469d89f8e42/imguizmo-download-build.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/325ce9043c8b07ee81a9a469d89f8e42/imguizmo-download-configure.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/325ce9043c8b07ee81a9a469d89f8e42/imguizmo-download-download.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/325ce9043c8b07ee81a9a469d89f8e42/imguizmo-download-install.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/325ce9043c8b07ee81a9a469d89f8e42/imguizmo-download-mkdir.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/325ce9043c8b07ee81a9a469d89f8e42/imguizmo-download-patch.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/325ce9043c8b07ee81a9a469d89f8e42/imguizmo-download-test.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/325ce9043c8b07ee81a9a469d89f8e42/imguizmo-download-update.rule

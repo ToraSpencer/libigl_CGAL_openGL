@@ -1,0 +1,14 @@
+# Target labels
+ tinyxml2-download
+# Source files and their labels
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/tinyxml2-download
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/08d6ae4ce04fb435f46f7ec5e730d252/tinyxml2-download.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/fb7a1d55ebf4130fd5a74977088f3d1a/tinyxml2-download-complete.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/d8424e01458af3d9c7777ab5c0d42955/tinyxml2-download-build.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/d8424e01458af3d9c7777ab5c0d42955/tinyxml2-download-configure.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/d8424e01458af3d9c7777ab5c0d42955/tinyxml2-download-download.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/d8424e01458af3d9c7777ab5c0d42955/tinyxml2-download-install.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/d8424e01458af3d9c7777ab5c0d42955/tinyxml2-download-mkdir.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/d8424e01458af3d9c7777ab5c0d42955/tinyxml2-download-patch.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/d8424e01458af3d9c7777ab5c0d42955/tinyxml2-download-test.rule
+G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/d8424e01458af3d9c7777ab5c0d42955/tinyxml2-download-update.rule

@@ -1,0 +1,46 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/stb-download"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/c3d097b224c7f1b07952bd9fefffdfea/stb-download.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/a23da636455b59b404c88861c5267e1d/stb-download-complete.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/72811cfae7714686e821d09e84b0413d/stb-download-build.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/72811cfae7714686e821d09e84b0413d/stb-download-configure.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/72811cfae7714686e821d09e84b0413d/stb-download-download.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/72811cfae7714686e821d09e84b0413d/stb-download-install.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/72811cfae7714686e821d09e84b0413d/stb-download-mkdir.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/72811cfae7714686e821d09e84b0413d/stb-download-patch.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/72811cfae7714686e821d09e84b0413d/stb-download-test.rule"
+		},
+		{
+			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/72811cfae7714686e821d09e84b0413d/stb-download-update.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"stb-download"
+		],
+		"name" : "stb-download"
+	}
+}
