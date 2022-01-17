@@ -1,86 +1,33 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\context.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\init.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\input.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\monitor.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\vulkan.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\window.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\win32_init.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\win32_joystick.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\win32_monitor.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\win32_time.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\win32_thread.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\win32_window.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\wgl_context.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\egl_context.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\osmesa_context.c">
-      <Filter>Source Files</Filter>
-    </ClCompile>
+    <ClCompile Include="$(ProjectDir)..\..\..\external\glfw\src\context.c" />
+    <ClCompile Include="$(ProjectDir)..\..\..\external\glfw\src\init.c" />
+    <ClCompile Include="$(ProjectDir)..\..\..\external\glfw\src\input.c" />
+    <ClCompile Include="$(ProjectDir)..\..\..\external\glfw\src\monitor.c" />
+    <ClCompile Include="$(ProjectDir)..\..\..\external\glfw\src\vulkan.c" />
+    <ClCompile Include="$(ProjectDir)..\..\..\external\glfw\src\window.c" />
+    <ClCompile Include="$(ProjectDir)..\..\..\external\glfw\src\win32_init.c" />
+    <ClCompile Include="$(ProjectDir)..\..\..\external\glfw\src\win32_joystick.c" />
+    <ClCompile Include="$(ProjectDir)..\..\..\external\glfw\src\win32_monitor.c" />
+    <ClCompile Include="$(ProjectDir)..\..\..\external\glfw\src\win32_time.c" />
+    <ClCompile Include="$(ProjectDir)..\..\..\external\glfw\src\win32_thread.c" />
+    <ClCompile Include="$(ProjectDir)..\..\..\external\glfw\src\win32_window.c" />
+    <ClCompile Include="$(ProjectDir)..\..\..\external\glfw\src\wgl_context.c" />
+    <ClCompile Include="$(ProjectDir)..\..\..\external\glfw\src\egl_context.c" />
+    <ClCompile Include="$(ProjectDir)..\..\..\external\glfw\src\osmesa_context.c" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\include\GLFW\glfw3.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\include\GLFW\glfw3native.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\internal.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\mappings.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\win32_platform.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\win32_joystick.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\wgl_context.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\egl_context.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\osmesa_context.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\glfw\src\glfw_config.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\CMakeLists.txt" />
+    <ClInclude Include="$(ProjectDir)..\..\..\external\glfw\include\GLFW\glfw3.h" />
+    <ClInclude Include="$(ProjectDir)..\..\..\external\glfw\include\GLFW\glfw3native.h" />
+    <ClInclude Include="$(ProjectDir)..\..\..\external\glfw\src\internal.h" />
+    <ClInclude Include="$(ProjectDir)..\..\..\external\glfw\src\mappings.h" />
+    <ClInclude Include="$(ProjectDir)..\..\..\external\glfw\src\win32_platform.h" />
+    <ClInclude Include="$(ProjectDir)..\..\..\external\glfw\src\win32_joystick.h" />
+    <ClInclude Include="$(ProjectDir)..\..\..\external\glfw\src\wgl_context.h" />
+    <ClInclude Include="$(ProjectDir)..\..\..\external\glfw\src\egl_context.h" />
+    <ClInclude Include="$(ProjectDir)..\..\..\external\glfw\src\osmesa_context.h" />
+    <ClInclude Include=".\\glfw_config.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Header Files">
@@ -89,5 +36,8 @@
     <Filter Include="Source Files">
       <UniqueIdentifier>{18953F89-488E-399C-8A5D-B5FE92FAA7FF}</UniqueIdentifier>
     </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="glfw\CMakeLists.txt" />
   </ItemGroup>
 </Project>

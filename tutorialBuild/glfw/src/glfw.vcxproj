@@ -59,26 +59,26 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\glfw\src\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(SolutionDir)\glfw\src\Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">glfw.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">glfw3</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\glfw\src\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.\\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">glfw.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">glfw3</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\glfw\src\MinSizeRel\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.\\MinSizeRel\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">glfw.dir\MinSizeRel\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">glfw3</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.lib</TargetExt>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\glfw\src\RelWithDebInfo\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.\\RelWithDebInfo\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">glfw.dir\RelWithDebInfo\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">glfw3</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.lib</TargetExt>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src;G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\glfw\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\external\glfw\include;$(SolutionDir)..\external\glfw\src;$(SolutionDir)\glfw\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -95,10 +95,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;_GLFW_USE_CONFIG_H;_UNICODE;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src;G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\glfw\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\external\glfw\include;$(ProjectDir)..\..\..\external\glfw\src;.\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src;G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\glfw\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\external\glfw\include;$(ProjectDir)..\..\..\external\glfw\src;.\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -128,10 +128,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_GLFW_USE_CONFIG_H;_UNICODE;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src;G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\glfw\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\external\glfw\include;$(ProjectDir)..\..\..\external\glfw\src;.\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src;G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\glfw\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\external\glfw\include;$(ProjectDir)..\..\..\external\glfw\src;.\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -144,7 +144,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src;G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\glfw\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\external\glfw\include;$(ProjectDir)..\..\..\external\glfw\src;.\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>
       </ExceptionHandling>
@@ -161,10 +161,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_GLFW_USE_CONFIG_H;_UNICODE;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src;G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\glfw\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\external\glfw\include;$(ProjectDir)..\..\..\external\glfw\src;.\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src;G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\glfw\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\external\glfw\include;$(ProjectDir)..\..\..\external\glfw\src;.\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -177,7 +177,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src;G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\glfw\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\external\glfw\include;$(ProjectDir)..\..\..\external\glfw\src;.\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
       <ExceptionHandling>
@@ -193,10 +193,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;_GLFW_USE_CONFIG_H;_UNICODE;_CRT_SECURE_NO_WARNINGS;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src;G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\glfw\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\external\glfw\include;$(ProjectDir)..\..\..\external\glfw\src;.\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src;G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\glfw\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(ProjectDir)..\..\..\external\glfw\include;$(ProjectDir)..\..\..\external\glfw\src;.\;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -208,96 +208,42 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\CMakeLists.txt">
-      <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/glfw/src/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SG:/gitRepositories/libigl_CGAL_openGL/tutorial -BG:/gitRepositories/libigl_CGAL_openGL/tutorialBuild --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/glfw/src/CMakeFiles/generate.stamp
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\glfw_config.h.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\glfw\src\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/glfw/src/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SG:/gitRepositories/libigl_CGAL_openGL/tutorial -BG:/gitRepositories/libigl_CGAL_openGL/tutorialBuild --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/glfw/src/CMakeFiles/generate.stamp
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\glfw_config.h.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\glfw\src\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/glfw/src/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SG:/gitRepositories/libigl_CGAL_openGL/tutorial -BG:/gitRepositories/libigl_CGAL_openGL/tutorialBuild --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/glfw/src/CMakeFiles/generate.stamp
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\glfw_config.h.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\glfw\src\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/glfw/src/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SG:/gitRepositories/libigl_CGAL_openGL/tutorial -BG:/gitRepositories/libigl_CGAL_openGL/tutorialBuild --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/glfw/src/CMakeFiles/generate.stamp
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\glfw_config.h.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\glfw\src\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
-    </CustomBuild>
+    <ClInclude Include="$(ProjectDir)..\..\..\external\glfw\include\GLFW\glfw3.h" />
+    <ClInclude Include="$(ProjectDir)..\..\..\external\glfw\include\GLFW\glfw3native.h" />
+    <ClInclude Include="$(ProjectDir)..\..\..\external\glfw\src\internal.h" />
+    <ClInclude Include="$(ProjectDir)..\..\..\external\glfw\src\mappings.h" />
+    <ClCompile Include="$(ProjectDir)..\..\..\external\glfw\src\context.c" />
+    <ClCompile Include="$(ProjectDir)..\..\..\external\glfw\src\init.c" />
+    <ClCompile Include="$(ProjectDir)..\..\..\external\glfw\src\input.c" />
+    <ClCompile Include="$(ProjectDir)..\..\..\external\glfw\src\monitor.c" />
+    <ClCompile Include="$(ProjectDir)..\..\..\external\glfw\src\vulkan.c" />
+    <ClCompile Include="$(ProjectDir)..\..\..\external\glfw\src\window.c" />
+    <ClInclude Include="$(ProjectDir)..\..\..\external\glfw\src\win32_platform.h" />
+    <ClInclude Include="$(ProjectDir)..\..\..\external\glfw\src\win32_joystick.h" />
+    <ClInclude Include="$(ProjectDir)..\..\..\external\glfw\src\wgl_context.h" />
+    <ClInclude Include="$(ProjectDir)..\..\..\external\glfw\src\egl_context.h" />
+    <ClInclude Include="$(ProjectDir)..\..\..\external\glfw\src\osmesa_context.h" />
+    <ClCompile Include="$(ProjectDir)..\..\..\external\glfw\src\win32_init.c" />
+    <ClCompile Include="$(ProjectDir)..\..\..\external\glfw\src\win32_joystick.c" />
+    <ClCompile Include="$(ProjectDir)..\..\..\external\glfw\src\win32_monitor.c" />
+    <ClCompile Include="$(ProjectDir)..\..\..\external\glfw\src\win32_time.c" />
+    <ClCompile Include="$(ProjectDir)..\..\..\external\glfw\src\win32_thread.c" />
+    <ClCompile Include="$(ProjectDir)..\..\..\external\glfw\src\win32_window.c" />
+    <ClCompile Include="$(ProjectDir)..\..\..\external\glfw\src\wgl_context.c" />
+    <ClCompile Include="$(ProjectDir)..\..\..\external\glfw\src\egl_context.c" />
+    <ClCompile Include="$(ProjectDir)..\..\..\external\glfw\src\osmesa_context.c" />
+    <ClInclude Include=".\\glfw_config.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\include\GLFW\glfw3.h" />
-    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\include\GLFW\glfw3native.h" />
-    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\internal.h" />
-    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\mappings.h" />
-    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\context.c" />
-    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\init.c" />
-    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\input.c" />
-    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\monitor.c" />
-    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\vulkan.c" />
-    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\window.c" />
-    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\win32_platform.h" />
-    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\win32_joystick.h" />
-    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\wgl_context.h" />
-    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\egl_context.h" />
-    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\osmesa_context.h" />
-    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\win32_init.c" />
-    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\win32_joystick.c" />
-    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\win32_monitor.c" />
-    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\win32_time.c" />
-    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\win32_thread.c" />
-    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\win32_window.c" />
-    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\wgl_context.c" />
-    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\egl_context.c" />
-    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src\osmesa_context.c" />
-    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\glfw\src\glfw_config.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\ZERO_CHECK.vcxproj">
+    <ProjectReference Include="$(ProjectDir)..\..\ZERO_CHECK.vcxproj">
       <Project>{BAEA34AB-974F-3714-AD13-5F6DE8020502}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="glfw\CMakeLists.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -55,8 +55,7 @@ Untitled.ipynb
 *.xlsx
 *.pdf
 *.docx
-
-*tutorialBuild/CMakeCache.txt
+ 
 
 /Debug
 /Release

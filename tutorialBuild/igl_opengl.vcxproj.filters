@@ -116,9 +116,6 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\tutorial\CMakeLists.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <Filter Include="Header Files">
       <UniqueIdentifier>{68D24F45-34FB-3708-9213-064C7419AFA8}</UniqueIdentifier>
     </Filter>

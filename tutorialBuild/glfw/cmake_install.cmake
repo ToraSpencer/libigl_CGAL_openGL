@@ -34,6 +34,6 @@ endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for the subdirectory.
-  include("G:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/glfw/src/cmake_install.cmake")
+  include("./src/cmake_install.cmake")
 endif()
 
