@@ -1,5 +1,6 @@
 
 *	当前项目编译环境为x64 Debug;
+*	x64 Release的版本也需要编译，因为外部的Eigen-libiglStudy项目需要使用本项目中的一些库；
 
 
 
