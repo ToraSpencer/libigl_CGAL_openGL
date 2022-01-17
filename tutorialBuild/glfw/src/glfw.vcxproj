@@ -111,7 +111,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;G:\gitRepositories\libigl_CGAL_openGL\external\glfw\src;G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\glfw\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\external\glfw\include;$(SolutionDir)..\external\glfw\src;$(SolutionDir)\glfw\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>
       </ExceptionHandling>
