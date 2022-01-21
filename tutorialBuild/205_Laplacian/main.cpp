@@ -17,6 +17,8 @@ int main(int argc, char *argv[])
 {
   using namespace Eigen;
   using namespace std;
+
+
   MatrixXd V;
   MatrixXi F;
 
@@ -28,6 +30,7 @@ int main(int argc, char *argv[])
   // Find boundary edges
   MatrixXi E;
   igl::boundary_facets(F,E);
+
   // Find boundary vertices
   VectorXi b,IA,IC;
   igl::unique(E,b,IA,IC);
@@ -51,6 +54,8 @@ int main(int argc, char *argv[])
   // Solve PDE
   SimplicialLLT<SparseMatrix<double > > solver(-L_in_in);
   VectorXd Z_in = solver.solve(L_in_b*bc);
+
+
   // slice into solution
   igl::slice_into(Z_in,in,Z);
 
