@@ -15,6 +15,7 @@ int main(int argc, char * argv[])
   unsigned int left_view, right_view;
   int cube_id = viewer.data_list[0].id;
   int sphere_id = viewer.data_list[1].id;
+
   viewer.callback_init = [&](igl::opengl::glfw::Viewer &)
   {
     viewer.core().viewport = Eigen::Vector4f(0, 0, 640, 800);
@@ -23,6 +24,7 @@ int main(int argc, char * argv[])
     return false;
   };
 
+  // ¼üÅÌÊÂ¼şÏìÓ¦£º
   viewer.callback_key_down = [&](igl::opengl::glfw::Viewer &, unsigned int key, int mod)
   {
     if(key == GLFW_KEY_SPACE)
@@ -42,5 +44,6 @@ int main(int argc, char * argv[])
   };
 
   viewer.launch();
+
   return EXIT_SUCCESS;
 }

@@ -1,10 +1,3 @@
-// This file is part of libigl, a simple c++ geometry processing library.
-//
-// Copyright (C) 2014 Daniele Panozzo <daniele.panozzo@gmail.com>
-//
-// This Source Code Form is subject to the terms of the Mozilla Public License
-// v. 2.0. If a copy of the MPL was not distributed with this file, You can
-// obtain one at http://mozilla.org/MPL/2.0/.
 #ifndef IGL_OPENGL_GLFW_VIEWER_H
 #define IGL_OPENGL_GLFW_VIEWER_H
 
@@ -38,7 +31,8 @@ namespace opengl
 {
 namespace glfw
 {
-  // GLFW-based mesh viewer
+
+  // 基于GLFW的网格查看器；
   class Viewer
   {
   public:
@@ -54,10 +48,12 @@ namespace glfw
     IGL_INLINE void shutdown_plugins();
     Viewer();
     ~Viewer();
+
     // Mesh IO
     IGL_INLINE bool load_mesh_from_file(const std::string & mesh_file_name);
     IGL_INLINE bool   save_mesh_to_file(const std::string & mesh_file_name);
-    // Callbacks
+
+    // 回调函数
     IGL_INLINE bool key_pressed(unsigned int unicode_key,int modifier);
     IGL_INLINE bool key_down(int key,int modifier);
     IGL_INLINE bool key_up(int key,int modifier);
@@ -65,31 +61,35 @@ namespace glfw
     IGL_INLINE bool mouse_up(MouseButton button,int modifier);
     IGL_INLINE bool mouse_move(int mouse_x,int mouse_y);
     IGL_INLINE bool mouse_scroll(float delta_y);
+
     // Scene IO
     IGL_INLINE bool load_scene();
     IGL_INLINE bool load_scene(std::string fname);
     IGL_INLINE bool save_scene();
     IGL_INLINE bool save_scene(std::string fname);
+
     // Draw everything
     IGL_INLINE void draw();
+
     // OpenGL context resize
     IGL_INLINE void resize(int w,int h); // explicitly set window size
     IGL_INLINE void post_resize(int w,int h); // external resize due to user interaction
+
     // Helper functions
     IGL_INLINE void snap_to_canonical_quaternion();
     IGL_INLINE void open_dialog_load_mesh();
     IGL_INLINE void open_dialog_save_mesh();
 
-    ////////////////////////
-    // Multi-mesh methods //
-    ////////////////////////
-
+ 
+    //////////////////////////////// Multi-mesh methods //
+ 
     // Return the current mesh, or the mesh corresponding to a given unique identifier
     //
     // Inputs:
     //   mesh_id  unique identifier associated to the desired mesh (current mesh if -1)
     IGL_INLINE ViewerData& data(int mesh_id = -1);
     IGL_INLINE const ViewerData& data(int mesh_id = -1) const;
+
 
     // Append a new "slot" for a mesh (i.e., create empty entries at the end of
     // the data_list and opengl_state_list.
@@ -195,9 +195,7 @@ public:
     bool hack_never_moved;
     // Keep track of the global position of the scrollwheel
     float scroll_position;
-    // C++-style functions
-    //
-    // Returns **true** if action should be cancelled.
+ 
     std::function<bool(Viewer& viewer)> callback_init;
     std::function<bool(Viewer& viewer)> callback_pre_draw;
     std::function<bool(Viewer& viewer)> callback_post_draw;
@@ -207,9 +205,11 @@ public:
     std::function<bool(Viewer& viewer, float delta_y)> callback_mouse_scroll;
     std::function<bool(Viewer& viewer, unsigned int key, int modifiers)> callback_key_pressed;
     std::function<bool(Viewer& viewer, int w, int h)> callback_post_resize;
+
     // THESE SHOULD BE DEPRECATED:
     std::function<bool(Viewer& viewer, unsigned int key, int modifiers)> callback_key_down;
     std::function<bool(Viewer& viewer, unsigned int key, int modifiers)> callback_key_up;
+
     // Pointers to per-callback data
     void* callback_init_data;
     void* callback_pre_draw_data;
