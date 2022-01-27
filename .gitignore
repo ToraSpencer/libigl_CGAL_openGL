@@ -21,7 +21,9 @@
 *.tlog
 *.user
 *.vsp
-.DS_Store
+*.DS_Store
+*.cd
+*.sbr
 .idea/
 .vs/
 .vscode/

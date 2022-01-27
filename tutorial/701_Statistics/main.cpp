@@ -8,6 +8,8 @@
 
 #include "tutorial_shared_path.h"
 
+
+
 int main(int argc, char *argv[])
 {
   using namespace Eigen;
@@ -45,7 +47,7 @@ int main(int argc, char *argv[])
   // Compute per face angles, min, max and standard deviation
   MatrixXd angles;
   igl::internal_angles(V,F,angles);
-  angles = 360.0 * (angles/(2*igl::PI)); // Convert to degrees
+  angles = 360.0 * (angles/(2*igl::PI));            // Convert to degrees
 
   double angle_avg   = angles.mean();
   double angle_min   = angles.minCoeff();

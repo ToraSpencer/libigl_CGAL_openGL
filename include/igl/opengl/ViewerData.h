@@ -1,10 +1,4 @@
-// This file is part of libigl, a simple c++ geometry processing library.
-//
-// Copyright (C) 2014 Daniele Panozzo <daniele.panozzo@gmail.com>
-//
-// This Source Code Form is subject to the terms of the Mozilla Public License
-// v. 2.0. If a copy of the MPL was not distributed with this file, You can
-// obtain one at http://mozilla.org/MPL/2.0/.
+
 #ifndef IGL_VIEWERDATA_H
 #define IGL_VIEWERDATA_H
 
@@ -19,7 +13,7 @@
 
 // Alec: This is a mesh class containing a variety of data types (normals,
 // overlays, material colors, etc.)
-//
+ 
 // WARNING: Eigen data members (such as Eigen::Vector4f) should explicitly
 // disable alignment (e.g. use `Eigen::Matrix<float, 4, 1, Eigen::DontAlign>`),
 // in order to avoid alignment issues further down the line (esp. if the
@@ -28,6 +22,8 @@
 // See this thread for a more detailed discussion:
 // https://github.com/libigl/libigl/pull/1029
 //
+
+
 namespace igl
 {
 
@@ -38,6 +34,8 @@ namespace opengl
 // Forward declaration
 class ViewerCore;
 
+
+// Viewer中的数据类；
 class ViewerData
 {
 public:
@@ -61,6 +59,7 @@ public:
   // Inputs:
   //   C  #V|#F|1 by 3 list of colors
   IGL_INLINE void set_colors(const Eigen::MatrixXd &C);
+
 
   // Set per-vertex UV coordinates
   //
@@ -304,7 +303,6 @@ public:
 } // namespace opengl
 } // namespace igl
 
-////////////////////////////////////////////////////////////////////////////////
 
 #include <igl/serialize.h>
 namespace igl
