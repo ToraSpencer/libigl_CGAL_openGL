@@ -2,37 +2,37 @@
 	"sources" : 
 	[
 		{
-			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/CoMISo/CMakeFiles/CoMISo-download"
+			"file" : "/Users/wuhan/gitRepositories/libigl_CGAL_openGL/external/.cache/CoMISo/CMakeFiles/CoMISo-download"
 		},
 		{
-			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/CoMISo/CMakeFiles/fb29fd8ec63689f9297e311059fe9088/CoMISo-download.rule"
+			"file" : "/Users/wuhan/gitRepositories/libigl_CGAL_openGL/external/.cache/CoMISo/CMakeFiles/CoMISo-download.rule"
 		},
 		{
-			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/CoMISo/CMakeFiles/9410c2fafd5a934ffecbe21b789992b2/CoMISo-download-complete.rule"
+			"file" : "/Users/wuhan/gitRepositories/libigl_CGAL_openGL/external/.cache/CoMISo/CMakeFiles/CoMISo-download-complete.rule"
 		},
 		{
-			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/CoMISo/CMakeFiles/9eb2a4f1eff8abe030c9f5463af5dbdf/CoMISo-download-build.rule"
+			"file" : "/Users/wuhan/gitRepositories/libigl_CGAL_openGL/external/.cache/CoMISo/CoMISo-download-prefix/src/CoMISo-download-stamp/CoMISo-download-build.rule"
 		},
 		{
-			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/CoMISo/CMakeFiles/9eb2a4f1eff8abe030c9f5463af5dbdf/CoMISo-download-configure.rule"
+			"file" : "/Users/wuhan/gitRepositories/libigl_CGAL_openGL/external/.cache/CoMISo/CoMISo-download-prefix/src/CoMISo-download-stamp/CoMISo-download-configure.rule"
 		},
 		{
-			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/CoMISo/CMakeFiles/9eb2a4f1eff8abe030c9f5463af5dbdf/CoMISo-download-download.rule"
+			"file" : "/Users/wuhan/gitRepositories/libigl_CGAL_openGL/external/.cache/CoMISo/CoMISo-download-prefix/src/CoMISo-download-stamp/CoMISo-download-download.rule"
 		},
 		{
-			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/CoMISo/CMakeFiles/9eb2a4f1eff8abe030c9f5463af5dbdf/CoMISo-download-install.rule"
+			"file" : "/Users/wuhan/gitRepositories/libigl_CGAL_openGL/external/.cache/CoMISo/CoMISo-download-prefix/src/CoMISo-download-stamp/CoMISo-download-install.rule"
 		},
 		{
-			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/CoMISo/CMakeFiles/9eb2a4f1eff8abe030c9f5463af5dbdf/CoMISo-download-mkdir.rule"
+			"file" : "/Users/wuhan/gitRepositories/libigl_CGAL_openGL/external/.cache/CoMISo/CoMISo-download-prefix/src/CoMISo-download-stamp/CoMISo-download-mkdir.rule"
 		},
 		{
-			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/CoMISo/CMakeFiles/9eb2a4f1eff8abe030c9f5463af5dbdf/CoMISo-download-patch.rule"
+			"file" : "/Users/wuhan/gitRepositories/libigl_CGAL_openGL/external/.cache/CoMISo/CoMISo-download-prefix/src/CoMISo-download-stamp/CoMISo-download-patch.rule"
 		},
 		{
-			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/CoMISo/CMakeFiles/9eb2a4f1eff8abe030c9f5463af5dbdf/CoMISo-download-test.rule"
+			"file" : "/Users/wuhan/gitRepositories/libigl_CGAL_openGL/external/.cache/CoMISo/CoMISo-download-prefix/src/CoMISo-download-stamp/CoMISo-download-test.rule"
 		},
 		{
-			"file" : "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/CoMISo/CMakeFiles/9eb2a4f1eff8abe030c9f5463af5dbdf/CoMISo-download-update.rule"
+			"file" : "/Users/wuhan/gitRepositories/libigl_CGAL_openGL/external/.cache/CoMISo/CoMISo-download-prefix/src/CoMISo-download-stamp/CoMISo-download-update.rule"
 		}
 	],
 	"target" : 

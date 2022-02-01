@@ -8,8 +8,8 @@ project(CoMISo-download NONE)
 include(ExternalProject)
 ExternalProject_Add(CoMISo-download
                     TLS_VERIFY;OFF;GIT_CONFIG;advice.detachedHead=false;GIT_REPOSITORY;https://github.com/libigl/CoMISo.git;GIT_TAG;d60aa4759fba76b0b793b1efb090b7a771dd7c56
-                    SOURCE_DIR          "G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/CoMISo"
-                    BINARY_DIR          "G:/gitRepositories/libigl_CGAL_openGL/build/CoMISo-build"
+                    SOURCE_DIR          "/Users/wuhan/gitRepositories/libigl_CGAL_openGL/cmake/../external/CoMISo"
+                    BINARY_DIR          "/Users/wuhan/gitRepositories/libigl_CGAL_openGL/CoMISo-build"
                     CONFIGURE_COMMAND   ""
                     BUILD_COMMAND       ""
                     INSTALL_COMMAND     ""
