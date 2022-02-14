@@ -86,7 +86,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\external\glad\include;G:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;G:\gitRepositories\libigl_CGAL_openGL\tutorial;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)..\external\glad\include;$(SolutionDir)..\external\glfw\include;$(SolutionDir)..\tutorial;$(SolutionDir)..\include;$(SolutionDir)..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /bigobj</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>

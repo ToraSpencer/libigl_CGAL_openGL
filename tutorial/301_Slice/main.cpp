@@ -6,6 +6,7 @@
 #include <iostream>
 #include "tutorial_shared_path.h"
 
+
 int main(int argc, char *argv[])
 {
   using namespace Eigen;

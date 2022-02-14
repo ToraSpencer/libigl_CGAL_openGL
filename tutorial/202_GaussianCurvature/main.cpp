@@ -29,7 +29,6 @@ int main(int argc, char *argv[])
   // Divide by area to get integral average
   K = (Minv*K).eval();
 
-
   // 使用伪彩色染色
   igl::opengl::glfw::Viewer viewer;
   viewer.data().set_mesh(V, F);

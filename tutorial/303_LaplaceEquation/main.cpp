@@ -20,6 +20,7 @@ int main(int argc, char *argv[])
   MatrixXd V;
   MatrixXi F;
   igl::readOFF(TUTORIAL_SHARED_PATH "/camelhead.off",V,F);
+
   // Find boundary edges
   MatrixXi E;
   igl::boundary_facets(F,E);

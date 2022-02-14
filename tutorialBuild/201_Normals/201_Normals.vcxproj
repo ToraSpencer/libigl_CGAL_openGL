@@ -116,7 +116,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\Debug\igl.lib;..\Debug\igl_opengl.lib;..\Debug\igl_opengl_glfw.lib;..\Debug\igl_opengl.lib;..\Debug\igl.lib;opengl32.lib;..\glad\Debug\glad.lib;..\glfw\src\Debug\glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\$(Configuration)\igl.lib;..\$(Configuration)\igl_opengl.lib;..\$(Configuration)\igl_opengl_glfw.lib;opengl32.lib;..\glad\$(Configuration)\glad.lib;..\glfw\src\$(Configuration)\glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -161,7 +161,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\Release\igl.lib;..\Release\igl_opengl.lib;..\Release\igl_opengl_glfw.lib;..\Release\igl_opengl.lib;..\Release\igl.lib;opengl32.lib;..\glad\Release\glad.lib;..\glfw\src\Release\glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\$(Configuration)\igl.lib;..\$(Configuration)\igl_opengl.lib;..\$(Configuration)\igl_opengl_glfw.lib;opengl32.lib;..\glad\$(Configuration)\glad.lib;..\glfw\src\$(Configuration)\glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -206,7 +206,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\MinSizeRel\igl.lib;..\MinSizeRel\igl_opengl.lib;..\MinSizeRel\igl_opengl_glfw.lib;..\MinSizeRel\igl_opengl.lib;..\MinSizeRel\igl.lib;opengl32.lib;..\glad\MinSizeRel\glad.lib;..\glfw\src\MinSizeRel\glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\$(Configuration)\igl.lib;..\$(Configuration)\igl_opengl.lib;..\$(Configuration)\igl_opengl_glfw.lib;opengl32.lib;..\glad\$(Configuration)\glad.lib;..\glfw\src\$(Configuration)\glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
@@ -250,7 +250,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
     <Link>
-      <AdditionalDependencies>..\RelWithDebInfo\igl.lib;..\RelWithDebInfo\igl_opengl.lib;..\RelWithDebInfo\igl_opengl_glfw.lib;..\RelWithDebInfo\igl_opengl.lib;..\RelWithDebInfo\igl.lib;opengl32.lib;..\glad\RelWithDebInfo\glad.lib;..\glfw\src\RelWithDebInfo\glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalDependencies>..\$(Configuration)\igl.lib;..\$(Configuration)\igl_opengl.lib;..\$(Configuration)\igl_opengl_glfw.lib;opengl32.lib;..\glad\$(Configuration)\glad.lib;..\glfw\src\$(Configuration)\glfw3.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>

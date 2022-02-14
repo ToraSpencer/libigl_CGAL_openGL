@@ -21,7 +21,7 @@ int main(int argc, char *argv[])
   igl::readOBJ(
     argc<=1?TUTORIAL_SHARED_PATH "/cylinder.obj" :argv[1],V,I,C);
 
-  // center
+  // 嶷伉
   V.rowwise() -= V.colwise().mean();
   OV = V;
 
@@ -47,9 +47,9 @@ int main(int argc, char *argv[])
   Eigen::MatrixXd pHN;
   Eigen::MatrixXd tHN;
 
+  // lambda！！
   const auto update = [&]()
   {
-    // why does windows need this Eigen::VectorXd(...) ?
     pHN = (pL*V).array().colwise() / Eigen::VectorXd(pM.diagonal()).array();
     tHN = (tL*V).array().colwise() / Eigen::VectorXd(tM.diagonal()).array();
     pHN *= 1.0/pHN.rowwise().norm().maxCoeff();
@@ -57,15 +57,18 @@ int main(int argc, char *argv[])
     const auto was_face_based  = vr.data_list[0].face_based;
     Eigen::MatrixXd QV(V.rows()*2,3);
     QV.topRows(V.rows()) = V;
+
     if(use_poly)
     {
       printf("using polygon Laplacian\n");
       QV.bottomRows(V.rows()) = V-pHN;
-    }else
+    }
+    else
     {
       printf("using triangle Laplacian\n");
       QV.bottomRows(V.rows()) = V-tHN;
     }
+
     Eigen::MatrixXi QE(V.rows(),2);
     for(int i = 0;i<V.rows();i++){ QE(i,0)=i;QE(i,1)=i+V.rows();}
     vr.data_list[1].set_edges(QV,QE,Eigen::RowVector3d(1,1,1));
@@ -76,20 +79,23 @@ int main(int argc, char *argv[])
       if(show_edges)
       {
         vr.data_list[0].set_edges(V,E,Eigen::RowVector3d(0,0,0));
-      }else
-      {
-        vr.data_list[0].clear_edges();
       }
-    }else
+      else
+        vr.data_list[0].clear_edges();
+    }
+    else
     {
       vr.data_list[0].clear_edges();
       vr.data_list[0].show_lines = show_edges;
     }
+
     vr.data_list[0].set_face_based(was_face_based);
   };
 
+  // lambda！！
   const double original_area = pM.diagonal().sum();
 
+  // lambda！！
   const auto recompute_M = [&]()
   {
     Eigen::SparseMatrix<double> _1,_2;
@@ -98,6 +104,7 @@ int main(int argc, char *argv[])
     V *= sqrt(original_area / pM.diagonal().sum());
   };
 
+  // lambda！！
   const auto cmcf_step = [&]()
   {
     const Eigen::SparseMatrix<double> S = 
@@ -115,6 +122,7 @@ int main(int argc, char *argv[])
     update();
   };
 
+  // lambda！！
   vr.callback_key_pressed = [&](decltype(vr) &,unsigned int key, int mod)
   {
     switch(key)
@@ -128,5 +136,6 @@ int main(int argc, char *argv[])
   };
 
   update();
+
   vr.launch();
 }

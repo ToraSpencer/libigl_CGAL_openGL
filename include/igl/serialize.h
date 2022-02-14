@@ -1,10 +1,4 @@
-// This file is part of libigl, a simple c++ geometry processing library.
-//
-// Copyright (C) 2014 Christian Schüller <schuellchr@gmail.com> 
-//
-// This Source Code Form is subject to the terms of the Mozilla Public License
-// v. 2.0. If a copy of the MPL was not distributed with this file, You can
-// obtain one at http://mozilla.org/MPL/2.0/.
+ 
 #ifndef IGL_SERIALIZE_H
 #define IGL_SERIALIZE_H
  
@@ -73,17 +67,20 @@ namespace igl
 {
   struct IndexedPointerBase;
  
-  // Serializes the given object either to a file or to a provided buffer
-  // Templates:
-  //   T  type of the object to serialize
-  // Inputs:
-  //   obj        object to serialize
-  //   objectName unique object name,used for the identification
-  //   overwrite  set to true to overwrite an existing file
-  //   filename   name of the file containing the serialization
-  // Outputs:
-  //   buffer     binary serialization
-  //
+  // 序列化的接口：
+  /*
+       Serializes the given object either to a file or to a provided buffer
+       Templates:
+         T  type of the object to serialize
+       Inputs:
+         obj        object to serialize
+         objectName unique object name,used for the identification
+         overwrite  set to true to overwrite an existing file
+         filename   name of the file containing the serialization
+       Outputs:
+         buffer     binary serialization
+    */
+  
   template <typename T>
   inline bool serialize(const T& obj,const std::string& filename);
   template <typename T>
@@ -92,18 +89,20 @@ namespace igl
   inline bool serialize(const T& obj,const std::string& objectName,std::vector<char>& buffer);
   template <typename T>
   inline bool serialize(const T& obj,const std::string& objectName,std::vector<char>& buffer);
- 
-  // Deserializes the given data from a file or buffer back to the provided object
-  //
-  // Templates:
-  //   T  type of the object to serialize
-  // Inputs:
-  //   buffer     binary serialization
-  //   objectName unique object name, used for the identification
-  //   filename   name of the file containing the serialization
-  // Outputs:
-  //   obj        object to load back serialization to
-  //
+
+  // 序列化的接口：
+  /*
+       Deserializes the given data from a file or buffer back to the provided object
+  
+       Templates:
+         T  type of the object to serialize
+       Inputs:
+         buffer     binary serialization
+         objectName unique object name, used for the identification
+         filename   name of the file containing the serialization
+       Outputs:
+         obj        object to load back serialization to
+   */  
   template <typename T>
   inline bool deserialize(T& obj,const std::string& filename);
   template <typename T>
@@ -112,47 +111,12 @@ namespace igl
   inline bool deserialize(T& obj,const std::string& objectName,const std::vector<char>& buffer);
  
   // Wrapper to expose both, the de- and serialization as one function
-  //
   template <typename T>
   inline bool serializer(bool serialize,T& obj,const std::string& filename);
   template <typename T>
   inline bool serializer(bool serialize,T& obj,const std::string& objectName,const std::string& filename,bool overwrite = false);
   template <typename T>
   inline bool serializer(bool serialize,T& obj,const std::string& objectName,std::vector<char>& buffer);
- 
-  // User defined types have to either overload the function igl::serialization::serialize()
-  // and igl::serialization::deserialize() for their type (non-intrusive serialization):
-  //
-  // namespace igl { namespace serialization
-  // {
-  //   template<>
-  //   inline void serialize(const UserType& obj,std::vector<char>& buffer) {
-  //     ::igl::serialize(obj.var,"var",buffer);
-  //   }
-  //
-  //   template<>
-  //   inline void deserialize(UserType& obj,const std::vector<char>& buffer) {
-  //     ::igl::deserialize(obj.var,"var",buffer);
-  //   }
-  // }}
-  //
-  // or use this macro for convenience:
-  //
-  // SERIALIZE_TYPE(UserType,
-  //   SERIALIZE_MEMBER(var)
-  // )
-  //
-  // or to derive from the class Serializable and add their the members
-  // in InitSerialization like the following:
-  //
-  // class UserType : public igl::Serializable {
-  //
-  //   int var;
-  //
-  //   void InitSerialization() {
-  //     this->Add(var,"var");
-  //   }
-  // };
  
   // Base interface for user defined types
   struct SerializableBase
@@ -215,6 +179,7 @@ namespace igl
     inline void Add(T& obj,std::string name,bool binary = false);
   };
  
+
   // structure for pointer handling
   struct IndexedPointerBase
   {
@@ -413,10 +378,8 @@ namespace igl
   }
 }
  
-// Always include inlines for these functions
  
-// IMPLEMENTATION
- 
+// 实现部分
 namespace igl
 {
   template <typename T>
@@ -425,6 +388,7 @@ namespace igl
     return serialize(obj,"obj",filename,true);
   }
  
+
   template <typename T>
   inline bool serialize(const T& obj,const std::string& objectName,const std::string& filename,bool overwrite)
   {
@@ -459,6 +423,7 @@ namespace igl
     return success;
   }
  
+
   template <typename T>
   inline bool serialize(const T& obj,const std::string& objectName,std::vector<char>& buffer)
   {
@@ -489,12 +454,14 @@ namespace igl
     return true;
   }
  
+
   template <typename T>
   inline bool deserialize(T& obj,const std::string& filename)
   {
     return deserialize(obj,"obj",filename);
   }
  
+
   template <typename T>
   inline bool deserialize(T& obj,const std::string& objectName,const std::string& filename)
   {
@@ -522,6 +489,7 @@ namespace igl
     return success;
   }
  
+
   template <typename T>
   inline bool deserialize(T& obj,const std::string& objectName,const std::vector<char>& buffer)
   {
@@ -561,6 +529,7 @@ namespace igl
     return success;
   }
  
+
   // Wrapper function which combines both, de- and serialization
   template <typename T>
   inline bool serializer(bool s,T& obj,const std::string& filename)
@@ -568,36 +537,43 @@ namespace igl
     return s ? serialize(obj,filename) : deserialize(obj,filename);
   }
  
+
   template <typename T>
   inline bool serializer(bool s,T& obj,const std::string& objectName,const std::string& filename,bool overwrite)
   {
     return s ? serialize(obj,objectName,filename,overwrite) : deserialize(obj,objectName,filename);
   }
  
+
   template <typename T>
   inline bool serializer(bool s,T& obj,const std::string& objectName,std::vector<char>& buffer)
   {
     return s ? serialize(obj,objectName,buffer) : deserialize(obj,objectName,buffer);
   }
  
+
   inline bool Serializable::PreSerialization() const
   {
     return true;
   }
  
+
   inline void Serializable::PostSerialization() const
   {
   }
  
+
   inline bool Serializable::PreDeserialization()
   {
     return true;
   }
  
+
   inline void Serializable::PostDeserialization()
   {
   }
  
+
   inline void Serializable::Serialize(std::vector<char>& buffer) const
   {
     if(this->PreSerialization())
@@ -618,6 +594,7 @@ namespace igl
     }
   }
  
+
   inline void Serializable::Deserialize(const std::vector<char>& buffer)
   {
     if(this->PreDeserialization())
@@ -638,23 +615,27 @@ namespace igl
     }
   }
  
+
   inline Serializable::Serializable()
   {
     initialized = false;
   }
  
+
   inline Serializable::Serializable(const Serializable& obj)
   {
     initialized = false;
     objects.clear();
   }
  
+
   inline Serializable::~Serializable()
   {
     initialized = false;
     objects.clear();
   }
  
+
   inline Serializable& Serializable::operator=(const Serializable& obj)
   {
     if(this != &obj)
@@ -668,6 +649,7 @@ namespace igl
     return *this;
   }
  
+
   template <typename T>
   inline void Serializable::Add(T& obj,const std::string name,bool binary)
   {
@@ -679,6 +661,7 @@ namespace igl
     objects.push_back(object);
   }
  
+
   namespace serialization
   {
     template <typename T>

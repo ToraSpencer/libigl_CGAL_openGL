@@ -11,9 +11,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <Text Include="glad\CMakeLists.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <None Include="ClassDiagram.cd" />
   </ItemGroup>
 </Project>
