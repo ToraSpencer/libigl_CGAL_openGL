@@ -23,6 +23,7 @@
 
 namespace igl 
 {
+
   // Read a mesh from an ascii obj file, filling in vertex positions, normals
   // and texture coordinates. Mesh may have faces of any number of degree
   //
@@ -49,6 +50,7 @@ namespace igl
     std::vector<std::vector<Index > > & F,
     std::vector<std::vector<Index > > & FTC,
     std::vector<std::vector<Index > > & FN);
+
   // Read a mesh from an ascii obj file, filling in vertex positions, normals
   // and texture coordinates. Mesh may have faces of any number of degree
   //
@@ -93,6 +95,7 @@ namespace igl
     std::vector<std::vector<Index > > & FTC,
     std::vector<std::vector<Index > > & FN,
     std::vector<std::tuple<std::string, Index, Index >> &FM);
+
   // Just V and F
   template <typename Scalar, typename Index>
   IGL_INLINE bool readOBJ(
@@ -117,11 +120,13 @@ namespace igl
     Eigen::PlainObjectBase<DerivedF>& F,
     Eigen::PlainObjectBase<DerivedFTC>& FTC,
     Eigen::PlainObjectBase<DerivedFN>& FN);
+
   template <typename DerivedV, typename DerivedF>
   IGL_INLINE bool readOBJ(
     const std::string str,
     Eigen::PlainObjectBase<DerivedV>& V,
     Eigen::PlainObjectBase<DerivedF>& F);
+
   // Outputs:
   //   I  #I vectorized list of polygon corner indices into rows of some matrix V
   //   C  #P+1 list of cumulative polygon sizes so that C(i+1)-C(i) = size of

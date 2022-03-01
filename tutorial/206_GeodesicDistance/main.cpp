@@ -9,6 +9,8 @@
 #include "tutorial_shared_path.h"
 
 
+// 测量测地距离；
+
 int main(int argc, char *argv[])
 {
   using namespace Eigen;
@@ -16,31 +18,35 @@ int main(int argc, char *argv[])
   Eigen::MatrixXd V;
   Eigen::MatrixXi F;
   igl::opengl::glfw::Viewer viewer;
-  // Load a mesh in OFF format
+
   igl::readOBJ(TUTORIAL_SHARED_PATH "/armadillo.obj", V, F);
 
   const auto update_distance = [&](const int vid)
   {
     Eigen::VectorXi VS,FS,VT,FT;
+
     // The selected vertex is the source
     VS.resize(1);
     VS << vid;
+
     // All vertices are the targets
     VT.setLinSpaced(V.rows(),0,V.rows()-1);
     Eigen::VectorXd d;
     std::cout<<"Computing geodesic distance to vertex "<<vid<<"..."<<std::endl;
     igl::exact_geodesic(V,F,VS,FS,VT,FT,d);
+
     // Plot the mesh
     Eigen::MatrixXd CM;
     igl::parula(Eigen::VectorXd::LinSpaced(21,0,1).eval(),false,CM);
     igl::isolines_map(Eigen::MatrixXd(CM),CM);
     viewer.data().set_colormap(CM);
     viewer.data().set_data(d);
+
+    std::cout << "Computing finished." << std::endl;
   };
 
-  // Plot a distance when a vertex is picked
-  viewer.callback_mouse_down =
-  [&](igl::opengl::glfw::Viewer& viewer, int, int)->bool
+  // 鼠标左键点击一个顶点，计算网格上其他顶点到该顶点的测地距离，用不同色彩表示距离的远近。
+  viewer.callback_mouse_down = [&](igl::opengl::glfw::Viewer& viewer, int, int)->bool
   {
     int fid;
     Eigen::Vector3f bc;
@@ -65,10 +71,12 @@ int main(int argc, char *argv[])
     }
     return false;
   };
+
   viewer.data().set_mesh(V,F);
   viewer.data().show_lines = false;
 
   cout << "Click on mesh to define new source.\n" << std::endl;
+
   update_distance(0);
   return viewer.launch();
 }

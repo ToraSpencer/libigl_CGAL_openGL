@@ -38,21 +38,22 @@ int main(int argc, char *argv[])
 {
   igl::read_triangle_mesh(argc>1?argv[1]: TUTORIAL_SHARED_PATH "/fandisk.off",V,F);
 
-  // 计算面法线向量
+  // 面法线向量
   igl::per_face_normals(V,F,N_faces);
 
-  // Compute per-vertex normals
+  // 顶点法向
   igl::per_vertex_normals(V,F,N_vertices);
 
   // Compute per-corner normals, |dihedral angle| > 20 degrees --> crease
-  igl::per_corner_normals(V,F,20,N_corners);
+  igl::per_corner_normals(V, F, 20, N_corners);
 
   // Plot the mesh
   igl::opengl::glfw::Viewer viewer;
   viewer.callback_key_down = &key_down;
-  viewer.data().show_lines = false;
+  viewer.data().show_lines = true;
   viewer.data().set_mesh(V, F);
   viewer.data().set_normals(N_faces);
+
   std::cout<<
     "Press '1' for per-face normals."<<std::endl<<
     "Press '2' for per-vertex normals."<<std::endl<<
