@@ -100,15 +100,15 @@
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;IGL_STATIC_LIBRARY;NOMINMAX;TUTORIAL_SHARED_PATH="G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/../tutorial/data";CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;IGL_STATIC_LIBRARY;NOMINMAX;TUTORIAL_SHARED_PATH="E:/gitRepositories/libigl_CGAL_openGL/cmake/../external/../tutorial/data";CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;IGL_STATIC_LIBRARY;NOMINMAX;TUTORIAL_SHARED_PATH=\"G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/../tutorial/data\";CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\tutorial;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;IGL_STATIC_LIBRARY;NOMINMAX;TUTORIAL_SHARED_PATH=\"E:/gitRepositories/libigl_CGAL_openGL/cmake/../external/../tutorial/data\";CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\gitRepositories\libigl_CGAL_openGL\tutorial;E:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;E:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\tutorial;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\gitRepositories\libigl_CGAL_openGL\tutorial;E:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;E:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -121,8 +121,8 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>G:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/101_FileIO/Debug/101_FileIO.lib</ImportLibrary>
-      <ProgramDataBaseFile>G:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/bin/Debug/101_FileIO.pdb</ProgramDataBaseFile>
+      <ImportLibrary>E:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/101_FileIO/Debug/101_FileIO.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/bin/Debug/101_FileIO.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -143,17 +143,17 @@
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;IGL_STATIC_LIBRARY;NOMINMAX;TUTORIAL_SHARED_PATH="G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/../tutorial/data";CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;IGL_STATIC_LIBRARY;NOMINMAX;TUTORIAL_SHARED_PATH="E:/gitRepositories/libigl_CGAL_openGL/cmake/../external/../tutorial/data";CMAKE_INTDIR="Release"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat>
       </DebugInformationFormat>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;IGL_STATIC_LIBRARY;NOMINMAX;TUTORIAL_SHARED_PATH=\"G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/../tutorial/data\";CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\tutorial;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;IGL_STATIC_LIBRARY;NOMINMAX;TUTORIAL_SHARED_PATH=\"E:/gitRepositories/libigl_CGAL_openGL/cmake/../external/../tutorial/data\";CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\gitRepositories\libigl_CGAL_openGL\tutorial;E:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;E:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\tutorial;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\gitRepositories\libigl_CGAL_openGL\tutorial;E:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;E:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -166,8 +166,8 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>G:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/101_FileIO/Release/101_FileIO.lib</ImportLibrary>
-      <ProgramDataBaseFile>G:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/bin/Release/101_FileIO.pdb</ProgramDataBaseFile>
+      <ImportLibrary>E:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/101_FileIO/Release/101_FileIO.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/bin/Release/101_FileIO.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -188,17 +188,17 @@
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;IGL_STATIC_LIBRARY;NOMINMAX;TUTORIAL_SHARED_PATH="G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/../tutorial/data";CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;IGL_STATIC_LIBRARY;NOMINMAX;TUTORIAL_SHARED_PATH="E:/gitRepositories/libigl_CGAL_openGL/cmake/../external/../tutorial/data";CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat>
       </DebugInformationFormat>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;IGL_STATIC_LIBRARY;NOMINMAX;TUTORIAL_SHARED_PATH=\"G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/../tutorial/data\";CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\tutorial;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;IGL_STATIC_LIBRARY;NOMINMAX;TUTORIAL_SHARED_PATH=\"E:/gitRepositories/libigl_CGAL_openGL/cmake/../external/../tutorial/data\";CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\gitRepositories\libigl_CGAL_openGL\tutorial;E:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;E:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\tutorial;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\gitRepositories\libigl_CGAL_openGL\tutorial;E:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;E:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -211,8 +211,8 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>G:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/101_FileIO/MinSizeRel/101_FileIO.lib</ImportLibrary>
-      <ProgramDataBaseFile>G:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/bin/MinSizeRel/101_FileIO.pdb</ProgramDataBaseFile>
+      <ImportLibrary>E:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/101_FileIO/MinSizeRel/101_FileIO.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/bin/MinSizeRel/101_FileIO.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -234,15 +234,15 @@
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;IGL_STATIC_LIBRARY;NOMINMAX;TUTORIAL_SHARED_PATH="G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/../tutorial/data";CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;IGL_STATIC_LIBRARY;NOMINMAX;TUTORIAL_SHARED_PATH="E:/gitRepositories/libigl_CGAL_openGL/cmake/../external/../tutorial/data";CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;IGL_STATIC_LIBRARY;NOMINMAX;TUTORIAL_SHARED_PATH=\"G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/../tutorial/data\";CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\tutorial;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;IGL_STATIC_LIBRARY;NOMINMAX;TUTORIAL_SHARED_PATH=\"E:/gitRepositories/libigl_CGAL_openGL/cmake/../external/../tutorial/data\";CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\gitRepositories\libigl_CGAL_openGL\tutorial;E:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;E:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\tutorial;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\gitRepositories\libigl_CGAL_openGL\tutorial;E:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;E:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -255,8 +255,8 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>G:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/101_FileIO/RelWithDebInfo/101_FileIO.lib</ImportLibrary>
-      <ProgramDataBaseFile>G:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/bin/RelWithDebInfo/101_FileIO.pdb</ProgramDataBaseFile>
+      <ImportLibrary>E:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/101_FileIO/RelWithDebInfo/101_FileIO.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/bin/RelWithDebInfo/101_FileIO.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -264,19 +264,19 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\tutorial\101_FileIO\main.cpp" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\ZERO_CHECK.vcxproj">
+    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\ZERO_CHECK.vcxproj">
       <Project>{BAEA34AB-974F-3714-AD13-5F6DE8020502}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\igl.vcxproj">
+    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\igl.vcxproj">
       <Project>{4FD4B4E9-7C8D-3795-AD36-40D3D17D51D4}</Project>
       <Name>igl</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\tutorial\101_FileIO\main.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

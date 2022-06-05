@@ -8,8 +8,8 @@ project(glad-download NONE)
 include(ExternalProject)
 ExternalProject_Add(glad-download
                     TLS_VERIFY;OFF;GIT_CONFIG;advice.detachedHead=false;GIT_REPOSITORY;https://github.com/libigl/libigl-glad.git;GIT_TAG;09b4969c56779f7ddf8e6176ec1873184aec890f
-                    SOURCE_DIR          "G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/glad"
-                    BINARY_DIR          "G:/gitRepositories/GAMES102Study/build/hw7_maxikai/build/glad-build"
+                    SOURCE_DIR          "E:/gitRepositories/libigl_CGAL_openGL/cmake/../external/glad"
+                    BINARY_DIR          "E:/gitRepositories/GAMES102Study/build/hw7_maxikai/build/glad-build"
                     CONFIGURE_COMMAND   ""
                     BUILD_COMMAND       ""
                     INSTALL_COMMAND     ""

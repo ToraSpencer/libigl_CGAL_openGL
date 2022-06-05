@@ -1,40 +1,40 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\325ce9043c8b07ee81a9a469d89f8e42\imguizmo-download-mkdir.rule">
+    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\325ce9043c8b07ee81a9a469d89f8e42\imguizmo-download-mkdir.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\325ce9043c8b07ee81a9a469d89f8e42\imguizmo-download-download.rule">
+    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\325ce9043c8b07ee81a9a469d89f8e42\imguizmo-download-download.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\325ce9043c8b07ee81a9a469d89f8e42\imguizmo-download-update.rule">
+    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\325ce9043c8b07ee81a9a469d89f8e42\imguizmo-download-update.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\325ce9043c8b07ee81a9a469d89f8e42\imguizmo-download-patch.rule">
+    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\325ce9043c8b07ee81a9a469d89f8e42\imguizmo-download-patch.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\325ce9043c8b07ee81a9a469d89f8e42\imguizmo-download-configure.rule">
+    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\325ce9043c8b07ee81a9a469d89f8e42\imguizmo-download-configure.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\325ce9043c8b07ee81a9a469d89f8e42\imguizmo-download-build.rule">
+    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\325ce9043c8b07ee81a9a469d89f8e42\imguizmo-download-build.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\325ce9043c8b07ee81a9a469d89f8e42\imguizmo-download-install.rule">
+    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\325ce9043c8b07ee81a9a469d89f8e42\imguizmo-download-install.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\325ce9043c8b07ee81a9a469d89f8e42\imguizmo-download-test.rule">
+    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\325ce9043c8b07ee81a9a469d89f8e42\imguizmo-download-test.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\40334f2f6378f0b12ef86dc06fc2e798\imguizmo-download-complete.rule">
+    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\40334f2f6378f0b12ef86dc06fc2e798\imguizmo-download-complete.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\e31f8a303f306b61a33b18002779fe0d\imguizmo-download.rule">
+    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\e31f8a303f306b61a33b18002779fe0d\imguizmo-download.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeLists.txt" />
+    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\imguizmo-download" />
+    <None Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\imguizmo-download" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">

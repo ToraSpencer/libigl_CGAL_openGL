@@ -8,8 +8,8 @@ project(tutorial_data-download NONE)
 include(ExternalProject)
 ExternalProject_Add(tutorial_data-download
                     TLS_VERIFY;OFF;GIT_CONFIG;advice.detachedHead=false;GIT_REPOSITORY;https://github.com/libigl/libigl-tutorial-data;GIT_TAG;c1f9ede366d02e3531ecbaec5e3769312f31cccd
-                    SOURCE_DIR          "G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/../tutorial/data"
-                    BINARY_DIR          "G:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/tutorial_data-build"
+                    SOURCE_DIR          "E:/gitRepositories/libigl_CGAL_openGL/cmake/../external/../tutorial/data"
+                    BINARY_DIR          "E:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/tutorial_data-build"
                     CONFIGURE_COMMAND   ""
                     BUILD_COMMAND       ""
                     INSTALL_COMMAND     ""

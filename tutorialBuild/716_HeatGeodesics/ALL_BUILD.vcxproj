@@ -105,11 +105,11 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\tutorial\716_HeatGeodesics\CMakeLists.txt">
+    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\tutorial\716_HeatGeodesics\CMakeLists.txt">
       <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/tutorial/716_HeatGeodesics/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule E:/gitRepositories/libigl_CGAL_openGL/tutorial/716_HeatGeodesics/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SG:/gitRepositories/libigl_CGAL_openGL/tutorial -BG:/gitRepositories/libigl_CGAL_openGL/tutorialBuild --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/716_HeatGeodesics/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/gitRepositories/libigl_CGAL_openGL/tutorial -BE:/gitRepositories/libigl_CGAL_openGL/tutorialBuild --check-stamp-file E:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/716_HeatGeodesics/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -118,11 +118,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\716_HeatGeodesics\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\716_HeatGeodesics\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/tutorial/716_HeatGeodesics/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule E:/gitRepositories/libigl_CGAL_openGL/tutorial/716_HeatGeodesics/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SG:/gitRepositories/libigl_CGAL_openGL/tutorial -BG:/gitRepositories/libigl_CGAL_openGL/tutorialBuild --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/716_HeatGeodesics/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/gitRepositories/libigl_CGAL_openGL/tutorial -BE:/gitRepositories/libigl_CGAL_openGL/tutorialBuild --check-stamp-file E:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/716_HeatGeodesics/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -131,11 +131,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\716_HeatGeodesics\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\716_HeatGeodesics\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/tutorial/716_HeatGeodesics/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule E:/gitRepositories/libigl_CGAL_openGL/tutorial/716_HeatGeodesics/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SG:/gitRepositories/libigl_CGAL_openGL/tutorial -BG:/gitRepositories/libigl_CGAL_openGL/tutorialBuild --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/716_HeatGeodesics/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/gitRepositories/libigl_CGAL_openGL/tutorial -BE:/gitRepositories/libigl_CGAL_openGL/tutorialBuild --check-stamp-file E:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/716_HeatGeodesics/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -144,11 +144,11 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\716_HeatGeodesics\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\716_HeatGeodesics\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/tutorial/716_HeatGeodesics/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule E:/gitRepositories/libigl_CGAL_openGL/tutorial/716_HeatGeodesics/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SG:/gitRepositories/libigl_CGAL_openGL/tutorial -BG:/gitRepositories/libigl_CGAL_openGL/tutorialBuild --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/716_HeatGeodesics/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SE:/gitRepositories/libigl_CGAL_openGL/tutorial -BE:/gitRepositories/libigl_CGAL_openGL/tutorialBuild --check-stamp-file E:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/716_HeatGeodesics/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -157,20 +157,20 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\716_HeatGeodesics\CMakeFiles\generate.stamp</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\716_HeatGeodesics\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\ZERO_CHECK.vcxproj">
+    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\ZERO_CHECK.vcxproj">
       <Project>{BAEA34AB-974F-3714-AD13-5F6DE8020502}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\716_HeatGeodesics\716_HeatGeodesics.vcxproj">
+    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\716_HeatGeodesics\716_HeatGeodesics.vcxproj">
       <Project>{41E786A3-7779-3BCF-83F5-D129EE358847}</Project>
       <Name>716_HeatGeodesics</Name>
     </ProjectReference>

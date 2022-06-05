@@ -8,8 +8,8 @@ project(cgal-download NONE)
 include(ExternalProject)
 ExternalProject_Add(cgal-download
                     TLS_VERIFY;OFF;GIT_CONFIG;advice.detachedHead=false;GIT_REPOSITORY;https://github.com/CGAL/cgal.git;GIT_TAG;f7c3c8212b56c0d6dae63787efc99093f4383415
-                    SOURCE_DIR          "G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/cgal"
-                    BINARY_DIR          "G:/gitRepositories/libigl_CGAL_openGL/build/cgal-build"
+                    SOURCE_DIR          "E:/gitRepositories/libigl_CGAL_openGL/cmake/../external/cgal"
+                    BINARY_DIR          "E:/gitRepositories/libigl_CGAL_openGL/build/cgal-build"
                     CONFIGURE_COMMAND   ""
                     BUILD_COMMAND       ""
                     INSTALL_COMMAND     ""

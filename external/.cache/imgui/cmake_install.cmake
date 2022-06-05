@@ -1,4 +1,4 @@
-# Install script for directory: G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imgui
+# Install script for directory: E:/gitRepositories/libigl_CGAL_openGL/external/.cache/imgui
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -40,5 +40,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imgui/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "E:/gitRepositories/libigl_CGAL_openGL/external/.cache/imgui/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

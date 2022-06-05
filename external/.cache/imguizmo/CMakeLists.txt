@@ -8,8 +8,8 @@ project(imguizmo-download NONE)
 include(ExternalProject)
 ExternalProject_Add(imguizmo-download
                     TLS_VERIFY;OFF;GIT_CONFIG;advice.detachedHead=false;GIT_REPOSITORY;https://github.com/CedricGuillemet/ImGuizmo.git;GIT_TAG;a23567269f6617342bcc112394bdad937b54b2d7
-                    SOURCE_DIR          "G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/imguizmo"
-                    BINARY_DIR          "G:/gitRepositories/libigl_CGAL_openGL/build/imguizmo-build"
+                    SOURCE_DIR          "E:/gitRepositories/libigl_CGAL_openGL/cmake/../external/imguizmo"
+                    BINARY_DIR          "E:/gitRepositories/libigl_CGAL_openGL/build/imguizmo-build"
                     CONFIGURE_COMMAND   ""
                     BUILD_COMMAND       ""
                     INSTALL_COMMAND     ""

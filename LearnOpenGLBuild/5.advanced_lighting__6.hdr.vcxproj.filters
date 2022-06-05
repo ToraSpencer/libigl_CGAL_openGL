@@ -1,18 +1,18 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\src\5.advanced_lighting\6.hdr\hdr.cpp">
+    <ClCompile Include="E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\src\5.advanced_lighting\6.hdr\hdr.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\CMakeLists.txt" />
+    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\src\5.advanced_lighting\6.hdr\6.hdr.fs" />
-    <None Include="G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\src\5.advanced_lighting\6.hdr\6.hdr.vs" />
-    <None Include="G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\src\5.advanced_lighting\6.hdr\6.lighting.fs" />
-    <None Include="G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\src\5.advanced_lighting\6.hdr\6.lighting.vs" />
+    <None Include="E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\src\5.advanced_lighting\6.hdr\6.hdr.fs" />
+    <None Include="E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\src\5.advanced_lighting\6.hdr\6.hdr.vs" />
+    <None Include="E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\src\5.advanced_lighting\6.hdr\6.lighting.fs" />
+    <None Include="E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\src\5.advanced_lighting\6.hdr\6.lighting.vs" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">

@@ -1,4 +1,4 @@
-# Install script for directory: G:/gitRepositories/libigl_CGAL_openGL/tutorial/709_SLIM
+# Install script for directory: E:/gitRepositories/libigl_CGAL_openGL/tutorial/709_SLIM
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

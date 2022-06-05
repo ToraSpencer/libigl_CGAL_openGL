@@ -22,14 +22,14 @@ function(check_file_hash has_hash hash_is_good)
   set("${has_hash}" TRUE PARENT_SCOPE)
 
   message(STATUS "verifying file...
-       file='G:/gitRepositories/libigl_CGAL_openGL/external/.cache/gmp/gmp-download-prefix/src/gmp-all-CGAL-3.9.zip'")
+       file='E:/gitRepositories/libigl_CGAL_openGL/external/.cache/gmp/gmp-download-prefix/src/gmp-all-CGAL-3.9.zip'")
 
-  file("MD5" "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/gmp/gmp-download-prefix/src/gmp-all-CGAL-3.9.zip" actual_value)
+  file("MD5" "E:/gitRepositories/libigl_CGAL_openGL/external/.cache/gmp/gmp-download-prefix/src/gmp-all-CGAL-3.9.zip" actual_value)
 
   if(NOT "${actual_value}" STREQUAL "508c1292319c832609329116a8234c9f")
     set("${hash_is_good}" FALSE PARENT_SCOPE)
     message(STATUS "MD5 hash of
-    G:/gitRepositories/libigl_CGAL_openGL/external/.cache/gmp/gmp-download-prefix/src/gmp-all-CGAL-3.9.zip
+    E:/gitRepositories/libigl_CGAL_openGL/external/.cache/gmp/gmp-download-prefix/src/gmp-all-CGAL-3.9.zip
   does not match expected value
     expected: '508c1292319c832609329116a8234c9f'
       actual: '${actual_value}'")
@@ -71,7 +71,7 @@ function(sleep_before_download attempt)
   execute_process(COMMAND "${CMAKE_COMMAND}" -E sleep "${sleep_seconds}")
 endfunction()
 
-if("G:/gitRepositories/libigl_CGAL_openGL/external/.cache/gmp/gmp-download-prefix/src/gmp-all-CGAL-3.9.zip" STREQUAL "")
+if("E:/gitRepositories/libigl_CGAL_openGL/external/.cache/gmp/gmp-download-prefix/src/gmp-all-CGAL-3.9.zip" STREQUAL "")
   message(FATAL_ERROR "LOCAL can't be empty")
 endif()
 
@@ -79,32 +79,32 @@ if("https://cgal.geometryfactory.com/CGAL/precompiled_libs/auxiliary/x64/GMP/5.0
   message(FATAL_ERROR "REMOTE can't be empty")
 endif()
 
-if(EXISTS "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/gmp/gmp-download-prefix/src/gmp-all-CGAL-3.9.zip")
+if(EXISTS "E:/gitRepositories/libigl_CGAL_openGL/external/.cache/gmp/gmp-download-prefix/src/gmp-all-CGAL-3.9.zip")
   check_file_hash(has_hash hash_is_good)
   if(has_hash)
     if(hash_is_good)
       message(STATUS "File already exists and hash match (skip download):
-  file='G:/gitRepositories/libigl_CGAL_openGL/external/.cache/gmp/gmp-download-prefix/src/gmp-all-CGAL-3.9.zip'
+  file='E:/gitRepositories/libigl_CGAL_openGL/external/.cache/gmp/gmp-download-prefix/src/gmp-all-CGAL-3.9.zip'
   MD5='508c1292319c832609329116a8234c9f'"
       )
       return()
     else()
       message(STATUS "File already exists but hash mismatch. Removing...")
-      file(REMOVE "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/gmp/gmp-download-prefix/src/gmp-all-CGAL-3.9.zip")
+      file(REMOVE "E:/gitRepositories/libigl_CGAL_openGL/external/.cache/gmp/gmp-download-prefix/src/gmp-all-CGAL-3.9.zip")
     endif()
   else()
     message(STATUS "File already exists but no hash specified (use URL_HASH):
-  file='G:/gitRepositories/libigl_CGAL_openGL/external/.cache/gmp/gmp-download-prefix/src/gmp-all-CGAL-3.9.zip'
+  file='E:/gitRepositories/libigl_CGAL_openGL/external/.cache/gmp/gmp-download-prefix/src/gmp-all-CGAL-3.9.zip'
 Old file will be removed and new file downloaded from URL."
     )
-    file(REMOVE "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/gmp/gmp-download-prefix/src/gmp-all-CGAL-3.9.zip")
+    file(REMOVE "E:/gitRepositories/libigl_CGAL_openGL/external/.cache/gmp/gmp-download-prefix/src/gmp-all-CGAL-3.9.zip")
   endif()
 endif()
 
 set(retry_number 5)
 
 message(STATUS "Downloading...
-   dst='G:/gitRepositories/libigl_CGAL_openGL/external/.cache/gmp/gmp-download-prefix/src/gmp-all-CGAL-3.9.zip'
+   dst='E:/gitRepositories/libigl_CGAL_openGL/external/.cache/gmp/gmp-download-prefix/src/gmp-all-CGAL-3.9.zip'
    timeout='none'
    inactivity timeout='none'"
 )
@@ -126,7 +126,7 @@ foreach(i RANGE ${retry_number})
 
       file(
         DOWNLOAD
-        "${url}" "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/gmp/gmp-download-prefix/src/gmp-all-CGAL-3.9.zip"
+        "${url}" "E:/gitRepositories/libigl_CGAL_openGL/external/.cache/gmp/gmp-download-prefix/src/gmp-all-CGAL-3.9.zip"
         SHOW_PROGRESS
         # no TIMEOUT
         # no INACTIVITY_TIMEOUT
@@ -143,7 +143,7 @@ foreach(i RANGE ${retry_number})
         check_file_hash(has_hash hash_is_good)
         if(has_hash AND NOT hash_is_good)
           message(STATUS "Hash mismatch, removing...")
-          file(REMOVE "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/gmp/gmp-download-prefix/src/gmp-all-CGAL-3.9.zip")
+          file(REMOVE "E:/gitRepositories/libigl_CGAL_openGL/external/.cache/gmp/gmp-download-prefix/src/gmp-all-CGAL-3.9.zip")
         else()
           message(STATUS "Downloading... done")
           return()

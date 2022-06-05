@@ -1,40 +1,40 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\fec540ddf6fbfc90bdde64a9d73663f3\glfw-download-mkdir.rule">
+    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\fec540ddf6fbfc90bdde64a9d73663f3\glfw-download-mkdir.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\fec540ddf6fbfc90bdde64a9d73663f3\glfw-download-download.rule">
+    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\fec540ddf6fbfc90bdde64a9d73663f3\glfw-download-download.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\fec540ddf6fbfc90bdde64a9d73663f3\glfw-download-update.rule">
+    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\fec540ddf6fbfc90bdde64a9d73663f3\glfw-download-update.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\fec540ddf6fbfc90bdde64a9d73663f3\glfw-download-patch.rule">
+    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\fec540ddf6fbfc90bdde64a9d73663f3\glfw-download-patch.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\fec540ddf6fbfc90bdde64a9d73663f3\glfw-download-configure.rule">
+    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\fec540ddf6fbfc90bdde64a9d73663f3\glfw-download-configure.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\fec540ddf6fbfc90bdde64a9d73663f3\glfw-download-build.rule">
+    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\fec540ddf6fbfc90bdde64a9d73663f3\glfw-download-build.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\fec540ddf6fbfc90bdde64a9d73663f3\glfw-download-install.rule">
+    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\fec540ddf6fbfc90bdde64a9d73663f3\glfw-download-install.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\fec540ddf6fbfc90bdde64a9d73663f3\glfw-download-test.rule">
+    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\fec540ddf6fbfc90bdde64a9d73663f3\glfw-download-test.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\430a0751eb5f68e49d303ef76492010b\glfw-download-complete.rule">
+    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\430a0751eb5f68e49d303ef76492010b\glfw-download-complete.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\ebd3105f43bd34c2b12ccc8479e929b8\glfw-download.rule">
+    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\ebd3105f43bd34c2b12ccc8479e929b8\glfw-download.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeLists.txt" />
+    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\glfw-download" />
+    <None Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\glfw-download" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">

@@ -1,40 +1,40 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\cgal\CMakeFiles\2ca08521e308ee73bf7118fdabbb16a6\cgal-download-mkdir.rule">
+    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\cgal\CMakeFiles\2ca08521e308ee73bf7118fdabbb16a6\cgal-download-mkdir.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\cgal\CMakeFiles\2ca08521e308ee73bf7118fdabbb16a6\cgal-download-download.rule">
+    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\cgal\CMakeFiles\2ca08521e308ee73bf7118fdabbb16a6\cgal-download-download.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\cgal\CMakeFiles\2ca08521e308ee73bf7118fdabbb16a6\cgal-download-update.rule">
+    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\cgal\CMakeFiles\2ca08521e308ee73bf7118fdabbb16a6\cgal-download-update.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\cgal\CMakeFiles\2ca08521e308ee73bf7118fdabbb16a6\cgal-download-patch.rule">
+    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\cgal\CMakeFiles\2ca08521e308ee73bf7118fdabbb16a6\cgal-download-patch.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\cgal\CMakeFiles\2ca08521e308ee73bf7118fdabbb16a6\cgal-download-configure.rule">
+    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\cgal\CMakeFiles\2ca08521e308ee73bf7118fdabbb16a6\cgal-download-configure.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\cgal\CMakeFiles\2ca08521e308ee73bf7118fdabbb16a6\cgal-download-build.rule">
+    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\cgal\CMakeFiles\2ca08521e308ee73bf7118fdabbb16a6\cgal-download-build.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\cgal\CMakeFiles\2ca08521e308ee73bf7118fdabbb16a6\cgal-download-install.rule">
+    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\cgal\CMakeFiles\2ca08521e308ee73bf7118fdabbb16a6\cgal-download-install.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\cgal\CMakeFiles\2ca08521e308ee73bf7118fdabbb16a6\cgal-download-test.rule">
+    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\cgal\CMakeFiles\2ca08521e308ee73bf7118fdabbb16a6\cgal-download-test.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\cgal\CMakeFiles\e1a89f2c9dd8bca297d19cc80fa81861\cgal-download-complete.rule">
+    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\cgal\CMakeFiles\e1a89f2c9dd8bca297d19cc80fa81861\cgal-download-complete.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\cgal\CMakeFiles\29de051924988402b03140cd9316a550\cgal-download.rule">
+    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\cgal\CMakeFiles\29de051924988402b03140cd9316a550\cgal-download.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\cgal\CMakeLists.txt" />
+    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\cgal\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\cgal\CMakeFiles\cgal-download" />
+    <None Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\cgal\CMakeFiles\cgal-download" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">

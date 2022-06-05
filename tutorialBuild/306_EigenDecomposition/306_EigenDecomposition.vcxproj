@@ -59,25 +59,25 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\bin\Debug\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\bin\Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">306_EigenDecomposition.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">306_EigenDecomposition</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\bin\Release\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\bin\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">306_EigenDecomposition.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">306_EigenDecomposition</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\bin\MinSizeRel\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\bin\MinSizeRel\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">306_EigenDecomposition.dir\MinSizeRel\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">306_EigenDecomposition</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\bin\RelWithDebInfo\</OutDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\bin\RelWithDebInfo\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">306_EigenDecomposition.dir\RelWithDebInfo\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">306_EigenDecomposition</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
@@ -100,15 +100,15 @@
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;IGL_STATIC_LIBRARY;NOMINMAX;TUTORIAL_SHARED_PATH="G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/../tutorial/data";CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;IGL_STATIC_LIBRARY;NOMINMAX;TUTORIAL_SHARED_PATH="E:/gitRepositories/libigl_CGAL_openGL/cmake/../external/../tutorial/data";CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;IGL_STATIC_LIBRARY;NOMINMAX;TUTORIAL_SHARED_PATH=\"G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/../tutorial/data\";CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\external\glad\include;G:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;G:\gitRepositories\libigl_CGAL_openGL\tutorial;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;IGL_STATIC_LIBRARY;NOMINMAX;TUTORIAL_SHARED_PATH=\"E:/gitRepositories/libigl_CGAL_openGL/cmake/../external/../tutorial/data\";CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\gitRepositories\libigl_CGAL_openGL\external\glad\include;E:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;E:\gitRepositories\libigl_CGAL_openGL\tutorial;E:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;E:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\external\glad\include;G:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;G:\gitRepositories\libigl_CGAL_openGL\tutorial;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\gitRepositories\libigl_CGAL_openGL\external\glad\include;E:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;E:\gitRepositories\libigl_CGAL_openGL\tutorial;E:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;E:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -121,8 +121,8 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>G:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/306_EigenDecomposition/Debug/306_EigenDecomposition.lib</ImportLibrary>
-      <ProgramDataBaseFile>G:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/bin/Debug/306_EigenDecomposition.pdb</ProgramDataBaseFile>
+      <ImportLibrary>E:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/306_EigenDecomposition/Debug/306_EigenDecomposition.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/bin/Debug/306_EigenDecomposition.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -131,7 +131,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\external\glad\include;G:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;G:\gitRepositories\libigl_CGAL_openGL\tutorial;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\gitRepositories\libigl_CGAL_openGL\external\glad\include;E:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;E:\gitRepositories\libigl_CGAL_openGL\tutorial;E:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;E:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /bigobj</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -143,17 +143,17 @@
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;IGL_STATIC_LIBRARY;NOMINMAX;TUTORIAL_SHARED_PATH="G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/../tutorial/data";CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;IGL_STATIC_LIBRARY;NOMINMAX;TUTORIAL_SHARED_PATH="E:/gitRepositories/libigl_CGAL_openGL/cmake/../external/../tutorial/data";CMAKE_INTDIR="Release"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat>
       </DebugInformationFormat>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;IGL_STATIC_LIBRARY;NOMINMAX;TUTORIAL_SHARED_PATH=\"G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/../tutorial/data\";CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\external\glad\include;G:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;G:\gitRepositories\libigl_CGAL_openGL\tutorial;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;IGL_STATIC_LIBRARY;NOMINMAX;TUTORIAL_SHARED_PATH=\"E:/gitRepositories/libigl_CGAL_openGL/cmake/../external/../tutorial/data\";CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\gitRepositories\libigl_CGAL_openGL\external\glad\include;E:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;E:\gitRepositories\libigl_CGAL_openGL\tutorial;E:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;E:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\external\glad\include;G:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;G:\gitRepositories\libigl_CGAL_openGL\tutorial;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\gitRepositories\libigl_CGAL_openGL\external\glad\include;E:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;E:\gitRepositories\libigl_CGAL_openGL\tutorial;E:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;E:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -166,8 +166,8 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>G:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/306_EigenDecomposition/Release/306_EigenDecomposition.lib</ImportLibrary>
-      <ProgramDataBaseFile>G:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/bin/Release/306_EigenDecomposition.pdb</ProgramDataBaseFile>
+      <ImportLibrary>E:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/306_EigenDecomposition/Release/306_EigenDecomposition.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/bin/Release/306_EigenDecomposition.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -176,7 +176,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\external\glad\include;G:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;G:\gitRepositories\libigl_CGAL_openGL\tutorial;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\gitRepositories\libigl_CGAL_openGL\external\glad\include;E:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;E:\gitRepositories\libigl_CGAL_openGL\tutorial;E:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;E:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /bigobj</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>Sync</ExceptionHandling>
@@ -188,17 +188,17 @@
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;IGL_STATIC_LIBRARY;NOMINMAX;TUTORIAL_SHARED_PATH="G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/../tutorial/data";CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;IGL_STATIC_LIBRARY;NOMINMAX;TUTORIAL_SHARED_PATH="E:/gitRepositories/libigl_CGAL_openGL/cmake/../external/../tutorial/data";CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
       <DebugInformationFormat>
       </DebugInformationFormat>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;IGL_STATIC_LIBRARY;NOMINMAX;TUTORIAL_SHARED_PATH=\"G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/../tutorial/data\";CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\external\glad\include;G:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;G:\gitRepositories\libigl_CGAL_openGL\tutorial;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;IGL_STATIC_LIBRARY;NOMINMAX;TUTORIAL_SHARED_PATH=\"E:/gitRepositories/libigl_CGAL_openGL/cmake/../external/../tutorial/data\";CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\gitRepositories\libigl_CGAL_openGL\external\glad\include;E:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;E:\gitRepositories\libigl_CGAL_openGL\tutorial;E:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;E:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\external\glad\include;G:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;G:\gitRepositories\libigl_CGAL_openGL\tutorial;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\gitRepositories\libigl_CGAL_openGL\external\glad\include;E:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;E:\gitRepositories\libigl_CGAL_openGL\tutorial;E:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;E:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -211,8 +211,8 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>G:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/306_EigenDecomposition/MinSizeRel/306_EigenDecomposition.lib</ImportLibrary>
-      <ProgramDataBaseFile>G:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/bin/MinSizeRel/306_EigenDecomposition.pdb</ProgramDataBaseFile>
+      <ImportLibrary>E:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/306_EigenDecomposition/MinSizeRel/306_EigenDecomposition.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/bin/MinSizeRel/306_EigenDecomposition.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -221,7 +221,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\external\glad\include;G:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;G:\gitRepositories\libigl_CGAL_openGL\tutorial;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\gitRepositories\libigl_CGAL_openGL\external\glad\include;E:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;E:\gitRepositories\libigl_CGAL_openGL\tutorial;E:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;E:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /bigobj</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -234,15 +234,15 @@
       <RuntimeTypeInfo>true</RuntimeTypeInfo>
       <UseFullPaths>false</UseFullPaths>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;IGL_STATIC_LIBRARY;NOMINMAX;TUTORIAL_SHARED_PATH="G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/../tutorial/data";CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;IGL_STATIC_LIBRARY;NOMINMAX;TUTORIAL_SHARED_PATH="E:/gitRepositories/libigl_CGAL_openGL/cmake/../external/../tutorial/data";CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
       <ObjectFileName>$(IntDir)</ObjectFileName>
     </ClCompile>
     <ResourceCompile>
-      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;IGL_STATIC_LIBRARY;NOMINMAX;TUTORIAL_SHARED_PATH=\"G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/../tutorial/data\";CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\external\glad\include;G:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;G:\gitRepositories\libigl_CGAL_openGL\tutorial;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;IGL_STATIC_LIBRARY;NOMINMAX;TUTORIAL_SHARED_PATH=\"E:/gitRepositories/libigl_CGAL_openGL/cmake/../external/../tutorial/data\";CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>E:\gitRepositories\libigl_CGAL_openGL\external\glad\include;E:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;E:\gitRepositories\libigl_CGAL_openGL\tutorial;E:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;E:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\external\glad\include;G:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;G:\gitRepositories\libigl_CGAL_openGL\tutorial;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>E:\gitRepositories\libigl_CGAL_openGL\external\glad\include;E:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;E:\gitRepositories\libigl_CGAL_openGL\tutorial;E:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;E:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -255,8 +255,8 @@
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>G:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/306_EigenDecomposition/RelWithDebInfo/306_EigenDecomposition.lib</ImportLibrary>
-      <ProgramDataBaseFile>G:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/bin/RelWithDebInfo/306_EigenDecomposition.pdb</ProgramDataBaseFile>
+      <ImportLibrary>E:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/306_EigenDecomposition/RelWithDebInfo/306_EigenDecomposition.lib</ImportLibrary>
+      <ProgramDataBaseFile>E:/gitRepositories/libigl_CGAL_openGL/tutorialBuild/bin/RelWithDebInfo/306_EigenDecomposition.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -264,32 +264,32 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\tutorial\306_EigenDecomposition\main.cpp" />
+    <ClCompile Include="E:\gitRepositories\libigl_CGAL_openGL\tutorial\306_EigenDecomposition\main.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\ZERO_CHECK.vcxproj">
+    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\ZERO_CHECK.vcxproj">
       <Project>{BAEA34AB-974F-3714-AD13-5F6DE8020502}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\glad\glad.vcxproj">
+    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\glad\glad.vcxproj">
       <Project>{AF935FD9-D248-35BC-B952-AB29D1BC7589}</Project>
       <Name>glad</Name>
     </ProjectReference>
-    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\glfw\src\glfw.vcxproj">
+    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\glfw\src\glfw.vcxproj">
       <Project>{DEB2766C-0C21-3F7D-AAA1-7ED0D10B825F}</Project>
       <Name>glfw</Name>
     </ProjectReference>
-    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\igl.vcxproj">
+    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\igl.vcxproj">
       <Project>{4FD4B4E9-7C8D-3795-AD36-40D3D17D51D4}</Project>
       <Name>igl</Name>
     </ProjectReference>
-    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\igl_opengl.vcxproj">
+    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\igl_opengl.vcxproj">
       <Project>{5D0BD4C7-C640-3EC5-BFBA-403C049E36E3}</Project>
       <Name>igl_opengl</Name>
     </ProjectReference>
-    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\igl_opengl_glfw.vcxproj">
+    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\igl_opengl_glfw.vcxproj">
       <Project>{9CA06C63-B92D-3A5B-AA49-B8C8916AEBAD}</Project>
       <Name>igl_opengl_glfw</Name>
     </ProjectReference>

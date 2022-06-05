@@ -8,8 +8,8 @@ project(imgui-download NONE)
 include(ExternalProject)
 ExternalProject_Add(imgui-download
                     TLS_VERIFY;OFF;GIT_CONFIG;advice.detachedHead=false;GIT_REPOSITORY;https://github.com/ocornut/imgui.git;GIT_TAG;61b19489f1ba35934d9114c034b24eb5bff149e7
-                    SOURCE_DIR          "G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/imgui"
-                    BINARY_DIR          "G:/gitRepositories/libigl_CGAL_openGL/build/imgui-build"
+                    SOURCE_DIR          "E:/gitRepositories/libigl_CGAL_openGL/cmake/../external/imgui"
+                    BINARY_DIR          "E:/gitRepositories/libigl_CGAL_openGL/build/imgui-build"
                     CONFIGURE_COMMAND   ""
                     BUILD_COMMAND       ""
                     INSTALL_COMMAND     ""

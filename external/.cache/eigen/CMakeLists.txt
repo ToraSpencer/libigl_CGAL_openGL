@@ -8,8 +8,8 @@ project(eigen-download NONE)
 include(ExternalProject)
 ExternalProject_Add(eigen-download
                     TLS_VERIFY;OFF;GIT_CONFIG;advice.detachedHead=false;GIT_REPOSITORY;https://gitlab.com/libeigen/eigen.git;GIT_TAG;3.3.7
-                    SOURCE_DIR          "G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/eigen"
-                    BINARY_DIR          "G:/gitRepositories/GAMES102Study/build/hw7_maxikai/build/eigen-build"
+                    SOURCE_DIR          "E:/gitRepositories/libigl_CGAL_openGL/cmake/../external/eigen"
+                    BINARY_DIR          "E:/gitRepositories/GAMES102Study/build/hw7_maxikai/build/eigen-build"
                     CONFIGURE_COMMAND   ""
                     BUILD_COMMAND       ""
                     INSTALL_COMMAND     ""
