@@ -8,8 +8,8 @@ project(triangle-download NONE)
 include(ExternalProject)
 ExternalProject_Add(triangle-download
                     TLS_VERIFY;OFF;GIT_CONFIG;advice.detachedHead=false;GIT_REPOSITORY;https://github.com/libigl/triangle.git;GIT_TAG;3ee6cac2230f0fe1413879574f741c7b6da11221
-                    SOURCE_DIR          "E:/gitRepositories/libigl_CGAL_openGL/cmake/../external/triangle"
-                    BINARY_DIR          "E:/gitRepositories/libigl_CGAL_openGL/build/triangle-build"
+                    SOURCE_DIR          "G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/triangle"
+                    BINARY_DIR          "G:/gitRepositories/libigl_CGAL_openGL/build/triangle-build"
                     CONFIGURE_COMMAND   ""
                     BUILD_COMMAND       ""
                     INSTALL_COMMAND     ""

@@ -22,14 +22,14 @@ function(check_file_hash has_hash hash_is_good)
   set("${has_hash}" TRUE PARENT_SCOPE)
 
   message(STATUS "verifying file...
-       file='E:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/mpfr-download-prefix/src/mpfr-all-CGAL-3.9.zip'")
+       file='G:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/mpfr-download-prefix/src/mpfr-all-CGAL-3.9.zip'")
 
-  file("MD5" "E:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/mpfr-download-prefix/src/mpfr-all-CGAL-3.9.zip" actual_value)
+  file("MD5" "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/mpfr-download-prefix/src/mpfr-all-CGAL-3.9.zip" actual_value)
 
   if(NOT "${actual_value}" STREQUAL "48840454eef0ff18730050c05028734b")
     set("${hash_is_good}" FALSE PARENT_SCOPE)
     message(STATUS "MD5 hash of
-    E:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/mpfr-download-prefix/src/mpfr-all-CGAL-3.9.zip
+    G:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/mpfr-download-prefix/src/mpfr-all-CGAL-3.9.zip
   does not match expected value
     expected: '48840454eef0ff18730050c05028734b'
       actual: '${actual_value}'")
@@ -71,7 +71,7 @@ function(sleep_before_download attempt)
   execute_process(COMMAND "${CMAKE_COMMAND}" -E sleep "${sleep_seconds}")
 endfunction()
 
-if("E:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/mpfr-download-prefix/src/mpfr-all-CGAL-3.9.zip" STREQUAL "")
+if("G:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/mpfr-download-prefix/src/mpfr-all-CGAL-3.9.zip" STREQUAL "")
   message(FATAL_ERROR "LOCAL can't be empty")
 endif()
 
@@ -79,32 +79,32 @@ if("https://cgal.geometryfactory.com/CGAL/precompiled_libs/auxiliary/x64/MPFR/3.
   message(FATAL_ERROR "REMOTE can't be empty")
 endif()
 
-if(EXISTS "E:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/mpfr-download-prefix/src/mpfr-all-CGAL-3.9.zip")
+if(EXISTS "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/mpfr-download-prefix/src/mpfr-all-CGAL-3.9.zip")
   check_file_hash(has_hash hash_is_good)
   if(has_hash)
     if(hash_is_good)
       message(STATUS "File already exists and hash match (skip download):
-  file='E:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/mpfr-download-prefix/src/mpfr-all-CGAL-3.9.zip'
+  file='G:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/mpfr-download-prefix/src/mpfr-all-CGAL-3.9.zip'
   MD5='48840454eef0ff18730050c05028734b'"
       )
       return()
     else()
       message(STATUS "File already exists but hash mismatch. Removing...")
-      file(REMOVE "E:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/mpfr-download-prefix/src/mpfr-all-CGAL-3.9.zip")
+      file(REMOVE "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/mpfr-download-prefix/src/mpfr-all-CGAL-3.9.zip")
     endif()
   else()
     message(STATUS "File already exists but no hash specified (use URL_HASH):
-  file='E:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/mpfr-download-prefix/src/mpfr-all-CGAL-3.9.zip'
+  file='G:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/mpfr-download-prefix/src/mpfr-all-CGAL-3.9.zip'
 Old file will be removed and new file downloaded from URL."
     )
-    file(REMOVE "E:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/mpfr-download-prefix/src/mpfr-all-CGAL-3.9.zip")
+    file(REMOVE "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/mpfr-download-prefix/src/mpfr-all-CGAL-3.9.zip")
   endif()
 endif()
 
 set(retry_number 5)
 
 message(STATUS "Downloading...
-   dst='E:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/mpfr-download-prefix/src/mpfr-all-CGAL-3.9.zip'
+   dst='G:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/mpfr-download-prefix/src/mpfr-all-CGAL-3.9.zip'
    timeout='none'
    inactivity timeout='none'"
 )
@@ -126,7 +126,7 @@ foreach(i RANGE ${retry_number})
 
       file(
         DOWNLOAD
-        "${url}" "E:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/mpfr-download-prefix/src/mpfr-all-CGAL-3.9.zip"
+        "${url}" "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/mpfr-download-prefix/src/mpfr-all-CGAL-3.9.zip"
         SHOW_PROGRESS
         # no TIMEOUT
         # no INACTIVITY_TIMEOUT
@@ -143,7 +143,7 @@ foreach(i RANGE ${retry_number})
         check_file_hash(has_hash hash_is_good)
         if(has_hash AND NOT hash_is_good)
           message(STATUS "Hash mismatch, removing...")
-          file(REMOVE "E:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/mpfr-download-prefix/src/mpfr-all-CGAL-3.9.zip")
+          file(REMOVE "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/mpfr/mpfr-download-prefix/src/mpfr-all-CGAL-3.9.zip")
         else()
           message(STATUS "Downloading... done")
           return()

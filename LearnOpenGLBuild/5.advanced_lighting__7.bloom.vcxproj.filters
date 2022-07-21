@@ -1,21 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\src\5.advanced_lighting\7.bloom\bloom.cpp">
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\src\5.advanced_lighting\7.bloom\bloom.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\CMakeLists.txt" />
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\src\5.advanced_lighting\7.bloom\7.bloom.fs" />
-    <None Include="E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\src\5.advanced_lighting\7.bloom\7.bloom.vs" />
-    <None Include="E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\src\5.advanced_lighting\7.bloom\7.bloom_final.fs" />
-    <None Include="E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\src\5.advanced_lighting\7.bloom\7.bloom_final.vs" />
-    <None Include="E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\src\5.advanced_lighting\7.bloom\7.blur.fs" />
-    <None Include="E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\src\5.advanced_lighting\7.bloom\7.blur.vs" />
-    <None Include="E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\src\5.advanced_lighting\7.bloom\7.light_box.fs" />
+    <None Include="G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\src\5.advanced_lighting\7.bloom\7.bloom.fs" />
+    <None Include="G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\src\5.advanced_lighting\7.bloom\7.bloom.vs" />
+    <None Include="G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\src\5.advanced_lighting\7.bloom\7.bloom_final.fs" />
+    <None Include="G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\src\5.advanced_lighting\7.bloom\7.bloom_final.vs" />
+    <None Include="G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\src\5.advanced_lighting\7.bloom\7.blur.fs" />
+    <None Include="G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\src\5.advanced_lighting\7.bloom\7.blur.vs" />
+    <None Include="G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\src\5.advanced_lighting\7.bloom\7.light_box.fs" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">

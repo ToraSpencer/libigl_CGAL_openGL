@@ -107,229 +107,229 @@
   <ItemGroup>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\ZERO_CHECK.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\ZERO_CHECK.vcxproj">
       <Project>{BAEA34AB-974F-3714-AD13-5F6DE8020502}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\101_FileIO\101_FileIO.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\101_FileIO\101_FileIO.vcxproj">
       <Project>{851C784B-5CFD-3455-932E-DA8B7F61ECCD}</Project>
       <Name>101_FileIO</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\102_DrawMesh\102_DrawMesh.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\102_DrawMesh\102_DrawMesh.vcxproj">
       <Project>{4FDCA76A-D3D8-3BFB-9579-71E857D3A4AE}</Project>
       <Name>102_DrawMesh</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\103_Events\103_Events.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\103_Events\103_Events.vcxproj">
       <Project>{494820C5-31E7-3F84-85EB-86D4F29B4B90}</Project>
       <Name>103_Events</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\104_Colors\104_Colors.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\104_Colors\104_Colors.vcxproj">
       <Project>{2BAEA258-5EED-325A-AAA5-2157CF9D4D16}</Project>
       <Name>104_Colors</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\107_MultipleMeshes\107_MultipleMeshes.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\107_MultipleMeshes\107_MultipleMeshes.vcxproj">
       <Project>{E579C3A9-918D-39A5-AFBC-B2246D934452}</Project>
       <Name>107_MultipleMeshes</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\108_MultipleViews\108_MultipleViews.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\108_MultipleViews\108_MultipleViews.vcxproj">
       <Project>{EDCD0EB8-737C-3501-8646-D1CD6E5A4F08}</Project>
       <Name>108_MultipleViews</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\110_MshView\110_MshView.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\110_MshView\110_MshView.vcxproj">
       <Project>{3B5F6AE7-8A5A-3D89-AB67-08E89084FC81}</Project>
       <Name>110_MshView</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\201_Normals\201_Normals.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\201_Normals\201_Normals.vcxproj">
       <Project>{4EFA9D99-3743-36C7-BC96-9AB968EB9EFF}</Project>
       <Name>201_Normals</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\202_GaussianCurvature\202_GaussianCurvature.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\202_GaussianCurvature\202_GaussianCurvature.vcxproj">
       <Project>{51A478FC-29E6-3D18-9EA1-789E507A8632}</Project>
       <Name>202_GaussianCurvature</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\203_CurvatureDirections\203_CurvatureDirections.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\203_CurvatureDirections\203_CurvatureDirections.vcxproj">
       <Project>{E9FE379E-D2A6-394A-BFFA-2B2BBDA1C2A6}</Project>
       <Name>203_CurvatureDirections</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\204_Gradient\204_Gradient.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\204_Gradient\204_Gradient.vcxproj">
       <Project>{ADC331C3-4CDB-38E8-A1B3-C0DF1D0D239B}</Project>
       <Name>204_Gradient</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\205_Laplacian\205_Laplacian.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\205_Laplacian\205_Laplacian.vcxproj">
       <Project>{181E21D1-1EF7-3912-BB9C-121D2DE63A46}</Project>
       <Name>205_Laplacian</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\206_GeodesicDistance\206_GeodesicDistance.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\206_GeodesicDistance\206_GeodesicDistance.vcxproj">
       <Project>{81BBEB86-72E0-3589-A0C3-C9BF3C3C5EF1}</Project>
       <Name>206_GeodesicDistance</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\207_PolygonLaplacian\207_PolygonLaplacian.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\207_PolygonLaplacian\207_PolygonLaplacian.vcxproj">
       <Project>{76617AEE-174B-3259-937B-CD9565AB26A3}</Project>
       <Name>207_PolygonLaplacian</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\301_Slice\301_Slice.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\301_Slice\301_Slice.vcxproj">
       <Project>{0DF41C9F-9746-3582-8253-7A9E31A0D633}</Project>
       <Name>301_Slice</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\302_Sort\302_Sort.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\302_Sort\302_Sort.vcxproj">
       <Project>{12D53FE8-D475-354B-B9FA-062FF166264F}</Project>
       <Name>302_Sort</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\303_LaplaceEquation\303_LaplaceEquation.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\303_LaplaceEquation\303_LaplaceEquation.vcxproj">
       <Project>{3957E128-5BFC-3D94-A10B-CF35DCDEC0DA}</Project>
       <Name>303_LaplaceEquation</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\304_LinearEqualityConstraints\304_LinearEqualityConstraints.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\304_LinearEqualityConstraints\304_LinearEqualityConstraints.vcxproj">
       <Project>{30631FF6-7808-3CE5-90D4-54874C188F93}</Project>
       <Name>304_LinearEqualityConstraints</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\305_QuadraticProgramming\305_QuadraticProgramming.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\305_QuadraticProgramming\305_QuadraticProgramming.vcxproj">
       <Project>{88DE6F96-615F-3276-B9EE-EF46BDCBDE5A}</Project>
       <Name>305_QuadraticProgramming</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\306_EigenDecomposition\306_EigenDecomposition.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\306_EigenDecomposition\306_EigenDecomposition.vcxproj">
       <Project>{8BBFC00A-D60F-3C75-A102-02AD7BA1B561}</Project>
       <Name>306_EigenDecomposition</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\401_BiharmonicDeformation\401_BiharmonicDeformation.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\401_BiharmonicDeformation\401_BiharmonicDeformation.vcxproj">
       <Project>{6807BFD7-D26F-30FA-955E-8A9FBB227FF9}</Project>
       <Name>401_BiharmonicDeformation</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\402_PolyharmonicDeformation\402_PolyharmonicDeformation.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\402_PolyharmonicDeformation\402_PolyharmonicDeformation.vcxproj">
       <Project>{5691C3E6-2BD0-3802-B107-C47002C704AA}</Project>
       <Name>402_PolyharmonicDeformation</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\403_BoundedBiharmonicWeights\403_BoundedBiharmonicWeights.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\403_BoundedBiharmonicWeights\403_BoundedBiharmonicWeights.vcxproj">
       <Project>{5FBC4E18-7185-31EC-9393-E29643194F59}</Project>
       <Name>403_BoundedBiharmonicWeights</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\404_DualQuaternionSkinning\404_DualQuaternionSkinning.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\404_DualQuaternionSkinning\404_DualQuaternionSkinning.vcxproj">
       <Project>{5EF94BEF-7B2F-3FEB-851C-6E01580DF144}</Project>
       <Name>404_DualQuaternionSkinning</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\405_AsRigidAsPossible\405_AsRigidAsPossible.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\405_AsRigidAsPossible\405_AsRigidAsPossible.vcxproj">
       <Project>{3B1F850F-38CF-3CA4-92AA-B5D7EFEB7EF0}</Project>
       <Name>405_AsRigidAsPossible</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\406_FastAutomaticSkinningTransformations\406_FastAutomaticSkinningTransformations.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\406_FastAutomaticSkinningTransformations\406_FastAutomaticSkinningTransformations.vcxproj">
       <Project>{9F2B4E64-7C94-383E-B655-C3E5A7022368}</Project>
       <Name>406_FastAutomaticSkinningTransformations</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\407_BiharmonicCoordinates\407_BiharmonicCoordinates.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\407_BiharmonicCoordinates\407_BiharmonicCoordinates.vcxproj">
       <Project>{2BC6CAD3-AF83-3CD9-A498-B2E9A5BCCA0B}</Project>
       <Name>407_BiharmonicCoordinates</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\408_DirectDeltaMush\408_DirectDeltaMush.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\408_DirectDeltaMush\408_DirectDeltaMush.vcxproj">
       <Project>{C57CAA65-FD57-39F5-890C-4F400E0C7649}</Project>
       <Name>408_DirectDeltaMush</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\501_HarmonicParam\501_HarmonicParam.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\501_HarmonicParam\501_HarmonicParam.vcxproj">
       <Project>{5C5BFF2B-7324-3CF0-9305-4A02A52331EC}</Project>
       <Name>501_HarmonicParam</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\502_LSCMParam\502_LSCMParam.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\502_LSCMParam\502_LSCMParam.vcxproj">
       <Project>{D924ACF4-2458-319E-8C0A-73A4FB883CFA}</Project>
       <Name>502_LSCMParam</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\503_ARAPParam\503_ARAPParam.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\503_ARAPParam\503_ARAPParam.vcxproj">
       <Project>{BD921FC7-7607-30AD-9979-38CF6B77F795}</Project>
       <Name>503_ARAPParam</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\507_Planarization\507_Planarization.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\507_Planarization\507_Planarization.vcxproj">
       <Project>{257C8FAA-B7F0-3E6F-BC2C-403228BE549F}</Project>
       <Name>507_Planarization</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\701_Statistics\701_Statistics.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\701_Statistics\701_Statistics.vcxproj">
       <Project>{DD95B777-77A6-30F5-A6EF-555351F7B457}</Project>
       <Name>701_Statistics</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\702_WindingNumber\702_WindingNumber.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\702_WindingNumber\702_WindingNumber.vcxproj">
       <Project>{F86FF22C-893E-3AF4-A51C-4EE211FF7973}</Project>
       <Name>702_WindingNumber</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\703_Decimation\703_Decimation.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\703_Decimation\703_Decimation.vcxproj">
       <Project>{C633B97C-6AA7-30CF-B7C9-EE09F0F006C8}</Project>
       <Name>703_Decimation</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\704_SignedDistance\704_SignedDistance.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\704_SignedDistance\704_SignedDistance.vcxproj">
       <Project>{F70687B9-23D5-3D18-9B70-EA07FC0450F0}</Project>
       <Name>704_SignedDistance</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\705_MarchingCubes\705_MarchingCubes.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\705_MarchingCubes\705_MarchingCubes.vcxproj">
       <Project>{CC871D57-E143-3B0E-9F32-378102CA1535}</Project>
       <Name>705_MarchingCubes</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\707_SweptVolume\707_SweptVolume.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\707_SweptVolume\707_SweptVolume.vcxproj">
       <Project>{6D50CBBA-D3D0-3481-96AB-0484FD8B86E3}</Project>
       <Name>707_SweptVolume</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\708_Picking\708_Picking.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\708_Picking\708_Picking.vcxproj">
       <Project>{BFA72B53-2B76-3F99-843A-7D4D7BF569A5}</Project>
       <Name>708_Picking</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\709_SLIM\709_SLIM.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\709_SLIM\709_SLIM.vcxproj">
       <Project>{F8A6D662-C6CA-3109-81AC-33D0E601618C}</Project>
       <Name>709_SLIM</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\711_Subdivision\711_Subdivision.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\711_Subdivision\711_Subdivision.vcxproj">
       <Project>{880A24E6-A536-39BB-B91C-8982A6553D9E}</Project>
       <Name>711_Subdivision</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\712_DataSmoothing\712_DataSmoothing.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\712_DataSmoothing\712_DataSmoothing.vcxproj">
       <Project>{DE3A29E0-036C-37D8-A8F7-AFA843A15A2E}</Project>
       <Name>712_DataSmoothing</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\713_ShapeUp\713_ShapeUp.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\713_ShapeUp\713_ShapeUp.vcxproj">
       <Project>{9B817AD3-887F-3C77-A9B5-8198B2442A33}</Project>
       <Name>713_ShapeUp</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\715_MeshImplicitFunction\715_MeshImplicitFunction.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\715_MeshImplicitFunction\715_MeshImplicitFunction.vcxproj">
       <Project>{67013744-F644-3DD2-ABF4-3962C1BA021B}</Project>
       <Name>715_MeshImplicitFunction</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\716_HeatGeodesics\716_HeatGeodesics.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\716_HeatGeodesics\716_HeatGeodesics.vcxproj">
       <Project>{41E786A3-7779-3BCF-83F5-D129EE358847}</Project>
       <Name>716_HeatGeodesics</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\718_IterativeClosestPoint\718_IterativeClosestPoint.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\718_IterativeClosestPoint\718_IterativeClosestPoint.vcxproj">
       <Project>{A8363D73-75C1-3AB3-9EA0-39BF17EDBB9E}</Project>
       <Name>718_IterativeClosestPoint</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\719_ExplodedView\719_ExplodedView.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\719_ExplodedView\719_ExplodedView.vcxproj">
       <Project>{8463D64F-84D6-3B47-81BF-DB645943CC97}</Project>
       <Name>719_ExplodedView</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\720_BlueNoise\720_BlueNoise.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\720_BlueNoise\720_BlueNoise.vcxproj">
       <Project>{546F175A-32B0-37F9-882E-53C45FE713AB}</Project>
       <Name>720_BlueNoise</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\721_VectorFieldSmoothing\721_VectorFieldSmoothing_bin.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\721_VectorFieldSmoothing\721_VectorFieldSmoothing_bin.vcxproj">
       <Project>{BCA5085E-0454-3DEF-A394-ED837D588FF1}</Project>
       <Name>721_VectorFieldSmoothing_bin</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\722_VectorParallelTransport\722_VectorParallelTransport_bin.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\722_VectorParallelTransport\722_VectorParallelTransport_bin.vcxproj">
       <Project>{9ACF1A90-17C8-3EA7-8C0C-D7FB73BFC497}</Project>
       <Name>722_VectorParallelTransport_bin</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\glad\glad.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\glad\glad.vcxproj">
       <Project>{AF935FD9-D248-35BC-B952-AB29D1BC7589}</Project>
       <Name>glad</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\glfw\src\glfw.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\glfw\src\glfw.vcxproj">
       <Project>{DEB2766C-0C21-3F7D-AAA1-7ED0D10B825F}</Project>
       <Name>glfw</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\igl.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\igl.vcxproj">
       <Project>{4FD4B4E9-7C8D-3795-AD36-40D3D17D51D4}</Project>
       <Name>igl</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\igl_opengl.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\igl_opengl.vcxproj">
       <Project>{5D0BD4C7-C640-3EC5-BFBA-403C049E36E3}</Project>
       <Name>igl_opengl</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\igl_opengl_glfw.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\tutorialBuild\igl_opengl_glfw.vcxproj">
       <Project>{9CA06C63-B92D-3A5B-AA49-B8C8916AEBAD}</Project>
       <Name>igl_opengl_glfw</Name>
     </ProjectReference>

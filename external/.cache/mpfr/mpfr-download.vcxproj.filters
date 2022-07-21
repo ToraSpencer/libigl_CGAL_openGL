@@ -1,40 +1,40 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\mpfr\CMakeFiles\565f56facd29cc4c4ddf9efeae40abbb\mpfr-download-mkdir.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\mpfr\CMakeFiles\565f56facd29cc4c4ddf9efeae40abbb\mpfr-download-mkdir.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\mpfr\CMakeFiles\565f56facd29cc4c4ddf9efeae40abbb\mpfr-download-download.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\mpfr\CMakeFiles\565f56facd29cc4c4ddf9efeae40abbb\mpfr-download-download.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\mpfr\CMakeFiles\565f56facd29cc4c4ddf9efeae40abbb\mpfr-download-update.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\mpfr\CMakeFiles\565f56facd29cc4c4ddf9efeae40abbb\mpfr-download-update.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\mpfr\CMakeFiles\565f56facd29cc4c4ddf9efeae40abbb\mpfr-download-patch.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\mpfr\CMakeFiles\565f56facd29cc4c4ddf9efeae40abbb\mpfr-download-patch.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\mpfr\CMakeFiles\565f56facd29cc4c4ddf9efeae40abbb\mpfr-download-configure.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\mpfr\CMakeFiles\565f56facd29cc4c4ddf9efeae40abbb\mpfr-download-configure.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\mpfr\CMakeFiles\565f56facd29cc4c4ddf9efeae40abbb\mpfr-download-build.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\mpfr\CMakeFiles\565f56facd29cc4c4ddf9efeae40abbb\mpfr-download-build.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\mpfr\CMakeFiles\565f56facd29cc4c4ddf9efeae40abbb\mpfr-download-install.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\mpfr\CMakeFiles\565f56facd29cc4c4ddf9efeae40abbb\mpfr-download-install.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\mpfr\CMakeFiles\565f56facd29cc4c4ddf9efeae40abbb\mpfr-download-test.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\mpfr\CMakeFiles\565f56facd29cc4c4ddf9efeae40abbb\mpfr-download-test.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\mpfr\CMakeFiles\e15dcd8b795e99ae6430fff278220cb3\mpfr-download-complete.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\mpfr\CMakeFiles\e15dcd8b795e99ae6430fff278220cb3\mpfr-download-complete.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\mpfr\CMakeFiles\fbb26727d927292664371fc5d771c9f6\mpfr-download.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\mpfr\CMakeFiles\fbb26727d927292664371fc5d771c9f6\mpfr-download.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\mpfr\CMakeLists.txt" />
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\mpfr\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\mpfr\CMakeFiles\mpfr-download" />
+    <None Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\mpfr\CMakeFiles\mpfr-download" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">

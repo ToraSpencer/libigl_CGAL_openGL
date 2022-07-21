@@ -1,7 +1,7 @@
 # Make file names absolute:
 #
-get_filename_component(filename "E:/gitRepositories/libigl_CGAL_openGL/external/.cache/gmp/gmp-download-prefix/src/gmp-all-CGAL-3.9.zip" ABSOLUTE)
-get_filename_component(directory "E:/gitRepositories/libigl_CGAL_openGL/cmake/../external/gmp" ABSOLUTE)
+get_filename_component(filename "G:/gitRepositories/libigl_CGAL_openGL/external/.cache/gmp/gmp-download-prefix/src/gmp-all-CGAL-3.9.zip" ABSOLUTE)
+get_filename_component(directory "G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/gmp" ABSOLUTE)
 
 message(STATUS "extracting...
      src='${filename}'

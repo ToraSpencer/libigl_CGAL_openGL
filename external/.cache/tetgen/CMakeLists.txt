@@ -8,8 +8,8 @@ project(tetgen-download NONE)
 include(ExternalProject)
 ExternalProject_Add(tetgen-download
                     TLS_VERIFY;OFF;GIT_CONFIG;advice.detachedHead=false;GIT_REPOSITORY;https://github.com/libigl/tetgen.git;GIT_TAG;4f3bfba3997f20aa1f96cfaff604313a8c2c85b6
-                    SOURCE_DIR          "E:/gitRepositories/libigl_CGAL_openGL/cmake/../external/tetgen"
-                    BINARY_DIR          "E:/gitRepositories/libigl_CGAL_openGL/build/tetgen-build"
+                    SOURCE_DIR          "G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/tetgen"
+                    BINARY_DIR          "G:/gitRepositories/libigl_CGAL_openGL/build/tetgen-build"
                     CONFIGURE_COMMAND   ""
                     BUILD_COMMAND       ""
                     INSTALL_COMMAND     ""

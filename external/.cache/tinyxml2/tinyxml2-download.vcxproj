@@ -105,24 +105,24 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\d8424e01458af3d9c7777ab5c0d42955\tinyxml2-download-mkdir.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\d8424e01458af3d9c7777ab5c0d42955\tinyxml2-download-mkdir.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Creating directories for 'tinyxml2-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/cmake/../external/tinyxml2
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/tinyxml2
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/build/tinyxml2-build
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/build/tinyxml2-build
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/tmp
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/tmp
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-mkdir
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-mkdir
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -131,25 +131,25 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-mkdir</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-mkdir</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Creating directories for 'tinyxml2-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/cmake/../external/tinyxml2
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/tinyxml2
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/build/tinyxml2-build
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/build/tinyxml2-build
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/tmp
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/tmp
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-mkdir
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-mkdir
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -158,25 +158,25 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-mkdir</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-mkdir</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Creating directories for 'tinyxml2-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/cmake/../external/tinyxml2
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/tinyxml2
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/build/tinyxml2-build
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/build/tinyxml2-build
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/tmp
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/tmp
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-mkdir
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-mkdir
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -185,25 +185,25 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-mkdir</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-mkdir</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Creating directories for 'tinyxml2-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/cmake/../external/tinyxml2
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/tinyxml2
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/build/tinyxml2-build
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/build/tinyxml2-build
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/tmp
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/tmp
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-mkdir
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-mkdir
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -212,21 +212,21 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-mkdir</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-mkdir</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\d8424e01458af3d9c7777ab5c0d42955\tinyxml2-download-download.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\d8424e01458af3d9c7777ab5c0d42955\tinyxml2-download-download.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing download step (git clone) for 'tinyxml2-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd E:\gitRepositories\libigl_CGAL_openGL\external
+cd G:\gitRepositories\libigl_CGAL_openGL\external
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/tmp/tinyxml2-download-gitclone.cmake
+"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/tmp/tinyxml2-download-gitclone.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-download
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-download
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -234,18 +234,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\tinyxml2-download-gitinfo.txt;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-download</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\tinyxml2-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Performing download step (git clone) for 'tinyxml2-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd E:\gitRepositories\libigl_CGAL_openGL\external
+cd G:\gitRepositories\libigl_CGAL_openGL\external
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/tmp/tinyxml2-download-gitclone.cmake
+"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/tmp/tinyxml2-download-gitclone.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-download
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-download
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -253,18 +253,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\tinyxml2-download-gitinfo.txt;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-download</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\tinyxml2-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Performing download step (git clone) for 'tinyxml2-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd E:\gitRepositories\libigl_CGAL_openGL\external
+cd G:\gitRepositories\libigl_CGAL_openGL\external
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/tmp/tinyxml2-download-gitclone.cmake
+"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/tmp/tinyxml2-download-gitclone.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-download
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-download
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -272,18 +272,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\tinyxml2-download-gitinfo.txt;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-download</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\tinyxml2-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Performing download step (git clone) for 'tinyxml2-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd E:\gitRepositories\libigl_CGAL_openGL\external
+cd G:\gitRepositories\libigl_CGAL_openGL\external
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/tmp/tinyxml2-download-gitclone.cmake
+"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/tmp/tinyxml2-download-gitclone.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-download
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-download
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -291,20 +291,20 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\tinyxml2-download-gitinfo.txt;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-download</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\tinyxml2-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\d8424e01458af3d9c7777ab5c0d42955\tinyxml2-download-update.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\d8424e01458af3d9c7777ab5c0d42955\tinyxml2-download-update.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing update step for 'tinyxml2-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd E:\gitRepositories\libigl_CGAL_openGL\external\tinyxml2
+cd G:\gitRepositories\libigl_CGAL_openGL\external\tinyxml2
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/tmp/tinyxml2-download-gitupdate.cmake
+"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/tmp/tinyxml2-download-gitupdate.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -312,17 +312,17 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-download;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-update</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-update</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Performing update step for 'tinyxml2-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd E:\gitRepositories\libigl_CGAL_openGL\external\tinyxml2
+cd G:\gitRepositories\libigl_CGAL_openGL\external\tinyxml2
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/tmp/tinyxml2-download-gitupdate.cmake
+"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/tmp/tinyxml2-download-gitupdate.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -330,17 +330,17 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-download;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-update</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-update</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Performing update step for 'tinyxml2-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd E:\gitRepositories\libigl_CGAL_openGL\external\tinyxml2
+cd G:\gitRepositories\libigl_CGAL_openGL\external\tinyxml2
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/tmp/tinyxml2-download-gitupdate.cmake
+"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/tmp/tinyxml2-download-gitupdate.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -348,17 +348,17 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-download;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-update</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-update</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Performing update step for 'tinyxml2-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd E:\gitRepositories\libigl_CGAL_openGL\external\tinyxml2
+cd G:\gitRepositories\libigl_CGAL_openGL\external\tinyxml2
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/tmp/tinyxml2-download-gitupdate.cmake
+"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/tmp/tinyxml2-download-gitupdate.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -366,19 +366,19 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-download;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-update</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-update</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\d8424e01458af3d9c7777ab5c0d42955\tinyxml2-download-patch.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\d8424e01458af3d9c7777ab5c0d42955\tinyxml2-download-patch.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No patch step for 'tinyxml2-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-patch
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-patch
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -386,15 +386,15 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-update;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-patch</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-patch</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No patch step for 'tinyxml2-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-patch
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-patch
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -402,15 +402,15 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-update;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-patch</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-patch</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No patch step for 'tinyxml2-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-patch
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-patch
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -418,15 +418,15 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-update;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-patch</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-patch</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No patch step for 'tinyxml2-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-patch
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-patch
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -434,23 +434,23 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-update;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-patch</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-patch</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\d8424e01458af3d9c7777ab5c0d42955\tinyxml2-download-configure.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\d8424e01458af3d9c7777ab5c0d42955\tinyxml2-download-configure.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No configure step for 'tinyxml2-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd E:\gitRepositories\libigl_CGAL_openGL\build\tinyxml2-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build\tinyxml2-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-configure
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-configure
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -458,18 +458,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\tmp\tinyxml2-download-cfgcmd.txt;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-patch;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-configure</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\tmp\tinyxml2-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-configure</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No configure step for 'tinyxml2-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd E:\gitRepositories\libigl_CGAL_openGL\build\tinyxml2-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build\tinyxml2-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-configure
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-configure
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -477,18 +477,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\tmp\tinyxml2-download-cfgcmd.txt;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-patch;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-configure</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\tmp\tinyxml2-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-configure</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No configure step for 'tinyxml2-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd E:\gitRepositories\libigl_CGAL_openGL\build\tinyxml2-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build\tinyxml2-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-configure
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-configure
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -496,18 +496,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\tmp\tinyxml2-download-cfgcmd.txt;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-patch;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-configure</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\tmp\tinyxml2-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-configure</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No configure step for 'tinyxml2-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd E:\gitRepositories\libigl_CGAL_openGL\build\tinyxml2-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build\tinyxml2-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-configure
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-configure
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -515,22 +515,22 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\tmp\tinyxml2-download-cfgcmd.txt;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-patch;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-configure</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\tmp\tinyxml2-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-configure</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\d8424e01458af3d9c7777ab5c0d42955\tinyxml2-download-build.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\d8424e01458af3d9c7777ab5c0d42955\tinyxml2-download-build.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No build step for 'tinyxml2-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd E:\gitRepositories\libigl_CGAL_openGL\build\tinyxml2-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build\tinyxml2-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-build
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-build
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -538,18 +538,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-configure;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-build</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-build</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No build step for 'tinyxml2-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd E:\gitRepositories\libigl_CGAL_openGL\build\tinyxml2-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build\tinyxml2-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-build
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-build
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -557,18 +557,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-configure;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-build</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-build</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No build step for 'tinyxml2-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd E:\gitRepositories\libigl_CGAL_openGL\build\tinyxml2-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build\tinyxml2-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-build
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-build
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -576,18 +576,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-configure;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-build</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-build</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No build step for 'tinyxml2-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd E:\gitRepositories\libigl_CGAL_openGL\build\tinyxml2-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build\tinyxml2-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-build
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-build
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -595,22 +595,22 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-configure;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-build</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-build</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\d8424e01458af3d9c7777ab5c0d42955\tinyxml2-download-install.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\d8424e01458af3d9c7777ab5c0d42955\tinyxml2-download-install.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No install step for 'tinyxml2-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd E:\gitRepositories\libigl_CGAL_openGL\build\tinyxml2-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build\tinyxml2-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-install
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-install
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -618,18 +618,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-build;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-install</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-install</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No install step for 'tinyxml2-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd E:\gitRepositories\libigl_CGAL_openGL\build\tinyxml2-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build\tinyxml2-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-install
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-install
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -637,18 +637,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-build;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-install</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-install</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No install step for 'tinyxml2-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd E:\gitRepositories\libigl_CGAL_openGL\build\tinyxml2-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build\tinyxml2-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-install
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-install
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -656,18 +656,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-build;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-install</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-install</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No install step for 'tinyxml2-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd E:\gitRepositories\libigl_CGAL_openGL\build\tinyxml2-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build\tinyxml2-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-install
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-install
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -675,22 +675,22 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-build;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-install</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-install</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\d8424e01458af3d9c7777ab5c0d42955\tinyxml2-download-test.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\d8424e01458af3d9c7777ab5c0d42955\tinyxml2-download-test.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No test step for 'tinyxml2-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd E:\gitRepositories\libigl_CGAL_openGL\build\tinyxml2-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build\tinyxml2-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-test
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-test
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -698,18 +698,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-install;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-test</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-test</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No test step for 'tinyxml2-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd E:\gitRepositories\libigl_CGAL_openGL\build\tinyxml2-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build\tinyxml2-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-test
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-test
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -717,18 +717,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-install;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-test</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-test</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No test step for 'tinyxml2-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd E:\gitRepositories\libigl_CGAL_openGL\build\tinyxml2-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build\tinyxml2-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-test
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-test
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -736,18 +736,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-install;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-test</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-test</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No test step for 'tinyxml2-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd E:\gitRepositories\libigl_CGAL_openGL\build\tinyxml2-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build\tinyxml2-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-test
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-test
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -755,20 +755,20 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-install;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-test</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-test</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\fb7a1d55ebf4130fd5a74977088f3d1a\tinyxml2-download-complete.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\fb7a1d55ebf4130fd5a74977088f3d1a\tinyxml2-download-complete.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Completed 'tinyxml2-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/$(Configuration)
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/$(Configuration)
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/$(Configuration)/tinyxml2-download-complete
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/$(Configuration)/tinyxml2-download-complete
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-done
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-done
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -776,17 +776,17 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-install;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-mkdir;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-download;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-update;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-patch;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-configure;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-build;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-test;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\$(Configuration)\tinyxml2-download-complete</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\$(Configuration)\tinyxml2-download-complete</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Completed 'tinyxml2-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/$(Configuration)
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/$(Configuration)
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/$(Configuration)/tinyxml2-download-complete
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/$(Configuration)/tinyxml2-download-complete
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-done
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-done
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -794,17 +794,17 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-install;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-mkdir;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-download;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-update;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-patch;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-configure;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-build;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-test;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\$(Configuration)\tinyxml2-download-complete</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\$(Configuration)\tinyxml2-download-complete</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Completed 'tinyxml2-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/$(Configuration)
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/$(Configuration)
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/$(Configuration)/tinyxml2-download-complete
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/$(Configuration)/tinyxml2-download-complete
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-done
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-done
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -812,17 +812,17 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-install;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-mkdir;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-download;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-update;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-patch;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-configure;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-build;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-test;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\$(Configuration)\tinyxml2-download-complete</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\$(Configuration)\tinyxml2-download-complete</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Completed 'tinyxml2-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/$(Configuration)
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/$(Configuration)
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/$(Configuration)/tinyxml2-download-complete
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/$(Configuration)/tinyxml2-download-complete
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-done
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/tinyxml2-download-prefix/src/tinyxml2-download-stamp/$(Configuration)/tinyxml2-download-done
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -830,14 +830,14 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-install;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-mkdir;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-download;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-update;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-patch;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-configure;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-build;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-test;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\$(Configuration)\tinyxml2-download-complete</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\src\tinyxml2-download-stamp\$(Configuration)\tinyxml2-download-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\$(Configuration)\tinyxml2-download-complete</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\08d6ae4ce04fb435f46f7ec5e730d252\tinyxml2-download.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\08d6ae4ce04fb435f46f7ec5e730d252\tinyxml2-download.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"></Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
 :cmEnd
@@ -846,8 +846,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\$(Configuration)\tinyxml2-download-complete;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\tinyxml2-download</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\$(Configuration)\tinyxml2-download-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\tinyxml2-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'"></Message>
@@ -858,8 +858,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\$(Configuration)\tinyxml2-download-complete;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\tinyxml2-download</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\$(Configuration)\tinyxml2-download-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\tinyxml2-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'"></Message>
@@ -870,8 +870,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\$(Configuration)\tinyxml2-download-complete;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\tinyxml2-download</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\$(Configuration)\tinyxml2-download-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\tinyxml2-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'"></Message>
@@ -882,18 +882,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\$(Configuration)\tinyxml2-download-complete;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\tinyxml2-download</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\$(Configuration)\tinyxml2-download-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\tinyxml2-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeLists.txt">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeLists.txt">
       <UseUtf8Encoding>Always</UseUtf8Encoding>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SE:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2 -BE:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2 --check-stamp-file E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2 -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2 --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -901,12 +901,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\3.21.0-rc2\CMakeSystem.cmake;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\tmp\tinyxml2-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\3.21.0-rc2\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\tmp\tinyxml2-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SE:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2 -BE:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2 --check-stamp-file E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2 -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2 --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -914,12 +914,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\3.21.0-rc2\CMakeSystem.cmake;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\tmp\tinyxml2-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\3.21.0-rc2\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\tmp\tinyxml2-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SE:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2 -BE:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2 --check-stamp-file E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2 -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2 --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -927,12 +927,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\3.21.0-rc2\CMakeSystem.cmake;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\tmp\tinyxml2-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\3.21.0-rc2\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\tmp\tinyxml2-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SE:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2 -BE:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2 --check-stamp-file E:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2 -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2 --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -940,17 +940,17 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\3.21.0-rc2\CMakeSystem.cmake;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\tmp\tinyxml2-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\3.21.0-rc2\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\tmp\tinyxml2-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <None Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\tinyxml2-download">
+    <None Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\tinyxml2-download">
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\ZERO_CHECK.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\ZERO_CHECK.vcxproj">
       <Project>{5EBD530A-7B05-3437-A8AF-D42E05E34764}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>

@@ -102,24 +102,24 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\d1126ef00c85487b63f4601f57879e1f\glad-download-mkdir.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\d1126ef00c85487b63f4601f57879e1f\glad-download-mkdir.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Creating directories for 'glad-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/cmake/../external/glad
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/glad
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/GAMES102Study/build/hw7_maxikai/build/glad-build
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/GAMES102Study/build/hw7_maxikai/build/glad-build
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/tmp
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/tmp
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-mkdir
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-mkdir
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -128,25 +128,25 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-mkdir</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-mkdir</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Creating directories for 'glad-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/cmake/../external/glad
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/glad
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/GAMES102Study/build/hw7_maxikai/build/glad-build
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/GAMES102Study/build/hw7_maxikai/build/glad-build
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/tmp
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/tmp
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-mkdir
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-mkdir
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -155,25 +155,25 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-mkdir</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-mkdir</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Creating directories for 'glad-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/cmake/../external/glad
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/glad
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/GAMES102Study/build/hw7_maxikai/build/glad-build
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/GAMES102Study/build/hw7_maxikai/build/glad-build
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/tmp
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/tmp
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-mkdir
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-mkdir
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -182,25 +182,25 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-mkdir</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-mkdir</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Creating directories for 'glad-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/cmake/../external/glad
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/glad
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/GAMES102Study/build/hw7_maxikai/build/glad-build
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/GAMES102Study/build/hw7_maxikai/build/glad-build
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/tmp
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/tmp
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-mkdir
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-mkdir
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -209,21 +209,21 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-mkdir</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-mkdir</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\d1126ef00c85487b63f4601f57879e1f\glad-download-download.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\d1126ef00c85487b63f4601f57879e1f\glad-download-download.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Performing download step (git clone) for 'glad-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-cd E:\gitRepositories\libigl_CGAL_openGL\external
+cd G:\gitRepositories\libigl_CGAL_openGL\external
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/tmp/glad-download-gitclone.cmake
+"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/tmp/glad-download-gitclone.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-download
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-download
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -231,18 +231,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\glad-download-gitinfo.txt;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-download</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\glad-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Performing download step (git clone) for 'glad-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-cd E:\gitRepositories\libigl_CGAL_openGL\external
+cd G:\gitRepositories\libigl_CGAL_openGL\external
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/tmp/glad-download-gitclone.cmake
+"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/tmp/glad-download-gitclone.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-download
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-download
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -250,18 +250,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\glad-download-gitinfo.txt;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-download</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\glad-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Performing download step (git clone) for 'glad-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
-cd E:\gitRepositories\libigl_CGAL_openGL\external
+cd G:\gitRepositories\libigl_CGAL_openGL\external
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/tmp/glad-download-gitclone.cmake
+"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/tmp/glad-download-gitclone.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-download
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-download
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -269,18 +269,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\glad-download-gitinfo.txt;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-download</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\glad-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Performing download step (git clone) for 'glad-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
-cd E:\gitRepositories\libigl_CGAL_openGL\external
+cd G:\gitRepositories\libigl_CGAL_openGL\external
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/tmp/glad-download-gitclone.cmake
+"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/tmp/glad-download-gitclone.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-download
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-download
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -288,20 +288,20 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\glad-download-gitinfo.txt;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-download</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\glad-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\d1126ef00c85487b63f4601f57879e1f\glad-download-update.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\d1126ef00c85487b63f4601f57879e1f\glad-download-update.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Performing update step for 'glad-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-cd E:\gitRepositories\libigl_CGAL_openGL\external\glad
+cd G:\gitRepositories\libigl_CGAL_openGL\external\glad
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/tmp/glad-download-gitupdate.cmake
+"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/tmp/glad-download-gitupdate.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -309,16 +309,16 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-download;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-update</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-update</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Performing update step for 'glad-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-cd E:\gitRepositories\libigl_CGAL_openGL\external\glad
+cd G:\gitRepositories\libigl_CGAL_openGL\external\glad
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/tmp/glad-download-gitupdate.cmake
+"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/tmp/glad-download-gitupdate.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -326,16 +326,16 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-download;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-update</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-update</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Performing update step for 'glad-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
-cd E:\gitRepositories\libigl_CGAL_openGL\external\glad
+cd G:\gitRepositories\libigl_CGAL_openGL\external\glad
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/tmp/glad-download-gitupdate.cmake
+"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/tmp/glad-download-gitupdate.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -343,16 +343,16 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-download;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-update</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-update</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Performing update step for 'glad-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
-cd E:\gitRepositories\libigl_CGAL_openGL\external\glad
+cd G:\gitRepositories\libigl_CGAL_openGL\external\glad
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/tmp/glad-download-gitupdate.cmake
+"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/tmp/glad-download-gitupdate.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -360,18 +360,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-download;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-update</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-update</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\d1126ef00c85487b63f4601f57879e1f\glad-download-patch.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\d1126ef00c85487b63f4601f57879e1f\glad-download-patch.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">No patch step for 'glad-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-patch
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-patch
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -379,14 +379,14 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-update;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-patch</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-patch</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">No patch step for 'glad-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-patch
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-patch
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -394,14 +394,14 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-update;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-patch</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-patch</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">No patch step for 'glad-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-patch
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-patch
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -409,14 +409,14 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-update;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-patch</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-patch</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">No patch step for 'glad-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-patch
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-patch
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -424,22 +424,22 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-update;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-patch</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-patch</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\d1126ef00c85487b63f4601f57879e1f\glad-download-configure.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\d1126ef00c85487b63f4601f57879e1f\glad-download-configure.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">No configure step for 'glad-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-cd E:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glad-build
+cd G:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glad-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-configure
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-configure
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -447,18 +447,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\tmp\glad-download-cfgcmd.txt;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-patch;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-configure</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\tmp\glad-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-configure</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">No configure step for 'glad-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-cd E:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glad-build
+cd G:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glad-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-configure
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-configure
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -466,18 +466,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\tmp\glad-download-cfgcmd.txt;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-patch;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-configure</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\tmp\glad-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-configure</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">No configure step for 'glad-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
-cd E:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glad-build
+cd G:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glad-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-configure
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-configure
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -485,18 +485,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\tmp\glad-download-cfgcmd.txt;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-patch;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-configure</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\tmp\glad-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-configure</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">No configure step for 'glad-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
-cd E:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glad-build
+cd G:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glad-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-configure
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-configure
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -504,22 +504,22 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\tmp\glad-download-cfgcmd.txt;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-patch;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-configure</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\tmp\glad-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-configure</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\d1126ef00c85487b63f4601f57879e1f\glad-download-build.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\d1126ef00c85487b63f4601f57879e1f\glad-download-build.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">No build step for 'glad-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-cd E:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glad-build
+cd G:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glad-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-build
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-build
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -527,18 +527,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-configure;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-build</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-build</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">No build step for 'glad-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-cd E:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glad-build
+cd G:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glad-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-build
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-build
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -546,18 +546,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-configure;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-build</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-build</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">No build step for 'glad-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
-cd E:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glad-build
+cd G:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glad-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-build
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-build
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -565,18 +565,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-configure;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-build</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-build</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">No build step for 'glad-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
-cd E:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glad-build
+cd G:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glad-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-build
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-build
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -584,22 +584,22 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-configure;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-build</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-build</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\d1126ef00c85487b63f4601f57879e1f\glad-download-install.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\d1126ef00c85487b63f4601f57879e1f\glad-download-install.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">No install step for 'glad-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-cd E:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glad-build
+cd G:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glad-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-install
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-install
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -607,18 +607,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-build;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-install</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-install</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">No install step for 'glad-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-cd E:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glad-build
+cd G:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glad-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-install
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-install
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -626,18 +626,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-build;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-install</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-install</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">No install step for 'glad-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
-cd E:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glad-build
+cd G:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glad-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-install
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-install
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -645,18 +645,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-build;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-install</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-install</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">No install step for 'glad-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
-cd E:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glad-build
+cd G:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glad-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-install
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-install
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -664,22 +664,22 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-build;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-install</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-install</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\d1126ef00c85487b63f4601f57879e1f\glad-download-test.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\d1126ef00c85487b63f4601f57879e1f\glad-download-test.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">No test step for 'glad-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-cd E:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glad-build
+cd G:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glad-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-test
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-test
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -687,18 +687,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-install;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-test</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-test</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">No test step for 'glad-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-cd E:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glad-build
+cd G:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glad-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-test
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-test
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -706,18 +706,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-install;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-test</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-test</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">No test step for 'glad-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
-cd E:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glad-build
+cd G:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glad-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-test
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-test
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -725,18 +725,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-install;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-test</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-test</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">No test step for 'glad-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
-cd E:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glad-build
+cd G:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glad-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
 "C:\Program Files\CMake\bin\cmake.exe" -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-test
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-test
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -744,20 +744,20 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-install;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-test</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-test</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\6b767f3b678045862443aa05d16ad0fa\glad-download-complete.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\6b767f3b678045862443aa05d16ad0fa\glad-download-complete.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Completed 'glad-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/CMakeFiles/$(Configuration)
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/CMakeFiles/$(Configuration)
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/CMakeFiles/$(Configuration)/glad-download-complete
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/CMakeFiles/$(Configuration)/glad-download-complete
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-done
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-done
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -765,16 +765,16 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-install;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-mkdir;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-download;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-update;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-patch;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-configure;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-build;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-test;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\$(Configuration)\glad-download-complete</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\$(Configuration)\glad-download-complete</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Completed 'glad-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/CMakeFiles/$(Configuration)
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/CMakeFiles/$(Configuration)
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/CMakeFiles/$(Configuration)/glad-download-complete
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/CMakeFiles/$(Configuration)/glad-download-complete
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-done
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-done
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -782,16 +782,16 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-install;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-mkdir;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-download;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-update;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-patch;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-configure;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-build;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-test;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\$(Configuration)\glad-download-complete</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\$(Configuration)\glad-download-complete</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Completed 'glad-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/CMakeFiles/$(Configuration)
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/CMakeFiles/$(Configuration)
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/CMakeFiles/$(Configuration)/glad-download-complete
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/CMakeFiles/$(Configuration)/glad-download-complete
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-done
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-done
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -799,16 +799,16 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-install;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-mkdir;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-download;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-update;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-patch;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-configure;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-build;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-test;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\$(Configuration)\glad-download-complete</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\$(Configuration)\glad-download-complete</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Completed 'glad-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/CMakeFiles/$(Configuration)
+"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/CMakeFiles/$(Configuration)
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/CMakeFiles/$(Configuration)/glad-download-complete
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/CMakeFiles/$(Configuration)/glad-download-complete
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-done
+"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/glad-download-prefix/src/glad-download-stamp/$(Configuration)/glad-download-done
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -816,13 +816,13 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-install;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-mkdir;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-download;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-update;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-patch;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-configure;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-build;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-test;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\$(Configuration)\glad-download-complete</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\src\glad-download-stamp\$(Configuration)\glad-download-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\$(Configuration)\glad-download-complete</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\a13773862b3b99db3328ff0ec56e26ab\glad-download.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\a13773862b3b99db3328ff0ec56e26ab\glad-download.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"></Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
 :cmEnd
@@ -831,8 +831,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\$(Configuration)\glad-download-complete;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\glad-download</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\$(Configuration)\glad-download-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\glad-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"></Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
@@ -842,8 +842,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\$(Configuration)\glad-download-complete;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\glad-download</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\$(Configuration)\glad-download-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\glad-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'"></Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
@@ -853,8 +853,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\$(Configuration)\glad-download-complete;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\glad-download</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\$(Configuration)\glad-download-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\glad-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'"></Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
@@ -864,16 +864,16 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\$(Configuration)\glad-download-complete;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\glad-download</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\$(Configuration)\glad-download-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\glad-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeLists.txt">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/CMakeLists.txt</Message>
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeLists.txt">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SE:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad -BE:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad --check-stamp-file E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -881,12 +881,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\3.21.0-rc2\CMakeSystem.cmake;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\tmp\glad-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\3.21.0-rc2\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\tmp\glad-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SE:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad -BE:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad --check-stamp-file E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -894,12 +894,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\3.21.0-rc2\CMakeSystem.cmake;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\tmp\glad-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\3.21.0-rc2\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\tmp\glad-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SE:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad -BE:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad --check-stamp-file E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -907,12 +907,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\3.21.0-rc2\CMakeSystem.cmake;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\tmp\glad-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\3.21.0-rc2\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\tmp\glad-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/CMakeLists.txt</Message>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SE:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad -BE:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad --check-stamp-file E:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/CMakeFiles/generate.stamp
+"C:\Program Files\CMake\bin\cmake.exe" -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glad/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -920,17 +920,17 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\3.21.0-rc2\CMakeSystem.cmake;E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\tmp\glad-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\generate.stamp</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\3.21.0-rc2\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\glad-download-prefix\tmp\glad-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <None Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\glad-download">
+    <None Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\glad-download">
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\ZERO_CHECK.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\ZERO_CHECK.vcxproj">
       <Project>{CB0ECC2B-C27B-3592-80A3-96BEE5104761}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>

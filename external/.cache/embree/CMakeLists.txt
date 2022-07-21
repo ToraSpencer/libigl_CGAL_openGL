@@ -8,8 +8,8 @@ project(embree-download NONE)
 include(ExternalProject)
 ExternalProject_Add(embree-download
                     TLS_VERIFY;OFF;GIT_CONFIG;advice.detachedHead=false;GIT_REPOSITORY;https://github.com/embree/embree.git;GIT_TAG;v3.12.1
-                    SOURCE_DIR          "E:/gitRepositories/libigl_CGAL_openGL/cmake/../external/embree"
-                    BINARY_DIR          "E:/gitRepositories/libigl_CGAL_openGL/build/embree-build"
+                    SOURCE_DIR          "G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/embree"
+                    BINARY_DIR          "G:/gitRepositories/libigl_CGAL_openGL/build/embree-build"
                     CONFIGURE_COMMAND   ""
                     BUILD_COMMAND       ""
                     INSTALL_COMMAND     ""

@@ -1,20 +1,20 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <ClCompile Include="E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\src\6.pbr\2.1.1.ibl_irradiance_conversion\ibl_irradiance_conversion.cpp">
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\src\6.pbr\2.1.1.ibl_irradiance_conversion\ibl_irradiance_conversion.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\CMakeLists.txt" />
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\src\6.pbr\2.1.1.ibl_irradiance_conversion\2.1.1.background.fs" />
-    <None Include="E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\src\6.pbr\2.1.1.ibl_irradiance_conversion\2.1.1.background.vs" />
-    <None Include="E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\src\6.pbr\2.1.1.ibl_irradiance_conversion\2.1.1.cubemap.vs" />
-    <None Include="E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\src\6.pbr\2.1.1.ibl_irradiance_conversion\2.1.1.equirectangular_to_cubemap.fs" />
-    <None Include="E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\src\6.pbr\2.1.1.ibl_irradiance_conversion\2.1.1.pbr.fs" />
-    <None Include="E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\src\6.pbr\2.1.1.ibl_irradiance_conversion\2.1.1.pbr.vs" />
+    <None Include="G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\src\6.pbr\2.1.1.ibl_irradiance_conversion\2.1.1.background.fs" />
+    <None Include="G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\src\6.pbr\2.1.1.ibl_irradiance_conversion\2.1.1.background.vs" />
+    <None Include="G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\src\6.pbr\2.1.1.ibl_irradiance_conversion\2.1.1.cubemap.vs" />
+    <None Include="G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\src\6.pbr\2.1.1.ibl_irradiance_conversion\2.1.1.equirectangular_to_cubemap.fs" />
+    <None Include="G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\src\6.pbr\2.1.1.ibl_irradiance_conversion\2.1.1.pbr.fs" />
+    <None Include="G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\src\6.pbr\2.1.1.ibl_irradiance_conversion\2.1.1.pbr.vs" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">

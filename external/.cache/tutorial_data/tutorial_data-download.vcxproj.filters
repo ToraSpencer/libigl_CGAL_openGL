@@ -1,40 +1,40 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tutorial_data\CMakeFiles\3c0ecaf10f137a4f9ce627e59a2a1a89\tutorial_data-download-mkdir.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tutorial_data\CMakeFiles\3c0ecaf10f137a4f9ce627e59a2a1a89\tutorial_data-download-mkdir.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tutorial_data\CMakeFiles\3c0ecaf10f137a4f9ce627e59a2a1a89\tutorial_data-download-download.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tutorial_data\CMakeFiles\3c0ecaf10f137a4f9ce627e59a2a1a89\tutorial_data-download-download.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tutorial_data\CMakeFiles\3c0ecaf10f137a4f9ce627e59a2a1a89\tutorial_data-download-update.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tutorial_data\CMakeFiles\3c0ecaf10f137a4f9ce627e59a2a1a89\tutorial_data-download-update.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tutorial_data\CMakeFiles\3c0ecaf10f137a4f9ce627e59a2a1a89\tutorial_data-download-patch.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tutorial_data\CMakeFiles\3c0ecaf10f137a4f9ce627e59a2a1a89\tutorial_data-download-patch.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tutorial_data\CMakeFiles\3c0ecaf10f137a4f9ce627e59a2a1a89\tutorial_data-download-configure.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tutorial_data\CMakeFiles\3c0ecaf10f137a4f9ce627e59a2a1a89\tutorial_data-download-configure.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tutorial_data\CMakeFiles\3c0ecaf10f137a4f9ce627e59a2a1a89\tutorial_data-download-build.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tutorial_data\CMakeFiles\3c0ecaf10f137a4f9ce627e59a2a1a89\tutorial_data-download-build.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tutorial_data\CMakeFiles\3c0ecaf10f137a4f9ce627e59a2a1a89\tutorial_data-download-install.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tutorial_data\CMakeFiles\3c0ecaf10f137a4f9ce627e59a2a1a89\tutorial_data-download-install.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tutorial_data\CMakeFiles\3c0ecaf10f137a4f9ce627e59a2a1a89\tutorial_data-download-test.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tutorial_data\CMakeFiles\3c0ecaf10f137a4f9ce627e59a2a1a89\tutorial_data-download-test.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tutorial_data\CMakeFiles\345c38165d4ffe1746f2844be2886a4e\tutorial_data-download-complete.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tutorial_data\CMakeFiles\345c38165d4ffe1746f2844be2886a4e\tutorial_data-download-complete.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tutorial_data\CMakeFiles\1d6ccfe88c421691d81d0bbb6450f4bb\tutorial_data-download.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tutorial_data\CMakeFiles\1d6ccfe88c421691d81d0bbb6450f4bb\tutorial_data-download.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tutorial_data\CMakeLists.txt" />
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tutorial_data\CMakeLists.txt" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="E:\gitRepositories\libigl_CGAL_openGL\external\.cache\tutorial_data\CMakeFiles\tutorial_data-download" />
+    <None Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tutorial_data\CMakeFiles\tutorial_data-download" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">

@@ -59,29 +59,29 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:/gitRepositories/libigl_CGAL_openGL/LearnOpenGL-master/bin/1.getting_started/Debug</LocalDebuggerWorkingDirectory>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\bin\1.getting_started\Debug\</OutDir>
+    <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:/gitRepositories/libigl_CGAL_openGL/LearnOpenGL-master/bin/1.getting_started/Debug</LocalDebuggerWorkingDirectory>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\bin\1.getting_started\Debug\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">1.getting_started__3.2.shaders_interpolation.dir\Debug\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">1.getting_started__3.2.shaders_interpolation</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
-    <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:/gitRepositories/libigl_CGAL_openGL/LearnOpenGL-master/bin/1.getting_started/Debug</LocalDebuggerWorkingDirectory>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\bin\1.getting_started\Release\</OutDir>
+    <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:/gitRepositories/libigl_CGAL_openGL/LearnOpenGL-master/bin/1.getting_started/Debug</LocalDebuggerWorkingDirectory>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\bin\1.getting_started\Release\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">1.getting_started__3.2.shaders_interpolation.dir\Release\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">1.getting_started__3.2.shaders_interpolation</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
-    <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:/gitRepositories/libigl_CGAL_openGL/LearnOpenGL-master/bin/1.getting_started/Debug</LocalDebuggerWorkingDirectory>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\bin\1.getting_started\MinSizeRel\</OutDir>
+    <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:/gitRepositories/libigl_CGAL_openGL/LearnOpenGL-master/bin/1.getting_started/Debug</LocalDebuggerWorkingDirectory>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\bin\1.getting_started\MinSizeRel\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">1.getting_started__3.2.shaders_interpolation.dir\MinSizeRel\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">1.getting_started__3.2.shaders_interpolation</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
     <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
     <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
-    <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:/gitRepositories/libigl_CGAL_openGL/LearnOpenGL-master/bin/1.getting_started/Debug</LocalDebuggerWorkingDirectory>
-    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\bin\1.getting_started\RelWithDebInfo\</OutDir>
+    <LocalDebuggerWorkingDirectory Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:/gitRepositories/libigl_CGAL_openGL/LearnOpenGL-master/bin/1.getting_started/Debug</LocalDebuggerWorkingDirectory>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\bin\1.getting_started\RelWithDebInfo\</OutDir>
     <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">1.getting_started__3.2.shaders_interpolation.dir\RelWithDebInfo\</IntDir>
     <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">1.getting_started__3.2.shaders_interpolation</TargetName>
     <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
@@ -90,7 +90,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGLBuild\configuration;E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGLBuild\configuration;G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /EHsc"%3B"-std=c++11</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
@@ -109,10 +109,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGLBuild\configuration;E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGLBuild\configuration;G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGLBuild\configuration;E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGLBuild\configuration;G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -121,12 +121,12 @@
     </Midl>
     <Link>
       <AdditionalDependencies>glfw3.lib;opengl32.lib;assimp.lib;freetype.lib;irrKlang.lib;Debug\STB_IMAGE.lib;Debug\GLAD.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>E:/gitRepositories/libigl_CGAL_openGL/LearnOpenGL-master/lib;E:/gitRepositories/libigl_CGAL_openGL/LearnOpenGL-master/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>G:/gitRepositories/libigl_CGAL_openGL/LearnOpenGL-master/lib;G:/gitRepositories/libigl_CGAL_openGL/LearnOpenGL-master/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>E:/gitRepositories/libigl_CGAL_openGL/LearnOpenGLBuild/Debug/1.getting_started__3.2.shaders_interpolation.lib</ImportLibrary>
-      <ProgramDataBaseFile>E:/gitRepositories/libigl_CGAL_openGL/LearnOpenGL-master/bin/1.getting_started/Debug/1.getting_started__3.2.shaders_interpolation.pdb</ProgramDataBaseFile>
+      <ImportLibrary>G:/gitRepositories/libigl_CGAL_openGL/LearnOpenGLBuild/Debug/1.getting_started__3.2.shaders_interpolation.lib</ImportLibrary>
+      <ProgramDataBaseFile>G:/gitRepositories/libigl_CGAL_openGL/LearnOpenGL-master/bin/1.getting_started/Debug/1.getting_started__3.2.shaders_interpolation.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -135,7 +135,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGLBuild\configuration;E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGLBuild\configuration;G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /EHsc"%3B"-std=c++11</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>
@@ -154,10 +154,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGLBuild\configuration;E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGLBuild\configuration;G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGLBuild\configuration;E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGLBuild\configuration;G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -166,12 +166,12 @@
     </Midl>
     <Link>
       <AdditionalDependencies>glfw3.lib;opengl32.lib;assimp.lib;freetype.lib;irrKlang.lib;Release\STB_IMAGE.lib;Release\GLAD.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>E:/gitRepositories/libigl_CGAL_openGL/LearnOpenGL-master/lib;E:/gitRepositories/libigl_CGAL_openGL/LearnOpenGL-master/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>G:/gitRepositories/libigl_CGAL_openGL/LearnOpenGL-master/lib;G:/gitRepositories/libigl_CGAL_openGL/LearnOpenGL-master/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>E:/gitRepositories/libigl_CGAL_openGL/LearnOpenGLBuild/Release/1.getting_started__3.2.shaders_interpolation.lib</ImportLibrary>
-      <ProgramDataBaseFile>E:/gitRepositories/libigl_CGAL_openGL/LearnOpenGL-master/bin/1.getting_started/Release/1.getting_started__3.2.shaders_interpolation.pdb</ProgramDataBaseFile>
+      <ImportLibrary>G:/gitRepositories/libigl_CGAL_openGL/LearnOpenGLBuild/Release/1.getting_started__3.2.shaders_interpolation.lib</ImportLibrary>
+      <ProgramDataBaseFile>G:/gitRepositories/libigl_CGAL_openGL/LearnOpenGL-master/bin/1.getting_started/Release/1.getting_started__3.2.shaders_interpolation.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -180,7 +180,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGLBuild\configuration;E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGLBuild\configuration;G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /EHsc"%3B"-std=c++11</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <ExceptionHandling>
@@ -199,10 +199,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGLBuild\configuration;E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGLBuild\configuration;G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGLBuild\configuration;E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGLBuild\configuration;G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -211,12 +211,12 @@
     </Midl>
     <Link>
       <AdditionalDependencies>glfw3.lib;opengl32.lib;assimp.lib;freetype.lib;irrKlang.lib;MinSizeRel\STB_IMAGE.lib;MinSizeRel\GLAD.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>E:/gitRepositories/libigl_CGAL_openGL/LearnOpenGL-master/lib;E:/gitRepositories/libigl_CGAL_openGL/LearnOpenGL-master/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>G:/gitRepositories/libigl_CGAL_openGL/LearnOpenGL-master/lib;G:/gitRepositories/libigl_CGAL_openGL/LearnOpenGL-master/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>false</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>E:/gitRepositories/libigl_CGAL_openGL/LearnOpenGLBuild/MinSizeRel/1.getting_started__3.2.shaders_interpolation.lib</ImportLibrary>
-      <ProgramDataBaseFile>E:/gitRepositories/libigl_CGAL_openGL/LearnOpenGL-master/bin/1.getting_started/MinSizeRel/1.getting_started__3.2.shaders_interpolation.pdb</ProgramDataBaseFile>
+      <ImportLibrary>G:/gitRepositories/libigl_CGAL_openGL/LearnOpenGLBuild/MinSizeRel/1.getting_started__3.2.shaders_interpolation.lib</ImportLibrary>
+      <ProgramDataBaseFile>G:/gitRepositories/libigl_CGAL_openGL/LearnOpenGL-master/bin/1.getting_started/MinSizeRel/1.getting_started__3.2.shaders_interpolation.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -225,7 +225,7 @@
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <ClCompile>
-      <AdditionalIncludeDirectories>E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGLBuild\configuration;E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGLBuild\configuration;G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AdditionalOptions>%(AdditionalOptions) /EHsc"%3B"-std=c++11</AdditionalOptions>
       <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
       <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
@@ -243,10 +243,10 @@
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
-      <AdditionalIncludeDirectories>E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGLBuild\configuration;E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGLBuild\configuration;G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ResourceCompile>
     <Midl>
-      <AdditionalIncludeDirectories>E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGLBuild\configuration;E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGLBuild\configuration;G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\includes;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
       <HeaderFileName>%(Filename).h</HeaderFileName>
       <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
@@ -255,12 +255,12 @@
     </Midl>
     <Link>
       <AdditionalDependencies>glfw3.lib;opengl32.lib;assimp.lib;freetype.lib;irrKlang.lib;RelWithDebInfo\STB_IMAGE.lib;RelWithDebInfo\GLAD.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
-      <AdditionalLibraryDirectories>E:/gitRepositories/libigl_CGAL_openGL/LearnOpenGL-master/lib;E:/gitRepositories/libigl_CGAL_openGL/LearnOpenGL-master/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>G:/gitRepositories/libigl_CGAL_openGL/LearnOpenGL-master/lib;G:/gitRepositories/libigl_CGAL_openGL/LearnOpenGL-master/lib/$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
-      <ImportLibrary>E:/gitRepositories/libigl_CGAL_openGL/LearnOpenGLBuild/RelWithDebInfo/1.getting_started__3.2.shaders_interpolation.lib</ImportLibrary>
-      <ProgramDataBaseFile>E:/gitRepositories/libigl_CGAL_openGL/LearnOpenGL-master/bin/1.getting_started/RelWithDebInfo/1.getting_started__3.2.shaders_interpolation.pdb</ProgramDataBaseFile>
+      <ImportLibrary>G:/gitRepositories/libigl_CGAL_openGL/LearnOpenGLBuild/RelWithDebInfo/1.getting_started__3.2.shaders_interpolation.lib</ImportLibrary>
+      <ProgramDataBaseFile>G:/gitRepositories/libigl_CGAL_openGL/LearnOpenGL-master/bin/1.getting_started/RelWithDebInfo/1.getting_started__3.2.shaders_interpolation.pdb</ProgramDataBaseFile>
       <SubSystem>Console</SubSystem>
     </Link>
     <ProjectReference>
@@ -268,20 +268,20 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\src\1.getting_started\3.2.shaders_interpolation\shaders_interpolation.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGL-master\src\1.getting_started\3.2.shaders_interpolation\shaders_interpolation.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGLBuild\ZERO_CHECK.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGLBuild\ZERO_CHECK.vcxproj">
       <Project>{1AAF53CA-B1A8-31A4-AB36-5F75D03F653E}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGLBuild\GLAD.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGLBuild\GLAD.vcxproj">
       <Project>{162B6DA2-B588-3A6A-83AF-D1AD96B3EF15}</Project>
       <Name>GLAD</Name>
     </ProjectReference>
-    <ProjectReference Include="E:\gitRepositories\libigl_CGAL_openGL\LearnOpenGLBuild\STB_IMAGE.vcxproj">
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\LearnOpenGLBuild\STB_IMAGE.vcxproj">
       <Project>{00E0907A-7F63-38B4-AE55-1FA28B89791F}</Project>
       <Name>STB_IMAGE</Name>
     </ProjectReference>

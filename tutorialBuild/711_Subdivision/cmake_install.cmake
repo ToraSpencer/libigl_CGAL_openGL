@@ -1,4 +1,4 @@
-# Install script for directory: E:/gitRepositories/libigl_CGAL_openGL/tutorial/711_Subdivision
+# Install script for directory: G:/gitRepositories/libigl_CGAL_openGL/tutorial/711_Subdivision
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
