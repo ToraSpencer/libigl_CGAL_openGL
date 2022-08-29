@@ -1,11 +1,3 @@
-// This file is part of libigl, a simple c++ geometry processing library.
-//
-// Copyright (C) 2015 Olga Diamanti <olga.diam@gmail.com>
-//
-// This Source Code Form is subject to the terms of the Mozilla Public License
-// v. 2.0. If a copy of the MPL was not distributed with this file, You can
-// obtain one at http://mozilla.org/MPL/2.0/.
-
 #ifndef IGL_DIJKSTRA
 #define IGL_DIJKSTRA
 #include "igl_inline.h"
@@ -39,6 +31,7 @@ namespace igl {
     Eigen::PlainObjectBase<DerivedD> &min_distance,
     Eigen::PlainObjectBase<DerivedP> &previous);
 
+
   // Dijkstra's algorithm for shortest paths, with multiple targets.
   // Adapted from http://rosettacode.org/wiki/Dijkstra%27s_algorithm .
   //
@@ -59,6 +52,7 @@ namespace igl {
     const std::vector<std::vector<IndexType> >& VV,
     Eigen::PlainObjectBase<DerivedD> &min_distance,
     Eigen::PlainObjectBase<DerivedP> &previous);
+
 
   // Backtracking after Dijkstra's algorithm, to find shortest path.
   //

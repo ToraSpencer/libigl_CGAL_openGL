@@ -1,10 +1,3 @@
-// This file is part of libigl, a simple c++ geometry processing library.
-// 
-// Copyright (C) 2016 Alec Jacobson <alecjacobson@gmail.com>
-//
-// This Source Code Form is subject to the terms of the Mozilla Public License 
-// v. 2.0. If a copy of the MPL was not distributed with this file, You can 
-// obtain one at http://mozilla.org/MPL/2.0/.
 #include "dijkstra.h"
 
 template <typename IndexType, typename DerivedD, typename DerivedP>
@@ -40,7 +33,8 @@ IGL_INLINE int igl::dijkstra(
     {
       IndexType v = *neighbor_iter;
       typename DerivedD::Scalar distance_through_u = dist + weights[u];
-      if (distance_through_u < min_distance[v]) {
+      if (distance_through_u < min_distance[v])
+      {
         vertex_queue.erase(std::make_pair(min_distance[v], v));
 
         min_distance[v] = distance_through_u;

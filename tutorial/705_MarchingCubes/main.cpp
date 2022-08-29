@@ -13,31 +13,38 @@ int main(int argc, char * argv[])
   using namespace Eigen;
   using namespace std;
   using namespace igl;
-  MatrixXi F;
-  MatrixXd V;
-  // Read in inputs as double precision floating point meshes
-  read_triangle_mesh(
-      TUTORIAL_SHARED_PATH "/armadillo.obj",V,F);
+  MatrixXi tris;
+  MatrixXd vers;
+
+  read_triangle_mesh(TUTORIAL_SHARED_PATH "/armadillo.obj",vers,tris);
   cout<<"Creating grid..."<<endl;
+
   // number of vertices on the largest side
   const int s = 100;
-  // create grid
+
+  // 生成栅格：
   MatrixXd GV;
   Eigen::RowVector3i res;
-  igl::voxel_grid(V,0,s,1,GV,res);
+  igl::voxel_grid(vers,0,s,1,GV,res);
  
   // compute values
   cout<<"Computing distances..."<<endl;
+
   VectorXd S,B;
+
   {
     VectorXi I;
     MatrixXd C,N;
-    signed_distance(GV,V,F,SIGNED_DISTANCE_TYPE_PSEUDONORMAL,S,I,C,N);
-    // Convert distances to binary inside-outside data --> aliasing artifacts
+    signed_distance(GV,vers,tris,SIGNED_DISTANCE_TYPE_PSEUDONORMAL,S,I,C,N);
+
+    // 符号距离场改写为符号场——网格内为-1，网格面上为0，外面为1：
     B = S;
-    for_each(B.data(),B.data()+B.size(),[](double& b){b=(b>0?1:(b<0?-1:0));});
+    for_each(B.data(),B.data()+B.size(),[](double& b)\
+        {
+            b=(b>0 ? 1 : (b<0 ? -1 : 0));
+        });
   }
-  cout<<"Marching cubes..."<<endl;
+
   MatrixXd SV,BV;
   MatrixXi SF,BF;
   igl::marching_cubes(S,GV,res(0),res(1),res(2),0,SV,SF);
@@ -59,7 +66,7 @@ int main(int argc, char * argv[])
           return false;
         case '1':
           viewer.data().clear();
-          viewer.data().set_mesh(V,F);
+          viewer.data().set_mesh(vers,tris);
           break;
         case '2':
           viewer.data().clear();

@@ -3,6 +3,8 @@
 #include "igl_inline.h"
 #include <Eigen/Core>
 #include <vector>
+
+// 图的深度优先搜索(DFS: depth first search)
 namespace igl
 {
   // Traverse a **directed** graph represented by an adjacency list using

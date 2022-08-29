@@ -1,4 +1,3 @@
-
 #include "Viewer.h"
 
 #include <chrono>
@@ -36,6 +35,10 @@
 #include <igl/snap_to_canonical_view_quat.h>
 #include <igl/unproject.h>
 #include <igl/serialize.h>
+
+// 不定义此宏则在实例化Viewer类时会在控制台上打印说明信息；
+#define IGL_VIEWER_VIEWER_QUIET
+
 
 // Internal global variables used for glfw event handling
 static igl::opengl::glfw::Viewer * __viewer;

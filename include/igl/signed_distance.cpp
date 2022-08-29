@@ -1,10 +1,3 @@
-// This file is part of libigl, a simple c++ geometry processing library.
-// 
-// Copyright (C) 2014 Alec Jacobson <alecjacobson@gmail.com>
-// 
-// This Source Code Form is subject to the terms of the Mozilla Public License 
-// v. 2.0. If a copy of the MPL was not distributed with this file, You can 
-// obtain one at http://mozilla.org/MPL/2.0/.
 #include "signed_distance.h"
 #include "get_seconds.h"
 #include "per_edge_normals.h"
@@ -135,6 +128,7 @@ IGL_INLINE void igl::signed_distance(
       N.resize(P.rows(),dim);
       break;
   }
+
   //
   // convert to bounds on (unsiged) squared distances
   typedef typename DerivedV::Scalar Scalar; 
@@ -233,6 +227,7 @@ IGL_INLINE void igl::signed_distance(
   ,10000);
 }
 
+
 template <
   typename DerivedP,
   typename DerivedV,
@@ -283,6 +278,7 @@ IGL_INLINE typename DerivedV::Scalar igl::signed_distance_pseudonormal(
   return s*sqrt(sqrd);
 }
 
+
 template <
   typename DerivedP,
   typename DerivedV,
@@ -331,6 +327,7 @@ IGL_INLINE void igl::signed_distance_pseudonormal(
   }
 }
 
+
 template <
   typename DerivedV,
   typename DerivedF,
@@ -367,6 +364,7 @@ IGL_INLINE void igl::signed_distance_pseudonormal(
   sqrd = tree.squared_distance(V,F,q,i,c);
   pseudonormal_test(V,F,FN,VN,EN,EMAP,q,i,c,s,n);
 }
+
 
 template <
   typename DerivedV,

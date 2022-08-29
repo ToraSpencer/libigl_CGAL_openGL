@@ -6,12 +6,15 @@
 #include <Eigen/Core>
 #include <Eigen/Geometry>
 #include <vector>
+
+// ²ã´Î°üÎ§ºÐÊ÷ 
+
 namespace igl
 {
   // Implementation of semi-general purpose axis-aligned bounding box hierarchy.
   // The mesh (V,Ele) is stored and managed by the caller and each routine here
   // simply takes it as references (it better not change between calls).
-  //
+ 
   // It's a little annoying that the Dimension is a template parameter and not
   // picked up at run time from V. This leads to duplicated code for 2d/3d (up to
   // dim).
@@ -23,12 +26,15 @@ public:
       typedef Eigen::Matrix<Scalar,1,DIM> RowVectorDIMS;
       typedef Eigen::Matrix<Scalar,DIM,1> VectorDIMS;
       typedef Eigen::Matrix<Scalar,Eigen::Dynamic,DIM> MatrixXDIMS;
+
       // Shared pointers are slower...
       AABB * m_left;
       AABB * m_right;
       Eigen::AlignedBox<Scalar,DIM> m_box;
+
       // -1 non-leaf
       int m_primitive;
+
       //Scalar m_low_sqr_d;
       //int m_depth;
       AABB():
@@ -37,6 +43,8 @@ public:
         //m_low_sqr_d(std::numeric_limits<double>::infinity()),
         //m_depth(0)
     {}
+
+
       // http://stackoverflow.com/a/3279550/148668
       AABB(const AABB& other):
         m_left(other.m_left ? new AABB(*other.m_left) : NULL),
@@ -49,6 +57,8 @@ public:
         //   m_right ? m_right->m_depth + 1 : 0))
         {
         }
+
+
       // copy-swap idiom
       friend void swap(AABB& first, AABB& second)
       {
@@ -61,18 +71,24 @@ public:
         //swap(first.m_low_sqr_d,second.m_low_sqr_d);
         //swap(first.m_depth,second.m_depth);
       }
+
+
       // Pass-by-value (aka copy)
       AABB& operator=(AABB other)
       {
         swap(*this,other);
         return *this;
       }
+
+
       AABB(AABB&& other):
         // initialize via default constructor
         AABB() 
       {
         swap(*this,other);
       }
+
+
       // Seems like there should have been an elegant solution to this using
       // the copy-swap idiom above:
       IGL_INLINE void deinit()
@@ -84,10 +100,14 @@ public:
         delete m_right;
         m_right = NULL;
       }
+
+
       ~AABB()
       {
         deinit();
       }
+
+
       // Build an Axis-Aligned Bounding Box tree for a given mesh and given
       // serialization of a previous AABB tree.
       //
@@ -110,11 +130,14 @@ public:
             const Eigen::MatrixBase<Derivedbb_maxs> & bb_maxs,
             const Eigen::MatrixBase<Derivedelements> & elements,
             const int i = 0);
+
+
       // Wrapper for root with empty serialization
       template <typename DerivedEle>
       IGL_INLINE void init(
           const Eigen::MatrixBase<DerivedV> & V,
           const Eigen::MatrixBase<DerivedEle> & Ele);
+
       // Build an Axis-Aligned Bounding Box tree for a given mesh.
       //
       // Inputs:

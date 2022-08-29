@@ -13,6 +13,7 @@
 #include <igl/sparse_voxel_grid.h>
 #include <igl/opengl/glfw/Viewer.h>
 
+
 int main(int argc, char * argv[])
 {
   const auto & tictoc = []()
@@ -24,35 +25,26 @@ int main(int argc, char * argv[])
   };
 
   // Create an interesting shape with sharp features using SDF CSG with spheres.
-  const auto & sphere = [](
-      const Eigen::RowVector3d & c,
-      const double r,
-      const Eigen::RowVector3d & x)->double
+  const auto & sphere = [](const Eigen::RowVector3d & c, const double r,  const Eigen::RowVector3d & x)->double
   {
     return (x-c).norm() - r;
   };
-  const std::function<double(const Eigen::RowVector3d & x)> f = 
-    [&](const Eigen::RowVector3d & x)->double
+
+  const std::function<double(const Eigen::RowVector3d & x)> f =  [&](const Eigen::RowVector3d & x)->double
   {
     return 
-      std::min(
-      std::min(std::max(
-      sphere(Eigen::RowVector3d(-0.2,0,-0.2),0.5,x),
-      -sphere(Eigen::RowVector3d(+0.2,0,0.2),0.5,x)),
-       sphere(Eigen::RowVector3d(-0.15,0,-0.15),0.3,x)
-      ),
-      std::max(
-      std::max(
-        sphere(Eigen::RowVector3d(-0.2,-0.5,-0.2),0.6,x),x(1)+0.45),-0.6-x(1))
-      );
+      std::min( std::min(std::max(
+          sphere(Eigen::RowVector3d(-0.2,0,-0.2),0.5,x),
+          -sphere(Eigen::RowVector3d(+0.2,0,0.2),0.5,x)),
+           sphere(Eigen::RowVector3d(-0.15,0,-0.15),0.3,x)
+         ),
+        std::max( std::max( sphere(Eigen::RowVector3d(-0.2,-0.5,-0.2),0.6,x),x(1)+0.45),-0.6-x(1)) );
   };
   Eigen::RowVector3d p0(-0.2,0.5,-0.2);
   assert(abs(f(p0)) < 1e-10 && "p0 should be on zero level-set");
 
   // Simple finite difference gradients
-  const auto & fd = [](
-    const std::function<double(const Eigen::RowVector3d&)> & f,
-    const Eigen::RowVector3d & x)
+  const auto & fd = [](const std::function<double(const Eigen::RowVector3d&)> & f, const Eigen::RowVector3d & x)
   {
     const double eps = 1e-10;
     Eigen::RowVector3d g;
@@ -66,6 +58,7 @@ int main(int argc, char * argv[])
     }
     return g;
   };
+
   const auto & f_grad = [&fd,&f](const Eigen::RowVector3d & x)
   {
     return fd(f,x).normalized();
@@ -83,8 +76,8 @@ int main(int argc, char * argv[])
   int nx = s+1;
   int ny = s+1;
   int nz = s+1;
-  const Eigen::RowVector3d step =
-    (max_corner-min_corner).array()/(Eigen::RowVector3d(nx,ny,nz).array()-1);
+  const Eigen::RowVector3d step =  (max_corner-min_corner).array()/(Eigen::RowVector3d(nx,ny,nz).array()-1);
+
   // Sparse grid below assumes regular grid
   assert((step(0) == step(1))&&(step(0) == step(2)));
 
@@ -169,6 +162,7 @@ int main(int argc, char * argv[])
 
   // Crisp (as possible) rendering of resulting MC triangle mesh
   igl::per_corner_normals(mcV,mcF,20,mcN);
+
   // Crisp rendering of resulting DC quad mesh with edges
   Eigen::MatrixXi E;
   Eigen::MatrixXd VV,N,NN;
@@ -183,7 +177,8 @@ int main(int argc, char * argv[])
       Q.col(0), Q.col(1), 
       Q.col(1), Q.col(2), 
       Q.col(2), Q.col(0);
-  }else
+  }
+  else
   {
     Eigen::VectorXi I,C;
     igl::polygon_corners(Q,I,C);
@@ -215,7 +210,8 @@ int main(int argc, char * argv[])
         vr.data().clear_edges();
         vr.data().set_edges(V,E,Eigen::RowVector3d(0,0,0));
       }
-    }else
+    }
+    else
     {
       vr.data().set_mesh(mcV,mcF);
       vr.data().set_normals(mcN);
@@ -223,8 +219,10 @@ int main(int argc, char * argv[])
     }
     vr.data().face_based = was_face_based;
   };
+
   update();
   vr.data().face_based = true;
+
   vr.callback_key_pressed = [&](decltype(vr) &,unsigned int key, int mod)
   {
     switch(key)

@@ -1,12 +1,7 @@
-// This file is part of libigl, a simple c++ geometry processing library.
-// 
-// Copyright (C) 2014 Alec Jacobson <alecjacobson@gmail.com>
-// 
-// This Source Code Form is subject to the terms of the Mozilla Public License 
-// v. 2.0. If a copy of the MPL was not distributed with this file, You can 
-// obtain one at http://mozilla.org/MPL/2.0/.
 #ifndef IGL_SIGNED_DISTANCE_H
 #define IGL_SIGNED_DISTANCE_H
+
+// 计算网格距离场：
 
 #include "igl_inline.h"
 #include "AABB.h"
@@ -28,6 +23,8 @@ namespace igl
     SIGNED_DISTANCE_TYPE_FAST_WINDING_NUMBER  = 4,
     NUM_SIGNED_DISTANCE_TYPE                  = 5
   };
+
+
   // Computes signed distance to a mesh
   //
   // Inputs:
@@ -66,6 +63,8 @@ namespace igl
     Eigen::PlainObjectBase<DerivedI> & I,
     Eigen::PlainObjectBase<DerivedC> & C,
     Eigen::PlainObjectBase<DerivedN> & N);
+
+
   // Computes signed distance to a mesh, with default bounds
   //
   // Inputs:
@@ -99,6 +98,8 @@ namespace igl
     Eigen::PlainObjectBase<DerivedI> & I,
     Eigen::PlainObjectBase<DerivedC> & C,
     Eigen::PlainObjectBase<DerivedN> & N);
+
+
   // Computes signed distance to mesh using pseudonormal with precomputed AABB tree and edge/vertice normals
   //
   // Inputs:
@@ -153,6 +154,8 @@ namespace igl
     Eigen::PlainObjectBase<DerivedI> & I,
     Eigen::PlainObjectBase<DerivedC> & C,
     Eigen::PlainObjectBase<DerivedN> & N);
+
+
   // Outputs:
   //   s  sign
   //   sqrd  squared distance
