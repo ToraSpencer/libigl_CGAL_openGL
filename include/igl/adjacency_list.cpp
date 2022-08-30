@@ -3,34 +3,32 @@
 #include "verbose.h"
 #include <algorithm>
 
+// 生成三角网格的无向边邻接表：
 template <typename Index, typename IndexVector>
-IGL_INLINE void igl::adjacency_list(
-    const Eigen::MatrixBase<Index>  & F,
-    std::vector<std::vector<IndexVector> >& A,
+IGL_INLINE void igl::adjacency_list(const Eigen::MatrixBase<Index>& tris,  std::vector<std::vector<IndexVector> >& adjList,
     bool sorted)
 {
-  A.clear(); 
-  A.resize(F.maxCoeff()+1);
-  
-  // Loop over faces
-  for(int i = 0;i<F.rows();i++)
+   int versCount = tris.maxCoeff() + 1;
+   int trisCount = tris.rows();
+  adjList.clear(); 
+  adjList.resize(versCount);
+
+  for(int i = 0; i < trisCount; i++)
   {
-    // Loop over this face
-    for(int j = 0;j<F.cols();j++)
+    for(int j = 0; j < tris.cols(); j++)                 // j == 0 时，index1 == vaIdx, index2 == vbIdx，
     {
-      // Get indices of edge: s --> d
-      int s = F(i,j);
-      int d = F(i,(j+1)%F.cols());
-      A.at(s).push_back(d);
-      A.at(d).push_back(s);
+      int index1 = tris(i, j);
+      int index2 = tris(i, (j+1)%tris.cols());
+      adjList.at(index1).push_back(index2);
+      adjList.at(index2).push_back(index1);
     }
   }
-  
-  // Remove duplicates
-  for(int i=0; i<(int)A.size();++i)
+ 
+  // 去除重复元素；
+  for(int i = 0; i < versCount; ++i)
   {
-    std::sort(A[i].begin(), A[i].end());
-    A[i].erase(std::unique(A[i].begin(), A[i].end()), A[i].end());
+    std::sort(adjList[i].begin(), adjList[i].end());
+    adjList[i].erase(std::unique(adjList[i].begin(), adjList[i].end()), adjList[i].end());
   }
   
   // If needed, sort every VV
@@ -40,18 +38,18 @@ IGL_INLINE void igl::adjacency_list(
     
     // for every vertex v store a set of ordered edges not incident to v that belongs to triangle incident on v.
     std::vector<std::vector<std::vector<int> > > SR; 
-    SR.resize(A.size());
+    SR.resize(adjList.size());
     
-    for(int i = 0;i<F.rows();i++)
+    for(int i = 0; i < tris.rows(); i++)
     {
       // Loop over this face
-      for(int j = 0;j<F.cols();j++)
+      for(int j = 0; j < tris.cols(); j++)
       {
         // Get indices of edge: s --> d
-        int s = F(i,j);
-        int d = F(i,(j+1)%F.cols());
+        int s = tris(i,j);
+        int d = tris(i, (j+1)%tris.cols());
         // Get index of opposing vertex v
-        int v = F(i,(j+2)%F.cols());
+        int v = tris(i, (j+2)%tris.cols());
         
         std::vector<int> e(2);
         e[0] = d;
@@ -62,9 +60,8 @@ IGL_INLINE void igl::adjacency_list(
     
     for(int v=0; v<(int)SR.size();++v)
     {
-      std::vector<IndexVector>& vv = A.at(v);
-      std::vector<std::vector<int> >& sr = SR[v];
-      
+      std::vector<IndexVector>& vv = adjList.at(v);
+      std::vector<std::vector<int> >& sr = SR[v];      
       std::vector<std::vector<int> > pn = sr;
       
       // Compute previous/next for every element in sr
@@ -111,8 +108,7 @@ IGL_INLINE void igl::adjacency_list(
         // finally produce the new vv relation
         for(int j=0; j<(int)sr.size();++j)
         {
-          vv[j] = sr[c][0];
-          
+          vv[j] = sr[c][0];          
           c = pn[c][1];
         }
       }
@@ -120,46 +116,48 @@ IGL_INLINE void igl::adjacency_list(
   }
 }
 
+
 template <typename Index>
 IGL_INLINE void igl::adjacency_list(
-  const std::vector<std::vector<Index> > & F,
-  std::vector<std::vector<Index> >& A)
+  const std::vector<std::vector<Index> > & tris,
+  std::vector<std::vector<Index> >& adjList)
 {
-  A.clear();
+  adjList.clear();
   
   // Find maxCoeff
   Index maxCoeff = 0;
-  for(const auto &vec : F)
+  for(const auto &vec : tris)
   {
     for(int coeff : vec)
     {
       maxCoeff = std::max(coeff, maxCoeff);
     }
   }
-  A.resize(maxCoeff + 1);
+  adjList.resize(maxCoeff + 1);
   
   // Loop over faces
-  for(int i = 0;i<F.size();i++)
+  for(int i = 0;i<tris.size();i++)
   {
     // Loop over this face
-    for(int j = 0;j<F[i].size();j++)
+    for(int j = 0;j<tris[i].size();j++)
     {
       // Get indices of edge: s --> d
-      int s = F[i][j];
-      int d = F[i][(j+1)%F[i].size()];
-      A.at(s).push_back(d);
-      A.at(d).push_back(s);
+      int s = tris[i][j];
+      int d = tris[i][(j+1)%tris[i].size()];
+      adjList.at(s).push_back(d);
+      adjList.at(d).push_back(s);
     }
   }
   
   // Remove duplicates
-  for(int i=0; i<(int)A.size();++i)
+  for(int i=0; i<(int)adjList.size();++i)
   {
-    std::sort(A[i].begin(), A[i].end());
-    A[i].erase(std::unique(A[i].begin(), A[i].end()), A[i].end());
+    std::sort(adjList[i].begin(), adjList[i].end());
+    adjList[i].erase(std::unique(adjList[i].begin(), adjList[i].end()), adjList[i].end());
   }
   
 }
+
 
 #ifdef IGL_STATIC_LIBRARY
 // Explicit template instantiation

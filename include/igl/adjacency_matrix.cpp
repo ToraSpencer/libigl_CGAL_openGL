@@ -1,75 +1,67 @@
-// This file is part of libigl, a simple c++ geometry processing library.
-//
-// Copyright (C) 2013 Alec Jacobson <alecjacobson@gmail.com>
-//
-// This Source Code Form is subject to the terms of the Mozilla Public License
-// v. 2.0. If a copy of the MPL was not distributed with this file, You can
-// obtain one at http://mozilla.org/MPL/2.0/.
 #include "adjacency_matrix.h"
 
 #include "verbose.h"
 
 #include <vector>
 
+// 生成三角网格或四边形网格的邻接矩阵；有向边存在元素为1，否则为0；
 template <typename DerivedF, typename T>
-IGL_INLINE void igl::adjacency_matrix(
-  const Eigen::MatrixBase<DerivedF> & F,
-  Eigen::SparseMatrix<T>& A)
+IGL_INLINE void igl::adjacency_matrix(const Eigen::MatrixBase<DerivedF> & tris,  Eigen::SparseMatrix<T>& adjM)
 {
   using namespace std;
   using namespace Eigen;
   typedef typename DerivedF::Scalar Index;
-
   typedef Triplet<T> IJV;
-  vector<IJV > ijv;
-  ijv.reserve(F.size()*2);
-  // Loop over **simplex** (i.e., **not quad**)
-  for(int i = 0;i<F.rows();i++)
-  {
-    // Loop over this **simplex**
-    for(int j = 0;j<F.cols();j++)
-    for(int k = j+1;k<F.cols();k++)
-    {
-      // Get indices of edge: s --> d
-      Index s = F(i,j);
-      Index d = F(i,k);
-      ijv.push_back(IJV(s,d,1));
-      ijv.push_back(IJV(d,s,1));
-    }
-  }
 
-  const Index n = F.maxCoeff()+1;
-  A.resize(n,n);
-  switch(F.cols())
+  int trisCount = tris.rows();
+  vector<IJV > ijv;
+  ijv.reserve(tris.size()*2);
+
+  // Loop over **simplex** (i.e., **not quad**)
+  for(int i = 0; i < trisCount; i++)
+    for(int j = 0; j < tris.cols(); j++)
+        for(int k = j+1; k < tris.cols(); k++)
+        {
+          // Get indices of edge: s --> d
+          Index index1 = tris(i, j);
+          Index index2 = tris(i, k);
+          ijv.push_back(IJV(index1, index2, 1));
+          ijv.push_back(IJV(index2, index1, 1));
+        } 
+
+  const Index versCount = tris.maxCoeff() + 1;
+  adjM.resize(versCount, versCount);
+  switch(tris.cols())
   {
     case 3:
-      A.reserve(6*(F.maxCoeff()+1));
+      adjM.reserve(6* versCount);
       break;
     case 4:
-      A.reserve(26*(F.maxCoeff()+1));
+      adjM.reserve(26* versCount);
       break;
   }
-  A.setFromTriplets(ijv.begin(),ijv.end());
+  adjM.setFromTriplets(ijv.begin(),ijv.end());
 
   // Force all non-zeros to be one
 
   // Iterate over outside
-  for(int k=0; k<A.outerSize(); ++k)
+  for(int k=0; k < adjM.outerSize(); ++k)
   {
     // Iterate over inside
-    for(typename Eigen::SparseMatrix<T>::InnerIterator it (A,k); it; ++it)
+    for(typename Eigen::SparseMatrix<T>::InnerIterator it (adjM,k); it; ++it)
     {
       assert(it.value() != 0);
-      A.coeffRef(it.row(),it.col()) = 1;
+      adjM.coeffRef(it.row(),it.col()) = 1;
     }
   }
 }
+
 
 template <typename DerivedI, typename DerivedC, typename T>
 IGL_INLINE void igl::adjacency_matrix(
   const Eigen::MatrixBase<DerivedI> & I,
   const Eigen::MatrixBase<DerivedC> & C,
-  Eigen::SparseMatrix<T>& A)
+  Eigen::SparseMatrix<T>& adjM)
 {
   using namespace std;
   using namespace Eigen;
@@ -78,7 +70,7 @@ IGL_INLINE void igl::adjacency_matrix(
   vector<IJV > ijv;
   ijv.reserve(C(C.size()-1)*2);
   typedef typename DerivedI::Scalar Index;
-  const Index n = I.maxCoeff()+1;
+  const Index versCount = I.maxCoeff()+1;
   {
     // loop over polygons
     for(Index p = 0;p<C.size()-1;p++)
@@ -96,20 +88,20 @@ IGL_INLINE void igl::adjacency_matrix(
     }
   }
 
-  A.resize(n,n);
-  A.reserve(6*n);
-  A.setFromTriplets(ijv.begin(),ijv.end());
+  adjM.resize(versCount,versCount);
+  adjM.reserve(6*versCount);
+  adjM.setFromTriplets(ijv.begin(),ijv.end());
 
   // Force all non-zeros to be one
 
   // Iterate over outside
-  for(int k=0; k<A.outerSize(); ++k)
+  for(int k=0; k<adjM.outerSize(); ++k)
   {
     // Iterate over inside
-    for(typename Eigen::SparseMatrix<T>::InnerIterator it (A,k); it; ++it)
+    for(typename Eigen::SparseMatrix<T>::InnerIterator it (adjM,k); it; ++it)
     {
       assert(it.value() != 0);
-      A.coeffRef(it.row(),it.col()) = 1;
+      adjM.coeffRef(it.row(),it.col()) = 1;
     }
   }
 }

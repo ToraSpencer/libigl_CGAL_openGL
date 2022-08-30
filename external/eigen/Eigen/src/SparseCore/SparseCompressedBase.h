@@ -10,17 +10,19 @@
 #ifndef EIGEN_SPARSE_COMPRESSED_BASE_H
 #define EIGEN_SPARSE_COMPRESSED_BASE_H
 
-namespace Eigen { 
-
+namespace Eigen
+{ 
 template<typename Derived> class SparseCompressedBase;
   
-namespace internal {
+namespace internal
+{
 
 template<typename Derived>
 struct traits<SparseCompressedBase<Derived> > : traits<Derived>
 {};
 
 } // end namespace internal
+
 
 /** \ingroup SparseCore_Module
   * \class SparseCompressedBase
@@ -132,6 +134,7 @@ class SparseCompressedBase
     template<typename OtherDerived> explicit SparseCompressedBase(const SparseCompressedBase<OtherDerived>&);
 };
 
+
 template<typename Derived>
 class SparseCompressedBase<Derived>::InnerIterator
 {
@@ -203,12 +206,14 @@ class SparseCompressedBase<Derived>::InnerIterator
     const OuterType m_outer;
     Index m_id;
     Index m_end;
+
   private:
     // If you get here, then you're not using the right InnerIterator type, e.g.:
     //   SparseMatrix<double,RowMajor> A;
     //   SparseMatrix<double>::InnerIterator it(A,0);
     template<typename T> InnerIterator(const SparseMatrixBase<T>&, Index outer);
 };
+
 
 template<typename Derived>
 class SparseCompressedBase<Derived>::ReverseInnerIterator
@@ -264,6 +269,7 @@ class SparseCompressedBase<Derived>::ReverseInnerIterator
     Index m_start;
     Index m_id;
 };
+
 
 namespace internal {
 

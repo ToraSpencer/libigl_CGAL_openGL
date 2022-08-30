@@ -4,12 +4,12 @@ template <typename IndexType, typename DerivedD, typename DerivedP>
 IGL_INLINE int igl::dijkstra(
   const IndexType &source,
   const std::set<IndexType> &targets,
-  const std::vector<std::vector<IndexType> >& VV,
+  const std::vector<std::vector<IndexType> >& adjList,
   const std::vector<double>& weights,
   Eigen::PlainObjectBase<DerivedD> &min_distance,
   Eigen::PlainObjectBase<DerivedP> &previous)
 {
-  int numV = VV.size();
+  int numV = adjList.size();
   min_distance.setConstant(numV, 1, std::numeric_limits<typename DerivedD::Scalar>::max());
   min_distance[source] = 0;
   previous.setConstant(numV, 1, -1);
@@ -26,7 +26,7 @@ IGL_INLINE int igl::dijkstra(
       return u;
 
     // Visit each edge exiting u
-    const std::vector<int> &neighbors = VV[u];
+    const std::vector<int> &neighbors = adjList[u];
     for (std::vector<int>::const_iterator neighbor_iter = neighbors.begin();
          neighbor_iter != neighbors.end();
          neighbor_iter++)
@@ -53,12 +53,12 @@ template <typename IndexType, typename DerivedD, typename DerivedP>
 IGL_INLINE int igl::dijkstra(
   const IndexType &source,
   const std::set<IndexType> &targets,
-  const std::vector<std::vector<IndexType> >& VV,
+  const std::vector<std::vector<IndexType> >& adjList,
   Eigen::PlainObjectBase<DerivedD> &min_distance,
   Eigen::PlainObjectBase<DerivedP> &previous)
 {
-  std::vector<double> weights(VV.size(), 1.0);
-  return dijkstra(source, targets, VV, weights, min_distance, previous);
+  std::vector<double> weights(adjList.size(), 1.0);
+  return dijkstra(source, targets, adjList, weights, min_distance, previous);
 }
 
 template <typename IndexType, typename DerivedP>
@@ -78,13 +78,13 @@ template <typename IndexType, typename DerivedV,
 typename DerivedD, typename DerivedP>
 IGL_INLINE int igl::dijkstra(
   const Eigen::MatrixBase<DerivedV> &V,
-  const std::vector<std::vector<IndexType> >& VV,
+  const std::vector<std::vector<IndexType> >& adjList,
   const IndexType &source,
   const std::set<IndexType> &targets,
   Eigen::PlainObjectBase<DerivedD> &min_distance,
   Eigen::PlainObjectBase<DerivedP> &previous)
 {
-  int numV = VV.size();
+  int numV = adjList.size();
 
   min_distance.setConstant(numV, 1, std::numeric_limits<typename DerivedD::Scalar>::infinity());
   min_distance[source] = 0;
@@ -102,7 +102,7 @@ IGL_INLINE int igl::dijkstra(
       return u;
 
     // Visit each edge exiting u
-    const std::vector<int> &neighbors = VV[u];
+    const std::vector<int> &neighbors = adjList[u];
     for (std::vector<int>::const_iterator neighbor_iter = neighbors.begin();
          neighbor_iter != neighbors.end();
          neighbor_iter++)

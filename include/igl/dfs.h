@@ -7,41 +7,46 @@
 // 图的深度优先搜索(DFS: depth first search)
 namespace igl
 {
-  // Traverse a **directed** graph represented by an adjacency list using
-  // depth first search
-  //
-  // Inputs:
-  //   A  #V list of adjacency lists
-  //   s  starting node (index into A)
-  // Outputs:
-  //   D  #V list of indices into rows of A in the order in which graph nodes
-  //     are discovered.
-  //   P  #V list of indices into rows of A of predecessor in resulting
-  //     spanning tree {-1 indicates root/not discovered), order corresponds to
-  //     V **not** D.
-  //   C  #V list of indices into rows of A in order that nodes are "closed"
-  //     (all descendants have been discovered)
-  template <
-    typename AType,
+    /*
+       Traverse a **directed** graph represented by an adjacency list using
+       depth first search
+  
+       Inputs:
+         adjList  #V list of adjacency lists
+         startIdx  starting node (index into adjList)
+
+       Outputs:
+         discoveredIdx  #V list of indices into rows of adjList in the order in which graph nodes are discovered.
+
+         dfsTreeVec  #V list of indices into rows of adjList of predecessor in resulting
+           spanning tree {-1 indicates root/not discovered), order corresponds to
+           V **not** discoveredIdx.
+
+         C  #V list of indices into rows of adjList in order that nodes are "closed"
+           (all descendants have been discovered)
+  */
+  template <typename AType,
     typename DerivedD,
     typename DerivedP,
     typename DerivedC>
   IGL_INLINE void dfs(
-    const std::vector<std::vector<AType> > & A,
-    const size_t s,
-    Eigen::PlainObjectBase<DerivedD> & D,
-    Eigen::PlainObjectBase<DerivedP> & P,
+    const std::vector<std::vector<AType> > & adjList,
+    const size_t startIdx,
+    Eigen::PlainObjectBase<DerivedD> & discoveredIdx,
+    Eigen::PlainObjectBase<DerivedP> & dfsTreeVec,
     Eigen::PlainObjectBase<DerivedC> & C);
+
+
   template <
     typename AType,
     typename DType,
     typename PType,
     typename CType>
   IGL_INLINE void dfs(
-    const std::vector<std::vector<AType> > & A,
-    const size_t s,
-    std::vector<DType> & D,
-    std::vector<PType> & P,
+    const std::vector<std::vector<AType> > & adjList,
+    const size_t startIdx,
+    std::vector<DType> & discoveredIdx,
+    std::vector<PType> & dfsTreeVec,
     std::vector<CType> & C);
 
 }
