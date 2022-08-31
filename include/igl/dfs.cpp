@@ -12,7 +12,7 @@ template <typename AType,
 IGL_INLINE void igl::dfs(const std::vector<std::vector<AType>>& adjList,  const size_t startIdx,
   Eigen::PlainObjectBase<DerivedD> & discoveredIdx,
   Eigen::PlainObjectBase<DerivedP> & dfsTreeVec,
-  Eigen::PlainObjectBase<DerivedC> & C)
+  Eigen::PlainObjectBase<DerivedC> & closedIdx)
 {
   std::vector<typename DerivedD::Scalar> vD;
   std::vector<typename DerivedP::Scalar> vP;
@@ -20,7 +20,7 @@ IGL_INLINE void igl::dfs(const std::vector<std::vector<AType>>& adjList,  const 
   dfs(adjList,startIdx,vD,vP,vC);
   list_to_matrix(vD,discoveredIdx);
   list_to_matrix(vP,dfsTreeVec);
-  list_to_matrix(vC,C);
+  list_to_matrix(vC,closedIdx);
 }
 
 
@@ -32,7 +32,7 @@ template <typename AType,
 IGL_INLINE void igl::dfs(const std::vector<std::vector<AType>> & adjList, const size_t startIdx,
   std::vector<DType> & discoveredIdx,
   std::vector<PType> & dfsTreeVec,
-  std::vector<CType> & C)
+  std::vector<CType> & closedIdx)
 {
   int versCount = startIdx+1;
   for(const auto & vec : adjList) 
@@ -43,11 +43,11 @@ IGL_INLINE void igl::dfs(const std::vector<std::vector<AType>> & adjList, const 
   dfsTreeVec.resize(versCount, -1);
   std::function<void(const size_t, const size_t)> dfs_helper;
 
-  dfs_helper = [&discoveredIdx, &dfsTreeVec, &C, &dfs_helper, &visited, &adjList](const size_t index, const size_t parentIdx)
+  dfs_helper = [&discoveredIdx, &dfsTreeVec, &closedIdx, &dfs_helper, &visited, &adjList](const size_t index, const size_t parentIdx)
   {
       /*
-            递归递推： dfs_helper(index, parentIdx) → dfs_helper(childIdx, index)
-            递归终止： visited[index] == true; 或不存在childIdx，即adjList[index]为空；
+            递归递推： dfs_helper(index, parentIdx) → dfs_helper(adjIdx(未被访问的), index)
+            递归终止： 不存在未被访问的adjIdx作为本节点的孩子节点，即adjList[index]为空，或adjList[index]中的所有节点都已被访问；
       */
 
     if(visited[index])
@@ -59,7 +59,7 @@ IGL_INLINE void igl::dfs(const std::vector<std::vector<AType>> & adjList, const 
 
     for(const auto childIdx : adjList[index])
         dfs_helper(childIdx, index);
-    C.push_back(index);
+    closedIdx.push_back(index);
   };
 
   dfs_helper(startIdx, -1);

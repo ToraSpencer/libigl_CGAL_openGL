@@ -22,7 +22,7 @@ namespace igl
            spanning tree {-1 indicates root/not discovered), order corresponds to
            V **not** discoveredIdx.
 
-         C  #V list of indices into rows of adjList in order that nodes are "closed"
+         closedIdx  #V list of indices into rows of adjList in order that nodes are "closed"
            (all descendants have been discovered)
   */
   template <typename AType,
@@ -34,7 +34,7 @@ namespace igl
     const size_t startIdx,
     Eigen::PlainObjectBase<DerivedD> & discoveredIdx,
     Eigen::PlainObjectBase<DerivedP> & dfsTreeVec,
-    Eigen::PlainObjectBase<DerivedC> & C);
+    Eigen::PlainObjectBase<DerivedC> & closedIdx);
 
 
   template <
@@ -47,7 +47,7 @@ namespace igl
     const size_t startIdx,
     std::vector<DType> & discoveredIdx,
     std::vector<PType> & dfsTreeVec,
-    std::vector<CType> & C);
+    std::vector<CType> & closedIdx);
 
 }
 #ifndef IGL_STATIC_LIBRARY

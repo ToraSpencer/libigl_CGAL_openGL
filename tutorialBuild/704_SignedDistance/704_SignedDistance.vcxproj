@@ -137,7 +137,7 @@
       <ExceptionHandling>Sync</ExceptionHandling>
       <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
       <MultiProcessorCompilation>true</MultiProcessorCompilation>
-      <Optimization>MaxSpeed</Optimization>
+      <Optimization>Disabled</Optimization>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
       <RuntimeTypeInfo>true</RuntimeTypeInfo>

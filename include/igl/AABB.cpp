@@ -17,10 +17,12 @@
 #include <queue>
 #include <stack>
 
+
+// init()重载1
 template <typename DerivedV, int DIM>
 template <typename DerivedEle, typename Derivedbb_mins, typename Derivedbb_maxs, typename Derivedelements>
 IGL_INLINE void igl::AABB<DerivedV,DIM>::init(
-    const Eigen::MatrixBase<DerivedV> & V,
+    const Eigen::MatrixBase<DerivedV> & vers,
     const Eigen::MatrixBase<DerivedEle> & Ele,
     const Eigen::MatrixBase<Derivedbb_mins> & bb_mins,
     const Eigen::MatrixBase<Derivedbb_maxs> & bb_maxs,
@@ -29,11 +31,12 @@ IGL_INLINE void igl::AABB<DerivedV,DIM>::init(
 {
   using namespace std;
   using namespace Eigen;
+
   deinit();
   if(bb_mins.size() > 0)
   {
     assert(bb_mins.rows() == bb_maxs.rows() && "Serial tree arrays must match");
-    assert(bb_mins.cols() == V.cols() && "Serial tree array dim must match V");
+    assert(bb_mins.cols() == vers.cols() && "Serial tree array dim must match vers");
     assert(bb_mins.cols() == bb_maxs.cols() && "Serial tree arrays must match");
     assert(bb_mins.rows() == elements.rows() &&
         "Serial tree arrays must match");
@@ -45,9 +48,9 @@ IGL_INLINE void igl::AABB<DerivedV,DIM>::init(
     if(m_primitive == -1)
     {
       m_left = new AABB();
-      m_left->init( V,Ele,bb_mins,bb_maxs,elements,2*i+1);
+      m_left->init( vers,Ele,bb_mins,bb_maxs,elements,2*i+1);
       m_right = new AABB();
-      m_right->init( V,Ele,bb_mins,bb_maxs,elements,2*i+2);
+      m_right->init( vers,Ele,bb_mins,bb_maxs,elements,2*i+2);
       //m_depth = std::max( m_left->m_depth, m_right->m_depth)+1;
     }
   }else
@@ -57,11 +60,11 @@ IGL_INLINE void igl::AABB<DerivedV,DIM>::init(
     if(Ele.cols() == 1)
     {
       // points
-      BC = V;
+      BC = vers;
     }else
     {
       // Simplices
-      barycenter(V,Ele,BC);
+      barycenter(vers,Ele,BC);
     }
     MatrixXi SI(BC.rows(),BC.cols());
     {
@@ -78,28 +81,32 @@ IGL_INLINE void igl::AABB<DerivedV,DIM>::init(
         }
       }
     }
-    init(V,Ele,SI,allI);
+    init(vers,Ele,SI,allI);
   }
 }
 
+
+// init()重载1.1——直接读取网格，构造BVH对象；
 template <typename DerivedV, int DIM>
 template <typename DerivedEle>
 void igl::AABB<DerivedV,DIM>::init(
-    const Eigen::MatrixBase<DerivedV> & V,
+    const Eigen::MatrixBase<DerivedV> & vers,
     const Eigen::MatrixBase<DerivedEle> & Ele)
 {
   using namespace Eigen;
   // deinit will be immediately called...
-  return init(V,Ele,MatrixXDIMS(),MatrixXDIMS(),VectorXi(),0);
+  return init(vers,Ele,MatrixXDIMS(),MatrixXDIMS(),VectorXi(),0);
 }
 
+
+// init()重载2
   template <typename DerivedV, int DIM>
 template <
   typename DerivedEle,
   typename DerivedSI,
   typename DerivedI>
 IGL_INLINE void igl::AABB<DerivedV,DIM>::init(
-    const Eigen::MatrixBase<DerivedV> & V,
+    const Eigen::MatrixBase<DerivedV> & vers,
     const Eigen::MatrixBase<DerivedEle> & Ele,
     const Eigen::MatrixBase<DerivedSI> & SI,
     const Eigen::MatrixBase<DerivedI> & I)
@@ -107,20 +114,20 @@ IGL_INLINE void igl::AABB<DerivedV,DIM>::init(
   using namespace Eigen;
   using namespace std;
   deinit();
-  if(V.size() == 0 || Ele.size() == 0 || I.size() == 0)
+  if(vers.size() == 0 || Ele.size() == 0 || I.size() == 0)
   {
     return;
   }
-  assert(DIM == V.cols() && "V.cols() should matched declared dimension");
+  assert(DIM == vers.cols() && "vers.cols() should matched declared dimension");
   //const Scalar inf = numeric_limits<Scalar>::infinity();
   m_box = AlignedBox<Scalar,DIM>();
   // Compute bounding box
   for(int i = 0;i<I.rows();i++)
   {
-    for(int c = 0;c<Ele.cols();c++)
+    for(int closestVer = 0;closestVer<Ele.cols();closestVer++)
     {
-      m_box.extend(V.row(Ele(I(i),c)).transpose());
-      m_box.extend(V.row(Ele(I(i),c)).transpose());
+      m_box.extend(vers.row(Ele(I(i),closestVer)).transpose());
+      m_box.extend(vers.row(Ele(I(i),closestVer)).transpose());
     }
   }
   switch(I.size())
@@ -175,18 +182,19 @@ IGL_INLINE void igl::AABB<DerivedV,DIM>::init(
         if(LI.rows()>0)
         {
           m_left = new AABB();
-          m_left->init(V,Ele,SI,LI);
+          m_left->init(vers,Ele,SI,LI);
           //m_depth = std::max(m_depth, m_left->m_depth+1);
         }
         if(RI.rows()>0)
         {
           m_right = new AABB();
-          m_right->init(V,Ele,SI,RI);
+          m_right->init(vers,Ele,SI,RI);
           //m_depth = std::max(m_depth, m_right->m_depth+1);
         }
       }
   }
 }
+
 
 template <typename DerivedV, int DIM>
 IGL_INLINE bool igl::AABB<DerivedV,DIM>::is_leaf() const
@@ -194,10 +202,11 @@ IGL_INLINE bool igl::AABB<DerivedV,DIM>::is_leaf() const
   return m_primitive != -1;
 }
 
+
 template <typename DerivedV, int DIM>
 template <typename DerivedEle, typename Derivedq>
 IGL_INLINE std::vector<int> igl::AABB<DerivedV,DIM>::find(
-    const Eigen::MatrixBase<DerivedV> & V,
+    const Eigen::MatrixBase<DerivedV> & vers,
     const Eigen::MatrixBase<DerivedEle> & Ele,
     const Eigen::MatrixBase<Derivedq> & q,
     const bool first) const
@@ -206,7 +215,7 @@ IGL_INLINE std::vector<int> igl::AABB<DerivedV,DIM>::find(
   using namespace Eigen;
   assert(q.size() == DIM &&
       "Query dimension should match aabb dimension");
-  assert(Ele.cols() == V.cols()+1 &&
+  assert(Ele.cols() == vers.cols()+1 &&
       "AABB::find only makes sense for (d+1)-simplices");
   const Scalar epsilon = igl::EPS<Scalar>();
   // Check if outside bounding box
@@ -226,10 +235,10 @@ IGL_INLINE std::vector<int> igl::AABB<DerivedV,DIM>::find(
         {
           // Barycentric coordinates
           typedef Eigen::Matrix<Scalar,1,3> RowVector3S;
-          const RowVector3S V1 = V.row(Ele(m_primitive,0));
-          const RowVector3S V2 = V.row(Ele(m_primitive,1));
-          const RowVector3S V3 = V.row(Ele(m_primitive,2));
-          const RowVector3S V4 = V.row(Ele(m_primitive,3));
+          const RowVector3S V1 = vers.row(Ele(m_primitive,0));
+          const RowVector3S V2 = vers.row(Ele(m_primitive,1));
+          const RowVector3S V3 = vers.row(Ele(m_primitive,2));
+          const RowVector3S V4 = vers.row(Ele(m_primitive,3));
           a1 = volume_single(V2,V4,V3,(RowVector3S)q);
           a2 = volume_single(V1,V3,V4,(RowVector3S)q);
           a3 = volume_single(V1,V4,V2,(RowVector3S)q);
@@ -240,9 +249,9 @@ IGL_INLINE std::vector<int> igl::AABB<DerivedV,DIM>::find(
         {
           // Barycentric coordinates
           typedef Eigen::Matrix<Scalar,2,1> Vector2S;
-          const Vector2S V1 = V.row(Ele(m_primitive,0));
-          const Vector2S V2 = V.row(Ele(m_primitive,1));
-          const Vector2S V3 = V.row(Ele(m_primitive,2));
+          const Vector2S V1 = vers.row(Ele(m_primitive,0));
+          const Vector2S V2 = vers.row(Ele(m_primitive,1));
+          const Vector2S V3 = vers.row(Ele(m_primitive,2));
           // Hack for now to keep templates simple. If becomes bottleneck
           // consider using std::enable_if_t
           const Vector2S q2 = q.head(2);
@@ -271,12 +280,12 @@ IGL_INLINE std::vector<int> igl::AABB<DerivedV,DIM>::find(
       return std::vector<int>();
     }
   }
-  std::vector<int> left = m_left->find(V,Ele,q,first);
+  std::vector<int> left = m_left->find(vers,Ele,q,first);
   if(first && !left.empty())
   {
     return left;
   }
-  std::vector<int> right = m_right->find(V,Ele,q,first);
+  std::vector<int> right = m_right->find(vers,Ele,q,first);
   if(first)
   {
     return right;
@@ -337,123 +346,120 @@ IGL_INLINE void igl::AABB<DerivedV,DIM>::serialize(
   }
 }
 
+
+// squared_distance()重载1.1
 template <typename DerivedV, int DIM>
 template <typename DerivedEle>
 IGL_INLINE typename igl::AABB<DerivedV,DIM>::Scalar
 igl::AABB<DerivedV,DIM>::squared_distance(
-  const Eigen::MatrixBase<DerivedV> & V,
+  const Eigen::MatrixBase<DerivedV> & vers,
   const Eigen::MatrixBase<DerivedEle> & Ele,
-  const RowVectorDIMS & p,
+  const RowVectorDIMS & ver0,
   int & i,
-  Eigen::PlainObjectBase<RowVectorDIMS> & c) const
+  Eigen::PlainObjectBase<RowVectorDIMS> & closestVer) const
 {
-  return squared_distance(V,Ele,p,std::numeric_limits<Scalar>::infinity(),i,c);
+  return squared_distance(vers,Ele,ver0, std::numeric_limits<Scalar>::infinity(), i, closestVer);
 }
 
 
+// squared_distance()重载1
 template <typename DerivedV, int DIM>
 template <typename DerivedEle>
 IGL_INLINE typename igl::AABB<DerivedV,DIM>::Scalar
 igl::AABB<DerivedV,DIM>::squared_distance(
-  const Eigen::MatrixBase<DerivedV> & V,
+  const Eigen::MatrixBase<DerivedV> & vers,
   const Eigen::MatrixBase<DerivedEle> & Ele,
-  const RowVectorDIMS & p,
-  Scalar low_sqr_d,
-  Scalar up_sqr_d,
-  int & i,
-  Eigen::PlainObjectBase<RowVectorDIMS> & c) const
+  const RowVectorDIMS & ver0,
+  Scalar low_sqr_d,             // 距离下界，一般取0.0
+  Scalar up_sqr_d,              // 距离上界，一般取std::numeric_limits<Scalar>::infinity()
+  int & i,                              // 和ver0点距离最近的网格面片索引；
+  Eigen::PlainObjectBase<RowVectorDIMS> & closestVer) const
 {
   using namespace Eigen;
   using namespace std;
-  //assert(low_sqr_d <= up_sqr_d);
+ 
   if(low_sqr_d > up_sqr_d)
-  {
     return low_sqr_d;
-  }
+
   Scalar sqr_d = up_sqr_d;
-  //assert(DIM == 3 && "Code has only been tested for DIM == 3");
+
   assert((Ele.cols() == 3 || Ele.cols() == 2 || Ele.cols() == 1)
     && "Code has only been tested for simplex sizes 3,2,1");
 
   assert(m_primitive==-1 || (m_left == NULL && m_right == NULL));
+
   if(is_leaf())
-  {
-    leaf_squared_distance(V,Ele,p,low_sqr_d,sqr_d,i,c);
-  }else
+    leaf_squared_distance(vers, Ele, ver0, low_sqr_d, sqr_d, i, closestVer);
+  else
   {
     bool looked_left = false;
     bool looked_right = false;
+
+    // lambda
     const auto & look_left = [&]()
     {
       int i_left;
-      RowVectorDIMS c_left = c;
-      Scalar sqr_d_left =
-        m_left->squared_distance(V,Ele,p,low_sqr_d,sqr_d,i_left,c_left);
-      this->set_min(p,sqr_d_left,i_left,c_left,sqr_d,i,c);
+      RowVectorDIMS c_left = closestVer;
+      Scalar sqr_d_left = m_left->squared_distance(vers,Ele,ver0,low_sqr_d,sqr_d,i_left,c_left);
+      this->set_min(ver0,sqr_d_left,i_left,c_left,sqr_d, i, closestVer);
       looked_left = true;
     };
+
+    // lambda
     const auto & look_right = [&]()
     {
       int i_right;
-      RowVectorDIMS c_right = c;
-      Scalar sqr_d_right =
-        m_right->squared_distance(V,Ele,p,low_sqr_d,sqr_d,i_right,c_right);
-      this->set_min(p,sqr_d_right,i_right,c_right,sqr_d,i,c);
+      RowVectorDIMS c_right = closestVer;
+      Scalar sqr_d_right = m_right->squared_distance(vers,Ele,ver0,low_sqr_d,sqr_d,i_right,c_right);
+      this->set_min(ver0,sqr_d_right,i_right,c_right,sqr_d,i,closestVer);
       looked_right = true;
     };
 
     // must look left or right if in box
-    if(m_left->m_box.contains(p.transpose()))
-    {
+    if(m_left->m_box.contains(ver0.transpose()))
       look_left();
-    }
-    if(m_right->m_box.contains(p.transpose()))
-    {
+    if(m_right->m_box.contains(ver0.transpose()))
       look_right();
-    }
+
     // if haven't looked left and could be less than current min, then look
-    Scalar left_up_sqr_d =
-      m_left->m_box.squaredExteriorDistance(p.transpose());
-    Scalar right_up_sqr_d =
-      m_right->m_box.squaredExteriorDistance(p.transpose());
+    Scalar left_up_sqr_d = m_left->m_box.squaredExteriorDistance(ver0.transpose());
+    Scalar right_up_sqr_d = m_right->m_box.squaredExteriorDistance(ver0.transpose());
+
     if(left_up_sqr_d < right_up_sqr_d)
     {
       if(!looked_left && left_up_sqr_d<sqr_d)
-      {
         look_left();
-      }
       if( !looked_right && right_up_sqr_d<sqr_d)
-      {
         look_right();
-      }
-    }else
+    }
+    else
     {
       if( !looked_right && right_up_sqr_d<sqr_d)
-      {
         look_right();
-      }
       if(!looked_left && left_up_sqr_d<sqr_d)
-      {
         look_left();
-      }
     }
   }
+
   return sqr_d;
 }
 
+
+// squared_distance()重载1.2
 template <typename DerivedV, int DIM>
 template <typename DerivedEle>
 IGL_INLINE typename igl::AABB<DerivedV,DIM>::Scalar
 igl::AABB<DerivedV,DIM>::squared_distance(
-  const Eigen::MatrixBase<DerivedV> & V,
+  const Eigen::MatrixBase<DerivedV> & vers,
   const Eigen::MatrixBase<DerivedEle> & Ele,
-  const RowVectorDIMS & p,
+  const RowVectorDIMS & ver0,
   Scalar up_sqr_d,
   int & i,
-  Eigen::PlainObjectBase<RowVectorDIMS> & c) const
+  Eigen::PlainObjectBase<RowVectorDIMS> & closestVer) const
 {
-  return squared_distance(V,Ele,p,0.0,up_sqr_d,i,c);
+  return squared_distance(vers, Ele, ver0, 0.0, up_sqr_d, i, closestVer);
 }
+
 
 template <typename DerivedV, int DIM>
 template <
@@ -463,31 +469,33 @@ template <
   typename DerivedI,
   typename DerivedC>
 IGL_INLINE void igl::AABB<DerivedV,DIM>::squared_distance(
-  const Eigen::MatrixBase<DerivedV> & V,
+  const Eigen::MatrixBase<DerivedV> & vers,
   const Eigen::MatrixBase<DerivedEle> & Ele,
-  const Eigen::MatrixBase<DerivedP> & P,
-  Eigen::PlainObjectBase<DerivedsqrD> & sqrD,
+  const Eigen::MatrixBase<DerivedP> & vers0,
+  Eigen::PlainObjectBase<DerivedsqrD> & minSqrDis,
   Eigen::PlainObjectBase<DerivedI> & I,
   Eigen::PlainObjectBase<DerivedC> & C) const
 {
-  assert(P.cols() == V.cols() && "cols in P should match dim of cols in V");
-  sqrD.resize(P.rows(),1);
-  I.resize(P.rows(),1);
-  C.resizeLike(P);
-  // O( #P * log #Ele ), where log #Ele is really the depth of this AABB
-  // hierarchy
-  //for(int p = 0;p<P.rows();p++)
-  igl::parallel_for(P.rows(),[&](int p)
-    {
-      RowVectorDIMS Pp = P.row(p), c;
-      int Ip;
-      sqrD(p) = squared_distance(V,Ele,Pp,Ip,c);
-      I(p) = Ip;
-      C.row(p).head(DIM) = c;
-    },
+  assert(vers0.cols() == vers.cols() && "cols in vers0 should match dim of cols in vers");
+  minSqrDis.resize(vers0.rows(),1);
+  I.resize(vers0.rows(),1);
+  C.resizeLike(vers0);
+
+  // O( #vers0 * log #Ele ), where log #Ele is really the depth of this AABB hierarchy
+
+  igl::parallel_for(vers0.rows(),[&](int num)
+        {
+          RowVectorDIMS Pp = vers0.row(num), closestVer;
+          int Ip;
+          minSqrDis(num) = squared_distance(vers, Ele, Pp, Ip, closestVer);
+          I(num) = Ip;
+          C.row(num).head(DIM) = closestVer;
+        },\
     10000);
 }
 
+
+// squared_distance()重载2
 template <typename DerivedV, int DIM>
 template <
   typename DerivedEle,
@@ -497,31 +505,32 @@ template <
   typename DerivedI,
   typename DerivedC>
 IGL_INLINE void igl::AABB<DerivedV,DIM>::squared_distance(
-  const Eigen::MatrixBase<DerivedV> & V,
+  const Eigen::MatrixBase<DerivedV> & vers,
   const Eigen::MatrixBase<DerivedEle> & Ele,
   const AABB<Derivedother_V,DIM> & other,
   const Eigen::MatrixBase<Derivedother_V> & other_V,
   const Eigen::MatrixBase<Derivedother_Ele> & other_Ele,
-  Eigen::PlainObjectBase<DerivedsqrD> & sqrD,
+  Eigen::PlainObjectBase<DerivedsqrD> & minSqrDis,
   Eigen::PlainObjectBase<DerivedI> & I,
   Eigen::PlainObjectBase<DerivedC> & C) const
 {
   assert(other_Ele.cols() == 1 &&
     "Only implemented for other as list of points");
-  assert(other_V.cols() == V.cols() && "other must match this dimension");
-  sqrD.setConstant(other_Ele.rows(),1,std::numeric_limits<double>::infinity());
+  assert(other_V.cols() == vers.cols() && "other must match this dimension");
+  minSqrDis.setConstant(other_Ele.rows(),1,std::numeric_limits<double>::infinity());
   I.resize(other_Ele.rows(),1);
   C.resize(other_Ele.rows(),other_V.cols());
+
   // All points in other_V currently think they need to check against root of
   // this. The point of using another AABB is to quickly prune chunks of
   // other_V so that most points just check some subtree of this.
 
-  // This holds a conservative estimate of max(sqr_D) where sqr_D is the
-  // current best minimum squared distance for all points in this subtree
+  // This holds a conservative estimate of max(sqr_D) where sqr_D is the current best minimum squared distance for all points in this subtree
   double up_sqr_d = std::numeric_limits<double>::infinity();
-  squared_distance_helper(
-    V,Ele,&other,other_V,other_Ele,0,up_sqr_d,sqrD,I,C);
+  squared_distance_helper(vers, Ele, &other, other_V, other_Ele, 0, up_sqr_d, minSqrDis, I, C);
 }
+
+
 
 template <typename DerivedV, int DIM>
 template <
@@ -533,13 +542,13 @@ template <
   typename DerivedC>
 IGL_INLINE typename igl::AABB<DerivedV,DIM>::Scalar
   igl::AABB<DerivedV,DIM>::squared_distance_helper(
-  const Eigen::MatrixBase<DerivedV> & V,
+  const Eigen::MatrixBase<DerivedV> & vers,
   const Eigen::MatrixBase<DerivedEle> & Ele,
   const AABB<Derivedother_V,DIM> * other,
   const Eigen::MatrixBase<Derivedother_V> & other_V,
   const Eigen::MatrixBase<Derivedother_Ele> & other_Ele,
   const Scalar /*up_sqr_d*/,
-  Eigen::PlainObjectBase<DerivedsqrD> & sqrD,
+  Eigen::PlainObjectBase<DerivedsqrD> & minSqrDis,
   Eigen::PlainObjectBase<DerivedI> & I,
   Eigen::PlainObjectBase<DerivedC> & C) const
 {
@@ -553,219 +562,69 @@ IGL_INLINE typename igl::AABB<DerivedV,DIM>::Scalar
   // Base case
   if(other->is_leaf() && this->is_leaf())
   {
-    Scalar sqr_d = sqrD(other->m_primitive);
+    Scalar sqr_d = minSqrDis(other->m_primitive);
     int i = I(other->m_primitive);
-    RowVectorDIMS c = C.row(      other->m_primitive);
-    RowVectorDIMS p = other_V.row(other->m_primitive);
-    leaf_squared_distance(V,Ele,p,sqr_d,i,c);
-    sqrD( other->m_primitive) = sqr_d;
-    I(    other->m_primitive) = i;
-    C.row(other->m_primitive) = c;
-    //cout<<"leaf: "<<sqr_d<<endl;
-    //other->m_low_sqr_d = sqr_d;
+    RowVectorDIMS closestVer = C.row(      other->m_primitive);
+    RowVectorDIMS ver0 = other_V.row(other->m_primitive);
+    leaf_squared_distance(vers,Ele,ver0,sqr_d,i,closestVer);
+    minSqrDis( other->m_primitive) = sqr_d;
+    I(other->m_primitive) = i;
+    C.row(other->m_primitive) = closestVer;
     return sqr_d;
   }
 
   if(other->is_leaf())
   {
-    Scalar sqr_d = sqrD(other->m_primitive);
+    Scalar sqr_d = minSqrDis(other->m_primitive);
     int i = I(other->m_primitive);
-    RowVectorDIMS c = C.row(      other->m_primitive);
-    RowVectorDIMS p = other_V.row(other->m_primitive);
-    sqr_d = squared_distance(V,Ele,p,sqr_d,i,c);
-    sqrD( other->m_primitive) = sqr_d;
-    I(    other->m_primitive) = i;
-    C.row(other->m_primitive) = c;
-    //other->m_low_sqr_d = sqr_d;
+    RowVectorDIMS closestVer = C.row(      other->m_primitive);
+    RowVectorDIMS ver0 = other_V.row(other->m_primitive);
+    sqr_d = squared_distance(vers,Ele,ver0,sqr_d,i,closestVer);
+    minSqrDis( other->m_primitive) = sqr_d;
+    I(other->m_primitive) = i;
+    C.row(other->m_primitive) = closestVer;
     return sqr_d;
   }
 
-  //// Exact minimum squared distance between arbitrary primitives inside this and
-  //// othre's bounding boxes
-  //const auto & min_squared_distance = [&](
-  //  const AABB<DerivedV,DIM> * A,
-  //  const AABB<Derivedother_V,DIM> * B)->Scalar
-  //{
-  //  return A->m_box.squaredExteriorDistance(B->m_box);
-  //};
-
   if(this->is_leaf())
   {
-    //if(min_squared_distance(this,other) < other->m_low_sqr_d)
     if(true)
     {
-      this->squared_distance_helper(
-        V,Ele,other->m_left,other_V,other_Ele,0,sqrD,I,C);
-      this->squared_distance_helper(
-        V,Ele,other->m_right,other_V,other_Ele,0,sqrD,I,C);
-    }else
-    {
-      // This is never reached...
+      this->squared_distance_helper(vers,Ele,other->m_left,other_V,other_Ele,0,minSqrDis,I,C);
+      this->squared_distance_helper(vers,Ele,other->m_right,other_V,other_Ele,0,minSqrDis,I,C);
     }
-    //// we know other is not a leaf
-    //other->m_low_sqr_d = std::max(other->m_left->m_low_sqr_d,other->m_right->m_low_sqr_d);
     return 0;
   }
 
   // FORCE DOWN TO OTHER LEAF EVAL
-  //if(min_squared_distance(this,other) < other->m_low_sqr_d)
   if(true)
   {
     if(true)
     {
-      this->squared_distance_helper(
-        V,Ele,other->m_left,other_V,other_Ele,0,sqrD,I,C);
-      this->squared_distance_helper(
-        V,Ele,other->m_right,other_V,other_Ele,0,sqrD,I,C);
-    }else // this direction never seems to be faster
-    {
-      this->m_left->squared_distance_helper(
-        V,Ele,other,other_V,other_Ele,0,sqrD,I,C);
-      this->m_right->squared_distance_helper(
-        V,Ele,other,other_V,other_Ele,0,sqrD,I,C);
+      this->squared_distance_helper(vers,Ele,other->m_left,other_V,other_Ele,0,minSqrDis,I,C);
+      this->squared_distance_helper(vers,Ele,other->m_right,other_V,other_Ele,0,minSqrDis,I,C);
     }
-  }else
-  {
-    // this is never reached ... :-(
-  }
-  //// we know other is not a leaf
-  //other->m_low_sqr_d = std::max(other->m_left->m_low_sqr_d,other->m_right->m_low_sqr_d);
-
-  return 0;
-#if 0 // False
-
-  // _Very_ conservative approximation of maximum squared distance between
-  // primitives inside this and other's bounding boxes
-  const auto & max_squared_distance = [](
-    const AABB<DerivedV,DIM> * A,
-    const AABB<Derivedother_V,DIM> * B)->Scalar
-  {
-    AlignedBox<Scalar,DIM> combo = A->m_box;
-    combo.extend(B->m_box);
-    return combo.diagonal().squaredNorm();
-  };
-
-  //// other base-case
-  //if(other->is_leaf())
-  //{
-  //  double sqr_d = sqrD(other->m_primitive);
-  //  int i = I(other->m_primitive);
-  //  RowVectorDIMS c = C.row(m_primitive);
-  //  RowVectorDIMS p = other_V.row(m_primitive);
-  //  leaf_squared_distance(V,Ele,p,sqr_d,i,c);
-  //  sqrD(other->m_primitive) = sqr_d;
-  //  I(other->m_primitive) = i;
-  //  C.row(m_primitive) = c;
-  //  return;
-  //}
-  std::vector<const AABB<DerivedV,DIM> * > this_list;
-  if(this->is_leaf())
-  {
-    this_list.push_back(this);
-  }else
-  {
-    assert(this->m_left);
-    this_list.push_back(this->m_left);
-    assert(this->m_right);
-    this_list.push_back(this->m_right);
-  }
-  std::vector<AABB<Derivedother_V,DIM> *> other_list;
-  if(other->is_leaf())
-  {
-    other_list.push_back(other);
-  }else
-  {
-    assert(other->m_left);
-    other_list.push_back(other->m_left);
-    assert(other->m_right);
-    other_list.push_back(other->m_right);
-  }
-
-  //const std::function<Scalar(
-  //  const AABB<Derivedother_V,DIM> * other)
-  //    > low_sqr_d = [&sqrD,&low_sqr_d](const AABB<Derivedother_V,DIM> * other)->Scalar
-  //  {
-  //    if(other->is_leaf())
-  //    {
-  //      return sqrD(other->m_primitive);
-  //    }else
-  //    {
-  //      return std::max(low_sqr_d(other->m_left),low_sqr_d(other->m_right));
-  //    }
-  //  };
-
-  //// Potentially recurse on all pairs, if minimum distance is less than running
-  //// bound
-  //Eigen::Matrix<Scalar,Eigen::Dynamic,1> other_low_sqr_d =
-  //  Eigen::Matrix<Scalar,Eigen::Dynamic,1>::Constant(other_list.size(),1,up_sqr_d);
-  for(size_t child = 0;child<other_list.size();child++)
-  {
-    auto other_tree = other_list[child];
-
-    Eigen::Matrix<Scalar,Eigen::Dynamic,1> this_low_sqr_d(this_list.size(),1);
-    for(size_t t = 0;t<this_list.size();t++)
+    else // this direction never seems to be faster
     {
-      const auto this_tree = this_list[t];
-      this_low_sqr_d(t) = max_squared_distance(this_tree,other_tree);
+      this->m_left->squared_distance_helper(vers,Ele,other,other_V,other_Ele,0,minSqrDis,I,C);
+      this->m_right->squared_distance_helper(vers,Ele,other,other_V,other_Ele,0,minSqrDis,I,C);
     }
-    if(this_list.size() ==2 &&
-      ( this_low_sqr_d(0) > this_low_sqr_d(1))
-      )
-    {
-      std::swap(this_list[0],this_list[1]);
-      //std::swap(this_low_sqr_d(0),this_low_sqr_d(1));
-    }
-    const Scalar sqr_d = this_low_sqr_d.minCoeff();
-
-
-    for(size_t t = 0;t<this_list.size();t++)
-    {
-      const auto this_tree = this_list[t];
-
-      //const auto mm = low_sqr_d(other_tree);
-      //const Scalar mc = other_low_sqr_d(child);
-      //assert(mc == mm);
-      // Only look left/right in this_list if can possible decrease somebody's
-      // distance in this_tree.
-      const Scalar min_this_other = min_squared_distance(this_tree,other_tree);
-      if(
-          min_this_other < sqr_d &&
-          min_this_other < other_tree->m_low_sqr_d)
-      {
-        //cout<<"before: "<<other_low_sqr_d(child)<<endl;
-        //other_low_sqr_d(child) = std::min(
-        //  other_low_sqr_d(child),
-        //  this_tree->squared_distance_helper(
-        //    V,Ele,other_tree,other_V,other_Ele,other_low_sqr_d(child),sqrD,I,C));
-        //cout<<"after: "<<other_low_sqr_d(child)<<endl;
-          this_tree->squared_distance_helper(
-            V,Ele,other_tree,other_V,other_Ele,0,sqrD,I,C);
-      }
-    }
-  }
-  //const Scalar ret = other_low_sqr_d.maxCoeff();
-  //const auto mm = low_sqr_d(other);
-  //assert(mm == ret);
-  //cout<<"non-leaf: "<<ret<<endl;
-  //return ret;
-  if(!other->is_leaf())
-  {
-    other->m_low_sqr_d = std::max(other->m_left->m_low_sqr_d,other->m_right->m_low_sqr_d);
   }
   return 0;
-#endif
+
 }
+
 
 template <typename DerivedV, int DIM>
 template <typename DerivedEle>
 IGL_INLINE void igl::AABB<DerivedV,DIM>::leaf_squared_distance(
-  const Eigen::MatrixBase<DerivedV> & V,
+  const Eigen::MatrixBase<DerivedV> & vers,
   const Eigen::MatrixBase<DerivedEle> & Ele,
-  const RowVectorDIMS & p,
+  const RowVectorDIMS & ver0,
   const Scalar low_sqr_d,
   Scalar & sqr_d,
   int & i,
-  Eigen::PlainObjectBase<RowVectorDIMS> & c) const
+  Eigen::PlainObjectBase<RowVectorDIMS> & closestVer) const
 {
   using namespace Eigen;
   using namespace std;
@@ -777,21 +636,21 @@ IGL_INLINE void igl::AABB<DerivedV,DIM>::leaf_squared_distance(
   RowVectorDIMS c_candidate;
   Scalar sqr_d_candidate;
   igl::point_simplex_squared_distance<DIM>(
-    p,V,Ele,m_primitive,sqr_d_candidate,c_candidate);
-  set_min(p,sqr_d_candidate,m_primitive,c_candidate,sqr_d,i,c);
+    ver0,vers,Ele,m_primitive,sqr_d_candidate,c_candidate);
+  set_min(ver0,sqr_d_candidate,m_primitive,c_candidate,sqr_d,i,closestVer);
 }
 
 template <typename DerivedV, int DIM>
 template <typename DerivedEle>
 IGL_INLINE void igl::AABB<DerivedV,DIM>::leaf_squared_distance(
-  const Eigen::MatrixBase<DerivedV> & V,
+  const Eigen::MatrixBase<DerivedV> & vers,
   const Eigen::MatrixBase<DerivedEle> & Ele,
-  const RowVectorDIMS & p,
+  const RowVectorDIMS & ver0,
   Scalar & sqr_d,
   int & i,
-  Eigen::PlainObjectBase<RowVectorDIMS> & c) const
+  Eigen::PlainObjectBase<RowVectorDIMS> & closestVer) const
 {
-  return leaf_squared_distance(V,Ele,p,0,sqr_d,i,c);
+  return leaf_squared_distance(vers,Ele,ver0,0,sqr_d,i,closestVer);
 }
 
 
@@ -799,7 +658,7 @@ template <typename DerivedV, int DIM>
 IGL_INLINE void igl::AABB<DerivedV,DIM>::set_min(
   const RowVectorDIMS &
 #ifndef NDEBUG
-  p
+  ver0
 #endif
   ,
   const Scalar sqr_d_candidate,
@@ -807,19 +666,19 @@ IGL_INLINE void igl::AABB<DerivedV,DIM>::set_min(
   const RowVectorDIMS & c_candidate,
   Scalar & sqr_d,
   int & i,
-  Eigen::PlainObjectBase<RowVectorDIMS> & c) const
+  Eigen::PlainObjectBase<RowVectorDIMS> & closestVer) const
 {
 #ifndef NDEBUG
   //std::cout<<matlab_format(c_candidate,"c_candidate")<<std::endl;
   //// This doesn't quite make sense to check with bounds
-  // const Scalar pc_norm = (p-c_candidate).squaredNorm();
+  // const Scalar pc_norm = (ver0-c_candidate).squaredNorm();
   // const Scalar diff = fabs(sqr_d_candidate - pc_norm);
   // assert(diff<=1e-10 && "distance should match norm of difference");
 #endif
   if(sqr_d_candidate < sqr_d)
   {
     i = i_candidate;
-    c = c_candidate;
+    closestVer = c_candidate;
     sqr_d = sqr_d_candidate;
   }
 }
@@ -829,7 +688,7 @@ template <typename DerivedV, int DIM>
 template <typename DerivedEle>
 IGL_INLINE bool
 igl::AABB<DerivedV,DIM>::intersect_ray(
-  const Eigen::MatrixBase<DerivedV> & V,
+  const Eigen::MatrixBase<DerivedV> & vers,
   const Eigen::MatrixBase<DerivedEle> & Ele,
   const RowVectorDIMS & origin,
   const RowVectorDIMS & dir,
@@ -850,7 +709,7 @@ igl::AABB<DerivedV,DIM>::intersect_ray(
     // Actually process elements
     assert((Ele.size() == 0 || Ele.cols() == 3) && "Elements should be triangles");
     // Cheesecake way of hitting element
-    bool ret = ray_mesh_intersect(origin,dir,V,Ele.row(m_primitive),hits);
+    bool ret = ray_mesh_intersect(origin,dir,vers,Ele.row(m_primitive),hits);
     // Since we only gave ray_mesh_intersect a single face, it will have set
     // any hits to id=0. Set these to this primitive's id
     for(auto & hit : hits)
@@ -861,8 +720,8 @@ igl::AABB<DerivedV,DIM>::intersect_ray(
   }
   std::vector<igl::Hit> left_hits;
   std::vector<igl::Hit> right_hits;
-  const bool left_ret = m_left->intersect_ray(V,Ele,origin,dir,left_hits);
-  const bool right_ret = m_right->intersect_ray(V,Ele,origin,dir,right_hits);
+  const bool left_ret = m_left->intersect_ray(vers,Ele,origin,dir,left_hits);
+  const bool right_ret = m_right->intersect_ray(vers,Ele,origin,dir,right_hits);
   hits.insert(hits.end(),left_hits.begin(),left_hits.end());
   hits.insert(hits.end(),right_hits.begin(),right_hits.end());
   return left_ret || right_ret;
@@ -872,7 +731,7 @@ template <typename DerivedV, int DIM>
 template <typename DerivedEle>
 IGL_INLINE bool
 igl::AABB<DerivedV,DIM>::intersect_ray(
-  const Eigen::MatrixBase<DerivedV> & V,
+  const Eigen::MatrixBase<DerivedV> & vers,
   const Eigen::MatrixBase<DerivedEle> & Ele,
   const RowVectorDIMS & origin,
   const RowVectorDIMS & dir,
@@ -905,7 +764,7 @@ igl::AABB<DerivedV,DIM>::intersect_ray(
       assert((Ele.size() == 0 || Ele.cols() == 3) && "Elements should be triangles");
       igl::Hit leaf_hit;
       if(
-        ray_mesh_intersect(origin,dir,V,Ele.row(tree->m_primitive),leaf_hit)&&
+        ray_mesh_intersect(origin,dir,vers,Ele.row(tree->m_primitive),leaf_hit)&&
         leaf_hit.t < hit.t)
       {
         // correct the id
@@ -922,7 +781,7 @@ igl::AABB<DerivedV,DIM>::intersect_ray(
 #else
   // DFS
   return intersect_ray(
-    V,Ele,origin,dir,std::numeric_limits<Scalar>::infinity(),hit);
+    vers,Ele,origin,dir,std::numeric_limits<Scalar>::infinity(),hit);
 #endif
 }
 
@@ -930,7 +789,7 @@ template <typename DerivedV, int DIM>
 template <typename DerivedEle>
 IGL_INLINE bool
 igl::AABB<DerivedV,DIM>::intersect_ray(
-  const Eigen::MatrixBase<DerivedV> & V,
+  const Eigen::MatrixBase<DerivedV> & vers,
   const Eigen::MatrixBase<DerivedEle> & Ele,
   const RowVectorDIMS & origin,
   const RowVectorDIMS & dir,
@@ -939,7 +798,7 @@ igl::AABB<DerivedV,DIM>::intersect_ray(
 {
   //// Naive, slow
   //std::vector<igl::Hit> hits;
-  //intersect_ray(V,Ele,origin,dir,hits);
+  //intersect_ray(vers,Ele,origin,dir,hits);
   //if(hits.size() > 0)
   //{
   //  hit = hits.front();
@@ -962,7 +821,7 @@ igl::AABB<DerivedV,DIM>::intersect_ray(
     // Actually process elements
     assert((Ele.size() == 0 || Ele.cols() == 3) && "Elements should be triangles");
     // Cheesecake way of hitting element
-    bool ret = ray_mesh_intersect(origin,dir,V,Ele.row(m_primitive),hit);
+    bool ret = ray_mesh_intersect(origin,dir,vers,Ele.row(m_primitive),hit);
     hit.id = m_primitive;
     return ret;
   }
@@ -971,7 +830,7 @@ igl::AABB<DerivedV,DIM>::intersect_ray(
   // differnce
   igl::Hit left_hit;
   igl::Hit right_hit;
-  bool left_ret = m_left->intersect_ray(V,Ele,origin,dir,min_t,left_hit);
+  bool left_ret = m_left->intersect_ray(vers,Ele,origin,dir,min_t,left_hit);
   if(left_ret && left_hit.t<min_t)
   {
     // It's scary that this line doesn't seem to matter....
@@ -982,7 +841,7 @@ igl::AABB<DerivedV,DIM>::intersect_ray(
   {
     left_ret = false;
   }
-  bool right_ret = m_right->intersect_ray(V,Ele,origin,dir,min_t,right_hit);
+  bool right_ret = m_right->intersect_ray(vers,Ele,origin,dir,min_t,right_hit);
   if(right_ret && right_hit.t<min_t)
   {
     min_t = right_hit.t;
@@ -996,7 +855,7 @@ igl::AABB<DerivedV,DIM>::intersect_ray(
 }
 
 // This is a bullshit template because AABB annoyingly needs templates for bad
-// combinations of 3D V with DIM=2 AABB
+// combinations of 3D vers with DIM=2 AABB
 //
 // _Define_ as a no-op rather than monkeying around with the proper code above
 //

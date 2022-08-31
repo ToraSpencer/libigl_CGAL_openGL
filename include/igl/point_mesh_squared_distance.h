@@ -10,17 +10,17 @@
 namespace igl
 {
     /*
-       Compute distances from a set of points P to a triangle mesh (V,F)
+       Compute distances from a set of points vers0 to a triangle mesh (vers,F)
   
        Inputs:
-         P  #P by 3 list of query point positions
-         V  #V by 3 list of vertex positions
+         vers0  #vers0 by 3 list of query point positions
+         vers  #vers by 3 list of vertex positions
          Ele  #Ele by (3|2|1) list of (triangle|edge|point) indices
 
        Outputs:
-         sqrD  #P list of smallest squared distances
-         I  #P list of primitive indices corresponding to smallest distances
-         C  #P by 3 list of closest points
+         minSqrDis  #vers0 list of smallest squared distances
+         minDisIdx  #vers0 list of primitive indices corresponding to smallest distances
+         minDisVers  #vers0 by 3 list of closest points
   
        Known bugs: This only computes distances to given primitivess. So
        unreferenced vertices are ignored. However, degenerate primitives are
@@ -37,12 +37,12 @@ template <
     typename DerivedI,
     typename DerivedC>
 IGL_INLINE void point_mesh_squared_distance(
-    const Eigen::MatrixBase<DerivedP> &P,
-    const Eigen::MatrixBase<DerivedV> &V,
+    const Eigen::MatrixBase<DerivedP> &vers0,
+    const Eigen::MatrixBase<DerivedV> &vers,
     const Eigen::MatrixBase<DerivedEle> &Ele,
-    Eigen::PlainObjectBase<DerivedsqrD> &sqrD,
-    Eigen::PlainObjectBase<DerivedI> &I,
-    Eigen::PlainObjectBase<DerivedC> &C);
+    Eigen::PlainObjectBase<DerivedsqrD> &minSqrDis,
+    Eigen::PlainObjectBase<DerivedI> &minDisIdx,
+    Eigen::PlainObjectBase<DerivedC> &minDisVers);
 }
 
 #ifndef IGL_STATIC_LIBRARY

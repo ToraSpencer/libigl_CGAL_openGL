@@ -19,12 +19,12 @@
 // 符号距离场(signed distance field)
 
 Eigen::MatrixXd vers;
-Eigen::MatrixXi T,tris;
+Eigen::MatrixXi tets, tris;
 
 igl::AABB<Eigen::MatrixXd,3> tree;          
 igl::FastWindingNumberBVH fwn_bvh;
 
-Eigen::MatrixXd FN,VN,EN;
+Eigen::MatrixXd normals,VN,EN;
 Eigen::MatrixXi E;
 Eigen::VectorXi EMAP;
 double max_distance = 1;
@@ -34,14 +34,16 @@ bool overlay = false;
 
 bool useFastWindingNumber = false;
 
+
 // 每次键盘事件触发后更新viewer中的数据
 void update_visualization(igl::opengl::glfw::Viewer & viewer)
 {
   using namespace Eigen;
   using namespace std;
 
-  MatrixXd V_vis;
-  MatrixXi F_vis;
+  //    横截面网格：
+  MatrixXd versSection;
+  MatrixXi trisSection;
 
   // 1. 构造探测平面plane;
   Eigen::Vector4d plane(0,0,1,-((1-slice_z)*vers.col(2).minCoeff()+slice_z*vers.col(2).maxCoeff()));
@@ -55,27 +57,28 @@ void update_visualization(igl::opengl::glfw::Viewer & viewer)
     {
       // Value of plane's implicit function at all vertices
       const VectorXd IV = (vers.col(0)*plane(0) +  vers.col(1)*plane(1) + vers.col(2)*plane(2)).array() + plane(3);
-      igl::marching_tets(vers,T,IV,V_vis,F_vis,J,bary);
-      igl::writeOBJ("vis.obj",V_vis,F_vis);
+      igl::marching_tets(vers, tets, IV, versSection, trisSection, J, bary);
+      igl::writeOBJ("vis.obj", versSection, trisSection);
     }
 
     while(true)
     {
       MatrixXd l;
-      igl::edge_lengths(V_vis,F_vis,l);
-      l /= (V_vis.colwise().maxCoeff() - V_vis.colwise().minCoeff()).norm();
+      igl::edge_lengths(versSection, trisSection, l);
+      l /= (versSection.colwise().maxCoeff() - versSection.colwise().minCoeff()).norm();
       const double max_l = 0.03;
       if(l.maxCoeff()<max_l)
         break;
 
       Array<bool,Dynamic,1> bad = l.array().rowwise().maxCoeff() > max_l;
       MatrixXi F_vis_bad, F_vis_good;
-      igl::slice_mask(F_vis,bad,1,F_vis_bad);
-      igl::slice_mask(F_vis,(bad!=true).eval(),1,F_vis_good);
-      igl::upsample(V_vis,F_vis_bad);
-      F_vis = igl::cat(1,F_vis_bad,F_vis_good);
+      igl::slice_mask(trisSection,bad,1,F_vis_bad);
+      igl::slice_mask(trisSection,(bad!=true).eval(),1,F_vis_good);
+      igl::upsample(versSection,F_vis_bad);
+      trisSection = igl::cat(1,F_vis_bad,F_vis_good);
     }
   }
+
 
   // 3. 计算符号距离场；
   VectorXd S_vis; 
@@ -83,25 +86,26 @@ void update_visualization(igl::opengl::glfw::Viewer & viewer)
   {
     VectorXi I;
     MatrixXd N,C;
-    signed_distance_pseudonormal(V_vis,vers,tris,tree,FN,VN,EN,EMAP,S_vis,I,C,N);     // bunny网格是water-tight的；
+    signed_distance_pseudonormal(versSection,vers,tris,tree, normals, VN,EN,EMAP,S_vis,I,C,N);     // bunny网格是water-tight的；
   } 
   else 
-    signed_distance_fast_winding_number(V_vis, vers, tris, tree, fwn_bvh, S_vis);
+    signed_distance_fast_winding_number(versSection, vers, tris, tree, fwn_bvh, S_vis);
+
 
   //        lambda —— 直接融合网格
-  const auto & append_mesh = [&F_vis,&V_vis](const Eigen::MatrixXd & vers, const Eigen::MatrixXi & tris,const RowVector3d & color)
+  const auto & append_mesh = [&trisSection,&versSection](const Eigen::MatrixXd & vers, const Eigen::MatrixXi & tris,const RowVector3d & color)
   {
-    F_vis.conservativeResize(F_vis.rows()+tris.rows(),3);
-    F_vis.bottomRows(tris.rows()) = tris.array()+V_vis.rows();
-    V_vis.conservativeResize(V_vis.rows()+vers.rows(),3);
-    V_vis.bottomRows(vers.rows()) = vers;
+    trisSection.conservativeResize(trisSection.rows()+tris.rows(),3);
+    trisSection.bottomRows(tris.rows()) = tris.array()+versSection.rows();
+    versSection.conservativeResize(versSection.rows()+vers.rows(),3);
+    versSection.bottomRows(vers.rows()) = vers;
   };
 
   if(overlay)
-    append_mesh(vers,tris,RowVector3d(0.8,0.8,0.8));
+    append_mesh(vers, tris, RowVector3d(0.8,0.8,0.8));
 
   viewer.data().clear();
-  viewer.data().set_mesh(V_vis,F_vis);
+  viewer.data().set_mesh(versSection, trisSection);
   viewer.data().set_data(S_vis);
   viewer.core().lighting_factor = overlay;
 }
@@ -145,8 +149,8 @@ int main(int argc, char *argv[])
   cout<< "1/2 toggle between fast winding number (1) and pseudonormal (2) signing. \n";
   cout<<endl;
 
-
-  igl::readMESH(TUTORIAL_SHARED_PATH "/bunny.mesh",vers,T,tris);    // Load mesh: (vers,T) tet-mesh of convex hull, tris contains original surface triangles
+  // Load mesh: (vers,tets) tet-mesh of convex hull, tris contains original surface triangles
+  igl::readMESH(TUTORIAL_SHARED_PATH "/bunny.mesh",vers, tets, tris);    
 
   // Encapsulated call to point_mesh_squared_distance to determine bounds
   {
@@ -162,12 +166,12 @@ int main(int argc, char *argv[])
   // Pseudonormal setup...
  
   // Precompute signed distance AABB tree
-  tree.init(vers,tris);
+  tree.init(vers, tris);
 
   // Precompute vertex,edge and face normals
-  igl::per_face_normals(vers,tris,FN);
-  igl::per_vertex_normals(vers,tris,igl::PER_VERTEX_NORMALS_WEIGHTING_TYPE_ANGLE,FN,VN);
-  igl::per_edge_normals(vers,tris,igl::PER_EDGE_NORMALS_WEIGHTING_TYPE_UNIFORM,FN,EN,E,EMAP);
+  igl::per_face_normals(vers, tris, normals);
+  igl::per_vertex_normals(vers, tris, igl::PER_VERTEX_NORMALS_WEIGHTING_TYPE_ANGLE, normals, VN);
+  igl::per_edge_normals(vers,tris,igl::PER_EDGE_NORMALS_WEIGHTING_TYPE_UNIFORM,normals,EN,E,EMAP);
 
   // fast winding number setup (just init fwn bvh)
   igl::fast_winding_number(vers, tris, 2, fwn_bvh);

@@ -6,9 +6,9 @@
 #include <igl/readMESH.h>
 
 
-Eigen::MatrixXd X,B;
-Eigen::MatrixXi Tri;
-Eigen::MatrixXi Tet;
+Eigen::MatrixXd vers,B;
+Eigen::MatrixXi tris;
+Eigen::MatrixXi tets;
 Eigen::VectorXi TriTag;
 Eigen::VectorXi TetTag;
 
@@ -21,8 +21,9 @@ std::vector<Eigen::MatrixXd> XF;
 std::vector<Eigen::MatrixXd> TriF;
 std::vector<Eigen::MatrixXd> TetF;
 
+// .msh文件——可以存储不同类型的网格，以及标量场、向量场数据；
 
-// This function is called every time a keyboard button is pressed
+ 
 bool key_down(igl::opengl::glfw::Viewer& viewer, unsigned char key, int modifier)
 {
   using namespace std;
@@ -47,10 +48,10 @@ bool key_down(igl::opengl::glfw::Viewer& viewer, unsigned char key, int modifier
 
     for (unsigned i=0; i<s.size();++i)
     {
-      V_temp.row(i*4+0) = X.row(Tet(s[i],0));
-      V_temp.row(i*4+1) = X.row(Tet(s[i],1));
-      V_temp.row(i*4+2) = X.row(Tet(s[i],2));
-      V_temp.row(i*4+3) = X.row(Tet(s[i],3));
+      V_temp.row(i*4+0) = vers.row(tets(s[i],0));
+      V_temp.row(i*4+1) = vers.row(tets(s[i],1));
+      V_temp.row(i*4+2) = vers.row(tets(s[i],2));
+      V_temp.row(i*4+3) = vers.row(tets(s[i],3));
 
       F_temp.row(i*4+0) << (i*4)+0, (i*4)+1, (i*4)+3;
       F_temp.row(i*4+1) << (i*4)+0, (i*4)+2, (i*4)+1;
@@ -76,35 +77,36 @@ bool key_down(igl::opengl::glfw::Viewer& viewer, unsigned char key, int modifier
   return false;
 }
 
+
 int main(int argc, char *argv[])
 {
   using namespace Eigen;
   using namespace std;
 
-  igl::readMSH(argc > 1 ? argv[1] : TUTORIAL_SHARED_PATH "/hand.msh", X, Tri, Tet, TriTag, TetTag, XFields, XF, EFields, TriF, TetF);
+  igl::readMSH(argc > 1 ? argv[1] : TUTORIAL_SHARED_PATH "/hand.msh", vers, tris, tets, TriTag, TetTag, XFields, XF, EFields, TriF, TetF);
 
-  for(auto i:EFields)
+  for(auto i : EFields)
     std::cout<<i<<"\t";
   std::cout<<std::endl;
 
   // search for a predefined field name "E"
-  for(int i=0;i<EFields.size();++i)
+  for(int i=0; i < EFields.size();++i)
   {
     if(EFields[i]=="E")
       D = TetF[i].rowwise().norm(); // take a row-wise norm
   }
   std::cout<<"D:"<<D.rows()<<"x"<<D.cols()<<std::endl;
 
+
   // generate fake data
   if(D.rows()==0)
     D = TetTag.cast<double>();
 
-  // Compute barycenters
-  igl::barycenter(X, Tet, B);
+  igl::barycenter(vers, tets, B);
+
 
   // Plot the generated mesh
   igl::opengl::glfw::Viewer viewer;
-
   viewer.callback_key_down = &key_down;
   key_down(viewer,'5',0);
   viewer.launch();
