@@ -4,27 +4,24 @@
 #ifndef EIGEN_MATRIX_H
 #define EIGEN_MATRIX_H
 
-namespace Eigen 
-{
+namespace Eigen {
 
-namespace internal
+namespace internal {
+template<typename _Scalar, int _Rows, int _Cols, int _Options, int _MaxRows, int _MaxCols>
+struct traits<Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols> >
 {
-    template<typename _Scalar, int _Rows, int _Cols, int _Options, int _MaxRows, int _MaxCols>
-    struct traits<Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols> >
-    {
-    private:
-      enum { size = internal::size_at_compile_time<_Rows,_Cols>::ret };
-      typedef typename find_best_packet<_Scalar,size>::type PacketScalar;
-
-      enum {
-          row_major_bit = _Options&RowMajor ? RowMajorBit : 0,
-          is_dynamic_size_storage = _MaxRows==Dynamic || _MaxCols==Dynamic,
-          max_size = is_dynamic_size_storage ? Dynamic : _MaxRows*_MaxCols,
-          default_alignment = compute_default_alignment<_Scalar,max_size>::value,
-          actual_alignment = ((_Options&DontAlign)==0) ? default_alignment : 0,
-          required_alignment = unpacket_traits<PacketScalar>::alignment,
-          packet_access_bit = (packet_traits<_Scalar>::Vectorizable && (EIGEN_UNALIGNED_VECTORIZE || (actual_alignment>=required_alignment))) ? PacketAccessBit : 0
-        };
+private:
+  enum { size = internal::size_at_compile_time<_Rows,_Cols>::ret };
+  typedef typename find_best_packet<_Scalar,size>::type PacketScalar;
+  enum {
+      row_major_bit = _Options&RowMajor ? RowMajorBit : 0,
+      is_dynamic_size_storage = _MaxRows==Dynamic || _MaxCols==Dynamic,
+      max_size = is_dynamic_size_storage ? Dynamic : _MaxRows*_MaxCols,
+      default_alignment = compute_default_alignment<_Scalar,max_size>::value,
+      actual_alignment = ((_Options&DontAlign)==0) ? default_alignment : 0,
+      required_alignment = unpacket_traits<PacketScalar>::alignment,
+      packet_access_bit = (packet_traits<_Scalar>::Vectorizable && (EIGEN_UNALIGNED_VECTORIZE || (actual_alignment>=required_alignment))) ? PacketAccessBit : 0
+    };
     
     public:
       typedef _Scalar Scalar;
@@ -49,13 +46,7 @@ namespace internal
     };
 }
 
-
-// ¾ØÕóÄ£°å:
-template<typename _Scalar, int _Rows, int _Cols, int _Options, int _MaxRows, int _MaxCols>
-class Matrix
-  : public PlainObjectBase<Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols> >
-{
-    /** \class Matrix
+/** \class Matrix
   * \ingroup Core_Module
   *
   * \brief The matrix class, also used for vectors and row-vectors
@@ -177,7 +168,10 @@ class Matrix
   * \ref TopicStorageOrders
   */
 
-
+template<typename _Scalar, int _Rows, int _Cols, int _Options, int _MaxRows, int _MaxCols>
+class Matrix
+  : public PlainObjectBase<Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols> >
+{
   public:
     /** \brief Base class typedef.
       * \sa PlainObjectBase

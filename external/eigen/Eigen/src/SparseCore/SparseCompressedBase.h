@@ -10,12 +10,11 @@
 #ifndef EIGEN_SPARSE_COMPRESSED_BASE_H
 #define EIGEN_SPARSE_COMPRESSED_BASE_H
 
-namespace Eigen
-{ 
+namespace Eigen { 
+
 template<typename Derived> class SparseCompressedBase;
   
-namespace internal
-{
+namespace internal {
 
 template<typename Derived>
 struct traits<SparseCompressedBase<Derived> > : traits<Derived>

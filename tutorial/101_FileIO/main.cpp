@@ -22,7 +22,7 @@ int main(int argc, char *argv[])
 
 
   // Save the mesh in OBJ format
-  igl::writeOBJ("cube.obj",V, F);
+  igl::writeOBJ("E:/cube.obj",V, F);
 
-  igl::readOBJ("cube.obj", V, F);
+   
 }
