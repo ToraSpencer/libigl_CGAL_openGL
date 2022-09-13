@@ -117,7 +117,8 @@ IGL_INLINE bool igl::readOBJ(
         }
       
         V.push_back(vertex);
-      }else if(type == vn)
+      }
+      else if(type == vn)
       {
         double x[3];
         int count =
@@ -132,11 +133,10 @@ IGL_INLINE bool igl::readOBJ(
         }
         std::vector<Scalar > normal(count);
         for(int i = 0;i<count;i++)
-        {
-          normal[i] = x[i];
-        }
+            normal[i] = x[i];
         N.push_back(normal);
-      }else if(type == vt)
+      }
+      else if(type == vt)
       {
         double x[3];
         int count =
@@ -152,11 +152,11 @@ IGL_INLINE bool igl::readOBJ(
         }
         std::vector<Scalar > tex(count);
         for(int i = 0;i<count;i++)
-        {
-          tex[i] = x[i];
-        }
+            tex[i] = x[i];
+ 
         TC.push_back(tex);
-      }else if(type == f)
+      }
+      else if(type == f)
       {
         const auto & shift = [&V](const int i)->int
         {
@@ -170,6 +170,7 @@ IGL_INLINE bool igl::readOBJ(
         {
           return i<0 ? i+N.size() : i-1;
         };
+
         std::vector<Index > f;
         std::vector<Index > ftc;
         std::vector<Index > fn;
@@ -226,15 +227,17 @@ IGL_INLINE bool igl::readOBJ(
           fclose(obj_file);
           return false;
         }
-      }else if(strlen(type) >= 1 && strcmp("usemtl",type)==0 )
+      }
+      else if(strlen(type) >= 1 && strcmp("usemtl",type)==0 )
       {
-        if(FMwasinit){
+        if(FMwasinit)
+        {
           FM.push_back(std::make_tuple(currentmaterialref,previous_face_no,current_face_no-1));
           previous_face_no = current_face_no;
         }
-        else{
+        else
           FMwasinit=true;
-        }
+        
         sscanf(l, "%s\n", currentmaterialref);
       }
       else if(strlen(type) >= 1 && (type[0] == '#' ||
@@ -243,7 +246,8 @@ IGL_INLINE bool igl::readOBJ(
             strcmp("mtllib",type)==0))
       {
         //ignore comments or other shit
-      }else
+      }
+      else
       {
         //ignore any other lines
         fprintf(stderr,
@@ -251,7 +255,8 @@ IGL_INLINE bool igl::readOBJ(
                 line_no,
                 line);
       }
-    }else
+    }
+else
     {
       // ignore empty line
     }

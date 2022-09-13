@@ -15,35 +15,40 @@ namespace igl
   {
     // Use fast pseudo-normal test [Bærentzen & Aanæs 2005]
     SIGNED_DISTANCE_TYPE_PSEUDONORMAL         = 0,
+
     // Use winding number [Jacobson, Kavan Sorking-Hornug 2013]
     SIGNED_DISTANCE_TYPE_WINDING_NUMBER       = 1,
     SIGNED_DISTANCE_TYPE_DEFAULT              = 2,
     SIGNED_DISTANCE_TYPE_UNSIGNED             = 3,
+
     // Use Fast winding number [Barill, Dickson, Schmidt, Levin, Jacobson 2018]
     SIGNED_DISTANCE_TYPE_FAST_WINDING_NUMBER  = 4,
     NUM_SIGNED_DISTANCE_TYPE                  = 5
   };
 
 
-  // Computes signed distance to a mesh
-  //
-  // Inputs:
-  //   P  #P by 3 list of query point positions
-  //   V  #V by 3 list of vertex positions
-  //   F  #F by ss list of triangle indices, ss should be 3 unless sign_type ==
-  //     SIGNED_DISTANCE_TYPE_UNSIGNED
-  //   sign_type  method for computing distance _sign_ S
-  //   lower_bound  lower bound of distances needed {std::numeric_limits::min}
-  //   upper_bound  lower bound of distances needed {std::numeric_limits::max}
-  // Outputs:
-  //   S  #P list of smallest signed distances
-  //   I  #P list of facet indices corresponding to smallest distances
-  //   C  #P by 3 list of closest points
-  //   N  #P by 3 list of closest normals (only set if
-  //     sign_type=SIGNED_DISTANCE_TYPE_PSEUDONORMAL)
-  //
-  // Known bugs: This only computes distances to triangles. So unreferenced
-  // vertices and degenerate triangles are ignored.
+  /*
+     Computes signed distance to a mesh
+  
+       Inputs:
+         P  #P by 3 list of query point positions
+         V  #V by 3 list of vertex positions
+         F  #F by ss list of triangle indices, ss should be 3 unless sign_type ==
+           SIGNED_DISTANCE_TYPE_UNSIGNED
+         sign_type  method for computing distance _sign_ SDF
+         lower_bound  lower bound of distances needed {std::numeric_limits::min}
+         upper_bound  lower bound of distances needed {std::numeric_limits::max}
+  
+       Outputs:
+         SDF  #P list of smallest signed distances
+         I  #P list of facet indices corresponding to smallest distances
+         C  #P by 3 list of closest points
+         N  #P by 3 list of closest normals (only set if sign_type=SIGNED_DISTANCE_TYPE_PSEUDONORMAL)
+  
+       Known bugs: This only computes distances to triangles. So unreferenced
+       vertices and degenerate triangles are ignored.
+  */
+
   template <
     typename DerivedP,
     typename DerivedV,
@@ -59,7 +64,7 @@ namespace igl
     const SignedDistanceType sign_type,
     const typename DerivedV::Scalar lower_bound,
     const typename DerivedV::Scalar upper_bound,
-    Eigen::PlainObjectBase<DerivedS> & S,
+    Eigen::PlainObjectBase<DerivedS> & SDF,
     Eigen::PlainObjectBase<DerivedI> & I,
     Eigen::PlainObjectBase<DerivedC> & C,
     Eigen::PlainObjectBase<DerivedN> & N);
@@ -72,11 +77,11 @@ namespace igl
   //   V  #V by 3 list of vertex positions
   //   F  #F by ss list of triangle indices, ss should be 3 unless sign_type ==
   //     SIGNED_DISTANCE_TYPE_UNSIGNED
-  //   sign_type  method for computing distance _sign_ S
+  //   sign_type  method for computing distance _sign_ SDF
   //   lower_bound  lower bound of distances needed {std::numeric_limits::min}
   //   upper_bound  lower bound of distances needed {std::numeric_limits::max}
   // Outputs:
-  //   S  #P list of smallest signed distances
+  //   SDF  #P list of smallest signed distances
   //   I  #P list of facet indices corresponding to smallest distances
   //   C  #P by 3 list of closest points
   //   N  #P by 3 list of closest normals (only set if
@@ -94,7 +99,7 @@ namespace igl
     const Eigen::MatrixBase<DerivedV> & V,
     const Eigen::MatrixBase<DerivedF> & F,
     const SignedDistanceType sign_type,
-    Eigen::PlainObjectBase<DerivedS> & S,
+    Eigen::PlainObjectBase<DerivedS> & SDF,
     Eigen::PlainObjectBase<DerivedI> & I,
     Eigen::PlainObjectBase<DerivedC> & C,
     Eigen::PlainObjectBase<DerivedN> & N);
@@ -150,7 +155,7 @@ namespace igl
     const Eigen::MatrixBase<DerivedVN> & VN,
     const Eigen::MatrixBase<DerivedEN> & EN,
     const Eigen::MatrixBase<DerivedEMAP> & EMAP,
-    Eigen::PlainObjectBase<DerivedS> & S,
+    Eigen::PlainObjectBase<DerivedS> & SDF,
     Eigen::PlainObjectBase<DerivedI> & I,
     Eigen::PlainObjectBase<DerivedC> & C,
     Eigen::PlainObjectBase<DerivedN> & N);
@@ -264,12 +269,12 @@ namespace igl
   //   for sign.
   //
   // Usage:
-  //     VectorXd S;  
+  //     VectorXd SDF;  
   //     VectorXd V, P; //where V is mesh vertices, P are query points
   //     VectorXi F;  
   //     igl::FastWindingNumberBVH fwn_bvh;
   //     igl::fast_winding_number(V.cast<float>(), F, 2, fwn_bvh);
-  //     igl::signed_distance_fast_winding_number(P,V,F,tree,fwn_bvh,S);
+  //     igl::signed_distance_fast_winding_number(P,V,F,tree,fwn_bvh,SDF);
   //
   // Inputs:
   //   P  #P by 3 list of query point positions
@@ -278,7 +283,7 @@ namespace igl
   //   tree  AABB acceleration tree (see AABB.h)
   //   bvh fast winding precomputation (see Fast_Winding_Number.h)   
   // Outputs:
-  //   S  #P list of signed distances of each point in P
+  //   SDF  #P list of signed distances of each point in P
   template <
     typename DerivedP,
     typename DerivedV,
@@ -290,7 +295,7 @@ namespace igl
     const Eigen::MatrixBase<DerivedF> & F,
     const AABB<DerivedV,3> & tree,
     const igl::FastWindingNumberBVH & fwn_bvh,
-    Eigen::PlainObjectBase<DerivedS> & S
+    Eigen::PlainObjectBase<DerivedS> & SDF
   );
 
   // Calculates signed distance at query point q, using fast winding number
@@ -303,7 +308,7 @@ namespace igl
   //   bvh fast winding precomputation (see Fast_Winding_Number.h)   
   //   q  1 by 3 list of query point positions
   // Outputs:
-  //   S  #P list of signed distances of each point in P
+  //   SDF  #P list of signed distances of each point in P
   template <
     typename Derivedq,
     typename DerivedV,
