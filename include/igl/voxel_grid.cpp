@@ -2,101 +2,109 @@
 #include "grid.h"
 
 template <
-  typename Scalar,
-  typename DerivedGV,
+  typename Scalar, 
+  typename DerivedGV, 
   typename Derivedside>
 IGL_INLINE void igl::voxel_grid(
-  const Eigen::AlignedBox<Scalar,3> & box,
-  const int in_s,
-  const int pad_count,
-  Eigen::PlainObjectBase<DerivedGV> & GV,
-  Eigen::PlainObjectBase<Derivedside> & side)
+  const Eigen::AlignedBox<Scalar, 3> & box, 
+  const int largestCount, 
+  const int pad_count, 
+  Eigen::PlainObjectBase<DerivedGV> & gridCenters, 
+  Eigen::PlainObjectBase<Derivedside> & gridCounts)
 {
   using namespace Eigen;
   using namespace std;
   typename DerivedGV::Index si = -1;
-  side.resize(1, 3);
+  gridCounts.resize(1, 3);
   box.diagonal().maxCoeff(&si);
-  //DerivedGV::Index si = 0;
-  //assert(si>=0);
   const Scalar s_len = box.diagonal()(si);
-  assert(in_s>(pad_count*2+1) && "s should be > 2*pad_count+1");
-  const Scalar s = in_s - 2*pad_count;
-  side(si) = s;
-  for(int i = 0;i<3;i++)
+ 
+  assert(largestCount > (pad_count*2+1) && "largestCount should be > 2*pad_count+1");
+
+  const Scalar largestCount0 = largestCount - 2*pad_count;
+  gridCounts(si) = largestCount0;
+  for(int i = 0; i < 3 ; i++)
   {
     if(i!=si)
-    {
-      side(i) = std::ceil(s * (box.max()(i)-box.min()(i))/s_len);
-    }
+        gridCounts(i) = std::ceil(largestCount0 * (box.max()(i)-box.min()(i))/s_len);
   }
-  side.array() += 2*pad_count;
-  grid(side,GV);
-  // A *    p/s  + B = min
-  // A * (1-p/s) + B = max
-  // B = min - A * p/s
-  // A * (1-p/s) + min - A * p/s = max
-  // A * (1-p/s) - A * p/s = max-min
-  // A * (1-2p/s) = max-min
-  // A  = (max-min)/(1-2p/s)
-  const Array<Scalar,3,1> ps=
-    (Scalar)(pad_count)/(side.transpose().template cast<Scalar>().array()-1.);
-  const Array<Scalar,3,1> A = box.diagonal().array()/(1.0-2.*ps);
-  //// This would result in an "anamorphic", but perfectly fit grid:
-  //const Array<Scalar,3,1> B = box.min().array() - A.array()*ps;
-  //GV.array().rowwise() *= A.transpose();
-  //GV.array().rowwise() += B.transpose();
-  // Instead scale by largest factor and move to match center
-  typename Array<Scalar,3,1>::Index ai = -1;
+  gridCounts.array() += 2*pad_count;
+  grid(gridCounts, gridCenters);
+
+  /*
+       A *    p/largestCount  + B = min
+       A * (1-p/largestCount) + B = max
+       B = min - A * p/largestCount
+       A * (1-p/largestCount) + min - A * p/largestCount = max
+       A * (1-p/largestCount) - A * p/largestCount = max-min
+       A * (1-2p/largestCount) = max-min
+       A  = (max-min)/(1-2p/largestCount)
+  */
+
+  const Array<Scalar, 3, 1> ps= (Scalar)(pad_count)/(gridCounts.transpose().template cast<Scalar>().array()-1.);
+  const Array<Scalar, 3, 1> A = box.diagonal().array()/(1.0-2.*ps);
+
+  /*
+      // This would result in an "anamorphic",  but perfectly fit grid:
+      const Array<Scalar, 3, 1> B = box.min().array() - A.array()*ps;
+      gridCenters.array().rowwise() *= A.transpose();
+      gridCenters.array().rowwise() += B.transpose();
+       Instead scale by largest factor and move to match center
+  */
+  typename Array<Scalar, 3, 1>::Index ai = -1;
   Scalar a = A.maxCoeff(&ai);
-  const Array<Scalar,1,3> ratio =
-    a*(side.template cast<Scalar>().array()-1.0)/(Scalar)(side(ai)-1.0);
-  GV.array().rowwise() *= ratio;
-  const Eigen::Matrix<Scalar,1,3> offset = (box.center().transpose()-GV.colwise().mean()).eval();
-  GV.rowwise() += offset;
+  const Array<Scalar, 1, 3> ratio =  a*(gridCounts.template cast<Scalar>().array()-1.0)/(Scalar)(gridCounts(ai)-1.0);
+  gridCenters.array().rowwise() *= ratio;
+  const Eigen::Matrix<Scalar, 1, 3> offset = (box.center().transpose()-gridCenters.colwise().mean()).eval();
+  gridCenters.rowwise() += offset;
 }
 
 
 
 template <
-  typename DerivedV,
-  typename DerivedGV,
+  typename DerivedV, 
+  typename DerivedGV, 
   typename Derivedside>
 IGL_INLINE void igl::voxel_grid(
-  const Eigen::MatrixBase<DerivedV> & V, 
-  const typename DerivedV::Scalar offset,
-  const int s,
-  const int pad_count,
-  Eigen::PlainObjectBase<DerivedGV> & GV,
-  Eigen::PlainObjectBase<Derivedside> & side)
+  const Eigen::MatrixBase<DerivedV> & V,  
+  const typename DerivedV::Scalar offset, 
+  const int largestCount, 
+  const int pad_count, 
+  Eigen::PlainObjectBase<DerivedGV> & gridCenters, 
+  Eigen::PlainObjectBase<Derivedside> & gridCounts)
 {
   typedef typename DerivedV::Scalar Scalar;
-  Eigen::AlignedBox<Scalar,3> box;
-  typedef Eigen::Matrix<Scalar,1,3> RowVector3S;
+  Eigen::AlignedBox<Scalar, 3> box;
+  typedef Eigen::Matrix<Scalar, 1, 3> RowVector3S;
   assert(V.cols() == 3 && "V must contain positions in 3D");
   RowVector3S min_ext = V.colwise().minCoeff().array() - offset;
   RowVector3S max_ext = V.colwise().maxCoeff().array() + offset;
   box.extend(min_ext.transpose());
   box.extend(max_ext.transpose());
-  return igl::voxel_grid(box,s,1,GV,side);
+  return igl::voxel_grid(box, largestCount, 1, gridCenters, gridCounts);
 }
 
+
+// Ä£°åÌØ»¯£º
 #ifdef IGL_STATIC_LIBRARY
 // Explicit template instantiation
 // generated by autoexplicit.sh
-template void igl::voxel_grid<Eigen::Matrix<double, -1, -1, 0, -1, -1>, Eigen::Matrix<double, -1, 3, 1, -1, 3>, Eigen::Matrix<int, 1, 3, 1, 1, 3> >(Eigen::MatrixBase<Eigen::Matrix<double, -1, -1, 0, -1, -1> > const&, Eigen::Matrix<double, -1, -1, 0, -1, -1>::Scalar, int, int, Eigen::PlainObjectBase<Eigen::Matrix<double, -1, 3, 1, -1, 3> >&, Eigen::PlainObjectBase<Eigen::Matrix<int, 1, 3, 1, 1, 3> >&);
+template void igl::voxel_grid<Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1>,  Eigen::Matrix<double,  -1,  3,  1,  -1,  3>,  Eigen::Matrix<int,  1,  3,  1,  1,  3> >(Eigen::MatrixBase<Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1> > const&,  Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1>::Scalar,  int,  int,  Eigen::PlainObjectBase<Eigen::Matrix<double,  -1,  3,  1,  -1,  3> >&,  Eigen::PlainObjectBase<Eigen::Matrix<int,  1,  3,  1,  1,  3> >&);
 // generated by autoexplicit.sh
-template void igl::voxel_grid<Eigen::Matrix<float, -1, 3, 1, -1, 3>, Eigen::Matrix<float, -1, -1, 0, -1, -1>, Eigen::Matrix<int, 1, 3, 1, 1, 3> >(Eigen::MatrixBase<Eigen::Matrix<float, -1, 3, 1, -1, 3> > const&, Eigen::Matrix<float, -1, 3, 1, -1, 3>::Scalar, int, int, Eigen::PlainObjectBase<Eigen::Matrix<float, -1, -1, 0, -1, -1> >&, Eigen::PlainObjectBase<Eigen::Matrix<int, 1, 3, 1, 1, 3> >&);
+template void igl::voxel_grid<Eigen::Matrix<float,  -1,  3,  1,  -1,  3>,  Eigen::Matrix<float,  -1,  -1,  0,  -1,  -1>,  Eigen::Matrix<int,  1,  3,  1,  1,  3> >(Eigen::MatrixBase<Eigen::Matrix<float,  -1,  3,  1,  -1,  3> > const&,  Eigen::Matrix<float,  -1,  3,  1,  -1,  3>::Scalar,  int,  int,  Eigen::PlainObjectBase<Eigen::Matrix<float,  -1,  -1,  0,  -1,  -1> >&,  Eigen::PlainObjectBase<Eigen::Matrix<int,  1,  3,  1,  1,  3> >&);
 // generated by autoexplicit.sh
-template void igl::voxel_grid<Eigen::Matrix<double, -1, 3, 1, -1, 3>, Eigen::Matrix<double, -1, -1, 0, -1, -1>, Eigen::Matrix<int, 1, 3, 1, 1, 3> >(Eigen::MatrixBase<Eigen::Matrix<double, -1, 3, 1, -1, 3> > const&, Eigen::Matrix<double, -1, 3, 1, -1, 3>::Scalar, int, int, Eigen::PlainObjectBase<Eigen::Matrix<double, -1, -1, 0, -1, -1> >&, Eigen::PlainObjectBase<Eigen::Matrix<int, 1, 3, 1, 1, 3> >&);
+template void igl::voxel_grid<Eigen::Matrix<double,  -1,  3,  1,  -1,  3>,  Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1>,  Eigen::Matrix<int,  1,  3,  1,  1,  3> >(Eigen::MatrixBase<Eigen::Matrix<double,  -1,  3,  1,  -1,  3> > const&,  Eigen::Matrix<double,  -1,  3,  1,  -1,  3>::Scalar,  int,  int,  Eigen::PlainObjectBase<Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1> >&,  Eigen::PlainObjectBase<Eigen::Matrix<int,  1,  3,  1,  1,  3> >&);
 // generated by autoexplicit.sh
-template void igl::voxel_grid<Eigen::Matrix<double, -1, -1, 0, -1, -1>, Eigen::Matrix<double, -1, -1, 0, -1, -1>, Eigen::Matrix<int, 1, 3, 1, 1, 3> >(Eigen::MatrixBase<Eigen::Matrix<double, -1, -1, 0, -1, -1> > const&, Eigen::Matrix<double, -1, -1, 0, -1, -1>::Scalar, int, int, Eigen::PlainObjectBase<Eigen::Matrix<double, -1, -1, 0, -1, -1> >&, Eigen::PlainObjectBase<Eigen::Matrix<int, 1, 3, 1, 1, 3> >&);
+template void igl::voxel_grid<Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1>,  Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1>,  Eigen::Matrix<int,  1,  3,  1,  1,  3> >(Eigen::MatrixBase<Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1> > const&,  Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1>::Scalar,  int,  int,  Eigen::PlainObjectBase<Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1> >&,  Eigen::PlainObjectBase<Eigen::Matrix<int,  1,  3,  1,  1,  3> >&);
 // generated by autoexplicit.sh
-template void igl::voxel_grid<float, Eigen::Matrix<float, -1, -1, 0, -1, -1>, Eigen::Matrix<int, 3, 1, 0, 3, 1> >(Eigen::AlignedBox<float, 3> const&, int, int, Eigen::PlainObjectBase<Eigen::Matrix<float, -1, -1, 0, -1, -1> >&, Eigen::PlainObjectBase<Eigen::Matrix<int, 3, 1, 0, 3, 1> >&);
+template void igl::voxel_grid<float,  Eigen::Matrix<float,  -1,  -1,  0,  -1,  -1>,  Eigen::Matrix<int,  3,  1,  0,  3,  1> >(Eigen::AlignedBox<float,  3> const&,  int,  int,  Eigen::PlainObjectBase<Eigen::Matrix<float,  -1,  -1,  0,  -1,  -1> >&,  Eigen::PlainObjectBase<Eigen::Matrix<int,  3,  1,  0,  3,  1> >&);
 // generated by autoexplicit.sh
-template void igl::voxel_grid<float, Eigen::Matrix<float, -1, -1, 0, -1, -1>, Eigen::Matrix<int, 1, 3, 1, 1, 3> >(Eigen::AlignedBox<float, 3> const&, int, int, Eigen::PlainObjectBase<Eigen::Matrix<float, -1, -1, 0, -1, -1> >&, Eigen::PlainObjectBase<Eigen::Matrix<int, 1, 3, 1, 1, 3> >&);
-template void igl::voxel_grid<float, Eigen::Matrix<float, -1, 3, 0, -1, 3>, Eigen::Matrix<int, 3, 1, 0, 3, 1> >(Eigen::AlignedBox<float, 3> const&, int, int, Eigen::PlainObjectBase<Eigen::Matrix<float, -1, 3, 0, -1, 3> >&, Eigen::PlainObjectBase<Eigen::Matrix<int, 3, 1, 0, 3, 1> >&);
-template void igl::voxel_grid<float, Eigen::Matrix<float, -1, 3, 1, -1, 3>, Eigen::Matrix<int, 3, 1, 0, 3, 1> >(Eigen::AlignedBox<float, 3> const&, int, int, Eigen::PlainObjectBase<Eigen::Matrix<float, -1, 3, 1, -1, 3> >&, Eigen::PlainObjectBase<Eigen::Matrix<int, 3, 1, 0, 3, 1> >&);
-template void igl::voxel_grid<double, Eigen::Matrix<double, -1, -1, 0, -1, -1>, Eigen::Matrix<int, 3, 1, 0, 3, 1> >(Eigen::AlignedBox<double, 3> const&, int, int, Eigen::PlainObjectBase<Eigen::Matrix<double, -1, -1, 0, -1, -1> >&, Eigen::PlainObjectBase<Eigen::Matrix<int, 3, 1, 0, 3, 1> >&);
-template void igl::voxel_grid<double, Eigen::Matrix<double, -1, -1, 0, -1, -1>, Eigen::Matrix<int, 1, 3, 1, 1, 3> >(Eigen::AlignedBox<double, 3> const&, int, int, Eigen::PlainObjectBase<Eigen::Matrix<double, -1, -1, 0, -1, -1> >&, Eigen::PlainObjectBase<Eigen::Matrix<int, 1, 3, 1, 1, 3> >&);
+template void igl::voxel_grid<float,  Eigen::Matrix<float,  -1,  -1,  0,  -1,  -1>,  Eigen::Matrix<int,  1,  3,  1,  1,  3> >(Eigen::AlignedBox<float,  3> const&,  int,  int,  Eigen::PlainObjectBase<Eigen::Matrix<float,  -1,  -1,  0,  -1,  -1> >&,  Eigen::PlainObjectBase<Eigen::Matrix<int,  1,  3,  1,  1,  3> >&);
+template void igl::voxel_grid<float,  Eigen::Matrix<float,  -1,  3,  0,  -1,  3>,  Eigen::Matrix<int,  3,  1,  0,  3,  1> >(Eigen::AlignedBox<float,  3> const&,  int,  int,  Eigen::PlainObjectBase<Eigen::Matrix<float,  -1,  3,  0,  -1,  3> >&,  Eigen::PlainObjectBase<Eigen::Matrix<int,  3,  1,  0,  3,  1> >&);
+template void igl::voxel_grid<float,  Eigen::Matrix<float,  -1,  3,  1,  -1,  3>,  Eigen::Matrix<int,  3,  1,  0,  3,  1> >(Eigen::AlignedBox<float,  3> const&,  int,  int,  Eigen::PlainObjectBase<Eigen::Matrix<float,  -1,  3,  1,  -1,  3> >&,  Eigen::PlainObjectBase<Eigen::Matrix<int,  3,  1,  0,  3,  1> >&);
+template void igl::voxel_grid<double,  Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1>,  Eigen::Matrix<int,  3,  1,  0,  3,  1> >(Eigen::AlignedBox<double,  3> const&,  int,  int,  Eigen::PlainObjectBase<Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1> >&,  Eigen::PlainObjectBase<Eigen::Matrix<int,  3,  1,  0,  3,  1> >&);
+template void igl::voxel_grid<double,  Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1>,  Eigen::Matrix<int,  1,  3,  1,  1,  3> >(Eigen::AlignedBox<double,  3> const&,  int,  int,  Eigen::PlainObjectBase<Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1> >&,  Eigen::PlainObjectBase<Eigen::Matrix<int,  1,  3,  1,  1,  3> >&);
+
+
+
 #endif

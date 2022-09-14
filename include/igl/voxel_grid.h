@@ -14,7 +14,7 @@ namespace igl
    
        Inputs:
          box        bounding box to enclose by grid
-         s          number of cell centers on largest gridCounts (including 2 * pad_count)
+         largestCount          number of cell centers on largest gridCounts (including 2 * pad_count)
                     跨度最大的那个维度(xyz中的一个)的栅格数；
          pad_count       number of cells beyond box
 
@@ -28,7 +28,7 @@ namespace igl
     typename Derivedside>
   IGL_INLINE void voxel_grid(
     const Eigen::AlignedBox<Scalar,3> & box, 
-    const int s,
+    const int largestCount,
     const int pad_count,
     Eigen::PlainObjectBase<DerivedGV> & gridCenters,
     Eigen::PlainObjectBase<Derivedside> & gridCounts);
@@ -40,7 +40,7 @@ namespace igl
        Inputs:
          vers        物体点云
          offset     包围盒边缘到物体最小距离；
-         s          number of cell centers on largest gridCounts (including 2 * pad_count)
+         largestCount          number of cell centers on largest gridCounts (including 2 * pad_count)
                     跨度最大的那个维度(xyz中的一个)的栅格数；
          pad_count       number of cells beyond box
 
@@ -55,7 +55,7 @@ namespace igl
   IGL_INLINE void voxel_grid(
     const Eigen::MatrixBase<DerivedV> & vers, 
     const typename DerivedV::Scalar offset,
-    const int s,
+    const int largestCount,
     const int pad_count,
     Eigen::PlainObjectBase<DerivedGV> & gridCenters,
     Eigen::PlainObjectBase<Derivedside> & gridCounts);

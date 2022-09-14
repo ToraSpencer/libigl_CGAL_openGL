@@ -1,12 +1,3 @@
-// This file is part of Eigen, a lightweight C++ template library
-// for linear algebra.
-//
-// Copyright (C) 2008 Gael Guennebaud <gael.guennebaud@inria.fr>
-//
-// This Source Code Form is subject to the terms of the Mozilla
-// Public License v. 2.0. If a copy of the MPL was not distributed
-// with this file, You can obtain one at http://mozilla.org/MPL/2.0/.
-
 #ifndef EIGEN_ALIGNEDBOX_H
 #define EIGEN_ALIGNEDBOX_H
 
@@ -352,6 +343,8 @@ EIGEN_DEVICE_FUNC inline Scalar AlignedBox<Scalar,AmbientDim>::squaredExteriorDi
   }
   return dist2;
 }
+
+
 
 /** \defgroup alignedboxtypedefs Global aligned box typedefs
   *
