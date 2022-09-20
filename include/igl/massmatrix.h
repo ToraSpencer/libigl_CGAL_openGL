@@ -1,17 +1,12 @@
-// This file is part of libigl, a simple c++ geometry processing library.
-// 
-// Copyright (C) 2013 Alec Jacobson <alecjacobson@gmail.com>
-// 
-// This Source Code Form is subject to the terms of the Mozilla Public License 
-// v. 2.0. If a copy of the MPL was not distributed with this file, You can 
-// obtain one at http://mozilla.org/MPL/2.0/.
-#ifndef IGL_MASSMATRIX_H
+ #ifndef IGL_MASSMATRIX_H
 #define IGL_MASSMATRIX_H
 #include "igl_inline.h"
 
 #include <Eigen/Dense>
 #include <Eigen/Sparse>
 
+
+// 计算质量矩阵
 namespace igl 
 {
 
@@ -24,26 +19,28 @@ namespace igl
     NUM_MASSMATRIX_TYPE = 4
   };
 
-  // Constructs the mass (area) matrix for a given mesh (V,F).
-  //
-  // Templates:
-  //   DerivedV  derived type of eigen matrix for V (e.g. derived from
-  //     MatrixXd)
-  //   DerivedF  derived type of eigen matrix for F (e.g. derived from
-  //     MatrixXi)
-  //   Scalar  scalar type for eigen sparse matrix (e.g. double)
-  // Inputs:
-  //   V  #V by dim list of mesh vertex positions
-  //   F  #F by simplex_size list of mesh elements (triangles or tetrahedra)
-  //   type  one of the following ints:
-  //     MASSMATRIX_TYPE_BARYCENTRIC  barycentric
-  //     MASSMATRIX_TYPE_VORONOI voronoi-hybrid {default}
-  //     MASSMATRIX_TYPE_FULL full {not implemented}
-  // Outputs: 
-  //   M  #V by #V mass matrix
-  //
-  // See also: adjacency_matrix
-  //
+  /*
+   Constructs the mass (area) matrix for a given mesh (V,F).
+  
+       Templates:
+         DerivedV  derived type of eigen matrix for V (e.g. derived from
+           MatrixXd)
+         DerivedF  derived type of eigen matrix for F (e.g. derived from
+           MatrixXi)
+         Scalar  scalar type for eigen sparse matrix (e.g. double)
+
+       Inputs:
+         V  #V by dim list of mesh vertex positions
+         F  #F by simplex_size list of mesh elements (triangles or tetrahedra)
+         type  one of the following ints:
+               MASSMATRIX_TYPE_BARYCENTRIC  barycentric——M(i, i)是顶点i的重心区域的面积；
+               MASSMATRIX_TYPE_VORONOI voronoi-hybrid {default}——M(i, i)是顶点i的voronoi区域的面积；
+               MASSMATRIX_TYPE_FULL full {not implemented}
+
+       Outputs: 
+         M  #V by #V mass matrix
+
+  */
   template <typename DerivedV, typename DerivedF, typename Scalar>
   IGL_INLINE void massmatrix(
     const Eigen::MatrixBase<DerivedV> & V, 

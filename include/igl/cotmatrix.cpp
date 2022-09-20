@@ -1,15 +1,11 @@
 #include "cotmatrix.h"
 #include <vector>
-
-// For error printing
 #include <cstdio>
 #include "cotmatrix_entries.h"
-
-// Bug in unsupported/Eigen/SparseExtra needs iostream first
 #include <iostream>
 
 
-// …˙≥…”‡œ“æÿ’Û
+
 template <typename DerivedV, typename DerivedF, typename Scalar>
 IGL_INLINE void igl::cotmatrix(  const Eigen::MatrixBase<DerivedV> & V,   const Eigen::MatrixBase<DerivedF> & F, \
                 Eigen::SparseMatrix<Scalar>& L)
