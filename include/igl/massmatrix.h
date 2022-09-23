@@ -19,6 +19,7 @@ namespace igl
     NUM_MASSMATRIX_TYPE = 4
   };
 
+
   /*
    Constructs the mass (area) matrix for a given mesh (V,F).
   

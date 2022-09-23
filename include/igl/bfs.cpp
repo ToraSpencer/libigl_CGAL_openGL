@@ -92,7 +92,6 @@ IGL_INLINE void igl::bfs(
 
 
 #ifdef IGL_STATIC_LIBRARY
-// 模板特化：对imp1的特化：
 template void igl::bfs<std::vector<std::vector<int, std::allocator<int>>, std::allocator<std::vector<int, std::allocator<int>>>>,\
     Eigen::Matrix<int, -1, 1, 0, -1, 1>, \
     Eigen::Matrix<int, -1, 1, 0, -1, 1>>\

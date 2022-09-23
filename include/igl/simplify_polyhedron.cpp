@@ -1,10 +1,3 @@
-// This file is part of libigl, a simple c++ geometry processing library.
-// 
-// Copyright (C) 2016 Alec Jacobson <alecjacobson@gmail.com>
-// 
-// This Source Code Form is subject to the terms of the Mozilla Public License 
-// v. 2.0. If a copy of the MPL was not distributed with this file, You can 
-// obtain one at http://mozilla.org/MPL/2.0/.
 #include "simplify_polyhedron.h"
 #include "decimate.h"
 #include "circulation.h"
@@ -61,9 +54,7 @@ IGL_INLINE void igl::simplify_polyhedron(
       {
         // Skip the faces being collapsed
         if(f == EF(e,0) || f == EF(e,1))
-        {
-          continue;
-        }
+            continue;
         const Eigen::RowVectorXd nbefore = N.row(f);
         // Face with vi replaced with vj
         const Eigen::RowVector3i fafter(

@@ -50,6 +50,8 @@ namespace igl
         const double isovalue,
         Eigen::PlainObjectBase<DerivedVertices> &vertices,
         Eigen::PlainObjectBase<DerivedFaces> &faces);
+
+
     template <
       typename DerivedValue, 
       typename DerivedPoint,
@@ -66,6 +68,7 @@ namespace igl
         Eigen::PlainObjectBase<DerivedVertices> &vertices,
         Eigen::PlainObjectBase<DerivedFaces> &faces);
 
+
     // Overload of the above function where the isovalue defaults to 0.0
     template <typename DerivedValues, typename DerivedPoints, typename DerivedVertices, typename DerivedFaces>
     IGL_INLINE void marching_cubes(
@@ -76,7 +79,6 @@ namespace igl
       const unsigned z_res,
       Eigen::PlainObjectBase<DerivedVertices> &vertices,
       Eigen::PlainObjectBase<DerivedFaces> &faces);
-
 
 
     // marching_cubes( values, points, indices, vertices, faces )
@@ -108,8 +110,10 @@ namespace igl
       Eigen::PlainObjectBase<DerivedVertices> &vertices,
       Eigen::PlainObjectBase<DerivedFaces> &faces);
 
+
     // Overload of the above function where the isovalue defaults to 0.0
-    template <typename DerivedValues, typename DerivedPoints, typename DerivedVertices, typename DerivedIndices, typename DerivedFaces>
+    template <typename DerivedValues, typename DerivedPoints, typename DerivedVertices, typename DerivedIndices, \
+        typename DerivedFaces>
     IGL_INLINE void marching_cubes(
       const Eigen::MatrixBase<DerivedValues> &values,
       const Eigen::MatrixBase<DerivedPoints> &points,

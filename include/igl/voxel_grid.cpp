@@ -14,21 +14,25 @@ IGL_INLINE void igl::voxel_grid(
 {
   using namespace Eigen;
   using namespace std;
-  typename DerivedGV::Index si = -1;
+  typename DerivedGV::Index maxCompIdx = -1;            // 包围盒box的对角线向量中最大的分量的索引；0,1,2分别对应xyz分量；
   gridCounts.resize(1, 3);
-  box.diagonal().maxCoeff(&si);
-  const Scalar s_len = box.diagonal()(si);
+  box.diagonal().maxCoeff(&maxCompIdx);                     
+  const Scalar maxComp = box.diagonal()(maxCompIdx);          // 包围盒box的对角线向量中最大的分量；
  
   assert(largestCount > (pad_count*2+1) && "largestCount should be > 2*pad_count+1");
 
+  // 计算xyz三个维度上栅格的个数gridCounts
   const Scalar largestCount0 = largestCount - 2*pad_count;
-  gridCounts(si) = largestCount0;
+  gridCounts(maxCompIdx) = largestCount0;
   for(int i = 0; i < 3 ; i++)
   {
-    if(i!=si)
-        gridCounts(i) = std::ceil(largestCount0 * (box.max()(i)-box.min()(i))/s_len);
+    if(i!=maxCompIdx)
+        gridCounts(i) = std::ceil(largestCount0 * (box.diagonal()(i)) / maxComp);
+        // gridCounts(i) = std::ceil(largestCount0 * (box.max()(i)-box.min()(i))/maxComp);
   }
-  gridCounts.array() += 2*pad_count;
+  gridCounts.array() += 2 * pad_count;
+
+  // 计算gridCenters;
   grid(gridCounts, gridCenters);
 
   /*

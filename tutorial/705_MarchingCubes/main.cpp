@@ -8,6 +8,7 @@
 
 #include "tutorial_shared_path.h"
 
+
 int main(int argc, char * argv[])
 {
   using namespace Eigen;
@@ -19,8 +20,9 @@ int main(int argc, char * argv[])
   read_triangle_mesh(TUTORIAL_SHARED_PATH "/armadillo.obj", vers, tris);
   cout<<"Creating grid..."<<endl;
 
-  // const int num = 100;              // number of vertices on the largest side
-  const int num = 10;              // number of vertices on the largest side
+  const int num = 100;              // number of vertices on the largest side
+  //const int num = 10;              // number of vertices on the largest side
+
 
   // 1. Éú³ÉÕ¤¸ñ£º
   MatrixXd gridCenters;

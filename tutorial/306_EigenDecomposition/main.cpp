@@ -9,6 +9,7 @@
 #include <queue>
 #include "tutorial_shared_path.h"
 
+
 // 求网格上LB算子的特征分解
 /*
      LB(vers) == M.inverse() * L * vers;
