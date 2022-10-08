@@ -19,8 +19,8 @@ namespace igl
        Outputs:
          versOut  #versOut by dim list of output vertex posistions (can be same ref as vers)
          trisOut  #trisOut by 3 list of output face indices into versOut (can be same ref as trisOut)
-         J  #trisOut list of indices into tris of birth face
-         I  #versOut list of indices into vers of birth vertices
+         newOldTrisInfo  #trisOut list of indices into tris of birth face
+         newOldVersInfo  #versOut list of indices into vers of birth vertices
 
        Returns true if m was reached (otherwise #trisOut > m)
     */
@@ -30,8 +30,8 @@ namespace igl
     const size_t max_m,
     Eigen::MatrixXd & versOut,
     Eigen::MatrixXi & trisOut,
-    Eigen::VectorXi & J,
-    Eigen::VectorXi & I);
+    Eigen::VectorXi & newOldTrisInfo,
+    Eigen::VectorXi & newOldVersInfo);
 
   /*
        Inputs:
@@ -42,7 +42,7 @@ namespace igl
        Outputs:
          versOut  #versOut by dim list of output vertex posistions (can be same ref as vers)
          trisOut  #trisOut by 3 list of output face indices into versOut (can be same ref as trisOut)
-         J  #trisOut list of indices into tris of birth face
+         newOldTrisInfo  #trisOut list of indices into tris of birth face
        Returns true if m was reached (otherwise #trisOut > m)
   */
   IGL_INLINE bool decimate(
@@ -51,7 +51,7 @@ namespace igl
     const size_t max_m,
     Eigen::MatrixXd & versOut,
     Eigen::MatrixXi & trisOut,
-    Eigen::VectorXi & J);
+    Eigen::VectorXi & newOldTrisInfo);
 
 
   // Assumes a **closed** manifold mesh. See igl::connect_boundary_to_infinity
@@ -75,8 +75,8 @@ namespace igl
     const decimate_stopping_condition_callback & stopping_condition,
     Eigen::MatrixXd & versOut,
     Eigen::MatrixXi & trisOut,
-    Eigen::VectorXi & J,
-    Eigen::VectorXi & I);
+    Eigen::VectorXi & newOldTrisInfo,
+    Eigen::VectorXi & newOldVersInfo);
 
 
   // Inputs:
@@ -94,8 +94,8 @@ namespace igl
     const decimate_post_collapse_callback      & post_collapse,
     Eigen::MatrixXd & versOut,
     Eigen::MatrixXi & trisOut,
-    Eigen::VectorXi & J,
-    Eigen::VectorXi & I);
+    Eigen::VectorXi & newOldTrisInfo,
+    Eigen::VectorXi & newOldVersInfo);
 
 
   // Inputs:
@@ -118,8 +118,8 @@ namespace igl
     const Eigen::MatrixXi & EI,
     Eigen::MatrixXd & versOut,
     Eigen::MatrixXi & trisOut,
-    Eigen::VectorXi & J,
-    Eigen::VectorXi & I);
+    Eigen::VectorXi & newOldTrisInfo,
+    Eigen::VectorXi & newOldVersInfo);
 
 }
 

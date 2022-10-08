@@ -12,6 +12,14 @@ IGL_INLINE void igl::voxel_grid(
   Eigen::PlainObjectBase<DerivedGV> & gridCenters, 
   Eigen::PlainObjectBase<Derivedside> & gridCounts)
 {
+    /*
+        const Eigen::AlignedBox<Scalar, 3>&box,						输入的AABB对象；
+		const int largestCount,													跨度最大的那个维度(xyz中的一个)的栅格数；		
+		const int pad_count,														超出包围盒边界的栅格数；
+		Eigen::PlainObjectBase<DerivedV>&gridCenters,			每一个栅格的中心；
+		Eigen::PlainObjectBase<DerivedI>&gridCounts				xyz三个维度上栅格的数量；    
+    */
+
   using namespace Eigen;
   using namespace std;
   typename DerivedGV::Index maxCompIdx = -1;            // 包围盒box的对角线向量中最大的分量的索引；0,1,2分别对应xyz分量；
@@ -21,7 +29,7 @@ IGL_INLINE void igl::voxel_grid(
  
   assert(largestCount > (pad_count*2+1) && "largestCount should be > 2*pad_count+1");
 
-  // 计算xyz三个维度上栅格的个数gridCounts
+  // 1. 计算xyz三个维度上栅格的个数gridCounts
   const Scalar largestCount0 = largestCount - 2*pad_count;
   gridCounts(maxCompIdx) = largestCount0;
   for(int i = 0; i < 3 ; i++)
@@ -33,7 +41,7 @@ IGL_INLINE void igl::voxel_grid(
   gridCounts.array() += 2 * pad_count;
 
   // 计算gridCenters;
-  grid(gridCounts, gridCenters);
+  grid(gridCounts, gridCenters);            // 计算中心在原点的gridCenters;
 
   /*
        A *    p/largestCount  + B = min
@@ -57,7 +65,7 @@ IGL_INLINE void igl::voxel_grid(
   */
   typename Array<Scalar, 3, 1>::Index ai = -1;
   Scalar a = A.maxCoeff(&ai);
-  const Array<Scalar, 1, 3> ratio =  a*(gridCounts.template cast<Scalar>().array()-1.0)/(Scalar)(gridCounts(ai)-1.0);
+  const Array<Scalar, 1, 3> ratio =  a * (gridCounts.template cast<Scalar>().array()-1.0)/(Scalar)(gridCounts(ai)-1.0);
   gridCenters.array().rowwise() *= ratio;
   const Eigen::Matrix<Scalar, 1, 3> offset = (box.center().transpose()-gridCenters.colwise().mean()).eval();
   gridCenters.rowwise() += offset;

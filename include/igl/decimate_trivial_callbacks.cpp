@@ -1,7 +1,6 @@
 #include "decimate_trivial_callbacks.h"
 
-IGL_INLINE void igl::decimate_trivial_callbacks(
-    decimate_pre_collapse_callback  & always_try,
+IGL_INLINE void igl::decimate_trivial_callbacks( decimate_pre_collapse_callback  & always_try,
     decimate_post_collapse_callback & never_care)
 {
   always_try = [](
@@ -16,6 +15,8 @@ IGL_INLINE void igl::decimate_trivial_callbacks(
     const Eigen::MatrixXd &                             ,/*C*/
     const int                                            /*e*/
     ) -> bool { return true;};
+
+
   never_care = [](
     const Eigen::MatrixXd &                             ,/*V*/
     const Eigen::MatrixXi &                             ,/*F*/

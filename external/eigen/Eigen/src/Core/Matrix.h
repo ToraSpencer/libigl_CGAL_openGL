@@ -46,7 +46,9 @@ private:
     };
 }
 
-/** \class Matrix
+
+// class Matrix
+/**
   * \ingroup Core_Module
   *
   * \brief The matrix class, also used for vectors and row-vectors
@@ -397,7 +399,6 @@ class Matrix
 
 
 // Global matrix typedefs
-
 /** 
   * \ingroup Core_Module
   *
@@ -430,7 +431,6 @@ typedef Matrix<Type, 1, Size>    RowVector##SizeSuffix##TypeSuffix;
 typedef Matrix<Type, Size, Dynamic> Matrix##Size##X##TypeSuffix;  \
 /** \ingroup matrixtypedefs */                                    \
 typedef Matrix<Type, Dynamic, Size> Matrix##X##Size##TypeSuffix;
-
 
 #define EIGEN_MAKE_TYPEDEFS_ALL_SIZES(Type, TypeSuffix) \
 EIGEN_MAKE_TYPEDEFS(Type, TypeSuffix, 2, 2) \

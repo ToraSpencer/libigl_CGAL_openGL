@@ -1,10 +1,3 @@
-// This file is part of libigl, a simple c++ geometry processing library.
-// 
-// Copyright (C) 2016 Alec Jacobson <alecjacobson@gmail.com>
-// 
-// This Source Code Form is subject to the terms of the Mozilla Public License 
-// v. 2.0. If a copy of the MPL was not distributed with this file, You can 
-// obtain one at http://mozilla.org/MPL/2.0/.
 #include "grid.h"
 #include <cassert>
 
@@ -18,12 +11,13 @@ IGL_INLINE void igl::grid(
   using namespace Eigen;
   typedef typename DerivedGV::Scalar Scalar;
   GV.resize(res.array().prod(),res.size());
-  const auto lerp = 
-    [&res](const Scalar di, const int d)->Scalar{return di/(Scalar)(res(d)-1);};
+  const auto lerp = [&res](const Scalar di, const int d)->Scalar{return di/(Scalar)(res(d)-1);};
+
   int gi = 0;
   Derivedres sub;
   sub.resizeLike(res);
   sub.setConstant(0);
+
   for(int gi = 0;gi<GV.rows();gi++)
   {
     // omg, I'm implementing addition...
@@ -36,10 +30,10 @@ IGL_INLINE void igl::grid(
         sub(c+1)++;
       }
     }
+
     for(int c = 0;c<res.size();c++)
-    {
-      GV(gi,c) = lerp(sub(c),c);
-    }
+        GV(gi,c) = lerp(sub(c),c);
+
     sub(0)++;
   }
 }
