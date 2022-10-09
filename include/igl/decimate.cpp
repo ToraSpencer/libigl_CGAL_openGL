@@ -22,19 +22,18 @@ IGL_INLINE bool igl::decimate(
   Eigen::VectorXi & newOldTrisInfo, 
   Eigen::VectorXi & newOldVersInfo)
 {
-  // Original number of faces
-  const int orig_m = tris.rows();
+  const int trisCountOri = tris.rows();          // Original number of faces
+  int trisCount = tris.rows();                   // Tracking number of faces
 
-  // Tracking number of faces
-  int m = tris.rows();
   typedef Eigen::MatrixXd DerivedV;
   typedef Eigen::MatrixXi DerivedF;
   DerivedV VO;
   DerivedF FO;
+
   igl::connect_boundary_to_infinity(vers, tris, VO, FO);
-  Eigen::VectorXi EMAP;
+  Eigen::VectorXi edgeUeInfo;
   Eigen::MatrixXi E, EF, EI;
-  edge_flaps(FO, E, EMAP, EF, EI);
+  edge_flaps(FO, E, edgeUeInfo, EF, EI);
 
   // decimate will not work correctly on non-edge-manifold meshes. By extension
   // this includes meshes with non-manifold vertices on the boundary since these
@@ -42,7 +41,7 @@ IGL_INLINE bool igl::decimate(
   {
     Eigen::Array<bool, Eigen::Dynamic, Eigen::Dynamic> BF;
     Eigen::Array<bool, Eigen::Dynamic, 1> BE;
-    if(!is_edge_manifold(FO, E.rows(), EMAP, BF, BE))
+    if(!is_edge_manifold(FO, E.rows(), edgeUeInfo, BF, BE))
         return false;
   }
 
@@ -50,23 +49,15 @@ IGL_INLINE bool igl::decimate(
   decimate_post_collapse_callback never_care;
   decimate_trivial_callbacks(always_try, never_care);
 
-  bool ret = decimate(
-    VO, 
-    FO, 
-    shortest_edge_and_midpoint, 
-    max_faces_stopping_condition(m, orig_m, max_m), 
-    always_try, 
-    never_care, 
-    E, 
-    EMAP, 
-    EF, 
-    EI, 
-    versOut, 
-    trisOut, 
-    newOldTrisInfo, 
-    newOldVersInfo);
+  bool ret = decimate(VO, FO, 
+        shortest_edge_and_midpoint, 
+        max_faces_stopping_condition(trisCount, trisCountOri, max_m), 
+        always_try, never_care, E, edgeUeInfo, EF, EI, 
+        versOut, trisOut, 
+        newOldTrisInfo, 
+        newOldVersInfo);
 
-  const Eigen::Array<bool, Eigen::Dynamic, 1> keep = (newOldTrisInfo.array() < orig_m);
+  const Eigen::Array<bool, Eigen::Dynamic, 1> keep = (newOldTrisInfo.array() < trisCountOri);
   igl::slice_mask(Eigen::MatrixXi(trisOut), keep, 1, trisOut);
   igl::slice_mask(Eigen::VectorXi(newOldTrisInfo), keep, 1, newOldTrisInfo);
 
@@ -126,13 +117,13 @@ IGL_INLINE bool igl::decimate(
   Eigen::VectorXi & newOldVersInfo
   )
 {
-  Eigen::VectorXi EMAP;
+  Eigen::VectorXi edgeUeInfo;
   Eigen::MatrixXi E, EF, EI;
-  edge_flaps(tris, E, EMAP, EF, EI);
+  edge_flaps(tris, E, edgeUeInfo, EF, EI);
   return igl::decimate(
     vers, tris, 
     cost_and_placement, stopping_condition, pre_collapse, post_collapse, 
-    E, EMAP, EF, EI, 
+    E, edgeUeInfo, EF, EI, 
     versOut, trisOut, newOldTrisInfo, newOldVersInfo);
 }
 
@@ -149,11 +140,10 @@ IGL_INLINE bool igl::decimate(
     const Eigen::VectorXi& OEMAP,
     const Eigen::MatrixXi& OEF,
     const Eigen::MatrixXi& OEI,
-    Eigen::MatrixXd& U,
-    Eigen::MatrixXi& G,
+    Eigen::MatrixXd& versOut,
+    Eigen::MatrixXi& trisOut,
     Eigen::VectorXi& newOldTrisInfo,
-    Eigen::VectorXi& newOldVersInfo
-)
+    Eigen::VectorXi& newOldVersInfo)
 {
     using namespace Eigen;
     using namespace std;
@@ -161,14 +151,14 @@ IGL_INLINE bool igl::decimate(
     // Working copies
     Eigen::MatrixXd versCopy = vers;
     Eigen::MatrixXi trisCopy = tris;
-    VectorXi EMAP;
+    VectorXi edgeUeInfo;
     MatrixXi E, EF, EI;
-    edge_flaps(trisCopy, E, EMAP, EF, EI);
+    edge_flaps(trisCopy, E, edgeUeInfo, EF, EI);
 
     {
         Eigen::Array<bool, Eigen::Dynamic, Eigen::Dynamic> BF;
         Eigen::Array<bool, Eigen::Dynamic, 1> BE;
-        if (!is_edge_manifold(trisCopy, E.rows(), EMAP, BF, BE))
+        if (!is_edge_manifold(trisCopy, E.rows(), edgeUeInfo, BF, BE))
             return false;
     }
 
@@ -180,19 +170,17 @@ IGL_INLINE bool igl::decimate(
     // If an edge were collapsed, we'd collapse it to these points:
     MatrixXd C(E.rows(), versCopy.cols());
 
-    // Pushing into a vector then using constructor was slower. Maybe using
-    // std::move + make_heap would squeeze out something?
+    // Pushing into a vector then using constructor was slower. Maybe using std::move + make_heap would squeeze out something?
 
     // Separating the cost/placement evaluation from the Q filling is a
-    // performance hit for serial but faster if we can parallelize the
-    // cost/placement.
+    // performance hit for serial but faster if we can parallelize the cost/placement.
     {
         Eigen::VectorXd costs(E.rows());
         igl::parallel_for(E.rows(), [&](const int e)
             {
                 double cost = e;
                 RowVectorXd p(1, 3);
-                cost_and_placement(e, versCopy, trisCopy, E, EMAP, EF, EI, cost, p);
+                cost_and_placement(e, versCopy, trisCopy, E, edgeUeInfo, EF, EI, cost, p);
                 C.row(e) = p;
                 costs(e) = cost;
             },
@@ -208,9 +196,9 @@ IGL_INLINE bool igl::decimate(
     {
         int e, e1, e2, f1, f2;
         if (collapse_edge(cost_and_placement, pre_collapse, post_collapse,
-            versCopy, trisCopy, E, EMAP, EF, EI, Q, EQ, C, e, e1, e2, f1, f2))
+            versCopy, trisCopy, E, edgeUeInfo, EF, EI, Q, EQ, C, e, e1, e2, f1, f2))
         {
-            if (stopping_condition(versCopy, trisCopy, E, EMAP, EF, EI, Q, EQ, C, e, e1, e2, f1, f2))
+            if (stopping_condition(versCopy, trisCopy, E, edgeUeInfo, EF, EI, Q, EQ, C, e, e1, e2, f1, f2))
             {
                 clean_finish = true;
                 break;
@@ -250,7 +238,7 @@ IGL_INLINE bool igl::decimate(
     F2.conservativeResize(m, F2.cols());
     newOldTrisInfo.conservativeResize(m);
     VectorXi _1;
-    igl::remove_unreferenced(versCopy, F2, U, G, _1, newOldVersInfo);
+    igl::remove_unreferenced(versCopy, F2, versOut, trisOut, _1, newOldVersInfo);
 
     return clean_finish;
 }

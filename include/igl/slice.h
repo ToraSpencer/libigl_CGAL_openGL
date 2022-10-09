@@ -1,10 +1,3 @@
-// This file is part of libigl, a simple c++ geometry processing library.
-//
-// Copyright (C) 2013 Alec Jacobson <alecjacobson@gmail.com>
-//
-// This Source Code Form is subject to the terms of the Mozilla Public License
-// v. 2.0. If a copy of the MPL was not distributed with this file, You can
-// obtain one at http://mozilla.org/MPL/2.0/.
 #ifndef IGL_SLICE_H
 #define IGL_SLICE_H
 #include "igl_inline.h"
@@ -12,7 +5,9 @@
 #include <Eigen/Sparse>
 namespace igl
 {
-  // Act like the matlab X(row_indices,col_indices) operator, where
+
+
+  // Act like the matlab X(row_indices, col_indices) operator, where
   // row_indices, col_indices are non-negative integer indices.
   //
   // Inputs:
@@ -35,10 +30,11 @@ namespace igl
     const Eigen::DenseBase<DerivedC> & C,
     Eigen::SparseMatrix<TY>& Y);
 
+
   // Wrapper to only slice in one direction
   //
   // Inputs:
-  //   dim  dimension to slice in 1 or 2, dim=1 --> X(R,:), dim=2 --> X(:,R)
+  //   dim  dimension to slice in 1 or 2, dim=1 --> X(R, :), dim=2 --> X(:,R)
   //
   // Note: For now this is just a cheap wrapper.
   template <
@@ -51,6 +47,7 @@ namespace igl
     const int dim,
     MatY& Y);
 
+
   template <
     typename DerivedX,
     typename DerivedR,
@@ -62,11 +59,13 @@ namespace igl
     const Eigen::DenseBase<DerivedC> & C,
     Eigen::PlainObjectBase<DerivedY> & Y);
 
+
   template <typename DerivedX, typename DerivedY, typename DerivedR>
   IGL_INLINE void slice(
     const Eigen::DenseBase<DerivedX> & X,
     const Eigen::DenseBase<DerivedR> & R,
     Eigen::PlainObjectBase<DerivedY> & Y);
+
 
   // VectorXi Y = slice(X,R);
   //
