@@ -11,13 +11,13 @@
 
 template <typename DerivedF, typename DerivedE>
 IGL_INLINE void igl::edges(
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedF> & tris,
   Eigen::PlainObjectBase<DerivedE> & E)
 {
   // build adjacency matrix
   typedef typename DerivedF::Scalar Index;
   Eigen::SparseMatrix<Index> A;
-  igl::adjacency_matrix(F,A);
+  igl::adjacency_matrix(tris,A);
   igl::edges(A,E);
 }
 

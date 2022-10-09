@@ -23,8 +23,8 @@ namespace igl {
   {
   public:
 
-    const Eigen::MatrixBase<DerivedV> &V;
-    const Eigen::MatrixBase<DerivedF> &F;
+    const Eigen::MatrixBase<DerivedV> &vers;
+    const Eigen::MatrixBase<DerivedF> &tris;
     const Eigen::MatrixBase<DerivedV> &PD1;
     const Eigen::MatrixBase<DerivedV> &PD2;
     DerivedV N;
@@ -66,23 +66,23 @@ namespace igl {
          const Eigen::MatrixBase<DerivedV> &_PD1,
          const Eigen::MatrixBase<DerivedV> &_PD2
          ):
-    V(_V),
-    F(_F),
+    vers(_V),
+    tris(_F),
     PD1(_PD1),
     PD2(_PD2)
     {
-      igl::per_face_normals(V,F,N);
-      igl::triangle_triangle_adjacency(F,TT,TTi);
+      igl::per_face_normals(vers,tris,N);
+      igl::triangle_triangle_adjacency(tris,TT,TTi);
     }
     inline void comb(Eigen::PlainObjectBase<DerivedV> &PD1out,
               Eigen::PlainObjectBase<DerivedV> &PD2out)
     {
 //      PD1out = PD1;
 //      PD2out = PD2;
-      PD1out.setZero(F.rows(),3);PD1out<<PD1;
-      PD2out.setZero(F.rows(),3);PD2out<<PD2;
+      PD1out.setZero(tris.rows(),3);PD1out<<PD1;
+      PD2out.setZero(tris.rows(),3);PD2out<<PD2;
 
-      Eigen::VectorXi mark = Eigen::VectorXi::Constant(F.rows(),false);
+      Eigen::VectorXi mark = Eigen::VectorXi::Constant(tris.rows(),false);
 
       std::deque<int> d;
 
@@ -126,7 +126,7 @@ namespace igl {
       }
 
       // everything should be marked
-      for (int i=0; i<F.rows(); i++)
+      for (int i=0; i<tris.rows(); i++)
       {
         assert(mark(i));
       }
@@ -137,14 +137,14 @@ namespace igl {
   };
 }
 template <typename DerivedV, typename DerivedF>
-IGL_INLINE void igl::comb_cross_field(const Eigen::MatrixBase<DerivedV> &V,
-                                      const Eigen::MatrixBase<DerivedF> &F,
+IGL_INLINE void igl::comb_cross_field(const Eigen::MatrixBase<DerivedV> &vers,
+                                      const Eigen::MatrixBase<DerivedF> &tris,
                                       const Eigen::MatrixBase<DerivedV> &PD1,
                                       const Eigen::MatrixBase<DerivedV> &PD2,
                                       Eigen::PlainObjectBase<DerivedV> &PD1out,
                                       Eigen::PlainObjectBase<DerivedV> &PD2out)
 {
-  igl::Comb<DerivedV, DerivedF> cmb(V, F, PD1, PD2);
+  igl::Comb<DerivedV, DerivedF> cmb(vers, tris, PD1, PD2);
   cmb.comb(PD1out, PD2out);
 }
 

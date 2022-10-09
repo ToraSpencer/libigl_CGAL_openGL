@@ -22,12 +22,12 @@ template <
   typename SType,
   typename DerivedW>
 IGL_INLINE bool igl::biharmonic_coordinates(
-  const Eigen::MatrixBase<DerivedV> & V,
+  const Eigen::MatrixBase<DerivedV> & vers,
   const Eigen::MatrixBase<DerivedT> & T,
   const std::vector<std::vector<SType> > & S,
   Eigen::PlainObjectBase<DerivedW> & W)
 {
-  return biharmonic_coordinates(V,T,S,2,W);
+  return biharmonic_coordinates(vers,T,S,2,W);
 }
 
 template <
@@ -36,7 +36,7 @@ template <
   typename SType,
   typename DerivedW>
 IGL_INLINE bool igl::biharmonic_coordinates(
-  const Eigen::MatrixBase<DerivedV> & V,
+  const Eigen::MatrixBase<DerivedV> & vers,
   const Eigen::MatrixBase<DerivedT> & T,
   const std::vector<std::vector<SType> > & S,
   const int k,
@@ -63,7 +63,7 @@ IGL_INLINE bool igl::biharmonic_coordinates(
     // Version described in paper is "wrong"
     // http://www.cs.toronto.edu/~jacobson/images/error-in-linear-subspace-design-for-real-time-shape-deformation-2017-wang-et-al.pdf
     SparseMatrix<Scalar> N, Z, M;
-    normal_derivative(V,T,N);
+    normal_derivative(vers,T,N);
     {
       std::vector<Triplet<Scalar>> ZIJV;
       for(int t =0;t<T.rows();t++)
@@ -80,13 +80,13 @@ IGL_INLINE bool igl::biharmonic_coordinates(
           }
         }
       }
-      Z.resize(V.rows(),N.rows());
+      Z.resize(vers.rows(),N.rows());
       Z.setFromTriplets(ZIJV.begin(),ZIJV.end());
       N = (Z*N).eval();
     }
-    cotmatrix(V,T,L);
+    cotmatrix(vers,T,L);
     K = N+L;
-    massmatrix(V,T,MASSMATRIX_TYPE_DEFAULT,M);
+    massmatrix(vers,T,MASSMATRIX_TYPE_DEFAULT,M);
     // normalize
     M /= ((Matrix<Scalar, Dynamic, 1>)M.diagonal()).array().abs().maxCoeff();
     Minv =
@@ -95,10 +95,10 @@ IGL_INLINE bool igl::biharmonic_coordinates(
     Eigen::SparseMatrix<Scalar> M;
     Eigen::Matrix<Integer, Dynamic, Dynamic> E;
     Eigen::Matrix<Integer, Dynamic, 1> EMAP;
-    crouzeix_raviart_massmatrix(V,T,M,E,EMAP);
-    crouzeix_raviart_cotmatrix(V,T,E,EMAP,L);
-    // Ad  #E by #V facet-vertex incidence matrix
-    Eigen::SparseMatrix<Scalar> Ad(E.rows(),V.rows());
+    crouzeix_raviart_massmatrix(vers,T,M,E,EMAP);
+    crouzeix_raviart_cotmatrix(vers,T,E,EMAP,L);
+    // Ad  #E by #vers facet-vertex incidence matrix
+    Eigen::SparseMatrix<Scalar> Ad(E.rows(),vers.rows());
     {
       std::vector<Eigen::Triplet<Scalar>> AIJV(E.size());
       for(int e = 0;e<E.rows();e++)
@@ -173,7 +173,7 @@ IGL_INLINE bool igl::biharmonic_coordinates(
     {
       if(S[h].size()==1)
       {
-        H.row(c) = V.block(S[h][0],0,1,dim);
+        H.row(c) = vers.block(S[h][0],0,1,dim);
         J(v,c++) = 1;
         b(v) = S[h][0];
         v++;
@@ -184,7 +184,7 @@ IGL_INLINE bool igl::biharmonic_coordinates(
         {
           for(int d = 0;d<dim;d++)
           {
-            J(v,c+d) = V(S[h][p],d);
+            J(v,c+d) = vers(S[h][p],d);
           }
           J(v,c+dim) = 1;
           b(v) = S[h][p];

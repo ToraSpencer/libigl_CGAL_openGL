@@ -3,26 +3,26 @@
 
 template <typename DerivedF,  typename DerivedFO>
 IGL_INLINE void igl::connect_boundary_to_infinity(
-  const Eigen::MatrixBase<DerivedF> & F, 
+  const Eigen::MatrixBase<DerivedF> & tris, 
   Eigen::PlainObjectBase<DerivedFO> & FO)
 {
-  return connect_boundary_to_infinity(F, F.maxCoeff(), FO);
+  return connect_boundary_to_infinity(tris, tris.maxCoeff(), FO);
 }
 
 
 template <typename DerivedF,  typename DerivedFO>
 IGL_INLINE void igl::connect_boundary_to_infinity(
-  const Eigen::MatrixBase<DerivedF> & F, 
+  const Eigen::MatrixBase<DerivedF> & tris, 
   const typename DerivedF::Scalar inf_index, 
   Eigen::PlainObjectBase<DerivedFO> & FO)
 {
   // Determine boundary edges
   Eigen::Matrix<typename DerivedFO::Scalar, Eigen::Dynamic, Eigen::Dynamic> O;
-  boundary_facets(F, O);
+  boundary_facets(tris, O);
 
-  FO.resize(F.rows()+O.rows(), F.cols());
+  FO.resize(tris.rows()+O.rows(), tris.cols());
   typedef Eigen::Matrix<typename DerivedFO::Scalar, Eigen::Dynamic, 1> VectorXI;
-  FO.topLeftCorner(F.rows(), F.cols()) = F;
+  FO.topLeftCorner(tris.rows(), tris.cols()) = tris;
   FO.bottomLeftCorner(O.rows(), O.cols()) = O.rowwise().reverse();
   FO.bottomRightCorner(O.rows(), 1).setConstant(inf_index);
 }
@@ -34,17 +34,17 @@ template <
   typename DerivedVO,  
   typename DerivedFO>
 IGL_INLINE void igl::connect_boundary_to_infinity(
-  const Eigen::MatrixBase<DerivedV> & V, 
-  const Eigen::MatrixBase<DerivedF> & F, 
+  const Eigen::MatrixBase<DerivedV> & vers, 
+  const Eigen::MatrixBase<DerivedF> & tris, 
   Eigen::PlainObjectBase<DerivedVO> & VO, 
   Eigen::PlainObjectBase<DerivedFO> & FO)
 {
-  typename DerivedV::Index inf_index = V.rows();
-  connect_boundary_to_infinity(F, inf_index, FO);
-  VO.resize(V.rows()+1, V.cols());
-  VO.topLeftCorner(V.rows(), V.cols()) = V;
+  typename DerivedV::Index inf_index = vers.rows();
+  connect_boundary_to_infinity(tris, inf_index, FO);
+  VO.resize(vers.rows()+1, vers.cols());
+  VO.topLeftCorner(vers.rows(), vers.cols()) = vers;
   auto inf = std::numeric_limits<typename DerivedVO::Scalar>::infinity();
-  VO.row(V.rows()).setConstant(inf);
+  VO.row(vers.rows()).setConstant(inf);
 }
 
 

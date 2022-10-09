@@ -11,24 +11,24 @@
 
 namespace igl
 {
-  // ALL_PAIRS_DISTANCES compute distances between each point i in V and point j
+  // ALL_PAIRS_DISTANCES compute distances between each point i in vers and point j
   // in U
   // 
-  // D = all_pairs_distances(V,U)
+  // D = all_pairs_distances(vers,U)
   // 
   // Templates:
   //   Mat  matrix class like MatrixXd
   // Inputs:
-  //   V  #V by dim list of points
+  //   vers  #vers by dim list of points
   //   U  #U by dim list of points
   //   squared  whether to return squared distances
   // Outputs:
-  //   D  #V by #U matrix of distances, where D(i,j) gives the distance or
-  //     squareed distance between V(i,:) and U(j,:)
+  //   D  #vers by #U matrix of distances, where D(i,j) gives the distance or
+  //     squareed distance between vers(i,:) and U(j,:)
   // 
   template <typename Mat>
   IGL_INLINE void all_pairs_distances(
-    const Mat & V,
+    const Mat & vers,
     const Mat & U,
     const bool squared, 
     Mat & D);

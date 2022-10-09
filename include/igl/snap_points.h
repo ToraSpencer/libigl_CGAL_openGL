@@ -13,17 +13,17 @@
 
 namespace igl
 {
-  // SNAP_POINTS snap list of points C to closest of another list of points V
+  // SNAP_POINTS snap list of points C to closest of another list of points vers
   //
-  // [I,minD,VI] = snap_points(C,V)
+  // [I,minD,VI] = snap_points(C,vers)
   //
   // Inputs:
   //   C  #C by dim list of query point positions
-  //   V  #V by dim list of data point positions
+  //   vers  #vers by dim list of data point positions
   // Outputs:
-  //   I  #C list of indices into V of closest points to C
+  //   I  #C list of indices into vers of closest points to C
   //   minD  #C list of squared (^p) distances to closest points
-  //   VI  #C by dim list of new point positions, VI = V(I,:)
+  //   VI  #C by dim list of new point positions, VI = vers(I,:)
   template <
     typename DerivedC,
     typename DerivedV,
@@ -32,7 +32,7 @@ namespace igl
     typename DerivedVI>
   IGL_INLINE void snap_points(
     const Eigen::MatrixBase<DerivedC > & C,
-    const Eigen::MatrixBase<DerivedV > & V,
+    const Eigen::MatrixBase<DerivedV > & vers,
     Eigen::PlainObjectBase<DerivedI > & I,
     Eigen::PlainObjectBase<DerivedminD > & minD,
     Eigen::PlainObjectBase<DerivedVI > & VI);
@@ -43,7 +43,7 @@ namespace igl
     typename DerivedminD>
   IGL_INLINE void snap_points(
     const Eigen::MatrixBase<DerivedC > & C,
-    const Eigen::MatrixBase<DerivedV > & V,
+    const Eigen::MatrixBase<DerivedV > & vers,
     Eigen::PlainObjectBase<DerivedI > & I,
     Eigen::PlainObjectBase<DerivedminD > & minD);
   template <
@@ -52,7 +52,7 @@ namespace igl
     typename DerivedI >
   IGL_INLINE void snap_points(
     const Eigen::MatrixBase<DerivedC > & C,
-    const Eigen::MatrixBase<DerivedV > & V,
+    const Eigen::MatrixBase<DerivedV > & vers,
     Eigen::PlainObjectBase<DerivedI > & I);
 }
 

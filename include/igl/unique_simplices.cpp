@@ -9,7 +9,7 @@ template <
   typename DerivedIA,
   typename DerivedIC>
 IGL_INLINE void igl::unique_simplices(
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedF>& tris,
   Eigen::PlainObjectBase<DerivedFF>& FF,
   Eigen::PlainObjectBase<DerivedIA>& IA,
   Eigen::PlainObjectBase<DerivedIC>& IC)
@@ -20,15 +20,15 @@ IGL_INLINE void igl::unique_simplices(
     MatrixXI;
   // Sort each face
   MatrixXI sortF, unusedI;
-  igl::sort(F,2,true,sortF,unusedI);
+  igl::sort(tris,2,true,sortF,unusedI);
   // Find unique faces
   MatrixXI C;
   igl::unique_rows(sortF,C,IA,IC);
-  FF.resize(IA.size(),F.cols());
+  FF.resize(IA.size(),tris.cols());
   const size_t mff = FF.rows();
-  parallel_for(mff,[&F,&IA,&FF](size_t & i)
+  parallel_for(mff,[&tris,&IA,&FF](size_t & i)
   {
-    FF.row(i) = F.row(IA(i)).template cast<typename DerivedFF::Scalar>();
+    FF.row(i) = tris.row(IA(i)).template cast<typename DerivedFF::Scalar>();
   },1000ul);
 }
 
@@ -36,11 +36,11 @@ template <
   typename DerivedF,
   typename DerivedFF>
 IGL_INLINE void igl::unique_simplices(
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedF>& tris,
   Eigen::PlainObjectBase<DerivedFF>& FF)
 {
   Eigen::VectorXi IA,IC;
-  return unique_simplices(F,FF,IA,IC);
+  return unique_simplices(tris,FF,IA,IC);
 }
 
 #ifdef IGL_STATIC_LIBRARY

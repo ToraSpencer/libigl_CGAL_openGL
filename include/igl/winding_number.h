@@ -18,16 +18,16 @@ namespace igl
 {
   // WINDING_NUMBER  Computes the generalized winding number at each
   // dim-dimensional query point in O with respect to the oriented
-  // one-codimensional mesh (V,F). This is equivalent to summing the subtended
-  // signed angles/solid angles of each element in (V,F). See, "Robust
+  // one-codimensional mesh (vers,tris). This is equivalent to summing the subtended
+  // signed angles/solid angles of each element in (vers,tris). See, "Robust
   // Inside-Outside Segmentation using Generalized Winding Numbers" [Jacobson et
   // al. 2013].
   //
   //
   // Inputs:
-  //   V  #V by dim list of mesh vertex positions
-  //   F  #F by dim list of mesh facets as indices into rows of V. If dim==2,
-  //     then (V,F) describes a set of edges in the plane. If dim==3, then (V,F)
+  //   vers  #vers by dim list of mesh vertex positions
+  //   tris  #tris by dim list of mesh facets as indices into rows of vers. If dim==2,
+  //     then (vers,tris) describes a set of edges in the plane. If dim==3, then (vers,tris)
   //     describes a triangle mesh/soup.
   //   O  #O by dim list of query points
   // Output:
@@ -41,15 +41,15 @@ namespace igl
     typename DerivedO,
     typename DerivedW>
   IGL_INLINE void winding_number(
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const Eigen::MatrixBase<DerivedO> & O,
     Eigen::PlainObjectBase<DerivedW> & W);
   // Compute winding number of a single point
   //
   // Inputs:
-  //  V  n by dim list of vertex positions
-  //  F  #F by dim list of triangle indices, minimum index is 0
+  //  vers  n by dim list of vertex positions
+  //  tris  #tris by dim list of triangle indices, minimum index is 0
   //  p  single origin position
   // Outputs:
   //  w  winding number of this point
@@ -59,8 +59,8 @@ namespace igl
     typename DerivedF,
     typename Derivedp>
   IGL_INLINE typename DerivedV::Scalar winding_number(
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const Eigen::MatrixBase<Derivedp> & p);
 }
 

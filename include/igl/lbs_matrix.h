@@ -14,23 +14,23 @@
 
 namespace igl
 {
-  // LBS_MATRIX Linear blend skinning can be expressed by V' = M * T where V' is
-  // a #V by dim matrix of deformed vertex positions (one vertex per row), M is a
-  // #V by (dim+1)*#T (composed of weights and rest positions) and T is a
+  // LBS_MATRIX Linear blend skinning can be expressed by vers' = M * T where vers' is
+  // a #vers by dim matrix of deformed vertex positions (one vertex per row), M is a
+  // #vers by (dim+1)*#T (composed of weights and rest positions) and T is a
   // #T*(dim+1) by dim matrix of #T stacked transposed transformation matrices.
   // See equations (1) and (2) in "Fast Automatic Skinning Transformations"
   // [Jacobson et al 2012]
   //
   // Inputs:
-  //   V  #V by dim list of rest positions
-  //   W  #V+ by #T  list of weights
+  //   vers  #vers by dim list of rest positions
+  //   W  #vers+ by #T  list of weights
   // Outputs:
-  //   M  #V by #T*(dim+1)
+  //   M  #vers by #T*(dim+1)
   //
   // In MATLAB:
-  //   kron(ones(1,size(W,2)),[V ones(size(V,1),1)]).*kron(W,ones(1,size(V,2)+1))
+  //   kron(ones(1,size(W,2)),[vers ones(size(vers,1),1)]).*kron(W,ones(1,size(vers,2)+1))
   IGL_INLINE void lbs_matrix(
-    const Eigen::MatrixXd & V, 
+    const Eigen::MatrixXd & vers, 
     const Eigen::MatrixXd & W,
     Eigen::MatrixXd & M);
   // LBS_MATRIX  construct a matrix that when multiplied against a column of
@@ -41,22 +41,22 @@ namespace igl
   // vertices and handles.
   //
   // Inputs:
-  //   V  #V by dim list of vertex rest positions
-  //   W  #V by #handles list of correspondence weights
+  //   vers  #vers by dim list of vertex rest positions
+  //   W  #vers by #handles list of correspondence weights
   // Output:
-  //   M  #V * dim by #handles * dim * (dim+1) matrix such that
-  //     new_V(:) = LBS(V,W,A) = reshape(M * A,size(V)), where A is a column
+  //   M  #vers * dim by #handles * dim * (dim+1) matrix such that
+  //     new_V(:) = LBS(vers,W,A) = reshape(M * A,size(vers)), where A is a column
   //     vectors formed by the entries in each handle's dim by dim+1 
   //     transformation matrix. Specifcally, A =
   //       reshape(permute(Astack,[3 1 2]),n*dim*(dim+1),1)
   //     or A = [Lxx;Lyx;Lxy;Lyy;tx;ty], and likewise for other dim
   //     if Astack(:,:,i) is the dim by (dim+1) transformation at handle i
   IGL_INLINE void lbs_matrix_column(
-    const Eigen::MatrixXd & V, 
+    const Eigen::MatrixXd & vers, 
     const Eigen::MatrixXd & W,
     Eigen::SparseMatrix<double>& M);
   IGL_INLINE void lbs_matrix_column(
-    const Eigen::MatrixXd & V, 
+    const Eigen::MatrixXd & vers, 
     const Eigen::MatrixXd & W,
     Eigen::MatrixXd & M);
   // Same as LBS_MATRIX above but instead of giving W as a full matrix of weights
@@ -64,13 +64,13 @@ namespace igl
   // for each vertex.
   // 
   // Inputs:
-  //   V  #V by dim list of vertex rest positions
-  //   W  #V by k  list of k correspondence weights per vertex
-  //   WI  #V by k  list of k correspondence weight indices per vertex. Such that
+  //   vers  #vers by dim list of vertex rest positions
+  //   W  #vers by k  list of k correspondence weights per vertex
+  //   WI  #vers by k  list of k correspondence weight indices per vertex. Such that
   //     W(j,WI(i)) gives the ith most significant correspondence weight on vertex j
   // Output:
-  //   M  #V * dim by #handles * dim * (dim+1) matrix such that
-  //     new_V(:) = LBS(V,W,A) = reshape(M * A,size(V)), where A is a column
+  //   M  #vers * dim by #handles * dim * (dim+1) matrix such that
+  //     new_V(:) = LBS(vers,W,A) = reshape(M * A,size(vers)), where A is a column
   //     vectors formed by the entries in each handle's dim by dim+1 
   //     transformation matrix. Specifcally, A =
   //       reshape(permute(Astack,[3 1 2]),n*dim*(dim+1),1)
@@ -78,12 +78,12 @@ namespace igl
   //     if Astack(:,:,i) is the dim by (dim+1) transformation at handle i
   //
   IGL_INLINE void lbs_matrix_column(
-    const Eigen::MatrixXd & V, 
+    const Eigen::MatrixXd & vers, 
     const Eigen::MatrixXd & W,
     const Eigen::MatrixXi & WI,
     Eigen::SparseMatrix<double>& M);
   IGL_INLINE void lbs_matrix_column(
-    const Eigen::MatrixXd & V, 
+    const Eigen::MatrixXd & vers, 
     const Eigen::MatrixXd & W,
     const Eigen::MatrixXi & WI,
     Eigen::MatrixXd & M);

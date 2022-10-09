@@ -14,10 +14,10 @@ namespace igl
   // half-edges. For a manifold tetrahedral mesh, this computes all half-faces.
   //
   // Inputs:
-  //   F  #F by simplex_size  list of simplices
+  //   tris  #tris by simplex_size  list of simplices
   // Outputs:
-  //   E  #E by simplex_size-1  list of facets, such that E.row(f+#F*c) is the
-  //     facet opposite F(f,c)
+  //   E  #E by simplex_size-1  list of facets, such that E.row(f+#tris*c) is the
+  //     facet opposite tris(f,c)
   //
   // Note: this is not the same as igl::edges because this includes every
   // directed edge including repeats (meaning interior edges on a surface will
@@ -28,7 +28,7 @@ namespace igl
     */
   template <typename DerivedF, typename DerivedE>
   IGL_INLINE void oriented_facets(
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedF> & tris,
     Eigen::PlainObjectBase<DerivedE> & E);
 
 }

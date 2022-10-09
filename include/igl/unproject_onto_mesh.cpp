@@ -17,20 +17,20 @@ IGL_INLINE bool igl::unproject_onto_mesh(
   const Eigen::Matrix4f& model,
   const Eigen::Matrix4f& proj,
   const Eigen::Vector4f& viewport,
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   int & fid,
   Eigen::PlainObjectBase<Derivedbc> & bc)
 {
   using namespace std;
   using namespace Eigen;
-  const auto & shoot_ray = [&V,&F](
+  const auto & shoot_ray = [&vers,&tris](
     const Eigen::Vector3f& s,
     const Eigen::Vector3f& dir,
     igl::Hit & hit)->bool
   {
     std::vector<igl::Hit> hits;
-    if(!ray_mesh_intersect(s,dir,V,F,hits))
+    if(!ray_mesh_intersect(s,dir,vers,tris,hits))
     {
       return false;
     }

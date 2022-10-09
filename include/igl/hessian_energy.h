@@ -22,18 +22,18 @@ namespace igl
     // (Oded Stein, Eitan Grinspun, Max Wardetzky, Alec Jacobson)
     //
     // Inputs:
-    //   V  #V by dim list of mesh vertex positions
-    //   F  #F by 3 list of mesh faces (must be triangles)
+    //   vers  #vers by dim list of mesh vertex positions
+    //   tris  #tris by 3 list of mesh faces (must be triangles)
     // Outputs:
-    //   Q  #V by #V Hessian energy matrix, each row/column i
-    //     corresponding to V(i,:)
+    //   Q  #vers by #vers Hessian energy matrix, each row/column i
+    //     corresponding to vers(i,:)
     //
     //
     //
     template <typename DerivedV, typename DerivedF, typename Scalar>
     IGL_INLINE void hessian_energy(
-                                   const Eigen::MatrixBase<DerivedV> & V,
-                                   const Eigen::MatrixBase<DerivedF> & F,
+                                   const Eigen::MatrixBase<DerivedV> & vers,
+                                   const Eigen::MatrixBase<DerivedF> & tris,
                                    Eigen::SparseMatrix<Scalar>& Q);
     
 }

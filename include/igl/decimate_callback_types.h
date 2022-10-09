@@ -10,8 +10,8 @@ namespace igl
   using decimate_cost_and_placement_callback = 
     std::function<void(
       const int                                           ,/*e*/
-      const Eigen::MatrixXd &                             ,/*V*/
-      const Eigen::MatrixXi &                             ,/*F*/
+      const Eigen::MatrixXd &                             ,/*vers*/
+      const Eigen::MatrixXi &                             ,/*tris*/
       const Eigen::MatrixXi &                             ,/*E*/
       const Eigen::VectorXi &                             ,/*EMAP*/
       const Eigen::MatrixXi &                             ,/*EF*/
@@ -22,8 +22,8 @@ namespace igl
 
   using decimate_stopping_condition_callback = 
     std::function<bool(
-      const Eigen::MatrixXd &                             ,/*V*/
-      const Eigen::MatrixXi &                             ,/*F*/
+      const Eigen::MatrixXd &                             ,/*vers*/
+      const Eigen::MatrixXi &                             ,/*tris*/
       const Eigen::MatrixXi &                             ,/*E*/
       const Eigen::VectorXi &                             ,/*EMAP*/
       const Eigen::MatrixXi &                             ,/*EF*/
@@ -40,8 +40,8 @@ namespace igl
 
   using decimate_pre_collapse_callback = 
     std::function<bool(
-      const Eigen::MatrixXd &                             ,/*V*/
-      const Eigen::MatrixXi &                             ,/*F*/
+      const Eigen::MatrixXd &                             ,/*vers*/
+      const Eigen::MatrixXi &                             ,/*tris*/
       const Eigen::MatrixXi &                             ,/*E*/
       const Eigen::VectorXi &                             ,/*EMAP*/
       const Eigen::MatrixXi &                             ,/*EF*/
@@ -54,8 +54,8 @@ namespace igl
 
   using decimate_post_collapse_callback = 
     std::function<void(
-      const Eigen::MatrixXd &                             ,/*V*/
-      const Eigen::MatrixXi &                             ,/*F*/
+      const Eigen::MatrixXd &                             ,/*vers*/
+      const Eigen::MatrixXi &                             ,/*tris*/
       const Eigen::MatrixXi &                             ,/*E*/
       const Eigen::VectorXi &                             ,/*EMAP*/
       const Eigen::MatrixXi &                             ,/*EF*/

@@ -142,7 +142,7 @@ public:
 public:
 
   Eigen::MatrixXd vertices;
-  // Face list of current mesh    (#F x 3) or (#F x 4)
+  // Face list of current mesh    (#tris x 3) or (#tris x 4)
   // The i-th row contains the indices of the vertices that forms the i-th face in ccw order
   Eigen::MatrixXi faces;
 
@@ -174,7 +174,7 @@ public:
   int maxSize; /* The maximum limit of the radius in the benchmark */
 
   IGL_INLINE CurvatureCalculator();
-  IGL_INLINE void init(const Eigen::MatrixXd& V, const Eigen::MatrixXi& F);
+  IGL_INLINE void init(const Eigen::MatrixXd& vers, const Eigen::MatrixXi& tris);
 
   IGL_INLINE void finalEigenStuff(int, const std::vector<Eigen::Vector3d>&, Quadric&);
   IGL_INLINE void fitQuadric(const Eigen::Vector3d&, const std::vector<Eigen::Vector3d>& ref, const std::vector<int>& , Quadric *);
@@ -315,20 +315,20 @@ IGL_INLINE CurvatureCalculator::CurvatureCalculator()
   this->expStep=true;
 }
 
-IGL_INLINE void CurvatureCalculator::init(const Eigen::MatrixXd& V, const Eigen::MatrixXi& F)
+IGL_INLINE void CurvatureCalculator::init(const Eigen::MatrixXd& vers, const Eigen::MatrixXi& tris)
 {
   // Normalize vertices
-  vertices = V;
+  vertices = vers;
 
 //  vertices = vertices.array() - vertices.minCoeff();
 //  vertices = vertices.array() / vertices.maxCoeff();
-//  vertices = vertices.array() * (1.0/igl::avg_edge_length(V,F));
+//  vertices = vertices.array() * (1.0/igl::avg_edge_length(vers,tris));
 
-  faces = F;
-  igl::adjacency_list(F, vertex_to_vertices);
-  igl::vertex_triangle_adjacency(V, F, vertex_to_faces, vertex_to_faces_index);
-  igl::per_face_normals(V, F, face_normals);
-  igl::per_vertex_normals(V, F, face_normals, vertex_normals);
+  faces = tris;
+  igl::adjacency_list(tris, vertex_to_vertices);
+  igl::vertex_triangle_adjacency(vers, tris, vertex_to_faces, vertex_to_faces_index);
+  igl::per_face_normals(vers, tris, face_normals);
+  igl::per_vertex_normals(vers, tris, face_normals, vertex_normals);
 }
 
 IGL_INLINE void CurvatureCalculator::fitQuadric(const Eigen::Vector3d& v, const std::vector<Eigen::Vector3d>& ref, const std::vector<int>& vv, Quadric *q)
@@ -374,7 +374,7 @@ IGL_INLINE void CurvatureCalculator::finalEigenStuff(int i, const std::vector<Ei
 //  }
 
   double E = 1.0 + d*d;
-  double F = d*e;
+  double tris = d*e;
   double G = 1.0 + e*e;
 
   Eigen::Vector3d n = Eigen::Vector3d(-d,-e,1.0).normalized();
@@ -386,8 +386,8 @@ IGL_INLINE void CurvatureCalculator::finalEigenStuff(int i, const std::vector<Ei
 
   // ----------------- Eigen stuff
   Eigen::Matrix2d m;
-  m << L*G - M*F, M*E-L*F, M*E-L*F, N*E-M*F;
-  m = m / (E*G-F*F);
+  m << L*G - M*tris, M*E-L*tris, M*E-L*tris, N*E-M*tris;
+  m = m / (E*G-tris*tris);
   Eigen::SelfAdjointEigenSolver<Eigen::Matrix2d> eig(m);
 
   Eigen::Vector2d c_val = eig.eigenvalues();
@@ -777,8 +777,8 @@ template <
   typename DerivedPV2,
   typename Index>
 IGL_INLINE void igl::principal_curvature(
-  const Eigen::MatrixBase<DerivedV>& V,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const Eigen::MatrixBase<DerivedF>& tris,
   Eigen::PlainObjectBase<DerivedPD1>& PD1,
   Eigen::PlainObjectBase<DerivedPD2>& PD2,
   Eigen::PlainObjectBase<DerivedPV1>& PV1,
@@ -795,16 +795,16 @@ IGL_INLINE void igl::principal_curvature(
   }
 
   // Preallocate memory
-  PD1.resize(V.rows(),3);
-  PD2.resize(V.rows(),3);
+  PD1.resize(vers.rows(),3);
+  PD2.resize(vers.rows(),3);
 
   // Preallocate memory
-  PV1.resize(V.rows(),1);
-  PV2.resize(V.rows(),1);
+  PV1.resize(vers.rows(),1);
+  PV2.resize(vers.rows(),1);
 
   // Precomputation
   CurvatureCalculator cc;
-  cc.init(V.template cast<double>(),F.template cast<int>());
+  cc.init(vers.template cast<double>(),tris.template cast<int>());
   cc.sphereRadius = radius;
 
   if (useKring)
@@ -817,7 +817,7 @@ IGL_INLINE void igl::principal_curvature(
   cc.computeCurvature();
 
   // Copy it back
-  for (unsigned i=0; i<V.rows(); ++i)
+  for (unsigned i=0; i<vers.rows(); ++i)
   {
     if (!cc.curv[i].empty())
     {
@@ -862,8 +862,8 @@ template <
   typename DerivedPV1,
   typename DerivedPV2>
 IGL_INLINE void igl::principal_curvature(
-  const Eigen::MatrixBase<DerivedV>& V,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const Eigen::MatrixBase<DerivedF>& tris,
   Eigen::PlainObjectBase<DerivedPD1>& PD1,
   Eigen::PlainObjectBase<DerivedPD2>& PD2,
   Eigen::PlainObjectBase<DerivedPV1>& PV1,
@@ -878,16 +878,16 @@ IGL_INLINE void igl::principal_curvature(
   }
 
   // Preallocate memory
-  PD1.resize(V.rows(),3);
-  PD2.resize(V.rows(),3);
+  PD1.resize(vers.rows(),3);
+  PD2.resize(vers.rows(),3);
 
   // Preallocate memory
-  PV1.resize(V.rows(),1);
-  PV2.resize(V.rows(),1);
+  PV1.resize(vers.rows(),1);
+  PV2.resize(vers.rows(),1);
 
   // Precomputation
   CurvatureCalculator cc;
-  cc.init(V.template cast<double>(),F.template cast<int>());
+  cc.init(vers.template cast<double>(),tris.template cast<int>());
   cc.sphereRadius = radius;
 
   if (useKring)
@@ -900,7 +900,7 @@ IGL_INLINE void igl::principal_curvature(
   cc.computeCurvature();
 
   // Copy it back
-  for (unsigned i=0; i<V.rows(); ++i)
+  for (unsigned i=0; i<vers.rows(); ++i)
   {
     PD1.row(i) << cc.curvDir[i][0][0], cc.curvDir[i][0][1], cc.curvDir[i][0][2];
     PD2.row(i) << cc.curvDir[i][1][0], cc.curvDir[i][1][1], cc.curvDir[i][1][2];

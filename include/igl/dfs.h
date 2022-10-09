@@ -12,17 +12,17 @@ namespace igl
        depth first search
   
        Inputs:
-         adjList  #V list of adjacency lists
+         adjList  #vers list of adjacency lists
          startIdx  starting node (index into adjList)
 
        Outputs:
-         discoveredIdx  #V list of indices into rows of adjList in the order in which graph nodes are discovered.
+         discoveredIdx  #vers list of indices into rows of adjList in the order in which graph nodes are discovered.
 
-         dfsTreeVec  #V list of indices into rows of adjList of predecessor in resulting
+         dfsTreeVec  #vers list of indices into rows of adjList of predecessor in resulting
            spanning tree {-1 indicates root/not discovered), order corresponds to
-           V **not** discoveredIdx.
+           vers **not** discoveredIdx.
 
-         closedIdx  #V list of indices into rows of adjList in order that nodes are "closed"
+         closedIdx  #vers list of indices into rows of adjList in order that nodes are "closed"
            (all descendants have been discovered)
   */
   template <typename AType,

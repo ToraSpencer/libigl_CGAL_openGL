@@ -12,16 +12,16 @@
 #include <Eigen/Core>
 namespace igl
 {
-  // Given a mesh (V,F) and the integer mismatch of a cross field per edge
+  // Given a mesh (vers,tris) and the integer mismatch of a cross field per edge
   // (mismatch), finds the cut_graph connecting the singularities (seams) and the
   // degree of the singularities singularity_index
   //
   // Input:
-  //   V  #V by 3 list of mesh vertex positions
-  //   F  #F by 3 list of faces
-  //   mismatch  #F by 3 list of per corner integer mismatch
+  //   vers  #vers by 3 list of mesh vertex positions
+  //   tris  #tris by 3 list of faces
+  //   mismatch  #tris by 3 list of per corner integer mismatch
   // Outputs:
-  //   seams  #F by 3 list of per corner booleans that denotes if an edge is a
+  //   seams  #tris by 3 list of per corner booleans that denotes if an edge is a
   //     seam or not
   //
   template <
@@ -30,8 +30,8 @@ namespace igl
     typename DerivedM, 
     typename DerivedO> 
   IGL_INLINE void cut_mesh_from_singularities(
-    const Eigen::MatrixBase<DerivedV> &V, 
-    const Eigen::MatrixBase<DerivedF> &F, 
+    const Eigen::MatrixBase<DerivedV> &vers, 
+    const Eigen::MatrixBase<DerivedF> &tris, 
     const Eigen::MatrixBase<DerivedM> &MMatch,
     Eigen::PlainObjectBase<DerivedO> &seams);
 }

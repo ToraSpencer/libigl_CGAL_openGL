@@ -31,20 +31,20 @@ namespace igl
   // Inputs:
   //   str  path to file
   // Outputs:
-  //   V  eigen double matrix #V by 3
-  //   F  eigen int matrix #F by 3
+  //   vers  eigen double matrix #vers by 3
+  //   tris  eigen int matrix #tris by 3
   // Returns true iff success
   template <typename Scalar, typename Index>
   IGL_INLINE bool read_triangle_mesh(
     const std::string str,
-    std::vector<std::vector<Scalar> > & V,
-    std::vector<std::vector<Index> > & F);
+    std::vector<std::vector<Scalar> > & vers,
+    std::vector<std::vector<Index> > & tris);
 #ifndef IGL_NO_EIGEN
   template <typename DerivedV, typename DerivedF>
   IGL_INLINE bool read_triangle_mesh(
     const std::string str,
-    Eigen::PlainObjectBase<DerivedV>& V,
-    Eigen::PlainObjectBase<DerivedF>& F);
+    Eigen::PlainObjectBase<DerivedV>& vers,
+    Eigen::PlainObjectBase<DerivedF>& tris);
   // Outputs:
   //  dir  directory path (see pathinfo.h)
   //  base  base name (see pathinfo.h)
@@ -53,8 +53,8 @@ namespace igl
   template <typename DerivedV, typename DerivedF>
   IGL_INLINE bool read_triangle_mesh(
     const std::string str,
-    Eigen::PlainObjectBase<DerivedV>& V,
-    Eigen::PlainObjectBase<DerivedF>& F,
+    Eigen::PlainObjectBase<DerivedV>& vers,
+    Eigen::PlainObjectBase<DerivedF>& tris,
     std::string & dir,
     std::string & base,
     std::string & ext,
@@ -68,8 +68,8 @@ namespace igl
   IGL_INLINE bool read_triangle_mesh(
     const std::string & ext,
     FILE * fp,
-    Eigen::PlainObjectBase<DerivedV>& V,
-    Eigen::PlainObjectBase<DerivedF>& F);
+    Eigen::PlainObjectBase<DerivedV>& vers,
+    Eigen::PlainObjectBase<DerivedF>& tris);
 #endif
 }
 

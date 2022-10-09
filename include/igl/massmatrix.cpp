@@ -12,17 +12,17 @@
 
 template <typename DerivedV, typename DerivedF, typename Scalar>
 IGL_INLINE void igl::massmatrix(
-  const Eigen::MatrixBase<DerivedV> & V, 
-  const Eigen::MatrixBase<DerivedF> & F, 
+  const Eigen::MatrixBase<DerivedV> & vers, 
+  const Eigen::MatrixBase<DerivedF> & tris, 
   const MassMatrixType type,
   Eigen::SparseMatrix<Scalar>& M)
 {
   using namespace Eigen;
   using namespace std;
 
-  const int n = V.rows();
-  const int m = F.rows();
-  const int simplex_size = F.cols();
+  const int n = vers.rows();
+  const int m = tris.rows();
+  const int simplex_size = tris.cols();
 
   MassMatrixType eff_type = type;
   // Use voronoi of for triangles by default, otherwise barycentric
@@ -39,29 +39,29 @@ IGL_INLINE void igl::massmatrix(
     // Triangles
     // edge lengths numbered same as opposite vertices
     Matrix<Scalar,Dynamic,3> l;
-    igl::edge_lengths(V,F,l);
-    return massmatrix_intrinsic(l,F,type,M);
+    igl::edge_lengths(vers,tris,l);
+    return massmatrix_intrinsic(l,tris,type,M);
   }else if(simplex_size == 4)
   {
     Matrix<typename DerivedF::Scalar,Dynamic,1> MI;
     Matrix<typename DerivedF::Scalar,Dynamic,1> MJ;
     Matrix<Scalar,Dynamic,1> MV;
-    assert(V.cols() == 3);
+    assert(vers.cols() == 3);
     assert(eff_type == MASSMATRIX_TYPE_BARYCENTRIC);
     MI.resize(m*4,1); MJ.resize(m*4,1); MV.resize(m*4,1);
-    MI.block(0*m,0,m,1) = F.col(0);
-    MI.block(1*m,0,m,1) = F.col(1);
-    MI.block(2*m,0,m,1) = F.col(2);
-    MI.block(3*m,0,m,1) = F.col(3);
+    MI.block(0*m,0,m,1) = tris.col(0);
+    MI.block(1*m,0,m,1) = tris.col(1);
+    MI.block(2*m,0,m,1) = tris.col(2);
+    MI.block(3*m,0,m,1) = tris.col(3);
     MJ = MI;
     // loop over tets
     for(int i = 0;i<m;i++)
     {
       // http://en.wikipedia.org/wiki/Tetrahedron#Volume
       Matrix<Scalar,3,1> v0m3,v1m3,v2m3;
-      v0m3.head(V.cols()) = V.row(F(i,0)) - V.row(F(i,3));
-      v1m3.head(V.cols()) = V.row(F(i,1)) - V.row(F(i,3));
-      v2m3.head(V.cols()) = V.row(F(i,2)) - V.row(F(i,3));
+      v0m3.head(vers.cols()) = vers.row(tris(i,0)) - vers.row(tris(i,3));
+      v1m3.head(vers.cols()) = vers.row(tris(i,1)) - vers.row(tris(i,3));
+      v2m3.head(vers.cols()) = vers.row(tris(i,2)) - vers.row(tris(i,3));
       Scalar v = fabs(v0m3.dot(v1m3.cross(v2m3)))/6.0;
       MV(i+0*m) = v/4.0;
       MV(i+1*m) = v/4.0;

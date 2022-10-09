@@ -16,11 +16,11 @@
 // Extract the face adjacencies
 template <typename DerivedF, typename TTT_type, typename DerivedTT>
 IGL_INLINE void igl::triangle_triangle_adjacency_extractTT(
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedF>& tris,
   std::vector<std::vector<TTT_type> >& TTT,
   Eigen::PlainObjectBase<DerivedTT>& TT)
 {
-  TT.setConstant((int)(F.rows()),F.cols(),-1);
+  TT.setConstant((int)(tris.rows()),tris.cols(),-1);
 
   for(int i=1;i<(int)TTT.size();++i)
   {
@@ -36,21 +36,21 @@ IGL_INLINE void igl::triangle_triangle_adjacency_extractTT(
 
 template <typename DerivedF, typename DerivedTT>
 IGL_INLINE void igl::triangle_triangle_adjacency(
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedF>& tris,
   Eigen::PlainObjectBase<DerivedTT>& TT)
 {
-  const int n = F.maxCoeff()+1;
+  const int n = tris.maxCoeff()+1;
   typedef Eigen::Matrix<typename DerivedTT::Scalar,Eigen::Dynamic,1> VectorXI;
   VectorXI VF,NI;
-  vertex_triangle_adjacency(F,n,VF,NI);
-  TT = DerivedTT::Constant(F.rows(),3,-1);
+  vertex_triangle_adjacency(tris,n,VF,NI);
+  TT = DerivedTT::Constant(tris.rows(),3,-1);
   // Loop over faces
-  igl::parallel_for(F.rows(),[&](int f)
+  igl::parallel_for(tris.rows(),[&](int f)
   {
     // Loop over corners
     for (int k = 0; k < 3; k++)
     {
-      int vi = F(f,k), vin = F(f,(k+1)%3);
+      int vi = tris(f,k), vin = tris(f,(k+1)%3);
       // Loop over face neighbors incident on this corner
       for (int j = NI[vi]; j < NI[vi+1]; j++)
       {
@@ -59,7 +59,7 @@ IGL_INLINE void igl::triangle_triangle_adjacency(
         if (fn != f)
         {
           // Face neighbor also has [vi,vin] edge
-          if (F(fn,0) == vin || F(fn,1) == vin || F(fn,2) == vin)
+          if (tris(fn,0) == vin || tris(fn,1) == vin || tris(fn,2) == vin)
           {
             TT(f,k) = fn;
             break;
@@ -72,15 +72,15 @@ IGL_INLINE void igl::triangle_triangle_adjacency(
 
 template <typename DerivedF, typename TTT_type>
 IGL_INLINE void igl::triangle_triangle_adjacency_preprocess(
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedF>& tris,
   std::vector<std::vector<TTT_type> >& TTT)
 {
-  for(int f=0;f<F.rows();++f)
-    for (int i=0;i<F.cols();++i)
+  for(int f=0;f<tris.rows();++f)
+    for (int i=0;i<tris.cols();++i)
     {
       // v1 v2 f ei
-      int v1 = F(f,i);
-      int v2 = F(f,(i+1)%F.cols());
+      int v1 = tris(f,i);
+      int v2 = tris(f,(i+1)%tris.cols());
       if (v1 > v2) std::swap(v1,v2);
       std::vector<int> r(4);
       r[0] = v1; r[1] = v2;
@@ -93,11 +93,11 @@ IGL_INLINE void igl::triangle_triangle_adjacency_preprocess(
 // Extract the face adjacencies indices (needed for fast traversal)
 template <typename DerivedF, typename TTT_type, typename DerivedTTi>
 IGL_INLINE void igl::triangle_triangle_adjacency_extractTTi(
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedF>& tris,
   std::vector<std::vector<TTT_type> >& TTT,
   Eigen::PlainObjectBase<DerivedTTi>& TTi)
 {
-  TTi.setConstant((int)(F.rows()),F.cols(),-1);
+  TTi.setConstant((int)(tris.rows()),tris.cols(),-1);
 
   for(int i=1;i<(int)TTT.size();++i)
   {
@@ -114,24 +114,24 @@ IGL_INLINE void igl::triangle_triangle_adjacency_extractTTi(
 // Compute triangle-triangle adjacency with indices
 template <typename DerivedF, typename DerivedTT, typename DerivedTTi>
 IGL_INLINE void igl::triangle_triangle_adjacency(
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedF>& tris,
   Eigen::PlainObjectBase<DerivedTT>& TT,
   Eigen::PlainObjectBase<DerivedTTi>& TTi)
 {
-  triangle_triangle_adjacency(F,TT);
+  triangle_triangle_adjacency(tris,TT);
   TTi = DerivedTTi::Constant(TT.rows(),TT.cols(),-1);
-  //for(int f = 0; f<F.rows(); f++)
-  igl::parallel_for(F.rows(),[&](int f)
+  //for(int f = 0; f<tris.rows(); f++)
+  igl::parallel_for(tris.rows(),[&](int f)
   {
     for(int k = 0;k<3;k++)
     {
-      int vi = F(f,k), vj = F(f,(k+1)%3);
+      int vi = tris(f,k), vj = tris(f,(k+1)%3);
       int fn = TT(f,k);
       if(fn >= 0)
       {
         for(int kn = 0;kn<3;kn++)
         {
-          int vin = F(fn,kn), vjn = F(fn,(kn+1)%3);
+          int vin = tris(fn,kn), vjn = tris(fn,(kn+1)%3);
           if(vi == vjn && vin == vj)
           {
             TTi(f,k) = kn;
@@ -148,22 +148,22 @@ template <
   typename TTIndex,
   typename TTiIndex>
   IGL_INLINE void igl::triangle_triangle_adjacency(
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedF> & tris,
     std::vector<std::vector<std::vector<TTIndex> > > & TT,
     std::vector<std::vector<std::vector<TTiIndex> > > & TTi)
 {
-  return triangle_triangle_adjacency(F,true,TT,TTi);
+  return triangle_triangle_adjacency(tris,true,TT,TTi);
 }
 
 template <
   typename DerivedF,
   typename TTIndex>
   IGL_INLINE void igl::triangle_triangle_adjacency(
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedF> & tris,
     std::vector<std::vector<std::vector<TTIndex> > > & TT)
 {
   std::vector<std::vector<std::vector<TTIndex> > > not_used;
-  return triangle_triangle_adjacency(F,false,TT,not_used);
+  return triangle_triangle_adjacency(tris,false,TT,not_used);
 }
 
 template <
@@ -171,14 +171,14 @@ template <
   typename TTIndex,
   typename TTiIndex>
   IGL_INLINE void igl::triangle_triangle_adjacency(
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const bool construct_TTi,
     std::vector<std::vector<std::vector<TTIndex> > > & TT,
     std::vector<std::vector<std::vector<TTiIndex> > > & TTi)
 {
   using namespace Eigen;
   using namespace std;
-  assert(F.cols() == 3 && "Faces must be triangles");
+  assert(tris.cols() == 3 && "Faces must be triangles");
   // number of faces
   typedef typename DerivedF::Index Index;
   typedef Matrix<typename DerivedF::Scalar,Dynamic,2> MatrixX2I;
@@ -186,7 +186,7 @@ template <
   MatrixX2I E,uE;
   VectorXI EMAP;
   vector<vector<Index> > uE2E;
-  unique_edge_map(F,E,uE,EMAP,uE2E);
+  unique_edge_map(tris,E,uE,EMAP,uE2E);
   return triangle_triangle_adjacency(E,EMAP,uE2E,construct_TTi,TT,TTi);
 }
 

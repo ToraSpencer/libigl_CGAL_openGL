@@ -14,13 +14,13 @@
 namespace igl
 {
   // Inputs:
-  //   V  #V by **4** list of homogeneous vertex positions
-  //   F  #F by 3 list of triangle indices
+  //   vers  #vers by **4** list of homogeneous vertex positions
+  //   tris  #tris by 3 list of triangle indices
   //   MV  4 by 4 model view matrix
   //   P  4 by 4 projection matrix
   // Outputs:
-  //   FF  #F by 3 list of sorted triangles indices
-  //   I  #F list of sorted indices
+  //   FF  #tris by 3 list of sorted triangles indices
+  //   I  #tris list of sorted indices
   template <
     typename DerivedV,
     typename DerivedF,
@@ -29,8 +29,8 @@ namespace igl
     typename DerivedFF,
     typename DerivedI>
   IGL_INLINE void sort_triangles(
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const Eigen::MatrixBase<DerivedMV> & MV,
     const Eigen::MatrixBase<DerivedP> & P,
     Eigen::PlainObjectBase<DerivedFF> & FF,

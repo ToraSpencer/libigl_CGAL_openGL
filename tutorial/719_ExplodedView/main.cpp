@@ -18,16 +18,16 @@
 int main(int argc, char *argv[])
 {
 
-  Eigen::MatrixXd V;
+  Eigen::MatrixXd vers;
   Eigen::MatrixXi T,F;
-  igl::readMESH(argc>1?argv[1]: TUTORIAL_SHARED_PATH "/octopus-low.mesh",V,T,F);
+  igl::readMESH(argc>1?argv[1]: TUTORIAL_SHARED_PATH "/octopus-low.mesh",vers,T,F);
   // Some per-tet data
   Eigen::VectorXd D;
   {
     Eigen::MatrixXd BC;
-    igl::barycenter(V,T,BC);
+    igl::barycenter(vers,T,BC);
     Eigen::VectorXd vol;
-    igl::volume(V,T,vol);
+    igl::volume(vers,T,vol);
     const Eigen::RowVectorXd c = vol.transpose()*BC/vol.array().sum();
     D = (BC.rowwise()-c).rowwise().norm();
   }
@@ -42,7 +42,7 @@ int main(int argc, char *argv[])
     Eigen::MatrixXd EV;
     Eigen::MatrixXi EF;
     Eigen::VectorXi I,J;
-    igl::exploded_view(V,T,s,t,EV,EF,I,J);
+    igl::exploded_view(vers,T,s,t,EV,EF,I,J);
     Eigen::VectorXd DJ;
     igl::slice(D,J,1,DJ);
     static bool first = true;

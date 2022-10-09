@@ -14,7 +14,7 @@
 
 template <typename DerivedF, typename DerivedC, typename AScalar>
 IGL_INLINE void igl::orientable_patches(
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedF> & tris,
   Eigen::PlainObjectBase<DerivedC> & C,
   Eigen::SparseMatrix<AScalar> & A)
 {
@@ -22,19 +22,19 @@ IGL_INLINE void igl::orientable_patches(
   using namespace std;
 
   // simplex size
-  assert(F.cols() == 3);
+  assert(tris.cols() == 3);
 
-  // List of all "half"-edges: 3*#F by 2
+  // List of all "half"-edges: 3*#tris by 2
   Matrix<typename DerivedF::Scalar, Dynamic, 2> allE,sortallE,uE;
-  allE.resize(F.rows()*3,2);
+  allE.resize(tris.rows()*3,2);
   Matrix<typename DerivedF::Scalar,Dynamic,2> IX;
   VectorXi IA,IC;
-  allE.block(0*F.rows(),0,F.rows(),1) = F.col(1);
-  allE.block(0*F.rows(),1,F.rows(),1) = F.col(2);
-  allE.block(1*F.rows(),0,F.rows(),1) = F.col(2);
-  allE.block(1*F.rows(),1,F.rows(),1) = F.col(0);
-  allE.block(2*F.rows(),0,F.rows(),1) = F.col(0);
-  allE.block(2*F.rows(),1,F.rows(),1) = F.col(1);
+  allE.block(0*tris.rows(),0,tris.rows(),1) = tris.col(1);
+  allE.block(0*tris.rows(),1,tris.rows(),1) = tris.col(2);
+  allE.block(1*tris.rows(),0,tris.rows(),1) = tris.col(2);
+  allE.block(1*tris.rows(),1,tris.rows(),1) = tris.col(0);
+  allE.block(2*tris.rows(),0,tris.rows(),1) = tris.col(0);
+  allE.block(2*tris.rows(),1,tris.rows(),1) = tris.col(1);
   // Sort each row
   sort(allE,2,true,sortallE,IX);
   //IC(i) tells us where to find sortallE(i,:) in uE: 
@@ -44,9 +44,9 @@ IGL_INLINE void igl::orientable_patches(
   vector<Triplet<AScalar> > uE2FTijv(IC.rows());
   for(int e = 0;e<IC.rows();e++)
   {
-    uE2FTijv[e] = Triplet<AScalar>(e%F.rows(),IC(e),1);
+    uE2FTijv[e] = Triplet<AScalar>(e%tris.rows(),IC(e),1);
   }
-  SparseMatrix<AScalar> uE2FT(F.rows(),uE.rows());
+  SparseMatrix<AScalar> uE2FT(tris.rows(),uE.rows());
   uE2FT.setFromTriplets(uE2FTijv.begin(),uE2FTijv.end());
   // kill non-manifold edges
   for(int j=0; j<(int)uE2FT.outerSize();j++)
@@ -91,11 +91,11 @@ IGL_INLINE void igl::orientable_patches(
 
 template <typename DerivedF, typename DerivedC>
 IGL_INLINE void igl::orientable_patches(
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedF> & tris,
   Eigen::PlainObjectBase<DerivedC> & C)
 {
   Eigen::SparseMatrix<typename DerivedF::Scalar> A;
-  return orientable_patches(F,C,A);
+  return orientable_patches(tris,C,A);
 }
 
 #ifdef IGL_STATIC_LIBRARY

@@ -19,12 +19,12 @@ namespace igl
   //     .resize(m,n)
   //     .row(i) = Row
   // Inputs:
-  //   V  a m-long list of vectors of size n
+  //   vers  a m-long list of vectors of size n
   // Outputs:
   //   M  an m by n matrix
   // Returns true on success, false on errors
   template <class Row, class Mat>
-  IGL_INLINE bool rows_to_matrix(const std::vector<Row> & V,Mat & M);
+  IGL_INLINE bool rows_to_matrix(const std::vector<Row> & vers,Mat & M);
 }
 
 #ifndef IGL_STATIC_LIBRARY

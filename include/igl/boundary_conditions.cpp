@@ -16,7 +16,7 @@
 #include <iostream>
 
 IGL_INLINE bool igl::boundary_conditions(
-  const Eigen::MatrixXd & V  ,
+  const Eigen::MatrixXd & vers  ,
   const Eigen::MatrixXi & /*Ele*/,
   const Eigen::MatrixXd & C  ,
   const Eigen::VectorXi & P  ,
@@ -43,21 +43,21 @@ IGL_INLINE bool igl::boundary_conditions(
   {
     VectorXd pos = C.row(P(p));
     // loop over domain vertices
-    for(int i = 0;i<V.rows();i++)
+    for(int i = 0;i<vers.rows();i++)
     {
       // Find samples just on pos
-      //Vec3 vi(V(i,0),V(i,1),V(i,2));
+      //Vec3 vi(vers(i,0),vers(i,1),vers(i,2));
       // EIGEN GOTCHA:
-      // double sqrd = (V.row(i)-pos).array().pow(2).sum();
+      // double sqrd = (vers.row(i)-pos).array().pow(2).sum();
       // Must first store in temporary
-      VectorXd vi = V.row(i);
+      VectorXd vi = vers.row(i);
       double sqrd = (vi-pos).squaredNorm();
       if(sqrd <= FLOAT_EPS)
       {
         //cout<<"sum((["<<
-        //  V(i,0)<<" "<<
-        //  V(i,1)<<" "<<
-        //  V(i,2)<<"] - ["<<
+        //  vers(i,0)<<" "<<
+        //  vers(i,1)<<" "<<
+        //  vers(i,2)<<"] - ["<<
         //  pos(0)<<" "<<
         //  pos(1)<<" "<<
         //  pos(2)<<"]).^2) = "<<sqrd<<endl;
@@ -72,7 +72,7 @@ IGL_INLINE bool igl::boundary_conditions(
   for(int e = 0;e<BE.rows();e++)
   {
     // loop over domain vertices
-    for(int i = 0;i<V.rows();i++)
+    for(int i = 0;i<vers.rows();i++)
     {
       // Find samples from tip up to tail
       VectorXd tip = C.row(BE(e,0));
@@ -80,7 +80,7 @@ IGL_INLINE bool igl::boundary_conditions(
       // Compute parameter along bone and squared distance
       double t,sqrd;
       project_to_line(
-          V(i,0),V(i,1),V(i,2),
+          vers(i,0),vers(i,1),vers(i,2),
           tip(0),tip(1),tip(2),
           tail(0),tail(1),tail(2),
           t,sqrd);
@@ -97,7 +97,7 @@ IGL_INLINE bool igl::boundary_conditions(
   for(int e = 0;e<CE.rows();e++)
   {
     // loop over domain vertices
-    for(int i = 0;i<V.rows();i++)
+    for(int i = 0;i<vers.rows();i++)
     {
       // Find samples from tip up to tail
       VectorXd tip = C.row(P(CE(e,0)));
@@ -105,7 +105,7 @@ IGL_INLINE bool igl::boundary_conditions(
       // Compute parameter along bone and squared distance
       double t,sqrd;
       project_to_line(
-          V(i,0),V(i,1),V(i,2),
+          vers(i,0),vers(i,1),vers(i,2),
           tip(0),tip(1),tip(2),
           tail(0),tail(1),tail(2),
           t,sqrd);

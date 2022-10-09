@@ -12,38 +12,38 @@
 
 template <typename MatV, typename MatF, typename VecI>
 IGL_INLINE void igl::faces_first(
-  const MatV & V, 
-  const MatF & F, 
+  const MatV & vers, 
+  const MatF & tris, 
   MatV & RV, 
   MatF & RF, 
   VecI & IM)
 {
-  assert(&V != &RV);
-  assert(&F != &RF);
+  assert(&vers != &RV);
+  assert(&tris != &RF);
   using namespace std;
   using namespace Eigen;
-  vector<bool> in_face(V.rows());
-  for(int i = 0; i<F.rows(); i++)
+  vector<bool> in_face(vers.rows());
+  for(int i = 0; i<tris.rows(); i++)
   {
-    for(int j = 0; j<F.cols(); j++)
+    for(int j = 0; j<tris.cols(); j++)
     {
-      in_face[F(i,j)] = true;
+      in_face[tris(i,j)] = true;
     }
   }
   // count number of vertices not in faces
   int num_in_F = 0;
-  for(int i = 0;i<V.rows();i++)
+  for(int i = 0;i<vers.rows();i++)
   {
     num_in_F += (in_face[i]?1:0);
   }
-  // list of unique vertices that occur in F
+  // list of unique vertices that occur in tris
   VectorXi U(num_in_F);
-  // list of unique vertices that do not occur in F
-  VectorXi NU(V.rows()-num_in_F);
+  // list of unique vertices that do not occur in tris
+  VectorXi NU(vers.rows()-num_in_F);
   int Ui = 0;
   int NUi = 0;
   // loop over vertices
-  for(int i = 0;i<V.rows();i++)
+  for(int i = 0;i<vers.rows();i++)
   {
     if(in_face[i])
     {
@@ -55,7 +55,7 @@ IGL_INLINE void igl::faces_first(
       NUi++;
     }
   }
-  IM.resize(V.rows());
+  IM.resize(vers.rows());
   // reindex vertices that occur in faces to be first
   for(int i = 0;i<U.size();i++)
   {
@@ -66,35 +66,35 @@ IGL_INLINE void igl::faces_first(
   {
     IM(NU(i)) = i+U.size();
   }
-  RF.resizeLike(F);
+  RF.resizeLike(tris);
   // Reindex faces
-  for(int i = 0; i<F.rows(); i++)
+  for(int i = 0; i<tris.rows(); i++)
   {
-    for(int j = 0; j<F.cols(); j++)
+    for(int j = 0; j<tris.cols(); j++)
     {
-      RF(i,j) = IM(F(i,j));
+      RF(i,j) = IM(tris(i,j));
     }
   }
-  RV.resizeLike(V);
+  RV.resizeLike(vers);
   // Reorder vertices
-  for(int i = 0;i<V.rows();i++)
+  for(int i = 0;i<vers.rows();i++)
   {
-    RV.row(IM(i)) = V.row(i);
+    RV.row(IM(i)) = vers.row(i);
   }
 }
 
 template <typename MatV, typename MatF, typename VecI>
 IGL_INLINE void igl::faces_first(
-  MatV & V, 
-  MatF & F, 
+  MatV & vers, 
+  MatF & tris, 
   VecI & IM)
 {
   MatV RV;
-  // Copying F may not be needed, seems RF = F is safe (whereas RV = V is not)
+  // Copying tris may not be needed, seems RF = tris is safe (whereas RV = vers is not)
   MatF RF;
-  igl::faces_first(V,F,RV,RF,IM);
-  V = RV;
-  F = RF;
+  igl::faces_first(vers,tris,RV,RF,IM);
+  vers = RV;
+  tris = RF;
 }
 
 #ifdef IGL_STATIC_LIBRARY

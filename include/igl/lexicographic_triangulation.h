@@ -26,7 +26,7 @@ namespace igl
   //              where the argument pa,pb,pc are of type Scalar[2].
   //
   // Outputs:
-  //   F  #F by 3 of faces in lexicographic triangulation.
+  //   tris  #tris by 3 of faces in lexicographic triangulation.
   template<
     typename DerivedP,
     typename Orient2D,
@@ -35,7 +35,7 @@ namespace igl
   IGL_INLINE void lexicographic_triangulation(
       const Eigen::MatrixBase<DerivedP>& P,
       Orient2D orient2D,
-      Eigen::PlainObjectBase<DerivedF>& F);
+      Eigen::PlainObjectBase<DerivedF>& tris);
 }
 
 

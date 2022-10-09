@@ -15,8 +15,8 @@
 template <typename DerivedV, typename DerivedF, typename DerivedB, typename DerivedFI>
 IGL_INLINE void igl::random_points_on_mesh(
   const int n,
-  const Eigen::MatrixBase<DerivedV > & V,
-  const Eigen::MatrixBase<DerivedF > & F,
+  const Eigen::MatrixBase<DerivedV > & vers,
+  const Eigen::MatrixBase<DerivedF > & tris,
   Eigen::PlainObjectBase<DerivedB > & B,
   Eigen::PlainObjectBase<DerivedFI > & FI)
 {
@@ -25,9 +25,9 @@ IGL_INLINE void igl::random_points_on_mesh(
   typedef typename DerivedV::Scalar Scalar;
   typedef Matrix<Scalar,Dynamic,1> VectorXs;
   VectorXs A;
-  doublearea(V,F,A);
+  doublearea(vers,tris,A);
   // Should be traingle mesh. Although Turk's method 1 generalizes...
-  assert(F.cols() == 3);
+  assert(tris.cols() == 3);
   VectorXs C;
   VectorXs A0(A.size()+1);
   A0(0) = 0;
@@ -42,7 +42,7 @@ IGL_INLINE void igl::random_points_on_mesh(
   assert(R.minCoeff() >= 0);
   assert(R.maxCoeff() <= 1);
   histc(R,C,FI);
-  FI = FI.array().min(F.rows() - 1); // fix the bin when R(i) == 1 exactly
+  FI = FI.array().min(tris.rows() - 1); // fix the bin when R(i) == 1 exactly
   const VectorXs S = (VectorXs::Random(n,1).array() + 1.)/2.;
   const VectorXs T = (VectorXs::Random(n,1).array() + 1.)/2.;
   B.resize(n,3);
@@ -59,22 +59,22 @@ template <
   typename DerivedX>
 IGL_INLINE void igl::random_points_on_mesh(
   const int n,
-  const Eigen::MatrixBase<DerivedV > & V,
-  const Eigen::MatrixBase<DerivedF > & F,
+  const Eigen::MatrixBase<DerivedV > & vers,
+  const Eigen::MatrixBase<DerivedF > & tris,
   Eigen::PlainObjectBase<DerivedB > & B,
   Eigen::PlainObjectBase<DerivedFI > & FI,
   Eigen::PlainObjectBase<DerivedX> & X)
 {
-  random_points_on_mesh(n,V,F,B,FI);
-  X = DerivedX::Zero(B.rows(),V.cols());
+  random_points_on_mesh(n,vers,tris,B,FI);
+  X = DerivedX::Zero(B.rows(),vers.cols());
   for(int x = 0;x<B.rows();x++)
   {
     for(int b = 0;b<B.cols();b++)
     {
         auto fi = FI(x);
-        auto f = F(fi, b);
+        auto f = tris(fi, b);
         auto bval = B(x, b);
-        X.row(x) += bval*V.row(f);
+        X.row(x) += bval*vers.row(f);
     }
   }
 }
@@ -82,28 +82,28 @@ IGL_INLINE void igl::random_points_on_mesh(
 template <typename DerivedV, typename DerivedF, typename ScalarB, typename DerivedFI>
 IGL_INLINE void igl::random_points_on_mesh(
   const int n,
-  const Eigen::MatrixBase<DerivedV > & V,
-  const Eigen::MatrixBase<DerivedF > & F,
+  const Eigen::MatrixBase<DerivedV > & vers,
+  const Eigen::MatrixBase<DerivedF > & tris,
   Eigen::SparseMatrix<ScalarB > & B,
   Eigen::PlainObjectBase<DerivedFI > & FI)
 {
   using namespace Eigen;
   using namespace std;
   Matrix<ScalarB,Dynamic,3> BC;
-  random_points_on_mesh(n,V,F,BC,FI);
+  random_points_on_mesh(n,vers,tris,BC,FI);
   vector<Triplet<ScalarB> > BIJV;
   BIJV.reserve(n*3);
   for(int s = 0;s<n;s++)
   {
     for(int c = 0;c<3;c++)
     {
-      assert(FI(s) < F.rows());
+      assert(FI(s) < tris.rows());
       assert(FI(s) >= 0);
-      const int v = F(FI(s),c);
+      const int v = tris(FI(s),c);
       BIJV.push_back(Triplet<ScalarB>(s,v,BC(s,c)));
     }
   }
-  B.resize(n,V.rows());
+  B.resize(n,vers.rows());
   B.reserve(n*3);
   B.setFromTriplets(BIJV.begin(),BIJV.end());
 }

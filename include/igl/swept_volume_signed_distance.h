@@ -14,12 +14,12 @@
 namespace igl
 {
   // Compute the signed distance to a sweep surface of a mesh under-going
-  // an arbitrary motion V(t) discretely sampled at `steps`-many moments in
+  // an arbitrary motion vers(t) discretely sampled at `steps`-many moments in
   // time at a grid.
   //
   // Inputs:
-  //   V  #V by 3 list of mesh positions in reference pose
-  //   F  #F by 3 list of triangle indices [0,n)
+  //   vers  #vers by 3 list of mesh positions in reference pose
+  //   tris  #tris by 3 list of triangle indices [0,n)
   //   transform  function handle so that transform(t) returns the rigid
   //     transformation at time t∈[0,1]
   //   steps  number of time steps: steps=3 --> t∈{0,0.5,1}
@@ -35,8 +35,8 @@ namespace igl
   // Outputs:
   //   S  #GV list of signed distances
   IGL_INLINE void swept_volume_signed_distance(
-    const Eigen::MatrixXd & V,
-    const Eigen::MatrixXi & F,
+    const Eigen::MatrixXd & vers,
+    const Eigen::MatrixXi & tris,
     const std::function<Eigen::Affine3d(const double t)> & transform,
     const size_t & steps,
     const Eigen::MatrixXd & GV,
@@ -46,8 +46,8 @@ namespace igl
     const Eigen::VectorXd & S0,
     Eigen::VectorXd & S);
   IGL_INLINE void swept_volume_signed_distance(
-    const Eigen::MatrixXd & V,
-    const Eigen::MatrixXi & F,
+    const Eigen::MatrixXd & vers,
+    const Eigen::MatrixXi & tris,
     const std::function<Eigen::Affine3d(const double t)> & transform,
     const size_t & steps,
     const Eigen::MatrixXd & GV,

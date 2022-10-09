@@ -16,28 +16,28 @@ namespace igl
   //
   // Inputs:
   //   str  path to .wrl file
-  //   V  #V by 3 list of vertex positions
-  //   F  #F by 3 list of triangle indices
+  //   vers  #vers by 3 list of vertex positions
+  //   tris  #tris by 3 list of triangle indices
   // Returns true iff succes
   template <typename DerivedV, typename DerivedF>
   IGL_INLINE bool writeWRL(
     const std::string & str,
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F);
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris);
 
   // Write mesh to a .wrl file
   //
   // Inputs:
   //   str  path to .wrl file
-  //   V  #V by 3 list of vertex positions
-  //   F  #F by 3 list of triangle indices
-  //   C  double matrix of rgb values per vertex #V by 3
+  //   vers  #vers by 3 list of vertex positions
+  //   tris  #tris by 3 list of triangle indices
+  //   C  double matrix of rgb values per vertex #vers by 3
   // Returns true iff succes
   template <typename DerivedV, typename DerivedF, typename DerivedC>
   IGL_INLINE bool writeWRL(
     const std::string & str,
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const Eigen::MatrixBase<DerivedC> & C);
 }
 #ifndef IGL_STATIC_LIBRARY

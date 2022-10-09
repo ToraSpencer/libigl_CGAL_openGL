@@ -18,8 +18,8 @@ namespace igl {
 
 template <typename DerivedV, typename DerivedF, typename DerivedN>
 IGL_INLINE bool readSTL(std::istream &input,
-                        Eigen::PlainObjectBase<DerivedV> &V,
-                        Eigen::PlainObjectBase<DerivedF> &F,
+                        Eigen::PlainObjectBase<DerivedV> &vers,
+                        Eigen::PlainObjectBase<DerivedF> &tris,
                         Eigen::PlainObjectBase<DerivedN> &N) {
   std::vector<std::array<typename DerivedV::Scalar, 3>> vV;
   std::vector<std::array<typename DerivedN::Scalar, 3>> vN;
@@ -28,11 +28,11 @@ IGL_INLINE bool readSTL(std::istream &input,
     return false;
   }
 
-  if (!list_to_matrix(vV, V)) {
+  if (!list_to_matrix(vV, vers)) {
     return false;
   }
 
-  if (!list_to_matrix(vF, F)) {
+  if (!list_to_matrix(vF, tris)) {
     return false;
   }
 
@@ -75,8 +75,8 @@ IGL_INLINE bool is_stl_binary(std::istream &input) {
 
 template <typename TypeV, typename TypeF, typename TypeN>
 IGL_INLINE bool read_stl_ascii(std::istream &input,
-                               std::vector<std::array<TypeV, 3>> &V,
-                               std::vector<std::array<TypeF, 3>> &F,
+                               std::vector<std::array<TypeV, 3>> &vers,
+                               std::vector<std::array<TypeF, 3>> &tris,
                                std::vector<std::array<TypeN, 3>> &N) {
   constexpr size_t LINE_SIZE = 256;
   char line[LINE_SIZE];
@@ -102,7 +102,7 @@ IGL_INLINE bool read_stl_ascii(std::istream &input,
     return true;
   };
 
-  auto parse_ascii_vertex = [&V](const char *line) {
+  auto parse_ascii_vertex = [&vers](const char *line) {
     double x, y, z;
     size_t n = sscanf(line, " vertex %lf %lf %lf", &x, &y, &z);
     assert(n == 3);
@@ -110,7 +110,7 @@ IGL_INLINE bool read_stl_ascii(std::istream &input,
       return false;
     }
 
-    V.push_back({{static_cast<TypeV>(x), static_cast<TypeV>(y),
+    vers.push_back({{static_cast<TypeV>(x), static_cast<TypeV>(y),
                   static_cast<TypeV>(z)}});
     return true;
   };
@@ -180,18 +180,18 @@ IGL_INLINE bool read_stl_ascii(std::istream &input,
     }
   }
 
-  F.resize(V.size() / 3);
-    for (size_t f = 0; f < F.size(); ++f) {
+  tris.resize(vers.size() / 3);
+    for (size_t f = 0; f < tris.size(); ++f) {
     auto v = static_cast<TypeF>(f * 3);
-    F[f] = {{v, v + 1, v + 2}};
+    tris[f] = {{v, v + 1, v + 2}};
   }
   return success;
 }
 
 template <typename TypeV, typename TypeF, typename TypeN>
 IGL_INLINE bool read_stl_binary(std::istream &input,
-                                std::vector<std::array<TypeV, 3>> &V,
-                                std::vector<std::array<TypeF, 3>> &F,
+                                std::vector<std::array<TypeV, 3>> &vers,
+                                std::vector<std::array<TypeF, 3>> &tris,
                                 std::vector<std::array<TypeN, 3>> &N) {
   if (!input) {
     throw std::runtime_error("Failed to open file");
@@ -251,9 +251,9 @@ IGL_INLINE bool read_stl_binary(std::istream &input,
     input.read(buf, 2);
 
     N.push_back({{nx, ny, nz}});
-    V.push_back({{v1x, v1y, v1z}});
-    V.push_back({{v2x, v2y, v2z}});
-    V.push_back({{v3x, v3y, v3z}});
+    vers.push_back({{v1x, v1y, v1z}});
+    vers.push_back({{v2x, v2y, v2z}});
+    vers.push_back({{v3x, v3y, v3z}});
 
     assert(input.good());
     if (!input.good()) {
@@ -262,7 +262,7 @@ IGL_INLINE bool read_stl_binary(std::istream &input,
       throw std::runtime_error(err_msg.str());
     }
   }
-  std::for_each(V.begin(), V.end(), [](const std::array<TypeV, 3> &v) {
+  std::for_each(vers.begin(), vers.end(), [](const std::array<TypeV, 3> &v) {
     for (auto x : v) {
       if (!std::isfinite(x)) {
         throw std::runtime_error("NaN or Inf detected in input file.");
@@ -270,11 +270,11 @@ IGL_INLINE bool read_stl_binary(std::istream &input,
     }
   });
 
-  if (!V.empty()) {
-    F.resize(V.size() / 3);
-    for (size_t f = 0; f < F.size(); ++f) {
+  if (!vers.empty()) {
+    tris.resize(vers.size() / 3);
+    for (size_t f = 0; f < tris.size(); ++f) {
       auto v = static_cast<TypeF>(f * 3);
-      F[f] = {{v, v + 1, v + 2}};
+      tris[f] = {{v, v + 1, v + 2}};
     }
   }
 
@@ -283,14 +283,14 @@ IGL_INLINE bool read_stl_binary(std::istream &input,
 
 template <typename TypeV, typename TypeF, typename TypeN>
 IGL_INLINE bool readSTL(std::istream &input,
-                        std::vector<std::array<TypeV, 3>> &V,
-                        std::vector<std::array<TypeF, 3>> &F,
+                        std::vector<std::array<TypeV, 3>> &vers,
+                        std::vector<std::array<TypeF, 3>> &tris,
                         std::vector<std::array<TypeN, 3>> &N) {
   bool success = false;
   if (is_stl_binary(input)) {
-    success = read_stl_binary(input, V, F, N);
+    success = read_stl_binary(input, vers, tris, N);
   } else {
-    success = read_stl_ascii(input, V, F, N);
+    success = read_stl_ascii(input, vers, tris, N);
   }
   return success;
 }
@@ -298,14 +298,14 @@ IGL_INLINE bool readSTL(std::istream &input,
 template <typename DerivedV, typename DerivedF, typename DerivedN>
 IGL_INLINE bool readSTL(
   FILE * fp,
-  Eigen::PlainObjectBase<DerivedV> & V,
-  Eigen::PlainObjectBase<DerivedF> & F,
+  Eigen::PlainObjectBase<DerivedV> & vers,
+  Eigen::PlainObjectBase<DerivedF> & tris,
   Eigen::PlainObjectBase<DerivedN> & N)
 {
   std::vector<uint8_t> fileBufferBytes;
   read_file_binary(fp,fileBufferBytes);
   file_memory_stream stream((char*)fileBufferBytes.data(), fileBufferBytes.size());
-  return readSTL(stream, V, F, N);
+  return readSTL(stream, vers, tris, N);
 }
 
 } // namespace igl

@@ -47,23 +47,23 @@ struct KelvinletParams
 // for real-time physically based volume sculpting of virtual elastic materials
 //
 // Inputs:
-//   V  #V by dim list of input points in space
+//   vers  #vers by dim list of input points in space
 //   x0  dim-vector of brush tip
 //   f  dim-vector of brush force (translation)
-//   F  dim by dim matrix of brush force matrix  (linear)
+//   tris  dim by dim matrix of brush force matrix  (linear)
 //   params  parameters for the kelvinlet brush like brush radius, scale etc
 // Outputs:
-//   X  #V by dim list of output points in space
+//   X  #vers by dim list of output points in space
 template<typename DerivedV,
          typename Derivedx0,
          typename Derivedf,
          typename DerivedF,
          typename DerivedU>
 IGL_INLINE void kelvinlets(
-  const Eigen::MatrixBase<DerivedV>& V,
+  const Eigen::MatrixBase<DerivedV>& vers,
   const Eigen::MatrixBase<Derivedx0>& x0,
   const Eigen::MatrixBase<Derivedf>& f,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedF>& tris,
   const KelvinletParams<typename DerivedV::Scalar>& params,
   Eigen::PlainObjectBase<DerivedU>& U);
 

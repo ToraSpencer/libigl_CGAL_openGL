@@ -15,10 +15,10 @@
 template <typename Scalar, typename Index>
 IGL_INLINE bool igl::readOBJ(
   const std::string obj_file_name,
-  std::vector<std::vector<Scalar > > & V,
+  std::vector<std::vector<Scalar > > & vers,
   std::vector<std::vector<Scalar > > & TC,
   std::vector<std::vector<Scalar > > & N,
-  std::vector<std::vector<Index > > & F,
+  std::vector<std::vector<Index > > & tris,
   std::vector<std::vector<Index > > & FTC,
   std::vector<std::vector<Index > > & FN)
 {
@@ -31,16 +31,16 @@ IGL_INLINE bool igl::readOBJ(
     return false;
   }
   std::vector<std::tuple<std::string, Index, Index >> FM;
-  return igl::readOBJ(obj_file,V,TC,N,F,FTC,FN, FM);
+  return igl::readOBJ(obj_file,vers,TC,N,tris,FTC,FN, FM);
 }
 
 template <typename Scalar, typename Index>
 IGL_INLINE bool igl::readOBJ(
   const std::string obj_file_name,
-  std::vector<std::vector<Scalar > > & V,
+  std::vector<std::vector<Scalar > > & vers,
   std::vector<std::vector<Scalar > > & TC,
   std::vector<std::vector<Scalar > > & N,
-  std::vector<std::vector<Index > > & F,
+  std::vector<std::vector<Index > > & tris,
   std::vector<std::vector<Index > > & FTC,
   std::vector<std::vector<Index > > & FN,
   std::vector<std::tuple<std::string, Index, Index >> &FM)
@@ -53,25 +53,25 @@ IGL_INLINE bool igl::readOBJ(
             obj_file_name.c_str());
     return false;
   }
-  return igl::readOBJ(obj_file,V,TC,N,F,FTC,FN,FM);
+  return igl::readOBJ(obj_file,vers,TC,N,tris,FTC,FN,FM);
 }
 
 template <typename Scalar, typename Index>
 IGL_INLINE bool igl::readOBJ(
   FILE * obj_file,
-  std::vector<std::vector<Scalar > > & V,
+  std::vector<std::vector<Scalar > > & vers,
   std::vector<std::vector<Scalar > > & TC,
   std::vector<std::vector<Scalar > > & N,
-  std::vector<std::vector<Index > > & F,
+  std::vector<std::vector<Index > > & tris,
   std::vector<std::vector<Index > > & FTC,
   std::vector<std::vector<Index > > & FN,
   std::vector<std::tuple<std::string, Index, Index >> &FM)
 {
   // File open was successful so clear outputs
-  V.clear();
+  vers.clear();
   TC.clear();
   N.clear();
-  F.clear();
+  tris.clear();
   FTC.clear();
   FN.clear();
 
@@ -116,7 +116,7 @@ IGL_INLINE bool igl::readOBJ(
           return false;
         }
       
-        V.push_back(vertex);
+        vers.push_back(vertex);
       }
       else if(type == vn)
       {
@@ -158,9 +158,9 @@ IGL_INLINE bool igl::readOBJ(
       }
       else if(type == f)
       {
-        const auto & shift = [&V](const int i)->int
+        const auto & shift = [&vers](const int i)->int
         {
-          return i<0 ? i+V.size() : i-1;
+          return i<0 ? i+vers.size() : i-1;
         };
         const auto & shift_t = [&TC](const int i)->int
         {
@@ -216,7 +216,7 @@ IGL_INLINE bool igl::readOBJ(
         {
           // No matter what add each type to lists so that lists are the
           // correct lengths
-          F.push_back(f);
+          tris.push_back(f);
           FTC.push_back(ftc);
           FN.push_back(fn);
           current_face_no++;
@@ -266,8 +266,8 @@ else
     FM.push_back(std::make_tuple(currentmaterialref,previous_face_no,current_face_no-1));
   fclose(obj_file);
 
-  assert(F.size() == FN.size());
-  assert(F.size() == FTC.size());
+  assert(tris.size() == FN.size());
+  assert(tris.size() == FTC.size());
 
   return true;
 }
@@ -275,14 +275,14 @@ else
 template <typename Scalar, typename Index>
 IGL_INLINE bool igl::readOBJ(
   const std::string obj_file_name,
-  std::vector<std::vector<Scalar > > & V,
-  std::vector<std::vector<Index > > & F)
+  std::vector<std::vector<Scalar > > & vers,
+  std::vector<std::vector<Index > > & tris)
 {
   std::vector<std::vector<Scalar > > TC,N;
   std::vector<std::vector<Index > > FTC,FN;
   std::vector<std::tuple<std::string, Index, Index >> FM;
   
-  return readOBJ(obj_file_name,V,TC,N,F,FTC,FN);
+  return readOBJ(obj_file_name,vers,TC,N,tris,FTC,FN);
 }
 
 template <
@@ -294,10 +294,10 @@ template <
   typename DerivedFN>
 IGL_INLINE bool igl::readOBJ(
   const std::string str,
-  Eigen::PlainObjectBase<DerivedV>& V,
+  Eigen::PlainObjectBase<DerivedV>& vers,
   Eigen::PlainObjectBase<DerivedTC>& TC,
   Eigen::PlainObjectBase<DerivedCN>& CN,
-  Eigen::PlainObjectBase<DerivedF>& F,
+  Eigen::PlainObjectBase<DerivedF>& tris,
   Eigen::PlainObjectBase<DerivedFTC>& FTC,
   Eigen::PlainObjectBase<DerivedFN>& FN)
 {
@@ -310,17 +310,17 @@ IGL_INLINE bool igl::readOBJ(
     // message to stderr
     return false;
   }
-  bool V_rect = igl::list_to_matrix(vV,V);
+  bool V_rect = igl::list_to_matrix(vV,vers);
   const char * format = "Failed to cast %s to matrix: min (%d) != max (%d)\n";
   if(!V_rect)
   {
-    printf(format,"V",igl::min_size(vV),igl::max_size(vV));
+    printf(format,"vers",igl::min_size(vV),igl::max_size(vV));
     return false;
   }
-  bool F_rect = igl::list_to_matrix(vF,F);
+  bool F_rect = igl::list_to_matrix(vF,tris);
   if(!F_rect)
   {
-    printf(format,"F",igl::min_size(vF),igl::max_size(vF));
+    printf(format,"tris",igl::min_size(vF),igl::max_size(vF));
     return false;
   }
   if(!vN.empty())
@@ -370,8 +370,8 @@ IGL_INLINE bool igl::readOBJ(
 template <typename DerivedV, typename DerivedF>
 IGL_INLINE bool igl::readOBJ(
   const std::string str,
-  Eigen::PlainObjectBase<DerivedV>& V,
-  Eigen::PlainObjectBase<DerivedF>& F)
+  Eigen::PlainObjectBase<DerivedV>& vers,
+  Eigen::PlainObjectBase<DerivedF>& tris)
 {
   std::vector<std::vector<double> > vV,vTC,vN;
   std::vector<std::vector<int> > vF,vFTC,vFN;
@@ -382,16 +382,16 @@ IGL_INLINE bool igl::readOBJ(
     // message to stderr
     return false;
   }
-  bool V_rect = igl::list_to_matrix(vV,V);
+  bool V_rect = igl::list_to_matrix(vV,vers);
   if(!V_rect)
   {
-    // igl::list_to_matrix(vV,V) already printed error message to std err
+    // igl::list_to_matrix(vV,vers) already printed error message to std err
     return false;
   }
-  bool F_rect = igl::list_to_matrix(vF,F);
+  bool F_rect = igl::list_to_matrix(vF,tris);
   if(!F_rect)
   {
-    // igl::list_to_matrix(vF,F) already printed error message to std err
+    // igl::list_to_matrix(vF,tris) already printed error message to std err
     return false;
   }
   return true;
@@ -401,7 +401,7 @@ IGL_INLINE bool igl::readOBJ(
 template <typename DerivedV, typename DerivedI, typename DerivedC>
 IGL_INLINE bool igl::readOBJ(
   const std::string str,
-  Eigen::PlainObjectBase<DerivedV>& V,
+  Eigen::PlainObjectBase<DerivedV>& vers,
   Eigen::PlainObjectBase<DerivedI>& I,
   Eigen::PlainObjectBase<DerivedC>& C)
 {
@@ -415,7 +415,7 @@ IGL_INLINE bool igl::readOBJ(
     // message to stderr
     return false;
   }
-  if(!igl::list_to_matrix(vV,V))
+  if(!igl::list_to_matrix(vV,vers))
   {
     return false;
   }

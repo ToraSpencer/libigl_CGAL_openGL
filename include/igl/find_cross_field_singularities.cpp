@@ -16,22 +16,22 @@
 
 
 template <typename DerivedV, typename DerivedF, typename DerivedM, typename DerivedO>
-IGL_INLINE void igl::find_cross_field_singularities(const Eigen::MatrixBase<DerivedV> &V,
-                                                    const Eigen::MatrixBase<DerivedF> &F,
+IGL_INLINE void igl::find_cross_field_singularities(const Eigen::MatrixBase<DerivedV> &vers,
+                                                    const Eigen::MatrixBase<DerivedF> &tris,
                                                     const Eigen::MatrixBase<DerivedM> &Handle_MMatch,
                                                     Eigen::PlainObjectBase<DerivedO> &isSingularity,
                                                     Eigen::PlainObjectBase<DerivedO> &singularityIndex)
 {
-  std::vector<bool> V_border = igl::is_border_vertex(F);
+  std::vector<bool> V_border = igl::is_border_vertex(tris);
 
   std::vector<std::vector<int> > VF;
   std::vector<std::vector<int> > VFi;
-  igl::vertex_triangle_adjacency(V,F,VF,VFi);
+  igl::vertex_triangle_adjacency(vers,tris,VF,VFi);
 
 
-  isSingularity.setZero(V.rows(),1);
-  singularityIndex.setZero(V.rows(),1);
-  for (unsigned int vid=0;vid<V.rows();vid++)
+  isSingularity.setZero(vers.rows(),1);
+  singularityIndex.setZero(vers.rows(),1);
+  for (unsigned int vid=0;vid<vers.rows();vid++)
   {
     ///check that is on border..
     if (V_border[vid])
@@ -43,7 +43,7 @@ IGL_INLINE void igl::find_cross_field_singularities(const Eigen::MatrixBase<Deri
       // look for the vertex
       int j=-1;
       for (unsigned z=0; z<3; ++z)
-        if (F(VF[vid][i],z) == vid)
+        if (tris(VF[vid][i],z) == vid)
           j=z;
       assert(j!=-1);
 
@@ -59,8 +59,8 @@ IGL_INLINE void igl::find_cross_field_singularities(const Eigen::MatrixBase<Deri
 }
 
 template <typename DerivedV, typename DerivedF, typename DerivedO>
-IGL_INLINE void igl::find_cross_field_singularities(const Eigen::MatrixBase<DerivedV> &V,
-                                                    const Eigen::MatrixBase<DerivedF> &F,
+IGL_INLINE void igl::find_cross_field_singularities(const Eigen::MatrixBase<DerivedV> &vers,
+                                                    const Eigen::MatrixBase<DerivedF> &tris,
                                                     const Eigen::MatrixBase<DerivedV> &PD1,
                                                     const Eigen::MatrixBase<DerivedV> &PD2,
                                                     Eigen::PlainObjectBase<DerivedO> &isSingularity,
@@ -69,8 +69,8 @@ IGL_INLINE void igl::find_cross_field_singularities(const Eigen::MatrixBase<Deri
 {
   Eigen::Matrix<typename DerivedF::Scalar, Eigen::Dynamic, 3> Handle_MMatch;
 
-  igl::cross_field_mismatch(V, F, PD1, PD2, isCombed, Handle_MMatch);
-  igl::find_cross_field_singularities(V, F, Handle_MMatch, isSingularity, singularityIndex);
+  igl::cross_field_mismatch(vers, tris, PD1, PD2, isCombed, Handle_MMatch);
+  igl::find_cross_field_singularities(vers, tris, Handle_MMatch, isSingularity, singularityIndex);
 }
 
 #ifdef IGL_STATIC_LIBRARY

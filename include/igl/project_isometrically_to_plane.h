@@ -17,15 +17,15 @@ namespace igl
 {
   // Project each triangle to the plane
   //
-  // [U,UF,I] = project_isometrically_to_plane(V,F)
+  // [U,UF,I] = project_isometrically_to_plane(vers,tris)
   //
   // Inputs:
-  //   V  #V by 3 list of vertex positions
-  //   F  #F by 3 list of mesh indices
+  //   vers  #vers by 3 list of vertex positions
+  //   tris  #tris by 3 list of mesh indices
   // Outputs:
-  //   U  #F*3 by 2 list of triangle positions
-  //   UF  #F by 3 list of mesh indices into U
-  //   I  #V by #F*3 such that I(i,j) = 1 implies U(j,:) corresponds to V(i,:)
+  //   U  #tris*3 by 2 list of triangle positions
+  //   UF  #tris by 3 list of mesh indices into U
+  //   I  #vers by #tris*3 such that I(i,j) = 1 implies U(j,:) corresponds to vers(i,:)
   //
   template <
     typename DerivedV,
@@ -34,8 +34,8 @@ namespace igl
     typename DerivedUF,
     typename Scalar>
   IGL_INLINE void project_isometrically_to_plane(
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     Eigen::PlainObjectBase<DerivedU> & U,
     Eigen::PlainObjectBase<DerivedUF> & UF,
     Eigen::SparseMatrix<Scalar>& I);

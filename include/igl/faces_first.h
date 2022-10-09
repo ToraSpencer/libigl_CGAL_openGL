@@ -15,41 +15,41 @@ namespace igl
   // the face list contains only surface faces and you want surface vertices
   // listed before internal vertices
   //
-  // [RV,RT,RF,IM] = faces_first(V,T,F);
+  // [RV,RT,RF,IM] = faces_first(vers,T,tris);
   //
   // Templates:
   //   MatV  matrix for vertex positions, e.g. MatrixXd
   //   MatF  matrix for face indices, e.g. MatrixXi
   //   VecI  vector for index map, e.g. VectorXi
   // Input:
-  //  V  # vertices by 3 vertex positions
-  //  F  # faces by 3 list of face indices
+  //  vers  # vertices by 3 vertex positions
+  //  tris  # faces by 3 list of face indices
   // Output: 
   //  RV  # vertices by 3 vertex positions, order such that if the jth vertex is
-  //    some face in F, and the kth vertex is not then j comes before k
+  //    some face in tris, and the kth vertex is not then j comes before k
   //  RF  # faces by 3 list of face indices, reindexed to use RV
-  //  IM  #V by 1 list of indices such that: RF = IM(F) and RT = IM(T)
-  //    and RV(IM,:) = V
+  //  IM  #vers by 1 list of indices such that: RF = IM(tris) and RT = IM(T)
+  //    and RV(IM,:) = vers
   //
   //
   // Example:
-  //   // Tet mesh in (V,T,F)
-  //   faces_first(V,F,IM);
+  //   // Tet mesh in (vers,T,tris)
+  //   faces_first(vers,tris,IM);
   //   T = T.unaryExpr(bind1st(mem_fun( static_cast<VectorXi::Scalar&
   //     (VectorXi::*)(VectorXi::Index)>(&VectorXi::operator())),
   //     &IM)).eval();
   template <typename MatV, typename MatF, typename VecI>
   IGL_INLINE void faces_first(
-    const MatV & V, 
-    const MatF & F, 
+    const MatV & vers, 
+    const MatF & tris, 
     MatV & RV, 
     MatF & RF, 
     VecI & IM);
   // Virtual "in place" wrapper
   template <typename MatV, typename MatF, typename VecI>
   IGL_INLINE void faces_first(
-    MatV & V, 
-    MatF & F, 
+    MatV & vers, 
+    MatF & tris, 
     VecI & IM);
 }
 

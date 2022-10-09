@@ -13,12 +13,12 @@
 template <typename DerivedV, typename DerivedF>
 IGL_INLINE bool igl::writeOFF(
   const std::string fname,
-  const Eigen::MatrixBase<DerivedV>& V,
-  const Eigen::MatrixBase<DerivedF>& F)
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const Eigen::MatrixBase<DerivedF>& tris)
 {
   using namespace std;
   using namespace Eigen;
-  assert(V.cols() == 3 && "V should have 3 columns");
+  assert(vers.cols() == 3 && "vers should have 3 columns");
   ofstream s(fname);
   if(!s.is_open())
   {
@@ -27,9 +27,9 @@ IGL_INLINE bool igl::writeOFF(
   }
 
   s<<
-    "OFF\n"<<V.rows()<<" "<<F.rows()<<" 0\n"<<
-    V.format(IOFormat(FullPrecision,DontAlignCols," ","\n","","","","\n"))<<
-    (F.array()).format(IOFormat(FullPrecision,DontAlignCols," ","\n","3 ","","","\n"));
+    "OFF\n"<<vers.rows()<<" "<<tris.rows()<<" 0\n"<<
+    vers.format(IOFormat(FullPrecision,DontAlignCols," ","\n","","","","\n"))<<
+    (tris.array()).format(IOFormat(FullPrecision,DontAlignCols," ","\n","3 ","","","\n"));
   return true;
 }
 
@@ -37,18 +37,18 @@ IGL_INLINE bool igl::writeOFF(
 template <typename DerivedV, typename DerivedF, typename DerivedC>
 IGL_INLINE bool igl::writeOFF(
   const std::string fname,
-  const Eigen::MatrixBase<DerivedV>& V,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const Eigen::MatrixBase<DerivedF>& tris,
   const Eigen::MatrixBase<DerivedC>& C)
 {
   using namespace std;
   using namespace Eigen;
-  assert(V.cols() == 3 && "V should have 3 columns");
+  assert(vers.cols() == 3 && "vers should have 3 columns");
   assert(C.cols() == 3 && "C should have 3 columns");
 
-  if(V.rows() != C.rows())
+  if(vers.rows() != C.rows())
   {
-    fprintf(stderr,"IOError: writeOFF() Only color per vertex supported. V and C should have same size.\n");
+    fprintf(stderr,"IOError: writeOFF() Only color per vertex supported. vers and C should have same size.\n");
     return false;
   }
 
@@ -65,14 +65,14 @@ IGL_INLINE bool igl::writeOFF(
   // (https://github.com/libigl/libigl/pull/679)
   Eigen::Matrix<typename DerivedC::Scalar,Eigen::Dynamic,Eigen::Dynamic> RGB_Array = rgbScale * C;
 
-  s<< "COFF\n"<<V.rows()<<" "<<F.rows()<<" 0\n";
-  for (unsigned i=0; i< V.rows(); i++)
+  s<< "COFF\n"<<vers.rows()<<" "<<tris.rows()<<" 0\n";
+  for (unsigned i=0; i< vers.rows(); i++)
   {
-    s <<V.row(i).format(IOFormat(FullPrecision,DontAlignCols," "," ","","",""," "));
+    s <<vers.row(i).format(IOFormat(FullPrecision,DontAlignCols," "," ","","",""," "));
     s << unsigned(RGB_Array(i,0)) << " " << unsigned(RGB_Array(i,1)) << " " << unsigned(RGB_Array(i,2)) << " 255\n";
   }
 
-  s<<(F.array()).format(IOFormat(FullPrecision,DontAlignCols," ","\n","3 ","","","\n"));
+  s<<(tris.array()).format(IOFormat(FullPrecision,DontAlignCols," ","\n","3 ","","","\n"));
   return true;
 }
 

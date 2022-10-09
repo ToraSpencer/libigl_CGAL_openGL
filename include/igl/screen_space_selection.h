@@ -13,16 +13,16 @@ namespace igl
   // screen space polygon **culling points based on self-occlusion.**
   //
   // Inputs:
-  //   V  #V by 3 list of mesh vertex positions
-  //   F  #F by 3 list of mesh triangle indices into rows of V
+  //   vers  #vers by 3 list of mesh vertex positions
+  //   tris  #tris by 3 list of mesh triangle indices into rows of vers
   //   tree  precomputed bounding volume heirarchy
   //   model  4 by 4 camera model-view matrix
   //   proj  4 by 4 camera projection matrix (perspective or orthoraphic)
   //   viewport  4-vector containing camera viewport
   //   L  #L by 2 list of 2D polygon vertices (in order)
   // Outputs:
-  //   W  #V by 1 list of winding numbers (|W|>0.5 indicates inside)
-  //   and_visible  #V by 1 list of visibility values (only correct for vertices
+  //   W  #vers by 1 list of winding numbers (|W|>0.5 indicates inside)
+  //   and_visible  #vers by 1 list of visibility values (only correct for vertices
   //     with |W|>0.5)
   template <
     typename DerivedV,
@@ -34,8 +34,8 @@ namespace igl
     typename DerivedW,
     typename Deriveda>
   IGL_INLINE void screen_space_selection(
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const igl::AABB<DerivedV, 3> & tree,
     const Eigen::MatrixBase<DerivedM>& model,
     const Eigen::MatrixBase<DerivedN>& proj,
@@ -47,13 +47,13 @@ namespace igl
   // screen space polygon
   //
   // Inputs:
-  //   V  #V by 3 list of mesh vertex positions
+  //   vers  #vers by 3 list of mesh vertex positions
   //   model  4 by 4 camera model-view matrix
   //   proj  4 by 4 camera projection matrix (perspective or orthoraphic)
   //   viewport  4-vector containing camera viewport
   //   L  #L by 2 list of 2D polygon vertices (in order)
   // Outputs:
-  //   W  #V by 1 list of winding numbers (|W|>0.5 indicates inside)
+  //   W  #vers by 1 list of winding numbers (|W|>0.5 indicates inside)
   template <
     typename DerivedV,
     typename DerivedM,
@@ -62,7 +62,7 @@ namespace igl
     typename Ltype,
     typename DerivedW>
   IGL_INLINE void screen_space_selection(
-    const Eigen::MatrixBase<DerivedV> & V,
+    const Eigen::MatrixBase<DerivedV> & vers,
     const Eigen::MatrixBase<DerivedM>& model,
     const Eigen::MatrixBase<DerivedN>& proj,
     const Eigen::MatrixBase<DerivedO>& viewport,
@@ -72,14 +72,14 @@ namespace igl
   // screen space polygon
   //
   // Inputs:
-  //   V  #V by 3 list of mesh vertex positions
+  //   vers  #vers by 3 list of mesh vertex positions
   //   model  4 by 4 camera model-view matrix
   //   proj  4 by 4 camera projection matrix (perspective or orthoraphic)
   //   viewport  4-vector containing camera viewport
   //   P  #P by 2 list of screen space polygon vertices
   //   E  #E by 2 list of screen space edges as indices into rows of P
   // Outputs:
-  //   W  #V by 1 list of winding numbers (|W|>0.5 indicates inside)
+  //   W  #vers by 1 list of winding numbers (|W|>0.5 indicates inside)
   template <
     typename DerivedV,
     typename DerivedM,
@@ -89,7 +89,7 @@ namespace igl
     typename DerivedE,
     typename DerivedW>
   IGL_INLINE void screen_space_selection(
-    const Eigen::MatrixBase<DerivedV> & V,
+    const Eigen::MatrixBase<DerivedV> & vers,
     const Eigen::MatrixBase<DerivedM>& model,
     const Eigen::MatrixBase<DerivedN>& proj,
     const Eigen::MatrixBase<DerivedO>& viewport,

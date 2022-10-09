@@ -16,17 +16,17 @@ namespace igl
   // Count the occurances of each face (row) in a list of face indices
   // (irrespecitive of order)
   // Inputs:
-  //   F  #F by simplex-size
+  //   tris  #tris by simplex-size
   // Outputs
-  //   C  #F list of counts
+  //   C  #tris list of counts
   // Known bug: triangles/tets only (where ignoring order still gives simplex)
   template <typename IntegerF, typename IntegerC>
   IGL_INLINE void face_occurrences(
-    const std::vector<std::vector<IntegerF> > & F,
+    const std::vector<std::vector<IntegerF> > & tris,
     std::vector<IntegerC> & C);
   template <typename DerivedF, typename DerivedC>
   IGL_INLINE void face_occurrences(
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedF> & tris,
     Eigen::PlainObjectBase<DerivedC> & C);
 }
 

@@ -17,13 +17,13 @@ IGL_INLINE void igl::print_ijv(
 {
   Eigen::Matrix<int,Eigen::Dynamic,1> I;
   Eigen::Matrix<int,Eigen::Dynamic,1> J;
-  Eigen::Matrix<T,Eigen::Dynamic,1> V;
-  igl::find(X,I,J,V);
-  // Concatenate I,J,V
+  Eigen::Matrix<T,Eigen::Dynamic,1> vers;
+  igl::find(X,I,J,vers);
+  // Concatenate I,J,vers
   Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> IJV(I.size(),3);
   IJV.col(0) = I.cast<T>();
   IJV.col(1) = J.cast<T>();
-  IJV.col(2) = V;
+  IJV.col(2) = vers;
   // Offset
   if(offset != 0)
   {

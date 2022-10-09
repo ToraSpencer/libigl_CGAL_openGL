@@ -14,8 +14,8 @@
 
 template<typename DerivedV, typename DerivedF, typename DerivedK>
 IGL_INLINE void igl::arap_rhs(
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const int dim,
     const igl::ARAPEnergyType energy,
     Eigen::SparseCompressedBase<DerivedK>& K)
@@ -23,11 +23,11 @@ IGL_INLINE void igl::arap_rhs(
   using namespace std;
   using namespace Eigen;
   // Number of dimensions
-  int Vdim = V.cols();
+  int Vdim = vers.cols();
   //// Number of mesh vertices
-  //int n = V.rows();
+  //int n = vers.rows();
   //// Number of mesh elements
-  //int m = F.rows();
+  //int m = tris.rows();
   //// number of rotations
   //int nr;
   switch(energy)
@@ -50,14 +50,14 @@ IGL_INLINE void igl::arap_rhs(
   }
 
   DerivedK KX,KY,KZ;
-  arap_linear_block(V,F,0,energy,KX);
-  arap_linear_block(V,F,1,energy,KY);
+  arap_linear_block(vers,tris,0,energy,KX);
+  arap_linear_block(vers,tris,1,energy,KY);
   if(Vdim == 2)
   {
     K = cat(2,repdiag(KX,dim),repdiag(KY,dim));
   }else if(Vdim == 3)
   {
-    arap_linear_block(V,F,2,energy,KZ);
+    arap_linear_block(vers,tris,2,energy,KZ);
     if(dim == 3)
     {
       K = cat(2,cat(2,repdiag(KX,dim),repdiag(KY,dim)),repdiag(KZ,dim));
@@ -91,5 +91,5 @@ IGL_INLINE void igl::arap_rhs(
 
 
 #ifdef IGL_STATIC_LIBRARY
-template void igl::arap_rhs(const Eigen::MatrixBase<Eigen::MatrixXd> & V, const Eigen::MatrixBase<Eigen::MatrixXi> & F,const int dim, const igl::ARAPEnergyType energy,Eigen::SparseCompressedBase<Eigen::SparseMatrix<double>>& K);
+template void igl::arap_rhs(const Eigen::MatrixBase<Eigen::MatrixXd> & vers, const Eigen::MatrixBase<Eigen::MatrixXi> & tris,const int dim, const igl::ARAPEnergyType energy,Eigen::SparseCompressedBase<Eigen::SparseMatrix<double>>& K);
 #endif

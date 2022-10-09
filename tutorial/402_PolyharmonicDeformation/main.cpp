@@ -10,7 +10,7 @@ double z_max = 1.0;
 double z_dir = -0.03;
 int k = 2;
 bool resolve = true;
-Eigen::MatrixXd V,U;
+Eigen::MatrixXd vers,U;
 Eigen::VectorXd Z;
 Eigen::MatrixXi F;
 Eigen::VectorXi b;
@@ -21,7 +21,7 @@ bool pre_draw(igl::opengl::glfw::Viewer & viewer)
   using namespace Eigen;
   if(resolve)
   {
-    igl::harmonic(V,F,b,bc,k,Z);
+    igl::harmonic(vers,F,b,bc,k,Z);
     resolve = false;
   }
   U.col(2) = z_max*Z;
@@ -60,14 +60,14 @@ int main(int argc, char *argv[])
 {
   using namespace Eigen;
   using namespace std;
-  igl::readOBJ(TUTORIAL_SHARED_PATH "/bump-domain.obj",V,F);
-  U=V;
+  igl::readOBJ(TUTORIAL_SHARED_PATH "/bump-domain.obj",vers,F);
+  U=vers;
   // Find boundary vertices outside annulus
   typedef Matrix<bool,Dynamic,1> VectorXb;
-  VectorXb is_outer = (V.rowwise().norm().array()-1.0)>-1e-15;
-  VectorXb is_inner = (V.rowwise().norm().array()-0.15)<1e-15;
+  VectorXb is_outer = (vers.rowwise().norm().array()-1.0)>-1e-15;
+  VectorXb is_inner = (vers.rowwise().norm().array()-0.15)<1e-15;
   VectorXb in_b = is_outer.array() || is_inner.array();
-  igl::colon<int>(0,V.rows()-1,b);
+  igl::colon<int>(0,vers.rows()-1,b);
   b.conservativeResize(stable_partition( b.data(), b.data()+b.size(),
    [&in_b](int i)->bool{return in_b(i);})-b.data());
   bc.resize(b.size(),1);

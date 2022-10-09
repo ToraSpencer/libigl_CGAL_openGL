@@ -22,20 +22,20 @@
 
 template < typename DerivedV, typename DerivedF, typename Scalar >
 IGL_INLINE bool igl::heat_geodesics_precompute(
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   HeatGeodesicsData<Scalar> & data)
 {
   // default t value
-  const Scalar h = avg_edge_length(V,F);
+  const Scalar h = avg_edge_length(vers,tris);
   const Scalar t = h*h;
-  return heat_geodesics_precompute(V,F,t,data);
+  return heat_geodesics_precompute(vers,tris,t,data);
 }
 
 template < typename DerivedV, typename DerivedF, typename Scalar >
 IGL_INLINE bool igl::heat_geodesics_precompute(
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const Scalar t,
   HeatGeodesicsData<Scalar> & data)
 {
@@ -47,27 +47,27 @@ IGL_INLINE bool igl::heat_geodesics_precompute(
   VectorXS dblA;
   if(data.use_intrinsic_delaunay)
   {
-    igl::intrinsic_delaunay_cotmatrix(V,F,L,l_intrinsic,F_intrinsic);
+    igl::intrinsic_delaunay_cotmatrix(vers,tris,L,l_intrinsic,F_intrinsic);
     igl::massmatrix_intrinsic(l_intrinsic,F_intrinsic,MASSMATRIX_TYPE_DEFAULT,M);
     igl::doublearea(l_intrinsic,0,dblA);
     igl::grad_intrinsic(l_intrinsic,F_intrinsic,data.Grad);
   }else
   {
-    igl::cotmatrix(V,F,L);
-    igl::massmatrix(V,F,MASSMATRIX_TYPE_DEFAULT,M);
-    igl::doublearea(V,F,dblA);
-    igl::grad(V,F,data.Grad);
+    igl::cotmatrix(vers,tris,L);
+    igl::massmatrix(vers,tris,MASSMATRIX_TYPE_DEFAULT,M);
+    igl::doublearea(vers,tris,dblA);
+    igl::grad(vers,tris,data.Grad);
   }
   // div
-  assert(F.cols() == 3 && "Only triangles are supported");
+  assert(tris.cols() == 3 && "Only triangles are supported");
   // number of gradient components
-  data.ng = data.Grad.rows() / F.rows();
+  data.ng = data.Grad.rows() / tris.rows();
   assert(data.ng == 3 || data.ng == 2);
   data.Div = -0.25*data.Grad.transpose()*dblA.colwise().replicate(data.ng).asDiagonal();
 
   Eigen::SparseMatrix<Scalar> Q = M - t*L;
   Eigen::MatrixXi O;
-  igl::boundary_facets(F,O);
+  igl::boundary_facets(tris,O);
   igl::unique(O,data.b);
   {
     Eigen::SparseMatrix<Scalar> _;

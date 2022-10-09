@@ -27,7 +27,7 @@ namespace igl
   //   A  sparse m by n matrix
   // Outputs:
   //   num_rows  number of rows
-  //   V  non-zero values, row indices running fastest, size(V) = nnz 
+  //   vers  non-zero values, row indices running fastest, size(vers) = nnz 
   //   R  row indices corresponding to vals, size(R) = nnz
   //   C  index in vals of first entry in each column, size(C) = num_cols+1
   //
@@ -36,7 +36,7 @@ namespace igl
   IGL_INLINE void harwell_boeing(
     const Eigen::SparseMatrix<Scalar> & A,
     int & num_rows,
-    std::vector<Scalar> & V,
+    std::vector<Scalar> & vers,
     std::vector<Index> & R,
     std::vector<Index> & C);
 }

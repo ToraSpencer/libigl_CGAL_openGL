@@ -23,8 +23,8 @@ template <
   typename DerivedFF,
   typename DerivedI>
 IGL_INLINE void igl::sort_triangles(
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const Eigen::MatrixBase<DerivedMV> & MV,
   const Eigen::MatrixBase<DerivedP> & P,
   Eigen::PlainObjectBase<DerivedFF> & FF,
@@ -38,7 +38,7 @@ IGL_INLINE void igl::sort_triangles(
   // Barycenter, centroid
   Eigen::Matrix<Scalar, DerivedF::RowsAtCompileTime,1> D,sD;
   Eigen::Matrix<Scalar, DerivedF::RowsAtCompileTime,3> BC;
-  barycenter(V,F,BC);
+  barycenter(vers,tris,BC);
   Eigen::Matrix<Scalar, DerivedF::RowsAtCompileTime,4> BC4(BC.rows(),4);
   BC4.leftCols(3) = BC;
   BC4.col(3).setConstant(1);
@@ -46,7 +46,7 @@ IGL_INLINE void igl::sort_triangles(
       MV.template cast<Scalar>().transpose()*
        P.template cast<Scalar>().transpose().eval().col(2));
   sort(D,1,false,sD,I);
-  slice(F,I,1,FF);
+  slice(tris,I,1,FF);
 }
 
 

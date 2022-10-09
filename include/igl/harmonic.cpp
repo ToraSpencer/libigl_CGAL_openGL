@@ -24,8 +24,8 @@ template <
   typename Derivedbc,
   typename DerivedW>
 IGL_INLINE bool igl::harmonic(
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const Eigen::MatrixBase<Derivedb> & b,
   const Eigen::MatrixBase<Derivedbc> & bc,
   const int k,
@@ -34,10 +34,10 @@ IGL_INLINE bool igl::harmonic(
   using namespace Eigen;
   typedef typename DerivedV::Scalar Scalar;
   SparseMatrix<Scalar> L,M;
-  cotmatrix(V,F,L);
+  cotmatrix(vers,tris,L);
   if(k>1)
   {
-    massmatrix(V,F,MASSMATRIX_TYPE_DEFAULT,M);
+    massmatrix(vers,tris,MASSMATRIX_TYPE_DEFAULT,M);
   }
   return harmonic(L,M,b,bc,k,W);
 }
@@ -48,7 +48,7 @@ template <
   typename Derivedbc,
   typename DerivedW>
 IGL_INLINE bool igl::harmonic(
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const Eigen::MatrixBase<Derivedb> & b,
   const Eigen::MatrixBase<Derivedbc> & bc,
   const int k,
@@ -57,7 +57,7 @@ IGL_INLINE bool igl::harmonic(
   using namespace Eigen;
   typedef typename Derivedbc::Scalar Scalar;
   SparseMatrix<Scalar> A;
-  adjacency_matrix(F,A);
+  adjacency_matrix(tris,A);
   // sum each row
   SparseVector<Scalar> Asum;
   sum(A,1,Asum);
@@ -144,16 +144,16 @@ template <
   typename DerivedF,
   typename DerivedQ>
 IGL_INLINE void igl::harmonic(
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const int k,
   DerivedQ & Q)
 {
   DerivedQ L,M;
-  cotmatrix(V,F,L);
+  cotmatrix(vers,tris,L);
   if(k>1)
   {
-    massmatrix(V,F,MASSMATRIX_TYPE_DEFAULT,M);
+    massmatrix(vers,tris,MASSMATRIX_TYPE_DEFAULT,M);
   }
   return harmonic(L,M,k,Q);
 }

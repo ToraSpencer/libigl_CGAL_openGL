@@ -15,17 +15,17 @@
 
 template <typename DerivedF, typename Scalar>
 IGL_INLINE void igl::vector_area_matrix(
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedF> & tris,
   Eigen::SparseMatrix<Scalar>& A)
 {
   using namespace Eigen;
   using namespace std;
 
   // number of vertices
-  const int n = F.maxCoeff()+1;
+  const int n = tris.maxCoeff()+1;
 
   MatrixXi E;
-  boundary_facets(F,E);
+  boundary_facets(tris,E);
 
   //Prepare a vector of triplets to set the matrix
   vector<Triplet<Scalar> > tripletList;

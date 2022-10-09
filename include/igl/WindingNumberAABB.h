@@ -39,15 +39,15 @@ namespace igl
         split_method(MEDIAN_ON_LONGEST_AXIS)
       {}
       inline WindingNumberAABB(
-        const Eigen::MatrixBase<DerivedV> & V,
-        const Eigen::MatrixBase<DerivedF> & F);
+        const Eigen::MatrixBase<DerivedV> & vers,
+        const Eigen::MatrixBase<DerivedF> & tris);
       inline WindingNumberAABB(
         const WindingNumberTree<Point,DerivedV,DerivedF> & parent,
-        const Eigen::MatrixBase<DerivedF> & F);
+        const Eigen::MatrixBase<DerivedF> & tris);
       // Initialize some things
       inline void set_mesh(
-        const Eigen::MatrixBase<DerivedV> & V,
-        const Eigen::MatrixBase<DerivedF> & F);
+        const Eigen::MatrixBase<DerivedV> & vers,
+        const Eigen::MatrixBase<DerivedF> & tris);
       inline void init();
       inline bool inside(const Point & p) const;
       inline virtual void grow();
@@ -79,10 +79,10 @@ namespace igl
 
 template <typename Point, typename DerivedV, typename DerivedF>
 inline void igl::WindingNumberAABB<Point,DerivedV,DerivedF>::set_mesh(
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F)
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris)
 {
-  igl::WindingNumberTree<Point,DerivedV,DerivedF>::set_mesh(V,F);
+  igl::WindingNumberTree<Point,DerivedV,DerivedF>::set_mesh(vers,tris);
   init();
 }
 
@@ -100,9 +100,9 @@ inline void igl::WindingNumberAABB<Point,DerivedV,DerivedF>::init()
 
 template <typename Point, typename DerivedV, typename DerivedF>
 inline igl::WindingNumberAABB<Point,DerivedV,DerivedF>::WindingNumberAABB(
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F):
-  WindingNumberTree<Point,DerivedV,DerivedF>(V,F),
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris):
+  WindingNumberTree<Point,DerivedV,DerivedF>(vers,tris),
   min_corner(),
   max_corner(),
   total_positive_area(
@@ -115,8 +115,8 @@ inline igl::WindingNumberAABB<Point,DerivedV,DerivedF>::WindingNumberAABB(
 template <typename Point, typename DerivedV, typename DerivedF>
 inline igl::WindingNumberAABB<Point,DerivedV,DerivedF>::WindingNumberAABB(
   const WindingNumberTree<Point,DerivedV,DerivedF> & parent,
-  const Eigen::MatrixBase<DerivedF> & F):
-  WindingNumberTree<Point,DerivedV,DerivedF>(parent,F),
+  const Eigen::MatrixBase<DerivedF> & tris):
+  WindingNumberTree<Point,DerivedV,DerivedF>(parent,tris),
   min_corner(),
   max_corner(),
   total_positive_area(
@@ -135,7 +135,7 @@ inline void igl::WindingNumberAABB<Point,DerivedV,DerivedF>::grow()
   this->delete_children();
 
   //cout<<"cap.rows(): "<<this->getcap().rows()<<endl;
-  //cout<<"F.rows(): "<<this->getF().rows()<<endl;
+  //cout<<"tris.rows(): "<<this->getF().rows()<<endl;
 
   // Base cases
   if(
@@ -375,12 +375,12 @@ inline typename DerivedV::Scalar
 }
 
 // This is a bullshit template because AABB annoyingly needs templates for bad
-// combinations of 3D V with DIM=2 AABB
+// combinations of 3D vers with DIM=2 AABB
 //
 // _Define_ as a no-op rather than monkeying around with the proper code above
 namespace igl
 {
-  template <> inline igl::WindingNumberAABB<Eigen::Matrix<double, 1, 3, 1, 1, 3>,Eigen::Matrix<double, -1, 2, 0, -1, 2>,Eigen::Matrix<int, -1, 2, 0, -1, 2>>::WindingNumberAABB(const Eigen::MatrixBase<Eigen::Matrix<double, -1, 2, 0, -1, 2>> & V, const Eigen::MatrixBase<Eigen::Matrix<int, -1, 2, 0, -1, 2>> & F){};
+  template <> inline igl::WindingNumberAABB<Eigen::Matrix<double, 1, 3, 1, 1, 3>,Eigen::Matrix<double, -1, 2, 0, -1, 2>,Eigen::Matrix<int, -1, 2, 0, -1, 2>>::WindingNumberAABB(const Eigen::MatrixBase<Eigen::Matrix<double, -1, 2, 0, -1, 2>> & vers, const Eigen::MatrixBase<Eigen::Matrix<int, -1, 2, 0, -1, 2>> & tris){};
   template <> inline void igl::WindingNumberAABB<Eigen::Matrix<double, 1, 3, 1, 1, 3>,Eigen::Matrix<double, -1, 2, 0, -1, 2>,Eigen::Matrix<int, -1, 2, 0, -1, 2>>::grow(){};
   template <> inline void igl::WindingNumberAABB<Eigen::Matrix<double, 1, 3, 1, 1, 3>,Eigen::Matrix<double, -1, 2, 0, -1, 2>,Eigen::Matrix<int, -1, 2, 0, -1, 2>>::init(){};
 

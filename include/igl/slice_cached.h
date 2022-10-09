@@ -33,7 +33,7 @@ namespace igl
   //
   // // Construct and slice up Laplacian
   // SparseMatrix<double> L,L_sliced;
-  // igl::cotmatrix(V,F,L);
+  // igl::cotmatrix(vers,tris,L);
 
   // // Normal igl::slice call
   // igl::slice(L,in,in,L_in_in);

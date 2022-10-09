@@ -25,8 +25,8 @@ namespace igl {
   {
   public:
 
-    const Eigen::MatrixBase<DerivedV> &V;
-    const Eigen::MatrixBase<DerivedF> &F;
+    const Eigen::MatrixBase<DerivedV> &vers;
+    const Eigen::MatrixBase<DerivedF> &tris;
     const Eigen::MatrixBase<DerivedV> &PD1;
     const Eigen::MatrixBase<DerivedV> &PD2;
     
@@ -73,21 +73,21 @@ public:
                             const Eigen::MatrixBase<DerivedF> &_F,
                             const Eigen::MatrixBase<DerivedV> &_PD1,
                             const Eigen::MatrixBase<DerivedV> &_PD2):
-  V(_V),
-  F(_F),
+  vers(_V),
+  tris(_F),
   PD1(_PD1),
   PD2(_PD2)
   {
-    igl::per_face_normals(V,F,N);
-    V_border = igl::is_border_vertex(F);
-    igl::vertex_triangle_adjacency(V,F,VF,VFi);
-    igl::triangle_triangle_adjacency(F,TT,TTi);
+    igl::per_face_normals(vers,tris,N);
+    V_border = igl::is_border_vertex(tris);
+    igl::vertex_triangle_adjacency(vers,tris,VF,VFi);
+    igl::triangle_triangle_adjacency(tris,TT,TTi);
   }
 
   inline void calculateMismatch(Eigen::PlainObjectBase<DerivedM> &Handle_MMatch)
   {
-    Handle_MMatch.setConstant(F.rows(),3,-1);
-    for (size_t i=0;i<F.rows();i++)
+    Handle_MMatch.setConstant(tris.rows(),3,-1);
+    for (size_t i=0;i<tris.rows();i++)
     {
       for (int j=0;j<3;j++)
       {
@@ -102,8 +102,8 @@ public:
 };
 }
 template <typename DerivedV, typename DerivedF, typename DerivedM>
-IGL_INLINE void igl::cross_field_mismatch(const Eigen::MatrixBase<DerivedV> &V,
-                                          const Eigen::MatrixBase<DerivedF> &F,
+IGL_INLINE void igl::cross_field_mismatch(const Eigen::MatrixBase<DerivedV> &vers,
+                                          const Eigen::MatrixBase<DerivedF> &tris,
                                           const Eigen::MatrixBase<DerivedV> &PD1,
                                           const Eigen::MatrixBase<DerivedV> &PD2,
                                           const bool isCombed,
@@ -113,13 +113,13 @@ IGL_INLINE void igl::cross_field_mismatch(const Eigen::MatrixBase<DerivedV> &V,
   DerivedV PD2_combed;
 
   if (!isCombed)
-    igl::comb_cross_field(V,F,PD1,PD2,PD1_combed,PD2_combed);
+    igl::comb_cross_field(vers,tris,PD1,PD2,PD1_combed,PD2_combed);
   else
   {
     PD1_combed = PD1;
     PD2_combed = PD2;
   }
-  igl::MismatchCalculator<DerivedV, DerivedF, DerivedM> sf(V, F, PD1_combed, PD2_combed);
+  igl::MismatchCalculator<DerivedV, DerivedF, DerivedM> sf(vers, tris, PD1_combed, PD2_combed);
   sf.calculateMismatch(mismatch);
 }
 

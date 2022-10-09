@@ -12,13 +12,13 @@
 #include <vector>
 namespace igl
 {
-  // IS_DELAUNAY Determine if each edge in the mesh (V,F) is Delaunay.
+  // IS_DELAUNAY Determine if each edge in the mesh (vers,tris) is Delaunay.
   //
   // Inputs:
-  //   V  #V by dim list of vertex positions
-  //   F  #F by 3 list of triangles indices
+  //   vers  #vers by dim list of vertex positions
+  //   tris  #tris by 3 list of triangles indices
   // Outputs:
-  //   D  #F by 3 list of bools revealing whether edges corresponding 23 31 12
+  //   D  #tris by 3 list of bools revealing whether edges corresponding 23 31 12
   //     are locally Delaunay. Boundary edges are by definition Delaunay.
   //     Non-Manifold edges are by definition not Delaunay.
   template <
@@ -26,15 +26,15 @@ namespace igl
     typename DerivedF,
     typename DerivedD>
   IGL_INLINE void is_delaunay(
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     Eigen::PlainObjectBase<DerivedD> & D);
   // Determine whether a single edge is Delaunay using a provided (extrinsic) incirle
   // test.
   //
   // Inputs:
-  //   V  #V by dim list of vertex positions
-  //   F  #F by 3 list of triangles indices
+  //   vers  #vers by dim list of vertex positions
+  //   tris  #tris by 3 list of triangles indices
   //   uE2E  #uE list of lists of indices into E of coexisting edges (see
   //     unique_edge_map)
   //   incircle  A functor such that incircle(pa, pb, pc, pd) returns
@@ -51,8 +51,8 @@ namespace igl
     typename InCircle,
     typename ueiType>
   IGL_INLINE bool is_delaunay(
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const std::vector<std::vector<uE2EType> > & uE2E,
     const InCircle incircle,
     const ueiType uei);

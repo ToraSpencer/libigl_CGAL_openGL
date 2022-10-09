@@ -25,8 +25,8 @@ namespace igl {
   class MeshCutter
   {
   protected:
-    const Eigen::MatrixBase<DerivedV> &V;
-    const Eigen::MatrixBase<DerivedF> &F;
+    const Eigen::MatrixBase<DerivedV> &vers;
+    const Eigen::MatrixBase<DerivedF> &tris;
     const Eigen::MatrixBase<DerivedM> &Handle_MMatch;
 
     Eigen::VectorXi F_visited;
@@ -76,16 +76,16 @@ namespace igl {
 
     inline void Retract(Eigen::PlainObjectBase<DerivedO> &Handle_Seams)
     {
-      std::vector<int> e(V.rows(),0); // number of edges per vert
-      // for (unsigned f=0; f<F.rows(); f++)
+      std::vector<int> e(vers.rows(),0); // number of edges per vert
+      // for (unsigned f=0; f<tris.rows(); f++)
       // {
       //   for (int s = 0; s<3; s++)
       //   {
       //     if (Handle_Seams(f,s))
       //       if (TT(f,s)<=f)
       //       {
-      //         e[ F(f,s) ] ++;
-      //         e[ F(f,(s+1)%3) ] ++;
+      //         e[ tris(f,s) ] ++;
+      //         e[ tris(f,(s+1)%3) ] ++;
       //       }
       //   }
       // }
@@ -101,8 +101,8 @@ namespace igl {
             break;
         if (Handle_Seams(f0,k))
         {
-          e[ F(f0,k) ] ++;
-          e[ F(f0,(k+1)%3) ] ++;
+          e[ tris(f0,k) ] ++;
+          e[ tris(f0,(k+1)%3) ] ++;
         }
       }
 
@@ -111,21 +111,21 @@ namespace igl {
       do
       {
         over = true;
-        for (int f = 0; f<F.rows(); f++) //if (!f->IsD())
+        for (int f = 0; f<tris.rows(); f++) //if (!f->IsD())
         {
           for (int s = 0; s<3; s++)
           {
             if (Handle_Seams(f,s))
               if (!(IsRotSeam(f,s))) // never retract rot seams
               {
-                if (e[ F(f,s) ] == 1) {
+                if (e[ tris(f,s) ] == 1) {
                   // dissolve seam
                   Handle_Seams(f,s)=false;
                   if (TT(f,s) != -1)
                     Handle_Seams(TT(f,s),TTi(f,s))=false;
 
-                  e[ F(f,s)] --;
-                  e[ F(f,(s+1)%3) ] --;
+                  e[ tris(f,s)] --;
+                  e[ tris(f,(s+1)%3) ] --;
                   over = false;
                 }
               }
@@ -143,21 +143,21 @@ namespace igl {
     inline MeshCutter(const Eigen::MatrixBase<DerivedV> &V_,
                const Eigen::MatrixBase<DerivedF> &F_,
                const Eigen::MatrixBase<DerivedM> &Handle_MMatch_):
-    V(V_),
-    F(F_),
+    vers(V_),
+    tris(F_),
     Handle_MMatch(Handle_MMatch_)
     {
-      triangle_triangle_adjacency(F,TT,TTi);
-      edge_topology(V,F,E,F2E,E2F);
+      triangle_triangle_adjacency(tris,TT,TTi);
+      edge_topology(vers,tris,E,F2E,E2F);
     };
 
     inline void cut(Eigen::PlainObjectBase<DerivedO> &Handle_Seams)
     {
-      F_visited.setConstant(F.rows(),0);
-      Handle_Seams.setConstant(F.rows(),3,1);
+      F_visited.setConstant(tris.rows(),0);
+      Handle_Seams.setConstant(tris.rows(),3,1);
 
       int index=0;
-      for (unsigned f = 0; f<F.rows(); f++)
+      for (unsigned f = 0; f<tris.rows(); f++)
       {
         if (!F_visited(f))
         {
@@ -168,7 +168,7 @@ namespace igl {
 
       Retract(Handle_Seams);
 
-      for (unsigned int f=0;f<F.rows();f++)
+      for (unsigned int f=0;f<tris.rows();f++)
         for (int j=0;j<3;j++)
           if (IsRotSeam(f,j))
             Handle_Seams(f,j)=true;
@@ -184,12 +184,12 @@ template <typename DerivedV,
   typename DerivedF,
   typename DerivedM,
   typename DerivedO>
-IGL_INLINE void igl::cut_mesh_from_singularities(const Eigen::MatrixBase<DerivedV> &V,
-                                                 const Eigen::MatrixBase<DerivedF> &F,
+IGL_INLINE void igl::cut_mesh_from_singularities(const Eigen::MatrixBase<DerivedV> &vers,
+                                                 const Eigen::MatrixBase<DerivedF> &tris,
                                                  const Eigen::MatrixBase<DerivedM> &Handle_MMatch,
                                                  Eigen::PlainObjectBase<DerivedO> &Handle_Seams)
 {
-  igl::MeshCutter< DerivedV, DerivedF, DerivedM, DerivedO> mc(V, F, Handle_MMatch);
+  igl::MeshCutter< DerivedV, DerivedF, DerivedM, DerivedO> mc(vers, tris, Handle_MMatch);
   mc.cut(Handle_Seams);
 
 }

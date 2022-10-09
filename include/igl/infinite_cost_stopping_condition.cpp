@@ -14,8 +14,8 @@ IGL_INLINE void igl::infinite_cost_stopping_condition(
   stopping_condition = 
     [&cost_and_placement]
     (
-    const Eigen::MatrixXd & V,
-    const Eigen::MatrixXi & F,
+    const Eigen::MatrixXd & vers,
+    const Eigen::MatrixXi & tris,
     const Eigen::MatrixXi & E,
     const Eigen::VectorXi & EMAP,
     const Eigen::MatrixXi & EF,
@@ -31,7 +31,7 @@ IGL_INLINE void igl::infinite_cost_stopping_condition(
     {
       Eigen::RowVectorXd p;
       double cost;
-      cost_and_placement(e,V,F,E,EMAP,EF,EI,cost,p);
+      cost_and_placement(e,vers,tris,E,EMAP,EF,EI,cost,p);
       return std::isinf(cost);
     };
 }

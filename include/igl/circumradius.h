@@ -11,21 +11,21 @@
 #include <Eigen/Core>
 namespace igl
 {
-  // Compute the circumradius of each triangle in a mesh (V,F)
+  // Compute the circumradius of each triangle in a mesh (vers,tris)
   //
   // Inputs:
-  //   V  #V by dim list of mesh vertex positions
-  //   F  #F by 3 list of triangle indices into V
+  //   vers  #vers by dim list of mesh vertex positions
+  //   tris  #tris by 3 list of triangle indices into vers
   // Outputs:
-  //   R  #F list of circumradius
+  //   R  #tris list of circumradius
   //
   template <
     typename DerivedV, 
     typename DerivedF,
     typename DerivedR>
   IGL_INLINE void circumradius(
-    const Eigen::MatrixBase<DerivedV> & V, 
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers, 
+    const Eigen::MatrixBase<DerivedF> & tris,
     Eigen::PlainObjectBase<DerivedR> & R);
 }
 #ifndef IGL_STATIC_LIBRARY

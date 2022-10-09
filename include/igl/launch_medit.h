@@ -13,7 +13,7 @@
 
 namespace igl 
 {
-  // Writes the tetmesh in (V,T,F) to a temporary file, opens it with medit
+  // Writes the tetmesh in (vers,T,tris) to a temporary file, opens it with medit
   // (forking with a system call) and returns
   //
   //
@@ -22,17 +22,17 @@ namespace igl
   //   DerivedT  integer-value: i.e. from MatrixXi
   //   DerivedF  integer-value: i.e. from MatrixXi
   // Inputs:
-  //   V  double matrix of vertex positions  #V by 3
+  //   vers  double matrix of vertex positions  #vers by 3
   //   T  #T list of tet indices into vertex positions
-  //   F  #F list of face indices into vertex positions
+  //   tris  #tris list of face indices into vertex positions
   //   wait  whether to wait for medit process to finish before returning
   // Returns returned value of system call (probably not useful if wait=false
   // because of the fork)
   template <typename DerivedV, typename DerivedT, typename DerivedF>
   IGL_INLINE int launch_medit(
-    const Eigen::PlainObjectBase<DerivedV> & V, 
+    const Eigen::PlainObjectBase<DerivedV> & vers, 
     const Eigen::PlainObjectBase<DerivedT> & T,
-    const Eigen::PlainObjectBase<DerivedF> & F,
+    const Eigen::PlainObjectBase<DerivedF> & tris,
     const bool wait);
 }
 

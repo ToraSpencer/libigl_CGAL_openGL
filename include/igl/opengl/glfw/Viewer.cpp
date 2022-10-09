@@ -214,7 +214,7 @@ namespace glfw
       {
         if(data.is_visible & core.id)
         {
-          this->core(core.id).align_camera_center(data.V, data.F);
+          this->core(core.id).align_camera_center(data.vers, data.F);
         }
       }
     }
@@ -385,7 +385,7 @@ namespace glfw
     }
 
     // Create new data slot and set to selected
-    if(!(data().F.rows() == 0  && data().V.rows() == 0))
+    if(!(data().F.rows() == 0  && data().vers.rows() == 0))
     {
       append_mesh();
     }
@@ -408,33 +408,33 @@ namespace glfw
 
       Eigen::MatrixXd UV_V;
       Eigen::MatrixXi UV_F;
-      Eigen::MatrixXd V;
+      Eigen::MatrixXd vers;
       Eigen::MatrixXi F;
 
       if (!(
             igl::readOBJ(
               mesh_file_name_string,
-              V, UV_V, corner_normals, F, UV_F, fNormIndices)))
+              vers, UV_V, corner_normals, F, UV_F, fNormIndices)))
       {
         return false;
       }
 
-      data().set_mesh(V,F);
+      data().set_mesh(vers,F);
       if(UV_V.rows() != 0 && UV_F.rows() != 0)
       {
         data().set_uv(UV_V,UV_F);
       }
     }else
     {
-      Eigen::MatrixXd V;
+      Eigen::MatrixXd vers;
       Eigen::MatrixXi F;
-      if (!igl::read_triangle_mesh(mesh_file_name_string, V, F))
+      if (!igl::read_triangle_mesh(mesh_file_name_string, vers, F))
       {
         // unrecognized file type
         printf("Error: %s is not a recognized file type.\n",extension.c_str());
         return false;
       }
-      data().set_mesh(V,F);
+      data().set_mesh(vers,F);
     }
 
     data().compute_normals();
@@ -443,7 +443,7 @@ namespace glfw
                    Eigen::Vector3d(255.0/255.0,235.0/255.0,80.0/255.0));
 
     for(int i=0;i<core_list.size(); i++)
-        core_list[i].align_camera_center(data().V,data().F);
+        core_list[i].align_camera_center(data().vers,data().F);
 
     for (unsigned int i = 0; i<plugins.size(); ++i)
       if (plugins[i]->post_load())
@@ -472,7 +472,7 @@ namespace glfw
     if (extension == "off" || extension =="OFF")
     {
       return igl::writeOFF(
-        mesh_file_name_string,data().V,data().F);
+        mesh_file_name_string,data().vers,data().F);
     }
     else if (extension == "obj" || extension =="OBJ")
     {
@@ -483,7 +483,7 @@ namespace glfw
       Eigen::MatrixXi UV_F;
 
       return igl::writeOBJ(mesh_file_name_string,
-          data().V,
+          data().vers,
           data().F,
           corner_normals, fNormIndices, UV_V, UV_F);
     }
@@ -664,12 +664,12 @@ namespace glfw
 
     // Initialization code for the trackball
     Eigen::RowVector3d center;
-    if (data().V.rows() == 0)
+    if (data().vers.rows() == 0)
     {
       center << 0,0,0;
     }else
     {
-      center = data().V.colwise().sum()/data().V.rows();
+      center = data().vers.colwise().sum()/data().vers.rows();
     }
 
     Eigen::Vector3f coord =

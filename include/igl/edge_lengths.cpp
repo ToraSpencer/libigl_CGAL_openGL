@@ -10,11 +10,11 @@
 
 template <typename DerivedV, typename DerivedF, typename DerivedL>
 IGL_INLINE void igl::edge_lengths(
-  const Eigen::MatrixBase<DerivedV>& V,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const Eigen::MatrixBase<DerivedF>& tris,
   Eigen::PlainObjectBase<DerivedL>& L)
   {
-      igl::squared_edge_lengths(V,F,L);
+      igl::squared_edge_lengths(vers,tris,L);
       L=L.array().sqrt().eval();
   }
   

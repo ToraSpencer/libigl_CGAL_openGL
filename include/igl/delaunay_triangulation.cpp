@@ -21,36 +21,36 @@ template<
   typename InCircle,
   typename DerivedF>
 IGL_INLINE void igl::delaunay_triangulation(
-    const Eigen::MatrixBase<DerivedV>& V,
+    const Eigen::MatrixBase<DerivedV>& vers,
     Orient2D orient2D,
     InCircle incircle,
-    Eigen::PlainObjectBase<DerivedF>& F)
+    Eigen::PlainObjectBase<DerivedF>& tris)
 {
-  assert(V.cols() == 2);
+  assert(vers.cols() == 2);
   typedef typename DerivedF::Scalar Index;
   typedef typename DerivedV::Scalar Scalar;
-  igl::lexicographic_triangulation(V, orient2D, F);
-  const size_t num_faces = F.rows();
+  igl::lexicographic_triangulation(vers, orient2D, tris);
+  const size_t num_faces = tris.rows();
   if (num_faces == 0) {
     // Input points are degenerate.  No faces will be generated.
     return;
   }
-  assert(F.cols() == 3);
+  assert(tris.cols() == 3);
 
   typedef Eigen::Matrix<typename DerivedF::Scalar,Eigen::Dynamic,2> MatrixX2I;
   MatrixX2I E,uE;
   Eigen::VectorXi EMAP;
   std::vector<std::vector<Index> > uE2E;
-  igl::unique_edge_map(F, E, uE, EMAP, uE2E);
+  igl::unique_edge_map(tris, E, uE, EMAP, uE2E);
 
   bool all_delaunay = false;
   while(!all_delaunay) {
     all_delaunay = true;
     for (size_t i=0; i<uE2E.size(); i++) {
       if (uE2E[i].size() == 2) {
-        if (!is_delaunay(V,F,uE2E,incircle,i)) {
+        if (!is_delaunay(vers,tris,uE2E,incircle,i)) {
           all_delaunay = false;
-          flip_edge(F, E, uE, EMAP, uE2E, i);
+          flip_edge(tris, E, uE, EMAP, uE2E, i);
         }
       }
     }

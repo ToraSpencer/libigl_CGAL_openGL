@@ -17,15 +17,15 @@ namespace igl
   //   axis_devisions  number of vertices _around the cylinder_
   //   height_devisions  number of vertices _up the cylinder_
   // Outputs:
-  //   V  #V by 3 list of mesh vertex positions
-  //   F  #F by 3 list of triangle indices into V
+  //   vers  #vers by 3 list of mesh vertex positions
+  //   tris  #tris by 3 list of triangle indices into vers
   //
   template <typename DerivedV, typename DerivedF>
   IGL_INLINE void cylinder(
     const int axis_devisions,
     const int height_devisions,
-    Eigen::PlainObjectBase<DerivedV> & V,
-    Eigen::PlainObjectBase<DerivedF> & F);
+    Eigen::PlainObjectBase<DerivedV> & vers,
+    Eigen::PlainObjectBase<DerivedF> & tris);
 }
 #ifndef IGL_STATIC_LIBRARY
 #  include "cylinder.cpp"

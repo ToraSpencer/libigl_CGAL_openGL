@@ -20,17 +20,17 @@ namespace igl {
   // Skinning and Variants"
   //
   // Inputs:
-  //   V  #V by 3 list of rest pose vertex positions
+  //   vers  #vers by 3 list of rest pose vertex positions
   //   T  #T list of bone pose transformations
-  //   Omega #V by #T*10 list of precomputated matrix values
+  //   Omega #vers by #T*10 list of precomputated matrix values
   // Outputs:
-  //   U  #V by 3 list of output vertex positions
+  //   U  #vers by 3 list of output vertex positions
   template <
     typename DerivedV,
     typename DerivedOmega,
     typename DerivedU>
   IGL_INLINE void direct_delta_mush(
-    const Eigen::MatrixBase<DerivedV> & V,
+    const Eigen::MatrixBase<DerivedV> & vers,
     const std::vector<
       Eigen::Affine3d, Eigen::aligned_allocator<Eigen::Affine3d>
     > & T, /* should eventually be templated more generally than double */
@@ -40,23 +40,23 @@ namespace igl {
   // Precomputation
   //
   // Inputs:
-  //   V  #V by 3 list of rest pose vertex positions
-  //   F  #F by 3 list of triangle indices into rows of V
-  //   W  #V by #Edges list of weights
+  //   vers  #vers by 3 list of rest pose vertex positions
+  //   tris  #tris by 3 list of triangle indices into rows of vers
+  //   W  #vers by #Edges list of weights
   //   p  number of smoothing iterations
   //   lambda  rotation smoothing step size
   //   kappa   translation smoothness step size
   //   alpha   translation smoothness blending weight
   // Outputs:
-  //   Omega  #V by #T*10 list of precomputated matrix values
+  //   Omega  #vers by #T*10 list of precomputated matrix values
   template <
     typename DerivedV,
     typename DerivedF,
     typename DerivedW,
     typename DerivedOmega>
   IGL_INLINE void direct_delta_mush_precomputation(
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const Eigen::MatrixBase<DerivedW> & W,
     const int p,
     const typename DerivedV::Scalar lambda,

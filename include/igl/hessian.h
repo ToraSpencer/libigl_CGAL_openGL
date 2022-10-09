@@ -24,18 +24,18 @@ namespace igl
     // The interior vertices are NOT set to zero yet.
     //
     // Inputs:
-    //   V  #V by dim list of mesh vertex positions
-    //   F  #F by 3 list of mesh faces (must be triangles)
+    //   vers  #vers by dim list of mesh vertex positions
+    //   tris  #tris by 3 list of mesh faces (must be triangles)
     // Outputs:
-    //   H  #V by #V Hessian energy matrix, each column i
-    //     corresponding to V(i,:)
+    //   H  #vers by #vers Hessian energy matrix, each column i
+    //     corresponding to vers(i,:)
     //
     //
     //
     template <typename DerivedV, typename DerivedF, typename Scalar>
     IGL_INLINE void hessian(
-                            const Eigen::MatrixBase<DerivedV> & V,
-                            const Eigen::MatrixBase<DerivedF> & F,
+                            const Eigen::MatrixBase<DerivedV> & vers,
+                            const Eigen::MatrixBase<DerivedF> & tris,
                             Eigen::SparseMatrix<Scalar>& H);
     
 }

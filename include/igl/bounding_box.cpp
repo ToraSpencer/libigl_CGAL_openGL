@@ -10,25 +10,25 @@
 
 template <typename DerivedV, typename DerivedBV, typename DerivedBF>
 IGL_INLINE void igl::bounding_box(
-  const Eigen::MatrixBase<DerivedV>& V,
+  const Eigen::MatrixBase<DerivedV>& vers,
   Eigen::PlainObjectBase<DerivedBV>& BV,
   Eigen::PlainObjectBase<DerivedBF>& BF)
 {
-  return bounding_box(V,0.,BV,BF);
+  return bounding_box(vers,0.,BV,BF);
 }
 
 template <typename DerivedV, typename DerivedBV, typename DerivedBF>
 IGL_INLINE void igl::bounding_box(
-  const Eigen::MatrixBase<DerivedV>& V,
+  const Eigen::MatrixBase<DerivedV>& vers,
   const typename DerivedV::Scalar pad,
   Eigen::PlainObjectBase<DerivedBV>& BV,
   Eigen::PlainObjectBase<DerivedBF>& BF)
 {
   using namespace std;
 
-  const int dim = V.cols();
-  const auto & minV = V.colwise().minCoeff().array()-pad;
-  const auto & maxV = V.colwise().maxCoeff().array()+pad;
+  const int dim = vers.cols();
+  const auto & minV = vers.colwise().minCoeff().array()-pad;
+  const auto & maxV = vers.colwise().maxCoeff().array()+pad;
   // 2^n vertices
   BV.resize((1ull<<dim),dim);
 

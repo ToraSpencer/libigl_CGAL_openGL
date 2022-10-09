@@ -20,21 +20,21 @@ template <
   typename DerivedO,
   typename DerivedW>
 IGL_INLINE void igl::winding_number(
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const Eigen::MatrixBase<DerivedO> & O,
   Eigen::PlainObjectBase<DerivedW> & W)
 {
   using namespace Eigen;
   // make room for output
   W.resize(O.rows(),1);
-  switch(F.cols())
+  switch(tris.cols())
   {
     case 2:
     {
       igl::parallel_for(O.rows(),[&](const int o)
       {
-        W(o) = winding_number(V,F,O.row(o));
+        W(o) = winding_number(vers,tris,O.row(o));
       },10000);
       return;
     }
@@ -44,7 +44,7 @@ IGL_INLINE void igl::winding_number(
         Eigen::Matrix<typename DerivedV::Scalar,1,3>,
         DerivedV,
         DerivedF>
-        hier(V,F);
+        hier(vers,tris);
       hier.grow();
       // loop over origins
       igl::parallel_for(O.rows(),[&](const int o)
@@ -62,13 +62,13 @@ template <
   typename DerivedF,
   typename Derivedp>
 IGL_INLINE typename DerivedV::Scalar igl::winding_number(
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const Eigen::MatrixBase<Derivedp> & p)
 {
   typedef typename DerivedV::Scalar wType;
-  const int ss = F.cols();
-  const int m = F.rows();
+  const int ss = tris.cols();
+  const int m = tris.rows();
   wType w = 0;
   for(int f = 0;f<m;f++)
   {
@@ -76,12 +76,12 @@ IGL_INLINE typename DerivedV::Scalar igl::winding_number(
     {
       case 2:
       {
-        w += igl::signed_angle( V.row(F(f,0)),V.row(F(f,1)),p);
+        w += igl::signed_angle( vers.row(tris(f,0)),vers.row(tris(f,1)),p);
         break;
       }
       case 3:
       {
-        w += igl::solid_angle(V.row(F(f,0)), V.row(F(f,1)), V.row(F(f,2)),p);
+        w += igl::solid_angle(vers.row(tris(f,0)), vers.row(tris(f,1)), vers.row(tris(f,2)),p);
         break;
       }
       default: assert(false); break;

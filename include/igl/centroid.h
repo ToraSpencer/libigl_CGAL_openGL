@@ -14,8 +14,8 @@ namespace igl
   // CENTROID Computes the centroid of a closed mesh using a surface integral.
   // 
   // Inputs:
-  //   V  #V by dim list of rest domain positions
-  //   F  #F by 3 list of triangle indices into V
+  //   vers  #vers by dim list of rest domain positions
+  //   tris  #tris by 3 list of triangle indices into vers
   // Outputs:
   //    c  dim vector of centroid coordinates
   //    vol  total volume of solid.
@@ -26,8 +26,8 @@ namespace igl
     typename Derivedc, 
     typename Derivedvol>
   IGL_INLINE void centroid(
-    const Eigen::MatrixBase<DerivedV>& V,
-    const Eigen::MatrixBase<DerivedF>& F,
+    const Eigen::MatrixBase<DerivedV>& vers,
+    const Eigen::MatrixBase<DerivedF>& tris,
     Eigen::PlainObjectBase<Derivedc>& c,
     Derivedvol & vol);
   template <
@@ -35,8 +35,8 @@ namespace igl
     typename DerivedF, 
     typename Derivedc>
   IGL_INLINE void centroid(
-    const Eigen::MatrixBase<DerivedV>& V,
-    const Eigen::MatrixBase<DerivedF>& F,
+    const Eigen::MatrixBase<DerivedV>& vers,
+    const Eigen::MatrixBase<DerivedF>& tris,
     Eigen::PlainObjectBase<Derivedc>& c);
 
 }

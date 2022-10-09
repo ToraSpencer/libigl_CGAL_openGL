@@ -36,8 +36,8 @@ namespace igl
     //  zres  resolutions of the grid in z dimension
     //  isovalue  the isovalue of the surface to reconstruct
     // Output:
-    //   vertices  #V by 3 list of mesh vertex positions
-    //   faces  #F by 3 list of mesh triangle indices
+    //   vertices  #vers by 3 list of mesh vertex positions
+    //   faces  #tris by 3 list of mesh triangle indices
     //
     // See also: igl::marching_cubes
     template <typename DerivedValues, typename DerivedPoints, typename DerivedVertices, typename DerivedFaces>
@@ -97,8 +97,8 @@ namespace igl
     //    the index of a vertex in points and a scalar in values.
     //    i.e. points[indices[i, j]] = the position of the j'th vertex of the i'th cube
     // Output:
-    //   vertices  #V by 3 list of mesh vertex positions
-    //   faces  #F by 3 list of mesh triangle indices
+    //   vertices  #vers by 3 list of mesh vertex positions
+    //   faces  #tris by 3 list of mesh triangle indices
     // Note: The winding direction of the cube indices will affect the output winding of the faces
     //
     template <typename DerivedValues, typename DerivedPoints, typename DerivedVertices, typename DerivedIndices, typename DerivedFaces>

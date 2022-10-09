@@ -26,9 +26,9 @@ IGL_INLINE void igl::polar_svd(
     DerivedA::ColsAtCompileTime>
     MatA;
   MatA U;
-  MatA V;
+  MatA vers;
   Eigen::Matrix<typename DerivedA::Scalar,DerivedA::RowsAtCompileTime,1> S;
-  return igl::polar_svd(A,R,T,U,S,V);
+  return igl::polar_svd(A,R,T,U,S,vers);
 }
 
 template <
@@ -44,7 +44,7 @@ IGL_INLINE void igl::polar_svd(
   Eigen::PlainObjectBase<DerivedT> & T,
   Eigen::PlainObjectBase<DerivedU> & U,
   Eigen::PlainObjectBase<DerivedS> & S,
-  Eigen::PlainObjectBase<DerivedV> & V)
+  Eigen::PlainObjectBase<DerivedV> & vers)
 {
   using namespace std;
   typedef 
@@ -55,21 +55,21 @@ IGL_INLINE void igl::polar_svd(
   Eigen::JacobiSVD<MatA> svd;
   svd.compute(A, Eigen::ComputeFullU | Eigen::ComputeFullV );
   U = svd.matrixU();
-  V = svd.matrixV();
+  vers = svd.matrixV();
   S = svd.singularValues();
-  R = U*V.transpose();
-  const auto & SVT = S.asDiagonal() * V.adjoint();
+  R = U*vers.transpose();
+  const auto & SVT = S.asDiagonal() * vers.adjoint();
   // Check for reflection
   if(R.determinant() < 0)
   {
     // Annoyingly the .eval() is necessary
-    auto W = V.eval();
-    W.col(V.cols()-1) *= -1.;
+    auto W = vers.eval();
+    W.col(vers.cols()-1) *= -1.;
     R = U*W.transpose();
     T = W*SVT;
   }else
   {
-    T = V*SVT;
+    T = vers*SVT;
   }
 }
 

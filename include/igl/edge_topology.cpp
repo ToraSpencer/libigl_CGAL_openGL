@@ -11,28 +11,28 @@
 
 template<typename DerivedV, typename DerivedF, typename DerivedE>
 IGL_INLINE void igl::edge_topology(
-  const Eigen::MatrixBase<DerivedV>& V,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const Eigen::MatrixBase<DerivedF>& tris,
   Eigen::PlainObjectBase<DerivedE>& EV,
   Eigen::PlainObjectBase<DerivedE>& FE,
   Eigen::PlainObjectBase<DerivedE>& EF)
 {
   // Only needs to be edge-manifold
-  if (V.rows() ==0 || F.rows()==0)
+  if (vers.rows() ==0 || tris.rows()==0)
   {
     EV = Eigen::PlainObjectBase<DerivedE>::Constant(0,2,-1);
     FE = Eigen::PlainObjectBase<DerivedE>::Constant(0,3,-1);
     EF = Eigen::PlainObjectBase<DerivedE>::Constant(0,2,-1);
     return;
   }
-  assert(igl::is_edge_manifold(F));
+  assert(igl::is_edge_manifold(tris));
   std::vector<std::vector<typename DerivedE::Scalar> > ETT;
-  for(int f=0;f<F.rows();++f)
+  for(int f=0;f<tris.rows();++f)
     for (int i=0;i<3;++i)
     {
       // v1 v2 f vi
-      int v1 = F(f,i);
-      int v2 = F(f,(i+1)%3);
+      int v1 = tris(f,i);
+      int v2 = tris(f,(i+1)%3);
       if (v1 > v2) std::swap(v1,v2);
       std::vector<typename DerivedE::Scalar> r(4);
       r[0] = v1; r[1] = v2;
@@ -48,7 +48,7 @@ IGL_INLINE void igl::edge_topology(
       ++En;
 
   EV = DerivedE::Constant((int)(En),2,-1);
-  FE = DerivedE::Constant((int)(F.rows()),3,-1);
+  FE = DerivedE::Constant((int)(tris.rows()),3,-1);
   EF = DerivedE::Constant((int)(En),2,-1);
   En = 0;
 
@@ -89,7 +89,7 @@ IGL_INLINE void igl::edge_topology(
     // search for edge EV.row(i)
     for (unsigned j=0; j<3; ++j)
     {
-      if ((F(fid,j) == EV(i,0)) && (F(fid,(j+1)%3) == EV(i,1)))
+      if ((tris(fid,j) == EV(i,0)) && (tris(fid,(j+1)%3) == EV(i,1)))
         flip = false;
     }
 

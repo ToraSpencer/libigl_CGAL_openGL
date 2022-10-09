@@ -12,19 +12,19 @@
 
 template <typename DerivedV, typename DerivedF>
 IGL_INLINE double igl::avg_edge_length(
-  const Eigen::MatrixBase<DerivedV>& V,
-  const Eigen::MatrixBase<DerivedF>& F)
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const Eigen::MatrixBase<DerivedF>& tris)
 {
   typedef typename DerivedF::Scalar Index;
   Eigen::Matrix<Index, Eigen::Dynamic, 2> E;
 
-  igl::edges(F, E);
+  igl::edges(tris, E);
 
   double avg = 0;
 
   for (unsigned i=0;i<E.rows();++i)
   {
-    avg += (V.row(E(i,0)) - V.row(E(i,1))).norm();
+    avg += (vers.row(E(i,0)) - vers.row(E(i,1))).norm();
   }
 
   return avg / (double) E.rows();

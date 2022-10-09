@@ -24,17 +24,17 @@ namespace igl
 
   
   // Inputs:
-  //   Vin        #V by 3 eigen Matrix of mesh vertex 3D positions
-  //   F          #F by 4 eigen Matrix of face (quad) indices
+  //   Vin        #vers by 3 eigen Matrix of mesh vertex 3D positions
+  //   tris          #tris by 4 eigen Matrix of face (quad) indices
   //   maxIter    maximum numbers of iterations
   //   threshold  minimum allowed threshold for non-planarity
   // Output:
-  //   Vout       #V by 3 eigen Matrix of planar mesh vertex 3D positions
+  //   Vout       #vers by 3 eigen Matrix of planar mesh vertex 3D positions
   //
   
   template <typename DerivedV, typename DerivedF>
   IGL_INLINE void planarize_quad_mesh(const Eigen::MatrixBase<DerivedV> &Vin,
-                                      const Eigen::MatrixBase<DerivedF> &F,
+                                      const Eigen::MatrixBase<DerivedF> &tris,
                                       const int maxIter,
                                       const double &threshold,
                                       Eigen::PlainObjectBase<DerivedV> &Vout);

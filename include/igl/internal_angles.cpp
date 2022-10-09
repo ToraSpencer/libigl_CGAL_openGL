@@ -13,28 +13,28 @@
 
 template <typename DerivedV, typename DerivedF, typename DerivedK>
 IGL_INLINE void igl::internal_angles(
-  const Eigen::MatrixBase<DerivedV>& V,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const Eigen::MatrixBase<DerivedF>& tris,
   Eigen::PlainObjectBase<DerivedK> & K)
 {
   using namespace Eigen;
   using namespace std;
   typedef typename DerivedV::Scalar Scalar;
-  if(F.cols() == 3)
+  if(tris.cols() == 3)
   {
     // Edge lengths
     Matrix<
       Scalar,
       DerivedF::RowsAtCompileTime,
       DerivedF::ColsAtCompileTime> L_sq;
-      igl::squared_edge_lengths(V,F,L_sq);
+      igl::squared_edge_lengths(vers,tris,L_sq);
 
-    assert(F.cols() == 3 && "F should contain triangles");
+    assert(tris.cols() == 3 && "tris should contain triangles");
     igl::internal_angles_using_squared_edge_lengths(L_sq,K);
   }else
   {
-    assert(V.cols() == 3 && "If F contains non-triangle facets, V must be 3D");
-    K.resizeLike(F);
+    assert(vers.cols() == 3 && "If tris contains non-triangle facets, vers must be 3D");
+    K.resizeLike(tris);
     auto corner = [](
       const typename DerivedV::ConstRowXpr & x, 
       const typename DerivedV::ConstRowXpr & y, 
@@ -48,14 +48,14 @@ IGL_INLINE void igl::internal_angles(
       Scalar c = v1.dot(v2);
       return atan2(s, c);
     };
-    for(unsigned i=0; i<F.rows(); ++i)
+    for(unsigned i=0; i<tris.rows(); ++i)
     {
-      for(unsigned j=0; j<F.cols(); ++j)
+      for(unsigned j=0; j<tris.cols(); ++j)
       {
         K(i,j) = corner(
-            V.row(F(i,int(j-1+F.cols())%F.cols())),
-            V.row(F(i,j)),
-            V.row(F(i,(j+1+F.cols())%F.cols()))
+            vers.row(tris(i,int(j-1+tris.cols())%tris.cols())),
+            vers.row(tris(i,j)),
+            vers.row(tris(i,(j+1+tris.cols())%tris.cols()))
             );
       }
     }

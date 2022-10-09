@@ -24,7 +24,7 @@ namespace igl
   //  "A Simple Discretization of the Vector Dirichlet Energy"
   //
   // Inputs:
-  //  V, F: input mesh
+  //  vers, tris: input mesh
   //  E: a mapping from each halfedge to each edge, as computed with
   //     orient_halfedges.
   //     will be computed if not provided.
@@ -40,8 +40,8 @@ namespace igl
   typename DerivedOE, typename ScalarK>
   IGL_INLINE void
   cr_vector_curvature_correction(
-    const Eigen::MatrixBase<DerivedV>& V,
-    const Eigen::MatrixBase<DerivedF>& F,
+    const Eigen::MatrixBase<DerivedV>& vers,
+    const Eigen::MatrixBase<DerivedF>& tris,
     const Eigen::MatrixBase<DerivedE>& E,
     const Eigen::MatrixBase<DerivedOE>& oE,
     Eigen::SparseMatrix<ScalarK>& K);
@@ -50,8 +50,8 @@ namespace igl
   typename DerivedOE, typename ScalarK>
   IGL_INLINE void
   cr_vector_curvature_correction(
-    const Eigen::MatrixBase<DerivedV>& V,
-    const Eigen::MatrixBase<DerivedF>& F,
+    const Eigen::MatrixBase<DerivedV>& vers,
+    const Eigen::MatrixBase<DerivedF>& tris,
     Eigen::PlainObjectBase<DerivedE>& E,
     Eigen::PlainObjectBase<DerivedOE>& oE,
     Eigen::SparseMatrix<ScalarK>& K);
@@ -60,7 +60,7 @@ namespace igl
   // Version that uses intrinsic quantities as input
   //
   // Inputs:
-  //  F: input mesh connectivity
+  //  tris: input mesh connectivity
   //  l_sq: squared edge lengths of each halfedge
   //  theta: the tip angles at each halfedge
   //  kappa: the Gaussian curvature at each vertex
@@ -75,7 +75,7 @@ namespace igl
   typename DerivedOE, typename ScalarK>
   IGL_INLINE void
   cr_vector_curvature_correction_intrinsic(
-    const Eigen::MatrixBase<DerivedF>& F,
+    const Eigen::MatrixBase<DerivedF>& tris,
     const Eigen::MatrixBase<DerivedL_sq>& l_sq,
     const Eigen::MatrixBase<DerivedE>& E,
     const Eigen::MatrixBase<DerivedOE>& oE,
@@ -86,7 +86,7 @@ namespace igl
   typename ScalarK>
   IGL_INLINE void
   cr_vector_curvature_correction_intrinsic(
-    const Eigen::MatrixBase<DerivedF>& F,
+    const Eigen::MatrixBase<DerivedF>& tris,
     const Eigen::MatrixBase<DerivedL_sq>& l_sq,
     const Eigen::MatrixBase<Derivedtheta>& theta,
     const Eigen::MatrixBase<DerivedE>& E,
@@ -98,7 +98,7 @@ namespace igl
   typename ScalarK>
   IGL_INLINE void
   cr_vector_curvature_correction_intrinsic(
-    const Eigen::MatrixBase<DerivedF>& F,
+    const Eigen::MatrixBase<DerivedF>& tris,
     const Eigen::MatrixBase<DerivedL_sq>& l_sq,
     const Eigen::MatrixBase<Derivedtheta>& theta,
     const Eigen::MatrixBase<Derivedkappa>& kappa,

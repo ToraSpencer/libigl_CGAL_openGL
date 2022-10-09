@@ -35,23 +35,23 @@ namespace igl
       IGL_INLINE void print();
   };
 
-  // Compute Bounded Biharmonic Weights on a given domain (V,Ele) with a given
+  // Compute Bounded Biharmonic Weights on a given domain (vers,Ele) with a given
   // set of boundary conditions
   //
   // Templates
-  //   DerivedV  derived type of eigen matrix for V (e.g. MatrixXd)
-  //   DerivedF  derived type of eigen matrix for F (e.g. MatrixXi)
+  //   DerivedV  derived type of eigen matrix for vers (e.g. MatrixXd)
+  //   DerivedF  derived type of eigen matrix for tris (e.g. MatrixXi)
   //   Derivedb  derived type of eigen matrix for b (e.g. VectorXi)
   //   Derivedbc  derived type of eigen matrix for bc (e.g. MatrixXd)
   //   DerivedW  derived type of eigen matrix for W (e.g. MatrixXd)
   // Inputs:
-  //   V  #V by dim vertex positions
+  //   vers  #vers by dim vertex positions
   //   Ele  #Elements by simplex-size list of element indices
-  //   b  #b boundary indices into V
+  //   b  #b boundary indices into vers
   //   bc #b by #W list of boundary values
   //   data  object containing options, initial guess --> solution and results
   // Outputs:
-  //   W  #V by #W list of *unnormalized* weights to normalize use
+  //   W  #vers by #W list of *unnormalized* weights to normalize use
   //    igl::normalize_row_sums(W,W);
   // Returns true on success, false on failure
   template <
@@ -61,7 +61,7 @@ namespace igl
     typename Derivedbc,
     typename DerivedW>
   IGL_INLINE bool bbw(
-    const Eigen::PlainObjectBase<DerivedV> & V,
+    const Eigen::PlainObjectBase<DerivedV> & vers,
     const Eigen::PlainObjectBase<DerivedEle> & Ele,
     const Eigen::PlainObjectBase<Derivedb> & b,
     const Eigen::PlainObjectBase<Derivedbc> & bc,

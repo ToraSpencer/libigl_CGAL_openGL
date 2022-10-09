@@ -53,7 +53,7 @@ IGL_INLINE bool igl::opengl::glfw::map_texture(
     double,
     DerivedV::RowsAtCompileTime,
     DerivedV::ColsAtCompileTime,
-    Eigen::RowMajor> V = _V.template cast<double>();
+    Eigen::RowMajor> vers = _V.template cast<double>();
   Eigen::Matrix<
     double,
     DerivedU::RowsAtCompileTime,
@@ -127,8 +127,8 @@ void main()
   glGenBuffers(1,&tbo);
   glEnableVertexAttribArray(1);
   glBindBuffer(GL_ARRAY_BUFFER,tbo);
-  glBufferData(GL_ARRAY_BUFFER, sizeof(double)*V.size(), V.data(), GL_STATIC_DRAW);
-  glVertexAttribLPointer(1, V.cols(), GL_DOUBLE, V.cols() * sizeof(GLdouble), (GLvoid*)0);
+  glBufferData(GL_ARRAY_BUFFER, sizeof(double)*vers.size(), vers.data(), GL_STATIC_DRAW);
+  glVertexAttribLPointer(1, vers.cols(), GL_DOUBLE, vers.cols() * sizeof(GLdouble), (GLvoid*)0);
   glBindVertexArray(0);
   glBindBuffer(GL_ARRAY_BUFFER, 0);
   glBindVertexArray(0);

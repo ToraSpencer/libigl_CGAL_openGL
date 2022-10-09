@@ -23,7 +23,7 @@ namespace igl
   //
   // Input:
   //  filename  .tgf file name
-  //  V  # vertices by 3 list of vertex positions
+  //  vers  # vertices by 3 list of vertex positions
   //  E  # edges by 2 list of edge indices
   // 
   // Assumes that graph vertices are 3 dimensional

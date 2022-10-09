@@ -61,7 +61,7 @@ IGL_INLINE void igl::opengl::ViewerData::set_mesh(
 
   Eigen::MatrixXd V_temp;
 
-  // If V only has two columns, pad with a column of zeros
+  // If vers only has two columns, pad with a column of zeros
   if (_V.cols() == 2)
   {
     V_temp = Eigen::MatrixXd::Zero(_V.rows(),3);
@@ -70,9 +70,9 @@ IGL_INLINE void igl::opengl::ViewerData::set_mesh(
   else
     V_temp = _V;
 
-  if (V.rows() == 0 && F.rows() == 0)
+  if (vers.rows() == 0 && F.rows() == 0)
   {
-    V = V_temp;
+    vers = V_temp;
     F = _F;
 
     compute_normals();
@@ -86,9 +86,9 @@ IGL_INLINE void igl::opengl::ViewerData::set_mesh(
   }
   else
   {
-    if (_V.rows() == V.rows() && _F.rows() == F.rows())
+    if (_V.rows() == vers.rows() && _F.rows() == F.rows())
     {
-      V = V_temp;
+      vers = V_temp;
       F = _F;
     }
     else
@@ -99,15 +99,15 @@ IGL_INLINE void igl::opengl::ViewerData::set_mesh(
 
 IGL_INLINE void igl::opengl::ViewerData::set_vertices(const Eigen::MatrixXd& _V)
 {
-  V = _V;
-  assert(F.size() == 0 || F.maxCoeff() < V.rows());
+  vers = _V;
+  assert(F.size() == 0 || F.maxCoeff() < vers.rows());
   dirty |= MeshGL::DIRTY_POSITION;
 }
 
 IGL_INLINE void igl::opengl::ViewerData::set_normals(const Eigen::MatrixXd& N)
 {
   using namespace std;
-  if (N.rows() == V.rows())
+  if (N.rows() == vers.rows())
   {
     set_face_based(false);
     V_normals = N;
@@ -189,10 +189,10 @@ IGL_INLINE void igl::opengl::ViewerData::set_colors(const Eigen::MatrixXd &C)
     F_material_ambient = ambient(F_material_diffuse);
     F_material_specular = specular(F_material_diffuse);
   }
-  else if(C.rows() == V.rows() || C.rows() == F.rows())
+  else if(C.rows() == vers.rows() || C.rows() == F.rows())
   {
     // face based colors?
-    if((C.rows()==F.rows()) && (C.rows() != V.rows() || face_based))
+    if((C.rows()==F.rows()) && (C.rows() != vers.rows() || face_based))
     {
       set_face_based(true);
       for (unsigned i=0;i<F_material_diffuse.rows();++i)
@@ -205,7 +205,7 @@ IGL_INLINE void igl::opengl::ViewerData::set_colors(const Eigen::MatrixXd &C)
       F_material_ambient = ambient(F_material_diffuse);
       F_material_specular = specular(F_material_diffuse);
     }
-    else/*(C.rows() == V.rows())*/
+    else/*(C.rows() == vers.rows())*/
     {
       set_face_based(false);
       for (unsigned i=0;i<V_material_diffuse.rows();++i)
@@ -228,7 +228,7 @@ IGL_INLINE void igl::opengl::ViewerData::set_colors(const Eigen::MatrixXd &C)
 IGL_INLINE void igl::opengl::ViewerData::set_uv(const Eigen::MatrixXd& UV)
 {
   using namespace std;
-  if (UV.rows() == V.rows())
+  if (UV.rows() == vers.rows())
   {
     set_face_based(false);
     V_uv = UV;
@@ -371,13 +371,13 @@ IGL_INLINE void igl::opengl::ViewerData::set_edges(
 
 IGL_INLINE void igl::opengl::ViewerData::set_edges_from_vector_field(
   const Eigen::MatrixXd& P, 
-  const Eigen::MatrixXd& V, 
+  const Eigen::MatrixXd& vers, 
   const Eigen::MatrixXd& C)
 {
-  assert(P.rows() == V.rows());
+  assert(P.rows() == vers.rows());
   Eigen::MatrixXi E(P.rows(),2);
   const Eigen::MatrixXd PV = 
-    (Eigen::MatrixXd(P.rows()+V.rows(),3)<<P,P+V).finished();
+    (Eigen::MatrixXd(P.rows()+vers.rows(),3)<<P,P+vers).finished();
   for(int i = 0;i<P.rows();i++)
   {
     E(i,0) = i;
@@ -457,7 +457,7 @@ IGL_INLINE void igl::opengl::ViewerData::clear_labels()
 
 IGL_INLINE void igl::opengl::ViewerData::clear()
 {
-  V                       = Eigen::MatrixXd (0,3);
+  vers                       = Eigen::MatrixXd (0,3);
   F                       = Eigen::MatrixXi (0,3);
 
   F_material_ambient      = Eigen::MatrixXd (0,4);
@@ -493,15 +493,15 @@ IGL_INLINE void igl::opengl::ViewerData::clear()
 
 IGL_INLINE void igl::opengl::ViewerData::compute_normals()
 {
-  if(V.cols() == 2)
+  if(vers.cols() == 2)
   {
     F_normals = Eigen::RowVector3d(0,0,1).replicate(F.rows(),1);
-    V_normals = Eigen::RowVector3d(0,0,1).replicate(V.rows(),1);
+    V_normals = Eigen::RowVector3d(0,0,1).replicate(vers.rows(),1);
   }else
   {
-    assert(V.cols() == 3);
-    igl::per_face_normals(V, F, F_normals);
-    igl::per_vertex_normals(V, F, F_normals, V_normals);
+    assert(vers.cols() == 3);
+    igl::per_face_normals(vers, F, F_normals);
+    igl::per_vertex_normals(vers, F, F_normals, V_normals);
   }
   dirty |= MeshGL::DIRTY_NORMAL;
 }
@@ -527,11 +527,11 @@ IGL_INLINE void igl::opengl::ViewerData::uniform_colors(
   const Eigen::Vector4d& diffuse,
   const Eigen::Vector4d& specular)
 {
-  V_material_ambient.resize(V.rows(),4);
-  V_material_diffuse.resize(V.rows(),4);
-  V_material_specular.resize(V.rows(),4);
+  V_material_ambient.resize(vers.rows(),4);
+  V_material_diffuse.resize(vers.rows(),4);
+  V_material_specular.resize(vers.rows(),4);
 
-  for (unsigned i=0; i<V.rows();++i)
+  for (unsigned i=0; i<vers.rows();++i)
   {
     V_material_ambient.row(i) = ambient;
     V_material_diffuse.row(i) = diffuse;
@@ -664,7 +664,7 @@ IGL_INLINE void igl::opengl::ViewerData::updateGL(
   };
 
   // Input:
-  //   X  #V by dim quantity
+  //   X  #vers by dim quantity
   // Output:
   //   X_vbo  #F*3 by dim scattering per corner
   const auto per_corner = [&data](
@@ -683,7 +683,7 @@ IGL_INLINE void igl::opengl::ViewerData::updateGL(
     {
       // Vertex positions
       if (meshgl.dirty & MeshGL::DIRTY_POSITION)
-        meshgl.V_vbo = data.V.cast<float>();
+        meshgl.V_vbo = data.vers.cast<float>();
 
       // Vertex normals
       if (meshgl.dirty & MeshGL::DIRTY_NORMAL)
@@ -717,7 +717,7 @@ IGL_INLINE void igl::opengl::ViewerData::updateGL(
       // Per vertex properties with per corner UVs
       if (meshgl.dirty & MeshGL::DIRTY_POSITION)
       {
-        per_corner(data.V,meshgl.V_vbo);
+        per_corner(data.vers,meshgl.V_vbo);
       }
 
       if (meshgl.dirty & MeshGL::DIRTY_AMBIENT)
@@ -766,7 +766,7 @@ IGL_INLINE void igl::opengl::ViewerData::updateGL(
   {
     if (meshgl.dirty & MeshGL::DIRTY_POSITION)
     {
-      per_corner(data.V,meshgl.V_vbo);
+      per_corner(data.vers,meshgl.V_vbo);
     }
     if (meshgl.dirty & MeshGL::DIRTY_AMBIENT)
     {
@@ -863,9 +863,9 @@ IGL_INLINE void igl::opengl::ViewerData::updateGL(
       for (int f=0; f<F.rows();++f)
       {
         std::string faceName = std::to_string(f);
-        face_labels_positions.row(f) = V.row(F.row(f)(0));
-        face_labels_positions.row(f) += V.row(F.row(f)(1));
-        face_labels_positions.row(f) += V.row(F.row(f)(2));
+        face_labels_positions.row(f) = vers.row(F.row(f)(0));
+        face_labels_positions.row(f) += vers.row(F.row(f)(1));
+        face_labels_positions.row(f) += vers.row(F.row(f)(2));
         face_labels_positions.row(f) /= 3.;
         face_labels_positions.row(f) = (faceNormals*0.05).row(f) + face_labels_positions.row(f);
         face_labels_strings.push_back(faceName);
@@ -883,12 +883,12 @@ IGL_INLINE void igl::opengl::ViewerData::updateGL(
   {
     if(vertex_labels_positions.rows()==0)
     {
-      vertex_labels_positions.conservativeResize(V.rows(), 3);
+      vertex_labels_positions.conservativeResize(vers.rows(), 3);
       Eigen::MatrixXd normalized = V_normals.normalized();
-      for (int v=0; v<V.rows();++v)
+      for (int v=0; v<vers.rows();++v)
       {
         std::string vertName = std::to_string(v);
-        vertex_labels_positions.row(v) = (normalized*0.1).row(v) + V.row(v);
+        vertex_labels_positions.row(v) = (normalized*0.1).row(v) + vers.row(v);
         vertex_labels_strings.push_back(vertName);
       }
     }

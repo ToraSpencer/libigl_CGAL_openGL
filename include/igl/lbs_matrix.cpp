@@ -8,49 +8,49 @@
 #include "lbs_matrix.h"
 
 IGL_INLINE void igl::lbs_matrix(
-  const Eigen::MatrixXd & V, 
+  const Eigen::MatrixXd & vers, 
   const Eigen::MatrixXd & W,
   Eigen::MatrixXd & M)
 {
   using namespace Eigen;
   // Number of dimensions
-  const int dim = V.cols();
+  const int dim = vers.cols();
   // Number of model points
-  const int n = V.rows();
+  const int n = vers.rows();
   // Number of skinning transformations/weights
   const int m = W.cols();
 
-  // Assumes that first n rows of weights correspond to V
+  // Assumes that first n rows of weights correspond to vers
   assert(W.rows() >= n);
 
   M.resize(n,(dim+1)*m);
   for(int j = 0;j<m;j++)
   {
-    VectorXd Wj = W.block(0,j,V.rows(),1);
+    VectorXd Wj = W.block(0,j,vers.rows(),1);
     for(int i = 0;i<(dim+1);i++)
     {
       if(i<dim)
       {
         M.col(i + j*(dim+1)) = 
-          Wj.cwiseProduct(V.col(i));
+          Wj.cwiseProduct(vers.col(i));
       }else
       {
-        M.col(i + j*(dim+1)).array() = W.block(0,j,V.rows(),1).array();
+        M.col(i + j*(dim+1)).array() = W.block(0,j,vers.rows(),1).array();
       }
     }
   }
 }
 
 IGL_INLINE void igl::lbs_matrix_column(
-  const Eigen::MatrixXd & V, 
+  const Eigen::MatrixXd & vers, 
   const Eigen::MatrixXd & W,
   Eigen::SparseMatrix<double>& M)
 {
   // number of mesh vertices
-  int n = V.rows();
+  int n = vers.rows();
   assert(n == W.rows());
   // dimension of mesh
-  int dim = V.cols();
+  int dim = vers.cols();
   // number of handles
   int m = W.cols();
 
@@ -71,7 +71,7 @@ IGL_INLINE void igl::lbs_matrix_column(
           double value = W(j,i);
           if(c<dim)
           {
-            value *= V(j,c);
+            value *= vers(j,c);
           }
           M.insert(x*n + j,x*m + c*m*dim + i) = value;
         }
@@ -83,15 +83,15 @@ IGL_INLINE void igl::lbs_matrix_column(
 }
 
 IGL_INLINE void igl::lbs_matrix_column(
-  const Eigen::MatrixXd & V, 
+  const Eigen::MatrixXd & vers, 
   const Eigen::MatrixXd & W,
   Eigen::MatrixXd & M)
 {
   // number of mesh vertices
-  int n = V.rows();
+  int n = vers.rows();
   assert(n == W.rows());
   // dimension of mesh
-  int dim = V.cols();
+  int dim = vers.cols();
   // number of handles
   int m = W.cols();
   M.resize(n*dim,m*dim*(dim+1));
@@ -111,7 +111,7 @@ IGL_INLINE void igl::lbs_matrix_column(
           double value = W(j,i);
           if(c<dim)
           {
-            value *= V(j,c);
+            value *= vers(j,c);
           }
           M(x*n + j,x*m + c*m*dim + i) = value;
         }
@@ -121,17 +121,17 @@ IGL_INLINE void igl::lbs_matrix_column(
 }
 
 IGL_INLINE void igl::lbs_matrix_column(
-  const Eigen::MatrixXd & V, 
+  const Eigen::MatrixXd & vers, 
   const Eigen::MatrixXd & W,
   const Eigen::MatrixXi & WI,
   Eigen::SparseMatrix<double>& M)
 {
   // number of mesh vertices
-  int n = V.rows();
+  int n = vers.rows();
   assert(n == W.rows());
   assert(n == WI.rows());
   // dimension of mesh
-  int dim = V.cols();
+  int dim = vers.cols();
   // number of handles
   int m = WI.maxCoeff()+1;
   // max number of influencing handles
@@ -155,7 +155,7 @@ IGL_INLINE void igl::lbs_matrix_column(
           double value = W(j,i);
           if(c<dim)
           {
-            value *= V(j,c);
+            value *= vers(j,c);
           }
           if(value != 0)
           {
@@ -171,7 +171,7 @@ IGL_INLINE void igl::lbs_matrix_column(
 
 
 IGL_INLINE void igl::lbs_matrix_column(
-  const Eigen::MatrixXd & V, 
+  const Eigen::MatrixXd & vers, 
   const Eigen::MatrixXd & W,
   const Eigen::MatrixXi & WI,
   Eigen::MatrixXd & M)
@@ -179,6 +179,6 @@ IGL_INLINE void igl::lbs_matrix_column(
   // Cheapskate wrapper
   using namespace Eigen;
   SparseMatrix<double> sM;
-  lbs_matrix_column(V,W,WI,sM);
+  lbs_matrix_column(vers,W,WI,sM);
   M = MatrixXd(sM);
 }

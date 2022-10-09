@@ -16,8 +16,8 @@
 
 template <typename DerivedV, typename DerivedF, typename Scalar>
 IGL_INLINE void igl::hessian_energy(
-                                    const Eigen::MatrixBase<DerivedV> & V,
-                                    const Eigen::MatrixBase<DerivedF> & F,
+                                    const Eigen::MatrixBase<DerivedV> & vers,
+                                    const Eigen::MatrixBase<DerivedF> & tris,
                                     Eigen::SparseMatrix<Scalar>& Q)
 {
     typedef typename DerivedV::Scalar denseScalar;
@@ -26,17 +26,17 @@ IGL_INLINE void igl::hessian_energy(
     typedef typename Eigen::DiagonalMatrix
                        <Scalar, Eigen::Dynamic, Eigen::Dynamic> DiagMat;
 
-    int dim = V.cols();
+    int dim = vers.cols();
     assert((dim==2 || dim==3) &&
            "The dimension of the vertices should be 2 or 3");
 
     SparseMat M;
-    igl::massmatrix(V,F,igl::MASSMATRIX_TYPE_VORONOI,M);
+    igl::massmatrix(vers,tris,igl::MASSMATRIX_TYPE_VORONOI,M);
 
     //Kill non-interior DOFs
     VecXd Mint = M.diagonal();
     std::vector<std::vector<int> > bdryLoop;
-    igl::boundary_loop(F,bdryLoop);
+    igl::boundary_loop(tris,bdryLoop);
     for(const std::vector<int>& loop : bdryLoop)
         for(const int& bdryVert : loop)
             Mint(bdryVert) = 0.;
@@ -51,7 +51,7 @@ IGL_INLINE void igl::hessian_energy(
 
     //Compute squared Hessian
     SparseMat H;
-    igl::hessian(V,F,H);
+    igl::hessian(vers,tris,H);
     Q = H.transpose()*stackedMinv*H;
 
 }

@@ -24,8 +24,8 @@ namespace igl
   //    DerivedR type of R
   //    DerivedT type of t
   // Inputs:
-  //    X  #V by DIM first list of points
-  //    Y  #V by DIM second list of points
+  //    X  #vers by DIM first list of points
+  //    Y  #vers by DIM second list of points
   //    includeScaling  if scaling should be allowed
   //    includeReflections  if R is allowed to be a reflection
   // Outputs:
@@ -65,8 +65,8 @@ namespace igl
   //    TType    type of transformation
   //             (Isometry,Affine,AffineCompact,Projective)
   // Inputs:
-  //    X  #V by DIM first list of points
-  //    Y  #V by DIM second list of points
+  //    X  #vers by DIM first list of points
+  //    Y  #vers by DIM second list of points
   //    includeScaling  if scaling should be allowed
   //    includeReflections  if R is allowed to be a reflection
   // Outputs:

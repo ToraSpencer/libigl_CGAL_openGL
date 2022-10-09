@@ -11,13 +11,13 @@
 #include <cmath>
 
 IGL_INLINE double igl::bounding_box_diagonal(
-  const Eigen::MatrixXd & V)
+  const Eigen::MatrixXd & vers)
 {
   using namespace Eigen;
   VectorXd maxV,minV;
   VectorXi maxVI,minVI;
-  mat_max(V,1,maxV,maxVI);
-  mat_min(V,1,minV,minVI);
+  mat_max(vers,1,maxV,maxVI);
+  mat_min(vers,1,minV,minVI);
   return sqrt((maxV-minV).array().square().sum());
 }
 

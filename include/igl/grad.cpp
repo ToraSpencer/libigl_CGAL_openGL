@@ -13,44 +13,44 @@ namespace {
 
 template <typename DerivedV, typename DerivedF>
 IGL_INLINE void grad_tet(
-  const Eigen::MatrixBase<DerivedV>&V,
+  const Eigen::MatrixBase<DerivedV>&vers,
   const Eigen::MatrixBase<DerivedF>&T,
   Eigen::SparseMatrix<typename DerivedV::Scalar> &G,
   bool uniform)
 {
   using namespace Eigen;
   assert(T.cols() == 4);
-  const int n = V.rows(); int m = T.rows();
+  const int n = vers.rows(); int m = T.rows();
 
   /*
-      F = [ ...
+      tris = [ ...
       T(:,1) T(:,2) T(:,3); ...
       T(:,1) T(:,3) T(:,4); ...
       T(:,1) T(:,4) T(:,2); ...
       T(:,2) T(:,4) T(:,3)]; */
-  MatrixXi F(4*m,3);
+  MatrixXi tris(4*m,3);
   for (int i = 0; i < m; i++) {
-    F.row(0*m + i) << T(i,0), T(i,1), T(i,2);
-    F.row(1*m + i) << T(i,0), T(i,2), T(i,3);
-    F.row(2*m + i) << T(i,0), T(i,3), T(i,1);
-    F.row(3*m + i) << T(i,1), T(i,3), T(i,2);
+    tris.row(0*m + i) << T(i,0), T(i,1), T(i,2);
+    tris.row(1*m + i) << T(i,0), T(i,2), T(i,3);
+    tris.row(2*m + i) << T(i,0), T(i,3), T(i,1);
+    tris.row(3*m + i) << T(i,1), T(i,3), T(i,2);
   }
   // compute volume of each tet
   Eigen::Matrix<typename DerivedV::Scalar, Eigen::Dynamic, 1> vol;
-  igl::volume(V,T,vol);
+  igl::volume(vers,T,vol);
 
-  Eigen::Matrix<typename DerivedV::Scalar, Eigen::Dynamic, 1> A(F.rows());
-  Eigen::Matrix<typename DerivedV::Scalar, Eigen::Dynamic, Eigen::Dynamic> N(F.rows(),3);
+  Eigen::Matrix<typename DerivedV::Scalar, Eigen::Dynamic, 1> A(tris.rows());
+  Eigen::Matrix<typename DerivedV::Scalar, Eigen::Dynamic, Eigen::Dynamic> N(tris.rows(),3);
   if (!uniform) {
     // compute tetrahedron face normals
-    igl::per_face_normals(V,F,N); int norm_rows = N.rows();
+    igl::per_face_normals(vers,tris,N); int norm_rows = N.rows();
     for (int i = 0; i < norm_rows; i++)
       N.row(i) /= N.row(i).norm();
-    igl::doublearea(V,F,A); A/=2.;
+    igl::doublearea(vers,tris,A); A/=2.;
   } else {
     // Use a uniform tetrahedra as a reference, with the same volume as the original one:
     //
-    // Use normals of the uniform tet (V = h*[0,0,0;1,0,0;0.5,sqrt(3)/2.,0;0.5,sqrt(3)/6.,sqrt(2)/sqrt(3)])
+    // Use normals of the uniform tet (vers = h*[0,0,0;1,0,0;0.5,sqrt(3)/2.,0;0.5,sqrt(3)/6.,sqrt(2)/sqrt(3)])
     //         0         0    1.0000
     //         0.8165   -0.4714   -0.3333
     //         0          0.9428   -0.3333
@@ -116,39 +116,39 @@ IGL_INLINE void grad_tet(
 
 template <typename DerivedV, typename DerivedF>
 IGL_INLINE void grad_tri(
-  const Eigen::MatrixBase<DerivedV>&V,
-  const Eigen::MatrixBase<DerivedF>&F,
+  const Eigen::MatrixBase<DerivedV>&vers,
+  const Eigen::MatrixBase<DerivedF>&tris,
   Eigen::SparseMatrix<typename DerivedV::Scalar> &G,
   bool uniform)
 {
   // Number of faces
-  const int m = F.rows();
+  const int m = tris.rows();
   // Number of vertices
-  const int nv = V.rows();
+  const int nv = vers.rows();
   // Number of dimensions
-  const int dims = V.cols();
+  const int dims = vers.cols();
   Eigen::Matrix<typename DerivedV::Scalar,Eigen::Dynamic,3>
     eperp21(m,3), eperp13(m,3);
 
   for (int i=0;i<m;++i)
   {
     // renaming indices of vertices of triangles for convenience
-    int i1 = F(i,0);
-    int i2 = F(i,1);
-    int i3 = F(i,2);
+    int i1 = tris(i,0);
+    int i2 = tris(i,1);
+    int i3 = tris(i,2);
 
-    // #F x 3 matrices of triangle edge vectors, named after opposite vertices
+    // #tris x 3 matrices of triangle edge vectors, named after opposite vertices
     typedef Eigen::Matrix<typename DerivedV::Scalar, 1, 3> RowVector3S;
     RowVector3S v32 = RowVector3S::Zero(1,3);
     RowVector3S v13 = RowVector3S::Zero(1,3);
     RowVector3S v21 = RowVector3S::Zero(1,3);
-    v32.head(V.cols()) = V.row(i3) - V.row(i2);
-    v13.head(V.cols()) = V.row(i1) - V.row(i3);
-    v21.head(V.cols()) = V.row(i2) - V.row(i1);
+    v32.head(vers.cols()) = vers.row(i3) - vers.row(i2);
+    v13.head(vers.cols()) = vers.row(i1) - vers.row(i3);
+    v21.head(vers.cols()) = vers.row(i2) - vers.row(i1);
     RowVector3S n = v32.cross(v13);
     // area of parallelogram is twice area of triangle
     // area of parallelogram is || v1 x v2 ||
-    // This does correct l2 norm of rows, so that it contains #F list of twice
+    // This does correct l2 norm of rows, so that it contains #tris list of twice
     // triangle areas
     double dblA = std::sqrt(n.dot(n));
     Eigen::Matrix<typename DerivedV::Scalar, 1, 3> u(0,0,1);
@@ -188,14 +188,14 @@ IGL_INLINE void grad_tri(
   G.resize(dims*m,nv);
   std::vector<Eigen::Triplet<typename DerivedV::Scalar> > Gijv;
   Gijv.reserve(4*dims*m);
-  for(int f = 0;f<F.rows();f++)
+  for(int f = 0;f<tris.rows();f++)
   {
     for(int d = 0;d<dims;d++)
     {
-      Gijv.emplace_back(f+d*m,F(f,1), eperp13(f,d));
-      Gijv.emplace_back(f+d*m,F(f,0),-eperp13(f,d));
-      Gijv.emplace_back(f+d*m,F(f,2), eperp21(f,d));
-      Gijv.emplace_back(f+d*m,F(f,0),-eperp21(f,d));
+      Gijv.emplace_back(f+d*m,tris(f,1), eperp13(f,d));
+      Gijv.emplace_back(f+d*m,tris(f,0),-eperp13(f,d));
+      Gijv.emplace_back(f+d*m,tris(f,2), eperp21(f,d));
+      Gijv.emplace_back(f+d*m,tris(f,0),-eperp21(f,d));
     }
   }
   G.setFromTriplets(Gijv.begin(), Gijv.end());
@@ -207,18 +207,18 @@ IGL_INLINE void grad_tri(
 
 template <typename DerivedV, typename DerivedF>
 IGL_INLINE void igl::grad(
-  const Eigen::MatrixBase<DerivedV>&V,
-  const Eigen::MatrixBase<DerivedF>&F,
+  const Eigen::MatrixBase<DerivedV>&vers,
+  const Eigen::MatrixBase<DerivedF>&tris,
   Eigen::SparseMatrix<typename DerivedV::Scalar> &G,
   bool uniform)
 {
-  assert(F.cols() == 3 || F.cols() == 4);
-  switch(F.cols())
+  assert(tris.cols() == 3 || tris.cols() == 4);
+  switch(tris.cols())
   {
     case 3:
-      return grad_tri(V,F,G,uniform);
+      return grad_tri(vers,tris,G,uniform);
     case 4:
-      return grad_tet(V,F,G,uniform);
+      return grad_tet(vers,tris,G,uniform);
     default:
       assert(false);
   }

@@ -14,18 +14,18 @@
 namespace igl
 {
   // Compute samples_per_edge extra points along each edge in E defined over
-  // vertices of V.
+  // vertices of vers.
   //
   // Inputs:
-  //   V  vertices over which edges are defined, # vertices by dim
+  //   vers  vertices over which edges are defined, # vertices by dim
   //   E  edge list, # edges by 2
   //   k  number of extra samples to be computed along edge not
   //        including start and end points
   // Output:
   //   S  sampled vertices, size less than # edges * (2+k) by dim always begins
-  //        with V so that E is also defined over S
+  //        with vers so that E is also defined over S
   IGL_INLINE void sample_edges(
-    const Eigen::MatrixXd & V,
+    const Eigen::MatrixXd & vers,
     const Eigen::MatrixXi & E,
     const int k,
     Eigen::MatrixXd & S);

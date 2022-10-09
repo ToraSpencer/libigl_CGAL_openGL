@@ -31,14 +31,14 @@ igl::ShapeupData su_data;
 // Scale for visualizing the fields
 double global_scale; //TODO: not used
 
-void quadAngleRegularity(const Eigen::MatrixXd& V, const Eigen::MatrixXi& Q, Eigen::VectorXd& angleRegularity)
+void quadAngleRegularity(const Eigen::MatrixXd& vers, const Eigen::MatrixXi& Q, Eigen::VectorXd& angleRegularity)
 {
   angleRegularity.conservativeResize(Q.rows());
   angleRegularity.setZero();
   for (int i=0;i<Q.rows();i++){
     for (int j=0;j<4;j++){
-      Eigen::RowVectorXd v21=(V.row(Q(i,j))-V.row(Q(i,(j+1)%4))).normalized();
-      Eigen::RowVectorXd v23=(V.row(Q(i,(j+2)%4))-V.row(Q(i,(j+1)%4))).normalized();
+      Eigen::RowVectorXd v21=(vers.row(Q(i,j))-vers.row(Q(i,(j+1)%4))).normalized();
+      Eigen::RowVectorXd v23=(vers.row(Q(i,(j+2)%4))-vers.row(Q(i,(j+1)%4))).normalized();
   
       angleRegularity(i)+=(abs(acos(v21.dot(v23))-igl::PI/2.0)/(igl::PI/2.0))/4.0;
     }

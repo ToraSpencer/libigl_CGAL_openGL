@@ -47,7 +47,7 @@ public:
   // (r0,c0) is upper left entry of block
   IGL_INLINE void extractBlock(Eigen::SparseMatrix<double> & mat, int r0, int c0, int r, int c, Eigen::SparseMatrix<double> & m1);
 
-  // computes optimal rotations for faces of m wrt current coords in mw.V
+  // computes optimal rotations for faces of m wrt current coords in mw.vers
   // returns a 3x3 matrix
   IGL_INLINE void compute_optimal_rotations();
 
@@ -64,17 +64,17 @@ public:
 
   // Mesh I/O:
 
-  Eigen::MatrixXd V;                         // Original mesh - vertices
-  Eigen::MatrixXi F;                         // Original mesh - faces
+  Eigen::MatrixXd vers;                         // Original mesh - vertices
+  Eigen::MatrixXi tris;                         // Original mesh - faces
 
   std::vector<std::vector<int> > VT;                   // Vertex to triangle topology
   std::vector<std::vector<int> > VTi;                  // Vertex to triangle topology
 
   Eigen::MatrixXd V_w;                       // Warped mesh - vertices
 
-  std::vector< Eigen::Matrix<double,3,2> > FF;  	// frame field FF in 3D (parallel to m.F)
-  std::vector< Eigen::Matrix<double,3,3> > WW;    // warping matrices to make a cross field (parallel to m.F)
-  std::vector< Eigen::Matrix<double,3,2> > XF;  	// pseudo-cross field from solution (parallel to m.F)
+  std::vector< Eigen::Matrix<double,3,2> > FF;  	// frame field FF in 3D (parallel to m.tris)
+  std::vector< Eigen::Matrix<double,3,3> > WW;    // warping matrices to make a cross field (parallel to m.tris)
+  std::vector< Eigen::Matrix<double,3,2> > XF;  	// pseudo-cross field from solution (parallel to m.tris)
 
   int fixed;
 
@@ -87,7 +87,7 @@ public:
 
   Eigen::SparseMatrix<double> M;					          // matrix for global optimization - pre-conditioned
   Eigen::MatrixXd RHS;						            // pre-computed part of known term in global optimization
-  std::vector< Eigen::Matrix<double,3,3> > RW;    // optimal rotation-warping matrices (parallel to m.F) -- INCORPORATES WW
+  std::vector< Eigen::Matrix<double,3,3> > RW;    // optimal rotation-warping matrices (parallel to m.tris) -- INCORPORATES WW
   Eigen::SimplicialCholesky<Eigen::SparseMatrix<double> > solver;   // solver for linear system in global opt.
 
   // Parameters
@@ -108,8 +108,8 @@ private:
                           double _perturb_rotations,
                           int _fixed)
 {
-  V = _V;
-  F = _F;
+  vers = _V;
+  tris = _F;
 
   assert(_D1.rows() == _D2.rows());
 
@@ -148,7 +148,7 @@ IGL_INLINE void Frame_field_deformer::optimize(int N, bool reset)
 
 IGL_INLINE void Frame_field_deformer::reset_opt()
 {
-  V_w = V;
+  V_w = vers;
 
   for (unsigned i=0; i<V_w.rows(); ++i)
     for (unsigned j=0; j<V_w.cols(); ++j)
@@ -160,13 +160,13 @@ IGL_INLINE void Frame_field_deformer::reset_opt()
 IGL_INLINE void Frame_field_deformer::precompute_opt()
 {
   using namespace Eigen;
-	nfree = V.rows() - fixed;						    // free vertices (at the beginning ov m.V) - global
-  nconst = V.rows()-nfree;						// #constrained vertices
-  igl::vertex_triangle_adjacency(V,F,VT,VTi);                // compute vertex to face relationship
+	nfree = vers.rows() - fixed;						    // free vertices (at the beginning ov m.vers) - global
+  nconst = vers.rows()-nfree;						// #constrained vertices
+  igl::vertex_triangle_adjacency(vers,tris,VT,VTi);                // compute vertex to face relationship
 
-  igl::cotmatrix_entries(V,F,C);							     // cotangent matrix for opt. rotations - global
+  igl::cotmatrix_entries(vers,tris,C);							     // cotangent matrix for opt. rotations - global
 
-  igl::cotmatrix(V,F,L);
+  igl::cotmatrix(vers,tris,L);
 
 	SparseMatrix<double> MA;						// internal matrix for ARAP-warping energy
 	MatrixXd LfcVc;										  // RHS (partial) for ARAP-warping energy
@@ -176,7 +176,7 @@ IGL_INLINE void Frame_field_deformer::precompute_opt()
 	precompute_ARAP(MA,LfcVc);					// precompute terms for the ARAP-warp part
 	precompute_SMOOTH(MS,bS);						// precompute terms for the smoothing part
 	compute_idealWarp(WW);              // computes the ideal warps
-  RW.resize(F.rows());								// init rotation matrices - global
+  RW.resize(tris.rows());								// init rotation matrices - global
 
   M =	  (1-Lambda)*MA + Lambda*MS;		// matrix for linear system - global
 
@@ -216,7 +216,7 @@ IGL_INLINE void Frame_field_deformer::precompute_SMOOTH(Eigen::SparseMatrix<doub
   extractBlock(LL,0,nfree,nfree,nconst,Mfc);
 
 	MatrixXd MfcVc = Mfc * V_w.block(nfree,0,nconst,3);
-	bS = (LL*V).block(0,0,nfree,3)-MfcVc;
+	bS = (LL*vers).block(0,0,nfree,3)-MfcVc;
 
 }
 
@@ -237,19 +237,19 @@ IGL_INLINE void Frame_field_deformer::compute_optimal_rotations()
   using namespace Eigen;
   Matrix<double,3,3> r,S,P,PP,D;
 
-  for (int i=0;i<F.rows();i++)
+  for (int i=0;i<tris.rows();i++)
 	{
 		// input tri --- could be done once and saved in a matrix
-		P.col(0) = (V.row(F(i,1))-V.row(F(i,0))).transpose();
-		P.col(1) = (V.row(F(i,2))-V.row(F(i,1))).transpose();
-		P.col(2) = (V.row(F(i,0))-V.row(F(i,2))).transpose();
+		P.col(0) = (vers.row(tris(i,1))-vers.row(tris(i,0))).transpose();
+		P.col(1) = (vers.row(tris(i,2))-vers.row(tris(i,1))).transpose();
+		P.col(2) = (vers.row(tris(i,0))-vers.row(tris(i,2))).transpose();
 
 		P = WW[i] * P;		// apply ideal warp
 
 		// current tri
-		PP.col(0) = (V_w.row(F(i,1))-V_w.row(F(i,0))).transpose();
-		PP.col(1) = (V_w.row(F(i,2))-V_w.row(F(i,1))).transpose();
-		PP.col(2) = (V_w.row(F(i,0))-V_w.row(F(i,2))).transpose();
+		PP.col(0) = (V_w.row(tris(i,1))-V_w.row(tris(i,0))).transpose();
+		PP.col(1) = (V_w.row(tris(i,2))-V_w.row(tris(i,1))).transpose();
+		PP.col(2) = (V_w.row(tris(i,0))-V_w.row(tris(i,2))).transpose();
 
 		// cotangents
 		D <<    C(i,2), 0,      0,
@@ -286,12 +286,12 @@ IGL_INLINE void Frame_field_deformer::compute_optimal_positions()
     for (int k=0;k<(int)VT[i].size();k++)					// for all incident triangles
     {
       t = VT[i][k];												// incident tri
-			vi = (i==F(t,0))?0:(i==F(t,1))?1:(i==F(t,2))?2:3;	// index of i in t
+			vi = (i==tris(t,0))?0:(i==tris(t,1))?1:(i==tris(t,2))?2:3;	// index of i in t
 			assert(vi!=3);
-			i1 = F(t,(vi+1)%3);
-			i2 = F(t,(vi+2)%3);
-			b.row(i)+=(C(t,(vi+2)%3)*RW[t]*(V.row(i1)-V.row(i)).transpose()).transpose();
-			b.row(i)+=(C(t,(vi+1)%3)*RW[t]*(V.row(i2)-V.row(i)).transpose()).transpose();
+			i1 = tris(t,(vi+1)%3);
+			i2 = tris(t,(vi+2)%3);
+			b.row(i)+=(C(t,(vi+2)%3)*RW[t]*(vers.row(i1)-vers.row(i)).transpose()).transpose();
+			b.row(i)+=(C(t,(vi+1)%3)*RW[t]*(vers.row(i2)-vers.row(i)).transpose()).transpose();
     }
   }
   b/=2.0;
@@ -304,7 +304,7 @@ IGL_INLINE void Frame_field_deformer::compute_optimal_positions()
 	X = solver.solve(b);
 	if (solver.info()!=Eigen::Success) {printf("Solving linear system failed!\n"); return;}
 
-	// copy result to mw.V
+	// copy result to mw.vers
   for (int i=0;i<nfree;i++)
     V_w.row(i)=X.row(i);
 
@@ -314,17 +314,17 @@ IGL_INLINE void Frame_field_deformer::compute_optimal_positions()
 {
   using namespace Eigen;
   Matrix<double,3,3> P,PP,DG;
-	XF.resize(F.rows());
+	XF.resize(tris.rows());
 
-  for (int i=0;i<F.rows();i++)
+  for (int i=0;i<tris.rows();i++)
 	{
 		int i0,i1,i2;
 		// indexes of vertices of face i
-		i0 = F(i,0); i1 = F(i,1); i2 = F(i,2);
+		i0 = tris(i,0); i1 = tris(i,1); i2 = tris(i,2);
 
 		// input frame
-		P.col(0) = (V.row(i1)-V.row(i0)).transpose();
-		P.col(1) = (V.row(i2)-V.row(i0)).transpose();
+		P.col(0) = (vers.row(i1)-vers.row(i0)).transpose();
+		P.col(1) = (vers.row(i2)-vers.row(i0)).transpose();
 		P.col(2) = P.col(0).cross(P.col(1));
 
 		// output triangle brought to origin
@@ -343,7 +343,7 @@ IGL_INLINE void Frame_field_deformer::compute_optimal_positions()
 {
   using namespace Eigen;
 
-  WW.resize(F.rows());
+  WW.resize(tris.rows());
 	for (int i=0;i<(int)FF.size();i++)
 	{
 		Vector3d v0,v1,v2;
@@ -370,8 +370,8 @@ IGL_INLINE void Frame_field_deformer::compute_optimal_positions()
 
 
 IGL_INLINE void igl::frame_field_deformer(
-  const Eigen::MatrixXd& V,
-  const Eigen::MatrixXi& F,
+  const Eigen::MatrixXd& vers,
+  const Eigen::MatrixXi& tris,
   const Eigen::MatrixXd& FF1,
   const Eigen::MatrixXd& FF2,
   Eigen::MatrixXd&       V_d,
@@ -386,7 +386,7 @@ IGL_INLINE void igl::frame_field_deformer(
   Frame_field_deformer deformer;
 
   // Init optimizer
-  deformer.init(V, F, FF1, FF2, lambda, perturb_initial_guess ? 0.1 : 0);
+  deformer.init(vers, tris, FF1, FF2, lambda, perturb_initial_guess ? 0.1 : 0);
 
   // Optimize
   deformer.optimize(iterations,true);
@@ -395,8 +395,8 @@ IGL_INLINE void igl::frame_field_deformer(
   V_d = deformer.V_w;
 
   // Allocate
-  FF1_d.resize(F.rows(),3);
-  FF2_d.resize(F.rows(),3);
+  FF1_d.resize(tris.rows(),3);
+  FF2_d.resize(tris.rows(),3);
 
   // Copy frame field
   for(unsigned i=0; i<deformer.XF.size(); ++i)

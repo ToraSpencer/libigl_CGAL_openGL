@@ -17,8 +17,8 @@
 
 template <typename DerivedV, typename DerivedF>
 IGL_INLINE void igl::compute_frame_field_bisectors(
-  const Eigen::MatrixBase<DerivedV>& V,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const Eigen::MatrixBase<DerivedF>& tris,
   const Eigen::MatrixBase<DerivedV>& B1,
   const Eigen::MatrixBase<DerivedV>& B2,
   const Eigen::MatrixBase<DerivedV>& PD1,
@@ -64,17 +64,17 @@ IGL_INLINE void igl::compute_frame_field_bisectors(
 
 template <typename DerivedV, typename DerivedF>
 IGL_INLINE void igl::compute_frame_field_bisectors(
-                                                   const Eigen::MatrixBase<DerivedV>& V,
-                                                   const Eigen::MatrixBase<DerivedF>& F,
+                                                   const Eigen::MatrixBase<DerivedV>& vers,
+                                                   const Eigen::MatrixBase<DerivedF>& tris,
                                                    const Eigen::MatrixBase<DerivedV>& PD1,
                                                    const Eigen::MatrixBase<DerivedV>& PD2,
                                                    Eigen::PlainObjectBase<DerivedV>& BIS1,
                                                    Eigen::PlainObjectBase<DerivedV>& BIS2)
 {
   DerivedV B1, B2, B3;
-  igl::local_basis(V,F,B1,B2,B3);
+  igl::local_basis(vers,tris,B1,B2,B3);
 
-  compute_frame_field_bisectors( V, F, B1, B2, PD1, PD2, BIS1, BIS2);
+  compute_frame_field_bisectors( vers, tris, B1, B2, PD1, PD2, BIS1, BIS2);
 
 }
 

@@ -38,8 +38,8 @@
 // matlab function arap_dof.m
 template <typename LbsMatrixType, typename SSCALAR>
 IGL_INLINE bool igl::arap_dof_precomputation(
-  const Eigen::MatrixXd & V, 
-  const Eigen::MatrixXi & F,
+  const Eigen::MatrixXd & vers, 
+  const Eigen::MatrixXi & tris,
   const LbsMatrixType & M,
   const Eigen::Matrix<int,Eigen::Dynamic,1> & G,
   ArapDOFData<LbsMatrixType, SSCALAR> & data)
@@ -47,17 +47,17 @@ IGL_INLINE bool igl::arap_dof_precomputation(
   using namespace Eigen;
   typedef Matrix<SSCALAR, Dynamic, Dynamic> MatrixXS;
   // number of mesh (domain) vertices
-  int n = V.rows();
+  int n = vers.rows();
   // cache problem size
   data.n = n;
   // dimension of mesh
-  data.dim = V.cols();
+  data.dim = vers.cols();
   assert(data.dim == M.rows()/n);
   assert(data.dim*n == M.rows());
   if(data.dim == 3)
   {
     // Check if z-coordinate is all zeros
-    if(V.col(2).minCoeff() == 0 && V.col(2).maxCoeff() == 0)
+    if(vers.col(2).minCoeff() == 0 && vers.col(2).maxCoeff() == 0)
     {
       data.effective_dim = 2;
     }
@@ -75,7 +75,7 @@ IGL_INLINE bool igl::arap_dof_precomputation(
   // Build cotangent laplacian
   SparseMatrix<double> Lcot;
   //printf("cotmatrix()\n");
-  cotmatrix(V,F,Lcot);
+  cotmatrix(vers,tris,Lcot);
   // Discrete laplacian (should be minus matlab version)
   SparseMatrix<double> Lapl = -2.0*Lcot;
 #ifdef EXTREME_VERBOSE
@@ -96,11 +96,11 @@ IGL_INLINE bool igl::arap_dof_precomputation(
     Eigen::Matrix<int,Eigen::Dynamic,1> GG;
     if(data.energy == ARAP_ENERGY_TYPE_ELEMENTS)
     {
-      MatrixXi GF(F.rows(),F.cols());
-      for(int j = 0;j<F.cols();j++)
+      MatrixXi GF(tris.rows(),tris.cols());
+      for(int j = 0;j<tris.cols();j++)
       {
         Matrix<int,Eigen::Dynamic,1> GFj;
-        slice(G,F.col(j),GFj);
+        slice(G,tris.col(j),GFj);
         GF.col(j) = GFj;
       }
       mode<int>(GF,2,GG);
@@ -122,7 +122,7 @@ IGL_INLINE bool igl::arap_dof_precomputation(
   // used to fit rotations to during optimization
   SparseMatrix<double> CSM;
   //printf("covariance_scatter_matrix()\n");
-  covariance_scatter_matrix(V,F,data.energy,CSM);
+  covariance_scatter_matrix(vers,tris,data.energy,CSM);
 #ifdef EXTREME_VERBOSE
   cout<<"CSMIJV=["<<endl;print_ijv(CSM,1);cout<<endl<<"];"<<
     endl<<"CSM=sparse(CSMIJV(:,1),CSMIJV(:,2),CSMIJV(:,3),"<<
@@ -224,7 +224,7 @@ IGL_INLINE bool igl::arap_dof_precomputation(
   // precompute arap_rhs matrix
   //printf("arap_rhs()\n");
   SparseMatrix<double> K;
-  arap_rhs(V,F,V.cols(),data.energy,K);
+  arap_rhs(vers,tris,vers.cols(),data.energy,K);
 //#ifdef EXTREME_VERBOSE
 //  cout<<"KIJV=["<<endl;print_ijv(K,1);cout<<endl<<"];"<<
 //    endl<<"K=sparse(KIJV(:,1),KIJV(:,2),KIJV(:,3),"<<
@@ -260,7 +260,7 @@ IGL_INLINE bool igl::arap_dof_precomputation(
     // Build cotangent laplacian
     SparseMatrix<double> Mass;
     //printf("massmatrix()\n");
-    massmatrix(V,F,(F.cols()>3?MASSMATRIX_TYPE_BARYCENTRIC:MASSMATRIX_TYPE_VORONOI),Mass);
+    massmatrix(vers,tris,(tris.cols()>3?MASSMATRIX_TYPE_BARYCENTRIC:MASSMATRIX_TYPE_VORONOI),Mass);
     //cout<<"MIJV=["<<endl;print_ijv(Mass,1);cout<<endl<<"];"<<
     //  endl<<"M=sparse(MIJV(:,1),MIJV(:,2),MIJV(:,3),"<<
     //  Mass.rows()<<","<<Mass.cols()<<");"<<endl;

@@ -51,7 +51,7 @@ namespace igl
     Eigen::PlainObjectBase<DerivedI> & I);
   // Inputs:
   //   P  #P by 3 list of point locations for which which we want the neighbors of
-  //   V  #V by 3 list of point locations for which may be neighbors 
+  //   vers  #vers by 3 list of point locations for which may be neighbors 
   //   k  number of neighbors to find
   //   point_indices  a vector of vectors, where the ith entry is a vector of
   //                  the indices into P that are the ith octree cell's points
@@ -62,7 +62,7 @@ namespace igl
   //   W      #OctreeCells, a vector where the ith entry is the width
   //          of the ith octree cell
   // Outputs:
-  //   I  #P by k list of k-nearest-neighbor indices into V
+  //   I  #P by k list of k-nearest-neighbor indices into vers
   template <
     typename DerivedP, 
     typename DerivedV,
@@ -73,7 +73,7 @@ namespace igl
     typename DerivedI>
   IGL_INLINE void knn(
     const Eigen::MatrixBase<DerivedP>& P,
-    const Eigen::MatrixBase<DerivedV>& V,
+    const Eigen::MatrixBase<DerivedV>& vers,
     size_t k,
     const std::vector<std::vector<IndexType> > & point_indices,
     const Eigen::MatrixBase<DerivedCH>& CH,

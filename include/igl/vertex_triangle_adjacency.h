@@ -14,43 +14,43 @@
 
 namespace igl
 {
-  // vertex_face_adjacency constructs the vertex-face topology of a given mesh (V,F)
+  // vertex_face_adjacency constructs the vertex-face topology of a given mesh (vers,tris)
   //
   // Inputs:
-  //   //V  #V by 3 list of vertex coordinates
-  //   n  number of vertices #V (e.g. `F.maxCoeff()+1` or `V.rows()`)
-  //   F  #F by dim list of mesh faces (must be triangles)
+  //   //vers  #vers by 3 list of vertex coordinates
+  //   n  number of vertices #vers (e.g. `tris.maxCoeff()+1` or `vers.rows()`)
+  //   tris  #tris by dim list of mesh faces (must be triangles)
   // Outputs:
-  //   VF  #V list of lists of incident faces (adjacency list)
-  //   VI  #V list of lists of index of incidence within incident faces listed
+  //   VF  #vers list of lists of incident faces (adjacency list)
+  //   VI  #vers list of lists of index of incidence within incident faces listed
   //     in VF
   //
   // See also: edges, cotmatrix, diag, vv
   //
-  // Known bugs: this should not take V as an input parameter.
+  // Known bugs: this should not take vers as an input parameter.
   // Known bugs/features: if a facet is combinatorially degenerate then faces
   // will appear multiple times in VF and correspondingly in VFI (j appears
-  // twice in F.row(i) then i will appear twice in VF[j])
+  // twice in tris.row(i) then i will appear twice in VF[j])
   template <typename DerivedF, typename VFType, typename VFiType>
   IGL_INLINE void vertex_triangle_adjacency(
     const typename DerivedF::Scalar n,
-    const Eigen::MatrixBase<DerivedF>& F,
+    const Eigen::MatrixBase<DerivedF>& tris,
     std::vector<std::vector<VFType> >& VF,
     std::vector<std::vector<VFiType> >& VFi);
   template <typename DerivedV, typename DerivedF, typename IndexType>
   IGL_INLINE void vertex_triangle_adjacency(
-    const Eigen::MatrixBase<DerivedV>& V,
-    const Eigen::MatrixBase<DerivedF>& F,
+    const Eigen::MatrixBase<DerivedV>& vers,
+    const Eigen::MatrixBase<DerivedF>& tris,
     std::vector<std::vector<IndexType> >& VF,
     std::vector<std::vector<IndexType> >& VFi);
   // Inputs:
-  //   F  #F by 3 list of triangle indices into some vertex list V
-  //   n  number of vertices, #V (e.g., F.maxCoeff()+1)
+  //   tris  #tris by 3 list of triangle indices into some vertex list vers
+  //   n  number of vertices, #vers (e.g., tris.maxCoeff()+1)
   // Outputs:
-  //   VF  3*#F list  List of faces indice on each vertex, so that VF(NI(i)+j) =
+  //   VF  3*#tris list  List of faces indice on each vertex, so that VF(NI(i)+j) =
   //     f, means that face f is the jth face (in no particular order) incident
   //     on vertex i.
-  //   NI  #V+1 list  cumulative sum of vertex-triangle degrees with a
+  //   NI  #vers+1 list  cumulative sum of vertex-triangle degrees with a
   //     preceeding zero. "How many faces" have been seen before visiting this
   //     vertex and its incident faces.
   template <
@@ -58,7 +58,7 @@ namespace igl
     typename DerivedVF,
     typename DerivedNI>
   IGL_INLINE void vertex_triangle_adjacency(
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const int n,
     Eigen::PlainObjectBase<DerivedVF> & VF,
     Eigen::PlainObjectBase<DerivedNI> & NI);

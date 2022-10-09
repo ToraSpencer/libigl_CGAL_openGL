@@ -17,7 +17,7 @@ template <
   typename Derivedtheta,
   typename Derivedcos_theta>
 IGL_INLINE void igl::dihedral_angles(
-  const Eigen::MatrixBase<DerivedV>& V,
+  const Eigen::MatrixBase<DerivedV>& vers,
   const Eigen::MatrixBase<DerivedT>& T,
   Eigen::PlainObjectBase<Derivedtheta>& theta,
   Eigen::PlainObjectBase<Derivedcos_theta>& cos_theta)
@@ -25,7 +25,7 @@ IGL_INLINE void igl::dihedral_angles(
   using namespace Eigen;
   assert(T.cols() == 4);
   Matrix<typename Derivedtheta::Scalar,Dynamic,6> l;
-  edge_lengths(V,T,l);
+  edge_lengths(vers,T,l);
   Matrix<typename Derivedtheta::Scalar,Dynamic,4> s;
   face_areas(l,s);
   return dihedral_angles_intrinsic(l,s,theta,cos_theta);

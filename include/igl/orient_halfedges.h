@@ -17,7 +17,7 @@ namespace igl
   // Orients halfedges for a triangle mesh, assigning them to a unique edge.
   //
   // Inputs:
-  //  F: input mesh connectivity
+  //  tris: input mesh connectivity
   //
   // Outputs:
   //  E: a mapping from each halfedge to each edge
@@ -27,7 +27,7 @@ namespace igl
   template <typename DerivedF, typename DerivedE, typename DerivedOE>
   IGL_INLINE void
   orient_halfedges(
-    const Eigen::MatrixBase<DerivedF>& F,
+    const Eigen::MatrixBase<DerivedF>& tris,
     Eigen::PlainObjectBase<DerivedE>& E,
     Eigen::PlainObjectBase<DerivedOE>& oE);
 

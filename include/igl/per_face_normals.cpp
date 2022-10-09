@@ -6,19 +6,19 @@
 // 重载1：计算面法向；
 template <typename DerivedV, typename DerivedF, typename DerivedZ, typename DerivedN>
 IGL_INLINE void igl::per_face_normals(
-  const Eigen::MatrixBase<DerivedV>& V,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const Eigen::MatrixBase<DerivedF>& tris,
   const Eigen::MatrixBase<DerivedZ> & Z,
   Eigen::PlainObjectBase<DerivedN> & N)
 {
-  N.resize(F.rows(),3);
+  N.resize(tris.rows(),3);
 
-  int Frows = F.rows();
+  int Frows = tris.rows();
 #pragma omp parallel for if (Frows>10000)
   for(int i = 0; i < Frows;i++)
   {
-    const Eigen::Matrix<typename DerivedV::Scalar, 1, 3> v1 = V.row(F(i,1)) - V.row(F(i,0));
-    const Eigen::Matrix<typename DerivedV::Scalar, 1, 3> v2 = V.row(F(i,2)) - V.row(F(i,0));
+    const Eigen::Matrix<typename DerivedV::Scalar, 1, 3> v1 = vers.row(tris(i,1)) - vers.row(tris(i,0));
+    const Eigen::Matrix<typename DerivedV::Scalar, 1, 3> v2 = vers.row(tris(i,2)) - vers.row(tris(i,0));
     N.row(i) = v1.cross(v2);//.normalized();
     typename DerivedV::Scalar r = N.row(i).norm();
     if(r == 0)
@@ -32,36 +32,36 @@ IGL_INLINE void igl::per_face_normals(
 // 重载2：计算面法向；
 template <typename DerivedV, typename DerivedF, typename DerivedN>
 IGL_INLINE void igl::per_face_normals(
-  const Eigen::MatrixBase<DerivedV>& V,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const Eigen::MatrixBase<DerivedF>& tris,
   Eigen::PlainObjectBase<DerivedN> & N)
 {
   using namespace Eigen;
   Matrix<typename DerivedN::Scalar,3,1> Z(0,0,0);
-  return per_face_normals(V,F,Z,N);
+  return per_face_normals(vers,tris,Z,N);
 }
 
 
 // 未使用
 template <typename DerivedV, typename DerivedF, typename DerivedN>
 IGL_INLINE void igl::per_face_normals_stable(
-  const Eigen::MatrixBase<DerivedV>& V,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const Eigen::MatrixBase<DerivedF>& tris,
   Eigen::PlainObjectBase<DerivedN> & N)
 {
   using namespace Eigen;
   typedef Matrix<typename DerivedV::Scalar,1,3> RowVectorV3;
   typedef typename DerivedV::Scalar Scalar;
 
-  const size_t m = F.rows();
+  const size_t m = tris.rows();
 
-  N.resize(F.rows(),3);
+  N.resize(tris.rows(),3);
   // Grad all points
   for(size_t f = 0;f<m;f++)
   {
-    const RowVectorV3 p0 = V.row(F(f,0));
-    const RowVectorV3 p1 = V.row(F(f,1));
-    const RowVectorV3 p2 = V.row(F(f,2));
+    const RowVectorV3 p0 = vers.row(tris(f,0));
+    const RowVectorV3 p1 = vers.row(tris(f,1));
+    const RowVectorV3 p2 = vers.row(tris(f,2));
     const RowVectorV3 n0 = (p1 - p0).cross(p2 - p0);
     const RowVectorV3 n1 = (p2 - p1).cross(p0 - p1);
     const RowVectorV3 n2 = (p0 - p2).cross(p1 - p2);
@@ -112,7 +112,7 @@ template <
   typename DerivedFF,
   typename DerivedJ>
 IGL_INLINE void igl::per_face_normals(
-  const Eigen::MatrixBase<DerivedV> & V,
+  const Eigen::MatrixBase<DerivedV> & vers,
   const Eigen::MatrixBase<DerivedI> & I,
   const Eigen::MatrixBase<DerivedC> & C,
   Eigen::PlainObjectBase<DerivedN> & N,
@@ -120,15 +120,15 @@ IGL_INLINE void igl::per_face_normals(
   Eigen::PlainObjectBase<DerivedFF> & FF,
   Eigen::PlainObjectBase<DerivedJ> & J)
 {
-  assert(V.cols() == 3);
+  assert(vers.cols() == 3);
   typedef Eigen::Index Index;
   typedef typename DerivedN::Scalar Scalar;
   // Use Bunge et al. algorithm in igl::cotmatrix to insert a point for each
   // polygon which minimizes squared area.
   {
     Eigen::SparseMatrix<Scalar> _1,_2,P;
-    igl::cotmatrix(V,I,C,_1,_2,P);
-    VV = P*V;
+    igl::cotmatrix(vers,I,C,_1,_2,P);
+    VV = P*vers;
   }
 
   // number of polygons
@@ -148,13 +148,13 @@ IGL_INLINE void igl::per_face_normals(
         FF.row(k) << 
           I(C(p)+((i+0)%np)),
           I(C(p)+((i+1)%np)),
-          V.rows()+p;
+          vers.rows()+p;
         J(k) = p;
         k++;
         typedef Eigen::Matrix<Scalar,1,3> V3;
         N.row(p) +=
-          V3(VV.row(I(C(p)+((i+0)%np)))-VV.row(V.rows()+p)).cross(
-          V3(VV.row(I(C(p)+((i+1)%np)))-VV.row(V.rows()+p)));
+          V3(VV.row(I(C(p)+((i+0)%np)))-VV.row(vers.rows()+p)).cross(
+          V3(VV.row(I(C(p)+((i+1)%np)))-VV.row(vers.rows()+p)));
       }
 
       // normalize to take average

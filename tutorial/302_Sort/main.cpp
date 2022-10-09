@@ -12,13 +12,13 @@ int main(int argc, char *argv[])
 {
   using namespace Eigen;
   using namespace std;
-  MatrixXd V;
+  MatrixXd vers;
   MatrixXi F;
-  igl::readOFF(TUTORIAL_SHARED_PATH "/decimated-knight.off",V,F);
+  igl::readOFF(TUTORIAL_SHARED_PATH "/decimated-knight.off",vers,F);
 
   // Sort barycenters lexicographically
   MatrixXd BC,sorted_BC;
-  igl::barycenter(V,F,BC);
+  igl::barycenter(vers,F,BC);
   VectorXi I,J;
   // sorted_BC = BC(I,:)
   igl::sortrows(BC,true,sorted_BC,I);
@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 
   // Plot the mesh with pseudocolors
   igl::opengl::glfw::Viewer viewer;
-  viewer.data().set_mesh(V, F);
+  viewer.data().set_mesh(vers, F);
   viewer.data().set_colors(C);
   viewer.launch();
 }

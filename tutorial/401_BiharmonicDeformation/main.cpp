@@ -10,7 +10,7 @@
 double bc_frac = 1.0;
 double bc_dir = -0.03;
 bool deformation_field = false;
-Eigen::MatrixXd V,U,V_bc,U_bc;
+Eigen::MatrixXd vers,U,V_bc,U_bc;
 Eigen::VectorXd Z;
 Eigen::MatrixXi F;
 Eigen::VectorXi b;
@@ -30,11 +30,11 @@ bool pre_draw(igl::opengl::glfw::Viewer & viewer)
   {
     MatrixXd D;
     MatrixXd D_bc = U_bc_anim - V_bc;
-    igl::harmonic(V,F,b,D_bc,2,D);
-    U = V+D;
+    igl::harmonic(vers,F,b,D_bc,2,D);
+    U = vers+D;
   }else
   {
-    igl::harmonic(V,F,b,U_bc_anim,2.,U);
+    igl::harmonic(vers,F,b,U_bc_anim,2.,U);
   }
   viewer.data().set_vertices(U);
   viewer.data().compute_normals();
@@ -60,35 +60,35 @@ int main(int argc, char *argv[])
 {
   using namespace Eigen;
   using namespace std;
-  igl::readOBJ(TUTORIAL_SHARED_PATH "/decimated-max.obj",V,F);
-  U=V;
+  igl::readOBJ(TUTORIAL_SHARED_PATH "/decimated-max.obj",vers,F);
+  U=vers;
   // S(i) = j: j<0 (vertex i not in handle), j >= 0 (vertex i in handle j)
   VectorXi S;
   igl::readDMAT(TUTORIAL_SHARED_PATH "/decimated-max-selection.dmat",S);
-  igl::colon<int>(0,V.rows()-1,b);
+  igl::colon<int>(0,vers.rows()-1,b);
   b.conservativeResize(stable_partition( b.data(), b.data()+b.size(),
    [&S](int i)->bool{return S(i)>=0;})-b.data());
 
   // Boundary conditions directly on deformed positions
-  U_bc.resize(b.size(),V.cols());
-  V_bc.resize(b.size(),V.cols());
+  U_bc.resize(b.size(),vers.cols());
+  V_bc.resize(b.size(),vers.cols());
   for(int bi = 0;bi<b.size();bi++)
   {
-    V_bc.row(bi) = V.row(b(bi));
+    V_bc.row(bi) = vers.row(b(bi));
     switch(S(b(bi)))
     {
       case 0:
         // Don't move handle 0
-        U_bc.row(bi) = V.row(b(bi));
+        U_bc.row(bi) = vers.row(b(bi));
         break;
       case 1:
         // move handle 1 down
-        U_bc.row(bi) = V.row(b(bi)) + RowVector3d(0,-50,0);
+        U_bc.row(bi) = vers.row(b(bi)) + RowVector3d(0,-50,0);
         break;
       case 2:
       default:
         // move other handles forward
-        U_bc.row(bi) = V.row(b(bi)) + RowVector3d(0,0,-25);
+        U_bc.row(bi) = vers.row(b(bi)) + RowVector3d(0,0,-25);
         break;
     }
   }

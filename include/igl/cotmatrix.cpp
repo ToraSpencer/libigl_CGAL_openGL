@@ -7,15 +7,15 @@
 
 
 template <typename DerivedV, typename DerivedF, typename Scalar>
-IGL_INLINE void igl::cotmatrix(  const Eigen::MatrixBase<DerivedV> & V,   const Eigen::MatrixBase<DerivedF> & F, \
+IGL_INLINE void igl::cotmatrix(  const Eigen::MatrixBase<DerivedV> & vers,   const Eigen::MatrixBase<DerivedF> & tris, \
                 Eigen::SparseMatrix<Scalar>& L)
 {
       using namespace Eigen;
       using namespace std;
 
-      L.resize(V.rows(),V.rows());
+      L.resize(vers.rows(),vers.rows());
       Matrix<int,Dynamic,2> edges;
-      int simplex_size = F.cols();
+      int simplex_size = tris.cols();
 
       // 3 for triangles, 4 for tets
       assert(simplex_size == 3 || simplex_size == 4);
@@ -24,7 +24,7 @@ IGL_INLINE void igl::cotmatrix(  const Eigen::MatrixBase<DerivedV> & V,   const 
         // This is important! it could decrease the comptuation time by a factor of 2
         // Laplacian for a closed 2d manifold mesh will have on average 7 entries per
         // row
-        L.reserve(10*V.rows());
+        L.reserve(10*vers.rows());
         edges.resize(3,2);
         edges << 
           1,2,
@@ -33,7 +33,7 @@ IGL_INLINE void igl::cotmatrix(  const Eigen::MatrixBase<DerivedV> & V,   const 
       }
       else if(simplex_size == 4)
       {
-        L.reserve(17*V.rows());
+        L.reserve(17*vers.rows());
         edges.resize(6,2);
         edges << 
           1,2,
@@ -50,19 +50,19 @@ IGL_INLINE void igl::cotmatrix(  const Eigen::MatrixBase<DerivedV> & V,   const 
 
       // Gather cotangents
       Matrix<Scalar,Dynamic,Dynamic> C;
-      cotmatrix_entries(V,F,C);
+      cotmatrix_entries(vers,tris,C);
   
       vector<Triplet<Scalar> > IJV;
-      IJV.reserve(F.rows()*edges.rows()*4);
+      IJV.reserve(tris.rows()*edges.rows()*4);
 
       // Loop over triangles
-      for(int i = 0; i < F.rows(); i++)
+      for(int i = 0; i < tris.rows(); i++)
       {
         // loop over edges of element
         for(int e = 0;e<edges.rows();e++)
         {
-          int source = F(i,edges(e,0));
-          int dest = F(i,edges(e,1));
+          int source = tris(i,edges(e,0));
+          int dest = tris(i,edges(e,1));
           IJV.push_back(Triplet<Scalar>(source,dest,C(i,e)));
           IJV.push_back(Triplet<Scalar>(dest,source,C(i,e)));
           IJV.push_back(Triplet<Scalar>(source,source,-C(i,e)));
@@ -87,7 +87,7 @@ template <
   typename DerivedC, 
   typename Scalar>
 IGL_INLINE void igl::cotmatrix(
-  const Eigen::MatrixBase<DerivedV> & V, 
+  const Eigen::MatrixBase<DerivedV> & vers, 
   const Eigen::MatrixBase<DerivedI> & I, 
   const Eigen::MatrixBase<DerivedC> & C, 
   Eigen::SparseMatrix<Scalar>& L,
@@ -99,15 +99,15 @@ IGL_INLINE void igl::cotmatrix(
   typedef Eigen::Matrix<Scalar,Eigen::Dynamic,1> VectorXS;
   typedef Eigen::Index Index;
   // number of vertices
-  const Index n = V.rows();
+  const Index n = vers.rows();
   // number of polyfaces
   const Index m = C.size()-1;
-  assert(V.cols() == 2 || V.cols() == 3);
+  assert(vers.cols() == 2 || vers.cols() == 3);
   std::vector<Eigen::Triplet<Scalar> > Lfijv;
   std::vector<Eigen::Triplet<Scalar> > Mfijv;
   std::vector<Eigen::Triplet<Scalar> > Pijv;
   // loop over vertices; set identity for original vertices
-  for(Index i = 0;i<V.rows();i++) { Pijv.emplace_back(i,i,1); }
+  for(Index i = 0;i<vers.rows();i++) { Pijv.emplace_back(i,i,1); }
   // loop over faces
   for(Index p = 0;p<C.size()-1;p++)
   {
@@ -117,7 +117,7 @@ IGL_INLINE void igl::cotmatrix(
     // this needs to have 3 columns so Eigen doesn't complain about cross
     // products below.
     Eigen::Matrix<Scalar,Eigen::Dynamic,3> X = decltype(X)::Zero(np+1,3);
-    for(Index i = 0;i<np;i++){ X.row(i).head(V.cols()) = V.row(I(C(p)+i)); };
+    for(Index i = 0;i<np;i++){ X.row(i).head(vers.cols()) = vers.row(I(C(p)+i)); };
     // determine weights definig position of inserted vertex
     {
       MatrixXS A = decltype(A)::Zero(np+1,np);
@@ -146,21 +146,21 @@ IGL_INLINE void igl::cotmatrix(
     }
     // "local" fan of faces. These could be statically cached, but this will
     // not be the bottleneck.
-    Eigen::MatrixXi F(np,3);
+    Eigen::MatrixXi tris(np,3);
     for(Index i = 0;i<np;i++)
     { 
-      F(i,0) = i; 
-      F(i,1) = (i+1)%np; 
-      F(i,2) = np; 
+      tris(i,0) = i; 
+      tris(i,1) = (i+1)%np; 
+      tris(i,2) = np; 
     }
     // Cotangent contributions
     MatrixXS K;
-    igl::cotmatrix_entries(X,F,K);
+    igl::cotmatrix_entries(X,tris,K);
     // Massmatrix entried
     VectorXS Mp;
     {
       Eigen::SparseMatrix<Scalar> M;
-      igl::massmatrix(X,F,igl::MASSMATRIX_TYPE_DEFAULT,M);
+      igl::massmatrix(X,tris,igl::MASSMATRIX_TYPE_DEFAULT,M);
       Mp = M.diagonal();
     }
     // Scatter into fine Laplacian and mass matrices
@@ -172,8 +172,8 @@ IGL_INLINE void igl::cotmatrix(
     {
       for(Index c = 0;c<3;c++)
       {
-        const Index i = F(f,(c+1)%3);
-        const Index j = F(f,(c+2)%3);
+        const Index i = tris(f,(c+1)%3);
+        const Index j = tris(f,(c+2)%3);
         // symmetric off-diagonal
         Lfijv.emplace_back(J(i),J(j),K(f,c));
         Lfijv.emplace_back(J(j),J(i),K(f,c));
@@ -196,7 +196,7 @@ IGL_INLINE void igl::cotmatrix(
   const VectorXS Mdiag = PTMP * VectorXS::Ones(n,1);
   igl::diag(Mdiag,M);
 
-  MatrixXS Vf = P*V;
+  MatrixXS Vf = P*vers;
   Eigen::MatrixXi Ff(I.size(),3);
   {
     Index f = 0;
@@ -207,7 +207,7 @@ IGL_INLINE void igl::cotmatrix(
       {
         Ff(f,0) = I(C(p)+c);
         Ff(f,1) = I(C(p)+(c+1)%np);
-        Ff(f,2) = V.rows()+p;
+        Ff(f,2) = vers.rows()+p;
         f++;
       }
     }

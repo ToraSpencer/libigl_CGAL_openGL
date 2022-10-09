@@ -17,8 +17,8 @@
 
 template <typename DerivedV, typename DerivedF>
 IGL_INLINE void igl::local_basis(
-  const Eigen::MatrixBase<DerivedV>& V,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const Eigen::MatrixBase<DerivedF>& tris,
   Eigen::PlainObjectBase<DerivedV>& B1,
   Eigen::PlainObjectBase<DerivedV>& B2,
   Eigen::PlainObjectBase<DerivedV>& B3
@@ -26,14 +26,14 @@ IGL_INLINE void igl::local_basis(
 {
   using namespace Eigen;
   using namespace std;
-  B1.resize(F.rows(),3);
-  B2.resize(F.rows(),3);
-  B3.resize(F.rows(),3);
+  B1.resize(tris.rows(),3);
+  B2.resize(tris.rows(),3);
+  B3.resize(tris.rows(),3);
 
-  for (unsigned i=0;i<F.rows();++i)
+  for (unsigned i=0;i<tris.rows();++i)
   {
-      Eigen::Matrix<typename DerivedV::Scalar, 1, 3> v1 = (V.row(F(i,1)) - V.row(F(i,0))).normalized();
-      Eigen::Matrix<typename DerivedV::Scalar, 1, 3> t = V.row(F(i,2)) - V.row(F(i,0));
+      Eigen::Matrix<typename DerivedV::Scalar, 1, 3> v1 = (vers.row(tris(i,1)) - vers.row(tris(i,0))).normalized();
+      Eigen::Matrix<typename DerivedV::Scalar, 1, 3> t = vers.row(tris(i,2)) - vers.row(tris(i,0));
       Eigen::Matrix<typename DerivedV::Scalar, 1, 3> v3 = v1.cross(t).normalized();
       Eigen::Matrix<typename DerivedV::Scalar, 1, 3> v2 = v1.cross(v3).normalized();
 

@@ -3,22 +3,22 @@
 
 // 计算网格每个三角片的重心坐标
 template <  typename DerivedV,  typename DerivedF,  typename DerivedBC>
-IGL_INLINE void igl::barycenter( const Eigen::MatrixBase<DerivedV> & V,    const Eigen::MatrixBase<DerivedF> & F,\
+IGL_INLINE void igl::barycenter( const Eigen::MatrixBase<DerivedV> & vers,    const Eigen::MatrixBase<DerivedF> & tris,\
              Eigen::PlainObjectBase<DerivedBC> & BC)
 {
-    BC.setZero(F.rows(),V.cols());
+    BC.setZero(tris.rows(),vers.cols());
 
   // Loop over faces
-  for(int i = 0;i<F.rows();i++)
+  for(int i = 0;i<tris.rows();i++)
   {
     // loop around face
-    for(int j = 0;j<F.cols();j++)
+    for(int j = 0;j<tris.cols();j++)
     {
       // Accumulate
-      BC.row(i) += V.row(F(i,j));
+      BC.row(i) += vers.row(tris(i,j));
     }
     // average
-    BC.row(i) /= double(F.cols());
+    BC.row(i) /= double(tris.cols());
   }
 }
 

@@ -19,8 +19,8 @@ namespace igl
   // obtain such input.
   //
   // Inputs:
-  //   V  #V by 3 list of vertex positions
-  //   F  #F by 3 list of triangle indices into V
+  //   vers  #vers by 3 list of vertex positions
+  //   tris  #tris by 3 list of triangle indices into vers
   //   I  #I list of facets to consider
   // Outputs:
   //   v_index  index of outer vertex
@@ -33,8 +33,8 @@ namespace igl
       typename DerivedA
       >
   IGL_INLINE void outer_vertex(
-          const Eigen::MatrixBase<DerivedV> & V,
-          const Eigen::MatrixBase<DerivedF> & F,
+          const Eigen::MatrixBase<DerivedV> & vers,
+          const Eigen::MatrixBase<DerivedF> & tris,
           const Eigen::MatrixBase<DerivedI> & I,
           IndexType & v_index,
           Eigen::PlainObjectBase<DerivedA> & A);
@@ -49,8 +49,8 @@ namespace igl
   // how to obtain such input.
   //
   // Inputs:
-  //   V  #V by 3 list of vertex positions
-  //   F  #F by 3 list of triangle indices into V
+  //   vers  #vers by 3 list of vertex positions
+  //   tris  #tris by 3 list of triangle indices into vers
   //   I  #I list of facets to consider
   // Outputs:
   //   v1 index of the first end point of outer edge
@@ -64,8 +64,8 @@ namespace igl
       typename DerivedA
       >
   IGL_INLINE void outer_edge(
-          const Eigen::MatrixBase<DerivedV> & V,
-          const Eigen::MatrixBase<DerivedF> & F,
+          const Eigen::MatrixBase<DerivedV> & vers,
+          const Eigen::MatrixBase<DerivedF> & tris,
           const Eigen::MatrixBase<DerivedI> & I,
           IndexType & v1,
           IndexType & v2,
@@ -81,8 +81,8 @@ namespace igl
   // See cgal::remesh_self_intersections.h for how to obtain such input.
   //
   // Inputs:
-  //   V  #V by 3 list of vertex positions
-  //   F  #F by 3 list of triangle indices into V
+  //   vers  #vers by 3 list of vertex positions
+  //   tris  #tris by 3 list of triangle indices into vers
   //   N  #N by 3 list of face normals
   //   I  #I list of facets to consider
   // Outputs:
@@ -96,8 +96,8 @@ namespace igl
       typename IndexType
       >
   IGL_INLINE void outer_facet(
-          const Eigen::MatrixBase<DerivedV> & V,
-          const Eigen::MatrixBase<DerivedF> & F,
+          const Eigen::MatrixBase<DerivedV> & vers,
+          const Eigen::MatrixBase<DerivedF> & tris,
           const Eigen::MatrixBase<DerivedN> & N,
           const Eigen::MatrixBase<DerivedI> & I,
           IndexType & f,

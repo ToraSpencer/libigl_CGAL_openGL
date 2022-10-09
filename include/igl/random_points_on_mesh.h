@@ -14,22 +14,22 @@
 
 namespace igl
 {
-  // RANDOM_POINTS_ON_MESH Randomly sample a mesh (V,F) n times.
+  // RANDOM_POINTS_ON_MESH Randomly sample a mesh (vers,tris) n times.
   //
   // Inputs:
   //   n  number of samples
-  //   V  #V by dim list of mesh vertex positions
-  //   F  #F by 3 list of mesh triangle indices
+  //   vers  #vers by dim list of mesh vertex positions
+  //   tris  #tris by 3 list of mesh triangle indices
   // Outputs:
   //   B  n by 3 list of barycentric coordinates, ith row are coordinates of
   //     ith sampled point in face FI(i)
-  //   FI  n list of indices into F 
+  //   FI  n list of indices into tris 
   //
   template <typename DerivedV, typename DerivedF, typename DerivedB, typename DerivedFI>
   IGL_INLINE void random_points_on_mesh(
     const int n,
-    const Eigen::MatrixBase<DerivedV > & V,
-    const Eigen::MatrixBase<DerivedF > & F,
+    const Eigen::MatrixBase<DerivedV > & vers,
+    const Eigen::MatrixBase<DerivedF > & tris,
     Eigen::PlainObjectBase<DerivedB > & B,
     Eigen::PlainObjectBase<DerivedFI > & FI);
   // Outputs:
@@ -42,18 +42,18 @@ namespace igl
     typename DerivedX>
   IGL_INLINE void random_points_on_mesh(
     const int n,
-    const Eigen::MatrixBase<DerivedV > & V,
-    const Eigen::MatrixBase<DerivedF > & F,
+    const Eigen::MatrixBase<DerivedV > & vers,
+    const Eigen::MatrixBase<DerivedF > & tris,
     Eigen::PlainObjectBase<DerivedB > & B,
     Eigen::PlainObjectBase<DerivedFI > & FI,
     Eigen::PlainObjectBase<DerivedX> & X);
   // Outputs:
-  //   B n by #V sparse matrix so that  B*V produces a list of sample points
+  //   B n by #vers sparse matrix so that  B*vers produces a list of sample points
   template <typename DerivedV, typename DerivedF, typename ScalarB, typename DerivedFI>
   IGL_INLINE void random_points_on_mesh(
     const int n,
-    const Eigen::MatrixBase<DerivedV > & V,
-    const Eigen::MatrixBase<DerivedF > & F,
+    const Eigen::MatrixBase<DerivedV > & vers,
+    const Eigen::MatrixBase<DerivedF > & tris,
     Eigen::SparseMatrix<ScalarB > & B,
     Eigen::PlainObjectBase<DerivedFI > & FI);
 }

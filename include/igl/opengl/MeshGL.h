@@ -55,12 +55,12 @@ public:
   GLuint shader_overlay_points;
   GLuint shader_text;
 
-  GLuint vbo_V; // Vertices of the current mesh (#V x 3)
-  GLuint vbo_V_uv; // UV coordinates for the current mesh (#V x 2)
-  GLuint vbo_V_normals; // Vertices of the current mesh (#V x 3)
-  GLuint vbo_V_ambient; // Ambient material  (#V x 3)
-  GLuint vbo_V_diffuse; // Diffuse material  (#V x 3)
-  GLuint vbo_V_specular; // Specular material  (#V x 3)
+  GLuint vbo_V; // Vertices of the current mesh (#vers x 3)
+  GLuint vbo_V_uv; // UV coordinates for the current mesh (#vers x 2)
+  GLuint vbo_V_normals; // Vertices of the current mesh (#vers x 3)
+  GLuint vbo_V_ambient; // Ambient material  (#vers x 3)
+  GLuint vbo_V_diffuse; // Diffuse material  (#vers x 3)
+  GLuint vbo_V_specular; // Specular material  (#vers x 3)
 
   GLuint vbo_F; // Faces of the mesh (#F x 3)
   GLuint vbo_tex; // Texture

@@ -11,16 +11,16 @@
 #include <Eigen/Core>
 namespace igl
 {
-  // Orient each component (identified by C) of a mesh (V,F) so the normals on
+  // Orient each component (identified by C) of a mesh (vers,tris) so the normals on
   // average point away from the patch's centroid.
   //
   // Inputs:
-  //   V  #V by 3 list of vertex positions
-  //   F  #F by 3 list of triangle indices
-  //   C  #F list of components (output of orientable_patches)
+  //   vers  #vers by 3 list of vertex positions
+  //   tris  #tris by 3 list of triangle indices
+  //   C  #tris list of components (output of orientable_patches)
   // Outputs:
-  //   FF  #F by 3 list of new triangle indices such that FF(~I,:) = F(~I,:) and
-  //     FF(I,:) = fliplr(F(I,:)) (OK if &FF = &F)
+  //   FF  #tris by 3 list of new triangle indices such that FF(~I,:) = tris(~I,:) and
+  //     FF(I,:) = fliplr(tris(I,:)) (OK if &FF = &tris)
   //   I  max(C)+1 list of whether face has been flipped
   template <
     typename DerivedV,
@@ -29,8 +29,8 @@ namespace igl
     typename DerivedFF,
     typename DerivedI>
   IGL_INLINE void orient_outward(
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const Eigen::MatrixBase<DerivedC> & C,
     Eigen::PlainObjectBase<DerivedFF> & FF,
     Eigen::PlainObjectBase<DerivedI> & I);

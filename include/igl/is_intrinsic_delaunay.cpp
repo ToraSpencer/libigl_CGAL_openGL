@@ -18,7 +18,7 @@ template <
   typename DerivedD>
 IGL_INLINE void igl::is_intrinsic_delaunay(
   const Eigen::MatrixBase<Derivedl> & l,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedF> & tris,
   Eigen::PlainObjectBase<DerivedD> & D)
 {
   typedef Eigen::Matrix<typename DerivedF::Scalar,Eigen::Dynamic,2> MatrixX2I;
@@ -26,8 +26,8 @@ IGL_INLINE void igl::is_intrinsic_delaunay(
   MatrixX2I E,uE;
   VectorXI EMAP;
   std::vector<std::vector<typename DerivedF::Scalar> > uE2E;
-  igl::unique_edge_map(F, E, uE, EMAP, uE2E);
-  return is_intrinsic_delaunay(l,F,uE2E,D);
+  igl::unique_edge_map(tris, E, uE, EMAP, uE2E);
+  return is_intrinsic_delaunay(l,tris,uE2E,D);
 }
 
 template <
@@ -37,12 +37,12 @@ template <
   typename DerivedD>
 IGL_INLINE void igl::is_intrinsic_delaunay(
   const Eigen::MatrixBase<Derivedl> & l,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const std::vector<std::vector<uE2EType> > & uE2E,
   Eigen::PlainObjectBase<DerivedD> & D)
 {
-  const int num_faces = F.rows();
-  D.setConstant(F.rows(),F.cols(),false);
+  const int num_faces = tris.rows();
+  D.setConstant(tris.rows(),tris.cols(),false);
   // loop over all unique edges
   for(int ue = 0;ue < uE2E.size(); ue++)
   {
@@ -113,8 +113,8 @@ IGL_INLINE bool igl::is_intrinsic_delaunay(
   //  Eigen::MatrixXd l(2,3);
   //  l<<e,a,b,
   //     d,e,c;
-  //  //Eigen::MatrixXi F(2,3);
-  //  //F<<0,1,2,
+  //  //Eigen::MatrixXi tris(2,3);
+  //  //tris<<0,1,2,
   //  //   1,3,2;
   //  Eigen::MatrixXd C;
   //  cotmatrix_entries(l,C);

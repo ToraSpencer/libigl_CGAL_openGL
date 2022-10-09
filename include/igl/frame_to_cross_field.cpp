@@ -10,8 +10,8 @@
 #include <igl/dot_row.h>
 
 IGL_INLINE void igl::frame_to_cross_field(
-  const Eigen::MatrixXd& V,
-  const Eigen::MatrixXi& F,
+  const Eigen::MatrixXd& vers,
+  const Eigen::MatrixXi& tris,
   const Eigen::MatrixXd& FF1,
   const Eigen::MatrixXd& FF2,
   Eigen::MatrixXd& X)
@@ -21,19 +21,19 @@ IGL_INLINE void igl::frame_to_cross_field(
   // Generate local basis
   MatrixXd B1, B2, B3;
 
-  igl::local_basis(V,F,B1,B2,B3);
+  igl::local_basis(vers,tris,B1,B2,B3);
 
   // Project the frame fields in the local basis
   MatrixXd d1, d2;
-  d1.resize(F.rows(),2);
-  d2.resize(F.rows(),2);
+  d1.resize(tris.rows(),2);
+  d2.resize(tris.rows(),2);
 
   d1 << igl::dot_row(B1,FF1), igl::dot_row(B2,FF1);
   d2 << igl::dot_row(B1,FF2), igl::dot_row(B2,FF2);
 
-  X.resize(F.rows(), 3);
+  X.resize(tris.rows(), 3);
 
-	for (int i=0;i<F.rows();i++)
+	for (int i=0;i<tris.rows();i++)
 	{
 		Vector2d v1 = d1.row(i);
 		Vector2d v2 = d2.row(i);

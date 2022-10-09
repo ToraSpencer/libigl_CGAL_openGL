@@ -19,26 +19,26 @@ namespace igl
   // less than the provided threshold.
   //
   // Inputs:
-  //   V  #V by 3 list of vertex positions
-  //   F  #F by 3 list of mesh triangle indices into V
+  //   vers  #vers by 3 list of vertex positions
+  //   tris  #tris by 3 list of mesh triangle indices into vers
   //   corner_threshold_degrees  threshold in degrees on sharp angles
   // Outputs:
-  //   CN  #F*3 by 3 list of mesh vertex 3D normals, where the normal
-  //     for corner F(i,j) is at CN.row(i*3+j)
+  //   CN  #tris*3 by 3 list of mesh vertex 3D normals, where the normal
+  //     for corner tris(i,j) is at CN.row(i*3+j)
   template <
     typename DerivedV,
     typename DerivedF,
     typename DerivedCN>
   IGL_INLINE void per_corner_normals(
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const typename DerivedV::Scalar corner_threshold_degrees,
     Eigen::PlainObjectBase<DerivedCN> & CN);
   // Inputs:
-  //   VF  3*#F list  List of faces indice on each vertex, so that VF(NI(i)+j) =
+  //   VF  3*#tris list  List of faces indice on each vertex, so that VF(NI(i)+j) =
   //     f, means that face f is the jth face (in no particular order) incident
   //     on vertex i.
-  //   NI  #V+1 list  cumulative sum of vertex-triangle degrees with a
+  //   NI  #vers+1 list  cumulative sum of vertex-triangle degrees with a
   //     preceeding zero. "How many faces" have been seen before visiting this
   //     vertex and its incident faces.
   //
@@ -50,16 +50,16 @@ namespace igl
     typename DerivedNI,
     typename DerivedCN>
   IGL_INLINE void per_corner_normals(
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const typename DerivedV::Scalar corner_threshold_degrees,
     const Eigen::MatrixBase<DerivedVF> & VF,
     const Eigen::MatrixBase<DerivedNI> & NI,
     Eigen::PlainObjectBase<DerivedCN> & CN);
   // Inputs:
-  //   CI  #CI list of face neighbors as indices into rows of F
-  //   CC  3*#F+1 list of cumulative sizes so that CC(i*3+j+1) - CC(i*3+j) is
-  //     the number of faces considered smoothly incident on corner at F(i,j)
+  //   CI  #CI list of face neighbors as indices into rows of tris
+  //   CC  3*#tris+1 list of cumulative sizes so that CC(i*3+j+1) - CC(i*3+j) is
+  //     the number of faces considered smoothly incident on corner at tris(i,j)
   //
   // See also smooth_corner_adjacency
   template <
@@ -69,8 +69,8 @@ namespace igl
     typename DerivedCC,
     typename DerivedCN>
   IGL_INLINE void per_corner_normals(
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const Eigen::MatrixBase<DerivedCI> & CI,
     const Eigen::MatrixBase<DerivedCC> & CC,
     Eigen::PlainObjectBase<DerivedCN> & CN);
@@ -79,9 +79,9 @@ namespace igl
   //
   // Inputs:
   //   NV  #NV by 3 list of index normal vectors
-  //   NF  #F by nc list of indices into rows of NV
+  //   NF  #tris by nc list of indices into rows of NV
   // Outputs
-  //   CN  #F*nc by 3 list of per-corner normals so that 
+  //   CN  #tris*nc by 3 list of per-corner normals so that 
   //     CN.row(i*nc+c) = NV.row(NF(i,c))
   template <typename DerivedNV, typename DerivedNF, typename DerivedCN>
   IGL_INLINE void per_corner_normals(
@@ -89,8 +89,8 @@ namespace igl
     const Eigen::MatrixBase<DerivedNF> & NF,
     Eigen::PlainObjectBase<DerivedCN> & CN);
   // Inputs:
-  //   V  #V by 3 list of mesh vertex positions
-  //   I  #I vectorized list of polygon corner indices into rows of some matrix V
+  //   vers  #vers by 3 list of mesh vertex positions
+  //   I  #I vectorized list of polygon corner indices into rows of some matrix vers
   //   C  #polygons+1 list of cumulative polygon sizes so that C(i+1)-C(i) = size of
   //     the ith polygon, and so I(C(i)) through I(C(i+1)-1) are the indices of
   //     the ith polygon
@@ -111,7 +111,7 @@ namespace igl
     typename DerivedJ,
     typename DerivedNN>
   IGL_INLINE void per_corner_normals(
-    const Eigen::MatrixBase<DerivedV> & V,
+    const Eigen::MatrixBase<DerivedV> & vers,
     const Eigen::MatrixBase<DerivedI> & I,
     const Eigen::MatrixBase<DerivedC> & C,
     const typename DerivedV::Scalar corner_threshold_degrees,

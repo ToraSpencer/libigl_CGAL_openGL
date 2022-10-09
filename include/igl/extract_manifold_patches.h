@@ -18,12 +18,12 @@ namespace igl {
     // manifold edges; a patch is as large as possible.
     //
     // Inputs:
-    //   F  #F by 3 list representing triangles.
-    //   EMAP  #F*3 list of indices of unique undirected edges.
+    //   tris  #tris by 3 list representing triangles.
+    //   EMAP  #tris*3 list of indices of unique undirected edges.
     //   uE2E  #uE list of lists of indices into E of coexisting edges.
     //
     // Output:
-    //   P  #F list of patch incides.
+    //   P  #tris list of patch incides.
     //
     // Returns:
     //   number of manifold patches.
@@ -33,7 +33,7 @@ namespace igl {
       typename uE2EType,
       typename DerivedP>
     IGL_INLINE size_t extract_manifold_patches(
-      const Eigen::MatrixBase<DerivedF>& F,
+      const Eigen::MatrixBase<DerivedF>& tris,
       const Eigen::MatrixBase<DerivedEMAP>& EMAP,
       const std::vector<std::vector<uE2EType> >& uE2E,
       Eigen::PlainObjectBase<DerivedP>& P);
@@ -41,7 +41,7 @@ namespace igl {
         typename DerivedF,
         typename DerivedP>
     IGL_INLINE size_t extract_manifold_patches(
-        const Eigen::MatrixBase<DerivedF> &F,
+        const Eigen::MatrixBase<DerivedF> &tris,
         Eigen::PlainObjectBase<DerivedP> &P);
 }
 #ifndef IGL_STATIC_LIBRARY

@@ -15,12 +15,12 @@
 
 template <typename DerivedF, typename DerivedC>
 IGL_INLINE int igl::facet_components(
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedF> & tris,
   Eigen::PlainObjectBase<DerivedC> & C)
 {
   typedef typename DerivedF::Scalar Index;
   Eigen::SparseMatrix<Index> A;
-  igl::facet_adjacency_matrix(F,A);
+  igl::facet_adjacency_matrix(tris,A);
   Eigen::Matrix<Index,Eigen::Dynamic,1> counts;
   C = DerivedC::Zero(1,1);
   return connected_components(A,C,counts);

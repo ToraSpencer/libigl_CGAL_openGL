@@ -16,15 +16,15 @@
 template <typename T>
 IGL_INLINE void igl::diag(
   const Eigen::SparseMatrix<T>& X,
-  Eigen::SparseVector<T>& V)
+  Eigen::SparseVector<T>& vers)
 {
   assert(false && "Just call X.diagonal().sparseView() directly");
-  V = X.diagonal().sparseView();
+  vers = X.diagonal().sparseView();
   //// Get size of input
   //int m = X.rows();
   //int n = X.cols();
-  //V = Eigen::SparseVector<T>((m>n?n:m));
-  //V.reserve(V.size());
+  //vers = Eigen::SparseVector<T>((m>n?n:m));
+  //vers.reserve(vers.size());
 
   //// Iterate over outside
   //for(int k=0; k<X.outerSize(); ++k)
@@ -34,7 +34,7 @@ IGL_INLINE void igl::diag(
   //  {
   //    if(it.col() == it.row())
   //    {
-  //      V.coeffRef(it.col()) += it.value();
+  //      vers.coeffRef(it.col()) += it.value();
   //    }
   //  }
   //}
@@ -43,14 +43,14 @@ IGL_INLINE void igl::diag(
 template <typename T,typename DerivedV>
 IGL_INLINE void igl::diag(
   const Eigen::SparseMatrix<T>& X,
-  Eigen::MatrixBase<DerivedV> & V)
+  Eigen::MatrixBase<DerivedV> & vers)
 {
   assert(false && "Just call X.diagonal() directly");
-  V = X.diagonal();
+  vers = X.diagonal();
   //// Get size of input
   //int m = X.rows();
   //int n = X.cols();
-  //V.derived().resize((m>n?n:m),1);
+  //vers.derived().resize((m>n?n:m),1);
 
   //// Iterate over outside
   //for(int k=0; k<X.outerSize(); ++k)
@@ -60,7 +60,7 @@ IGL_INLINE void igl::diag(
   //  {
   //    if(it.col() == it.row())
   //    {
-  //      V(it.col()) = it.value();
+  //      vers(it.col()) = it.value();
   //    }
   //  }
   //}
@@ -68,14 +68,14 @@ IGL_INLINE void igl::diag(
 
 template <typename T>
 IGL_INLINE void igl::diag(
-  const Eigen::SparseVector<T>& V,
+  const Eigen::SparseVector<T>& vers,
   Eigen::SparseMatrix<T>& X)
 {
   // clear and resize output
-  Eigen::DynamicSparseMatrix<T, Eigen::RowMajor> dyn_X(V.size(),V.size());
-  dyn_X.reserve(V.size());
+  Eigen::DynamicSparseMatrix<T, Eigen::RowMajor> dyn_X(vers.size(),vers.size());
+  dyn_X.reserve(vers.size());
   // loop over non-zeros
-  for(typename Eigen::SparseVector<T>::InnerIterator it(V); it; ++it)
+  for(typename Eigen::SparseVector<T>::InnerIterator it(vers); it; ++it)
   {
     dyn_X.coeffRef(it.index(),it.index()) += it.value();
   }
@@ -84,17 +84,17 @@ IGL_INLINE void igl::diag(
 
 template <typename T, typename DerivedV>
 IGL_INLINE void igl::diag(
-  const Eigen::MatrixBase<DerivedV> & V,
+  const Eigen::MatrixBase<DerivedV> & vers,
   Eigen::SparseMatrix<T>& X)
 {
-  assert(V.rows() == 1 || V.cols() == 1);
+  assert(vers.rows() == 1 || vers.cols() == 1);
   // clear and resize output
-  Eigen::DynamicSparseMatrix<T, Eigen::RowMajor> dyn_X(V.size(),V.size());
-  dyn_X.reserve(V.size());
+  Eigen::DynamicSparseMatrix<T, Eigen::RowMajor> dyn_X(vers.size(),vers.size());
+  dyn_X.reserve(vers.size());
   // loop over non-zeros
-  for(int i = 0;i<V.size();i++)
+  for(int i = 0;i<vers.size();i++)
   {
-    dyn_X.coeffRef(i,i) += V[i];
+    dyn_X.coeffRef(i,i) += vers[i];
   }
   X = Eigen::SparseMatrix<T>(dyn_X);
 }

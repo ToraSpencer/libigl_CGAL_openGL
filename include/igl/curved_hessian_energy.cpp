@@ -19,12 +19,12 @@
 template <typename DerivedV, typename DerivedF, typename ScalarQ>
 IGL_INLINE void
 igl::curved_hessian_energy(
-  const Eigen::MatrixBase<DerivedV>& V,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const Eigen::MatrixBase<DerivedF>& tris,
   Eigen::SparseMatrix<ScalarQ>& Q)
 {
   Eigen::MatrixXi E, oE;
-  curved_hessian_energy(V, F, E, oE, Q);
+  curved_hessian_energy(vers, tris, E, oE, Q);
 }
 
 
@@ -32,16 +32,16 @@ template <typename DerivedV, typename DerivedF, typename DerivedE,
 typename DerivedOE, typename ScalarQ>
 IGL_INLINE void
 igl::curved_hessian_energy(
-  const Eigen::MatrixBase<DerivedV>& V,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const Eigen::MatrixBase<DerivedF>& tris,
   const Eigen::MatrixBase<DerivedE>& E,
   const Eigen::MatrixBase<DerivedOE>& oE,
   Eigen::SparseMatrix<ScalarQ>& Q)
 {
   Eigen::Matrix<typename DerivedV::Scalar, Eigen::Dynamic, Eigen::Dynamic>
   l_sq;
-  squared_edge_lengths(V, F, l_sq);
-  curved_hessian_energy_intrinsic(F, l_sq, E, oE, Q);
+  squared_edge_lengths(vers, tris, l_sq);
+  curved_hessian_energy_intrinsic(tris, l_sq, E, oE, Q);
 }
 
 
@@ -49,20 +49,20 @@ template <typename DerivedV, typename DerivedF, typename DerivedE,
 typename DerivedOE, typename ScalarQ>
 IGL_INLINE void
 igl::curved_hessian_energy(
-  const Eigen::MatrixBase<DerivedV>& V,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const Eigen::MatrixBase<DerivedF>& tris,
   Eigen::PlainObjectBase<DerivedE>& E,
   Eigen::PlainObjectBase<DerivedOE>& oE,
   Eigen::SparseMatrix<ScalarQ>& Q)
 {
-  if(E.rows()!=F.rows() || E.cols()!=F.cols() || oE.rows()!=F.rows() ||
-   oE.cols()!=F.cols()) {
-    orient_halfedges(F, E, oE);
+  if(E.rows()!=tris.rows() || E.cols()!=tris.cols() || oE.rows()!=tris.rows() ||
+   oE.cols()!=tris.cols()) {
+    orient_halfedges(tris, E, oE);
   }
 
   const Eigen::PlainObjectBase<DerivedE>& cE = E;
   const Eigen::PlainObjectBase<DerivedOE>& coE = oE;
-  curved_hessian_energy(V, F, cE, coE, Q);
+  curved_hessian_energy(vers, tris, cE, coE, Q);
 }
 
 
@@ -70,7 +70,7 @@ template <typename DerivedF, typename DerivedL_sq, typename DerivedE,
 typename DerivedOE, typename ScalarQ>
 IGL_INLINE void
 igl::curved_hessian_energy_intrinsic(
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedF>& tris,
   const Eigen::MatrixBase<DerivedL_sq>& l_sq,
   const Eigen::MatrixBase<DerivedE>& E,
   const Eigen::MatrixBase<DerivedOE>& oE,
@@ -81,7 +81,7 @@ igl::curved_hessian_energy_intrinsic(
   Eigen::Matrix<typename DerivedL_sq::Scalar, Eigen::Dynamic, Eigen::Dynamic>
   l_sqrt = l_sq.array().sqrt().matrix();
   doublearea(l_sqrt, dA);
-  curved_hessian_energy_intrinsic(F, l_sq, dA, E, oE, Q);
+  curved_hessian_energy_intrinsic(tris, l_sq, dA, E, oE, Q);
 }
 
 
@@ -89,7 +89,7 @@ template <typename DerivedF, typename DerivedL_sq, typename DeriveddA,
 typename DerivedE, typename DerivedOE, typename ScalarQ>
 IGL_INLINE void
 igl::curved_hessian_energy_intrinsic(
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedF>& tris,
   const Eigen::MatrixBase<DerivedL_sq>& l_sq,
   const Eigen::MatrixBase<DeriveddA>& dA,
   const Eigen::MatrixBase<DerivedE>& E,
@@ -98,10 +98,10 @@ igl::curved_hessian_energy_intrinsic(
 {
   //Matrices that need to be combined
   Eigen::SparseMatrix<ScalarQ> M, D, L, K;
-  cr_vector_mass_intrinsic(F, l_sq, dA,  E, oE, M);
-  scalar_to_cr_vector_gradient_intrinsic(F, l_sq, dA, E, oE, D);
-  cr_vector_laplacian_intrinsic(F, l_sq, dA, E, oE, L);
-  cr_vector_curvature_correction_intrinsic(F, l_sq, E, oE, K);
+  cr_vector_mass_intrinsic(tris, l_sq, dA,  E, oE, M);
+  scalar_to_cr_vector_gradient_intrinsic(tris, l_sq, dA, E, oE, D);
+  cr_vector_laplacian_intrinsic(tris, l_sq, dA, E, oE, L);
+  cr_vector_curvature_correction_intrinsic(tris, l_sq, E, oE, K);
 
   //Invert M
   std::vector<Eigen::Triplet<ScalarQ> > tripletListMi;

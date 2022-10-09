@@ -15,7 +15,7 @@
 
 IGL_INLINE bool igl::edge_collapse_is_valid(
   const int e,
-  const Eigen::MatrixXi & F,
+  const Eigen::MatrixXi & tris,
   const Eigen::MatrixXi & E,
   const Eigen::VectorXi & EMAP,
   const Eigen::MatrixXi & EF,
@@ -42,7 +42,7 @@ IGL_INLINE bool igl::edge_collapse_is_valid(
     const auto neighbors = [](
       const int e,
       const bool ccw,
-      const Eigen::MatrixXi & F,
+      const Eigen::MatrixXi & tris,
       const Eigen::MatrixXi & E,
       const Eigen::VectorXi & EMAP,
       const Eigen::MatrixXi & EF,
@@ -52,9 +52,9 @@ IGL_INLINE bool igl::edge_collapse_is_valid(
       vector<int> V2Fe = circulation(e, ccw,EMAP,EF,EI);
       for(auto f : V2Fe)
       {
-        N.push_back(F(f,0));
-        N.push_back(F(f,1));
-        N.push_back(F(f,2));
+        N.push_back(tris(f,0));
+        N.push_back(tris(f,1));
+        N.push_back(tris(f,2));
       }
       vector<size_t> _1,_2;
       igl::unique(N,uN,_1,_2);
@@ -62,8 +62,8 @@ IGL_INLINE bool igl::edge_collapse_is_valid(
       list_to_matrix(uN,uNm);
       return uNm;
     };
-    VectorXi Ns = neighbors(e, eflip,F,E,EMAP,EF,EI);
-    VectorXi Nd = neighbors(e,!eflip,F,E,EMAP,EF,EI);
+    VectorXi Ns = neighbors(e, eflip,tris,E,EMAP,EF,EI);
+    VectorXi Nd = neighbors(e,!eflip,tris,E,EMAP,EF,EI);
     VectorXi Nint = igl::intersect(Ns,Nd);
     if(Nint.size() != 4)
     {

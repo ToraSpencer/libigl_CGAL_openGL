@@ -11,21 +11,21 @@
 #include <Eigen/Core>
 namespace igl
 {
-  // Given a mesh (V,F), a query point q, and a point on (V,F) c, determine
-  // whether q is inside (V,F) --> s=-1 or outside (V,F) s=1, based on the
+  // Given a mesh (vers,tris), a query point q, and a point on (vers,tris) c, determine
+  // whether q is inside (vers,tris) --> s=-1 or outside (vers,tris) s=1, based on the
   // sign of the dot product between (q-c) and n, where n is the normal _at c_,
   // carefully chosen according to [Bærentzen & Aanæs 2005]
   //
   // Inputs:
-  //   V  #V by 3 list of vertex positions
-  //   F  #F by 3 list of triangle indices
-  //   FN  #F by 3 list of triangle normals 
-  //   VN  #V by 3 list of vertex normals (ANGLE WEIGHTING)
+  //   vers  #vers by 3 list of vertex positions
+  //   tris  #tris by 3 list of triangle indices
+  //   FN  #tris by 3 list of triangle normals 
+  //   VN  #vers by 3 list of vertex normals (ANGLE WEIGHTING)
   //   EN  #E by 3 list of edge normals (UNIFORM WEIGHTING)
-  //   EMAP  #F*3 mapping edges in F to E
+  //   EMAP  #tris*3 mapping edges in tris to E
   //   q  Query point
-  //   f  index into F to face to which c belongs
-  //   c  Point on (V,F)
+  //   f  index into tris to face to which c belongs
+  //   c  Point on (vers,tris)
   // Outputs:
   //   s  sign
   //   n  normal
@@ -41,8 +41,8 @@ namespace igl
     typename Scalar,
     typename Derivedn>
   IGL_INLINE void pseudonormal_test(
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const Eigen::MatrixBase<DerivedFN> & FN,
     const Eigen::MatrixBase<DerivedVN> & VN,
     const Eigen::MatrixBase<DerivedEN> & EN,
@@ -62,7 +62,7 @@ namespace igl
     typename Scalar,
     typename Derivedn>
   IGL_INLINE void pseudonormal_test(
-    const Eigen::MatrixBase<DerivedV> & V,
+    const Eigen::MatrixBase<DerivedV> & vers,
     const Eigen::MatrixBase<DerivedF> & E,
     const Eigen::MatrixBase<DerivedEN> & EN,
     const Eigen::MatrixBase<DerivedVN> & VN,

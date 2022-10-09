@@ -16,15 +16,15 @@ namespace igl
   // Constructs a list of face areas of faces opposite each index in a tet list
   //
   // Inputs:
-  //   V  #V by 3 list of mesh vertex positions
-  //   T  #T by 3 list of tet mesh indices into V
+  //   vers  #vers by 3 list of mesh vertex positions
+  //   T  #T by 3 list of tet mesh indices into vers
   // Outputs:
   //   A   #T by 4 list of face areas corresponding to faces opposite vertices
   //     0,1,2,3
   //
   template <typename DerivedV, typename DerivedT, typename DerivedA>
   IGL_INLINE void face_areas(
-    const Eigen::MatrixBase<DerivedV>& V,
+    const Eigen::MatrixBase<DerivedV>& vers,
     const Eigen::MatrixBase<DerivedT>& T,
     Eigen::PlainObjectBase<DerivedA>& A);
   // Compute tet-mesh face areas from edge lengths.

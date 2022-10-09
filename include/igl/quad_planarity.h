@@ -13,15 +13,15 @@ namespace igl
 {
   // Compute planarity of the faces of a quad mesh
   // Inputs:
-  //   V  #V by 3 eigen Matrix of mesh vertex 3D positions
-  //   F  #F by 4 eigen Matrix of face (quad) indices
+  //   vers  #vers by 3 eigen Matrix of mesh vertex 3D positions
+  //   tris  #tris by 4 eigen Matrix of face (quad) indices
   // Output:
-  //   P  #F by 1 eigen Matrix of mesh face (quad) planarities
+  //   P  #tris by 1 eigen Matrix of mesh face (quad) planarities
   //
   template <typename DerivedV, typename DerivedF, typename DerivedP>
   IGL_INLINE void quad_planarity(
-    const Eigen::MatrixBase<DerivedV>& V,
-    const Eigen::MatrixBase<DerivedF>& F,
+    const Eigen::MatrixBase<DerivedV>& vers,
+    const Eigen::MatrixBase<DerivedF>& tris,
     Eigen::PlainObjectBase<DerivedP> & P);
 }
 

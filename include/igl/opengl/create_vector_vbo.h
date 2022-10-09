@@ -12,7 +12,7 @@
 #include <Eigen/Core>
 
 // Create a VBO (Vertex Buffer Object) for a list of vectors:
-// GL_ARRAY_BUFFER for the vectors (V)
+// GL_ARRAY_BUFFER for the vectors (vers)
 namespace igl
 {
   namespace opengl
@@ -20,13 +20,13 @@ namespace igl
     // Templates:
     //   T  should be a eigen matrix primitive type like int or double
     // Inputs:
-    //   V  m by n eigen Matrix of type T values
+    //   vers  m by n eigen Matrix of type T values
     // Outputs:
     //   V_vbo_id  buffer id for vectors
     //
     template <typename T>
     IGL_INLINE void create_vector_vbo(
-      const Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> & V,
+      const Eigen::Matrix<T,Eigen::Dynamic,Eigen::Dynamic> & vers,
       GLuint & V_vbo_id);
   }
 }

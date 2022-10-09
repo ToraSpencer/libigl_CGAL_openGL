@@ -20,26 +20,26 @@ namespace igl
   // Harmon, Zorin, Grinspun 2007]
   //
   // Inputs:
-  //   V  #V by dim list of vertex positions
-  //   F  #F by 3/4 list of triangle/tetrahedron indices
+  //   vers  #vers by dim list of vertex positions
+  //   tris  #tris by 3/4 list of triangle/tetrahedron indices
   // Outputs:
   //   M  #E by #E edge/face-based diagonal mass matrix
   //   E  #E by 2/3 list of edges/faces
-  //   EMAP  #F*3/4 list of indices mapping allE to E
+  //   EMAP  #tris*3/4 list of indices mapping allE to E
   //
   // See also: crouzeix_raviart_cotmatrix
   template <typename MT, typename DerivedV, typename DerivedF, typename DerivedE, typename DerivedEMAP>
   void crouzeix_raviart_massmatrix(
-      const Eigen::MatrixBase<DerivedV> & V, 
-      const Eigen::MatrixBase<DerivedF> & F, 
+      const Eigen::MatrixBase<DerivedV> & vers, 
+      const Eigen::MatrixBase<DerivedF> & tris, 
       Eigen::SparseMatrix<MT> & M,
       Eigen::PlainObjectBase<DerivedE> & E,
       Eigen::PlainObjectBase<DerivedEMAP> & EMAP);
   // wrapper if E and EMAP are already computed (better match!)
   template <typename MT, typename DerivedV, typename DerivedF, typename DerivedE, typename DerivedEMAP>
   void crouzeix_raviart_massmatrix(
-      const Eigen::MatrixBase<DerivedV> & V, 
-      const Eigen::MatrixBase<DerivedF> & F, 
+      const Eigen::MatrixBase<DerivedV> & vers, 
+      const Eigen::MatrixBase<DerivedF> & tris, 
       const Eigen::MatrixBase<DerivedE> & E,
       const Eigen::MatrixBase<DerivedEMAP> & EMAP,
       Eigen::SparseMatrix<MT> & M);

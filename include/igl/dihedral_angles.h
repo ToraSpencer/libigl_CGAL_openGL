@@ -12,14 +12,14 @@
 namespace igl
 {
   // DIHEDRAL_ANGLES Compute dihedral angles for all tets of a given tet mesh
-  // (V,T)
+  // (vers,T)
   //
-  // theta = dihedral_angles(V,T)
-  // theta = dihedral_angles(V,T,'ParameterName',parameter_value,...)
+  // theta = dihedral_angles(vers,T)
+  // theta = dihedral_angles(vers,T,'ParameterName',parameter_value,...)
   //
   // Inputs:
-  //   V  #V by dim list of vertex positions
-  //   T  #V by 4 list of tet indices
+  //   vers  #vers by dim list of vertex positions
+  //   T  #vers by 4 list of tet indices
   // Outputs:
   //   theta  #T by 6 list of dihedral angles (in radians)
   //   cos_theta  #T by 6 list of cosine of dihedral angles (in radians)
@@ -30,7 +30,7 @@ namespace igl
     typename Derivedtheta,
     typename Derivedcos_theta>
   IGL_INLINE void dihedral_angles(
-    const Eigen::MatrixBase<DerivedV>& V,
+    const Eigen::MatrixBase<DerivedV>& vers,
     const Eigen::MatrixBase<DerivedT>& T,
     Eigen::PlainObjectBase<Derivedtheta>& theta,
     Eigen::PlainObjectBase<Derivedcos_theta>& cos_theta);

@@ -9,15 +9,15 @@
 
 template <typename DerivedF, typename DerivedS, typename DerivedSF>
 IGL_INLINE void igl::average_onto_faces(
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const Eigen::MatrixBase<DerivedS> & S,
   Eigen::PlainObjectBase<DerivedSF> & SF)
 {
-  SF.setConstant(F.rows(),S.cols(),0);
-  for (int i = 0; i <F.rows(); ++i)
-    for (int j = 0; j<F.cols(); ++j)
-      SF.row(i) += S.row(F(i,j));
-  SF.array() /= F.cols();
+  SF.setConstant(tris.rows(),S.cols(),0);
+  for (int i = 0; i <tris.rows(); ++i)
+    for (int j = 0; j<tris.cols(); ++j)
+      SF.row(i) += S.row(tris(i,j));
+  SF.array() /= tris.cols();
 }
 
 #ifdef IGL_STATIC_LIBRARY

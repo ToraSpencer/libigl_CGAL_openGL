@@ -16,13 +16,13 @@ namespace igl
   //
   //
   // Inputs:
-  //   V  #V by dim vertex positions
-  //   F  #F by simplex-size list of element indices
-  //   b  #b boundary indices into V
+  //   vers  #vers by dim vertex positions
+  //   tris  #tris by simplex-size list of element indices
+  //   b  #b boundary indices into vers
   //   bc #b by #W list of boundary values
   //   k  power of harmonic operation (1: harmonic, 2: biharmonic, etc)
   // Outputs:
-  //   W  #V by #W list of weights
+  //   W  #vers by #W list of weights
   //
   template <
     typename DerivedV,
@@ -31,8 +31,8 @@ namespace igl
     typename Derivedbc,
     typename DerivedW>
   IGL_INLINE bool harmonic(
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const Eigen::MatrixBase<Derivedb> & b,
     const Eigen::MatrixBase<Derivedbc> & bc,
     const int k,
@@ -40,12 +40,12 @@ namespace igl
   // Compute harmonic map using uniform laplacian operator
   //
   // Inputs:
-  //   F  #F by simplex-size list of element indices
-  //   b  #b boundary indices into V
+  //   tris  #tris by simplex-size list of element indices
+  //   b  #b boundary indices into vers
   //   bc #b by #W list of boundary values
   //   k  power of harmonic operation (1: harmonic, 2: biharmonic, etc)
   // Outputs:
-  //   W  #V by #W list of weights
+  //   W  #vers by #W list of weights
   //
   template <
     typename DerivedF,
@@ -53,7 +53,7 @@ namespace igl
     typename Derivedbc,
     typename DerivedW>
   IGL_INLINE bool harmonic(
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const Eigen::MatrixBase<Derivedb> & b,
     const Eigen::MatrixBase<Derivedbc> & bc,
     const int k,
@@ -61,13 +61,13 @@ namespace igl
   // Compute a harmonic map using a given Laplacian and mass matrix
   //
   // Inputs:
-  //   L  #V by #V discrete (integrated) Laplacian  
-  //   M  #V by #V mass matrix
-  //   b  #b boundary indices into V
+  //   L  #vers by #vers discrete (integrated) Laplacian  
+  //   M  #vers by #vers mass matrix
+  //   b  #b boundary indices into vers
   //   bc  #b by #W list of boundary values
   //   k  power of harmonic operation (1: harmonic, 2: biharmonic, etc)
   // Outputs:
-  //   W  #V by #V list of weights
+  //   W  #vers by #vers list of weights
   template <
     typename DerivedL,
     typename DerivedM,
@@ -85,11 +85,11 @@ namespace igl
   // That is, if the k-harmonic PDE is Q x = 0, then this minimizes x' Q x
   //
   // Inputs:
-  //   L  #V by #V discrete (integrated) Laplacian  
-  //   M  #V by #V mass matrix
+  //   L  #vers by #vers discrete (integrated) Laplacian  
+  //   M  #vers by #vers mass matrix
   //   k  power of harmonic operation (1: harmonic, 2: biharmonic, etc)
   // Outputs:
-  //   Q  #V by #V discrete (integrated) k-Laplacian  
+  //   Q  #vers by #vers discrete (integrated) k-Laplacian  
   template <
     typename DerivedL,
     typename DerivedM,
@@ -100,18 +100,18 @@ namespace igl
     const int k,
     DerivedQ & Q);
   // Inputs:
-  //   V  #V by dim vertex positions
-  //   F  #F by simplex-size list of element indices
+  //   vers  #vers by dim vertex positions
+  //   tris  #tris by simplex-size list of element indices
   //   k  power of harmonic operation (1: harmonic, 2: biharmonic, etc)
   // Outputs:
-  //   Q  #V by #V discrete (integrated) k-Laplacian  
+  //   Q  #vers by #vers discrete (integrated) k-Laplacian  
   template <
     typename DerivedV,
     typename DerivedF,
     typename DerivedQ>
   IGL_INLINE void harmonic(
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const int k,
     DerivedQ & Q);
 };

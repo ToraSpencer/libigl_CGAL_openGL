@@ -18,9 +18,9 @@
 
 template <typename DerivedV, typename DerivedT, typename DerivedF>
 IGL_INLINE int igl::launch_medit(
-  const Eigen::PlainObjectBase<DerivedV> & V, 
+  const Eigen::PlainObjectBase<DerivedV> & vers, 
   const Eigen::PlainObjectBase<DerivedT> & T,
-  const Eigen::PlainObjectBase<DerivedF> & F,
+  const Eigen::PlainObjectBase<DerivedF> & tris,
   const bool wait)
 {
   using namespace std;
@@ -31,7 +31,7 @@ IGL_INLINE int igl::launch_medit(
   {
     command<<" &";
   }
-  bool mesh_saved = writeMESH(TEMP_MESH_FILE,V,T,F);
+  bool mesh_saved = writeMESH(TEMP_MESH_FILE,vers,T,tris);
   if(!mesh_saved)
   {
     return -1;

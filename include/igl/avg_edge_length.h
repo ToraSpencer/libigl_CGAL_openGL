@@ -21,16 +21,16 @@ namespace igl
   //   DerivedF derived from face indices matrix type: i.e. MatrixXi
   //   DerivedL derived from edge lengths matrix type: i.e. MatrixXd
   // Inputs:
-  //   V  eigen matrix #V by 3
-  //   F  #F by simplex-size list of mesh faces (must be simplex)
+  //   vers  eigen matrix #vers by 3
+  //   tris  #tris by simplex-size list of mesh faces (must be simplex)
   // Outputs:
   //   l  average edge length
   //
   // See also: adjacency_matrix
   template <typename DerivedV, typename DerivedF>
   IGL_INLINE double avg_edge_length(
-    const Eigen::MatrixBase<DerivedV>& V,
-    const Eigen::MatrixBase<DerivedF>& F);
+    const Eigen::MatrixBase<DerivedV>& vers,
+    const Eigen::MatrixBase<DerivedF>& tris);
 
 }
 

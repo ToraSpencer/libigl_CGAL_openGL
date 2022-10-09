@@ -110,7 +110,7 @@ namespace igl
     }
 
     IGL_INLINE double get_min_pos_root_2D(const Eigen::MatrixXd& uv,
-                                          const Eigen::MatrixXi& F,
+                                          const Eigen::MatrixXi& tris,
                                           Eigen::MatrixXd& d,
                                           int f)
     {
@@ -152,7 +152,7 @@ namespace igl
           cf = coeffs(det(C),t); % Now cf(1),cf(2),cf(3) holds the coefficients for the polynom. at order c,b,a
         */
 
-      int v1 = F(f,0); int v2 = F(f,1); int v3 = F(f,2);
+      int v1 = tris(f,0); int v2 = tris(f,1); int v3 = tris(f,2);
       // get quadratic coefficients (ax^2 + b^x + c)
       const double& U11 = uv(v1,0);
       const double& U12 = uv(v1,1);
@@ -176,7 +176,7 @@ namespace igl
     }
 
     IGL_INLINE double get_min_pos_root_3D(const Eigen::MatrixXd& uv,
-                                          const Eigen::MatrixXi& F,
+                                          const Eigen::MatrixXi& tris,
                                           Eigen::MatrixXd& direc,
                                           int f)
     {
@@ -205,7 +205,7 @@ namespace igl
             //cf = coeffs(det(vol_det),t); % Now cf(1),cf(2),cf(3),cf(4) holds the coefficients for the polynom
             [coefficients,terms] = coeffs(det(vol_det),t); % terms = [ t^3, t^2, t, 1], Coefficients hold the coeff we seek
       */
-      int v1 = F(f,0); int v2 = F(f,1); int v3 = F(f,2); int v4 = F(f,3);
+      int v1 = tris(f,0); int v2 = tris(f,1); int v3 = tris(f,2); int v4 = tris(f,3);
       const double& a_x = uv(v1,0);
       const double& a_y = uv(v1,1);
       const double& a_z = uv(v1,2);
@@ -272,7 +272,7 @@ namespace igl
     }
 
     IGL_INLINE double compute_max_step_from_singularities(const Eigen::MatrixXd& uv,
-                                                          const Eigen::MatrixXi& F,
+                                                          const Eigen::MatrixXi& tris,
                                                           Eigen::MatrixXd& d)
     {
       using namespace std;
@@ -281,17 +281,17 @@ namespace igl
       // The if statement is outside the for loops to avoid branching/ease parallelizing
       if (uv.cols() == 2)
       {
-        for (int f = 0; f < F.rows(); f++)
+        for (int f = 0; f < tris.rows(); f++)
         {
-          double min_positive_root = get_min_pos_root_2D(uv,F,d,f);
+          double min_positive_root = get_min_pos_root_2D(uv,tris,d,f);
           max_step = std::min(max_step, min_positive_root);
         }
       }
       else
       { // volumetric deformation
-        for (int f = 0; f < F.rows(); f++)
+        for (int f = 0; f < tris.rows(); f++)
         {
-          double min_positive_root = get_min_pos_root_3D(uv,F,d,f);
+          double min_positive_root = get_min_pos_root_3D(uv,tris,d,f);
           max_step = std::min(max_step, min_positive_root);
         }
       }
@@ -301,7 +301,7 @@ namespace igl
 }
 
 IGL_INLINE double igl::flip_avoiding_line_search(
-  const Eigen::MatrixXi F,
+  const Eigen::MatrixXi tris,
   Eigen::MatrixXd& cur_v,
   const Eigen::MatrixXd& dst_v,
   std::function<double(Eigen::MatrixXd&)> energy,
@@ -310,7 +310,7 @@ IGL_INLINE double igl::flip_avoiding_line_search(
   using namespace std;
   Eigen::MatrixXd d = dst_v - cur_v;
 
-  double min_step_to_singularity = igl::flip_avoiding::compute_max_step_from_singularities(cur_v,F,d);
+  double min_step_to_singularity = igl::flip_avoiding::compute_max_step_from_singularities(cur_v,tris,d);
   double max_step_size = std::min(1., min_step_to_singularity*0.8);
 
   return igl::line_search(cur_v,d,max_step_size, energy, cur_energy);

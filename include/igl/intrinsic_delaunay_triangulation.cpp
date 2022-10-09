@@ -24,14 +24,14 @@ IGL_INLINE void igl::intrinsic_delaunay_triangulation(
   const Eigen::MatrixBase<Derivedl_in> & l_in,
   const Eigen::MatrixBase<DerivedF_in> & F_in,
   Eigen::PlainObjectBase<Derivedl> & l,
-  Eigen::PlainObjectBase<DerivedF> & F)
+  Eigen::PlainObjectBase<DerivedF> & tris)
 {
   typedef Eigen::Matrix<typename DerivedF::Scalar,Eigen::Dynamic,2> MatrixX2I;
   typedef Eigen::Matrix<typename DerivedF::Scalar,Eigen::Dynamic,1> VectorXI;
   MatrixX2I E,uE;
   VectorXI EMAP;
   std::vector<std::vector<typename DerivedF::Scalar> > uE2E;
-  return intrinsic_delaunay_triangulation(l_in,F_in,l,F,E,uE,EMAP,uE2E);
+  return intrinsic_delaunay_triangulation(l_in,F_in,l,tris,E,uE,EMAP,uE2E);
 }
 
 template <
@@ -47,7 +47,7 @@ IGL_INLINE void igl::intrinsic_delaunay_triangulation(
   const Eigen::MatrixBase<Derivedl_in> & l_in,
   const Eigen::MatrixBase<DerivedF_in> & F_in,
   Eigen::PlainObjectBase<Derivedl> & l,
-  Eigen::PlainObjectBase<DerivedF> & F,
+  Eigen::PlainObjectBase<DerivedF> & tris,
   Eigen::PlainObjectBase<DerivedE> & E,
   Eigen::PlainObjectBase<DeriveduE> & uE,
   Eigen::PlainObjectBase<DerivedEMAP> & EMAP,
@@ -56,10 +56,10 @@ IGL_INLINE void igl::intrinsic_delaunay_triangulation(
   igl::unique_edge_map(F_in, E, uE, EMAP, uE2E);
   // We're going to work in place
   l = l_in;
-  F = F_in;
+  tris = F_in;
   typedef typename DerivedF::Scalar Index;
   typedef typename Derivedl::Scalar Scalar;
-  const Index num_faces = F.rows();
+  const Index num_faces = tris.rows();
 
   // Vector is faster than queue...
   std::vector<Index> Q;
@@ -113,11 +113,11 @@ IGL_INLINE void igl::intrinsic_delaunay_triangulation(
         // Annotated from flip_edge:
         // Edge to flip [v1,v2] --> [v3,v4]
         // Before:
-        // F(f1,:) = [v1,v2,v4] // in some cyclic order
-        // F(f2,:) = [v1,v3,v2] // in some cyclic order
+        // tris(f1,:) = [v1,v2,v4] // in some cyclic order
+        // tris(f2,:) = [v1,v3,v2] // in some cyclic order
         // After: 
-        // F(f1,:) = [v1,v3,v4] // in *this* order 
-        // F(f2,:) = [v2,v4,v3] // in *this* order
+        // tris(f1,:) = [v1,v3,v4] // in *this* order 
+        // tris(f2,:) = [v2,v4,v3] // in *this* order
         //
         //          v1                 v1
         //          /|\                / \
@@ -137,12 +137,12 @@ IGL_INLINE void igl::intrinsic_delaunay_triangulation(
         assert(c1 < 3);
         assert(c2 < 3);
         assert(f1 != f2);
-        const Index v1 = F(f1, (c1+1)%3);
-        const Index v2 = F(f1, (c1+2)%3);
-        const Index v4 = F(f1, c1);
-        const Index v3 = F(f2, c2);
-        assert(F(f2, (c2+2)%3) == v1);
-        assert(F(f2, (c2+1)%3) == v2);
+        const Index v1 = tris(f1, (c1+1)%3);
+        const Index v2 = tris(f1, (c1+2)%3);
+        const Index v4 = tris(f1, c1);
+        const Index v3 = tris(f2, c2);
+        assert(tris(f2, (c2+2)%3) == v1);
+        assert(tris(f2, (c2+1)%3) == v2);
         assert( std::abs(l(f1,c1)-l(f2,c2)) < igl::EPS<Scalar>() );
         const Scalar e = l(f1,c1);
         const Scalar a = l(f1,(c1+1)%3);
@@ -175,7 +175,7 @@ IGL_INLINE void igl::intrinsic_delaunay_triangulation(
         const size_t ue_41 = EMAP(e_41);
         const size_t ue_13 = EMAP(e_13);
         const size_t ue_32 = EMAP(e_32);
-        flip_edge(F, E, uE, EMAP, uE2E, uei);
+        flip_edge(tris, E, uE, EMAP, uE2E, uei);
         Q.push_back(ue_24);
         Q.push_back(ue_41);
         Q.push_back(ue_13);

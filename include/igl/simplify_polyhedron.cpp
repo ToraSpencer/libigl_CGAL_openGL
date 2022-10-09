@@ -8,8 +8,8 @@
 IGL_INLINE void igl::simplify_polyhedron(
   const Eigen::MatrixXd & OV,
   const Eigen::MatrixXi & OF,
-  Eigen::MatrixXd & V,
-  Eigen::MatrixXi & F,
+  Eigen::MatrixXd & vers,
+  Eigen::MatrixXi & tris,
   Eigen::VectorXi & J)
 {
   // TODO: to generalize to open meshes, 0-cost should keep all incident
@@ -22,8 +22,8 @@ IGL_INLINE void igl::simplify_polyhedron(
   // cost direction).
   const auto & perfect= [&N](
     const int e,
-    const Eigen::MatrixXd & V,
-    const Eigen::MatrixXi & F,
+    const Eigen::MatrixXd & vers,
+    const Eigen::MatrixXi & tris,
     const Eigen::MatrixXi & E,
     const Eigen::VectorXi & EMAP,
     const Eigen::MatrixXi & EF,
@@ -36,8 +36,8 @@ IGL_INLINE void igl::simplify_polyhedron(
     const auto & perfect_directed = [&N](
       const int e,
       const bool positive,
-      const Eigen::MatrixXd & V,
-      const Eigen::MatrixXi & F,
+      const Eigen::MatrixXd & vers,
+      const Eigen::MatrixXi & tris,
       const Eigen::MatrixXi & E,
       const Eigen::VectorXi & EMAP,
       const Eigen::MatrixXi & EF,
@@ -47,7 +47,7 @@ IGL_INLINE void igl::simplify_polyhedron(
     {
       const auto vi = E(e,positive);
       const auto vj = E(e,!positive);
-      p = V.row(vj);
+      p = vers.row(vj);
       std::vector<int> faces = igl::circulation(e,positive,EMAP,EF,EI);
       cost = 0;
       for(auto f : faces)
@@ -58,11 +58,11 @@ IGL_INLINE void igl::simplify_polyhedron(
         const Eigen::RowVectorXd nbefore = N.row(f);
         // Face with vi replaced with vj
         const Eigen::RowVector3i fafter(
-            F(f,0) == vi ? vj : F(f,0),
-            F(f,1) == vi ? vj : F(f,1),
-            F(f,2) == vi ? vj : F(f,2));
+            tris(f,0) == vi ? vj : tris(f,0),
+            tris(f,1) == vi ? vj : tris(f,1),
+            tris(f,2) == vi ? vj : tris(f,2));
         Eigen::RowVectorXd nafter;
-        igl::per_face_normals(V,fafter,nafter);
+        igl::per_face_normals(vers,fafter,nafter);
         const double epsilon = 1e-10;
         // if normal changed then not feasible, break
         if((nbefore-nafter).norm() > epsilon)
@@ -75,8 +75,8 @@ IGL_INLINE void igl::simplify_polyhedron(
     p.resize(3);
     double cost0, cost1;
     Eigen::RowVectorXd p0, p1;
-    perfect_directed(e,false,V,F,E,EMAP,EF,EI,cost0,p0);
-    perfect_directed(e,true,V,F,E,EMAP,EF,EI,cost1,p1);
+    perfect_directed(e,false,vers,tris,E,EMAP,EF,EI,cost0,p0);
+    perfect_directed(e,true,vers,tris,E,EMAP,EF,EI,cost1,p1);
     if(cost0 < cost1)
     {
       cost = cost0;
@@ -93,6 +93,6 @@ IGL_INLINE void igl::simplify_polyhedron(
     OV,OF,
     perfect,
     igl::infinite_cost_stopping_condition(perfect),
-    V,F,J,I);
+    vers,tris,J,I);
 }
 

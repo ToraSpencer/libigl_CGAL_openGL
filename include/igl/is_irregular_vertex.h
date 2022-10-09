@@ -18,12 +18,12 @@ namespace igl
   // or 4 (quads) incident edges. Vertices on the boundary are ignored.
   //
   // Inputs:
-  //   V  #V by dim list of vertex positions
-  //   F  #F by 3[4] list of triangle[quads] indices
-  // Returns #V vector of bools revealing whether vertices are singular
+  //   vers  #vers by dim list of vertex positions
+  //   tris  #tris by 3[4] list of triangle[quads] indices
+  // Returns #vers vector of bools revealing whether vertices are singular
   //
   template <typename DerivedV, typename DerivedF>
-  IGL_INLINE std::vector<bool> is_irregular_vertex(const Eigen::MatrixBase<DerivedV> &V, const Eigen::MatrixBase<DerivedF> &F);
+  IGL_INLINE std::vector<bool> is_irregular_vertex(const Eigen::MatrixBase<DerivedV> &vers, const Eigen::MatrixBase<DerivedF> &tris);
 }
 
 #ifndef IGL_STATIC_LIBRARY

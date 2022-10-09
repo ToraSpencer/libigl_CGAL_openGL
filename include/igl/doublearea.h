@@ -7,24 +7,24 @@ namespace igl
   // DOUBLEAREA computes twice the area for each input triangle[quad]
   //
   // Templates:
-  //   DerivedV  derived type of eigen matrix for V (e.g. derived from
+  //   DerivedV  derived type of eigen matrix for vers (e.g. derived from
   //     MatrixXd)
-  //   DerivedF  derived type of eigen matrix for F (e.g. derived from
+  //   DerivedF  derived type of eigen matrix for tris (e.g. derived from
   //     MatrixXi)
   //   DeriveddblA  derived type of eigen matrix for dblA (e.g. derived from
   //     MatrixXd)
   // Inputs:
-  //   V  #V by dim list of mesh vertex positions
-  //   F  #F by simplex_size list of mesh faces (must be triangles or quads)
+  //   vers  #vers by dim list of mesh vertex positions
+  //   tris  #tris by simplex_size list of mesh faces (must be triangles or quads)
   // Outputs:
-  //   dblA  #F list of triangle[quad] double areas (SIGNED only for 2D input)
+  //   dblA  #tris list of triangle[quad] double areas (SIGNED only for 2D input)
   //
-  // Known bug: For dim==3 complexity is O(#V + #F)!! Not just O(#F). This is a big deal
+  // Known bug: For dim==3 complexity is O(#vers + #tris)!! Not just O(#tris). This is a big deal
   // if you have 1million unreferenced vertices and 1 face
   template <typename DerivedV, typename DerivedF, typename DeriveddblA>
   IGL_INLINE void doublearea(
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     Eigen::PlainObjectBase<DeriveddblA> & dblA);
   // Stream of triangles, computes signed area...
   template <
@@ -48,22 +48,22 @@ namespace igl
     const Eigen::MatrixBase<DerivedA> & A,
     const Eigen::MatrixBase<DerivedB> & B,
     const Eigen::MatrixBase<DerivedC> & C);
-  // Same as above but use instrinsic edge lengths rather than (V,F) mesh. This
+  // Same as above but use instrinsic edge lengths rather than (vers,tris) mesh. This
   //
   // Inputs:
-  //   l  #F by dim list of edge lengths using
+  //   l  #tris by dim list of edge lengths using
   //     for triangles, columns correspond to edges 23,31,12
   //   nan_replacement  what value should be used for triangles whose given
   //     edge lengths do not obey the triangle inequality. These may be very
   //     wrong (e.g., [100 1 1]) or may be nearly degenerate triangles whose
   //     floating point side length computation leads to breach of the triangle
   //     inequality. One may wish to set this parameter to 0 if side lengths l
-  //     are _known_ to come from a valid embedding (e.g., some mesh (V,F)). In
+  //     are _known_ to come from a valid embedding (e.g., some mesh (vers,tris)). In
   //     that case, the only circumstance the triangle inequality is broken is
   //     when the triangle is nearly degenerate and floating point error
   //     dominates: hence replacing with zero is reasonable.
   // Outputs:
-  //   dblA  #F list of triangle double areas
+  //   dblA  #tris list of triangle double areas
   template <typename Derivedl, typename DeriveddblA>
   IGL_INLINE void doublearea(
     const Eigen::MatrixBase<Derivedl> & l,
@@ -77,15 +77,15 @@ namespace igl
   // DOUBLEAREA_QUAD computes twice the area for each input quadrilateral
   //
   // Inputs:
-  //   V  #V by dim list of mesh vertex positions
-  //   F  #F by simplex_size list of mesh faces (must be quadrilaterals)
+  //   vers  #vers by dim list of mesh vertex positions
+  //   tris  #tris by simplex_size list of mesh faces (must be quadrilaterals)
   // Outputs:
-  //   dblA  #F list of quadrilateral double areas
+  //   dblA  #tris list of quadrilateral double areas
   //
   template <typename DerivedV, typename DerivedF, typename DeriveddblA>
   IGL_INLINE void doublearea_quad(
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   Eigen::PlainObjectBase<DeriveddblA> & dblA);
 
 }

@@ -13,37 +13,37 @@
 
 template <typename DerivedV, typename DerivedF, typename LT, typename DerivedE, typename DerivedEMAP>
 void igl::crouzeix_raviart_cotmatrix(
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   Eigen::SparseMatrix<LT> & L,
   Eigen::PlainObjectBase<DerivedE> & E,
   Eigen::PlainObjectBase<DerivedEMAP> & EMAP)
 {
   // All occurrences of directed "facets"
   Eigen::Matrix<typename DerivedF::Scalar, Eigen::Dynamic, Eigen::Dynamic>  allE;
-  oriented_facets(F,allE);
+  oriented_facets(tris,allE);
   Eigen::VectorXi _1;
   unique_simplices(allE,E,_1,EMAP);
-  return crouzeix_raviart_cotmatrix(V,F,E,EMAP,L);
+  return crouzeix_raviart_cotmatrix(vers,tris,E,EMAP,L);
 }
 
 template <typename DerivedV, typename DerivedF, typename DerivedE, typename DerivedEMAP, typename LT>
 void igl::crouzeix_raviart_cotmatrix(
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const Eigen::MatrixBase<DerivedE> & E,
   const Eigen::MatrixBase<DerivedEMAP> & EMAP,
   Eigen::SparseMatrix<LT> & L)
 {
   // number of rows
-  const int m = F.rows();
+  const int m = tris.rows();
   // Element simplex size
-  const int ss = F.cols();
+  const int ss = tris.cols();
   // Mesh should be edge-manifold
-  assert(F.cols() != 3 || is_edge_manifold(F));
+  assert(tris.cols() != 3 || is_edge_manifold(tris));
   typedef Eigen::Matrix<LT,Eigen::Dynamic,Eigen::Dynamic> MatrixXS;
   MatrixXS C;
-  cotmatrix_entries(V,F,C);
+  cotmatrix_entries(vers,tris,C);
   Eigen::MatrixXi F2E(m,ss);
   {
     int k =0;

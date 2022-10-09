@@ -26,8 +26,8 @@ namespace igl
   //    model      model matrix
   //    proj       projection matrix
   //    viewport   vieweport vector
-  //    V   #V by 3 list of mesh vertex positions
-  //    F   #F by 3 list of mesh triangle indices into V
+  //    vers   #vers by 3 list of mesh vertex positions
+  //    tris   #tris by 3 list of mesh triangle indices into vers
   // Outputs:
   //    obj        3d unprojected mouse point in mesh
   //    hits       vector of hits
@@ -39,8 +39,8 @@ namespace igl
         const Eigen::Matrix4f& model,
         const Eigen::Matrix4f& proj,
         const Eigen::Vector4f& viewport,
-        const Eigen::MatrixBase<DerivedV> & V,
-        const Eigen::MatrixBase<DerivedF> & F,
+        const Eigen::MatrixBase<DerivedV> & vers,
+        const Eigen::MatrixBase<DerivedF> & tris,
         Eigen::PlainObjectBase<Derivedobj> & obj,
         std::vector<igl::Hit > & hits);
   //
@@ -77,8 +77,8 @@ namespace igl
         const Eigen::Matrix4f& model,
         const Eigen::Matrix4f& proj,
         const Eigen::Vector4f& viewport,
-        const Eigen::MatrixBase<DerivedV> & V,
-        const Eigen::MatrixBase<DerivedF> & F,
+        const Eigen::MatrixBase<DerivedV> & vers,
+        const Eigen::MatrixBase<DerivedF> & tris,
         Eigen::PlainObjectBase<Derivedobj> & obj);
 }
 #ifndef IGL_STATIC_LIBRARY

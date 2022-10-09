@@ -12,23 +12,23 @@
 #include <Eigen/Dense>
 namespace igl
 {
-  // Finds the ids of the flipped triangles of the mesh V,F in the UV mapping uv
+  // Finds the ids of the flipped triangles of the mesh vers,tris in the UV mapping uv
   //
   // Inputs:
-  //   V  #V by 2 list of mesh vertex positions
-  //   F  #F by 3 list of mesh faces (must be triangles)
+  //   vers  #vers by 2 list of mesh vertex positions
+  //   tris  #tris by 3 list of mesh faces (must be triangles)
   // Outputs:
-  //   X  #flipped list of containing the indices into F of the flipped triangles
+  //   X  #flipped list of containing the indices into tris of the flipped triangles
   // Wrapper with return type
   template <typename DerivedV, typename DerivedF, typename DerivedX>
   IGL_INLINE void flipped_triangles(
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     Eigen::PlainObjectBase<DerivedX> & X);
   template <typename Scalar, typename Index>
   IGL_INLINE Eigen::VectorXi flipped_triangles(
-    const Eigen::MatrixBase<Scalar> & V,
-    const Eigen::MatrixBase<Index> & F);
+    const Eigen::MatrixBase<Scalar> & vers,
+    const Eigen::MatrixBase<Index> & tris);
 
 }
 

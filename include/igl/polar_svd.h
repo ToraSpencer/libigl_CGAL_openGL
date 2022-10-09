@@ -22,7 +22,7 @@ namespace igl
   //   T  3 by 3 stretch matrix part of decomposition
   //   U  3 by 3 left-singular vectors
   //   S  3 by 1 singular values
-  //   V  3 by 3 right-singular vectors
+  //   vers  3 by 3 right-singular vectors
   //
   //
   template <
@@ -38,7 +38,7 @@ namespace igl
     Eigen::PlainObjectBase<DerivedT> & T,
     Eigen::PlainObjectBase<DerivedU> & U,
     Eigen::PlainObjectBase<DerivedS> & S,
-    Eigen::PlainObjectBase<DerivedV> & V);
+    Eigen::PlainObjectBase<DerivedV> & vers);
   template <
     typename DerivedA,
     typename DerivedR,

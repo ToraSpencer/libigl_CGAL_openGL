@@ -12,7 +12,7 @@ void igl::pinv(
   Eigen::JacobiSVD<DerivedA> svd(A, Eigen::ComputeFullU | Eigen::ComputeFullV );
   typedef typename DerivedA::Scalar Scalar;
   const Eigen::Matrix<Scalar,Eigen::Dynamic,Eigen::Dynamic> & U = svd.matrixU();
-  const Eigen::Matrix<Scalar,Eigen::Dynamic,Eigen::Dynamic> & V = svd.matrixV();
+  const Eigen::Matrix<Scalar,Eigen::Dynamic,Eigen::Dynamic> & vers = svd.matrixV();
   const Eigen::Matrix<Scalar,Eigen::Dynamic,1> & S = svd.singularValues();
   if(tol < 0)
   {
@@ -22,7 +22,7 @@ void igl::pinv(
       (smax-std::nextafter(smax,std::numeric_limits<Scalar>::epsilon()));
   }
   const int rank = (S.array()>0).count();
-  X = (V.leftCols(rank).array().rowwise() * 
+  X = (vers.leftCols(rank).array().rowwise() * 
       (1.0/S.head(rank).array()).transpose()).matrix()*
     U.leftCols(rank).transpose();
 }

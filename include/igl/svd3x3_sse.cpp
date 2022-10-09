@@ -26,7 +26,7 @@ IGL_INLINE void igl::svd3x3_sse(
   const Eigen::Matrix<T, 3*4, 3>& A, 
   Eigen::Matrix<T, 3*4, 3> &U, 
   Eigen::Matrix<T, 3*4, 1> &S, 
-  Eigen::Matrix<T, 3*4, 3>&V)
+  Eigen::Matrix<T, 3*4, 3>&vers)
 {
   // this code assumes USE_SSE_IMPLEMENTATION is defined 
   float Ashuffle[9][4], Ushuffle[9][4], Vshuffle[9][4], Sshuffle[3][4];
@@ -86,7 +86,7 @@ IGL_INLINE void igl::svd3x3_sse(
       for (int k=0; k<4; k++)
       {
         U(i + 3*k, j) = Ushuffle[i + j*3][k];
-        V(i + 3*k, j) = Vshuffle[i + j*3][k];
+        vers(i + 3*k, j) = Vshuffle[i + j*3][k];
       }
     }
   }
@@ -102,7 +102,7 @@ IGL_INLINE void igl::svd3x3_sse(
 #pragma runtime_checks( "u", restore )
 
 // forced instantiation
-template void igl::svd3x3_sse(const Eigen::Matrix<float, 3*4, 3>& A, Eigen::Matrix<float, 3*4, 3> &U, Eigen::Matrix<float, 3*4, 1> &S, Eigen::Matrix<float, 3*4, 3>&V);
+template void igl::svd3x3_sse(const Eigen::Matrix<float, 3*4, 3>& A, Eigen::Matrix<float, 3*4, 3> &U, Eigen::Matrix<float, 3*4, 1> &S, Eigen::Matrix<float, 3*4, 3>&vers);
 //// doesn't even make sense with double because the wunder-SVD code is only single precision anyway...
 //template void wunderSVD3x3_SSE<float>(Eigen::Matrix<float, 12, 3, 0, 12, 3> const&, Eigen::Matrix<float, 12, 3, 0, 12, 3>&, Eigen::Matrix<float, 12, 1, 0, 12, 1>&, Eigen::Matrix<float, 12, 3, 0, 12, 3>&);
 #endif

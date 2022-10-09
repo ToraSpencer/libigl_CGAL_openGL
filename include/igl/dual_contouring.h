@@ -26,8 +26,8 @@ namespace igl
   //     each edge (improves quality a lot at cost of performance). If false,
   //     use linear interpolation.
   // Outputs:
-  //   V  #V by 3 list of outputs vertex positions
-  //   Q  #Q by 4 (or 3 if triangles=true) face indices into rows of V
+  //   vers  #vers by 3 list of outputs vertex positions
+  //   Q  #Q by 4 (or 3 if triangles=true) face indices into rows of vers
   template <
     typename DerivedV,
     typename DerivedQ>
@@ -45,7 +45,7 @@ namespace igl
     const bool constrained,
     const bool triangles,
     const bool root_finding,
-    Eigen::PlainObjectBase<DerivedV> & V,
+    Eigen::PlainObjectBase<DerivedV> & vers,
     Eigen::PlainObjectBase<DerivedQ> & Q);
   // Inputs:
   //   Gf  nx*ny*nz list of function values so that Gf(k) = f(GV.row(k)) (only
@@ -71,7 +71,7 @@ namespace igl
     const bool constrained,
     const bool triangles,
     const bool root_finding,
-    Eigen::PlainObjectBase<DerivedV> & V,
+    Eigen::PlainObjectBase<DerivedV> & vers,
     Eigen::PlainObjectBase<DerivedQ> & Q);
   // Sparse voxel grid
   //
@@ -93,7 +93,7 @@ namespace igl
     const bool constrained,
     const bool triangles,
     const bool root_finding,
-    Eigen::PlainObjectBase<DerivedV> & V,
+    Eigen::PlainObjectBase<DerivedV> & vers,
     Eigen::PlainObjectBase<DerivedQ> & Q);
 }
 

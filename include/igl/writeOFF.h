@@ -24,23 +24,23 @@ namespace igl
   //   Index  type for indices (will be read as int and cast to Index)
   // Inputs:
   //  str  path to .off output file
-  //   V  #V by 3 mesh vertex positions
-  //   F  #F by 3 mesh indices into V
-  //   C  double matrix of rgb values per vertex #V by 3
+  //   vers  #vers by 3 mesh vertex positions
+  //   tris  #tris by 3 mesh indices into vers
+  //   C  double matrix of rgb values per vertex #vers by 3
   // Outputs:
   // Returns true on success, false on errors
   template <typename DerivedV, typename DerivedF, typename DerivedC>
   IGL_INLINE bool writeOFF(
     const std::string str,
-    const Eigen::MatrixBase<DerivedV>& V,
-    const Eigen::MatrixBase<DerivedF>& F,
+    const Eigen::MatrixBase<DerivedV>& vers,
+    const Eigen::MatrixBase<DerivedF>& tris,
     const Eigen::MatrixBase<DerivedC>& C);
 
   template <typename DerivedV, typename DerivedF>
   IGL_INLINE bool writeOFF(
     const std::string str,
-    const Eigen::MatrixBase<DerivedV>& V,
-    const Eigen::MatrixBase<DerivedF>& F);
+    const Eigen::MatrixBase<DerivedV>& vers,
+    const Eigen::MatrixBase<DerivedF>& tris);
 }
 
 #ifndef IGL_STATIC_LIBRARY

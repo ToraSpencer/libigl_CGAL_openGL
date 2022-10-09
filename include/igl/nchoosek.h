@@ -24,14 +24,14 @@ namespace igl
   IGL_INLINE double nchoosek(const int n, const int k);
   // 
   // Inputs:
-  //   V  n-long vector of elements
+  //   vers  n-long vector of elements
   //   k  size of sub-set to consider
   // Outputs:
   //   U  nchoosek by k long matrix where each row is a unique k-size
   //     combination
   template < typename DerivedV, typename DerivedU>
   IGL_INLINE void nchoosek(
-    const Eigen::MatrixBase<DerivedV> & V,
+    const Eigen::MatrixBase<DerivedV> & vers,
     const int k,
     Eigen::PlainObjectBase<DerivedU> & U);
 }

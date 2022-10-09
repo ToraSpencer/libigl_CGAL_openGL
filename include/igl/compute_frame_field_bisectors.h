@@ -14,20 +14,20 @@ namespace igl
 {
   // Compute bisectors of a frame field defined on mesh faces
   // Inputs:
-  //   V     #V by 3 eigen Matrix of mesh vertex 3D positions
-  //   F     #F by 3 eigen Matrix of face (triangle) indices
-  //   B1    #F by 3 eigen Matrix of face (triangle) base vector 1
-  //   B2    #F by 3 eigen Matrix of face (triangle) base vector 2
-  //   PD1   #F by 3 eigen Matrix of the first per face frame field vector
-  //   PD2   #F by 3 eigen Matrix of the second per face frame field vector
+  //   vers     #vers by 3 eigen Matrix of mesh vertex 3D positions
+  //   tris     #tris by 3 eigen Matrix of face (triangle) indices
+  //   B1    #tris by 3 eigen Matrix of face (triangle) base vector 1
+  //   B2    #tris by 3 eigen Matrix of face (triangle) base vector 2
+  //   PD1   #tris by 3 eigen Matrix of the first per face frame field vector
+  //   PD2   #tris by 3 eigen Matrix of the second per face frame field vector
   // Output:
-  //   BIS1  #F by 3 eigen Matrix of the first per face frame field bisector
-  //   BIS2  #F by 3 eigen Matrix of the second per face frame field bisector
+  //   BIS1  #tris by 3 eigen Matrix of the first per face frame field bisector
+  //   BIS2  #tris by 3 eigen Matrix of the second per face frame field bisector
   //
   template <typename DerivedV, typename DerivedF>
   IGL_INLINE void compute_frame_field_bisectors(
-                                                const Eigen::MatrixBase<DerivedV>& V,
-                                                const Eigen::MatrixBase<DerivedF>& F,
+                                                const Eigen::MatrixBase<DerivedV>& vers,
+                                                const Eigen::MatrixBase<DerivedF>& tris,
                                                 const Eigen::MatrixBase<DerivedV>& B1,
                                                 const Eigen::MatrixBase<DerivedV>& B2,
                                                 const Eigen::MatrixBase<DerivedV>& PD1,
@@ -38,8 +38,8 @@ namespace igl
   // Wrapper without given basis vectors.
   template <typename DerivedV, typename DerivedF>
   IGL_INLINE void compute_frame_field_bisectors(
-                                                const Eigen::MatrixBase<DerivedV>& V,
-                                                const Eigen::MatrixBase<DerivedF>& F,
+                                                const Eigen::MatrixBase<DerivedV>& vers,
+                                                const Eigen::MatrixBase<DerivedF>& tris,
                                                 const Eigen::MatrixBase<DerivedV>& PD1,
                                                 const Eigen::MatrixBase<DerivedV>& PD2,
                                                 Eigen::PlainObjectBase<DerivedV>& BIS1,

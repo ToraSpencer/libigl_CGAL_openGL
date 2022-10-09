@@ -14,7 +14,7 @@ int main(int argc, char * argv[])
   using namespace std;
   using namespace igl;
   Eigen::MatrixXi F,SF;
-  Eigen::MatrixXd V,SV,VT;
+  Eigen::MatrixXd vers,SV,VT;
   bool show_swept_volume = false;
   // Define a rigid motion
   const auto & transform = [](const double t)->Eigen::Affine3d
@@ -26,12 +26,12 @@ int main(int argc, char * argv[])
   };
   // Read in inputs as double precision floating point meshes
   read_triangle_mesh(
-      TUTORIAL_SHARED_PATH "/bunny.off",V,F);
+      TUTORIAL_SHARED_PATH "/bunny.off",vers,F);
   cout<<R"(Usage:
 [space]  Toggle between transforming original mesh and swept volume
 )";
   igl::opengl::glfw::Viewer viewer;
-  viewer.data().set_mesh(V,F);
+  viewer.data().set_mesh(vers,F);
   viewer.data().set_face_based(true);
   viewer.core().is_animating = !show_swept_volume;
   const int grid_size = 50;
@@ -39,7 +39,7 @@ int main(int argc, char * argv[])
   const double isolevel = 0.1;
   std::cerr<<"Computing swept volume...";
   igl::swept_volume(
-    V,F,transform,time_steps,grid_size,isolevel,SV,SF);
+    vers,F,transform,time_steps,grid_size,isolevel,SV,SF);
   std::cerr<<" finished."<<std::endl;
 
   viewer.callback_pre_draw =
@@ -48,7 +48,7 @@ int main(int argc, char * argv[])
       if(!show_swept_volume)
       {
         Eigen::Affine3d T = transform(0.25*igl::get_seconds());
-        VT = V*T.matrix().block(0,0,3,3).transpose();
+        VT = vers*T.matrix().block(0,0,3,3).transpose();
         Eigen::RowVector3d trans = T.matrix().block(0,3,3,1).transpose();
         VT = ( VT.rowwise() + trans).eval();
         viewer.data().set_vertices(VT);
@@ -76,7 +76,7 @@ int main(int argc, char * argv[])
           }
           else
           {
-            viewer.data().set_mesh(V,F);
+            viewer.data().set_mesh(vers,F);
           }
           viewer.core().is_animating = !show_swept_volume;
           viewer.data().set_face_based(true);

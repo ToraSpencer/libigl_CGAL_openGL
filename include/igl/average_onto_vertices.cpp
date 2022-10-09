@@ -8,23 +8,23 @@
 #include "average_onto_vertices.h"
 
 template<typename DerivedV,typename DerivedF,typename DerivedS,typename DerivedSV >
-IGL_INLINE void igl::average_onto_vertices(const Eigen::MatrixBase<DerivedV> &V,
-  const Eigen::MatrixBase<DerivedF> &F,
+IGL_INLINE void igl::average_onto_vertices(const Eigen::MatrixBase<DerivedV> &vers,
+  const Eigen::MatrixBase<DerivedF> &tris,
   const Eigen::MatrixBase<DerivedS> &S,
   Eigen::PlainObjectBase<DerivedSV> &SV)
 {
-  SV = DerivedS::Zero(V.rows(),S.cols());
-  Eigen::Matrix<typename DerivedF::Scalar,Eigen::Dynamic,1> COUNT(V.rows());
+  SV = DerivedS::Zero(vers.rows(),S.cols());
+  Eigen::Matrix<typename DerivedF::Scalar,Eigen::Dynamic,1> COUNT(vers.rows());
   COUNT.setZero();
-  for (int i = 0; i <F.rows(); ++i)
+  for (int i = 0; i <tris.rows(); ++i)
   {
-    for (int j = 0; j<F.cols(); ++j)
+    for (int j = 0; j<tris.cols(); ++j)
     {
-      SV.row(F(i,j)) += S.row(i);
-      COUNT[F(i,j)] ++;
+      SV.row(tris(i,j)) += S.row(i);
+      COUNT[tris(i,j)] ++;
     }
   }
-  for (int i = 0; i <V.rows(); ++i)
+  for (int i = 0; i <vers.rows(); ++i)
     SV.row(i) /= COUNT[i];
 };
 

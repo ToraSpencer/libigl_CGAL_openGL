@@ -15,27 +15,27 @@
 #include <vector>
 namespace igl
 {
-  // Computes the Euler characteristic of a given mesh (V,F)
+  // Computes the Euler characteristic of a given mesh (vers,tris)
   //
   // Inputs:
-  //   F #F by dim list of mesh faces (must be triangles)
+  //   tris #tris by dim list of mesh faces (must be triangles)
   // Returns An int containing the Euler characteristic
   template <typename DerivedF>
   IGL_INLINE int euler_characteristic(
-    const Eigen::MatrixBase<DerivedF> & F);
+    const Eigen::MatrixBase<DerivedF> & tris);
 
-  // Computes the Euler characteristic of a given mesh (V,F)
+  // Computes the Euler characteristic of a given mesh (vers,tris)
   // Templates:
   //   Scalar  should be a floating point number type
   //   Index   should be an integer type
   // Inputs:
-  //   V       #V by dim list of mesh vertex positions
-  //   F       #F by dim list of mesh faces (must be triangles)
+  //   vers       #vers by dim list of mesh vertex positions
+  //   tris       #tris by dim list of mesh faces (must be triangles)
   // Returns An int containing the Euler characteristic
   template <typename Scalar, typename Index>
   IGL_INLINE int euler_characteristic(
-    const Eigen::MatrixBase<Scalar> & V,
-    const Eigen::MatrixBase<Index> & F);
+    const Eigen::MatrixBase<Scalar> & vers,
+    const Eigen::MatrixBase<Index> & tris);
 
 }
 

@@ -64,7 +64,7 @@ IGL_INLINE void igl::circulation(
 IGL_INLINE void igl::circulation(
   const int e,
   const bool ccw,
-  const Eigen::MatrixXi & F,
+  const Eigen::MatrixXi & tris,
   const Eigen::VectorXi & EMAP,
   const Eigen::MatrixXi & EF,
   const Eigen::MatrixXi & EI,
@@ -109,7 +109,7 @@ IGL_INLINE void igl::circulation(
     nf = EF(e,nside);
     // get next edge 
     const int dir = ccw?-1:1;
-    rv = F(nf,nv);
+    rv = tris(nf,nv);
     ne = EMAP(nf+m*((nv+dir+3)%3));
     //re = EMAP(nf+m*((nv+2*dir+3)%3));
   };

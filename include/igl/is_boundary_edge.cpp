@@ -15,17 +15,17 @@ template <
   typename DerivedB>
 void igl::is_boundary_edge(
   const Eigen::PlainObjectBase<DerivedE> & E,
-  const Eigen::PlainObjectBase<DerivedF> & F,
+  const Eigen::PlainObjectBase<DerivedF> & tris,
   Eigen::PlainObjectBase<DerivedB> & B)
 {
   using namespace Eigen;
   using namespace std;
   // Should be triangles
-  assert(F.cols() == 3);
+  assert(tris.cols() == 3);
   // Should be edges
   assert(E.cols() == 2);
   // number of faces
-  const int m = F.rows();
+  const int m = tris.rows();
   // Collect all directed edges after E
   MatrixXi EallE(E.rows()+3*m,2);
   EallE.block(0,0,E.rows(),E.cols()) = E;
@@ -36,7 +36,7 @@ void igl::is_boundary_edge(
       for(int c = 0;c<2;c++)
       {
         // 12 20 01
-        EallE(E.rows()+m*e+f,c) = F(f,(c+1+e)%3);
+        EallE(E.rows()+m*e+f,c) = tris(f,(c+1+e)%3);
       }
     }
   }
@@ -68,7 +68,7 @@ template <
   typename DerivedB,
   typename DerivedEMAP>
 void igl::is_boundary_edge(
-  const Eigen::PlainObjectBase<DerivedF> & F,
+  const Eigen::PlainObjectBase<DerivedF> & tris,
   Eigen::PlainObjectBase<DerivedB> & B,
   Eigen::PlainObjectBase<DerivedE> & E,
   Eigen::PlainObjectBase<DerivedEMAP> & EMAP)
@@ -76,9 +76,9 @@ void igl::is_boundary_edge(
   using namespace Eigen;
   using namespace std;
   // Should be triangles
-  assert(F.cols() == 3);
+  assert(tris.cols() == 3);
   // number of faces
-  const int m = F.rows();
+  const int m = tris.rows();
   // Collect all directed edges after E
   MatrixXi allE(3*m,2);
   for(int e = 0;e<3;e++)
@@ -88,7 +88,7 @@ void igl::is_boundary_edge(
       for(int c = 0;c<2;c++)
       {
         // 12 20 01
-        allE(m*e+f,c) = F(f,(c+1+e)%3);
+        allE(m*e+f,c) = tris(f,(c+1+e)%3);
       }
     }
   }

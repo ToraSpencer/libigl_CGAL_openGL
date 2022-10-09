@@ -6,7 +6,7 @@
 
 #include "tutorial_shared_path.h"
 
-Eigen::MatrixXd V;
+Eigen::MatrixXd vers;
 Eigen::MatrixXi F;
 Eigen::MatrixXd V_uv;
 
@@ -16,8 +16,8 @@ bool key_down(igl::opengl::glfw::Viewer& viewer, unsigned char key, int modifier
   if (key == '1')
   {
     // Plot the 3D mesh
-    viewer.data().set_mesh(V,F);
-    viewer.core().align_camera_center(V,F);
+    viewer.data().set_mesh(vers,F);
+    viewer.core().align_camera_center(vers,F);
   }
   else if (key == '2')
   {
@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
   using namespace std;
 
   // Load a mesh in OFF format
-  igl::readOFF(TUTORIAL_SHARED_PATH "/camelhead.off", V, F);
+  igl::readOFF(TUTORIAL_SHARED_PATH "/camelhead.off", vers, F);
 
   // Fix two points on the boundary
   VectorXi bnd,b(2,1);
@@ -48,14 +48,14 @@ int main(int argc, char *argv[])
   bc<<0,0,1,0;
 
   // LSCM parametrization
-  igl::lscm(V,F,b,bc,V_uv);
+  igl::lscm(vers,F,b,bc,V_uv);
 
   // Scale the uv
   V_uv *= 5;
 
   // Plot the mesh
   igl::opengl::glfw::Viewer viewer;
-  viewer.data().set_mesh(V, F);
+  viewer.data().set_mesh(vers, F);
   viewer.data().set_uv(V_uv);
   viewer.callback_key_down = &key_down;
 

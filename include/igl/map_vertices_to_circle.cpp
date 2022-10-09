@@ -10,15 +10,15 @@
 #include "PI.h"
 
 IGL_INLINE void igl::map_vertices_to_circle(
-  const Eigen::MatrixXd& V,
+  const Eigen::MatrixXd& vers,
   const Eigen::VectorXi& bnd,
   Eigen::MatrixXd& UV)
 {
   // Get sorted list of boundary vertices
   std::vector<int> interior,map_ij;
-  map_ij.resize(V.rows());
+  map_ij.resize(vers.rows());
 
-  std::vector<bool> isOnBnd(V.rows(),false);
+  std::vector<bool> isOnBnd(vers.rows(),false);
   for (int i = 0; i < bnd.size(); i++)
   {
     isOnBnd[bnd[i]] = true;
@@ -40,9 +40,9 @@ IGL_INLINE void igl::map_vertices_to_circle(
 
   for (int i = 1; i < bnd.size(); i++)
   {
-    len[i] = len[i-1] + (V.row(bnd[i-1]) - V.row(bnd[i])).norm();
+    len[i] = len[i-1] + (vers.row(bnd[i-1]) - vers.row(bnd[i])).norm();
   }
-  double total_len = len[len.size()-1] + (V.row(bnd[0]) - V.row(bnd[bnd.size()-1])).norm();
+  double total_len = len[len.size()-1] + (vers.row(bnd[0]) - vers.row(bnd[bnd.size()-1])).norm();
 
   UV.resize(bnd.size(),2);
   for (int i = 0; i < bnd.size(); i++)

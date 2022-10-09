@@ -30,15 +30,15 @@ int main(int argc, char *argv[])
 {
   // Create the peak height field
   Eigen::MatrixXi F;
-  Eigen::MatrixXd V;
-  igl::read_triangle_mesh( argc>1?argv[1]: TUTORIAL_SHARED_PATH "/beetle.off",V,F);
+  Eigen::MatrixXd vers;
+  igl::read_triangle_mesh( argc>1?argv[1]: TUTORIAL_SHARED_PATH "/beetle.off",vers,F);
 
   // Precomputation
   igl::HeatGeodesicsData<double> data;
-  double t = std::pow(igl::avg_edge_length(V,F),2);
+  double t = std::pow(igl::avg_edge_length(vers,F),2);
   const auto precompute = [&]()
   {
-    if(!igl::heat_geodesics_precompute(V,F,t,data))
+    if(!igl::heat_geodesics_precompute(vers,F,t,data))
     {
       std::cerr<<"Error: heat_geodesics_precompute failed."<<std::endl;
       exit(EXIT_FAILURE);
@@ -56,7 +56,7 @@ int main(int argc, char *argv[])
     double x = viewer.current_mouse_x;
     double y = viewer.core().viewport(3) - viewer.current_mouse_y;
     if(igl::unproject_onto_mesh(Eigen::Vector2f(x,y), viewer.core().view,
-      viewer.core().proj, viewer.core().viewport, V, F, fid, bc))
+      viewer.core().proj, viewer.core().viewport, vers, F, fid, bc))
     {
       Eigen::VectorXd D;
       // if big mesh, just use closest vertex. Otherwise, blend distances to
@@ -65,17 +65,17 @@ int main(int argc, char *argv[])
       {
         // 3d position of hit
         const Eigen::RowVector3d m3 =
-          V.row(F(fid,0))*bc(0) + V.row(F(fid,1))*bc(1) + V.row(F(fid,2))*bc(2);
+          vers.row(F(fid,0))*bc(0) + vers.row(F(fid,1))*bc(1) + vers.row(F(fid,2))*bc(2);
         int cid = 0;
         Eigen::Vector3d(
-            (V.row(F(fid,0))-m3).squaredNorm(),
-            (V.row(F(fid,1))-m3).squaredNorm(),
-            (V.row(F(fid,2))-m3).squaredNorm()).minCoeff(&cid);
+            (vers.row(F(fid,0))-m3).squaredNorm(),
+            (vers.row(F(fid,1))-m3).squaredNorm(),
+            (vers.row(F(fid,2))-m3).squaredNorm()).minCoeff(&cid);
         const int vid = F(fid,cid);
         igl::heat_geodesics_solve(data,(Eigen::VectorXi(1,1)<<vid).finished(),D);
       }else
       {
-        D = Eigen::VectorXd::Zero(V.rows());
+        D = Eigen::VectorXd::Zero(vers.rows());
         for(int cid = 0;cid<3;cid++)
         {
           const int vid = F(fid,cid);
@@ -149,8 +149,8 @@ int main(int argc, char *argv[])
   };
 
   // Show mesh
-  viewer.data().set_mesh(V, F);
-  viewer.data().set_data(Eigen::VectorXd::Zero(V.rows()));
+  viewer.data().set_mesh(vers, F);
+  viewer.data().set_data(Eigen::VectorXd::Zero(vers.rows()));
   set_colormap(viewer);
   viewer.data().show_lines = false;
   viewer.launch();

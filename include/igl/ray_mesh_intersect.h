@@ -8,14 +8,14 @@
 
 namespace igl
 {
-  // Shoot a ray against a mesh (V,F) and collect all hits. If you have many
+  // Shoot a ray against a mesh (vers,tris) and collect all hits. If you have many
   // rays, consider using AABB.h
   //
   // Inputs:
   //   source  3-vector origin of ray
   //   dir  3-vector direction of ray
-  //   V  #V by 3 list of mesh vertex positions
-  //   F  #F by 3 list of mesh face indices into V
+  //   vers  #vers by 3 list of mesh vertex positions
+  //   tris  #tris by 3 list of mesh face indices into vers
   // Outputs:
   //    hits  **sorted** list of hits
   // Returns true if there were any hits (hits.size() > 0)
@@ -29,8 +29,8 @@ namespace igl
   IGL_INLINE bool ray_mesh_intersect(
     const Eigen::MatrixBase<Derivedsource> & source,
     const Eigen::MatrixBase<Deriveddir> & dir,
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     std::vector<igl::Hit> & hits);
 
 
@@ -45,8 +45,8 @@ namespace igl
   IGL_INLINE bool ray_mesh_intersect(
     const Eigen::MatrixBase<Derivedsource> & source,
     const Eigen::MatrixBase<Deriveddir> & dir,
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     igl::Hit & hit);
 }
 

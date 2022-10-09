@@ -13,9 +13,9 @@ namespace igl
        Inputs:
          e               index into E of edge to circulate
          ccw           whether to _continue_ in ccw direction of edge (circulate around E(e,1))
-         EMAP       #F*3 list of indices into E, mapping each directed edge to unique unique edge in E
+         EMAP       #tris*3 list of indices into E, mapping each directed edge to unique unique edge in E
          EF             #E by 2 list of edge flaps, EF(e,0)=f means e=(i-->j) is the edge of
-                                    F(f,:) opposite the vth corner, where EI(e,0)=v. Similarly EF(e,1) "       e=(j->i)
+                                    tris(f,:) opposite the vth corner, where EI(e,0)=v. Similarly EF(e,1) "       e=(j->i)
          EI              #E by 2 list of edge flap corners (see above).
 
         Returns list of faces touched by circulation (in cyclically order).
@@ -47,7 +47,7 @@ namespace igl
   IGL_INLINE void circulation(
     const int e,
     const bool ccw,
-    const Eigen::MatrixXi & F,
+    const Eigen::MatrixXi & tris,
     const Eigen::VectorXi & EMAP,
     const Eigen::MatrixXi & EF,
     const Eigen::MatrixXi & EI,

@@ -331,26 +331,26 @@ inline void igl::Camera::look_at(
   using namespace std;
   // http://www.opengl.org/sdk/docs/man2/xhtml/gluLookAt.xml
   // Normalize vector from at to eye
-  Vector3d F = eye-at;
-  m_at_dist = F.norm();
-  F.normalize();
-  // Project up onto plane orthogonal to F and normalize
-  assert(up.cross(F).norm() > DOUBLE_EPS && "(eye-at) x up ≈ 0");
-  const Vector3d proj_up = (up-(up.dot(F))*F).normalized();
+  Vector3d tris = eye-at;
+  m_at_dist = tris.norm();
+  tris.normalize();
+  // Project up onto plane orthogonal to tris and normalize
+  assert(up.cross(tris).norm() > DOUBLE_EPS && "(eye-at) x up ≈ 0");
+  const Vector3d proj_up = (up-(up.dot(tris))*tris).normalized();
   Quaterniond a,b;
-  a.setFromTwoVectors(Vector3d(0,0,-1),-F);
+  a.setFromTwoVectors(Vector3d(0,0,-1),-tris);
   b.setFromTwoVectors(a*Vector3d(0,1,0),proj_up);
   m_rotation_conj = (b*a).conjugate();
   m_translation = m_rotation_conj * eye;
   //cout<<"m_at_dist: "<<m_at_dist<<endl;
   //cout<<"proj_up: "<<proj_up.transpose()<<endl;
-  //cout<<"F: "<<F.transpose()<<endl;
+  //cout<<"tris: "<<tris.transpose()<<endl;
   //cout<<"eye(): "<<this->eye().transpose()<<endl;
   //cout<<"at(): "<<this->at().transpose()<<endl;
   //cout<<"eye()-at(): "<<(this->eye()-this->at()).normalized().transpose()<<endl;
   //cout<<"eye-this->eye(): "<<(eye-this->eye()).squaredNorm()<<endl;
   assert(           (eye-this->eye()).squaredNorm() < DOUBLE_EPS);
-  //assert((F-(this->eye()-this->at()).normalized()).squaredNorm() < 
+  //assert((tris-(this->eye()-this->at()).normalized()).squaredNorm() < 
   //  DOUBLE_EPS);
   assert(           (at-this->at()).squaredNorm() < DOUBLE_EPS);
   //assert(        (proj_up-this->up()).squaredNorm() < DOUBLE_EPS);

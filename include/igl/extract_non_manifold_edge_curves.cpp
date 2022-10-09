@@ -17,20 +17,20 @@ typename DerivedF,
 typename DerivedEMAP,
 typename uE2EType >
 IGL_INLINE void igl::extract_non_manifold_edge_curves(
-        const Eigen::MatrixBase<DerivedF>& F,
+        const Eigen::MatrixBase<DerivedF>& tris,
         const Eigen::MatrixBase<DerivedEMAP>& /*EMAP*/,
         const std::vector<std::vector<uE2EType> >& uE2E,
         std::vector<std::vector<size_t> >& curves) {
-    const size_t num_faces = F.rows();
-    assert(F.cols() == 3);
+    const size_t num_faces = tris.rows();
+    assert(tris.cols() == 3);
     //typedef std::pair<size_t, size_t> Edge;
     auto edge_index_to_face_index = [&](size_t ei) { return ei % num_faces; };
     auto edge_index_to_corner_index = [&](size_t ei) { return ei / num_faces; };
     auto get_edge_end_points = [&](size_t ei, size_t& s, size_t& d) {
         const size_t fi = edge_index_to_face_index(ei);
         const size_t ci = edge_index_to_corner_index(ei);
-        s = F(fi, (ci+1)%3);
-        d = F(fi, (ci+2)%3);
+        s = tris(fi, (ci+1)%3);
+        d = tris(fi, (ci+2)%3);
     };
 
     curves.clear();

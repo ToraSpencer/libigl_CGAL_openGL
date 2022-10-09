@@ -6,8 +6,8 @@
 #include <iostream>
 
 void igl::smooth_corner_adjacency(
-  const Eigen::MatrixXd & V,
-  const Eigen::MatrixXi & F,
+  const Eigen::MatrixXd & vers,
+  const Eigen::MatrixXi & tris,
   const double corner_threshold_radians,
   Eigen::VectorXi & CI,
   Eigen::VectorXi & CC)
@@ -15,22 +15,22 @@ void igl::smooth_corner_adjacency(
   typedef double Scalar;
   typedef Eigen::Index Index;
   Eigen::Matrix<Index,Eigen::Dynamic,1> VF,NI;
-  igl::vertex_triangle_adjacency(F,V.rows(),VF,NI);
+  igl::vertex_triangle_adjacency(tris,vers.rows(),VF,NI);
   // unit normals
-  Eigen::Matrix<Scalar,Eigen::Dynamic,3,Eigen::RowMajor> FN(F.rows(),3);
-  igl::parallel_for(F.rows(),[&](const Index f)
+  Eigen::Matrix<Scalar,Eigen::Dynamic,3,Eigen::RowMajor> FN(tris.rows(),3);
+  igl::parallel_for(tris.rows(),[&](const Index f)
   {
-    const Eigen::Matrix<Scalar,1,3> v10 = V.row(F(f,1))-V.row(F(f,0));
-    const Eigen::Matrix<Scalar,1,3> v20 = V.row(F(f,2))-V.row(F(f,0));
+    const Eigen::Matrix<Scalar,1,3> v10 = vers.row(tris(f,1))-vers.row(tris(f,0));
+    const Eigen::Matrix<Scalar,1,3> v20 = vers.row(tris(f,2))-vers.row(tris(f,0));
     const Eigen::Matrix<Scalar,1,3> n = v10.cross(v20);
     const Scalar a = n.norm();
     FN.row(f) = n/a;
   },10000);
 
   // number of faces
-  const Index m = F.rows();
+  const Index m = tris.rows();
   // valence of faces
-  const Index n = F.cols();
+  const Index n = tris.cols();
   assert(n == 3);
 
   CI.resize(m*n*8);
@@ -62,7 +62,7 @@ void igl::smooth_corner_adjacency(
       ci++;
       assert(ci == i*n+j);
       CC(ci+1) = CC(ci);
-      const auto & v = F(i,j);
+      const auto & v = tris(i,j);
       for(int k = NI(v); k<NI(v+1); k++)
       {
         const int nf = VF(k);
@@ -108,7 +108,7 @@ void igl::smooth_corner_adjacency(
   {
     for(Index i = 0;i<m;i++)
     {
-      // unzip_corners uses convention i+j*#F
+      // unzip_corners uses convention i+j*#tris
       const Index ci = i+j*m;
       U2F[J(ci)].emplace_back(i);
     }

@@ -20,13 +20,13 @@ template <
   typename Derivedbc,
   typename DerivedU>
 IGL_INLINE bool igl::bijective_composite_harmonic_mapping(
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const Eigen::MatrixBase<Derivedb> & b,
   const Eigen::MatrixBase<Derivedbc> & bc,
   Eigen::PlainObjectBase<DerivedU> & U)
 {
-  return bijective_composite_harmonic_mapping(V,F,b,bc,1,200,20,true,U);
+  return bijective_composite_harmonic_mapping(vers,tris,b,bc,1,200,20,true,U);
 }
 
 template <
@@ -36,8 +36,8 @@ template <
   typename Derivedbc,
   typename DerivedU>
 IGL_INLINE bool igl::bijective_composite_harmonic_mapping(
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const Eigen::MatrixBase<Derivedb> & b,
   const Eigen::MatrixBase<Derivedbc> & bc,
   const int min_steps,
@@ -47,19 +47,19 @@ IGL_INLINE bool igl::bijective_composite_harmonic_mapping(
   Eigen::PlainObjectBase<DerivedU> & U)
 {
   typedef typename Derivedbc::Scalar Scalar;
-  assert(V.cols() == 2 && bc.cols() == 2 && "Input should be 2D");
-  assert(F.cols() == 3 && "F should contain triangles");
+  assert(vers.cols() == 2 && bc.cols() == 2 && "Input should be 2D");
+  assert(tris.cols() == 3 && "tris should contain triangles");
   int tries = 0;
   int nsteps = min_steps;
   Eigen::Matrix<typename Derivedbc::Scalar, Eigen::Dynamic, Eigen::Dynamic> bc0;
-  slice(V,b,1,bc0);
+  slice(vers,b,1,bc0);
 
   // It's difficult to check for flips "robustly" in the sense that the input
   // mesh might not have positive/consistent sign to begin with.
 
   while(nsteps<=max_steps)
   {
-    U = V;
+    U = vers;
     int flipped = 0;
     int nans = 0;
     int step = 0;
@@ -78,17 +78,17 @@ IGL_INLINE bool igl::bijective_composite_harmonic_mapping(
         //std::cout<<nsteps<<" t: "<<t<<" iter: "<<iter;
         //igl::matlab::MatlabWorkspace mw;
         //mw.save(U,"U");
-        //mw.save_index(F,"F");
+        //mw.save_index(tris,"tris");
         //mw.save_index(b,"b");
         //mw.save(bct,"bct");
         //mw.write("numerical.mat");
-        harmonic(Eigen::Matrix<typename DerivedU::Scalar, Eigen::Dynamic, Eigen::Dynamic>(U), F, b, bct, 1, U);
+        harmonic(Eigen::Matrix<typename DerivedU::Scalar, Eigen::Dynamic, Eigen::Dynamic>(U), tris, b, bct, 1, U);
         igl::slice(U,b,1,bct);
         nans = (U.array() != U.array()).count();
         if(test_for_flips)
         {
           Eigen::Matrix<Scalar,Eigen::Dynamic,1> A;
-          doublearea(U,F,A);
+          doublearea(U,tris,A);
           flipped = (A.array() < 0 ).count();
           //std::cout<<"  "<<flipped<<"  nan? "<<(U.array() != U.array()).any()<<std::endl;
           if(flipped == 0 && nans == 0) break;

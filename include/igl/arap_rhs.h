@@ -18,21 +18,21 @@ namespace igl
   // ARAP_RHS build right-hand side constructor of global poisson solve for
   // various Arap energies
   // Inputs:
-  //   V  #V by Vdim list of initial domain positions
-  //   F  #F by 3 list of triangle indices into V
+  //   vers  #vers by Vdim list of initial domain positions
+  //   tris  #tris by 3 list of triangle indices into vers
   //   dim  dimension being used at solve time. For deformation usually dim =
-  //     V.cols(), for surface parameterization V.cols() = 3 and dim = 2
+  //     vers.cols(), for surface parameterization vers.cols() = 3 and dim = 2
   //   energy  igl::ARAPEnergyType enum value defining which energy is being
   //     used. See igl::ARAPEnergyType.h for valid options and explanations.
   // Outputs:
-  //   K  #V*dim by #(F|V)*dim*dim matrix such that:
-  //     b = K * reshape(permute(R,[3 1 2]),size(V|F,1)*size(V,2)*size(V,2),1);
+  //   K  #vers*dim by #(tris|vers)*dim*dim matrix such that:
+  //     b = K * reshape(permute(R,[3 1 2]),size(vers|tris,1)*size(vers,2)*size(vers,2),1);
   //
   // See also: arap_linear_block
   template<typename DerivedV, typename DerivedF, typename DerivedK>
   IGL_INLINE void arap_rhs(
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const int dim,
     const igl::ARAPEnergyType energy,
     Eigen::SparseCompressedBase<DerivedK>& K);

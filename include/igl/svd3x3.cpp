@@ -19,7 +19,7 @@
 
 #pragma runtime_checks( "u", off )  // disable runtime asserts on xor eax,eax type of stuff (doesn't always work, disable explicitly in compiler settings)
 template<typename T>
-IGL_INLINE void igl::svd3x3(const Eigen::Matrix<T, 3, 3>& A, Eigen::Matrix<T, 3, 3> &U, Eigen::Matrix<T, 3, 1> &S, Eigen::Matrix<T, 3, 3>&V)
+IGL_INLINE void igl::svd3x3(const Eigen::Matrix<T, 3, 3>& A, Eigen::Matrix<T, 3, 3> &U, Eigen::Matrix<T, 3, 1> &S, Eigen::Matrix<T, 3, 3>&vers)
 {
   // this code only supports the scalar version (otherwise we'd need to pass arrays of matrices)  
 
@@ -47,15 +47,15 @@ IGL_INLINE void igl::svd3x3(const Eigen::Matrix<T, 3, 3>& A, Eigen::Matrix<T, 3,
     ENABLE_SCALAR_IMPLEMENTATION(U(1,2)=Su23.f;)                                      ENABLE_SSE_IMPLEMENTATION(_mm_storeu_ps(u23,Vu23);)                                 ENABLE_AVX_IMPLEMENTATION(_mm256_storeu_ps(u23,Vu23);)
     ENABLE_SCALAR_IMPLEMENTATION(U(2,2)=Su33.f;)                                      ENABLE_SSE_IMPLEMENTATION(_mm_storeu_ps(u33,Vu33);)                                 ENABLE_AVX_IMPLEMENTATION(_mm256_storeu_ps(u33,Vu33);)
 
-    ENABLE_SCALAR_IMPLEMENTATION(V(0,0)=Sv11.f;)                                      ENABLE_SSE_IMPLEMENTATION(_mm_storeu_ps(v11,Vv11);)                                 ENABLE_AVX_IMPLEMENTATION(_mm256_storeu_ps(v11,Vv11);)
-    ENABLE_SCALAR_IMPLEMENTATION(V(1,0)=Sv21.f;)                                      ENABLE_SSE_IMPLEMENTATION(_mm_storeu_ps(v21,Vv21);)                                 ENABLE_AVX_IMPLEMENTATION(_mm256_storeu_ps(v21,Vv21);)
-    ENABLE_SCALAR_IMPLEMENTATION(V(2,0)=Sv31.f;)                                      ENABLE_SSE_IMPLEMENTATION(_mm_storeu_ps(v31,Vv31);)                                 ENABLE_AVX_IMPLEMENTATION(_mm256_storeu_ps(v31,Vv31);)
-    ENABLE_SCALAR_IMPLEMENTATION(V(0,1)=Sv12.f;)                                      ENABLE_SSE_IMPLEMENTATION(_mm_storeu_ps(v12,Vv12);)                                 ENABLE_AVX_IMPLEMENTATION(_mm256_storeu_ps(v12,Vv12);)
-    ENABLE_SCALAR_IMPLEMENTATION(V(1,1)=Sv22.f;)                                      ENABLE_SSE_IMPLEMENTATION(_mm_storeu_ps(v22,Vv22);)                                 ENABLE_AVX_IMPLEMENTATION(_mm256_storeu_ps(v22,Vv22);)
-    ENABLE_SCALAR_IMPLEMENTATION(V(2,1)=Sv32.f;)                                      ENABLE_SSE_IMPLEMENTATION(_mm_storeu_ps(v32,Vv32);)                                 ENABLE_AVX_IMPLEMENTATION(_mm256_storeu_ps(v32,Vv32);)
-    ENABLE_SCALAR_IMPLEMENTATION(V(0,2)=Sv13.f;)                                      ENABLE_SSE_IMPLEMENTATION(_mm_storeu_ps(v13,Vv13);)                                 ENABLE_AVX_IMPLEMENTATION(_mm256_storeu_ps(v13,Vv13);)
-    ENABLE_SCALAR_IMPLEMENTATION(V(1,2)=Sv23.f;)                                      ENABLE_SSE_IMPLEMENTATION(_mm_storeu_ps(v23,Vv23);)                                 ENABLE_AVX_IMPLEMENTATION(_mm256_storeu_ps(v23,Vv23);)
-    ENABLE_SCALAR_IMPLEMENTATION(V(2,2)=Sv33.f;)                                      ENABLE_SSE_IMPLEMENTATION(_mm_storeu_ps(v33,Vv33);)                                 ENABLE_AVX_IMPLEMENTATION(_mm256_storeu_ps(v33,Vv33);)
+    ENABLE_SCALAR_IMPLEMENTATION(vers(0,0)=Sv11.f;)                                      ENABLE_SSE_IMPLEMENTATION(_mm_storeu_ps(v11,Vv11);)                                 ENABLE_AVX_IMPLEMENTATION(_mm256_storeu_ps(v11,Vv11);)
+    ENABLE_SCALAR_IMPLEMENTATION(vers(1,0)=Sv21.f;)                                      ENABLE_SSE_IMPLEMENTATION(_mm_storeu_ps(v21,Vv21);)                                 ENABLE_AVX_IMPLEMENTATION(_mm256_storeu_ps(v21,Vv21);)
+    ENABLE_SCALAR_IMPLEMENTATION(vers(2,0)=Sv31.f;)                                      ENABLE_SSE_IMPLEMENTATION(_mm_storeu_ps(v31,Vv31);)                                 ENABLE_AVX_IMPLEMENTATION(_mm256_storeu_ps(v31,Vv31);)
+    ENABLE_SCALAR_IMPLEMENTATION(vers(0,1)=Sv12.f;)                                      ENABLE_SSE_IMPLEMENTATION(_mm_storeu_ps(v12,Vv12);)                                 ENABLE_AVX_IMPLEMENTATION(_mm256_storeu_ps(v12,Vv12);)
+    ENABLE_SCALAR_IMPLEMENTATION(vers(1,1)=Sv22.f;)                                      ENABLE_SSE_IMPLEMENTATION(_mm_storeu_ps(v22,Vv22);)                                 ENABLE_AVX_IMPLEMENTATION(_mm256_storeu_ps(v22,Vv22);)
+    ENABLE_SCALAR_IMPLEMENTATION(vers(2,1)=Sv32.f;)                                      ENABLE_SSE_IMPLEMENTATION(_mm_storeu_ps(v32,Vv32);)                                 ENABLE_AVX_IMPLEMENTATION(_mm256_storeu_ps(v32,Vv32);)
+    ENABLE_SCALAR_IMPLEMENTATION(vers(0,2)=Sv13.f;)                                      ENABLE_SSE_IMPLEMENTATION(_mm_storeu_ps(v13,Vv13);)                                 ENABLE_AVX_IMPLEMENTATION(_mm256_storeu_ps(v13,Vv13);)
+    ENABLE_SCALAR_IMPLEMENTATION(vers(1,2)=Sv23.f;)                                      ENABLE_SSE_IMPLEMENTATION(_mm_storeu_ps(v23,Vv23);)                                 ENABLE_AVX_IMPLEMENTATION(_mm256_storeu_ps(v23,Vv23);)
+    ENABLE_SCALAR_IMPLEMENTATION(vers(2,2)=Sv33.f;)                                      ENABLE_SSE_IMPLEMENTATION(_mm_storeu_ps(v33,Vv33);)                                 ENABLE_AVX_IMPLEMENTATION(_mm256_storeu_ps(v33,Vv33);)
 
     ENABLE_SCALAR_IMPLEMENTATION(S(0,0)=Sa11.f;)                                   ENABLE_SSE_IMPLEMENTATION(_mm_storeu_ps(sigma1,Va11);)                              ENABLE_AVX_IMPLEMENTATION(_mm256_storeu_ps(sigma1,Va11);)
     ENABLE_SCALAR_IMPLEMENTATION(S(1,0)=Sa22.f;)                                   ENABLE_SSE_IMPLEMENTATION(_mm_storeu_ps(sigma2,Va22);)                              ENABLE_AVX_IMPLEMENTATION(_mm256_storeu_ps(sigma2,Va22);)
@@ -64,6 +64,6 @@ IGL_INLINE void igl::svd3x3(const Eigen::Matrix<T, 3, 3>& A, Eigen::Matrix<T, 3,
 #pragma runtime_checks( "u", restore ) 
 
 // forced instantiation
-template void igl::svd3x3(const Eigen::Matrix<float, 3, 3>& A, Eigen::Matrix<float, 3, 3> &U, Eigen::Matrix<float, 3, 1> &S, Eigen::Matrix<float, 3, 3>&V);
+template void igl::svd3x3(const Eigen::Matrix<float, 3, 3>& A, Eigen::Matrix<float, 3, 3> &U, Eigen::Matrix<float, 3, 1> &S, Eigen::Matrix<float, 3, 3>&vers);
 template void igl::svd3x3<double>(Eigen::Matrix<double, 3, 3, 0, 3, 3> const&, Eigen::Matrix<double, 3, 3, 0, 3, 3>&, Eigen::Matrix<double, 3, 1, 0, 3, 1>&, Eigen::Matrix<double, 3, 3, 0, 3, 3>&);
 // doesn't even make sense with double because this SVD code is only single precision anyway...

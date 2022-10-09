@@ -12,13 +12,13 @@
 #include <vector>
 namespace igl
 {
-  // IS_INTRINSIC_DELAUNAY Determine if each edge in the mesh (V,F) is Delaunay.
+  // IS_INTRINSIC_DELAUNAY Determine if each edge in the mesh (vers,tris) is Delaunay.
   //
   // Inputs:
   //   l  #l by dim list of edge lengths
-  //   F  #F by 3 list of triangles indices
+  //   tris  #tris by 3 list of triangles indices
   // Outputs:
-  //   D  #F by 3 list of bools revealing whether edges corresponding 23 31 12
+  //   D  #tris by 3 list of bools revealing whether edges corresponding 23 31 12
   //     are locally Delaunay. Boundary edges are by definition Delaunay.
   //     Non-Manifold edges are by definition not Delaunay.
   template <
@@ -27,7 +27,7 @@ namespace igl
     typename DerivedD>
   IGL_INLINE void is_intrinsic_delaunay(
     const Eigen::MatrixBase<Derivedl> & l,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedF> & tris,
     Eigen::PlainObjectBase<DerivedD> & D);
   // Inputs:
   //   uE2E  #uE list of lists mapping unique edges to (half-)edges
@@ -38,7 +38,7 @@ namespace igl
     typename DerivedD>
   IGL_INLINE void is_intrinsic_delaunay(
     const Eigen::MatrixBase<Derivedl> & l,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const std::vector<std::vector<uE2EType> > & uE2E,
     Eigen::PlainObjectBase<DerivedD> & D);
   // Determine whether a single edge is Delaunay using a provided (extrinsic) incirle
@@ -48,7 +48,7 @@ namespace igl
   //   l  #l by dim list of edge lengths
   //   uE2E  #uE list of lists of indices into E of coexisting edges (see
   //     unique_edge_map)
-  //   num_faces  number of faces (==#F)
+  //   num_faces  number of faces (==#tris)
   //   uei  index into uE2E of edge to check
   // Returns true iff edge is Delaunay
   template <

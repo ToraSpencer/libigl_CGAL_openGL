@@ -243,8 +243,8 @@ template <
   typename DerivedFI,
   typename DerivedP>
 IGL_INLINE void igl::blue_noise(
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const typename DerivedV::Scalar r,
     Eigen::PlainObjectBase<DerivedB> & B,
     Eigen::PlainObjectBase<DerivedFI> & FI,
@@ -254,7 +254,7 @@ IGL_INLINE void igl::blue_noise(
   typedef Eigen::Matrix<Scalar,Eigen::Dynamic,1> VectorXS;
   // float+RowMajor is faster...
   typedef Eigen::Matrix<Scalar,Eigen::Dynamic,3,Eigen::RowMajor> MatrixX3S;
-  assert(V.cols() == 3 && "Only 3D embeddings allowed");
+  assert(vers.cols() == 3 && "Only 3D embeddings allowed");
   // minimum radius
   const Scalar min_r = r;
   // cell size based on 3D distance
@@ -268,7 +268,7 @@ IGL_INLINE void igl::blue_noise(
   const Scalar s = r/sqrt(3.0);
 
   const double area =
-    [&](){Eigen::VectorXd A;igl::doublearea(V,F,A);return A.array().sum()/2;}();
+    [&](){Eigen::VectorXd A;igl::doublearea(vers,tris,A);return A.array().sum()/2;}();
   // Circle packing in the plane has igl::PI*sqrt(3)/6 efficiency
   const double expected_number_of_points =
     area * (igl::PI * sqrt(3.0) / 6.0) / (igl::PI * min_r * min_r / 4.0);
@@ -277,7 +277,7 @@ IGL_INLINE void igl::blue_noise(
   const int nx = 30.0*expected_number_of_points;
   MatrixX3S X,XB;
   Eigen::VectorXi XFI;
-  igl::random_points_on_mesh(nx,V,F,XB,XFI,X);
+  igl::random_points_on_mesh(nx,vers,tris,XB,XFI,X);
 
   // Rescale so that s = 1
   Eigen::Matrix<int,Eigen::Dynamic,3,Eigen::RowMajor> Xs =

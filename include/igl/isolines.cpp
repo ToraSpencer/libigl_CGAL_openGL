@@ -22,20 +22,20 @@ typename DerivedZ,
 typename DerivedIsoV,
 typename DerivedIsoE>
 IGL_INLINE void igl::isolines(
-                              const Eigen::MatrixBase<DerivedV>& V,
-                              const Eigen::MatrixBase<DerivedF>& F,
+                              const Eigen::MatrixBase<DerivedV>& vers,
+                              const Eigen::MatrixBase<DerivedF>& tris,
                               const Eigen::MatrixBase<DerivedZ>& z,
                               const int n,
                               Eigen::PlainObjectBase<DerivedIsoV>& isoV,
                               Eigen::PlainObjectBase<DerivedIsoE>& isoE)
 {
     //Constants
-    const int dim = V.cols();
+    const int dim = vers.cols();
     assert(dim==2 || dim==3);
-    const int nVerts = V.rows();
+    const int nVerts = vers.rows();
     assert(z.rows() == nVerts &&
            "There must be as many function entries as vertices");
-    const int nFaces = F.rows();
+    const int nFaces = tris.rows();
     const int np1 = n+1;
     const double min = z.minCoeff(), max = z.maxCoeff();
 
@@ -52,7 +52,7 @@ IGL_INLINE void igl::isolines(
         Matrix(nFaces, np1), Matrix(nFaces, np1)}};
     for(int i=0; i<nFaces; ++i) {
         for(int k=0; k<3; ++k) {
-            const Scalar z1=z(F(i,k), 0), z2=z(F(i,(k+1)%3), 0);
+            const Scalar z1=z(tris(i,k), 0), z2=z(tris(i,(k+1)%3), 0);
             for(int j=0; j<np1; ++j) {
                 t[k](i,j) = (iso(j)-z1) / (z2-z1);
                 if(t[k](i,j)<0 || t[k](i,j)>1)
@@ -81,11 +81,11 @@ IGL_INLINE void igl::isolines(
         const int kp1=(k+1)%3, kp2=(k+2)%3;
         for(int i=0; i<Fij[k].size(); ++i) {
             isoV.row(b+i) = (1.-t[kp1](Fij[k][i],Iij[k][i]))*
-            V.row(F(Fij[k][i],kp1)) +
-            t[kp1](Fij[k][i],Iij[k][i])*V.row(F(Fij[k][i],kp2));
+            vers.row(tris(Fij[k][i],kp1)) +
+            t[kp1](Fij[k][i],Iij[k][i])*vers.row(tris(Fij[k][i],kp2));
             isoV.row(K+b+i) = (1.-t[kp2](Fij[k][i],Iij[k][i]))*
-            V.row(F(Fij[k][i],kp2)) +
-            t[kp2](Fij[k][i],Iij[k][i])*V.row(F(Fij[k][i],k));
+            vers.row(tris(Fij[k][i],kp2)) +
+            t[kp2](Fij[k][i],Iij[k][i])*vers.row(tris(Fij[k][i],k));
         }
         b += Fij[k].size();
     }

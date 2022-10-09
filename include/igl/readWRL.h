@@ -25,14 +25,14 @@ namespace igl
   // Inputs:
   //  str  path to .wrl file
   // Outputs:
-  //   V  double matrix of vertex positions  #V by 3
-  //   F  #F list of face indices into vertex positions
+  //   vers  double matrix of vertex positions  #vers by 3
+  //   tris  #tris list of face indices into vertex positions
   // Returns true on success, false on errors
   template <typename Scalar, typename Index>
   IGL_INLINE bool readWRL(
     const std::string wrl_file_name, 
-    std::vector<std::vector<Scalar > > & V,
-    std::vector<std::vector<Index > > & F);
+    std::vector<std::vector<Scalar > > & vers,
+    std::vector<std::vector<Index > > & tris);
   // Inputs:
   //   wrl_file  pointer to already opened .wrl file 
   // Outputs:
@@ -40,8 +40,8 @@ namespace igl
   template <typename Scalar, typename Index>
   IGL_INLINE bool readWRL(
     FILE * wrl_file,
-    std::vector<std::vector<Scalar > > & V,
-    std::vector<std::vector<Index > > & F);
+    std::vector<std::vector<Scalar > > & vers,
+    std::vector<std::vector<Index > > & tris);
 
 }
 

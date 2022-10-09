@@ -28,22 +28,22 @@ int main(int argc, char * argv[])
   srand(57);
   
   //Read our mesh
-  Eigen::MatrixXd V;
+  Eigen::MatrixXd vers;
   Eigen::MatrixXi F;
   if(!igl::read_triangle_mesh(
-                              argc>1?argv[1]: TUTORIAL_SHARED_PATH "/beetle.off",V,F)) {
+                              argc>1?argv[1]: TUTORIAL_SHARED_PATH "/beetle.off",vers,F)) {
     std::cout << "Failed to load mesh." << std::endl;
   }
   
   //Constructing an exact function to smooth
   igl::HeatGeodesicsData<double> hgData;
-  igl::heat_geodesics_precompute(V, F, hgData);
+  igl::heat_geodesics_precompute(vers, F, hgData);
   Eigen::VectorXd heatDist;
   Eigen::VectorXi gamma(1); gamma << 1947; //1631;
   igl::heat_geodesics_solve(hgData, gamma, heatDist);
   Eigen::VectorXd zexact =
   0.1*(heatDist.array() + (-heatDist.maxCoeff())).pow(2)
-  + 3*V.block(0,1,V.rows(),1).array().cos();
+  + 3*vers.block(0,1,vers.rows(),1).array().cos();
   
   //Make the exact function noisy
   const double s = 0.1*(zexact.maxCoeff() - zexact.minCoeff());
@@ -51,15 +51,15 @@ int main(int argc, char * argv[])
   
   //Constructing the squared Laplacian and squared Hessian energy
   SparseMat L, M;
-  igl::cotmatrix(V, F, L);
-  igl::massmatrix(V, F, igl::MASSMATRIX_TYPE_BARYCENTRIC, M);
+  igl::cotmatrix(vers, F, L);
+  igl::massmatrix(vers, F, igl::MASSMATRIX_TYPE_BARYCENTRIC, M);
   Eigen::SimplicialLDLT<SparseMat> solver(M);
   SparseMat MinvL = solver.solve(L);
   SparseMat QL = L.transpose()*MinvL;
   SparseMat QH;
-  igl::hessian_energy(V, F, QH);
+  igl::hessian_energy(vers, F, QH);
   SparseMat QcH;
-  igl::curved_hessian_energy(V, F, QcH);
+  igl::curved_hessian_energy(vers, F, QcH);
   
   //Solve to find Laplacian-smoothed Hessian-smoothed, and
   // curved-Hessian-smoothed solutions
@@ -75,7 +75,7 @@ int main(int argc, char * argv[])
   
   //Viewer that shows all functions: zexact, znoisy, zl, zh
   igl::opengl::glfw::Viewer viewer;
-  viewer.data().set_mesh(V,F);
+  viewer.data().set_mesh(vers,F);
   viewer.data().show_lines = false;
   viewer.callback_key_down =
   [&](igl::opengl::glfw::Viewer & viewer, unsigned char key, int mod)->bool
@@ -122,9 +122,9 @@ Usage:
   
   
   //Constructing a step function to smooth
-  Eigen::VectorXd zstep = Eigen::VectorXd::Zero(V.rows());
-  for(int i=0; i<V.rows(); ++i) {
-    zstep(i) = V(i,2)<-0.25 ? 1. : (V(i,2)>0.31 ? 2. : 0);
+  Eigen::VectorXd zstep = Eigen::VectorXd::Zero(vers.rows());
+  for(int i=0; i<vers.rows(); ++i) {
+    zstep(i) = vers(i,2)<-0.25 ? 1. : (vers(i,2)>0.31 ? 2. : 0);
   }
   
   //Smooth that function
@@ -140,7 +140,7 @@ Usage:
   
   //Display functions
   igl::opengl::glfw::Viewer viewer2;
-  viewer2.data().set_mesh(V,F);
+  viewer2.data().set_mesh(vers,F);
   viewer2.data().show_lines = false;
   viewer2.callback_key_down =
   [&](igl::opengl::glfw::Viewer & viewer, unsigned char key, int mod)->bool

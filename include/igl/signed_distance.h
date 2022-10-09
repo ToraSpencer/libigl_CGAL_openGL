@@ -32,8 +32,8 @@ namespace igl
   
        Inputs:
          P  #P by 3 list of query point positions
-         V  #V by 3 list of vertex positions
-         F  #F by ss list of triangle indices, ss should be 3 unless sign_type ==
+         vers  #vers by 3 list of vertex positions
+         tris  #tris by ss list of triangle indices, ss should be 3 unless sign_type ==
            SIGNED_DISTANCE_TYPE_UNSIGNED
          sign_type  method for computing distance _sign_ SDF
          lower_bound  lower bound of distances needed {std::numeric_limits::min}
@@ -59,8 +59,8 @@ namespace igl
     typename DerivedN>
   IGL_INLINE void signed_distance(
     const Eigen::MatrixBase<DerivedP> & P,
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const SignedDistanceType sign_type,
     const typename DerivedV::Scalar lower_bound,
     const typename DerivedV::Scalar upper_bound,
@@ -74,8 +74,8 @@ namespace igl
   //
   // Inputs:
   //   P  #P by 3 list of query point positions
-  //   V  #V by 3 list of vertex positions
-  //   F  #F by ss list of triangle indices, ss should be 3 unless sign_type ==
+  //   vers  #vers by 3 list of vertex positions
+  //   tris  #tris by ss list of triangle indices, ss should be 3 unless sign_type ==
   //     SIGNED_DISTANCE_TYPE_UNSIGNED
   //   sign_type  method for computing distance _sign_ SDF
   //   lower_bound  lower bound of distances needed {std::numeric_limits::min}
@@ -96,8 +96,8 @@ namespace igl
     typename DerivedN>
   IGL_INLINE void signed_distance(
     const Eigen::MatrixBase<DerivedP> & P,
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const SignedDistanceType sign_type,
     Eigen::PlainObjectBase<DerivedS> & SDF,
     Eigen::PlainObjectBase<DerivedI> & I,
@@ -109,11 +109,11 @@ namespace igl
   //
   // Inputs:
   //   tree  AABB acceleration tree (see AABB.h)
-  //   F  #F by 3 list of triangle indices
-  //   FN  #F by 3 list of triangle normals 
-  //   VN  #V by 3 list of vertex normals (ANGLE WEIGHTING)
+  //   tris  #tris by 3 list of triangle indices
+  //   FN  #tris by 3 list of triangle normals 
+  //   VN  #vers by 3 list of vertex normals (ANGLE WEIGHTING)
   //   EN  #E by 3 list of edge normals (UNIFORM WEIGHTING)
-  //   EMAP  #F*3 mapping edges in F to E
+  //   EMAP  #tris*3 mapping edges in tris to E
   //   q  Query point
   // Returns signed distance to mesh
   //
@@ -127,8 +127,8 @@ namespace igl
     typename Derivedq>
   IGL_INLINE typename DerivedV::Scalar signed_distance_pseudonormal(
     const AABB<DerivedV,3> & tree,
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const Eigen::MatrixBase<DerivedFN> & FN,
     const Eigen::MatrixBase<DerivedVN> & VN,
     const Eigen::MatrixBase<DerivedEN> & EN,
@@ -148,8 +148,8 @@ namespace igl
     typename DerivedN>
   IGL_INLINE void signed_distance_pseudonormal(
     const Eigen::MatrixBase<DerivedP> & P,
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const AABB<DerivedV,3> & tree,
     const Eigen::MatrixBase<DerivedFN> & FN,
     const Eigen::MatrixBase<DerivedVN> & VN,
@@ -180,8 +180,8 @@ namespace igl
     typename Derivedn>
   IGL_INLINE void signed_distance_pseudonormal(
     const AABB<DerivedV,3> & tree,
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const Eigen::MatrixBase<DerivedFN> & FN,
     const Eigen::MatrixBase<DerivedVN> & VN,
     const Eigen::MatrixBase<DerivedEN> & EN,
@@ -203,7 +203,7 @@ namespace igl
     typename Derivedn>
   IGL_INLINE void signed_distance_pseudonormal(
     const AABB<DerivedV,2> & tree,
-    const Eigen::MatrixBase<DerivedV> & V,
+    const Eigen::MatrixBase<DerivedV> & vers,
     const Eigen::MatrixBase<DerivedE> & E,
     const Eigen::MatrixBase<DerivedEN> & EN,
     const Eigen::MatrixBase<DerivedVN> & VN,
@@ -224,8 +224,8 @@ namespace igl
     typename Derivedq>
   IGL_INLINE typename DerivedV::Scalar signed_distance_winding_number(
     const AABB<DerivedV,3> & tree,
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const igl::WindingNumberAABB<Derivedq,DerivedV,DerivedF> & hier,
     const Eigen::MatrixBase<Derivedq> & q);
   // Outputs:
@@ -240,8 +240,8 @@ namespace igl
     typename Derivedc>
   IGL_INLINE void signed_distance_winding_number(
     const AABB<DerivedV,3> & tree,
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const igl::WindingNumberAABB<Derivedq,DerivedV,DerivedF> & hier,
     const Eigen::MatrixBase<Derivedq> & q,
     Scalar & s,
@@ -256,8 +256,8 @@ namespace igl
     typename Derivedc>
   IGL_INLINE void signed_distance_winding_number(
     const AABB<DerivedV,2> & tree,
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const Eigen::MatrixBase<Derivedq> & q,
     Scalar & s,
     Scalar & sqrd,
@@ -270,16 +270,16 @@ namespace igl
   //
   // Usage:
   //     VectorXd SDF;  
-  //     VectorXd V, P; //where V is mesh vertices, P are query points
-  //     VectorXi F;  
+  //     VectorXd vers, P; //where vers is mesh vertices, P are query points
+  //     VectorXi tris;  
   //     igl::FastWindingNumberBVH fwn_bvh;
-  //     igl::fast_winding_number(V.cast<float>(), F, 2, fwn_bvh);
-  //     igl::signed_distance_fast_winding_number(P,V,F,tree,fwn_bvh,SDF);
+  //     igl::fast_winding_number(vers.cast<float>(), tris, 2, fwn_bvh);
+  //     igl::signed_distance_fast_winding_number(P,vers,tris,tree,fwn_bvh,SDF);
   //
   // Inputs:
   //   P  #P by 3 list of query point positions
-  //   V  #V by 3 list of triangle indices
-  //   F  #F by 3 list of triangle normals 
+  //   vers  #vers by 3 list of triangle indices
+  //   tris  #tris by 3 list of triangle normals 
   //   tree  AABB acceleration tree (see AABB.h)
   //   bvh fast winding precomputation (see Fast_Winding_Number.h)   
   // Outputs:
@@ -291,8 +291,8 @@ namespace igl
     typename DerivedS>
   IGL_INLINE void signed_distance_fast_winding_number(
     const Eigen::MatrixBase<DerivedP> & P,
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const AABB<DerivedV,3> & tree,
     const igl::FastWindingNumberBVH & fwn_bvh,
     Eigen::PlainObjectBase<DerivedS> & SDF
@@ -303,8 +303,8 @@ namespace igl
   //
   // Inputs:
   //   tree  AABB acceleration tree (see AABB.h)
-  //   V  #V by 3 list of triangle indices
-  //   F  #F by 3 list of triangle normals 
+  //   vers  #vers by 3 list of triangle indices
+  //   tris  #tris by 3 list of triangle normals 
   //   bvh fast winding precomputation (see Fast_Winding_Number.h)   
   //   q  1 by 3 list of query point positions
   // Outputs:
@@ -315,8 +315,8 @@ namespace igl
     typename DerivedF>
   IGL_INLINE typename DerivedV::Scalar signed_distance_fast_winding_number(
     const Eigen::MatrixBase<Derivedq> & q,
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const AABB<DerivedV,3> & tree,
     const igl::FastWindingNumberBVH & fwn_bvh
   );

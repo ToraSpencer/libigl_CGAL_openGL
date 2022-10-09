@@ -14,8 +14,8 @@ template <
   >
 IGL_INLINE bool readPLY(
   FILE *fp,
-  Eigen::PlainObjectBase<DerivedV> & V,
-  Eigen::PlainObjectBase<DerivedF> & F
+  Eigen::PlainObjectBase<DerivedV> & vers,
+  Eigen::PlainObjectBase<DerivedF> & tris
   );
 
 
@@ -29,15 +29,15 @@ IGL_INLINE bool readPLY(
   // Inputs:
   //  ply_stream  ply file input stream
   // Outputs:
-  //   V  (#V,3) matrix of vertex positions 
-  //   F  (#F,3) list of face indices into vertex positions
+  //   vers  (#vers,3) matrix of vertex positions 
+  //   tris  (#tris,3) list of face indices into vertex positions
   //   E  (#E,2) list of edge indices into vertex positions
-  //   N  (#V,3) list of normals
-  //   UV (#V,2) list of texture coordinates
-  //   VD (#V,*) additional vertex data
-  //   Vheader (#V) list of vertex data headers
-  //   FD (#F,*) additional face data
-  //   Fheader (#F) list of face data headers
+  //   N  (#vers,3) list of normals
+  //   UV (#vers,2) list of texture coordinates
+  //   VD (#vers,*) additional vertex data
+  //   Vheader (#vers) list of vertex data headers
+  //   FD (#tris,*) additional face data
+  //   Fheader (#tris) list of face data headers
   //   ED (#E,*) additional edge data
   //   Eheader (#E) list of edge data headers
   //   comments (*) file comments
@@ -54,8 +54,8 @@ IGL_INLINE bool readPLY(
     >
   bool readPLY(
     std::istream & ply_stream,
-    Eigen::PlainObjectBase<DerivedV> & V,
-    Eigen::PlainObjectBase<DerivedF> & F,
+    Eigen::PlainObjectBase<DerivedV> & vers,
+    Eigen::PlainObjectBase<DerivedF> & tris,
     Eigen::PlainObjectBase<DerivedF> & E,
     Eigen::PlainObjectBase<DerivedN> & N,
     Eigen::PlainObjectBase<DerivedUV> & UV,
@@ -79,15 +79,15 @@ IGL_INLINE bool readPLY(
   // Inputs:
   //  ply_file  ply file name
   // Outputs:
-  //   V  (#V,3) matrix of vertex positions 
-  //   F  (#F,3) list of face indices into vertex positions
+  //   vers  (#vers,3) matrix of vertex positions 
+  //   tris  (#tris,3) list of face indices into vertex positions
   //   E  (#E,2) list of edge indices into vertex positions
-  //   N  (#V,3) list of normals
-  //   UV (#V,2) list of texture coordinates
-  //   VD (#V,*) additional vertex data
-  //   Vheader (#V) list of vertex data headers
-  //   FD (#F,*) additional face data
-  //   Fheader (#F) list of face data headers
+  //   N  (#vers,3) list of normals
+  //   UV (#vers,2) list of texture coordinates
+  //   VD (#vers,*) additional vertex data
+  //   Vheader (#vers) list of vertex data headers
+  //   FD (#tris,*) additional face data
+  //   Fheader (#tris) list of face data headers
   //   ED (#E,*) additional edge data
   //   Eheader (#E) list of edge data headers
   //   comments (*) file comments
@@ -104,8 +104,8 @@ IGL_INLINE bool readPLY(
     >
   bool readPLY(
     const std::string& ply_file,
-    Eigen::PlainObjectBase<DerivedV> & V,
-    Eigen::PlainObjectBase<DerivedF> & F,
+    Eigen::PlainObjectBase<DerivedV> & vers,
+    Eigen::PlainObjectBase<DerivedF> & tris,
     Eigen::PlainObjectBase<DerivedE> & E,
     Eigen::PlainObjectBase<DerivedN> & N,
     Eigen::PlainObjectBase<DerivedUV> & UV,
@@ -132,12 +132,12 @@ IGL_INLINE bool readPLY(
   // Inputs:
   //  ply_file  ply file name
   // Outputs:
-  //   V  (#V,3) matrix of vertex positions 
-  //   F  (#F,3) list of face indices into vertex positions
-  //   N  (#V,3) list of normals
-  //   UV (#V,2) list of texture coordinates
-  //   VD (#V,*) additional vertex data
-  //   Vheader (#V) list of vertex data headers
+  //   vers  (#vers,3) matrix of vertex positions 
+  //   tris  (#tris,3) list of face indices into vertex positions
+  //   N  (#vers,3) list of normals
+  //   UV (#vers,2) list of texture coordinates
+  //   VD (#vers,*) additional vertex data
+  //   Vheader (#vers) list of vertex data headers
   // Returns true on success, false on errors
   template <
     typename DerivedV,
@@ -148,8 +148,8 @@ IGL_INLINE bool readPLY(
     >
   bool readPLY(
     const std::string & filename,
-    Eigen::PlainObjectBase<DerivedV> & V,
-    Eigen::PlainObjectBase<DerivedF> & F,
+    Eigen::PlainObjectBase<DerivedV> & vers,
+    Eigen::PlainObjectBase<DerivedF> & tris,
     Eigen::PlainObjectBase<DerivedN> & N,
     Eigen::PlainObjectBase<DerivedUV> & UV,
     Eigen::PlainObjectBase<DerivedVD> & VD,
@@ -166,13 +166,13 @@ IGL_INLINE bool readPLY(
   // Inputs:
   //  ply_file  ply file name
   // Outputs:
-  //   V  (#V,3) matrix of vertex positions 
-  //   F  (#F,3) list of face indices into vertex positions
+  //   vers  (#vers,3) matrix of vertex positions 
+  //   tris  (#tris,3) list of face indices into vertex positions
   //   E  (#E,2) list of edge indices into vertex positions
-  //   N  (#V,3) list of normals
-  //   UV (#V,2) list of texture coordinates
-  //   VD (#V,*) additional vertex data
-  //   Vheader (#V) list of vertex data headers
+  //   N  (#vers,3) list of normals
+  //   UV (#vers,2) list of texture coordinates
+  //   VD (#vers,*) additional vertex data
+  //   Vheader (#vers) list of vertex data headers
   // Returns true on success, false on errors
   template <
     typename DerivedV,
@@ -183,8 +183,8 @@ IGL_INLINE bool readPLY(
     >
   bool readPLY(
     const std::string & filename,
-    Eigen::PlainObjectBase<DerivedV> & V,
-    Eigen::PlainObjectBase<DerivedF> & F,
+    Eigen::PlainObjectBase<DerivedV> & vers,
+    Eigen::PlainObjectBase<DerivedF> & tris,
     Eigen::PlainObjectBase<DerivedE> & E,
     Eigen::PlainObjectBase<DerivedN> & N,
     Eigen::PlainObjectBase<DerivedUV> & UV
@@ -197,8 +197,8 @@ IGL_INLINE bool readPLY(
     >
   bool readPLY(
     const std::string & filename,
-    Eigen::PlainObjectBase<DerivedV> & V,
-    Eigen::PlainObjectBase<DerivedF> & F
+    Eigen::PlainObjectBase<DerivedV> & vers,
+    Eigen::PlainObjectBase<DerivedF> & tris
     );
 
   template <
@@ -208,8 +208,8 @@ IGL_INLINE bool readPLY(
     >
   bool readPLY(
     const std::string & filename,
-    Eigen::PlainObjectBase<DerivedV> & V,
-    Eigen::PlainObjectBase<DerivedF> & F,
+    Eigen::PlainObjectBase<DerivedV> & vers,
+    Eigen::PlainObjectBase<DerivedF> & tris,
     Eigen::PlainObjectBase<DerivedE> & E
     );
 

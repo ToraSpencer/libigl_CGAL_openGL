@@ -19,16 +19,16 @@
 
 template <typename DerivedV, typename DerivedF, typename DerivedC>
 IGL_INLINE void igl::cotmatrix_entries(
-  const Eigen::MatrixBase<DerivedV>& V,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const Eigen::MatrixBase<DerivedF>& tris,
   Eigen::PlainObjectBase<DerivedC>& C)
 {
   using namespace std;
   using namespace Eigen;
   // simplex size (3: triangles, 4: tetrahedra)
-  int simplex_size = F.cols();
+  int simplex_size = tris.cols();
   // Number of elements
-  int m = F.rows();
+  int m = tris.rows();
 
   // Law of cosines + law of sines
   switch(simplex_size)
@@ -38,7 +38,7 @@ IGL_INLINE void igl::cotmatrix_entries(
       // Triangles
       //Compute Squared Edge lengths 
       Matrix<typename DerivedC::Scalar,Dynamic,3> l2;
-      igl::squared_edge_lengths(V,F,l2);
+      igl::squared_edge_lengths(vers,tris,l2);
       //Compute Edge lengths 
       Matrix<typename DerivedC::Scalar,Dynamic,3> l;
       l = l2.array().sqrt();
@@ -63,7 +63,7 @@ IGL_INLINE void igl::cotmatrix_entries(
 
       // edge lengths numbered same as opposite vertices
       Matrix<typename DerivedC::Scalar,Dynamic,6> l;
-      edge_lengths(V,F,l);
+      edge_lengths(vers,tris,l);
       Matrix<typename DerivedC::Scalar,Dynamic,4> s;
       face_areas(l,s);
       Matrix<typename DerivedC::Scalar,Dynamic,6> cos_theta,theta;
@@ -113,7 +113,7 @@ IGL_INLINE void igl::cotmatrix_entries(
   // Alec: It's a little annoying that there's duplicate code here. The
   // "extrinic" version above is first computing squared edge lengths, taking
   // the square root and calling this. We can't have a cotmatrix_entries(l,l2,C)
-  // overload because it will confuse Eigen with the cotmatrix_entries(V,F,C)
+  // overload because it will confuse Eigen with the cotmatrix_entries(vers,tris,C)
   // overload. In the end, I'd like to be convinced that using l2 directly above
   // is actually better numerically (or significantly faster) than just calling
   // edge_lengths and this cotmatrix_entries(l,C);

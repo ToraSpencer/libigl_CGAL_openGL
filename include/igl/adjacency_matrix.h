@@ -8,18 +8,18 @@
 
 namespace igl 
 {
-  // Constructs the graph adjacency matrix  of a given mesh (V,F)
+  // Constructs the graph adjacency matrix  of a given mesh (vers,tris)
   // Templates:
   //   T  should be a eigen sparse matrix primitive type like int or double
   // Inputs:
-  //   F  #F by dim list of mesh simplices
+  //   tris  #tris by dim list of mesh simplices
   // Outputs: 
-  //   A  max(F)+1 by max(F)+1 adjacency matrix, each row i corresponding to V(i,:)
+  //   A  max(tris)+1 by max(tris)+1 adjacency matrix, each row i corresponding to vers(i,:)
   //
   // Example:
-  //   // Mesh in (V,F)
+  //   // Mesh in (vers,tris)
   //   Eigen::SparseMatrix<double> A;
-  //   adjacency_matrix(F,A);
+  //   adjacency_matrix(tris,A);
   //   // sum each row 
   //   SparseVector<double> Asum;
   //   sum(A,1,Asum);
@@ -33,19 +33,19 @@ namespace igl
   // See also: edges, cotmatrix, diag
   template <typename DerivedF, typename T>
   IGL_INLINE void adjacency_matrix(
-    const Eigen::MatrixBase<DerivedF> & F, 
+    const Eigen::MatrixBase<DerivedF> & tris, 
     Eigen::SparseMatrix<T>& A);
 
 
   // Constructs an vertex adjacency for a polygon mesh.
   //
   // Inputs:
-  //   I  #I vectorized list of polygon corner indices into rows of some matrix V
+  //   I  #I vectorized list of polygon corner indices into rows of some matrix vers
   //   C  #polygons+1 list of cumulative polygon sizes so that C(i+1)-C(i) =
   //     size of the ith polygon, and so I(C(i)) through I(C(i+1)-1) are the
   //     indices of the ith polygon
   // Outputs:
-  //   A  max(I)+1 by max(I)+1 adjacency matrix, each row i corresponding to V(i,:)
+  //   A  max(I)+1 by max(I)+1 adjacency matrix, each row i corresponding to vers(i,:)
   //
   template <typename DerivedI, typename DerivedC, typename T>
   IGL_INLINE void adjacency_matrix(

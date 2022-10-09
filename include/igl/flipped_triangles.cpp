@@ -11,19 +11,19 @@
 #include <vector>
 template <typename DerivedV, typename DerivedF, typename DerivedX>
 IGL_INLINE void igl::flipped_triangles(
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   Eigen::PlainObjectBase<DerivedX> & X)
 {
-  assert(V.cols() == 2 && "V should contain 2D positions");
+  assert(vers.cols() == 2 && "vers should contain 2D positions");
   std::vector<typename DerivedX::Scalar> flip_idx;
-  for (int i = 0; i < F.rows(); i++)
+  for (int i = 0; i < tris.rows(); i++)
   {
     // https://www.cs.cmu.edu/~quake/robust.html
     typedef Eigen::Matrix<typename DerivedV::Scalar,1,2> RowVector2S;
-    RowVector2S v1_n = V.row(F(i,0));
-    RowVector2S v2_n = V.row(F(i,1));
-    RowVector2S v3_n = V.row(F(i,2));
+    RowVector2S v1_n = vers.row(tris(i,0));
+    RowVector2S v2_n = vers.row(tris(i,1));
+    RowVector2S v3_n = vers.row(tris(i,2));
     Eigen::Matrix<typename DerivedV::Scalar,3,3> T2_Homo;
     T2_Homo.col(0) << v1_n(0),v1_n(1),1.;
     T2_Homo.col(1) << v2_n(0),v2_n(1),1.;
@@ -40,11 +40,11 @@ IGL_INLINE void igl::flipped_triangles(
 
 template <typename DerivedV, typename DerivedF>
 IGL_INLINE Eigen::VectorXi igl::flipped_triangles(
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F)
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris)
 {
   Eigen::VectorXi X;
-  flipped_triangles(V,F,X);
+  flipped_triangles(vers,tris,X);
   return X;
 }
 

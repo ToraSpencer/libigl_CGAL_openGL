@@ -19,17 +19,17 @@ namespace igl
   //
   // Inputs:
   //   l_in  #F_in by 3 list of edge lengths (see edge_lengths)
-  //   F_in  #F_in by 3 list of face indices into some unspecified vertex list V
+  //   F_in  #F_in by 3 list of face indices into some unspecified vertex list vers
   // Outputs:
-  //   l  #F by 3 list of edge lengths
-  //   F  #F by 3 list of new face indices. Note: Combinatorially F may contain
+  //   l  #tris by 3 list of edge lengths
+  //   tris  #tris by 3 list of new face indices. Note: Combinatorially tris may contain
   //     non-manifold edges, duplicate faces and self-loops (e.g., an edge [1,1]
   //     or a face [1,1,1]). However, the *intrinsic geometry* is still
   //     well-defined and correct. See [Fisher et al. 2007] Figure 3 and 2nd to
-  //     last paragraph of 1st page. Since F may be "non-eddge-manifold" in the
+  //     last paragraph of 1st page. Since tris may be "non-eddge-manifold" in the
   //     usual combinatorial sense, it may be useful to call the more verbose
   //     overload below if disentangling edges will be necessary later on.
-  //     Calling unique_edge_map on this F will give a _different_ result than
+  //     Calling unique_edge_map on this tris will give a _different_ result than
   //     those outputs.
   //
   // See also: is_intrinsic_delaunay
@@ -42,12 +42,12 @@ namespace igl
     const Eigen::MatrixBase<Derivedl_in> & l_in,
     const Eigen::MatrixBase<DerivedF_in> & F_in,
     Eigen::PlainObjectBase<Derivedl> & l,
-    Eigen::PlainObjectBase<DerivedF> & F);
+    Eigen::PlainObjectBase<DerivedF> & tris);
   // Outputs:
-  //   E  #F*3 by 2 list of all directed edges, such that E.row(f+#F*c) is the
-  //     edge opposite F(f,c)
+  //   E  #tris*3 by 2 list of all directed edges, such that E.row(f+#tris*c) is the
+  //     edge opposite tris(f,c)
   //   uE  #uE by 2 list of unique undirected edges
-  //   EMAP #F*3 list of indices into uE, mapping each directed edge to unique
+  //   EMAP #tris*3 list of indices into uE, mapping each directed edge to unique
   //     undirected edge
   //   uE2E  #uE list of lists of indices into E of coexisting edges
   //
@@ -65,7 +65,7 @@ namespace igl
     const Eigen::MatrixBase<Derivedl_in> & l_in,
     const Eigen::MatrixBase<DerivedF_in> & F_in,
     Eigen::PlainObjectBase<Derivedl> & l,
-    Eigen::PlainObjectBase<DerivedF> & F,
+    Eigen::PlainObjectBase<DerivedF> & tris,
     Eigen::PlainObjectBase<DerivedE> & E,
     Eigen::PlainObjectBase<DeriveduE> & uE,
     Eigen::PlainObjectBase<DerivedEMAP> & EMAP,

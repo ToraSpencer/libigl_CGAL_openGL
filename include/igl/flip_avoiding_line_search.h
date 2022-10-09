@@ -24,17 +24,17 @@ namespace igl
   // Supports both triangle and tet meshes.
   //
   // Inputs:
-  //   F  #F by 3/4 				list of mesh faces or tets
-  //   cur_v  						#V by dim list of variables
-  //   dst_v  						#V by dim list of target vertices. This mesh may have flipped triangles
+  //   tris  #tris by 3/4 				list of mesh faces or tets
+  //   cur_v  						#vers by dim list of variables
+  //   dst_v  						#vers by dim list of target vertices. This mesh may have flipped triangles
   //   energy       			    A function to compute the mesh-based energy (return an energy that is bigger than 0)
   //   cur_energy(OPTIONAL)         The energy at the given point. Helps save redundant computations.
   //							    This is optional. If not specified, the function will compute it.
   // Outputs:
-  //		cur_v  						#V by dim list of variables at the new location
+  //		cur_v  						#vers by dim list of variables at the new location
   // Returns the energy at the new point
   IGL_INLINE double flip_avoiding_line_search(
-    const Eigen::MatrixXi F,
+    const Eigen::MatrixXi tris,
     Eigen::MatrixXd& cur_v,
     const Eigen::MatrixXd& dst_v,
     std::function<double(Eigen::MatrixXd&)> energy,

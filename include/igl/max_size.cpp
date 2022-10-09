@@ -9,12 +9,12 @@
 
 
 template <typename T>
-IGL_INLINE int igl::max_size(const std::vector<T> & V)
+IGL_INLINE int igl::max_size(const std::vector<T> & vers)
 {
   int max_size = -1;
   for(
-    typename std::vector<T>::const_iterator iter = V.begin();
-    iter != V.end(); 
+    typename std::vector<T>::const_iterator iter = vers.begin();
+    iter != vers.end(); 
     iter++)
   {
     int size = (int)iter->size();

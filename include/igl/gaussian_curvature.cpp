@@ -11,8 +11,8 @@
 #include <iostream>
 template <typename DerivedV, typename DerivedF, typename DerivedK>
 IGL_INLINE void igl::gaussian_curvature(
-  const Eigen::MatrixBase<DerivedV>& V,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const Eigen::MatrixBase<DerivedF>& tris,
   Eigen::PlainObjectBase<DerivedK> & K)
 {
   using namespace Eigen;
@@ -22,15 +22,15 @@ IGL_INLINE void igl::gaussian_curvature(
     typename DerivedV::Scalar,
     DerivedF::RowsAtCompileTime,
     DerivedF::ColsAtCompileTime> A;
-  internal_angles(V,F,A);
-  K.resize(V.rows(),1);
-  K.setConstant(V.rows(),1,2.*PI);
-  assert(A.rows() == F.rows());
-  assert(A.cols() == F.cols());
-  assert(K.rows() == V.rows());
-  assert(F.maxCoeff() < V.rows());
+  internal_angles(vers,tris,A);
+  K.resize(vers.rows(),1);
+  K.setConstant(vers.rows(),1,2.*PI);
+  assert(A.rows() == tris.rows());
+  assert(A.cols() == tris.cols());
+  assert(K.rows() == vers.rows());
+  assert(tris.maxCoeff() < vers.rows());
   assert(K.cols() == 1);
-  const int Frows = F.rows();
+  const int Frows = tris.rows();
 
 
   //K_G(x_i) = (2π - ∑θj)
@@ -46,7 +46,7 @@ IGL_INLINE void igl::gaussian_curvature(
       // Q: Does this need to be critical?
       // H: I think so, sadly. Maybe there's a way to use reduction
 //#pragma omp critical
-      K(F(f,j),0) -=  A(f,j);
+      K(tris(f,j),0) -=  A(f,j);
     }
   }
 }

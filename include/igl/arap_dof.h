@@ -32,7 +32,7 @@ namespace igl
   ///////////////////////////////////////////////////////////////////////////
   //
   // Arap DOF precomputation consists of two parts the computation. The first is
-  // that which depends solely on the mesh (V,F), the linear blend skinning
+  // that which depends solely on the mesh (vers,tris), the linear blend skinning
   // weights (M) and the groups G. Then there's the part that depends on the
   // previous precomputation and the list of free and fixed vertices. 
   //
@@ -64,10 +64,10 @@ namespace igl
   // and also prefactoring the poisson system.
   //
   // Inputs:
-  //   V  #V by dim list of vertex positions
-  //   F  #F by {3|4} list of face indices
-  //   M  #V * dim by #handles * dim * (dim+1) matrix such that
-  //     new_V(:) = LBS(V,W,A) = reshape(M * A,size(V)), where A is a column
+  //   vers  #vers by dim list of vertex positions
+  //   tris  #tris by {3|4} list of face indices
+  //   M  #vers * dim by #handles * dim * (dim+1) matrix such that
+  //     new_V(:) = LBS(vers,W,A) = reshape(M * A,size(vers)), where A is a column
   //     vectors formed by the entries in each handle's dim by dim+1 
   //     transformation matrix. Specifcally, A =
   //       reshape(permute(Astack,[3 1 2]),n*dim*(dim+1),1)
@@ -75,7 +75,7 @@ namespace igl
   //     if Astack(:,:,i) is the dim by (dim+1) transformation at handle i
   //     handles are ordered according to P then BE (point handles before bone
   //     handles)
-  //   G  #V list of group indices (1 to k) for each vertex, such that vertex i 
+  //   G  #vers list of group indices (1 to k) for each vertex, such that vertex i 
   //     is assigned to group G(i)
   // Outputs:
   //   data  structure containing all necessary precomputation for calling
@@ -85,8 +85,8 @@ namespace igl
   // See also: lbs_matrix_column
   template <typename LbsMatrixType, typename SSCALAR>
   IGL_INLINE bool arap_dof_precomputation(
-    const Eigen::MatrixXd & V, 
-    const Eigen::MatrixXi & F,
+    const Eigen::MatrixXd & vers, 
+    const Eigen::MatrixXi & tris,
     const LbsMatrixType & M,
     const Eigen::Matrix<int,Eigen::Dynamic,1> & G,
     ArapDOFData<LbsMatrixType, SSCALAR> & data);
@@ -208,7 +208,7 @@ namespace igl
     // "Velocity"
     MatrixXS Lvel0;
   
-    // #V by dim matrix of external forces
+    // #vers by dim matrix of external forces
     // fext
     MatrixXS fext;
   

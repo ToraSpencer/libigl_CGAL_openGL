@@ -27,8 +27,8 @@ template <
   typename DerivedF,
   typename Derivedb>
 IGL_INLINE bool igl::arap_precomputation(
-  const Eigen::PlainObjectBase<DerivedV> & V,
-  const Eigen::PlainObjectBase<DerivedF> & F,
+  const Eigen::PlainObjectBase<DerivedV> & vers,
+  const Eigen::PlainObjectBase<DerivedF> & tris,
   const int dim,
   const Eigen::PlainObjectBase<Derivedb> & b,
   ARAPData & data)
@@ -37,23 +37,23 @@ IGL_INLINE bool igl::arap_precomputation(
   using namespace Eigen;
   typedef typename DerivedV::Scalar Scalar;
   // number of vertices
-  const int n = V.rows();
+  const int n = vers.rows();
   data.n = n;
   assert((b.size() == 0 || b.maxCoeff() < n) && "b out of bounds");
   assert((b.size() == 0 || b.minCoeff() >=0) && "b out of bounds");
   // remember b
   data.b = b;
-  //assert(F.cols() == 3 && "For now only triangles");
+  //assert(tris.cols() == 3 && "For now only triangles");
   // dimension
-  //const int dim = V.cols();
+  //const int dim = vers.cols();
   assert((dim == 3 || dim ==2) && "dim should be 2 or 3");
   data.dim = dim;
   //assert(dim == 3 && "Only 3d supported");
   // Defaults
   data.f_ext = MatrixXd::Zero(n,data.dim);
 
-  assert(data.dim <= V.cols() && "solve dim should be <= embedding");
-  bool flat = (V.cols() - data.dim)==1;
+  assert(data.dim <= vers.cols() && "solve dim should be <= embedding");
+  bool flat = (vers.cols() - data.dim)==1;
 
   DerivedV plane_V;
   DerivedF plane_F;
@@ -61,18 +61,18 @@ IGL_INLINE bool igl::arap_precomputation(
   SparseMatrixS ref_map,ref_map_dim;
   if(flat)
   {
-    project_isometrically_to_plane(V,F,plane_V,plane_F,ref_map);
+    project_isometrically_to_plane(vers,tris,plane_V,plane_F,ref_map);
     repdiag(ref_map,dim,ref_map_dim);
   }
-  const PlainObjectBase<DerivedV>& ref_V = (flat?plane_V:V);
-  const PlainObjectBase<DerivedF>& ref_F = (flat?plane_F:F);
+  const PlainObjectBase<DerivedV>& ref_V = (flat?plane_V:vers);
+  const PlainObjectBase<DerivedF>& ref_F = (flat?plane_F:tris);
   SparseMatrixS L;
-  cotmatrix(V,F,L);
+  cotmatrix(vers,tris,L);
 
   ARAPEnergyType eff_energy = data.energy;
   if(eff_energy == ARAP_ENERGY_TYPE_DEFAULT)
   {
-    switch(F.cols())
+    switch(tris.cols())
     {
       case 3:
         if(data.dim == 3)
@@ -99,7 +99,7 @@ IGL_INLINE bool igl::arap_precomputation(
   {
     data.CSM = (data.CSM * ref_map_dim.transpose()).eval();
   }
-  assert(data.CSM.cols() == V.rows()*data.dim);
+  assert(data.CSM.cols() == vers.rows()*data.dim);
 
   // Get group sum scatter matrix, when applied sums all entries of the same
   // group according to G
@@ -108,7 +108,7 @@ IGL_INLINE bool igl::arap_precomputation(
   {
     if(eff_energy == ARAP_ENERGY_TYPE_ELEMENTS)
     {
-      speye(F.rows(),G_sum);
+      speye(tris.rows(),G_sum);
     }else
     {
       speye(n,G_sum);
@@ -119,11 +119,11 @@ IGL_INLINE bool igl::arap_precomputation(
     if(eff_energy == ARAP_ENERGY_TYPE_ELEMENTS)
     {
       Eigen::Matrix<int,Eigen::Dynamic,1> GG;
-      MatrixXi GF(F.rows(),F.cols());
-      for(int j = 0;j<F.cols();j++)
+      MatrixXi GF(tris.rows(),tris.cols());
+      for(int j = 0;j<tris.cols();j++)
       {
         Matrix<int,Eigen::Dynamic,1> GFj;
-        slice(data.G,F.col(j),GFj);
+        slice(data.G,tris.col(j),GFj);
         GF.col(j) = GFj;
       }
       mode<int>(GF,2,GG);
@@ -152,7 +152,7 @@ IGL_INLINE bool igl::arap_precomputation(
     const double h = data.h;
     assert(h != 0);
     SparseMatrix<double> M;
-    massmatrix(V,F,MASSMATRIX_TYPE_DEFAULT,data.M);
+    massmatrix(vers,tris,MASSMATRIX_TYPE_DEFAULT,data.M);
     const double dw = (1./data.ym)*(h*h);
     SparseMatrix<double> DQ = dw * 1./(h*h)*data.M;
     Q += DQ;
@@ -186,7 +186,7 @@ IGL_INLINE bool igl::arap_solve(
   {
     // terrible initial guess.. should at least copy input mesh
 #ifndef NDEBUG
-    cerr<<"arap_solve: Using terrible initial guess for U. Try U = V."<<endl;
+    cerr<<"arap_solve: Using terrible initial guess for U. Try U = vers."<<endl;
 #endif
     U = MatrixXd::Zero(data.n,data.dim);
   }else

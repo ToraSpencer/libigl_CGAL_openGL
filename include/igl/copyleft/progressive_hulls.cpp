@@ -10,18 +10,18 @@
 #include "../decimate.h"
 #include "../max_faces_stopping_condition.h"
 IGL_INLINE bool igl::copyleft::progressive_hulls(
-  const Eigen::MatrixXd & V,
-  const Eigen::MatrixXi & F,
+  const Eigen::MatrixXd & vers,
+  const Eigen::MatrixXi & tris,
   const size_t max_m,
   Eigen::MatrixXd & U,
   Eigen::MatrixXi & G,
   Eigen::VectorXi & J)
 {
-  int m = F.rows();
+  int m = tris.rows();
   Eigen::VectorXi I;
   return decimate(
-    V,
-    F,
+    vers,
+    tris,
     progressive_hulls_cost_and_placement,
     max_faces_stopping_condition(m,(const int)m,max_m),
     U,

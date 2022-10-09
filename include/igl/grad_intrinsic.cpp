@@ -11,21 +11,21 @@
 template <typename Derivedl, typename DerivedF, typename Gtype>
 IGL_INLINE void igl::grad_intrinsic(
   const Eigen::MatrixBase<Derivedl>&l,
-  const Eigen::MatrixBase<DerivedF>&F,
+  const Eigen::MatrixBase<DerivedF>&tris,
   Eigen::SparseMatrix<Gtype> &G)
 {
-  assert(F.cols() ==3 && "Only triangles supported");
+  assert(tris.cols() ==3 && "Only triangles supported");
   // number of vertices
-  const int n = F.maxCoeff()+1;
+  const int n = tris.maxCoeff()+1;
   // number of faces
-  const int m = F.rows();
+  const int m = tris.rows();
   // JD: There is a pretty subtle bug when using a fixed column size for this matrix.
-  // When calling igl::grad(V, ...), the two code paths `grad_tet` and `grad_tri`
+  // When calling igl::grad(vers, ...), the two code paths `grad_tet` and `grad_tri`
   // will be compiled. It turns out that `igl::grad_tet` calls `igl::volume`, which
-  // reads the coordinates of the `V` matrix into `RowVector3d`. If the matrix `V`
+  // reads the coordinates of the `vers` matrix into `RowVector3d`. If the matrix `vers`
   // has a known compile-time size of 2, this produces a compilation error when
   // libigl is compiled in header-only mode. In static mode this doesn't happen
-  // because the matrix `V` is probably implicitly copied into a `Eigen::MatrixXd`.
+  // because the matrix `vers` is probably implicitly copied into a `Eigen::MatrixXd`.
   // This is a situation that could be solved using `if constexpr` in C++17.
   // In C++11, the alternative is to use SFINAE and `std::enable_if` (ugh).
   typedef Eigen::Matrix<Gtype,Eigen::Dynamic,Eigen::Dynamic> MatrixX2S;
@@ -51,15 +51,15 @@ IGL_INLINE void igl::grad_intrinsic(
     (-2.*l.col(0)).array();
   V2.block(0,1,m,1) =
     (l.col(2).cwiseAbs2() - V2.block(0,0,m,1).cwiseAbs2()).array().sqrt();
-  DerivedF F2(F.rows(),F.cols());
+  DerivedF F2(tris.rows(),tris.cols());
   std::vector<Eigen::Triplet<Gtype> > Pijv;
-  Pijv.reserve(F.size());
+  Pijv.reserve(tris.size());
   for(int f = 0;f<m;f++)
   {
-    for(int c = 0;c<F.cols();c++)
+    for(int c = 0;c<tris.cols();c++)
     {
       F2(f,c) = f+c*m;
-      Pijv.emplace_back(F2(f,c),F(f,c),1);
+      Pijv.emplace_back(F2(f,c),tris(f,c),1);
     }
   }
   Eigen::SparseMatrix<Gtype> P(m*3,n);

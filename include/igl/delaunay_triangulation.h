@@ -18,7 +18,7 @@ namespace igl
   // points.
   //
   // Inputs:
-  //   V  #V by 2 list of vertex positions
+  //   vers  #vers by 2 list of vertex positions
   //   orient2D  A functor such that orient2D(pa, pb, pc) returns
   //               1 if pa,pb,pc forms a conterclockwise triangle.
   //              -1 if pa,pb,pc forms a clockwise triangle.
@@ -29,7 +29,7 @@ namespace igl
   //              -1 if pd is on the positive size of circumcirle of (pa,pb,pc)
   //               0 if pd is cocircular with pa, pb, pc.
   // Outputs:
-  //   F  #F by 3 of faces in Delaunay triangulation.
+  //   tris  #tris by 3 of faces in Delaunay triangulation.
   template<
     typename DerivedV,
     typename Orient2D,
@@ -37,10 +37,10 @@ namespace igl
     typename DerivedF
     >
   IGL_INLINE void delaunay_triangulation(
-      const Eigen::MatrixBase<DerivedV>& V,
+      const Eigen::MatrixBase<DerivedV>& vers,
       Orient2D orient2D,
       InCircle incircle,
-      Eigen::PlainObjectBase<DerivedF>& F);
+      Eigen::PlainObjectBase<DerivedF>& tris);
 }
 
 #ifndef IGL_STATIC_LIBRARY

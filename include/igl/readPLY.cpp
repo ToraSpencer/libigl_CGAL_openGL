@@ -150,8 +150,8 @@ template <
   >
 IGL_INLINE bool readPLY(
   FILE *fp,
-  Eigen::PlainObjectBase<DerivedV> & V,
-  Eigen::PlainObjectBase<DerivedF> & F,
+  Eigen::PlainObjectBase<DerivedV> & vers,
+  Eigen::PlainObjectBase<DerivedF> & tris,
   Eigen::PlainObjectBase<DerivedE> & E,
   Eigen::PlainObjectBase<DerivedN> & N,
   Eigen::PlainObjectBase<DerivedUV> & UV,
@@ -172,7 +172,7 @@ IGL_INLINE bool readPLY(
     std::vector<uint8_t> fileBufferBytes;
     read_file_binary(fp,fileBufferBytes);
     file_memory_stream stream((char*)fileBufferBytes.data(), fileBufferBytes.size());
-    return readPLY(stream,V,F,E,N,UV,VD,Vheader,FD,Fheader,ED,Eheader,comments);
+    return readPLY(stream,vers,tris,E,N,UV,VD,Vheader,FD,Fheader,ED,Eheader,comments);
   }
   catch(const std::exception& e)
   {
@@ -189,14 +189,14 @@ template <
   >
 IGL_INLINE bool readPLY(
   FILE *fp,
-  Eigen::PlainObjectBase<DerivedV> & V,
-  Eigen::PlainObjectBase<DerivedF> & F
+  Eigen::PlainObjectBase<DerivedV> & vers,
+  Eigen::PlainObjectBase<DerivedF> & tris
   )
 {
   Eigen::MatrixXd N,UV,VD,FD,ED;
   Eigen::MatrixXi E;
   std::vector<std::string> Vheader,Eheader,Fheader,comments;
-  return readPLY(fp,V,F,E,N,UV,VD,Vheader,FD,Fheader,ED,Eheader,comments);
+  return readPLY(fp,vers,tris,E,N,UV,VD,Vheader,FD,Fheader,ED,Eheader,comments);
 }
 
 template <
@@ -206,14 +206,14 @@ template <
   >
 IGL_INLINE bool readPLY(
   FILE *fp,
-  Eigen::PlainObjectBase<DerivedV> & V,
-  Eigen::PlainObjectBase<DerivedF> & F,
+  Eigen::PlainObjectBase<DerivedV> & vers,
+  Eigen::PlainObjectBase<DerivedF> & tris,
   Eigen::PlainObjectBase<DerivedE> & E
   )
 {
   Eigen::MatrixXd N,UV,VD,FD,ED;
   std::vector<std::string> Vheader,Eheader,Fheader,comments;
-  return readPLY(fp,V,F,E,N,UV,VD,Vheader,FD,Fheader,ED,Eheader,comments);
+  return readPLY(fp,vers,tris,E,N,UV,VD,Vheader,FD,Fheader,ED,Eheader,comments);
 }
 
 
@@ -229,8 +229,8 @@ template <
   >
 IGL_INLINE bool readPLY(
   std::istream & ply_stream,
-  Eigen::PlainObjectBase<DerivedV> & V,
-  Eigen::PlainObjectBase<DerivedF> & F,
+  Eigen::PlainObjectBase<DerivedV> & vers,
+  Eigen::PlainObjectBase<DerivedF> & tris,
   Eigen::PlainObjectBase<DerivedE> & E,
   Eigen::PlainObjectBase<DerivedN> & N,
   Eigen::PlainObjectBase<DerivedUV> & UV,
@@ -392,8 +392,8 @@ IGL_INLINE bool readPLY(
   // Parse the geometry data
   file.read(ply_stream);
 
-  if (!vertices || !tinyply_buffer_to_matrix(*vertices,V,vertices->count,3) ) {
-    V.resize(0,0);
+  if (!vertices || !tinyply_buffer_to_matrix(*vertices,vers,vertices->count,3) ) {
+    vers.resize(0,0);
   }
 
   if (!normals || !tinyply_buffer_to_matrix(*normals,N,normals->count,3) ) {
@@ -405,7 +405,7 @@ IGL_INLINE bool readPLY(
   }
 
   //HACK: Unfortunately, tinyply doesn't store list size as a separate variable
-  if (!faces || !tinyply_buffer_to_matrix(*faces, F, faces->count, faces->buffer.size_bytes()/(tinyply::PropertyTable[faces->t].stride*faces->count) )) {
+  if (!faces || !tinyply_buffer_to_matrix(*faces, tris, faces->count, faces->buffer.size_bytes()/(tinyply::PropertyTable[faces->t].stride*faces->count) )) {
 
     if(tristrips) { // need to convert to faces
       // code based on blender importer for ply
@@ -414,11 +414,11 @@ IGL_INLINE bool readPLY(
       size_t el_count = tristrips->buffer.size_bytes()/(tinyply::PropertyTable[tristrips->t].stride*tristrips->count);
 
       // all strips should have tristrips->count elements
-      if(!tinyply_tristrips_to_faces(*tristrips, F , tristrips->count, el_count))
-        F.resize(0,0);
+      if(!tinyply_tristrips_to_faces(*tristrips, tris , tristrips->count, el_count))
+        tris.resize(0,0);
 
     } else {
-      F.resize(0,0);
+      tris.resize(0,0);
     }
   }
 
@@ -477,8 +477,8 @@ template <
   >
 IGL_INLINE bool readPLY(
   const std::string& ply_file,
-  Eigen::PlainObjectBase<DerivedV> & V,
-  Eigen::PlainObjectBase<DerivedF> & F,
+  Eigen::PlainObjectBase<DerivedV> & vers,
+  Eigen::PlainObjectBase<DerivedF> & tris,
   Eigen::PlainObjectBase<DerivedE> & E,
   Eigen::PlainObjectBase<DerivedN> & N,
   Eigen::PlainObjectBase<DerivedUV> & UV,
@@ -503,7 +503,7 @@ IGL_INLINE bool readPLY(
   }
   try
   {
-    return readPLY(ply_stream, V, F, E, N, UV, VD, VDheader, FD,FDheader, ED, EDheader, comments );
+    return readPLY(ply_stream, vers, tris, E, N, UV, VD, VDheader, FD,FDheader, ED, EDheader, comments );
   } catch (const std::exception& e) {
     std::cerr << "ReadPLY error: " << ply_file << e.what() << std::endl;
   }
@@ -521,8 +521,8 @@ template <
   >
 IGL_INLINE bool readPLY(
   const std::string & filename,
-  Eigen::PlainObjectBase<DerivedV> & V,
-  Eigen::PlainObjectBase<DerivedF> & F,
+  Eigen::PlainObjectBase<DerivedV> & vers,
+  Eigen::PlainObjectBase<DerivedF> & tris,
   Eigen::PlainObjectBase<DerivedE> & E,
   Eigen::PlainObjectBase<DerivedN> & N,
   Eigen::PlainObjectBase<DerivedUV> & UV,
@@ -533,7 +533,7 @@ IGL_INLINE bool readPLY(
   Eigen::MatrixXd FD,ED;
   std::vector<std::string> Fheader,Eheader;
   std::vector<std::string> comments;
-  return readPLY(filename,V,F,E,N,UV,VD,Vheader,FD,Fheader,ED,Eheader,comments);
+  return readPLY(filename,vers,tris,E,N,UV,VD,Vheader,FD,Fheader,ED,Eheader,comments);
 }
 
 template <
@@ -545,8 +545,8 @@ template <
   >
 IGL_INLINE bool readPLY(
   const std::string & filename,
-  Eigen::PlainObjectBase<DerivedV> & V,
-  Eigen::PlainObjectBase<DerivedF> & F,
+  Eigen::PlainObjectBase<DerivedV> & vers,
+  Eigen::PlainObjectBase<DerivedF> & tris,
   Eigen::PlainObjectBase<DerivedE> & E,
   Eigen::PlainObjectBase<DerivedN> & N,
   Eigen::PlainObjectBase<DerivedUV> & UV
@@ -555,7 +555,7 @@ IGL_INLINE bool readPLY(
   Eigen::MatrixXd VD,FD,ED;
   std::vector<std::string> Vheader,Fheader,Eheader;
   std::vector<std::string> comments;
-  return readPLY(filename,V,F,E, N,UV,VD,Vheader,FD,Fheader,ED,Eheader,comments);
+  return readPLY(filename,vers,tris,E, N,UV,VD,Vheader,FD,Fheader,ED,Eheader,comments);
 }
 
 template <
@@ -566,8 +566,8 @@ template <
   >
 IGL_INLINE bool readPLY(
   const std::string & filename,
-  Eigen::PlainObjectBase<DerivedV> & V,
-  Eigen::PlainObjectBase<DerivedF> & F,
+  Eigen::PlainObjectBase<DerivedV> & vers,
+  Eigen::PlainObjectBase<DerivedF> & tris,
   Eigen::PlainObjectBase<DerivedN> & N,
   Eigen::PlainObjectBase<DerivedUV> & UV
   )
@@ -576,7 +576,7 @@ IGL_INLINE bool readPLY(
   Eigen::MatrixXi E;
   std::vector<std::string> Vheader,Fheader,Eheader;
   std::vector<std::string> comments;
-  return readPLY(filename,V,F,E, N,UV,VD,Vheader,FD,Fheader,ED,Eheader,comments);
+  return readPLY(filename,vers,tris,E, N,UV,VD,Vheader,FD,Fheader,ED,Eheader,comments);
 }
 
 template <
@@ -585,8 +585,8 @@ template <
   >
 IGL_INLINE bool readPLY(
   const std::string & filename,
-  Eigen::PlainObjectBase<DerivedV> & V,
-  Eigen::PlainObjectBase<DerivedF> & F
+  Eigen::PlainObjectBase<DerivedV> & vers,
+  Eigen::PlainObjectBase<DerivedF> & tris
   )
 {
   Eigen::MatrixXd N,UV;
@@ -595,7 +595,7 @@ IGL_INLINE bool readPLY(
 
   std::vector<std::string> Vheader,Fheader,Eheader;
   std::vector<std::string> comments;
-  return readPLY(filename,V,F,E,N,UV,VD,Vheader,FD,Fheader,ED,Eheader,comments);
+  return readPLY(filename,vers,tris,E,N,UV,VD,Vheader,FD,Fheader,ED,Eheader,comments);
 }
 
 template <
@@ -605,8 +605,8 @@ template <
   >
 IGL_INLINE bool readPLY(
   const std::string & filename,
-  Eigen::PlainObjectBase<DerivedV> & V,
-  Eigen::PlainObjectBase<DerivedF> & F,
+  Eigen::PlainObjectBase<DerivedV> & vers,
+  Eigen::PlainObjectBase<DerivedF> & tris,
   Eigen::PlainObjectBase<DerivedE> & E
   )
 {
@@ -615,7 +615,7 @@ IGL_INLINE bool readPLY(
 
   std::vector<std::string> Vheader,Fheader,Eheader;
   std::vector<std::string> comments;
-  return readPLY(filename,V,F,E,N,UV,VD,Vheader,FD,Fheader,ED,Eheader,comments);
+  return readPLY(filename,vers,tris,E,N,UV,VD,Vheader,FD,Fheader,ED,Eheader,comments);
 }
 
 

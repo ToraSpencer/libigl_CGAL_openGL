@@ -48,13 +48,13 @@ int main(int argc, char *argv[])
 {
   using namespace Eigen;
   using namespace std;
-  MatrixXd V;
+  MatrixXd vers;
   MatrixXi F;
-  igl::readOFF(TUTORIAL_SHARED_PATH "/cheburashka.off",V,F);
+  igl::readOFF(TUTORIAL_SHARED_PATH "/cheburashka.off",vers,F);
 
   // Plot the mesh
   igl::opengl::glfw::Viewer viewer;
-  viewer.data().set_mesh(V, F);
+  viewer.data().set_mesh(vers, F);
   viewer.data().show_lines = false;
   viewer.callback_key_down = &key_down;
 
@@ -67,18 +67,18 @@ int main(int argc, char *argv[])
 
   // Construct Laplacian and mass matrix
   SparseMatrix<double> L,M,Minv;
-  igl::cotmatrix(V,F,L);
-  igl::massmatrix(V,F,igl::MASSMATRIX_TYPE_VORONOI,M);
+  igl::cotmatrix(vers,F,L);
+  igl::massmatrix(vers,F,igl::MASSMATRIX_TYPE_VORONOI,M);
   //M = (M/M.diagonal().maxCoeff()).eval();
   igl::invert_diag(M,Minv);
   // Bi-Laplacian
   Q = L.transpose() * (Minv * L);
   // Zero linear term
-  B = VectorXd::Zero(V.rows(),1);
+  B = VectorXd::Zero(vers.rows(),1);
 
   // Lower and upper bound
-  lx = VectorXd::Zero(V.rows(),1);
-  ux = VectorXd::Ones(V.rows(),1);
+  lx = VectorXd::Zero(vers.rows(),1);
+  ux = VectorXd::Ones(vers.rows(),1);
 
   // Equality constraint constrain solution to sum to 1
   Beq.resize(1,1);

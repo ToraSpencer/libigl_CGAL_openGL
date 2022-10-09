@@ -6,11 +6,11 @@
 namespace igl
 {
   // Compute the surface of the swept volume of a solid object with surface
-  // (V,F) mesh under going rigid motion.
+  // (vers,tris) mesh under going rigid motion.
   // 
   // Inputs:
-  //   V  #V by 3 list of mesh positions in reference pose
-  //   F  #F by 3 list of mesh indices into V
+  //   vers  #vers by 3 list of mesh positions in reference pose
+  //   tris  #tris by 3 list of mesh indices into vers
   //   transform  function handle so that transform(t) returns the rigid
   //     transformation at time t∈[0,1]
   //   steps  number of time steps: steps=3 --> t∈{0,0.5,1}
@@ -21,8 +21,8 @@ namespace igl
   //   SV  #SV by 3 list of mesh positions of the swept surface
   //   SF  #SF by 3 list of mesh faces into SV
   IGL_INLINE void swept_volume(
-    const Eigen::MatrixXd & V,
-    const Eigen::MatrixXi & F,
+    const Eigen::MatrixXd & vers,
+    const Eigen::MatrixXi & tris,
     const std::function<Eigen::Affine3d(const double t)> & transform,
     const size_t steps,
     const size_t grid_res,

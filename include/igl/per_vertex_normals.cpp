@@ -18,39 +18,39 @@ template <
   typename DerivedF,
   typename DerivedN>
 IGL_INLINE void igl::per_vertex_normals(
-  const Eigen::MatrixBase<DerivedV>& V,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const Eigen::MatrixBase<DerivedF>& tris,
   const igl::PerVertexNormalsWeightingType weighting,
   Eigen::PlainObjectBase<DerivedN> & N)
 {
   Eigen::Matrix<typename DerivedV::Scalar,Eigen::Dynamic,3> PFN;
-  igl::per_face_normals(V,F,PFN);
-  return per_vertex_normals(V,F,weighting,PFN,N);
+  igl::per_face_normals(vers,tris,PFN);
+  return per_vertex_normals(vers,tris,weighting,PFN,N);
 }
 
 template <typename DerivedV, typename DerivedF, typename DerivedN>
 IGL_INLINE void igl::per_vertex_normals(
-  const Eigen::MatrixBase<DerivedV>& V,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const Eigen::MatrixBase<DerivedF>& tris,
   Eigen::PlainObjectBase<DerivedN> & N)
 {
-  return per_vertex_normals(V,F,PER_VERTEX_NORMALS_WEIGHTING_TYPE_DEFAULT,N);
+  return per_vertex_normals(vers,tris,PER_VERTEX_NORMALS_WEIGHTING_TYPE_DEFAULT,N);
 }
 
 template <typename DerivedV, typename DerivedF, typename DerivedFN, typename DerivedN>
 IGL_INLINE void igl::per_vertex_normals(
-  const Eigen::MatrixBase<DerivedV>& V,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const Eigen::MatrixBase<DerivedF>& tris,
   const igl::PerVertexNormalsWeightingType weighting,
   const Eigen::MatrixBase<DerivedFN>& FN,
   Eigen::PlainObjectBase<DerivedN> & N)
 {
   using namespace std;
   // Resize for output
-  N.setZero(V.rows(),3);
+  N.setZero(vers.rows(),3);
 
   Eigen::Matrix<typename DerivedN::Scalar,DerivedF::RowsAtCompileTime,3>
-    W(F.rows(),3);
+    W(tris.rows(),3);
   switch(weighting)
   {
     case PER_VERTEX_NORMALS_WEIGHTING_TYPE_UNIFORM:
@@ -62,22 +62,22 @@ IGL_INLINE void igl::per_vertex_normals(
     case PER_VERTEX_NORMALS_WEIGHTING_TYPE_AREA:
     {
       Eigen::Matrix<typename DerivedN::Scalar,DerivedF::RowsAtCompileTime,1> A;
-      doublearea(V,F,A);
+      doublearea(vers,tris,A);
       W = A.replicate(1,3);
       break;
     }
     case PER_VERTEX_NORMALS_WEIGHTING_TYPE_ANGLE:
-      internal_angles(V,F,W);
+      internal_angles(vers,tris,W);
       break;
   }
 
   // loop over faces
-  for(int i = 0;i<F.rows();i++)
+  for(int i = 0;i<tris.rows();i++)
   {
     // throw normal at each corner
     for(int j = 0; j < 3;j++)
     {
-      N.row(F(i,j)) += W(i,j) * FN.row(i);
+      N.row(tris(i,j)) += W(i,j) * FN.row(i);
     }
   }
 
@@ -85,16 +85,16 @@ IGL_INLINE void igl::per_vertex_normals(
   //std::mutex critical;
   //std::vector<DerivedN> NN;
   //parallel_for(
-  //  F.rows(),
+  //  tris.rows(),
   //  [&NN,&N](const size_t n){ NN.resize(n,DerivedN::Zero(N.rows(),3));},
-  //  [&F,&W,&FN,&NN,&critical](const int i, const size_t t)
+  //  [&tris,&W,&FN,&NN,&critical](const int i, const size_t t)
   //  {
   //    // throw normal at each corner
   //    for(int j = 0; j < 3;j++)
   //    {
   //      // Q: Does this need to be critical?
-  //      // A: Yes. Different (i,j)'s could produce the same F(i,j)
-  //      NN[t].row(F(i,j)) += W(i,j) * FN.row(i);
+  //      // A: Yes. Different (i,j)'s could produce the same tris(i,j)
+  //      NN[t].row(tris(i,j)) += W(i,j) * FN.row(i);
   //    }
   //  },
   //  [&N,&NN](const size_t t){ N += NN[t]; },
@@ -110,13 +110,13 @@ template <
   typename DerivedFN,
   typename DerivedN>
 IGL_INLINE void igl::per_vertex_normals(
-  const Eigen::MatrixBase<DerivedV>& V,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const Eigen::MatrixBase<DerivedF>& tris,
   const Eigen::MatrixBase<DerivedFN>& FN,
   Eigen::PlainObjectBase<DerivedN> & N)
 {
   return
-    per_vertex_normals(V,F,PER_VERTEX_NORMALS_WEIGHTING_TYPE_DEFAULT,FN,N);
+    per_vertex_normals(vers,tris,PER_VERTEX_NORMALS_WEIGHTING_TYPE_DEFAULT,FN,N);
 }
 
 #ifdef IGL_STATIC_LIBRARY

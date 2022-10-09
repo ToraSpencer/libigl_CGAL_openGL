@@ -16,8 +16,8 @@
 #include "PI.h"
 
 template <typename DerivedV, typename DerivedF, typename DerivedP>
-IGL_INLINE void igl::comb_frame_field(const Eigen::MatrixBase<DerivedV> &V,
-                                      const Eigen::MatrixBase<DerivedF> &F,
+IGL_INLINE void igl::comb_frame_field(const Eigen::MatrixBase<DerivedV> &vers,
+                                      const Eigen::MatrixBase<DerivedF> &tris,
                                       const Eigen::MatrixBase<DerivedP> &PD1,
                                       const Eigen::MatrixBase<DerivedP> &PD2,
                                       const Eigen::MatrixBase<DerivedP> &BIS1_combed,
@@ -26,7 +26,7 @@ IGL_INLINE void igl::comb_frame_field(const Eigen::MatrixBase<DerivedV> &V,
                                       Eigen::PlainObjectBase<DerivedP> &PD2_combed)
 {
   DerivedV B1, B2, B3;
-  igl::local_basis(V,F,B1,B2,B3);
+  igl::local_basis(vers,tris,B1,B2,B3);
 
   PD1_combed.resize(BIS1_combed.rows(),3);
   PD2_combed.resize(BIS2_combed.rows(),3);

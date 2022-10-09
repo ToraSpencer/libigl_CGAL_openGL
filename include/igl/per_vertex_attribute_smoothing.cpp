@@ -11,17 +11,17 @@
 template <typename DerivedV, typename DerivedF>
 IGL_INLINE void igl::per_vertex_attribute_smoothing(
     const Eigen::MatrixBase<DerivedV>& Ain,
-    const Eigen::MatrixBase<DerivedF>& F,
+    const Eigen::MatrixBase<DerivedF>& tris,
     Eigen::PlainObjectBase<DerivedV> & Aout)
 {
     std::vector<double> denominator(Ain.rows(), 0);
     Aout = DerivedV::Zero(Ain.rows(), Ain.cols());
-    for (int i = 0; i < F.rows(); ++i) {
+    for (int i = 0; i < tris.rows(); ++i) {
         for (int j = 0; j < 3; ++j) {
             int j1 = (j + 1) % 3;
             int j2 = (j + 2) % 3;
-            Aout.row(F(i, j)) += Ain.row(F(i, j1)) + Ain.row(F(i, j2));
-            denominator[F(i, j)] += 2;
+            Aout.row(tris(i, j)) += Ain.row(tris(i, j1)) + Ain.row(tris(i, j2));
+            denominator[tris(i, j)] += 2;
         }
     }
     for (int i = 0; i < Ain.rows(); ++i)

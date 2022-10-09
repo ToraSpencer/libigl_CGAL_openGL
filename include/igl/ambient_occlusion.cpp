@@ -69,22 +69,22 @@ template <
   typename DerivedS >
 IGL_INLINE void igl::ambient_occlusion(
   const igl::AABB<DerivedV,DIM> & aabb,
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const Eigen::MatrixBase<DerivedP> & P,
   const Eigen::MatrixBase<DerivedN> & N,
   const int num_samples,
   Eigen::PlainObjectBase<DerivedS> & S)
 {
-  const auto & shoot_ray = [&aabb,&V,&F](
+  const auto & shoot_ray = [&aabb,&vers,&tris](
     const Eigen::Vector3f& _s,
     const Eigen::Vector3f& dir)->bool
   {
     Eigen::Vector3f s = _s+1e-4*dir;
     igl::Hit hit;
     return aabb.intersect_ray(
-      V,
-      F,
+      vers,
+      tris,
       s  .cast<typename DerivedV::Scalar>().eval(),
       dir.cast<typename DerivedV::Scalar>().eval(),
       hit);
@@ -100,29 +100,29 @@ template <
   typename DerivedN,
   typename DerivedS >
 IGL_INLINE void igl::ambient_occlusion(
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const Eigen::MatrixBase<DerivedP> & P,
   const Eigen::MatrixBase<DerivedN> & N,
   const int num_samples,
   Eigen::PlainObjectBase<DerivedS> & S)
 {
-  if(F.rows() < 100)
+  if(tris.rows() < 100)
   {
     // Super naive
-    const auto & shoot_ray = [&V,&F](
+    const auto & shoot_ray = [&vers,&tris](
       const Eigen::Vector3f& _s,
       const Eigen::Vector3f& dir)->bool
     {
       Eigen::Vector3f s = _s+1e-4*dir;
       igl::Hit hit;
-      return ray_mesh_intersect(s,dir,V,F,hit);
+      return ray_mesh_intersect(s,dir,vers,tris,hit);
     };
     return ambient_occlusion(shoot_ray,P,N,num_samples,S);
   }
   AABB<DerivedV,3> aabb;
-  aabb.init(V,F);
-  return ambient_occlusion(aabb,V,F,P,N,num_samples,S);
+  aabb.init(vers,tris);
+  return ambient_occlusion(aabb,vers,tris,P,N,num_samples,S);
 }
 
 #ifdef IGL_STATIC_LIBRARY

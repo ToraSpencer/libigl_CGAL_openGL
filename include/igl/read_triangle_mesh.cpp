@@ -27,8 +27,8 @@
 template <typename Scalar, typename Index>
 IGL_INLINE bool igl::read_triangle_mesh(
   const std::string str,
-  std::vector<std::vector<Scalar> > & V,
-  std::vector<std::vector<Index> > & F)
+  std::vector<std::vector<Scalar> > & vers,
+  std::vector<std::vector<Index> > & tris)
 {
   using namespace std;
   // dirname, basename, extension and filename
@@ -42,15 +42,15 @@ IGL_INLINE bool igl::read_triangle_mesh(
   {
     // Annoyingly obj can store 4 coordinates, truncate to xyz for this generic
     // read_triangle_mesh
-    bool success = readOBJ(str,V,TC,N,F,FTC,FN);
-    for(auto & v : V)
+    bool success = readOBJ(str,vers,TC,N,tris,FTC,FN);
+    for(auto & v : vers)
     {
       v.resize(std::min(v.size(),(size_t)3));
     }
     return success;
   }else if(e == "off")
   {
-    return readOFF(str,V,F,N,C);
+    return readOFF(str,vers,tris,N,C);
   }
   cerr<<"Error: "<<__FUNCTION__<<": "<<
     str<<" is not a recognized mesh file format."<<endl;
@@ -62,18 +62,18 @@ IGL_INLINE bool igl::read_triangle_mesh(
 template <typename DerivedV, typename DerivedF>
 IGL_INLINE bool igl::read_triangle_mesh(
   const std::string str,
-  Eigen::PlainObjectBase<DerivedV>& V,
-  Eigen::PlainObjectBase<DerivedF>& F)
+  Eigen::PlainObjectBase<DerivedV>& vers,
+  Eigen::PlainObjectBase<DerivedF>& tris)
 {
   std::string _1,_2,_3,_4;
-  return read_triangle_mesh(str,V,F,_1,_2,_3,_4);
+  return read_triangle_mesh(str,vers,tris,_1,_2,_3,_4);
 }
 
 template <typename DerivedV, typename DerivedF>
 IGL_INLINE bool igl::read_triangle_mesh(
   const std::string filename,
-  Eigen::PlainObjectBase<DerivedV>& V,
-  Eigen::PlainObjectBase<DerivedF>& F,
+  Eigen::PlainObjectBase<DerivedV>& vers,
+  Eigen::PlainObjectBase<DerivedF>& tris,
   std::string & dir,
   std::string & base,
   std::string & ext,
@@ -96,15 +96,15 @@ IGL_INLINE bool igl::read_triangle_mesh(
     // *TetWild doesn't use Tri field...
     //bool res = readMSH(filename,mV,mF);
     bool res = readMSH(filename,mV,mF,T,_1,_2);
-    V = mV.template cast<typename DerivedV::Scalar>();
+    vers = mV.template cast<typename DerivedV::Scalar>();
     if(mF.rows() == 0 && T.rows() > 0)
     {
-      boundary_facets(T,F);
+      boundary_facets(T,tris);
       // outward facing
-      F = F.rowwise().reverse().eval();
+      tris = tris.rowwise().reverse().eval();
     }else
     {
-      F = mF.template cast<typename DerivedF::Scalar>();
+      tris = mF.template cast<typename DerivedF::Scalar>();
     }
     return res;
   }else
@@ -116,7 +116,7 @@ IGL_INLINE bool igl::read_triangle_mesh(
               filename.c_str());
       return false;
     }
-    return read_triangle_mesh(ext,fp,V,F);
+    return read_triangle_mesh(ext,fp,vers,tris);
   }
 }
 
@@ -124,8 +124,8 @@ template <typename DerivedV, typename DerivedF>
 IGL_INLINE bool igl::read_triangle_mesh(
   const std::string & ext,
   FILE * fp,
-  Eigen::PlainObjectBase<DerivedV>& V,
-  Eigen::PlainObjectBase<DerivedF>& F)
+  Eigen::PlainObjectBase<DerivedV>& vers,
+  Eigen::PlainObjectBase<DerivedF>& tris)
 {
   using namespace std;
   using namespace Eigen;
@@ -138,15 +138,15 @@ IGL_INLINE bool igl::read_triangle_mesh(
   {
     // Convert extension to lower case
     MatrixXi T;
-    if(!readMESH(fp,V,T,F))
+    if(!readMESH(fp,vers,T,tris))
     {
       return 1;
     }
-    //if(F.size() > T.size() || F.size() == 0)
+    //if(tris.size() > T.size() || tris.size() == 0)
     {
-      boundary_facets(T,F);
+      boundary_facets(T,tris);
       // outward facing
-      F = F.rowwise().reverse().eval();
+      tris = tris.rowwise().reverse().eval();
     }
   }else if(ext == "obj")
   {
@@ -168,11 +168,11 @@ IGL_INLINE bool igl::read_triangle_mesh(
     }
   }else if(ext == "ply")
   {
-    return readPLY(fp, V, F);
+    return readPLY(fp, vers, tris);
 
   }else if(ext == "stl")
   {
-    if(!readSTL(fp,V,F,N))
+    if(!readSTL(fp,vers,tris,N))
     {
       return false;
     }
@@ -189,7 +189,7 @@ IGL_INLINE bool igl::read_triangle_mesh(
   }
   if(vV.size() > 0)
   {
-    if(!list_to_matrix(vV,V))
+    if(!list_to_matrix(vV,vers))
     {
       return false;
     }
@@ -197,7 +197,7 @@ IGL_INLINE bool igl::read_triangle_mesh(
       Eigen::VectorXi I,C;
       igl::polygon_corners(vF,I,C);
       Eigen::VectorXi J;
-      igl::polygons_to_triangles(I,C,F,J);
+      igl::polygons_to_triangles(I,C,tris,J);
     }
   }
   return true;

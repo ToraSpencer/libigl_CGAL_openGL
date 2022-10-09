@@ -13,12 +13,12 @@ namespace igl
   // Write a mesh in an ascii obj file
   // Inputs:
   //   str  path to outputfile
-  //   V  #V by 3 mesh vertex positions
-  //   F  #F by 3|4 mesh indices into V
+  //   vers  #vers by 3 mesh vertex positions
+  //   tris  #tris by 3|4 mesh indices into vers
   //   CN #CN by 3 normal vectors
-  //   FN  #F by 3|4 corner normal indices into CN
+  //   FN  #tris by 3|4 corner normal indices into CN
   //   TC  #TC by 2|3 texture coordinates
-  //   FTC #F by 3|4 corner texture coord indices into TC
+  //   FTC #tris by 3|4 corner texture coord indices into TC
   // Returns true on success, false on error
   //
   // Known issues: Horrifyingly, this does not have the same order of
@@ -32,8 +32,8 @@ namespace igl
     typename DerivedFTC>
   IGL_INLINE bool writeOBJ(
     const std::string str,
-    const Eigen::MatrixBase<DerivedV>& V,
-    const Eigen::MatrixBase<DerivedF>& F,
+    const Eigen::MatrixBase<DerivedV>& vers,
+    const Eigen::MatrixBase<DerivedF>& tris,
     const Eigen::MatrixBase<DerivedCN>& CN,
     const Eigen::MatrixBase<DerivedFN>& FN,
     const Eigen::MatrixBase<DerivedTC>& TC,
@@ -41,20 +41,20 @@ namespace igl
   template <typename DerivedV, typename DerivedF>
   IGL_INLINE bool writeOBJ(
     const std::string str,
-    const Eigen::MatrixBase<DerivedV>& V,
-    const Eigen::MatrixBase<DerivedF>& F);
+    const Eigen::MatrixBase<DerivedV>& vers,
+    const Eigen::MatrixBase<DerivedF>& tris);
 
   // Write a mesh of mixed tris and quads to an ascii obj file
   // Inputs:
   //   str  path to outputfile
-  //   V  #V by 3 mesh vertex positions
-  //   F  #F std::vector of std::vector<Index> of size 3 or 4 mesh indices into V
+  //   vers  #vers by 3 mesh vertex positions
+  //   tris  #tris std::vector of std::vector<Index> of size 3 or 4 mesh indices into vers
   // Returns true on success, false on error
   template <typename DerivedV, typename T>
   IGL_INLINE bool writeOBJ(
     const std::string &str,
-    const Eigen::MatrixBase<DerivedV>& V,
-    const std::vector<std::vector<T> >& F);
+    const Eigen::MatrixBase<DerivedV>& vers,
+    const std::vector<std::vector<T> >& tris);
 
 }
 

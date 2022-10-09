@@ -19,10 +19,10 @@ namespace igl
   // mesh.
   //
   // templates:
-  //   DIM  dimension of vertices in V (# of columns)
+  //   DIM  dimension of vertices in vers (# of columns)
   // Inputs:
-  //   V  #V by dim list of mesh vertex positions.
-  //   Ele  #Ele by dim+1 list of mesh indices into #V.
+  //   vers  #vers by dim list of mesh vertex positions.
+  //   Ele  #Ele by dim+1 list of mesh indices into #vers.
   //   Q  #Q by dim list of query point positions
   //   aabb  axis-aligned bounding box tree object (see AABB.h)
   // Outputs:
@@ -30,7 +30,7 @@ namespace igl
   //     containing element)
   template <typename DerivedV, typename DerivedQ, int DIM>
   IGL_INLINE void in_element(
-    const Eigen::MatrixBase<DerivedV> & V,
+    const Eigen::MatrixBase<DerivedV> & vers,
     const Eigen::MatrixXi & Ele,
     const Eigen::MatrixBase<DerivedQ> & Q,
     const AABB<DerivedV,DIM> & aabb,
@@ -40,7 +40,7 @@ namespace igl
   //     point: I(q,e) means point q is in element e
   template <typename DerivedV, typename DerivedQ, int DIM, typename Scalar>
   IGL_INLINE void in_element(
-    const Eigen::MatrixBase<DerivedV> & V,
+    const Eigen::MatrixBase<DerivedV> & vers,
     const Eigen::MatrixXi & Ele,
     const Eigen::MatrixBase<DerivedQ> & Q,
     const AABB<DerivedV,DIM> & aabb,

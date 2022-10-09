@@ -28,35 +28,35 @@ namespace igl
   // Inputs:
   //   filename path to .stl file
   // Outputs:
-  //   V  double matrix of vertex positions  #V*3 by 3
-  //   F  index matrix of triangle indices #F by 3
-  //   N  double matrix of surface normals #F by 3
+  //   vers  double matrix of vertex positions  #vers*3 by 3
+  //   tris  index matrix of triangle indices #tris by 3
+  //   N  double matrix of surface normals #tris by 3
   // Returns true on success, false on errors
   //
   // Example:
-  //   bool success = readSTL(filename,temp_V,F,N);
-  //   remove_duplicate_vertices(temp_V,0,V,SVI,SVJ);
-  //   for_each(F.data(),F.data()+F.size(),[&SVJ](int & f){f=SVJ(f);});
-  //   writeOBJ("Downloads/cat.obj",V,F);
+  //   bool success = readSTL(filename,temp_V,tris,N);
+  //   remove_duplicate_vertices(temp_V,0,vers,SVI,SVJ);
+  //   for_each(tris.data(),tris.data()+tris.size(),[&SVJ](int & f){f=SVJ(f);});
+  //   writeOBJ("Downloads/cat.obj",vers,tris);
   template <typename DerivedV, typename DerivedF, typename DerivedN>
   IGL_INLINE bool readSTL(
     std::istream &input,
-    Eigen::PlainObjectBase<DerivedV> & V,
-    Eigen::PlainObjectBase<DerivedF> & F,
+    Eigen::PlainObjectBase<DerivedV> & vers,
+    Eigen::PlainObjectBase<DerivedF> & tris,
     Eigen::PlainObjectBase<DerivedN> & N);
 
   template <typename TypeV, typename TypeF, typename TypeN>
   IGL_INLINE bool readSTL(
     std::istream &input,
-    std::vector<std::array<TypeV, 3> > & V,
-    std::vector<std::array<TypeF, 3> > & F,
+    std::vector<std::array<TypeV, 3> > & vers,
+    std::vector<std::array<TypeF, 3> > & tris,
     std::vector<std::array<TypeN, 3> > & N);
 
   template <typename DerivedV, typename DerivedF, typename DerivedN>
   IGL_INLINE bool readSTL(
     FILE * fp,
-    Eigen::PlainObjectBase<DerivedV> & V,
-    Eigen::PlainObjectBase<DerivedF> & F,
+    Eigen::PlainObjectBase<DerivedV> & vers,
+    Eigen::PlainObjectBase<DerivedF> & tris,
     Eigen::PlainObjectBase<DerivedN> & N);
 }
 

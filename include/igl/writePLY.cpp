@@ -29,8 +29,8 @@ template <
 >
 bool writePLY(
   std::ostream & ply_stream,
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const Eigen::MatrixBase<DerivedE> & E,
   const Eigen::MatrixBase<DerivedN> & N,
   const Eigen::MatrixBase<DerivedUV> & UV,
@@ -68,18 +68,18 @@ bool writePLY(
     std::vector<EDScalar> _ed;
 
     // check dimensions
-    if( V.cols()!=3)
+    if( vers.cols()!=3)
     {
       std::cerr << "writePLY: unexpected dimensions " << std::endl;
       return false;
     }
     tinyply::PlyFile file;
 
-    _v.resize(V.size());
-    Eigen::Map< Eigen::Matrix<VScalar, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor > >( &_v[0], V.rows(), V.cols() ) = V;
+    _v.resize(vers.size());
+    Eigen::Map< Eigen::Matrix<VScalar, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor > >( &_v[0], vers.rows(), vers.cols() ) = vers;
 
     file.add_properties_to_element("vertex", { "x", "y", "z" },
-        tynyply_type<VScalar>(), V.rows(), reinterpret_cast<uint8_t*>( &_v[0] ), tinyply::Type::INVALID, 0);
+        tynyply_type<VScalar>(), vers.rows(), reinterpret_cast<uint8_t*>( &_v[0] ), tinyply::Type::INVALID, 0);
 
     if(N.rows()>0)
     {
@@ -101,7 +101,7 @@ bool writePLY(
     if(VD.cols()>0)
     {
         assert(VD.cols() == VDheader.size());
-        assert(VD.rows() == V.rows());
+        assert(VD.rows() == vers.rows());
 
         _vd.resize(VD.size());
         Eigen::Map< Eigen::Matrix<VDScalar, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor > >( &_vd[0], VD.rows(), VD.cols() ) = VD;
@@ -112,14 +112,14 @@ bool writePLY(
 
 
 
-    std::vector<FScalar> _f(F.size());
-    Eigen::Map<Eigen::Matrix<FScalar, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor > >( &_f[0], F.rows(), F.cols() ) = F;
+    std::vector<FScalar> _f(tris.size());
+    Eigen::Map<Eigen::Matrix<FScalar, Eigen::Dynamic, Eigen::Dynamic, Eigen::RowMajor > >( &_f[0], tris.rows(), tris.cols() ) = tris;
     file.add_properties_to_element("face", { "vertex_indices" },
-        tynyply_type<FScalar>(), F.rows(), reinterpret_cast<uint8_t*>(&_f[0]), tinyply::Type::UINT8, F.cols() );
+        tynyply_type<FScalar>(), tris.rows(), reinterpret_cast<uint8_t*>(&_f[0]), tinyply::Type::UINT8, tris.cols() );
 
     if(FD.cols()>0)
     {
-        assert(FD.rows()==F.rows());
+        assert(FD.rows()==tris.rows());
         assert(FD.cols() == FDheader.size());
 
         _fd.resize(FD.size());
@@ -141,7 +141,7 @@ bool writePLY(
 
     if(ED.cols()>0)
     {
-        assert(ED.rows()==F.rows());
+        assert(ED.rows()==tris.rows());
         assert(ED.cols() == EDheader.size());
 
         _ed.resize(ED.size());
@@ -172,8 +172,8 @@ template <
 >
 bool writePLY(
   const std::string & filename,
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const Eigen::MatrixBase<DerivedE> & E,
   const Eigen::MatrixBase<DerivedN> & N,
   const Eigen::MatrixBase<DerivedUV> & UV,
@@ -202,7 +202,7 @@ bool writePLY(
         std::cerr << "writePLY: Error opening file " << filename << std::endl;
         return false; //throw std::runtime_error("failed to open " + filename);
       }
-      return writePLY(outstream_binary,V,F,E,N,UV,VD,VDheader,FD,FDheader,ED,EDheader,comments,encoding);
+      return writePLY(outstream_binary,vers,tris,E,N,UV,VD,VDheader,FD,FDheader,ED,EDheader,comments,encoding);
     } else {
       std::filebuf fb_ascii;
       fb_ascii.open(filename, std::ios::out);
@@ -211,7 +211,7 @@ bool writePLY(
         std::cerr << "writePLY: Error opening file " << filename << std::endl;
         return false; //throw std::runtime_error("failed to open " + filename);
       }
-      return writePLY(outstream_ascii,V,F,E,N,UV,VD,VDheader,FD,FDheader,ED,EDheader,comments,encoding);
+      return writePLY(outstream_ascii,vers,tris,E,N,UV,VD,VDheader,FD,FDheader,ED,EDheader,comments,encoding);
     }
   }
   catch(const std::exception& e)
@@ -227,14 +227,14 @@ template <
 >
 bool writePLY(
   const std::string & filename,
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris
    )
 {
   Eigen::MatrixXd _dummy;
   std::vector<std::string> _dummy_header;
 
-  return writePLY(filename,V,F,_dummy, _dummy, _dummy, _dummy, _dummy_header, _dummy, _dummy_header, _dummy, _dummy_header, _dummy_header, FileEncoding::Binary);
+  return writePLY(filename,vers,tris,_dummy, _dummy, _dummy, _dummy, _dummy_header, _dummy, _dummy_header, _dummy, _dummy_header, _dummy_header, FileEncoding::Binary);
 }
 
 template <
@@ -244,15 +244,15 @@ template <
 >
 bool writePLY(
   const std::string & filename,
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const Eigen::MatrixBase<DerivedE> & E
    )
 {
   Eigen::MatrixXd _dummy;
   std::vector<std::string> _dummy_header;
 
-  return writePLY(filename,V,F,E, _dummy, _dummy, _dummy, _dummy_header, _dummy, _dummy_header, _dummy, _dummy_header, _dummy_header, FileEncoding::Binary);
+  return writePLY(filename,vers,tris,E, _dummy, _dummy, _dummy, _dummy_header, _dummy, _dummy_header, _dummy, _dummy_header, _dummy_header, FileEncoding::Binary);
 }
 
 
@@ -264,8 +264,8 @@ template <
 >
 bool writePLY(
   const std::string & filename,
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const Eigen::MatrixBase<DerivedN> & N,
   const Eigen::MatrixBase<DerivedUV> & UV
    )
@@ -273,7 +273,7 @@ bool writePLY(
   Eigen::MatrixXd _dummy;
   std::vector<std::string> _dummy_header;
 
-  return writePLY(filename,V,F,_dummy, N,UV, _dummy, _dummy_header, _dummy, _dummy_header, _dummy, _dummy_header, _dummy_header, FileEncoding::Binary);
+  return writePLY(filename,vers,tris,_dummy, N,UV, _dummy, _dummy_header, _dummy, _dummy_header, _dummy, _dummy_header, _dummy_header, FileEncoding::Binary);
 }
 
 template <
@@ -285,8 +285,8 @@ template <
 >
 bool writePLY(
   const std::string & filename,
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const Eigen::MatrixBase<DerivedE> & E,
   const Eigen::MatrixBase<DerivedN> & N,
   const Eigen::MatrixBase<DerivedUV> & UV
@@ -295,7 +295,7 @@ bool writePLY(
   Eigen::MatrixXd _dummy;
   std::vector<std::string> _dummy_header;
 
-  return writePLY(filename,V,F,E, N,UV, _dummy, _dummy_header, _dummy, _dummy_header, _dummy, _dummy_header, _dummy_header, FileEncoding::Binary);
+  return writePLY(filename,vers,tris,E, N,UV, _dummy, _dummy_header, _dummy, _dummy_header, _dummy, _dummy_header, _dummy_header, FileEncoding::Binary);
 }
 
 template <
@@ -304,15 +304,15 @@ template <
 >
 bool writePLY(
   const std::string & filename,
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   FileEncoding encoding
    )
 {
   Eigen::MatrixXd _dummy(0,0);
   std::vector<std::string> _dummy_header;
 
-  return writePLY(filename,V,F,_dummy, _dummy,_dummy, _dummy, _dummy_header,
+  return writePLY(filename,vers,tris,_dummy, _dummy,_dummy, _dummy, _dummy_header,
                          _dummy, _dummy_header, _dummy, _dummy_header, _dummy_header, encoding);
 }
 
@@ -323,8 +323,8 @@ template <
 >
 bool writePLY(
   const std::string & filename,
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const Eigen::MatrixBase<DerivedE> & E,
   FileEncoding encoding
    )
@@ -332,7 +332,7 @@ bool writePLY(
   Eigen::MatrixXd _dummy(0,0);
   std::vector<std::string> _dummy_header;
 
-  return writePLY(filename,V,F,E, _dummy,_dummy, _dummy, _dummy_header,
+  return writePLY(filename,vers,tris,E, _dummy,_dummy, _dummy, _dummy_header,
                          _dummy, _dummy_header, _dummy, _dummy_header, _dummy_header, encoding);
 }
 
@@ -348,8 +348,8 @@ template <
 >
 bool writePLY(
   const std::string & filename,
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const Eigen::MatrixBase<DerivedN> & N,
   const Eigen::MatrixBase<DerivedUV> & UV,
   const Eigen::MatrixBase<DerivedVD> & VD,
@@ -360,7 +360,7 @@ bool writePLY(
   Eigen::MatrixXd _dummy(0,0);
   std::vector<std::string> _dummy_header;
 
-  return writePLY(filename,V,F,_dummy, N, UV, VD, VDheader,
+  return writePLY(filename,vers,tris,_dummy, N, UV, VD, VDheader,
                          _dummy, _dummy_header, _dummy, _dummy_header, comments, FileEncoding::Binary);
 }
 
@@ -377,8 +377,8 @@ template <
 >
 bool writePLY(
   const std::string & filename,
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const Eigen::MatrixBase<DerivedE> & E,
   const Eigen::MatrixBase<DerivedN> & N,
   const Eigen::MatrixBase<DerivedUV> & UV,
@@ -390,7 +390,7 @@ bool writePLY(
   Eigen::MatrixXd _dummy(0,0);
   std::vector<std::string> _dummy_header;
 
-  return writePLY(filename,V,F,E, N, UV, VD, VDheader,
+  return writePLY(filename,vers,tris,E, N, UV, VD, VDheader,
                          _dummy, _dummy_header, _dummy, _dummy_header, comments, FileEncoding::Binary);
 
 }

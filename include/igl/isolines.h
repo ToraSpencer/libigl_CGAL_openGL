@@ -17,13 +17,13 @@
 
 namespace igl
 {
-    // Constructs isolines for a function z given on a mesh (V,F)
+    // Constructs isolines for a function z given on a mesh (vers,tris)
     //
     //
     // Inputs:
-    //   V  #V by dim list of mesh vertex positions
-    //   F  #F by 3 list of mesh faces (must be triangles)
-    //   z  #V by 1 list of function values evaluated at vertices
+    //   vers  #vers by dim list of mesh vertex positions
+    //   tris  #tris by 3 list of mesh faces (must be triangles)
+    //   z  #vers by 1 list of function values evaluated at vertices
     //   n  the number of desired isolines
     // Outputs:
     //   isoV  #isoV by dim list of isoline vertex positions
@@ -37,8 +37,8 @@ namespace igl
     typename DerivedIsoV,
     typename DerivedIsoE>
     IGL_INLINE void isolines(
-                             const Eigen::MatrixBase<DerivedV>& V,
-                             const Eigen::MatrixBase<DerivedF>& F,
+                             const Eigen::MatrixBase<DerivedV>& vers,
+                             const Eigen::MatrixBase<DerivedF>& tris,
                              const Eigen::MatrixBase<DerivedZ>& z,
                              const int n,
                              Eigen::PlainObjectBase<DerivedIsoV>& isoV,

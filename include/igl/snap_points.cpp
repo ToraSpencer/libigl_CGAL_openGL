@@ -17,17 +17,17 @@ template <
   typename DerivedVI>
 IGL_INLINE void igl::snap_points(
   const Eigen::MatrixBase<DerivedC > & C,
-  const Eigen::MatrixBase<DerivedV > & V,
+  const Eigen::MatrixBase<DerivedV > & vers,
   Eigen::PlainObjectBase<DerivedI > & I,
   Eigen::PlainObjectBase<DerivedminD > & minD,
   Eigen::PlainObjectBase<DerivedVI > & VI)
 {
-  snap_points(C,V,I,minD);
+  snap_points(C,vers,I,minD);
   const int m = C.rows();
-  VI.resize(m,V.cols());
+  VI.resize(m,vers.cols());
   for(int c = 0;c<m;c++)
   {
-    VI.row(c) = V.row(I(c));
+    VI.row(c) = vers.row(I(c));
   }
 }
 
@@ -38,14 +38,14 @@ template <
   typename DerivedminD>
 IGL_INLINE void igl::snap_points(
   const Eigen::MatrixBase<DerivedC > & C,
-  const Eigen::MatrixBase<DerivedV > & V,
+  const Eigen::MatrixBase<DerivedV > & vers,
   Eigen::PlainObjectBase<DerivedI > & I,
   Eigen::PlainObjectBase<DerivedminD > & minD)
 {
   using namespace std;
-  const int n = V.rows();
+  const int n = vers.rows();
   const int m = C.rows();
-  assert(V.cols() == C.cols() && "Dimensions should match");
+  assert(vers.cols() == C.cols() && "Dimensions should match");
   // O(m*n)
   //
   // I believe there should be a way to do this in O(m*log(n) + n) assuming
@@ -57,7 +57,7 @@ IGL_INLINE void igl::snap_points(
   {
     for(int c = 0;c<m;c++)
     {
-      const Scalar d = (C.row(c) - V.row(v)).squaredNorm();
+      const Scalar d = (C.row(c) - vers.row(v)).squaredNorm();
       if(d < minD(c))
       {
         minD(c,0) = d;
@@ -73,11 +73,11 @@ template <
   typename DerivedI>
 IGL_INLINE void igl::snap_points(
   const Eigen::MatrixBase<DerivedC > & C,
-  const Eigen::MatrixBase<DerivedV > & V,
+  const Eigen::MatrixBase<DerivedV > & vers,
   Eigen::PlainObjectBase<DerivedI > & I)
 {
   Eigen::Matrix<typename DerivedC::Scalar,DerivedC::RowsAtCompileTime,1> minD;
-  return igl::snap_points(C,V,I,minD);
+  return igl::snap_points(C,vers,I,minD);
 }
 
 

@@ -24,7 +24,7 @@ typedef
   RotationList;
 
 const Eigen::RowVector3d sea_green(70./255.,252./255.,167./255.);
-Eigen::MatrixXd V,U;
+Eigen::MatrixXd vers,U;
 Eigen::MatrixXi F;
 Eigen::VectorXi S,b;
 Eigen::RowVector3d mid;
@@ -36,10 +36,10 @@ bool pre_draw(igl::opengl::glfw::Viewer & viewer)
 {
   using namespace Eigen;
   using namespace std;
-    MatrixXd bc(b.size(),V.cols());
+    MatrixXd bc(b.size(),vers.cols());
     for(int i = 0;i<b.size();i++)
     {
-      bc.row(i) = V.row(b(i));
+      bc.row(i) = vers.row(b(i));
       switch(S(b(i)))
       {
         case 0:
@@ -92,19 +92,19 @@ int main(int argc, char *argv[])
 {
   using namespace Eigen;
   using namespace std;
-  igl::readOFF(TUTORIAL_SHARED_PATH "/decimated-knight.off",V,F);
-  U=V;
+  igl::readOFF(TUTORIAL_SHARED_PATH "/decimated-knight.off",vers,F);
+  U=vers;
   igl::readDMAT(TUTORIAL_SHARED_PATH "/decimated-knight-selection.dmat",S);
 
   // vertices in selection
-  igl::colon<int>(0,V.rows()-1,b);
+  igl::colon<int>(0,vers.rows()-1,b);
   b.conservativeResize(stable_partition( b.data(), b.data()+b.size(), 
    [](int i)->bool{return S(i)>=0;})-b.data());
   // Centroid
-  mid = 0.5*(V.colwise().maxCoeff() + V.colwise().minCoeff());
+  mid = 0.5*(vers.colwise().maxCoeff() + vers.colwise().minCoeff());
   // Precomputation
   arap_data.max_iter = 100;
-  igl::arap_precomputation(V,F,V.cols(),b,arap_data);
+  igl::arap_precomputation(vers,F,vers.cols(),b,arap_data);
 
   // Set color based on selection
   MatrixXd C(F.rows(),3);

@@ -22,9 +22,9 @@ IGL_INLINE void igl::march_cube(
   const Eigen::Matrix<Scalar,8,1> & cS,
   const Eigen::Matrix<Index,8,1> & cI,
   const Scalar & isovalue,
-  Eigen::PlainObjectBase<DerivedV> &V,
+  Eigen::PlainObjectBase<DerivedV> &vers,
   Index & n,
-  Eigen::PlainObjectBase<DerivedF> &F,
+  Eigen::PlainObjectBase<DerivedF> &tris,
   Index & m,
   std::unordered_map<int64_t,int> & E2V)
 {
@@ -34,7 +34,7 @@ IGL_INLINE void igl::march_cube(
 
   // Seems this is also successfully inlined
   const auto ij2vertex =
-    [&E2V,&V,&n,&GV]
+    [&E2V,&vers,&n,&GV]
       (const Index & i, const Index & j, const Scalar & t)->Index
   {
     // Seems this is successfully inlined.
@@ -52,8 +52,8 @@ IGL_INLINE void igl::march_cube(
     if(it == E2V.end())
     {
       // new vertex
-      if(n==V.rows()){ V.conservativeResize(V.rows()*2+1,V.cols()); }
-      V.row(n) = GV.row(i) + t*(GV.row(j) - GV.row(i));
+      if(n==vers.rows()){ vers.conservativeResize(vers.rows()*2+1,vers.cols()); }
+      vers.row(n) = GV.row(i) + t*(GV.row(j) - GV.row(i));
       v = n;
       E2V[key] = v;
       n++;
@@ -104,11 +104,11 @@ IGL_INLINE void igl::march_cube(
     for(int f = 0; f < 5; f++)
     {
       if(a2fConnectionTable[c_flags][3*f] < 0) break;
-      if(m==F.rows()){ F.conservativeResize(F.rows()*2+1,F.cols()); }
+      if(m==tris.rows()){ tris.conservativeResize(tris.rows()*2+1,tris.cols()); }
       assert(edge_vertices[a2fConnectionTable[c_flags][3*f+0]]>=0);
       assert(edge_vertices[a2fConnectionTable[c_flags][3*f+1]]>=0);
       assert(edge_vertices[a2fConnectionTable[c_flags][3*f+2]]>=0);
-      F.row(m) <<
+      tris.row(m) <<
         edge_vertices[a2fConnectionTable[c_flags][3*f+0]],
         edge_vertices[a2fConnectionTable[c_flags][3*f+1]],
         edge_vertices[a2fConnectionTable[c_flags][3*f+2]];

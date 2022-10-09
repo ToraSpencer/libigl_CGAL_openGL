@@ -12,17 +12,17 @@
 template <typename Derivedl, typename DerivedF, typename Scalar>
 IGL_INLINE void igl::cotmatrix_intrinsic(
   const Eigen::MatrixBase<Derivedl> & l, 
-  const Eigen::MatrixBase<DerivedF> & F, 
+  const Eigen::MatrixBase<DerivedF> & tris, 
   Eigen::SparseMatrix<Scalar>& L)
 {
   using namespace Eigen;
   using namespace std;
   // Cribbed from cotmatrix
 
-  const int nverts = F.maxCoeff()+1;
+  const int nverts = tris.maxCoeff()+1;
   L.resize(nverts,nverts);
   Matrix<int,Dynamic,2> edges;
-  int simplex_size = F.cols();
+  int simplex_size = tris.cols();
   // 3 for triangles, 4 for tets
   assert(simplex_size == 3);
   // This is important! it could decrease the comptuation time by a factor of 2
@@ -39,15 +39,15 @@ IGL_INLINE void igl::cotmatrix_intrinsic(
   cotmatrix_entries(l,C);
   
   vector<Triplet<Scalar> > IJV;
-  IJV.reserve(F.rows()*edges.rows()*4);
+  IJV.reserve(tris.rows()*edges.rows()*4);
   // Loop over triangles
-  for(int i = 0; i < F.rows(); i++)
+  for(int i = 0; i < tris.rows(); i++)
   {
     // loop over edges of element
     for(int e = 0;e<edges.rows();e++)
     {
-      int source = F(i,edges(e,0));
-      int dest = F(i,edges(e,1));
+      int source = tris(i,edges(e,0));
+      int dest = tris(i,edges(e,1));
       IJV.push_back(Triplet<Scalar>(source,dest,C(i,e)));
       IJV.push_back(Triplet<Scalar>(dest,source,C(i,e)));
       IJV.push_back(Triplet<Scalar>(source,source,-C(i,e)));

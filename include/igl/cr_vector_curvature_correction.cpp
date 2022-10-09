@@ -23,16 +23,16 @@ template <typename DerivedV, typename DerivedF, typename DerivedE,
 typename DerivedOE, typename ScalarK>
 IGL_INLINE void
 igl::cr_vector_curvature_correction(
-  const Eigen::MatrixBase<DerivedV>& V,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const Eigen::MatrixBase<DerivedF>& tris,
   const Eigen::MatrixBase<DerivedE>& E,
   const Eigen::MatrixBase<DerivedOE>& oE,
   Eigen::SparseMatrix<ScalarK>& K)
 {
   Eigen::Matrix<typename DerivedV::Scalar, Eigen::Dynamic, Eigen::Dynamic>
   l_sq;
-  squared_edge_lengths(V, F, l_sq);
-  cr_vector_curvature_correction_intrinsic(F, l_sq, E, oE, K);
+  squared_edge_lengths(vers, tris, l_sq);
+  cr_vector_curvature_correction_intrinsic(tris, l_sq, E, oE, K);
 }
 
 
@@ -40,20 +40,20 @@ template <typename DerivedV, typename DerivedF, typename DerivedE,
 typename DerivedOE, typename ScalarK>
 IGL_INLINE void
 igl::cr_vector_curvature_correction(
-  const Eigen::MatrixBase<DerivedV>& V,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const Eigen::MatrixBase<DerivedF>& tris,
   Eigen::PlainObjectBase<DerivedE>& E,
   Eigen::PlainObjectBase<DerivedOE>& oE,
   Eigen::SparseMatrix<ScalarK>& K)
 {
-  if(E.rows()!=F.rows() || E.cols()!=F.cols() || oE.rows()!=F.rows() ||
-   oE.cols()!=F.cols()) {
-    orient_halfedges(F, E, oE);
+  if(E.rows()!=tris.rows() || E.cols()!=tris.cols() || oE.rows()!=tris.rows() ||
+   oE.cols()!=tris.cols()) {
+    orient_halfedges(tris, E, oE);
   }
 
   const Eigen::PlainObjectBase<DerivedE>& cE = E;
   const Eigen::PlainObjectBase<DerivedOE>& coE = oE;
-  cr_vector_curvature_correction(V, F, cE, coE, K);
+  cr_vector_curvature_correction(vers, tris, cE, coE, K);
 }
 
 
@@ -61,7 +61,7 @@ template <typename DerivedF, typename DerivedL_sq, typename DerivedE,
 typename DerivedOE, typename ScalarK>
 IGL_INLINE void
 igl::cr_vector_curvature_correction_intrinsic(
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedF>& tris,
   const Eigen::MatrixBase<DerivedL_sq>& l_sq,
   const Eigen::MatrixBase<DerivedE>& E,
   const Eigen::MatrixBase<DerivedOE>& oE,
@@ -71,7 +71,7 @@ igl::cr_vector_curvature_correction_intrinsic(
   theta;
   internal_angles_using_squared_edge_lengths(l_sq, theta);
   
-  cr_vector_curvature_correction_intrinsic(F, l_sq, theta, E, oE, K);
+  cr_vector_curvature_correction_intrinsic(tris, l_sq, theta, E, oE, K);
 }
 
 
@@ -80,7 +80,7 @@ typename DerivedE, typename DerivedOE,
 typename ScalarK>
 IGL_INLINE void
 igl::cr_vector_curvature_correction_intrinsic(
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedF>& tris,
   const Eigen::MatrixBase<DerivedL_sq>& l_sq,
   const Eigen::MatrixBase<Derivedtheta>& theta,
   const Eigen::MatrixBase<DerivedE>& E,
@@ -88,24 +88,24 @@ igl::cr_vector_curvature_correction_intrinsic(
   Eigen::SparseMatrix<ScalarK>& K)
 {
   // Compute the angle defect kappa, set it to 0 at the boundary
-  const typename DerivedF::Scalar n = F.maxCoeff() + 1;
+  const typename DerivedF::Scalar n = tris.maxCoeff() + 1;
   Eigen::Matrix<typename DerivedL_sq::Scalar,Eigen::Dynamic,1> kappa(n);
   kappa.setZero();
-  for(Eigen::Index i=0; i<F.rows(); ++i) {
+  for(Eigen::Index i=0; i<tris.rows(); ++i) {
     for(int j=0; j<3; ++j) {
-      kappa(F(i,j)) -= theta(i,j);
+      kappa(tris(i,j)) -= theta(i,j);
     }
   }
   kappa.array() += 2 * PI;
   std::vector<std::vector<typename DerivedF::Scalar> > b;
-  boundary_loop(F, b);
+  boundary_loop(tris, b);
   for(const auto& loop : b) {
     for(auto v : loop) {
       kappa(v) = 0;
     }
   }
     
-  cr_vector_curvature_correction_intrinsic(F, l_sq, theta, kappa, E, oE, K);
+  cr_vector_curvature_correction_intrinsic(tris, l_sq, theta, kappa, E, oE, K);
 }
 
 
@@ -114,7 +114,7 @@ typename Derivedkappa, typename DerivedE, typename DerivedOE,
 typename ScalarK>
 IGL_INLINE void
 igl::cr_vector_curvature_correction_intrinsic(
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedF>& tris,
   const Eigen::MatrixBase<DerivedL_sq>& l_sq,
   const Eigen::MatrixBase<Derivedtheta>& theta,
   const Eigen::MatrixBase<Derivedkappa>& kappa,
@@ -122,21 +122,21 @@ igl::cr_vector_curvature_correction_intrinsic(
   const Eigen::MatrixBase<DerivedOE>& oE,
   Eigen::SparseMatrix<ScalarK>& K)
 {
-  assert(F.cols()==3 && "Faces have three vertices");
-  assert(E.rows()==F.rows() && E.cols()==F.cols() && oE.rows()==F.rows() &&
-   theta.rows()==F.rows() && theta.cols()==F.cols() &&
-   oE.cols()==F.cols() && "Wrong dimension in edge vectors");
-  assert(kappa.rows()==F.maxCoeff()+1 &&
+  assert(tris.cols()==3 && "Faces have three vertices");
+  assert(E.rows()==tris.rows() && E.cols()==tris.cols() && oE.rows()==tris.rows() &&
+   theta.rows()==tris.rows() && theta.cols()==tris.cols() &&
+   oE.cols()==tris.cols() && "Wrong dimension in edge vectors");
+  assert(kappa.rows()==tris.maxCoeff()+1 &&
    "Wrong dimension in theta or kappa");
   
-  const Eigen::Index m = F.rows();
+  const Eigen::Index m = tris.rows();
   const typename DerivedE::Scalar nE = E.maxCoeff() + 1;
   
   //Divide kappa by the actual angle sum to weigh consistently.
   Derivedtheta angleSum = Derivedtheta::Zero(kappa.rows(), 1);
-  for(Eigen::Index i=0; i<F.rows(); ++i) {
+  for(Eigen::Index i=0; i<tris.rows(); ++i) {
     for(int j=0; j<3; ++j) {
-      angleSum(F(i,j)) += theta(i,j);
+      angleSum(tris(i,j)) += theta(i,j);
     }
   }
   const Eigen::Matrix<typename Derivedkappa::Scalar, Eigen::Dynamic, 1>
@@ -150,7 +150,7 @@ igl::cr_vector_curvature_correction_intrinsic(
       eki=l_sq(f,(e+2)%3); //These are squared quantities.
       const ScalarK lens = sqrt(eij*eki);
       const ScalarK o = oE(f,e)*oE(f,(e+2)%3);
-      const typename DerivedF::Scalar i=F(f,(e+1)%3), j=F(f,(e+2)%3), k=F(f,e);
+      const typename DerivedF::Scalar i=tris(f,(e+1)%3), j=tris(f,(e+2)%3), k=tris(f,e);
       const ScalarK ki=scaledKappa(i)*theta(f,(e+1)%3),
       kj=scaledKappa(j)*theta(f,(e+2)%3), kk=scaledKappa(k)*theta(f,e);
       

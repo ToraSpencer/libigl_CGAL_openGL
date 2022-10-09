@@ -15,18 +15,18 @@
 namespace igl 
 {
   // Determine vertices on open boundary of a (manifold) mesh with triangle
-  // faces F
+  // faces tris
   //
   // Inputs:
-  //   V  #V by dim list of vertex positions 
-  //   F  #F by 3 list of triangle indices
-  // Returns #V vector of bools revealing whether vertices are on boundary
+  //   vers  #vers by dim list of vertex positions 
+  //   tris  #tris by 3 list of triangle indices
+  // Returns #vers vector of bools revealing whether vertices are on boundary
   //
   // Known Bugs: - assumes mesh is edge manifold
   // 
   template <typename DerivedF>
   IGL_INLINE std::vector<bool> is_border_vertex(
-   const Eigen::MatrixBase<DerivedF> &F);
+   const Eigen::MatrixBase<DerivedF> &tris);
 }
 
 #ifndef IGL_STATIC_LIBRARY

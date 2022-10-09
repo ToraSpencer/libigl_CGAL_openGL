@@ -13,7 +13,7 @@ template <
   typename DerivedOmega,
   typename DerivedU>
 IGL_INLINE void igl::direct_delta_mush(
-  const Eigen::MatrixBase<DerivedV> & V,
+  const Eigen::MatrixBase<DerivedV> & vers,
   const std::vector<Eigen::Affine3d, Eigen::aligned_allocator<Eigen::Affine3d> > & T,
   const Eigen::MatrixBase<DerivedOmega> & Omega,
   Eigen::PlainObjectBase<DerivedU> & U)
@@ -21,21 +21,21 @@ IGL_INLINE void igl::direct_delta_mush(
   using namespace Eigen;
 
   // Shape checks
-  assert(V.cols() == 3 && "V should contain 3D positions.");
-  assert(Omega.rows() == V.rows() && "Omega contain the same number of rows as V.");
+  assert(vers.cols() == 3 && "vers should contain 3D positions.");
+  assert(Omega.rows() == vers.rows() && "Omega contain the same number of rows as vers.");
   assert(Omega.cols() == T.size() * 10 && "Omega should have #T*10 columns.");
 
   typedef typename DerivedV::Scalar Scalar;
 
-  int n = V.rows();
+  int n = vers.rows();
   int m = T.size();
 
-  // V_homogeneous: #V by 4, homogeneous version of V
+  // V_homogeneous: #vers by 4, homogeneous version of vers
   // Note:
-  // In the paper, the rest pose vertices are represented in U \in R^{4 x #V}
+  // In the paper, the rest pose vertices are represented in U \in R^{4 x #vers}
   // Thus the formulae involving U would differ from the paper by a transpose.
   Matrix<Scalar, Dynamic, 4> V_homogeneous(n, 4);
-  V_homogeneous << V, Matrix<Scalar, Dynamic, 1>::Ones(n, 1);
+  V_homogeneous << vers, Matrix<Scalar, Dynamic, 1>::Ones(n, 1);
   U.resize(n, 3);
 
   for (int i = 0; i < n; ++i)
@@ -86,8 +86,8 @@ template <
   typename DerivedW,
   typename DerivedOmega>
 IGL_INLINE void igl::direct_delta_mush_precomputation(
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const Eigen::MatrixBase<DerivedW> & W,
   const int p,
   const typename DerivedV::Scalar lambda,
@@ -98,9 +98,9 @@ IGL_INLINE void igl::direct_delta_mush_precomputation(
   using namespace Eigen;
 
   // Shape checks
-  assert(V.cols() == 3 && "V should contain 3D positions.");
-  assert(F.cols() == 3 && "F should contain triangles.");
-  assert(W.rows() == V.rows() && "W.rows() should be equal to V.rows().");
+  assert(vers.cols() == 3 && "vers should contain 3D positions.");
+  assert(tris.cols() == 3 && "tris should contain triangles.");
+  assert(W.rows() == vers.rows() && "W.rows() should be equal to vers.rows().");
 
   // Parameter checks
   assert(p > 0 && "Laplacian iteration p should be positive.");
@@ -133,24 +133,24 @@ IGL_INLINE void igl::direct_delta_mush_precomputation(
     return upper_triangle;
   };
 
-  const int n = V.rows();
+  const int n = vers.rows();
   const int m = W.cols();
 
-  // V_homogeneous: #V by 4, homogeneous version of V
+  // V_homogeneous: #vers by 4, homogeneous version of vers
   // Note:
-  // in the paper, the rest pose vertices are represented in U \in R^{4 \times #V}
+  // in the paper, the rest pose vertices are represented in U \in R^{4 \times #vers}
   // Thus the formulae involving U would differ from the paper by a transpose.
   Matrix<Scalar, Dynamic, 4> V_homogeneous(n, 4);
-  V_homogeneous << V, Matrix<Scalar, Dynamic, 1>::Ones(n);
+  V_homogeneous << vers, Matrix<Scalar, Dynamic, 1>::Ones(n);
 
-  // Identity matrix of #V by #V
+  // Identity matrix of #vers by #vers
   SparseMatrix<Scalar> I(n, n);
   I.setIdentity();
 
-  // Laplacian matrix of #V by #V
+  // Laplacian matrix of #vers by #vers
   // L_bar = L \times D_L^{-1}
   SparseMatrix<Scalar> L;
-  igl::cotmatrix(V, F, L);
+  igl::cotmatrix(vers, tris, L);
   L = -L;
   // Inverse of diagonal matrix = reciprocal elements in diagonal
   Matrix<Scalar, Dynamic, 1> D_L = L.diagonal();
@@ -179,7 +179,7 @@ IGL_INLINE void igl::direct_delta_mush_precomputation(
     W_prime = ldlt_W_prime.solve(W_prime);
   }
 
-  // U_precomputed: #V by 10
+  // U_precomputed: #vers by 10
   // Cache u_i^T \dot u_i \in R^{4 x 4} to reduce computation time.
   Matrix<Scalar, Dynamic, 10> U_precomputed(n, 10);
   for (int k = 0; k < n; ++k)
@@ -188,7 +188,7 @@ IGL_INLINE void igl::direct_delta_mush_precomputation(
     U_precomputed.row(k) = extract_upper_triangle(u_full);
   }
 
-  // U_prime: #V by #T*10 of u_{jx}
+  // U_prime: #vers by #T*10 of u_{jx}
   // Each column of U_prime (u_{jx}) is the element-wise product of
   // W_j and U_precomputed_x where j \in {1...m}, x \in {1...10}
   Matrix<Scalar, Dynamic, Dynamic> U_prime(n, m * 10);
@@ -202,7 +202,7 @@ IGL_INLINE void igl::direct_delta_mush_precomputation(
     }
   }
 
-  // Implicitly and iteratively solve for Psi: #V by #T*10 of \Psi_{ij}s.
+  // Implicitly and iteratively solve for Psi: #vers by #T*10 of \Psi_{ij}s.
   // Note: Using dense matrices to solve for Psi will cause the program to hang.
   // The following won't work
   // Matrix<Scalar, Dynamic, Dynamic> Psi(U_prime);
@@ -221,7 +221,7 @@ IGL_INLINE void igl::direct_delta_mush_precomputation(
     Psi = ldlt_Psi.solve(Psi);
   }
 
-  // P: #V by 10 precomputed upper triangle of
+  // P: #vers by 10 precomputed upper triangle of
   //    p_i p_i^T , p_i
   //    p_i^T     , 1
   // where p_i = (\sum_{j=1}^{n} Psi_{ij})'s top right 3 by 1 column

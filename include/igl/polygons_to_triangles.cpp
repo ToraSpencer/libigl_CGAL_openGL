@@ -8,12 +8,12 @@ template <
 IGL_INLINE void igl::polygons_to_triangles(
   const Eigen::MatrixBase<DerivedI> & I,
   const Eigen::MatrixBase<DerivedC> & C,
-  Eigen::PlainObjectBase<DerivedF> & F,
+  Eigen::PlainObjectBase<DerivedF> & tris,
   Eigen::PlainObjectBase<DerivedJ> & J)
 {
   // Each polygon results in #sides-2 triangles. So ∑#sides-2
-  F.resize(C(C.size()-1) - (C.size()-1)*2,3);
-  J.resize(F.rows());
+  tris.resize(C(C.size()-1) - (C.size()-1)*2,3);
+  J.resize(tris.rows());
   {
     int f = 0;
     for(int p = 0;p<C.size()-1;p++)
@@ -21,14 +21,14 @@ IGL_INLINE void igl::polygons_to_triangles(
       const int np = C(p+1)-C(p);
       for(int c = 1;c<np-1;c++)
       {
-        F(f,0) = I(C(p)+0);
-        F(f,1) = I(C(p)+c);
-        F(f,2) = I(C(p)+c+1);
+        tris(f,0) = I(C(p)+0);
+        tris(f,1) = I(C(p)+c);
+        tris(f,2) = I(C(p)+c+1);
         J(f) = p;
         f++;
       }
     }
-    assert(f == F.rows());
+    assert(f == tris.rows());
   }
 }
 

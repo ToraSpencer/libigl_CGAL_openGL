@@ -18,34 +18,34 @@ template <
   typename DerivedFF,
   typename DerivedI>
 IGL_INLINE void igl::orient_outward(
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const Eigen::MatrixBase<DerivedC> & C,
   Eigen::PlainObjectBase<DerivedFF> & FF,
   Eigen::PlainObjectBase<DerivedI> & I)
 {
   using namespace Eigen;
   using namespace std;
-  assert(C.rows() == F.rows());
-  assert(F.cols() == 3);
-  assert(V.cols() == 3);
+  assert(C.rows() == tris.rows());
+  assert(tris.cols() == 3);
+  assert(vers.cols() == 3);
 
   // number of faces
-  const int m = F.rows();
+  const int m = tris.rows();
   // number of patches
   const int num_cc = C.maxCoeff()+1;
   I.resize(num_cc);
-  if(&FF != &F)
+  if(&FF != &tris)
   {
-    FF = F;
+    FF = tris;
   }
   DerivedV N,BC,BCmean;
   Matrix<typename DerivedV::Scalar,Dynamic,1> A;
   VectorXd totA(num_cc), dot(num_cc);
   Matrix<typename DerivedV::Scalar,3,1> Z(1,1,1);
-  per_face_normals(V,F,Z.normalized(),N);
-  barycenter(V,F,BC);
-  doublearea(V,F,A);
+  per_face_normals(vers,tris,Z.normalized(),N);
+  barycenter(vers,tris,BC);
+  doublearea(vers,tris,A);
   BCmean.setConstant(num_cc,3,0);
   dot.setConstant(num_cc,1,0);
   totA.setConstant(num_cc,1,0);

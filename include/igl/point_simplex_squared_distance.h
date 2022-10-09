@@ -15,8 +15,8 @@ namespace igl
   //
   // Inputs:
   //   p  d-long query point
-  //   V  #V by d list of vertices
-  //   Ele  #Ele by ss<=d+1 list of simplex indices into V
+  //   vers  #vers by d list of vertices
+  //   Ele  #Ele by ss<=d+1 list of simplex indices into vers
   //   i  index into Ele of simplex
   // Outputs:
   //   sqr_d  squared distance of Ele(i) to p
@@ -31,7 +31,7 @@ namespace igl
     typename Derivedc>
   IGL_INLINE void point_simplex_squared_distance(
     const Eigen::MatrixBase<Derivedp> & p,
-    const Eigen::MatrixBase<DerivedV> & V,
+    const Eigen::MatrixBase<DerivedV> & vers,
     const Eigen::MatrixBase<DerivedEle> & Ele,
     const typename DerivedEle::Index i,
     Derivedsqr_d & sqr_d,
@@ -41,8 +41,8 @@ namespace igl
   //
   // Inputs:
   //   p  d-long query point
-  //   V  #V by d list of vertices
-  //   Ele  #Ele by ss<=d+1 list of simplex indices into V
+  //   vers  #vers by d list of vertices
+  //   Ele  #Ele by ss<=d+1 list of simplex indices into vers
   //   i  index into Ele of simplex
   // Outputs:
   //   sqr_d  squared distance of Ele(i) to p
@@ -59,7 +59,7 @@ namespace igl
     typename Derivedb>
   IGL_INLINE void point_simplex_squared_distance(
     const Eigen::MatrixBase<Derivedp> & p,
-    const Eigen::MatrixBase<DerivedV> & V,
+    const Eigen::MatrixBase<DerivedV> & vers,
     const Eigen::MatrixBase<DerivedEle> & Ele,
     const typename DerivedEle::Index i,
     Derivedsqr_d & sqr_d,

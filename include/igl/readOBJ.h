@@ -34,20 +34,20 @@ namespace igl
   // Inputs:
   //  str  path to .obj file
   // Outputs:
-  //   V  double matrix of vertex positions  #V by 3
+  //   vers  double matrix of vertex positions  #vers by 3
   //   TC  double matrix of texture coordinats #TC by 2
   //   N  double matrix of corner normals #N by 3
-  //   F  #F list of face indices into vertex positions
-  //   FTC  #F list of face indices into vertex texture coordinates
-  //   FN  #F list of face indices into vertex normals
+  //   tris  #tris list of face indices into vertex positions
+  //   FTC  #tris list of face indices into vertex texture coordinates
+  //   FN  #tris list of face indices into vertex normals
   // Returns true on success, false on errors
   template <typename Scalar, typename Index>
   IGL_INLINE bool readOBJ(
     const std::string obj_file_name, 
-    std::vector<std::vector<Scalar > > & V,
+    std::vector<std::vector<Scalar > > & vers,
     std::vector<std::vector<Scalar > > & TC,
     std::vector<std::vector<Scalar > > & N,
-    std::vector<std::vector<Index > > & F,
+    std::vector<std::vector<Index > > & tris,
     std::vector<std::vector<Index > > & FTC,
     std::vector<std::vector<Index > > & FN);
 
@@ -61,21 +61,21 @@ namespace igl
   // Inputs:
   //  str  path to .obj file
   // Outputs:
-  //   V  double matrix of vertex positions  #V by 3
+  //   vers  double matrix of vertex positions  #vers by 3
   //   TC  double matrix of texture coordinats #TC by 2
   //   N  double matrix of corner normals #N by 3
-  //   F  #F list of face indices into vertex positions
-  //   FTC  #F list of face indices into vertex texture coordinates
-  //   FN  #F list of face indices into vertex normals
+  //   tris  #tris list of face indices into vertex positions
+  //   FTC  #tris list of face indices into vertex texture coordinates
+  //   FN  #tris list of face indices into vertex normals
   //   FM #tuple list containing (vertex index, normal index, texture coordinates index, material)
   // Returns true on success, false on errors
   template <typename Scalar, typename Index>
   IGL_INLINE bool readOBJ(
     const std::string obj_file_name, 
-    std::vector<std::vector<Scalar > > & V,
+    std::vector<std::vector<Scalar > > & vers,
     std::vector<std::vector<Scalar > > & TC,
     std::vector<std::vector<Scalar > > & N,
-    std::vector<std::vector<Index > > & F,
+    std::vector<std::vector<Index > > & tris,
     std::vector<std::vector<Index > > & FTC,
     std::vector<std::vector<Index > > & FN,
     std::vector<std::tuple<std::string, Index, Index >> &FM
@@ -88,20 +88,20 @@ namespace igl
   template <typename Scalar, typename Index>
   IGL_INLINE bool readOBJ(
     FILE * obj_file,
-    std::vector<std::vector<Scalar > > & V,
+    std::vector<std::vector<Scalar > > & vers,
     std::vector<std::vector<Scalar > > & TC,
     std::vector<std::vector<Scalar > > & N,
-    std::vector<std::vector<Index > > & F,
+    std::vector<std::vector<Index > > & tris,
     std::vector<std::vector<Index > > & FTC,
     std::vector<std::vector<Index > > & FN,
     std::vector<std::tuple<std::string, Index, Index >> &FM);
 
-  // Just V and F
+  // Just vers and tris
   template <typename Scalar, typename Index>
   IGL_INLINE bool readOBJ(
     const std::string obj_file_name, 
-    std::vector<std::vector<Scalar > > & V,
-    std::vector<std::vector<Index > > & F);
+    std::vector<std::vector<Scalar > > & vers,
+    std::vector<std::vector<Index > > & tris);
   // Eigen Wrappers. These will return true only if the data is perfectly
   // "rectangular": All faces are the same degree, all have the same number of
   // textures/normals etc.
@@ -114,28 +114,28 @@ namespace igl
     typename DerivedFN>
   IGL_INLINE bool readOBJ(
     const std::string str,
-    Eigen::PlainObjectBase<DerivedV>& V,
+    Eigen::PlainObjectBase<DerivedV>& vers,
     Eigen::PlainObjectBase<DerivedTC>& TC,
     Eigen::PlainObjectBase<DerivedCN>& CN,
-    Eigen::PlainObjectBase<DerivedF>& F,
+    Eigen::PlainObjectBase<DerivedF>& tris,
     Eigen::PlainObjectBase<DerivedFTC>& FTC,
     Eigen::PlainObjectBase<DerivedFN>& FN);
 
   template <typename DerivedV, typename DerivedF>
   IGL_INLINE bool readOBJ(
     const std::string str,
-    Eigen::PlainObjectBase<DerivedV>& V,
-    Eigen::PlainObjectBase<DerivedF>& F);
+    Eigen::PlainObjectBase<DerivedV>& vers,
+    Eigen::PlainObjectBase<DerivedF>& tris);
 
   // Outputs:
-  //   I  #I vectorized list of polygon corner indices into rows of some matrix V
+  //   I  #I vectorized list of polygon corner indices into rows of some matrix vers
   //   C  #P+1 list of cumulative polygon sizes so that C(i+1)-C(i) = size of
   //     the ith polygon, and so I(C(i)) through I(C(i+1)-1) are the indices of
   //     the ith polygon
   template <typename DerivedV, typename DerivedI, typename DerivedC>
   IGL_INLINE bool readOBJ(
     const std::string str,
-    Eigen::PlainObjectBase<DerivedV>& V,
+    Eigen::PlainObjectBase<DerivedV>& vers,
     Eigen::PlainObjectBase<DerivedI>& I,
     Eigen::PlainObjectBase<DerivedC>& C);
 

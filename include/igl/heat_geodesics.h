@@ -27,24 +27,24 @@ namespace igl
     bool use_intrinsic_delaunay = false;
   };
   // Precompute factorized solvers for computing a fast approximation of
-  // geodesic distances on a mesh (V,F). [Crane et al. 2013]
+  // geodesic distances on a mesh (vers,tris). [Crane et al. 2013]
   //
   // Inputs:
-  //   V  #V by dim list of mesh vertex positions
-  //   F  #F by 3 list of mesh face indices into V
+  //   vers  #vers by dim list of mesh vertex positions
+  //   tris  #tris by 3 list of mesh face indices into vers
   // Outputs:
   //   data  precomputation data (see heat_geodesics_solve)
   template < typename DerivedV, typename DerivedF, typename Scalar >
   IGL_INLINE bool heat_geodesics_precompute(
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     HeatGeodesicsData<Scalar> & data);
   // Inputs:
   //   t  "heat" parameter (smaller --> more accurate, less stable)
   template < typename DerivedV, typename DerivedF, typename Scalar >
   IGL_INLINE bool heat_geodesics_precompute(
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const Scalar t,
     HeatGeodesicsData<Scalar> & data);
   // Compute fast approximate geodesic distances using precomputed data from a
@@ -52,9 +52,9 @@ namespace igl
   //
   // Inputs: 
   //   data  precomputation data (see heat_geodesics_precompute)
-  //   gamma  #gamma list of indices into V of source vertices
+  //   gamma  #gamma list of indices into vers of source vertices
   // Outputs:
-  //   D  #V list of distances to gamma 
+  //   D  #vers list of distances to gamma 
   template < typename Scalar, typename Derivedgamma, typename DerivedD>
   IGL_INLINE void heat_geodesics_solve(
     const HeatGeodesicsData<Scalar> & data,

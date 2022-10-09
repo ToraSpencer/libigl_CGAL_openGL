@@ -11,13 +11,13 @@
 template <typename DerivedV, typename DerivedF, typename DerivedN>
 IGL_INLINE bool igl::writeSTL(
   const std::string & filename,
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const Eigen::MatrixBase<DerivedN> & N,
   FileEncoding encoding)
 {
   using namespace std;
-  assert(N.rows() == 0 || F.rows() == N.rows());
+  assert(N.rows() == 0 || tris.rows() == N.rows());
   if(encoding == FileEncoding::Ascii)
   {
     FILE * stl_file = fopen(filename.c_str(),"w");
@@ -27,7 +27,7 @@ IGL_INLINE bool igl::writeSTL(
       return false;
     }
     fprintf(stl_file,"solid %s\n",filename.c_str());
-    for(int f = 0;f<F.rows();f++)
+    for(int f = 0;f<tris.rows();f++)
     {
       fprintf(stl_file,"facet normal ");
       if(N.rows()>0)
@@ -41,12 +41,12 @@ IGL_INLINE bool igl::writeSTL(
         fprintf(stl_file,"0 0 0\n");
       }
       fprintf(stl_file,"outer loop\n");
-      for(int c = 0;c<F.cols();c++)
+      for(int c = 0;c<tris.cols();c++)
       {
         fprintf(stl_file,"vertex %e %e %e\n",
-          (float)V(F(f,c),0),
-          (float)V(F(f,c),1),
-          (float)V(F(f,c),2));
+          (float)vers(tris(f,c),0),
+          (float)vers(tris(f,c),1),
+          (float)vers(tris(f,c),2));
       }
       fprintf(stl_file,"endloop\n");
       fprintf(stl_file,"endfacet\n");
@@ -68,11 +68,11 @@ IGL_INLINE bool igl::writeSTL(
       fwrite(&h,sizeof(char),1,stl_file);
     }
     // Write number of triangles
-    unsigned int num_tri = F.rows();
+    unsigned int num_tri = tris.rows();
     fwrite(&num_tri,sizeof(unsigned int),1,stl_file);
-    assert(F.cols() == 3);
+    assert(tris.cols() == 3);
     // Write each triangle
-    for(int f = 0;f<F.rows();f++)
+    for(int f = 0;f<tris.rows();f++)
     {
       vector<float> n(3,0);
       if(N.rows() > 0)
@@ -85,9 +85,9 @@ IGL_INLINE bool igl::writeSTL(
       for(int c = 0;c<3;c++)
       {
         vector<float> v(3);
-        v[0] = V(F(f,c),0);
-        v[1] = V(F(f,c),1);
-        v[2] = V(F(f,c),2);
+        v[0] = vers(tris(f,c),0);
+        v[1] = vers(tris(f,c),1);
+        v[2] = vers(tris(f,c),2);
         fwrite(&v[0],sizeof(float),3,stl_file);
       }
       unsigned short att_count = 0;
@@ -101,11 +101,11 @@ IGL_INLINE bool igl::writeSTL(
 template <typename DerivedV, typename DerivedF>
 IGL_INLINE bool igl::writeSTL(
   const std::string & filename,
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   FileEncoding encoding)
 {
-  return writeSTL(filename,V,F, Eigen::Matrix<typename DerivedV::Scalar, Eigen::Dynamic, Eigen::Dynamic>(), encoding);
+  return writeSTL(filename,vers,tris, Eigen::Matrix<typename DerivedV::Scalar, Eigen::Dynamic, Eigen::Dynamic>(), encoding);
 }
 
 #ifdef IGL_STATIC_LIBRARY

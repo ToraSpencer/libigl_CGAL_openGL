@@ -28,8 +28,8 @@ namespace igl
 struct SLIMData
 {
   // Input
-  Eigen::MatrixXd V; // #V by 3 list of mesh vertex positions
-  Eigen::MatrixXi F; // #F by 3/3 list of mesh faces (triangles/tets)
+  Eigen::MatrixXd vers; // #vers by 3 list of mesh vertex positions
+  Eigen::MatrixXi tris; // #tris by 3/3 list of mesh faces (triangles/tets)
   MappingEnergyType slim_energy;
 
   // Optional Input
@@ -42,7 +42,7 @@ struct SLIMData
   bool mesh_improvement_3d; // only supported for 3d
 
   // Output
-  Eigen::MatrixXd V_o; // #V by dim list of mesh vertex positions (dim = 2 for parametrization, 3 otherwise)
+  Eigen::MatrixXd V_o; // #vers by dim list of mesh vertex positions (dim = 2 for parametrization, 3 otherwise)
   double energy; // objective value
 
   // INTERNAL
@@ -73,15 +73,15 @@ struct SLIMData
 
 // Compute necessary information to start using SLIM
 // Inputs:
-//		V           #V by 3 list of mesh vertex positions
-//		F           #F by 3/3 list of mesh faces (triangles/tets)
-//    b           list of boundary indices into V
+//		vers           #vers by 3 list of mesh vertex positions
+//		tris           #tris by 3/3 list of mesh faces (triangles/tets)
+//    b           list of boundary indices into vers
 //    bc          #b by dim list of boundary conditions
 //    soft_p      Soft penalty factor (can be zero)
 //    slim_energy Energy to minimize
 IGL_INLINE void slim_precompute(
-  const Eigen::MatrixXd& V,
-  const Eigen::MatrixXi& F,
+  const Eigen::MatrixXd& vers,
+  const Eigen::MatrixXi& tris,
   const Eigen::MatrixXd& V_init,
   SLIMData& data,
   MappingEnergyType slim_energy,
@@ -91,7 +91,7 @@ IGL_INLINE void slim_precompute(
 
 // Run iter_num iterations of SLIM
 // Outputs:
-//    V_o (in SLIMData): #V by dim list of mesh vertex positions
+//    V_o (in SLIMData): #vers by dim list of mesh vertex positions
 IGL_INLINE Eigen::MatrixXd slim_solve(SLIMData& data, int iter_num);
 
 // Internal Routine. Exposed for Integration with SCAF

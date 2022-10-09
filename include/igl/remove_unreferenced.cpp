@@ -16,14 +16,14 @@ template <
   typename DerivedNF,
   typename DerivedI>
 IGL_INLINE void igl::remove_unreferenced(
-  const Eigen::MatrixBase<DerivedV> &V,
-  const Eigen::MatrixBase<DerivedF> &F,
+  const Eigen::MatrixBase<DerivedV> &vers,
+  const Eigen::MatrixBase<DerivedF> &tris,
   Eigen::PlainObjectBase<DerivedNV> &NV,
   Eigen::PlainObjectBase<DerivedNF> &NF,
   Eigen::PlainObjectBase<DerivedI> &I)
 {
   Eigen::Matrix<typename DerivedI::Scalar,Eigen::Dynamic,1> J;
-  remove_unreferenced(V,F,NV,NF,I,J);
+  remove_unreferenced(vers,tris,NV,NF,I,J);
 }
 
 template <
@@ -34,20 +34,20 @@ template <
   typename DerivedI,
   typename DerivedJ>
 IGL_INLINE void igl::remove_unreferenced(
-  const Eigen::MatrixBase<DerivedV> &V,
-  const Eigen::MatrixBase<DerivedF> &F,
+  const Eigen::MatrixBase<DerivedV> &vers,
+  const Eigen::MatrixBase<DerivedF> &tris,
   Eigen::PlainObjectBase<DerivedNV> &NV,
   Eigen::PlainObjectBase<DerivedNF> &NF,
   Eigen::PlainObjectBase<DerivedI> &I,
   Eigen::PlainObjectBase<DerivedJ> &J)
 {
   using namespace std;
-  const size_t n = V.rows();
-  remove_unreferenced(n,F,I,J);
-  NF = F;
+  const size_t n = vers.rows();
+  remove_unreferenced(n,tris,I,J);
+  NF = tris;
   std::for_each(NF.data(),NF.data()+NF.size(),
     [&I](typename DerivedNF::Scalar & a){a=I(a);});
-  slice(V,J,1,NV);
+  slice(vers,J,1,NV);
 }
 
 template <
@@ -56,20 +56,20 @@ template <
   typename DerivedJ>
 IGL_INLINE void igl::remove_unreferenced(
   const size_t n,
-  const Eigen::MatrixBase<DerivedF> &F,
+  const Eigen::MatrixBase<DerivedF> &tris,
   Eigen::PlainObjectBase<DerivedI> &I,
   Eigen::PlainObjectBase<DerivedJ> &J)
 {
   // Mark referenced vertices
   typedef Eigen::Matrix<bool,Eigen::Dynamic,1> MatrixXb;
   MatrixXb mark = MatrixXb::Zero(n,1);
-  for(int i=0; i<F.rows(); ++i)
+  for(int i=0; i<tris.rows(); ++i)
   {
-    for(int j=0; j<F.cols(); ++j)
+    for(int j=0; j<tris.cols(); ++j)
     {
-      if (F(i,j) != -1)
+      if (tris(i,j) != -1)
       {
-        mark(F(i,j)) = 1;
+        mark(tris(i,j)) = 1;
       }
     }
   }

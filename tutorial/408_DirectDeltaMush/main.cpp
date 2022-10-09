@@ -12,9 +12,9 @@
 int main(int argc, char * argv[]) 
 {
 
-  Eigen::MatrixXd V,U,C,W,T,M,Omega;
+  Eigen::MatrixXd vers,U,C,W,T,M,Omega;
   Eigen::MatrixXi F,BE;
-  igl::read_triangle_mesh(TUTORIAL_SHARED_PATH "/elephant.obj",V,F);
+  igl::read_triangle_mesh(TUTORIAL_SHARED_PATH "/elephant.obj",vers,F);
   igl::readTGF(           TUTORIAL_SHARED_PATH "/elephant.tgf",C,BE);
   igl::readDMAT(          TUTORIAL_SHARED_PATH "/elephant-weights.dmat",W);
   igl::readDMAT(          TUTORIAL_SHARED_PATH "/elephant-anim.dmat",T);
@@ -29,20 +29,20 @@ int main(int argc, char * argv[])
     }
   }
 
-  igl::lbs_matrix(V,W,M);
+  igl::lbs_matrix(vers,W,M);
 
   int p = 20;
   float lambda = 3; // 0 < lambda
   float kappa = 1; // 0 < kappa < lambda
   float alpha = 0.8; // 0 <= alpha < 1
-  igl::direct_delta_mush_precomputation(V, F,W, p, lambda, kappa, alpha, Omega);
+  igl::direct_delta_mush_precomputation(vers, F,W, p, lambda, kappa, alpha, Omega);
 
   igl::opengl::glfw::Viewer viewer;
   int frame = 0;
   const int pr_id = viewer.selected_data_index;
   viewer.append_mesh();
   const int ddm_id = viewer.selected_data_index;
-  Eigen::RowVector3d offset(1.1*(V.col(0).maxCoeff()-V.col(0).minCoeff()),0,0);
+  Eigen::RowVector3d offset(1.1*(vers.col(0).maxCoeff()-vers.col(0).minCoeff()),0,0);
 
   viewer.callback_pre_draw = [&](igl::opengl::glfw::Viewer &) -> bool
   {
@@ -68,7 +68,7 @@ int main(int argc, char * argv[])
           T_list[e] = Eigen::Affine3d::Identity();
           T_list[e].matrix().block(0,0,3,4) = Tf.block(e*4,0,4,3).transpose();
         }
-        igl::direct_delta_mush(V, T_list, Omega, U);
+        igl::direct_delta_mush(vers, T_list, Omega, U);
       }
       U.rowwise() += offset;
       viewer.data(ddm_id).set_vertices(U);
@@ -100,11 +100,11 @@ int main(int argc, char * argv[])
   {
     if(id == pr_id)
     {
-      viewer.data(id).set_mesh( (V.rowwise()-offset*1.0).eval() ,F);
+      viewer.data(id).set_mesh( (vers.rowwise()-offset*1.0).eval() ,F);
       viewer.data(id).set_colors(Eigen::RowVector3d(214./255.,170./255.,148./255.));
       viewer.data(id).set_edges(C,BE, Eigen::RowVector3d(1,1,1));
     }else if(id == ddm_id){
-      viewer.data(id).set_mesh( (V.rowwise()+offset*1.0).eval() ,F);
+      viewer.data(id).set_mesh( (vers.rowwise()+offset*1.0).eval() ,F);
       viewer.data(id).set_colors(Eigen::RowVector3d(132./255.,214./255.,105./255.));
     }
     viewer.data(id).show_lines = false;
@@ -113,11 +113,11 @@ int main(int argc, char * argv[])
   }
   viewer.core().is_animating = false;
   viewer.core().animation_max_fps = 24.;
-  //viewer.data().set_colors(V,F);
+  //viewer.data().set_colors(vers,F);
 
 
   viewer.launch_init();
-  viewer.core().align_camera_center(V);
+  viewer.core().align_camera_center(vers);
 
   viewer.launch_rendering(true);
   viewer.launch_shut();

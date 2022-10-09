@@ -15,8 +15,8 @@ template <
   typename Derivedside,
   typename DerivedS>
 void igl::offset_surface(
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const isolevelType isolevel,
   const typename Derivedside::Scalar s,
   const SignedDistanceType & signed_distance_type,
@@ -28,7 +28,7 @@ void igl::offset_surface(
 {
   typedef typename DerivedV::Scalar Scalar;
   typedef typename DerivedF::Scalar Index;
-  igl::voxel_grid(V,isolevel,s,1,GV,side);
+  igl::voxel_grid(vers,isolevel,s,1,GV,side);
 
   const Scalar h = 
     (GV.col(0).maxCoeff()-GV.col(0).minCoeff())/((Scalar)(side(0)-1));
@@ -38,7 +38,7 @@ void igl::offset_surface(
     Eigen::Matrix<Index,Eigen::Dynamic,1> I;
     Eigen::Matrix<typename DerivedV::Scalar,Eigen::Dynamic,3> C,N;
     igl::signed_distance(
-      GV,V,F,signed_distance_type,lower_bound,upper_bound,S,I,C,N);
+      GV,vers,tris,signed_distance_type,lower_bound,upper_bound,S,I,C,N);
   }
   igl::flood_fill(side,S);
   

@@ -52,12 +52,12 @@ namespace igl
       bool root_finding;
       RowVector3S min_corner;
       RowVector3S step;
-      Eigen::Matrix<Scalar,Eigen::Dynamic,3> V;
+      Eigen::Matrix<Scalar,Eigen::Dynamic,3> vers;
     // Internal variables
       // Running number of vertices added during contouring
-      typename decltype(V)::Index n;
-      // map from cell subscript to index in V
-      std::unordered_map< KeyTriplet, typename decltype(V)::Index, Hash > C2V;
+      typename decltype(vers)::Index n;
+      // map from cell subscript to index in vers
+      std::unordered_map< KeyTriplet, typename decltype(vers)::Index, Hash > C2V;
       // running list of aggregate vertex positions (used for spring
       // regularization term)
       std::vector<RowVector3S,Eigen::aligned_allocator<RowVector3S>> vV;
@@ -94,7 +94,7 @@ namespace igl
       { }
       // Side effects: new entry in vV,vI,vH,vcount, increment n
       // Returns index of new vertex
-      typename decltype(V)::Index new_vertex()
+      typename decltype(vers)::Index new_vertex()
       {
         const auto v = n;
         n++;
@@ -111,11 +111,11 @@ namespace igl
       //   kc  3-long vector of {x,y,z} index of primal grid **cell**
       // Returns index to corresponding dual vertex
       // Side effects: if vertex for this cell does not yet exist, creates it
-      typename decltype(V)::Index sub2dual(const Eigen::RowVector3i & kc)
+      typename decltype(vers)::Index sub2dual(const Eigen::RowVector3i & kc)
       {
         const KeyTriplet key = {kc(0),kc(1),kc(2)};
         const auto it = C2V.find(key);
-        typename decltype(V)::Index v = -1;
+        typename decltype(vers)::Index v = -1;
         if(it == C2V.end())
         {
           v = new_vertex();
@@ -215,7 +215,7 @@ namespace igl
           p = e0+t*(e1-e0);
         }
         // insert vertex at this point to triangulate quad face
-        const typename decltype(V)::Index ev = triangles ? new_vertex() : -1;
+        const typename decltype(vers)::Index ev = triangles ? new_vertex() : -1;
         if(triangles)
         {
           const std::lock_guard<std::mutex> lock(Vmut);
@@ -242,7 +242,7 @@ namespace igl
             kc((o+1)%3)+=i;
             kc((o+2)%3)+=j;
             const std::lock_guard<std::mutex> lock(Vmut);
-            const typename decltype(V)::Index v = sub2dual(kc);
+            const typename decltype(vers)::Index v = sub2dual(kc);
             vV[v] += p;
             vcount[v]++;
             vH[v] += H;
@@ -283,16 +283,16 @@ namespace igl
         }
         return true;
       }
-      // Side effects: Q resized to fit m, V constructed to fit n and
+      // Side effects: Q resized to fit m, vers constructed to fit n and
       // reconstruct data in vH,vI,vV,vcount
       void dual_vertex_positions()
       {
         Q.conservativeResize(m,Q.cols());
-        V.resize(n,3);
+        vers.resize(n,3);
         igl::parallel_for(n,[&](const Eigen::Index v)
         {
           RowVector3S mid = vV[v] / Scalar(vcount[v]);
-          if(triangles && vI[v](0)<0 ){ V.row(v) = mid; return; }
+          if(triangles && vI[v](0)<0 ){ vers.row(v) = mid; return; }
           const Scalar w = 1e-2*(0.01+vcount[v]);
           Matrix3S A = vH[v].block(0,0,3,3) + w*Matrix3S::Identity();
           RowVector3S b = -vH[v].block(3,0,1,3) + w*mid;
@@ -311,7 +311,7 @@ namespace igl
             constrained ?
             igl::quadprog<Scalar,3>(A,(p0*A-b).transpose(),Vector3S(0,0,0),step.transpose()) :
             Eigen::LLT<Matrix3S>(A).solve(-(p0*A-b).transpose());
-          V.row(v) = p0+x;
+          vers.row(v) = p0+x;
         },1000ul);
       }
       // Inputs:
@@ -487,13 +487,13 @@ IGL_INLINE void igl::dual_contouring(
   const bool constrained,
   const bool triangles,
   const bool root_finding,
-  Eigen::PlainObjectBase<DerivedV> & V,
+  Eigen::PlainObjectBase<DerivedV> & vers,
   Eigen::PlainObjectBase<DerivedQ> & Q)
 {
   typedef typename DerivedV::Scalar Scalar;
   DualContouring<Scalar> DC(f,f_grad,constrained,triangles,root_finding);
   DC.dense(min_corner,max_corner,nx,ny,nz);
-  V = DC.V;
+  vers = DC.vers;
   Q = DC.Q.template cast<typename DerivedQ::Scalar>();
 }
 
@@ -516,13 +516,13 @@ IGL_INLINE void igl::dual_contouring(
   const bool constrained,
   const bool triangles,
   const bool root_finding,
-  Eigen::PlainObjectBase<DerivedV> & V,
+  Eigen::PlainObjectBase<DerivedV> & vers,
   Eigen::PlainObjectBase<DerivedQ> & Q)
 {
   typedef typename DerivedV::Scalar Scalar;
   DualContouring<Scalar> DC(f,f_grad,constrained,triangles,root_finding);
   DC.dense(Gf,GV,nx,ny,nz);
-  V = DC.V;
+  vers = DC.vers;
   Q = DC.Q.template cast<typename DerivedQ::Scalar>();
 }
 
@@ -542,7 +542,7 @@ IGL_INLINE void igl::dual_contouring(
   const bool constrained,
   const bool triangles,
   const bool root_finding,
-  Eigen::PlainObjectBase<DerivedV> & V,
+  Eigen::PlainObjectBase<DerivedV> & vers,
   Eigen::PlainObjectBase<DerivedQ> & Q)
 {
   if(GI.rows() == 0){ return;}
@@ -550,7 +550,7 @@ IGL_INLINE void igl::dual_contouring(
   typedef typename DerivedV::Scalar Scalar;
   DualContouring<Scalar> DC(f,f_grad,constrained,triangles,root_finding);
   DC.sparse(step,Gf,GV,GI);
-  V = DC.V;
+  vers = DC.vers;
   Q = DC.Q.template cast<typename DerivedQ::Scalar>();
 }
 

@@ -11,7 +11,7 @@
 template <typename DerivedF, typename VFType, typename VFiType>
 IGL_INLINE void igl::vertex_triangle_adjacency(
   const typename DerivedF::Scalar n,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedF>& tris,
   std::vector<std::vector<VFType> >& VF,
   std::vector<std::vector<VFiType> >& VFi)
 {
@@ -22,12 +22,12 @@ IGL_INLINE void igl::vertex_triangle_adjacency(
   VFi.resize(n);
 
   typedef typename DerivedF::Index Index;
-  for(Index fi=0; fi<F.rows(); ++fi)
+  for(Index fi=0; fi<tris.rows(); ++fi)
   {
-    for(Index i = 0; i < F.cols(); ++i)
+    for(Index i = 0; i < tris.cols(); ++i)
     {
-      VF[F(fi,i)].push_back(fi);
-      VFi[F(fi,i)].push_back(i);
+      VF[tris(fi,i)].push_back(fi);
+      VFi[tris(fi,i)].push_back(i);
     }
   }
 }
@@ -35,12 +35,12 @@ IGL_INLINE void igl::vertex_triangle_adjacency(
 
 template <typename DerivedV, typename DerivedF, typename IndexType>
 IGL_INLINE void igl::vertex_triangle_adjacency(
-  const Eigen::MatrixBase<DerivedV>& V,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const Eigen::MatrixBase<DerivedF>& tris,
   std::vector<std::vector<IndexType> >& VF,
   std::vector<std::vector<IndexType> >& VFi)
 {
-  return vertex_triangle_adjacency(V.rows(),F,VF,VFi);
+  return vertex_triangle_adjacency(vers.rows(),tris,VF,VFi);
 }
 
 template <
@@ -48,20 +48,20 @@ template <
   typename DerivedVF,
   typename DerivedNI>
 IGL_INLINE void igl::vertex_triangle_adjacency(
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const int n,
   Eigen::PlainObjectBase<DerivedVF> & VF,
   Eigen::PlainObjectBase<DerivedNI> & NI)
 {
   typedef Eigen::Matrix<typename DerivedVF::Scalar,Eigen::Dynamic,1> VectorXI;
-  // vfd  #V list so that vfd(i) contains the vertex-face degree (number of
+  // vfd  #vers list so that vfd(i) contains the vertex-face degree (number of
   // faces incident on vertex i)
   VectorXI vfd = VectorXI::Zero(n);
-  for (int i = 0; i < F.rows(); i++)
+  for (int i = 0; i < tris.rows(); i++)
   {
     for (int j = 0; j < 3; j++)
     {
-      vfd[F(i,j)]++;
+      vfd[tris(i,j)]++;
     }
   }
   igl::cumsum(vfd,1,NI);
@@ -70,13 +70,13 @@ IGL_INLINE void igl::vertex_triangle_adjacency(
   // vfd now acts as a counter
   vfd = NI;
 
-  VF.derived()= Eigen::Matrix<typename DerivedVF::Scalar, Eigen::Dynamic, 1>(3*F.rows(), 1);
-  for (int i = 0; i < F.rows(); i++)
+  VF.derived()= Eigen::Matrix<typename DerivedVF::Scalar, Eigen::Dynamic, 1>(3*tris.rows(), 1);
+  for (int i = 0; i < tris.rows(); i++)
   {
     for (int j = 0; j < 3; j++)
     {
-      VF[vfd[F(i,j)]] = i;
-      vfd[F(i,j)]++;
+      VF[vfd[tris(i,j)]] = i;
+      vfd[tris(i,j)]++;
     }
   }
 }

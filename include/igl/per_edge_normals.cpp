@@ -20,8 +20,8 @@ template <
   typename DerivedE,
   typename DerivedEMAP>
 IGL_INLINE void igl::per_edge_normals(
-  const Eigen::MatrixBase<DerivedV>& V,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const Eigen::MatrixBase<DerivedF>& tris,
   const PerEdgeNormalsWeightingType weighting,
   const Eigen::MatrixBase<DerivedFN>& FN,
   Eigen::PlainObjectBase<DerivedN> & N,
@@ -31,12 +31,12 @@ IGL_INLINE void igl::per_edge_normals(
 {
   using namespace Eigen;
   using namespace std;
-  assert(F.cols() == 3 && "Faces must be triangles");
+  assert(tris.cols() == 3 && "Faces must be triangles");
   // number of faces
-  const int m = F.rows();
+  const int m = tris.rows();
   // All occurrences of directed edges
   Matrix<typename DerivedF::Scalar, Dynamic, Dynamic> allE;
-  oriented_facets(F,allE);
+  oriented_facets(tris,allE);
   // Find unique undirected edges and mapping
   Matrix<typename DerivedF::Scalar, Dynamic, 1> _;
   unique_simplices(allE,E,_,EMAP);
@@ -54,7 +54,7 @@ IGL_INLINE void igl::per_edge_normals(
     case PER_EDGE_NORMALS_WEIGHTING_TYPE_DEFAULT:
     case PER_EDGE_NORMALS_WEIGHTING_TYPE_AREA:
     {
-      doublearea(V,F,W);
+      doublearea(vers,tris,W);
       break;
     }
   }
@@ -85,16 +85,16 @@ template <
   typename DerivedE,
   typename DerivedEMAP>
 IGL_INLINE void igl::per_edge_normals(
-  const Eigen::MatrixBase<DerivedV>& V,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const Eigen::MatrixBase<DerivedF>& tris,
   const PerEdgeNormalsWeightingType weighting,
   Eigen::PlainObjectBase<DerivedN> & N,
   Eigen::PlainObjectBase<DerivedE> & E,
   Eigen::PlainObjectBase<DerivedEMAP> & EMAP)
 {
   Eigen::Matrix<typename DerivedN::Scalar,Eigen::Dynamic,3> FN;
-  per_face_normals(V,F,FN);
-  return per_edge_normals(V,F,weighting,FN,N,E,EMAP);
+  per_face_normals(vers,tris,FN);
+  return per_edge_normals(vers,tris,weighting,FN,N,E,EMAP);
 }
 
 template <
@@ -104,14 +104,14 @@ template <
   typename DerivedE,
   typename DerivedEMAP>
 IGL_INLINE void igl::per_edge_normals(
-  const Eigen::MatrixBase<DerivedV>& V,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const Eigen::MatrixBase<DerivedF>& tris,
   Eigen::PlainObjectBase<DerivedN> & N,
   Eigen::PlainObjectBase<DerivedE> & E,
   Eigen::PlainObjectBase<DerivedEMAP> & EMAP)
 {
   return 
-    per_edge_normals(V,F,PER_EDGE_NORMALS_WEIGHTING_TYPE_DEFAULT,N,E,EMAP);
+    per_edge_normals(vers,tris,PER_EDGE_NORMALS_WEIGHTING_TYPE_DEFAULT,N,E,EMAP);
 }
 
 #ifdef IGL_STATIC_LIBRARY

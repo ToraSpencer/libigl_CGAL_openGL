@@ -17,22 +17,22 @@
 
 template <typename DerivedF,typename DerivedB>
 IGL_INLINE bool igl::is_vertex_manifold(
-  const Eigen::PlainObjectBase<DerivedF>& F,
+  const Eigen::PlainObjectBase<DerivedF>& tris,
   Eigen::PlainObjectBase<DerivedB>& B)
 {
   using namespace std;
   using namespace Eigen;
-  assert(F.cols() == 3 && "F must contain triangles");
+  assert(tris.cols() == 3 && "tris must contain triangles");
   typedef typename DerivedF::Scalar Index;
   typedef typename DerivedF::Index FIndex;
-  const FIndex m = F.rows();
-  const Index n = F.maxCoeff()+1;
+  const FIndex m = tris.rows();
+  const Index n = tris.maxCoeff()+1;
   vector<vector<vector<FIndex > > > TT;
   vector<vector<vector<FIndex > > > TTi;
-  triangle_triangle_adjacency(F,TT,TTi);
+  triangle_triangle_adjacency(tris,TT,TTi);
 
   vector<vector<FIndex > > V2F,_1;
-  vertex_triangle_adjacency(n,F,V2F,_1);
+  vertex_triangle_adjacency(n,tris,V2F,_1);
 
   const auto & check_vertex = [&](const Index v)->bool
   {
@@ -66,9 +66,9 @@ IGL_INLINE bool igl::is_vertex_manifold(
         for(const auto & n : c)
         {
           bool contains_v = false;
-          for(Index nc = 0;nc<F.cols();nc++)
+          for(Index nc = 0;nc<tris.cols();nc++)
           {
-            if(F(n,nc) == v)
+            if(tris(n,nc) == v)
             {
               contains_v = true;
               break;
@@ -86,7 +86,7 @@ IGL_INLINE bool igl::is_vertex_manifold(
 
   // Unreferenced vertices are considered non-manifold
   B.setConstant(n,1,false);
-  // Loop over all vertices touched by F
+  // Loop over all vertices touched by tris
   bool all = true;
   for(Index v = 0;v<n;v++)
   {

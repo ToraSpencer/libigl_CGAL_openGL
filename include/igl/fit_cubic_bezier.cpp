@@ -73,8 +73,8 @@ IGL_INLINE void igl::fit_cubic_bezier_substring(
 {
   // Helper functions
   // Evaluate a Bezier curve at a particular parameter value
-  const static auto bezier_eval = [](const Eigen::MatrixXd & V, const double t)
-    { Eigen::RowVectorXd P; bezier(V,t,P); return P; };
+  const static auto bezier_eval = [](const Eigen::MatrixXd & vers, const double t)
+    { Eigen::RowVectorXd P; bezier(vers,t,P); return P; };
   //
   // Use Newton-Raphson iteration to find better root.
   const static auto NewtonRaphsonRootFind = [](

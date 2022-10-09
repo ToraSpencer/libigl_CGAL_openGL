@@ -13,7 +13,7 @@ template <
   typename DerivedBF, 
   typename DerivedBE>
 IGL_INLINE bool igl::is_edge_manifold(
-  const Eigen::MatrixBase<DerivedF>& F, 
+  const Eigen::MatrixBase<DerivedF>& tris, 
   const typename DerivedF::Index ne, 
   const Eigen::MatrixBase<DerivedEMAP>& EMAP, 
   Eigen::PlainObjectBase<DerivedBF>& BF, 
@@ -24,7 +24,7 @@ IGL_INLINE bool igl::is_edge_manifold(
   for(Index e = 0; e<EMAP.rows(); e++)
         count[EMAP[e]]++;
 
-  const Index trisCount = F.rows();
+  const Index trisCount = tris.rows();
   BF.resize(trisCount, 3);
   BE.resize(ne, 1);
   bool all = true;
@@ -46,28 +46,28 @@ template <
   typename DerivedEMAP, 
   typename DerivedBE>
 IGL_INLINE bool igl::is_edge_manifold(
-  const Eigen::MatrixBase<DerivedF>& F, 
+  const Eigen::MatrixBase<DerivedF>& tris, 
   Eigen::PlainObjectBase<DerivedBF>& BF, 
-  Eigen::PlainObjectBase<DerivedE>& E, 
+  Eigen::PlainObjectBase<DerivedE>& uEdges, 
   Eigen::PlainObjectBase<DerivedEMAP>& EMAP, 
   Eigen::PlainObjectBase<DerivedBE>& BE)
 {
   using namespace Eigen;
   typedef Matrix<typename DerivedF::Scalar, Dynamic, 2> MatrixXF2;
   MatrixXF2 allE;
-  unique_edge_map(F, allE, E, EMAP);
-  return is_edge_manifold(F, E.rows(), EMAP, BF, BE);
+  unique_edge_map(tris, allE, uEdges, EMAP);
+  return is_edge_manifold(tris, uEdges.rows(), EMAP, BF, BE);
 }
 
 template <typename DerivedF>
 IGL_INLINE bool igl::is_edge_manifold(
-  const Eigen::MatrixBase<DerivedF>& F)
+  const Eigen::MatrixBase<DerivedF>& tris)
 {
   Eigen::Array<bool, Eigen::Dynamic, Eigen::Dynamic> BF;
   Eigen::Array<bool, Eigen::Dynamic, 1> BE;
-  Eigen::MatrixXi E;
+  Eigen::MatrixXi uEdges;
   Eigen::VectorXi EMAP;
-  return is_edge_manifold(F, BF, E, EMAP, BE);
+  return is_edge_manifold(tris, BF, uEdges, EMAP, BE);
 }
 
 #ifdef IGL_STATIC_LIBRARY

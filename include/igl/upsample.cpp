@@ -16,7 +16,7 @@ template <
   typename DerivedNF>
 IGL_INLINE void igl::upsample(
   const int n_verts,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedF>& tris,
   Eigen::SparseMatrix<SType>& S,
   Eigen::PlainObjectBase<DerivedNF>& NF)
 {
@@ -27,7 +27,7 @@ IGL_INLINE void igl::upsample(
 
   Eigen::Matrix< typename DerivedF::Scalar,Eigen::Dynamic,Eigen::Dynamic>
     FF,FFi;
-  triangle_triangle_adjacency(F,FF,FFi);
+  triangle_triangle_adjacency(tris,FF,FFi);
 
   // TODO: Cache optimization missing from here, it is a mess
 
@@ -72,8 +72,8 @@ IGL_INLINE void igl::upsample(
     for(int j=0;j<3;++j)
     {
       if(NIdoubles(i,j)==0) {
-        tripletList.emplace_back(NI(i,j) + n_odd, F(i,j), 1./2.);
-        tripletList.emplace_back(NI(i,j) + n_odd, F(i,(j+1)%3), 1./2.);
+        tripletList.emplace_back(NI(i,j) + n_odd, tris(i,j), 1./2.);
+        tripletList.emplace_back(NI(i,j) + n_odd, tris(i,(j+1)%3), 1./2.);
       }
     }
   }
@@ -81,11 +81,11 @@ IGL_INLINE void igl::upsample(
   S.setFromTriplets(tripletList.begin(), tripletList.end());
 
   // Build the new topology (Every face is replaced by four)
-  NF.resize(F.rows()*4,3);
-  for(int i=0; i<F.rows();++i)
+  NF.resize(tris.rows()*4,3);
+  for(int i=0; i<tris.rows();++i)
   {
     Eigen::Matrix<typename DerivedF::Scalar, 1, 6> VI(6);
-    VI << F(i,0), F(i,1), F(i,2), NI(i,0) + n_odd, NI(i,1) + n_odd, NI(i,2) + n_odd;
+    VI << tris(i,0), tris(i,1), tris(i,2), NI(i,0) + n_odd, NI(i,1) + n_odd, NI(i,2) + n_odd;
 
     Eigen::Matrix<typename DerivedNF::Scalar, 1, 3> f0(3), f1(3), f2(3), f3(3);
     f0 << VI(0), VI(3), VI(5);
@@ -106,14 +106,14 @@ template <
   typename DerivedNV,
   typename DerivedNF>
 IGL_INLINE void igl::upsample(
-  const Eigen::MatrixBase<DerivedV>& V,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const Eigen::MatrixBase<DerivedF>& tris,
   Eigen::PlainObjectBase<DerivedNV>& NV,
   Eigen::PlainObjectBase<DerivedNF>& NF,
   const int number_of_subdivs)
 {
-  NV = V;
-  NF = F;
+  NV = vers;
+  NF = tris;
   for(int i=0; i<number_of_subdivs; ++i)
   {
     DerivedNF tempF = NF;
@@ -128,13 +128,13 @@ template <
   typename MatV,
   typename MatF>
 IGL_INLINE void igl::upsample(
-  MatV& V,
-  MatF& F,
+  MatV& vers,
+  MatF& tris,
   const int number_of_subdivs)
 {
-  const MatV V_copy = V;
-  const MatF F_copy = F;
-  return upsample(V_copy,F_copy,V,F,number_of_subdivs);
+  const MatV V_copy = vers;
+  const MatF F_copy = tris;
+  return upsample(V_copy,F_copy,vers,tris,number_of_subdivs);
 }
 
 #ifdef IGL_STATIC_LIBRARY

@@ -2,37 +2,37 @@
 
 template <typename DerivedF, typename DerivedE>
 IGL_INLINE void igl::oriented_facets(
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedF> & tris,
   Eigen::PlainObjectBase<DerivedE> & E)
 {
-  E.resize(F.rows()*F.cols(),F.cols()-1);
+  E.resize(tris.rows()*tris.cols(),tris.cols()-1);
   typedef typename DerivedE::Scalar EScalar;
-  switch(F.cols())
+  switch(tris.cols())
   {
     case 4:
-      E.block(0*F.rows(),0,F.rows(),1) = F.col(1).template cast<EScalar>();
-      E.block(0*F.rows(),1,F.rows(),1) = F.col(3).template cast<EScalar>();
-      E.block(0*F.rows(),2,F.rows(),1) = F.col(2).template cast<EScalar>();
+      E.block(0*tris.rows(),0,tris.rows(),1) = tris.col(1).template cast<EScalar>();
+      E.block(0*tris.rows(),1,tris.rows(),1) = tris.col(3).template cast<EScalar>();
+      E.block(0*tris.rows(),2,tris.rows(),1) = tris.col(2).template cast<EScalar>();
 
-      E.block(1*F.rows(),0,F.rows(),1) = F.col(0).template cast<EScalar>();
-      E.block(1*F.rows(),1,F.rows(),1) = F.col(2).template cast<EScalar>();
-      E.block(1*F.rows(),2,F.rows(),1) = F.col(3).template cast<EScalar>();
+      E.block(1*tris.rows(),0,tris.rows(),1) = tris.col(0).template cast<EScalar>();
+      E.block(1*tris.rows(),1,tris.rows(),1) = tris.col(2).template cast<EScalar>();
+      E.block(1*tris.rows(),2,tris.rows(),1) = tris.col(3).template cast<EScalar>();
 
-      E.block(2*F.rows(),0,F.rows(),1) = F.col(0).template cast<EScalar>();
-      E.block(2*F.rows(),1,F.rows(),1) = F.col(3).template cast<EScalar>();
-      E.block(2*F.rows(),2,F.rows(),1) = F.col(1).template cast<EScalar>();
+      E.block(2*tris.rows(),0,tris.rows(),1) = tris.col(0).template cast<EScalar>();
+      E.block(2*tris.rows(),1,tris.rows(),1) = tris.col(3).template cast<EScalar>();
+      E.block(2*tris.rows(),2,tris.rows(),1) = tris.col(1).template cast<EScalar>();
 
-      E.block(3*F.rows(),0,F.rows(),1) = F.col(0).template cast<EScalar>();
-      E.block(3*F.rows(),1,F.rows(),1) = F.col(1).template cast<EScalar>();
-      E.block(3*F.rows(),2,F.rows(),1) = F.col(2).template cast<EScalar>();
+      E.block(3*tris.rows(),0,tris.rows(),1) = tris.col(0).template cast<EScalar>();
+      E.block(3*tris.rows(),1,tris.rows(),1) = tris.col(1).template cast<EScalar>();
+      E.block(3*tris.rows(),2,tris.rows(),1) = tris.col(2).template cast<EScalar>();
       return;
     case 3:
-      E.block(0*F.rows(),0,F.rows(),1) = F.col(1).template cast<EScalar>();
-      E.block(0*F.rows(),1,F.rows(),1) = F.col(2).template cast<EScalar>();
-      E.block(1*F.rows(),0,F.rows(),1) = F.col(2).template cast<EScalar>();
-      E.block(1*F.rows(),1,F.rows(),1) = F.col(0).template cast<EScalar>();
-      E.block(2*F.rows(),0,F.rows(),1) = F.col(0).template cast<EScalar>();
-      E.block(2*F.rows(),1,F.rows(),1) = F.col(1).template cast<EScalar>();
+      E.block(0*tris.rows(),0,tris.rows(),1) = tris.col(1).template cast<EScalar>();
+      E.block(0*tris.rows(),1,tris.rows(),1) = tris.col(2).template cast<EScalar>();
+      E.block(1*tris.rows(),0,tris.rows(),1) = tris.col(2).template cast<EScalar>();
+      E.block(1*tris.rows(),1,tris.rows(),1) = tris.col(0).template cast<EScalar>();
+      E.block(2*tris.rows(),0,tris.rows(),1) = tris.col(0).template cast<EScalar>();
+      E.block(2*tris.rows(),1,tris.rows(),1) = tris.col(1).template cast<EScalar>();
       return;
   }
 }

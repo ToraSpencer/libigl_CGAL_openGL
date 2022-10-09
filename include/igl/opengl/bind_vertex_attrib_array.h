@@ -15,7 +15,7 @@ namespace igl
     //   program_shader  id of shader program
     //   name  name of attribute in vertex shader
     //   bufferID  id of buffer to bind to
-    //   M  #V by dim matrix of per-vertex data
+    //   M  #vers by dim matrix of per-vertex data
     //   refresh  whether to actually call glBufferData or just bind the buffer
     // Returns id of named attribute in shader
     IGL_INLINE GLint bind_vertex_attrib_array(

@@ -21,38 +21,38 @@ namespace igl
   //     .resize(m,n)
   //     .row(i) = Row
   // Inputs:
-  //   V  a m-long list of vectors of size n
+  //   vers  a m-long list of vectors of size n
   // Outputs:
   //   M  an m by n matrix
   // Returns true on success, false on errors
   template <typename T, typename Derived>
   IGL_INLINE bool list_to_matrix(
-    const std::vector<std::vector<T > > & V,
+    const std::vector<std::vector<T > > & vers,
     Eigen::PlainObjectBase<Derived>& M);
 
   template <typename T, size_t N, typename Derived>
   IGL_INLINE bool list_to_matrix(
-    const std::vector<std::array<T, N> > & V,
+    const std::vector<std::array<T, N> > & vers,
     Eigen::PlainObjectBase<Derived>& M);
 
   // Convert a list of row vectors of `n` or less to a matrix and pad on
   // the right with `padding`:
   //
   // Inputs:
-  //   V  a m-long list of vectors of size <=n
+  //   vers  a m-long list of vectors of size <=n
   //   n  number of columns
   //   padding  value to fill in from right for short rows
   // Outputs:
   //   M  an m by n matrix
   template <typename T, typename Derived>
   IGL_INLINE bool list_to_matrix(
-    const std::vector<std::vector<T > > & V,
+    const std::vector<std::vector<T > > & vers,
     const int n,
     const T & padding,
     Eigen::PlainObjectBase<Derived>& M);
   // Vector wrapper
   template <typename T, typename Derived>
-  IGL_INLINE bool list_to_matrix(const std::vector<T > & V,Eigen::PlainObjectBase<Derived>& M);
+  IGL_INLINE bool list_to_matrix(const std::vector<T > & vers,Eigen::PlainObjectBase<Derived>& M);
 }
 
 #ifndef IGL_STATIC_LIBRARY

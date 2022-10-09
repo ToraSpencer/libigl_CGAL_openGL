@@ -16,21 +16,21 @@ template <
   typename DerivedX>
 IGL_INLINE void igl::barycentric_interpolation(
   const Eigen::MatrixBase<DerivedD> & D,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const Eigen::MatrixBase<DerivedB> & B,
   const Eigen::MatrixBase<DerivedI> & I,
   Eigen::PlainObjectBase<DerivedX> & X)
 {
   assert(B.rows() == I.size());
-  assert(F.cols() == B.cols());
+  assert(tris.cols() == B.cols());
   X.setZero(B.rows(),D.cols());
   // should use parallel_for
   //for(int i = 0;i<X.rows();i++)
-  parallel_for(X.rows(),[&X,&B,&D,&F,&I](const int i)
+  parallel_for(X.rows(),[&X,&B,&D,&tris,&I](const int i)
   {
-    for(int j = 0;j<F.cols();j++)
+    for(int j = 0;j<tris.cols();j++)
     {
-      X.row(i) += B(i,j) * D.row(F(I(i),j));
+      X.row(i) += B(i,j) * D.row(tris(I(i),j));
     }
   },1000);
 }

@@ -10,20 +10,20 @@
 
 template <typename Mat>
 IGL_INLINE void igl::all_pairs_distances(
-  const Mat & V,
+  const Mat & vers,
   const Mat & U,
   const bool squared,
   Mat & D)
 {
   // dimension should be the same
-  assert(V.cols() == U.cols());
+  assert(vers.cols() == U.cols());
   // resize output
-  D.resize(V.rows(),U.rows());
-  for(int i = 0;i<V.rows();i++)
+  D.resize(vers.rows(),U.rows());
+  for(int i = 0;i<vers.rows();i++)
   {
     for(int j=0;j<U.rows();j++)
     {
-      D(i,j) = (V.row(i)-U.row(j)).squaredNorm();
+      D(i,j) = (vers.row(i)-U.row(j)).squaredNorm();
       if(!squared)
       {
         D(i,j) = sqrt(D(i,j));

@@ -8,19 +8,19 @@ namespace igl
   // tolerance (epsilon)
   //
   // Inputs:
-  //   V  #V by dim list of vertex positions
+  //   vers  #vers by dim list of vertex positions
   //   epsilon  uniqueness tolerance used coordinate-wise: 1e0 --> integer
   //     match, 1e-1 --> match up to first decimal, ... , 0 --> exact match.
   // Outputs:
   //   SV  #SV by dim new list of vertex positions
-  //   SVI #SV by 1 list of indices so SV = V(SVI,:) 
-  //   SVJ #V by 1 list of indices so V = SV(SVJ,:)
+  //   SVI #SV by 1 list of indices so SV = vers(SVI,:) 
+  //   SVJ #vers by 1 list of indices so vers = SV(SVJ,:)
   //
   // Example:
-  //   % Mesh in (V,F)
-  //   [SV,SVI,SVJ] = remove_duplicate_vertices(V,1e-7);
+  //   % Mesh in (vers,tris)
+  //   [SV,SVI,SVJ] = remove_duplicate_vertices(vers,1e-7);
   //   % remap faces
-  //   SF = SVJ(F);
+  //   SF = SVJ(tris);
   //
   template <
     typename DerivedV, 
@@ -28,14 +28,14 @@ namespace igl
     typename DerivedSVI, 
     typename DerivedSVJ>
   IGL_INLINE void remove_duplicate_vertices(
-    const Eigen::MatrixBase<DerivedV>& V,
+    const Eigen::MatrixBase<DerivedV>& vers,
     const double epsilon,
     Eigen::PlainObjectBase<DerivedSV>& SV,
     Eigen::PlainObjectBase<DerivedSVI>& SVI,
     Eigen::PlainObjectBase<DerivedSVJ>& SVJ);
 
 
-  // Wrapper that also remaps given faces (F) --> (SF) so that SF index SV
+  // Wrapper that also remaps given faces (tris) --> (SF) so that SF index SV
   template <
     typename DerivedV, 
     typename DerivedF,
@@ -44,8 +44,8 @@ namespace igl
     typename DerivedSVJ,
     typename DerivedSF>
   IGL_INLINE void remove_duplicate_vertices(
-    const Eigen::MatrixBase<DerivedV>& V,
-    const Eigen::MatrixBase<DerivedF>& F,
+    const Eigen::MatrixBase<DerivedV>& vers,
+    const Eigen::MatrixBase<DerivedF>& tris,
     const double epsilon,
     Eigen::PlainObjectBase<DerivedSV>& SV,
     Eigen::PlainObjectBase<DerivedSVI>& SVI,

@@ -16,27 +16,27 @@ int main(int argc, char *argv[])
   using namespace std;
 
   // Load a mesh in OBJ format 
-  Eigen::MatrixXd OV,V;
+  Eigen::MatrixXd OV,vers;
   Eigen::VectorXi I,C;
   igl::readOBJ(
-    argc<=1?TUTORIAL_SHARED_PATH "/cylinder.obj" :argv[1],V,I,C);
+    argc<=1?TUTORIAL_SHARED_PATH "/cylinder.obj" :argv[1],vers,I,C);
 
   // ÖØÐÄ
-  V.rowwise() -= V.colwise().mean();
-  OV = V;
+  vers.rowwise() -= vers.colwise().mean();
+  OV = vers;
 
   // Convert polygon representation to triangles
   Eigen::MatrixXi F;
   Eigen::VectorXi J;
   igl::polygons_to_triangles(I,C,F,J);
   Eigen::SparseMatrix<double> pL,pM,pP;
-  igl::cotmatrix(V,I,C,pL,pM,pP);
+  igl::cotmatrix(vers,I,C,pL,pM,pP);
   Eigen::SparseMatrix<double> tL,tM;
-  igl::cotmatrix(V,F,tL);
-  igl::massmatrix(V,F,igl::MASSMATRIX_TYPE_DEFAULT,tM);
-  const double bbd = (V.colwise().maxCoeff()- V.colwise().minCoeff()).norm();
+  igl::cotmatrix(vers,F,tL);
+  igl::massmatrix(vers,F,igl::MASSMATRIX_TYPE_DEFAULT,tM);
+  const double bbd = (vers.colwise().maxCoeff()- vers.colwise().minCoeff()).norm();
   igl::opengl::glfw::Viewer vr;
-  vr.data_list[0].set_mesh(V,F);
+  vr.data_list[0].set_mesh(vers,F);
   vr.append_mesh();
   vr.selected_data_index = 0;
   vr.data_list[0].set_face_based(true);
@@ -50,27 +50,27 @@ int main(int argc, char *argv[])
   // lambda¡ª¡ª
   const auto update = [&]()
   {
-    pHN = (pL*V).array().colwise() / Eigen::VectorXd(pM.diagonal()).array();
-    tHN = (tL*V).array().colwise() / Eigen::VectorXd(tM.diagonal()).array();
+    pHN = (pL*vers).array().colwise() / Eigen::VectorXd(pM.diagonal()).array();
+    tHN = (tL*vers).array().colwise() / Eigen::VectorXd(tM.diagonal()).array();
     pHN *= 1.0/pHN.rowwise().norm().maxCoeff();
     tHN *= 1.0/tHN.rowwise().norm().maxCoeff();
     const auto was_face_based  = vr.data_list[0].face_based;
-    Eigen::MatrixXd QV(V.rows()*2,3);
-    QV.topRows(V.rows()) = V;
+    Eigen::MatrixXd QV(vers.rows()*2,3);
+    QV.topRows(vers.rows()) = vers;
 
     if(use_poly)
     {
       printf("using polygon Laplacian\n");
-      QV.bottomRows(V.rows()) = V-pHN;
+      QV.bottomRows(vers.rows()) = vers-pHN;
     }
     else
     {
       printf("using triangle Laplacian\n");
-      QV.bottomRows(V.rows()) = V-tHN;
+      QV.bottomRows(vers.rows()) = vers-tHN;
     }
 
-    Eigen::MatrixXi QE(V.rows(),2);
-    for(int i = 0;i<V.rows();i++){ QE(i,0)=i;QE(i,1)=i+V.rows();}
+    Eigen::MatrixXi QE(vers.rows(),2);
+    for(int i = 0;i<vers.rows();i++){ QE(i,0)=i;QE(i,1)=i+vers.rows();}
     vr.data_list[1].set_edges(QV,QE,Eigen::RowVector3d(1,1,1));
 
     if(use_poly)
@@ -78,7 +78,7 @@ int main(int argc, char *argv[])
       vr.data_list[0].show_lines = false;
       if(show_edges)
       {
-        vr.data_list[0].set_edges(V,E,Eigen::RowVector3d(0,0,0));
+        vr.data_list[0].set_edges(vers,E,Eigen::RowVector3d(0,0,0));
       }
       else
         vr.data_list[0].clear_edges();
@@ -99,9 +99,9 @@ int main(int argc, char *argv[])
   const auto recompute_M = [&]()
   {
     Eigen::SparseMatrix<double> _1,_2;
-    igl::cotmatrix(V,I,C,_1,pM,_2);
-    igl::massmatrix(V,F,igl::MASSMATRIX_TYPE_DEFAULT,tM);
-    V *= sqrt(original_area / pM.diagonal().sum());
+    igl::cotmatrix(vers,I,C,_1,pM,_2);
+    igl::massmatrix(vers,F,igl::MASSMATRIX_TYPE_DEFAULT,tM);
+    vers *= sqrt(original_area / pM.diagonal().sum());
   };
 
   // lambda¡ª¡ª
@@ -109,15 +109,15 @@ int main(int argc, char *argv[])
   {
     const Eigen::SparseMatrix<double> S = 
       use_poly? ((pM) - 0.05*(pL)): ((tM) - 0.05*(tL));
-    const Eigen::MatrixXd rhs = use_poly? pM*V : tM*V;
+    const Eigen::MatrixXd rhs = use_poly? pM*vers : tM*vers;
     Eigen::SimplicialLLT<Eigen::SparseMatrix<double > > solver(S);
     assert(solver.info() == Eigen::Success);
-    V = solver.solve(rhs).eval();
+    vers = solver.solve(rhs).eval();
     // recompute just mass matrices
     recompute_M();
     // center
-    V.rowwise() -= V.colwise().mean();
-    vr.data_list[0].set_vertices(V);
+    vers.rowwise() -= vers.colwise().mean();
+    vr.data_list[0].set_vertices(vers);
     vr.data_list[0].compute_normals();
     update();
   };
@@ -128,7 +128,7 @@ int main(int argc, char *argv[])
     switch(key)
     {
       case ' ': cmcf_step(); return true;
-      case 'R': case 'r': V=OV;recompute_M();vr.data_list[0].set_vertices(V);vr.data_list[0].compute_normals(); update();return true;
+      case 'R': case 'r': vers=OV;recompute_M();vr.data_list[0].set_vertices(vers);vr.data_list[0].compute_normals(); update();return true;
       case 'P': case 'p': use_poly=!use_poly; update();return true;
       case 'L': case 'l': show_edges=!show_edges; update();return true;
     }

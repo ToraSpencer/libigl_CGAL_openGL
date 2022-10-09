@@ -10,8 +10,8 @@
 
 template <typename DerivedV, typename DerivedF, typename DerivedK>
 IGL_INLINE void igl::parallel_transport_angles(
-const Eigen::PlainObjectBase<DerivedV>& V,
-const Eigen::PlainObjectBase<DerivedF>& F,
+const Eigen::PlainObjectBase<DerivedV>& vers,
+const Eigen::PlainObjectBase<DerivedF>& tris,
 const Eigen::PlainObjectBase<DerivedV>& FN,
 const Eigen::MatrixXi &E2F,
 const Eigen::MatrixXi &F2E,
@@ -52,21 +52,21 @@ Eigen::PlainObjectBase<DerivedK> &K)
       assert(fid0_vc != -1);
       assert(fid1_vc != -1);
 
-      Eigen::Matrix<typename DerivedV::Scalar, 1, 3> common_edge = V.row(F(fid0,(fid0_vc+1)%3)) - V.row(F(fid0,fid0_vc));
+      Eigen::Matrix<typename DerivedV::Scalar, 1, 3> common_edge = vers.row(tris(fid0,(fid0_vc+1)%3)) - vers.row(tris(fid0,fid0_vc));
       common_edge.normalize();
 
       // Map the two triangles in a new space where the common edge is the x axis and the N0 the z axis
       Eigen::Matrix<typename DerivedV::Scalar, 3, 3> P;
-      Eigen::Matrix<typename DerivedV::Scalar, 1, 3> o = V.row(F(fid0,fid0_vc));
+      Eigen::Matrix<typename DerivedV::Scalar, 1, 3> o = vers.row(tris(fid0,fid0_vc));
       Eigen::Matrix<typename DerivedV::Scalar, 1, 3> tmp = -N0.cross(common_edge);
       P << common_edge, tmp, N0;
       //      P.transposeInPlace();
 
 
       Eigen::Matrix<typename DerivedV::Scalar, 3, 3> V0;
-      V0.row(0) = V.row(F(fid0,0)) -o;
-      V0.row(1) = V.row(F(fid0,1)) -o;
-      V0.row(2) = V.row(F(fid0,2)) -o;
+      V0.row(0) = vers.row(tris(fid0,0)) -o;
+      V0.row(1) = vers.row(tris(fid0,1)) -o;
+      V0.row(2) = vers.row(tris(fid0,2)) -o;
 
       V0 = (P*V0.transpose()).transpose();
 
@@ -75,9 +75,9 @@ Eigen::PlainObjectBase<DerivedK> &K)
       //      assert(V0(2,2) < 1e-10);
 
       Eigen::Matrix<typename DerivedV::Scalar, 3, 3> V1;
-      V1.row(0) = V.row(F(fid1,0)) -o;
-      V1.row(1) = V.row(F(fid1,1)) -o;
-      V1.row(2) = V.row(F(fid1,2)) -o;
+      V1.row(0) = vers.row(tris(fid1,0)) -o;
+      V1.row(1) = vers.row(tris(fid1,1)) -o;
+      V1.row(2) = vers.row(tris(fid1,2)) -o;
       V1 = (P*V1.transpose()).transpose();
 
       //      assert(V1(fid1_vc,2) < 10e-10);

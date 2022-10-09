@@ -20,8 +20,8 @@ template <
 IGL_INLINE bool igl::ray_mesh_intersect(
   const Eigen::MatrixBase<Derivedsource> & s,
   const Eigen::MatrixBase<Deriveddir> & dir,
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   std::vector<igl::Hit> & hits)
 {
   using namespace Eigen;
@@ -30,15 +30,15 @@ IGL_INLINE bool igl::ray_mesh_intersect(
   Vector3d s_d = s.template cast<double>();
   Vector3d dir_d = dir.template cast<double>();
   hits.clear();
-  hits.reserve(F.rows());
+  hits.reserve(tris.rows());
 
   // loop over all triangles
-  for(int f = 0;f<F.rows();f++)
+  for(int f = 0;f<tris.rows();f++)
   {
     // Should be but can't be const
-    RowVector3d v0 = V.row(F(f,0)).template cast<double>();
-    RowVector3d v1 = V.row(F(f,1)).template cast<double>();
-    RowVector3d v2 = V.row(F(f,2)).template cast<double>();
+    RowVector3d v0 = vers.row(tris(f,0)).template cast<double>();
+    RowVector3d v1 = vers.row(tris(f,1)).template cast<double>();
+    RowVector3d v2 = vers.row(tris(f,2)).template cast<double>();
     // shoot ray, record hit
     double t,u,v;
     if(intersect_triangle1(
@@ -64,12 +64,12 @@ template <
 IGL_INLINE bool igl::ray_mesh_intersect(
   const Eigen::MatrixBase<Derivedsource> & source,
   const Eigen::MatrixBase<Deriveddir> & dir,
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   igl::Hit & hit)
 {
   std::vector<igl::Hit> hits;
-  ray_mesh_intersect(source,dir,V,F,hits);
+  ray_mesh_intersect(source,dir,vers,tris,hits);
   if(hits.size() > 0)
   {
     hit = hits.front();

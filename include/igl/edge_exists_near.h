@@ -17,10 +17,10 @@ namespace igl
   //
   // Inputs:
   //   uE  #uE by 2 list of unique undirected edges
-  //   EMAP #F*3 list of indices into uE, mapping each directed edge to unique
+  //   EMAP #tris*3 list of indices into uE, mapping each directed edge to unique
   //     undirected edge
   //   uE2E  #uE list of lists of indices into E of coexisting edges
-  //   E  #F*3 by 2 list of half-edges
+  //   E  #tris*3 by 2 list of half-edges
   //   a  1st end-point of query edge
   //   b  2nd end-point of query edge
   //   uei  index into uE/uE2E of unique edge

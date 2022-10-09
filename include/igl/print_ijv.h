@@ -13,7 +13,7 @@
 #include <Eigen/Sparse>
 namespace igl
 {
-  // Prints a 3 column matrix representing [I,J,V] = find(X). That is, each
+  // Prints a 3 column matrix representing [I,J,vers] = find(X). That is, each
   // row is the row index, column index and value for each non zero entry. Each
   // row is printed on a new line
   //

@@ -28,8 +28,8 @@ class MismatchCalculatorLine
 {
 public:
 
-    const Eigen::PlainObjectBase<DerivedV> &V;
-    const Eigen::PlainObjectBase<DerivedF> &F;
+    const Eigen::PlainObjectBase<DerivedV> &vers;
+    const Eigen::PlainObjectBase<DerivedF> &tris;
     const Eigen::PlainObjectBase<DerivedV> &PD1;
     const Eigen::PlainObjectBase<DerivedV> &PD2;
     DerivedV N;
@@ -86,21 +86,21 @@ public:
                                const Eigen::PlainObjectBase<DerivedV> &_PD1,
                                const Eigen::PlainObjectBase<DerivedV> &_PD2
                                ):
-        V(_V),
-        F(_F),
+        vers(_V),
+        tris(_F),
         PD1(_PD1),
         PD2(_PD2)
     {
-        igl::per_face_normals(V,F,N);
-        V_border = igl::is_border_vertex(F);
-        igl::vertex_triangle_adjacency(V,F,VF,VFi);
-        igl::triangle_triangle_adjacency(F,TT,TTi);
+        igl::per_face_normals(vers,tris,N);
+        V_border = igl::is_border_vertex(tris);
+        igl::vertex_triangle_adjacency(vers,tris,VF,VFi);
+        igl::triangle_triangle_adjacency(tris,TT,TTi);
     }
 
     inline void calculateMismatchLine(Eigen::PlainObjectBase<DerivedO> &Handle_MMatch)
     {
-        Handle_MMatch.setConstant(F.rows(),3,-1);
-        for (unsigned int i=0;i<F.rows();i++)
+        Handle_MMatch.setConstant(tris.rows(),3,-1);
+        for (unsigned int i=0;i<tris.rows();i++)
         {
             for (int j=0;j<3;j++)
             {
@@ -117,8 +117,8 @@ public:
 
 
 template <typename DerivedV, typename DerivedF, typename DerivedO>
-IGL_INLINE void igl::line_field_mismatch(const Eigen::PlainObjectBase<DerivedV> &V,
-                                         const Eigen::PlainObjectBase<DerivedF> &F,
+IGL_INLINE void igl::line_field_mismatch(const Eigen::PlainObjectBase<DerivedV> &vers,
+                                         const Eigen::PlainObjectBase<DerivedF> &tris,
                                          const Eigen::PlainObjectBase<DerivedV> &PD1,
                                          const bool isCombed,
                                          Eigen::PlainObjectBase<DerivedO> &mismatch)
@@ -127,15 +127,15 @@ IGL_INLINE void igl::line_field_mismatch(const Eigen::PlainObjectBase<DerivedV> 
     DerivedV PD2_combed;
 
     if (!isCombed)
-        igl::comb_line_field(V,F,PD1,PD1_combed);
+        igl::comb_line_field(vers,tris,PD1,PD1_combed);
     else
     {
         PD1_combed = PD1;
     }
     Eigen::MatrixXd B1,B2,B3;
-    igl::local_basis(V,F,B1,B2,B3);
+    igl::local_basis(vers,tris,B1,B2,B3);
     PD2_combed = igl::rotate_vectors(PD1_combed, Eigen::VectorXd::Constant(1,igl::PI/2), B1, B2);
-    igl::MismatchCalculatorLine<DerivedV, DerivedF, DerivedO> sf(V, F, PD1_combed, PD2_combed);
+    igl::MismatchCalculatorLine<DerivedV, DerivedF, DerivedO> sf(vers, tris, PD1_combed, PD2_combed);
     sf.calculateMismatchLine(mismatch);
 }
 

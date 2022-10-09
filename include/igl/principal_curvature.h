@@ -27,15 +27,15 @@ namespace igl
   //   DerivedV derived from vertex positions matrix type: i.e. MatrixXd
   //   DerivedF derived from face indices matrix type: i.e. MatrixXi
   // Inputs:
-  //   V       eigen matrix #V by 3
-  //   F       #F by 3 list of mesh faces (must be triangles)
+  //   vers       eigen matrix #vers by 3
+  //   tris       #tris by 3 list of mesh faces (must be triangles)
   //   radius  controls the size of the neighbourhood used, 1 = average edge length
   //
   // Outputs:
-  //   PD1 #V by 3 maximal curvature direction for each vertex.
-  //   PD2 #V by 3 minimal curvature direction for each vertex.
-  //   PV1 #V by 1 maximal curvature value for each vertex.
-  //   PV2 #V by 1 minimal curvature value for each vertex.
+  //   PD1 #vers by 3 maximal curvature direction for each vertex.
+  //   PD2 #vers by 3 minimal curvature direction for each vertex.
+  //   PV1 #vers by 1 maximal curvature value for each vertex.
+  //   PV2 #vers by 1 minimal curvature value for each vertex.
   //
   // Return value:
   //   Function returns vector of indices of bad vertices if any.
@@ -55,8 +55,8 @@ template <
   typename DerivedPV1,
   typename DerivedPV2>
 IGL_INLINE void principal_curvature(
-  const Eigen::MatrixBase<DerivedV>& V,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const Eigen::MatrixBase<DerivedF>& tris,
   Eigen::PlainObjectBase<DerivedPD1>& PD1,
   Eigen::PlainObjectBase<DerivedPD2>& PD2,
   Eigen::PlainObjectBase<DerivedPV1>& PV1,
@@ -73,8 +73,8 @@ template <
   typename DerivedPV2,
   typename Index>
 IGL_INLINE void principal_curvature(
-  const Eigen::MatrixBase<DerivedV>& V,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const Eigen::MatrixBase<DerivedF>& tris,
   Eigen::PlainObjectBase<DerivedPD1>& PD1,
   Eigen::PlainObjectBase<DerivedPD2>& PD2,
   Eigen::PlainObjectBase<DerivedPV1>& PV1,

@@ -17,20 +17,20 @@ namespace igl
   // the cross on the other side. It represents the deviation from a Lie connection across the edge.
 
   // Inputs:
-  //   V         #V by 3 eigen Matrix of mesh vertex 3D positions
-  //   F         #F by 3 eigen Matrix of face (quad) indices
-  //   PD1       #F by 3 eigen Matrix of the first per face cross field vector
-  //   PD2       #F by 3 eigen Matrix of the second per face cross field vector
+  //   vers         #vers by 3 eigen Matrix of mesh vertex 3D positions
+  //   tris         #tris by 3 eigen Matrix of face (quad) indices
+  //   PD1       #tris by 3 eigen Matrix of the first per face cross field vector
+  //   PD2       #tris by 3 eigen Matrix of the second per face cross field vector
   //   isCombed  boolean, specifying whether the field is combed (i.e. matching has been precomputed.
   //             If not, the field is combed first.
   // Output:
-  //   mismatch  #F by 3 eigen Matrix containing the integer mismatch of the cross field
+  //   mismatch  #tris by 3 eigen Matrix containing the integer mismatch of the cross field
   //             across all face edges
   //
 
     template <typename DerivedV, typename DerivedF, typename DerivedO>
-    IGL_INLINE void line_field_mismatch(const Eigen::PlainObjectBase<DerivedV> &V,
-                                        const Eigen::PlainObjectBase<DerivedF> &F,
+    IGL_INLINE void line_field_mismatch(const Eigen::PlainObjectBase<DerivedV> &vers,
+                                        const Eigen::PlainObjectBase<DerivedF> &tris,
                                         const Eigen::PlainObjectBase<DerivedV> &PD1,
                                         const bool isCombed,
                                         Eigen::PlainObjectBase<DerivedO> &mismatch);

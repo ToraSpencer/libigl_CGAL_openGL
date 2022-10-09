@@ -11,8 +11,8 @@
 template <typename Scalar, typename Index>
 IGL_INLINE bool igl::readOFF(
   const std::string off_file_name,
-  std::vector<std::vector<Scalar > > & V,
-  std::vector<std::vector<Index > > & F,
+  std::vector<std::vector<Scalar > > & vers,
+  std::vector<std::vector<Index > > & tris,
   std::vector<std::vector<Scalar > > & N,
   std::vector<std::vector<Scalar > > & C)
 {
@@ -23,20 +23,20 @@ IGL_INLINE bool igl::readOFF(
     printf("IOError: %s could not be opened...\n",off_file_name.c_str());
     return false;
   }
-  return readOFF(off_file,V,F,N,C);
+  return readOFF(off_file,vers,tris,N,C);
 }
 
 template <typename Scalar, typename Index>
 IGL_INLINE bool igl::readOFF(
   FILE * off_file,
-  std::vector<std::vector<Scalar > > & V,
-  std::vector<std::vector<Index > > & F,
+  std::vector<std::vector<Scalar > > & vers,
+  std::vector<std::vector<Index > > & tris,
   std::vector<std::vector<Scalar > > & N,
   std::vector<std::vector<Scalar > > & C)
 {
   using namespace std;
-  V.clear();
-  F.clear();
+  vers.clear();
+  tris.clear();
   N.clear();
   C.clear();
 
@@ -70,12 +70,12 @@ IGL_INLINE bool igl::readOFF(
     still_comments = (line[0] == '#' || line[0] == '\n');
   }
   sscanf(line,"%d %d %d",&number_of_vertices,&number_of_faces,&number_of_edges);
-  V.resize(number_of_vertices);
+  vers.resize(number_of_vertices);
   if (has_normals)
     N.resize(number_of_vertices);
   if (has_vertexColors)
     C.resize(number_of_vertices);
-  F.resize(number_of_faces);
+  tris.resize(number_of_faces);
   //printf("%s %d %d %d\n",(has_normals ? "NOFF" : "OFF"),number_of_vertices,number_of_faces,number_of_edges);
   // Read vertices
   for(int i = 0;i<number_of_vertices;)
@@ -89,7 +89,7 @@ IGL_INLINE bool igl::readOFF(
       vertex[0] = x;
       vertex[1] = y;
       vertex[2] = z;
-      V[i] = vertex;
+      vers[i] = vertex;
 
       if (has_normals)
       {
@@ -144,7 +144,7 @@ IGL_INLINE bool igl::readOFF(
 
         face[j] = index;
       }
-      F[i] = face;
+      tris[i] = face;
       i++;
     }else if(
              fscanf(off_file,"%[#]",&tic_tac_toe)==1)
@@ -167,8 +167,8 @@ IGL_INLINE bool igl::readOFF(
 template <typename DerivedV, typename DerivedF>
 IGL_INLINE bool igl::readOFF(
   const std::string str,
-  Eigen::PlainObjectBase<DerivedV>& V,
-  Eigen::PlainObjectBase<DerivedF>& F)
+  Eigen::PlainObjectBase<DerivedV>& vers,
+  Eigen::PlainObjectBase<DerivedF>& tris)
 {
   std::vector<std::vector<double> > vV;
   std::vector<std::vector<double> > vN;
@@ -181,16 +181,16 @@ IGL_INLINE bool igl::readOFF(
     // message to stderr
     return false;
   }
-  bool V_rect = igl::list_to_matrix(vV,V);
+  bool V_rect = igl::list_to_matrix(vV,vers);
   if(!V_rect)
   {
-    // igl::list_to_matrix(vV,V) already printed error message to std err
+    // igl::list_to_matrix(vV,vers) already printed error message to std err
     return false;
   }
-  bool F_rect = igl::list_to_matrix(vF,F);
+  bool F_rect = igl::list_to_matrix(vF,tris);
   if(!F_rect)
   {
-    // igl::list_to_matrix(vF,F) already printed error message to std err
+    // igl::list_to_matrix(vF,tris) already printed error message to std err
     return false;
   }
   return true;
@@ -200,8 +200,8 @@ IGL_INLINE bool igl::readOFF(
 template <typename DerivedV, typename DerivedF>
 IGL_INLINE bool igl::readOFF(
   const std::string str,
-  Eigen::PlainObjectBase<DerivedV>& V,
-  Eigen::PlainObjectBase<DerivedF>& F,
+  Eigen::PlainObjectBase<DerivedV>& vers,
+  Eigen::PlainObjectBase<DerivedF>& tris,
   Eigen::PlainObjectBase<DerivedV>& N)
 {
   std::vector<std::vector<double> > vV;
@@ -215,16 +215,16 @@ IGL_INLINE bool igl::readOFF(
     // message to stderr
     return false;
   }
-  bool V_rect = igl::list_to_matrix(vV,V);
+  bool V_rect = igl::list_to_matrix(vV,vers);
   if(!V_rect)
   {
-    // igl::list_to_matrix(vV,V) already printed error message to std err
+    // igl::list_to_matrix(vV,vers) already printed error message to std err
     return false;
   }
-  bool F_rect = igl::list_to_matrix(vF,F);
+  bool F_rect = igl::list_to_matrix(vF,tris);
   if(!F_rect)
   {
-    // igl::list_to_matrix(vF,F) already printed error message to std err
+    // igl::list_to_matrix(vF,tris) already printed error message to std err
     return false;
   }
 

@@ -15,7 +15,7 @@ namespace igl
   //
   // Inputs:
   //   D  #D by dim list of per-vertex data
-  //   F  #F by 3 list of triangle indices
+  //   tris  #tris by 3 list of triangle indices
   //   B  #X by 3 list of barycentric corodinates
   //   I  #X list of triangle indices
   // Outputs:
@@ -28,7 +28,7 @@ namespace igl
     typename DerivedX>
   IGL_INLINE void barycentric_interpolation(
     const Eigen::MatrixBase<DerivedD> & D,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const Eigen::MatrixBase<DerivedB> & B,
     const Eigen::MatrixBase<DerivedI> & I,
     Eigen::PlainObjectBase<DerivedX> & X);

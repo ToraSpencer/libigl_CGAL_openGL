@@ -10,15 +10,15 @@ template <
   typename Derivedear,
   typename Derivedear_opp>
 IGL_INLINE void igl::ears(
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedF> & tris,
   Eigen::PlainObjectBase<Derivedear> & ear,
   Eigen::PlainObjectBase<Derivedear_opp> & ear_opp)
 {
-  assert(F.cols() == 3 && "F should contain triangles");
+  assert(tris.cols() == 3 && "tris should contain triangles");
   Eigen::Array<bool, Eigen::Dynamic, 3> B;
   {
     Eigen::Array<bool, Eigen::Dynamic, 1> I;
-    on_boundary(F,I,B);
+    on_boundary(tris,I,B);
   }
   find(B.rowwise().count() == 2, ear);
   Eigen::Array<bool, Eigen::Dynamic, 3> Bear;

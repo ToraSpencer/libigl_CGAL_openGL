@@ -14,14 +14,14 @@ namespace igl
 {
   // Smooth vertex attributes using uniform Laplacian
   // Inputs:
-  //   Ain  #V by #A eigen Matrix of mesh vertex attributes (each vertex has #A attributes)
-  //   F    #F by 3 eigne Matrix of face (triangle) indices
+  //   Ain  #vers by #A eigen Matrix of mesh vertex attributes (each vertex has #A attributes)
+  //   tris    #tris by 3 eigne Matrix of face (triangle) indices
   // Output:
-  //   Aout #V by #A eigen Matrix of mesh vertex attributes
+  //   Aout #vers by #A eigen Matrix of mesh vertex attributes
   template <typename DerivedV, typename DerivedF>
   IGL_INLINE void per_vertex_attribute_smoothing(
     const Eigen::MatrixBase<DerivedV>& Ain,
-    const Eigen::MatrixBase<DerivedF>& F,
+    const Eigen::MatrixBase<DerivedF>& tris,
     Eigen::PlainObjectBase<DerivedV> & Aout);
 }
 

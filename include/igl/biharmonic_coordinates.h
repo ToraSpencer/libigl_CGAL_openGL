@@ -25,15 +25,15 @@ namespace igl
   // Templates:
   //   HType  should be a simple index type e.g. `int`,`size_t`
   // Inputs:
-  //   V  #V by dim list of mesh vertex positions
-  //   T  #T by dim+1 list of / triangle indices into V      if dim=2
-  //                          \ tetrahedron indices into V   if dim=3
+  //   vers  #vers by dim list of mesh vertex positions
+  //   T  #T by dim+1 list of / triangle indices into vers      if dim=2
+  //                          \ tetrahedron indices into vers   if dim=3
   //   S  #point-handles+#region-handles list of lists of selected vertices for
   //     each handle. Point handles should have singleton lists and region
   //     handles should have lists of size at least dim+1 (and these points
   //     should be in general position).
   // Outputs:
-  //   W  #V by #points-handles+(#region-handles * dim+1) matrix of weights so
+  //   W  #vers by #points-handles+(#region-handles * dim+1) matrix of weights so
   //     that columns correspond to each handles generalized barycentric
   //     coordinates (for point-handles) or animation space weights (for region
   //     handles).
@@ -42,7 +42,7 @@ namespace igl
   // Example:
   //
   //     MatrixXd W;
-  //     igl::biharmonic_coordinates(V,F,S,W);
+  //     igl::biharmonic_coordinates(vers,tris,S,W);
   //     const size_t dim = T.cols()-1;
   //     MatrixXd H(W.cols(),dim);
   //     {
@@ -51,7 +51,7 @@ namespace igl
   //       {
   //         if(S[h].size()==1)
   //         {
-  //           H.row(c++) = V.block(S[h][0],0,1,dim);
+  //           H.row(c++) = vers.block(S[h][0],0,1,dim);
   //         }else
   //         {
   //           H.block(c,0,dim+1,dim).setIdentity();
@@ -59,14 +59,14 @@ namespace igl
   //         }
   //       }
   //     }
-  //     assert( (V-(W*H)).array().maxCoeff() < 1e-7 );
+  //     assert( (vers-(W*H)).array().maxCoeff() < 1e-7 );
   template <
     typename DerivedV,
     typename DerivedT,
     typename SType,
     typename DerivedW>
   IGL_INLINE bool biharmonic_coordinates(
-    const Eigen::MatrixBase<DerivedV> & V,
+    const Eigen::MatrixBase<DerivedV> & vers,
     const Eigen::MatrixBase<DerivedT> & T,
     const std::vector<std::vector<SType> > & S,
     Eigen::PlainObjectBase<DerivedW> & W);
@@ -77,7 +77,7 @@ namespace igl
     typename SType,
     typename DerivedW>
   IGL_INLINE bool biharmonic_coordinates(
-    const Eigen::MatrixBase<DerivedV> & V,
+    const Eigen::MatrixBase<DerivedV> & vers,
     const Eigen::MatrixBase<DerivedT> & T,
     const std::vector<std::vector<SType> > & S,
     const int k,

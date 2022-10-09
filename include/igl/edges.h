@@ -14,10 +14,10 @@
 
 namespace igl
 {
-  // Constructs a list of unique edges represented in a given mesh (V,F)
+  // Constructs a list of unique edges represented in a given mesh (vers,tris)
   //
   // Inputs:
-  //   F  #F by 3 list of mesh faces (must be triangles)
+  //   tris  #tris by 3 list of mesh faces (must be triangles)
   //   or
   //   T  #T x 4  matrix of indices of tet corners
   // Outputs:
@@ -26,12 +26,12 @@ namespace igl
   // See also: adjacency_matrix
   template <typename DerivedF, typename DerivedE>
   IGL_INLINE void edges(
-    const Eigen::MatrixBase<DerivedF> & F, 
+    const Eigen::MatrixBase<DerivedF> & tris, 
     Eigen::PlainObjectBase<DerivedE> & E);
   // Constructs a list of unique edges represented in a given polygon mesh.
   //
   // Inputs:
-  //   I  #I vectorized list of polygon corner indices into rows of some matrix V
+  //   I  #I vectorized list of polygon corner indices into rows of some matrix vers
   //   C  #polygons+1 list of cumulative polygon sizes so that C(i+1)-C(i) =
   //     size of the ith polygon, and so I(C(i)) through I(C(i+1)-1) are the
   //     indices of the ith polygon
@@ -43,7 +43,7 @@ namespace igl
     const Eigen::MatrixBase<DerivedC> & C,
     Eigen::PlainObjectBase<DerivedE> & E);
   // Inputs:
-  //   A  #V by #V symmetric adjacency matrix
+  //   A  #vers by #vers symmetric adjacency matrix
   // Outputs:
   //   E  #E by 2 list of edges in no particular order
   template <typename T, typename DerivedE>

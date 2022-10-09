@@ -78,7 +78,7 @@ template <
   typename DerivedGV, 
   typename Derivedside>
 IGL_INLINE void igl::voxel_grid(
-  const Eigen::MatrixBase<DerivedV> & V,  
+  const Eigen::MatrixBase<DerivedV> & vers,  
   const typename DerivedV::Scalar offset, 
   const int largestCount, 
   const int pad_count, 
@@ -88,9 +88,9 @@ IGL_INLINE void igl::voxel_grid(
   typedef typename DerivedV::Scalar Scalar;
   Eigen::AlignedBox<Scalar, 3> box;
   typedef Eigen::Matrix<Scalar, 1, 3> RowVector3S;
-  assert(V.cols() == 3 && "V must contain positions in 3D");
-  RowVector3S min_ext = V.colwise().minCoeff().array() - offset;
-  RowVector3S max_ext = V.colwise().maxCoeff().array() + offset;
+  assert(vers.cols() == 3 && "vers must contain positions in 3D");
+  RowVector3S min_ext = vers.colwise().minCoeff().array() - offset;
+  RowVector3S max_ext = vers.colwise().maxCoeff().array() + offset;
   box.extend(min_ext.transpose());
   box.extend(max_ext.transpose());
   return igl::voxel_grid(box, largestCount, 1, gridCenters, gridCounts);

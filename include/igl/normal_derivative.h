@@ -20,10 +20,10 @@ namespace igl
   // magnitude for integration).
   //
   // Inputs:
-  //   V  #V by dim list of mesh vertex positions
-  //   F  #F by 3|4 list of triangle|tetrahedron indices into V
+  //   vers  #vers by dim list of mesh vertex positions
+  //   tris  #tris by 3|4 list of triangle|tetrahedron indices into vers
   // Outputs:
-  //   DD  #F*3|4 by #V sparse matrix representing operator to compute
+  //   DD  #tris*3|4 by #vers sparse matrix representing operator to compute
   //     directional derivative with respect to each facet of each element.
   //
   template <
@@ -31,7 +31,7 @@ namespace igl
     typename DerivedEle,
     typename Scalar>
   IGL_INLINE void normal_derivative(
-    const Eigen::MatrixBase<DerivedV> & V,
+    const Eigen::MatrixBase<DerivedV> & vers,
     const Eigen::MatrixBase<DerivedEle> & Ele,
     Eigen::SparseMatrix<Scalar>& DD);
 }

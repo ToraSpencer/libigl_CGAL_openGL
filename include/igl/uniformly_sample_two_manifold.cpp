@@ -23,7 +23,7 @@
 
 IGL_INLINE void igl::uniformly_sample_two_manifold(
   const Eigen::MatrixXd & W,
-  const Eigen::MatrixXi & F,
+  const Eigen::MatrixXi & tris,
   const int k,
   const double push,
   Eigen::MatrixXd & WS)
@@ -35,7 +35,7 @@ IGL_INLINE void igl::uniformly_sample_two_manifold(
   // coordinates
   // Inputs:
   //   W  #W by dim positions of mesh in weight space
-  //   F  #F by 3 indices of triangles
+  //   tris  #tris by 3 indices of triangles
   //   face_A  face index where 1st point lives
   //   bary_A  barycentric coordinates of 1st point on face_A
   //   face_B  face index where 2nd point lives
@@ -43,31 +43,31 @@ IGL_INLINE void igl::uniformly_sample_two_manifold(
   // Returns distance in euclidean space
   const auto & bary_dist = [] (
     const Eigen::MatrixXd & W,
-    const Eigen::MatrixXi & F,
+    const Eigen::MatrixXi & tris,
     const int face_A,
     const Eigen::Vector3d & bary_A,
     const int face_B,
     const Eigen::Vector3d & bary_B) -> double
   {
     return
-      ((bary_A(0)*W.row(F(face_A,0)) +
-        bary_A(1)*W.row(F(face_A,1)) +
-        bary_A(2)*W.row(F(face_A,2)))
+      ((bary_A(0)*W.row(tris(face_A,0)) +
+        bary_A(1)*W.row(tris(face_A,1)) +
+        bary_A(2)*W.row(tris(face_A,2)))
         -
-        (bary_B(0)*W.row(F(face_B,0)) +
-        bary_B(1)*W.row(F(face_B,1)) +
-        bary_B(2)*W.row(F(face_B,2)))).norm();
+        (bary_B(0)*W.row(tris(face_B,0)) +
+        bary_B(1)*W.row(tris(face_B,1)) +
+        bary_B(2)*W.row(tris(face_B,2)))).norm();
   };
 
-  // Base case if F is a tet list, find all faces and pass as non-manifold
+  // Base case if tris is a tet list, find all faces and pass as non-manifold
   // triangle mesh
-  if(F.cols() == 4)
+  if(tris.cols() == 4)
   {
     verbose("uniform_sample.h: sampling tet mesh\n");
-    MatrixXi T0 = F.col(0);
-    MatrixXi T1 = F.col(1);
-    MatrixXi T2 = F.col(2);
-    MatrixXi T3 = F.col(3);
+    MatrixXi T0 = tris.col(0);
+    MatrixXi T1 = tris.col(1);
+    MatrixXi T2 = tris.col(2);
+    MatrixXi T3 = tris.col(3);
     // Faces from tets
     MatrixXi TF =
       cat(1,
@@ -78,7 +78,7 @@ IGL_INLINE void igl::uniformly_sample_two_manifold(
           cat(2,T0, cat(2,T3,T1)),
           cat(2,T1, cat(2,T3,T2)))
       );
-    assert(TF.rows() == 4*F.rows());
+    assert(TF.rows() == 4*tris.rows());
     assert(TF.cols() == 3);
     uniformly_sample_two_manifold(W,TF,k,push,WS);
     return;
@@ -99,7 +99,7 @@ IGL_INLINE void igl::uniformly_sample_two_manifold(
 
   // Build map from vertices to list of incident faces
   vector<vector<int> > VF,VFi;
-  vertex_triangle_adjacency(W,F,VF,VFi);
+  vertex_triangle_adjacency(W,tris,VF,VFi);
 
   // List of list of face indices, for each sample gives index to face it is on
   vector<vector<int> > sample_faces; sample_faces.resize(k);
@@ -154,7 +154,7 @@ IGL_INLINE void igl::uniformly_sample_two_manifold(
         (bary(0) > bary(1) ? (bary(0) > bary(2) ? 0 : 2)
                            : (bary(1) > bary(2) ? 1 : 2));
       // find closest mesh vertex
-      int vertex_i = F(face_i,index_in_face);
+      int vertex_i = tris(face_i,index_in_face);
       // incident triangles
       vector<int> incident_F = VF[vertex_i];
       // We're going to try to place num_rand_samples_per_triangle samples on
@@ -166,9 +166,9 @@ IGL_INLINE void igl::uniformly_sample_two_manifold(
       sample_faces[i].push_back(face_i);
       // Current seed location in weight space
       VectorXd seed =
-        bary(0)*W.row(F(face_i,0)) +
-        bary(1)*W.row(F(face_i,1)) +
-        bary(2)*W.row(F(face_i,2));
+        bary(0)*W.row(tris(face_i,0)) +
+        bary(1)*W.row(tris(face_i,1)) +
+        bary(2)*W.row(tris(face_i,2));
 #ifdef EXTREME_VERBOSE
       verbose("i: %d\n",i);
       verbose("face_i: %d\n",face_i);
@@ -205,7 +205,7 @@ IGL_INLINE void igl::uniformly_sample_two_manifold(
             v = rv;
           }
           Eigen::Vector3d sample_bary(u,v,1-u-v);
-          double d = bary_dist(W,F,face_i,bary,face_f,sample_bary);
+          double d = bary_dist(W,tris,face_i,bary,face_f,sample_bary);
           // check that sample is close enough
           if(d<radius)
           {
@@ -263,7 +263,7 @@ IGL_INLINE void igl::uniformly_sample_two_manifold(
           {
             int seed_j_face = sample_faces[j][cur_maxmin[j]];
             Eigen::Vector3d seed_j_bary(sample_barys[j][cur_maxmin[j]]);
-            d = bary_dist(W,F,sample_face,sample_bary,seed_j_face,seed_j_bary);
+            d = bary_dist(W,tris,sample_face,sample_bary,seed_j_face,seed_j_bary);
           }
           D[i](s,j) = d;
         }
@@ -272,9 +272,9 @@ IGL_INLINE void igl::uniformly_sample_two_manifold(
         {
           // distance from sample(i,s) to corner j
           double d =
-            ((sample_bary(0)*W.row(F(sample_face,0)) +
-              sample_bary(1)*W.row(F(sample_face,1)) +
-              sample_bary(2)*W.row(F(sample_face,2)))
+            ((sample_bary(0)*W.row(tris(sample_face,0)) +
+              sample_bary(1)*W.row(tris(sample_face,1)) +
+              sample_bary(2)*W.row(tris(sample_face,2)))
               - I.row(j)).norm()/push;
           // append after distances to seeds
           D[i](s,k+j) = d;
@@ -335,9 +335,9 @@ IGL_INLINE void igl::uniformly_sample_two_manifold(
     int face_i = sample_faces[i][cur_maxmin[i]];
     Eigen::Vector3d bary(sample_barys[i][cur_maxmin[i]]);
     WS.row(i) =
-        bary(0)*W.row(F(face_i,0)) +
-        bary(1)*W.row(F(face_i,1)) +
-        bary(2)*W.row(F(face_i,2));
+        bary(0)*W.row(tris(face_i,0)) +
+        bary(1)*W.row(tris(face_i,1)) +
+        bary(2)*W.row(tris(face_i,2));
   }
   verbose("Lap: %g\n",get_seconds()-start);
   //cout<<"WSafter=["<<endl<<WS<<endl<<"];"<<endl;
@@ -354,7 +354,7 @@ IGL_INLINE void igl::uniformly_sample_two_manifold_at_vertices(
 
   // Copy weights and faces
   const MatrixXd & W = OW;
-  /*const MatrixXi & F = OF;*/
+  /*const MatrixXi & tris = OF;*/
 
   // Initialize seeds
   VectorXi G;

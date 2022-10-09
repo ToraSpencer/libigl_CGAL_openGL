@@ -19,16 +19,16 @@ template <typename DerivedV, typename DerivedF, typename DerivedE,
 typename DerivedOE, typename ScalarL>
 IGL_INLINE void
 igl::cr_vector_laplacian(
-  const Eigen::MatrixBase<DerivedV>& V,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const Eigen::MatrixBase<DerivedF>& tris,
   const Eigen::MatrixBase<DerivedE>& E,
   const Eigen::MatrixBase<DerivedOE>& oE,
   Eigen::SparseMatrix<ScalarL>& L)
 {
   Eigen::Matrix<typename DerivedV::Scalar, Eigen::Dynamic, Eigen::Dynamic>
   l_sq;
-  squared_edge_lengths(V, F, l_sq);
-  cr_vector_laplacian_intrinsic(F, l_sq, E, oE, L);
+  squared_edge_lengths(vers, tris, l_sq);
+  cr_vector_laplacian_intrinsic(tris, l_sq, E, oE, L);
 }
 
 
@@ -36,20 +36,20 @@ template <typename DerivedV, typename DerivedF, typename DerivedE,
 typename DerivedOE, typename ScalarL>
 IGL_INLINE void
 igl::cr_vector_laplacian(
-  const Eigen::MatrixBase<DerivedV>& V,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const Eigen::MatrixBase<DerivedF>& tris,
   Eigen::PlainObjectBase<DerivedE>& E,
   Eigen::PlainObjectBase<DerivedOE>& oE,
   Eigen::SparseMatrix<ScalarL>& L)
 {
-  if(E.rows()!=F.rows() || E.cols()!=F.cols() || oE.rows()!=F.rows() ||
-   oE.cols()!=F.cols()) {
-    orient_halfedges(F, E, oE);
+  if(E.rows()!=tris.rows() || E.cols()!=tris.cols() || oE.rows()!=tris.rows() ||
+   oE.cols()!=tris.cols()) {
+    orient_halfedges(tris, E, oE);
   }
 
   const Eigen::PlainObjectBase<DerivedE>& cE = E;
   const Eigen::PlainObjectBase<DerivedOE>& coE = oE;
-  cr_vector_laplacian(V, F, cE, coE, L);
+  cr_vector_laplacian(vers, tris, cE, coE, L);
 }
 
 
@@ -57,7 +57,7 @@ template <typename DerivedF, typename DerivedL_sq, typename DerivedE,
 typename DerivedOE, typename ScalarL>
 IGL_INLINE void
 igl::cr_vector_laplacian_intrinsic(
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedF>& tris,
   const Eigen::MatrixBase<DerivedL_sq>& l_sq,
   const Eigen::MatrixBase<DerivedE>& E,
   const Eigen::MatrixBase<DerivedOE>& oE,
@@ -67,7 +67,7 @@ igl::cr_vector_laplacian_intrinsic(
   dA;
   DerivedL_sq l_sqrt = l_sq.array().sqrt().matrix();
   doublearea(l_sqrt, dA);
-  cr_vector_laplacian_intrinsic(F, l_sq, dA, E, oE, L);
+  cr_vector_laplacian_intrinsic(tris, l_sq, dA, E, oE, L);
 }
 
 
@@ -75,20 +75,20 @@ template <typename DerivedF, typename DerivedL_sq, typename DeriveddA,
 typename DerivedE, typename DerivedOE, typename ScalarL>
 IGL_INLINE void
 igl::cr_vector_laplacian_intrinsic(
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedF>& tris,
   const Eigen::MatrixBase<DerivedL_sq>& l_sq,
   const Eigen::MatrixBase<DeriveddA>& dA,
   const Eigen::MatrixBase<DerivedE>& E,
   const Eigen::MatrixBase<DerivedOE>& oE,
   Eigen::SparseMatrix<ScalarL>& L)
 {
-  assert(F.cols()==3 && "Faces have three vertices");
-  assert(E.rows()==F.rows() && E.cols()==F.cols() && oE.rows()==F.rows() &&
-   oE.cols()==F.cols() && "Wrong dimension in edge vectors");
-  assert(l_sq.rows()==F.rows() && l_sq.cols()==3 && "l_sq dimensions wrong");
-  assert(dA.size()==F.rows() && "dA dimensions wrong");
+  assert(tris.cols()==3 && "Faces have three vertices");
+  assert(E.rows()==tris.rows() && E.cols()==tris.cols() && oE.rows()==tris.rows() &&
+   oE.cols()==tris.cols() && "Wrong dimension in edge vectors");
+  assert(l_sq.rows()==tris.rows() && l_sq.cols()==3 && "l_sq dimensions wrong");
+  assert(dA.size()==tris.rows() && "dA dimensions wrong");
 
-  const Eigen::Index m = F.rows();
+  const Eigen::Index m = tris.rows();
   const typename DerivedE::Scalar nE = E.maxCoeff() + 1;
 
   std::vector<Eigen::Triplet<ScalarL> > tripletList;

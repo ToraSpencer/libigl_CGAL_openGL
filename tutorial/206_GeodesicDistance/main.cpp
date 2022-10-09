@@ -15,11 +15,11 @@ int main(int argc, char *argv[])
 {
   using namespace Eigen;
   using namespace std;
-  Eigen::MatrixXd V;
+  Eigen::MatrixXd vers;
   Eigen::MatrixXi F;
   igl::opengl::glfw::Viewer viewer;
 
-  igl::readOBJ(TUTORIAL_SHARED_PATH "/armadillo.obj", V, F);
+  igl::readOBJ(TUTORIAL_SHARED_PATH "/armadillo.obj", vers, F);
 
   const auto update_distance = [&](const int vid)
   {
@@ -30,10 +30,10 @@ int main(int argc, char *argv[])
     VS << vid;
 
     // All vertices are the targets
-    VT.setLinSpaced(V.rows(),0,V.rows()-1);
+    VT.setLinSpaced(vers.rows(),0,vers.rows()-1);
     Eigen::VectorXd d;
     std::cout<<"Computing geodesic distance to vertex "<<vid<<"..."<<std::endl;
-    igl::exact_geodesic(V,F,VS,FS,VT,FT,d);
+    igl::exact_geodesic(vers,F,VS,FS,VT,FT,d);
 
     // Plot the mesh
     Eigen::MatrixXd CM;
@@ -58,7 +58,7 @@ int main(int argc, char *argv[])
       viewer.core().view,
       viewer.core().proj,
       viewer.core().viewport,
-      V,
+      vers,
       F,
       fid,
       bc))
@@ -72,7 +72,7 @@ int main(int argc, char *argv[])
     return false;
   };
 
-  viewer.data().set_mesh(V,F);
+  viewer.data().set_mesh(vers,F);
   viewer.data().show_lines = false;
 
   cout << "Click on mesh to define new source.\n" << std::endl;

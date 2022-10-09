@@ -12,27 +12,27 @@
 
 template <typename MatF, typename VecL>
 IGL_INLINE void igl::limit_faces(
-  const MatF & F, 
+  const MatF & tris, 
   const VecL & L, 
   const bool exclusive,
   MatF & LF)
 {
   using namespace std;
   using namespace Eigen;
-  vector<bool> in(F.rows(),false);
+  vector<bool> in(tris.rows(),false);
   int num_in = 0;
   // loop over faces
-  for(int i = 0;i<F.rows();i++)
+  for(int i = 0;i<tris.rows();i++)
   {
     bool all = true;
     bool any = false;
-    for(int j = 0;j<F.cols();j++)
+    for(int j = 0;j<tris.cols();j++)
     {
       bool found = false;
       // loop over L
       for(int l = 0;l<L.size();l++)
       {
-        if(F(i,j) == L(l))
+        if(tris(i,j) == L(l))
         {
           found = true;
           break;
@@ -45,14 +45,14 @@ IGL_INLINE void igl::limit_faces(
     num_in += (in[i]?1:0);
   }
 
-  LF.resize(num_in,F.cols());
+  LF.resize(num_in,tris.cols());
   // loop over faces
   int lfi = 0;
-  for(int i = 0;i<F.rows();i++)
+  for(int i = 0;i<tris.rows();i++)
   {
     if(in[i])
     {
-      LF.row(lfi) = F.row(i);
+      LF.row(lfi) = tris.row(i);
       lfi++;
     }
   }

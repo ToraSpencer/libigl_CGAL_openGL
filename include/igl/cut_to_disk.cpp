@@ -8,12 +8,12 @@
 namespace igl {
   template <typename DerivedF, typename Index>
   void cut_to_disk(
-    const Eigen::MatrixBase<DerivedF> &F,
+    const Eigen::MatrixBase<DerivedF> &tris,
     std::vector<std::vector<Index> > &cuts)
   {
     cuts.clear();
 
-    Index nfaces = F.rows();
+    Index nfaces = tris.rows();
 
     if (nfaces == 0)
         return;
@@ -25,8 +25,8 @@ namespace igl {
     {
         for (int j = 0; j < 3; j++)
         {
-            Index v0 = F(i, j);
-            Index v1 = F(i, (j + 1) % 3);
+            Index v0 = tris(i, j);
+            Index v1 = tris(i, (j + 1) % 3);
             std::pair<Index, Index> e;
             e.first = std::min(v0, v1);
             e.second = std::max(v0, v1);
@@ -62,8 +62,8 @@ namespace igl {
     {
         for (int j = 0; j < 3; j++)
         {
-            Index v0 = F(i, j);
-            Index v1 = F(i, (j + 1) % 3);
+            Index v0 = tris(i, j);
+            Index v1 = tris(i, (j + 1) % 3);
             std::pair<Index, Index> e;
             e.first = std::min(v0, v1);
             e.second = std::max(v0, v1);

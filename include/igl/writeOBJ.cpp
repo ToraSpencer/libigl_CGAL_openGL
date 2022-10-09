@@ -16,8 +16,8 @@ template <
   typename DerivedFTC>
 IGL_INLINE bool igl::writeOBJ(
   const std::string str,
-  const Eigen::MatrixBase<DerivedV>& V,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const Eigen::MatrixBase<DerivedF>& tris,
   const Eigen::MatrixBase<DerivedCN>& CN,
   const Eigen::MatrixBase<DerivedFN>& FN,
   const Eigen::MatrixBase<DerivedTC>& TC,
@@ -29,13 +29,13 @@ IGL_INLINE bool igl::writeOBJ(
     printf("IOError: %s could not be opened for writing...",str.c_str());
     return false;
   }
-  // Loop over V
-  for(int i = 0;i<(int)V.rows();i++)
+  // Loop over vers
+  for(int i = 0;i<(int)vers.rows();i++)
   {
     fprintf(obj_file,"v");
-    for(int j = 0;j<(int)V.cols();++j)
+    for(int j = 0;j<(int)vers.cols();++j)
     {
-      fprintf(obj_file," %0.17g", V(i,j));
+      fprintf(obj_file," %0.17g", vers(i,j));
     }
     fprintf(obj_file,"\n");
   }
@@ -65,14 +65,14 @@ IGL_INLINE bool igl::writeOBJ(
     fprintf(obj_file,"\n");
   }
 
-  // loop over F
-  for(int i = 0;i<(int)F.rows();++i)
+  // loop over tris
+  for(int i = 0;i<(int)tris.rows();++i)
   {
     fprintf(obj_file,"f");
-    for(int j = 0; j<(int)F.cols();++j)
+    for(int j = 0; j<(int)tris.cols();++j)
     {
       // OBJ is 1-indexed
-      fprintf(obj_file," %u",F(i,j)+1);
+      fprintf(obj_file," %u",tris(i,j)+1);
 
       if(write_texture_coords)
         fprintf(obj_file,"/%u",FTC(i,j)+1);
@@ -93,12 +93,12 @@ IGL_INLINE bool igl::writeOBJ(
 template <typename DerivedV, typename DerivedF>
 IGL_INLINE bool igl::writeOBJ(
   const std::string str,
-  const Eigen::MatrixBase<DerivedV>& V,
-  const Eigen::MatrixBase<DerivedF>& F)
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const Eigen::MatrixBase<DerivedF>& tris)
 {
   using namespace std;
   using namespace Eigen;
-  assert(V.cols() == 3 && "V should have 3 columns");
+  assert(vers.cols() == 3 && "vers should have 3 columns");
   ofstream s(str);
   if(!s.is_open())
   {
@@ -106,8 +106,8 @@ IGL_INLINE bool igl::writeOBJ(
     return false;
   }
   s<<
-    V.format(IOFormat(FullPrecision, DontAlignCols, " ", "\n","v ","","","\n"))<<
-    (F.array()+1).format(IOFormat(FullPrecision,DontAlignCols," ","\n","f ","","","\n"));
+    vers.format(IOFormat(FullPrecision, DontAlignCols, " ", "\n","v ","","","\n"))<<
+    (tris.array()+1).format(IOFormat(FullPrecision,DontAlignCols," ","\n","f ","","","\n"));
 
 
 
@@ -117,21 +117,21 @@ IGL_INLINE bool igl::writeOBJ(
 template <typename DerivedV, typename T>
 IGL_INLINE bool igl::writeOBJ(
   const std::string &str,
-  const Eigen::MatrixBase<DerivedV>& V,
-  const std::vector<std::vector<T> >& F)
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const std::vector<std::vector<T> >& tris)
 {
   using namespace std;
   using namespace Eigen;
-  assert(V.cols() == 3 && "V should have 3 columns");
+  assert(vers.cols() == 3 && "vers should have 3 columns");
   ofstream s(str);
   if(!s.is_open())
   {
     fprintf(stderr,"IOError: writeOBJ() could not open %s\n",str.c_str());
     return false;
   }
-  s<<V.format(IOFormat(FullPrecision,DontAlignCols," ","\n","v ","","","\n"));
+  s<<vers.format(IOFormat(FullPrecision,DontAlignCols," ","\n","v ","","","\n"));
   
-  for(const auto& face : F)
+  for(const auto& face : tris)
   {
     int face_size = face.size();
     assert(face_size != 0);

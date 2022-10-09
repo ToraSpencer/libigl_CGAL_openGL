@@ -11,12 +11,12 @@
 #include <Eigen/Core>
 namespace igl
 {
-  // ACCUMARRY Like Matlab's accumarray. Accumulate values in V using subscripts
+  // ACCUMARRY Like Matlab's accumarray. Accumulate values in vers using subscripts
   // in S.
   //
   // Inputs:
   //   S  #S list of subscripts
-  //   V  #V list of values
+  //   vers  #vers list of values
   // Outputs:
   //   A  max(subs)+1 list of accumulated values
   template <
@@ -26,11 +26,11 @@ namespace igl
     >
   void accumarray(
     const Eigen::MatrixBase<DerivedS> & S,
-    const Eigen::MatrixBase<DerivedV> & V,
+    const Eigen::MatrixBase<DerivedV> & vers,
     Eigen::PlainObjectBase<DerivedA> & A);
   // Inputs:
   //   S  #S list of subscripts
-  //   V  single value used for all
+  //   vers  single value used for all
   // Outputs:
   //   A  max(subs)+1 list of accumulated values
   template <
@@ -39,7 +39,7 @@ namespace igl
     >
   void accumarray(
     const Eigen::MatrixBase<DerivedS> & S,
-    const typename DerivedA::Scalar V,
+    const typename DerivedA::Scalar vers,
     Eigen::PlainObjectBase<DerivedA> & A);
 }
 

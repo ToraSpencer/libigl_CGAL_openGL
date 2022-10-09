@@ -24,7 +24,7 @@ template <
   typename Derivedb>
 IGL_INLINE void igl::point_simplex_squared_distance(
   const Eigen::MatrixBase<Derivedp> & p,
-  const Eigen::MatrixBase<DerivedV> & V,
+  const Eigen::MatrixBase<DerivedV> & vers,
   const Eigen::MatrixBase<DerivedEle> & Ele,
   const typename DerivedEle::Index primitive,
   Derivedsqr_d & sqr_d,
@@ -110,7 +110,7 @@ IGL_INLINE void igl::point_simplex_squared_distance(
   };
 
   assert(p.size() == DIM);
-  assert(V.cols() == DIM);
+  assert(vers.cols() == DIM);
   assert(Ele.cols() <= DIM+1);
   assert(Ele.cols() <= 3 && "Only simplices up to triangles are considered");
 
@@ -123,11 +123,11 @@ IGL_INLINE void igl::point_simplex_squared_distance(
   BaryPoint tmp_bary;
   c = (const Derivedc &)ClosestBaryPtPointTriangle(
     p,
-    V.row(Ele(primitive,0)),
+    vers.row(Ele(primitive,0)),
     // modulo is a HACK to handle points, segments and triangles. Because of
     // this, we need 3d buffer for bary
-    V.row(Ele(primitive,1%Ele.cols())),
-    V.row(Ele(primitive,2%Ele.cols())),
+    vers.row(Ele(primitive,1%Ele.cols())),
+    vers.row(Ele(primitive,2%Ele.cols())),
     tmp_bary);
   bary.resize( Derivedb::RowsAtCompileTime == 1 ? 1 : Ele.cols(), Derivedb::ColsAtCompileTime == 1 ? 1 : Ele.cols());
   bary.head(Ele.cols()) = tmp_bary.head(Ele.cols());
@@ -143,7 +143,7 @@ template <
   typename Derivedc>
 IGL_INLINE void igl::point_simplex_squared_distance(
   const Eigen::MatrixBase<Derivedp> & p,
-  const Eigen::MatrixBase<DerivedV> & V,
+  const Eigen::MatrixBase<DerivedV> & vers,
   const Eigen::MatrixBase<DerivedEle> & Ele,
   const typename DerivedEle::Index primitive,
   Derivedsqr_d & sqr_d,
@@ -151,7 +151,7 @@ IGL_INLINE void igl::point_simplex_squared_distance(
 {
   // Use Dynamic because we don't know Ele.cols() at compile time.
   Eigen::Matrix<typename Derivedc::Scalar,1,Eigen::Dynamic> b;
-  point_simplex_squared_distance<DIM>( p, V, Ele, primitive, sqr_d, c, b );
+  point_simplex_squared_distance<DIM>( p, vers, Ele, primitive, sqr_d, c, b );
 }
 
 namespace igl

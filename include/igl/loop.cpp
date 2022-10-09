@@ -20,7 +20,7 @@ template <
   typename DerivedNF>
 IGL_INLINE void igl::loop(
   const int n_verts,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedF> & tris,
   Eigen::SparseMatrix<SType>& S,
   Eigen::PlainObjectBase<DerivedNF> & NF)
 {
@@ -31,9 +31,9 @@ IGL_INLINE void igl::loop(
   //Heavily borrowing from igl::upsample
 
   Eigen::Matrix<typename DerivedF::Scalar, Eigen::Dynamic, Eigen::Dynamic> FF, FFi;
-  triangle_triangle_adjacency(F, FF, FFi);
+  triangle_triangle_adjacency(tris, FF, FFi);
   std::vector<std::vector<typename DerivedF::Scalar>> adjacencyList;
-  adjacency_list(F, adjacencyList, true);
+  adjacency_list(tris, adjacencyList, true);
 
   //Compute the number and positions of the vertices to insert (on edges)
   Eigen::MatrixXi NI = Eigen::MatrixXi::Constant(FF.rows(), FF.cols(), -1);
@@ -56,8 +56,8 @@ IGL_INLINE void igl::loop(
         } else
         {
           //Mark boundary vertices for later
-          vertIsOnBdry(F(i,j)) = 1;
-          vertIsOnBdry(F(i,(j+1)%3)) = 1;
+          vertIsOnBdry(tris(i,j)) = 1;
+          vertIsOnBdry(tris(i,(j+1)%3)) = 1;
         }
         ++counter;
       }
@@ -109,14 +109,14 @@ IGL_INLINE void igl::loop(
         if(FF(i,j)==-1)
         {
           //Boundary vertex
-          tripletList.emplace_back(NI(i,j) + n_odd, F(i,j), 1./2.);
-          tripletList.emplace_back(NI(i,j) + n_odd, F(i, (j+1)%3), 1./2.);
+          tripletList.emplace_back(NI(i,j) + n_odd, tris(i,j), 1./2.);
+          tripletList.emplace_back(NI(i,j) + n_odd, tris(i, (j+1)%3), 1./2.);
         } else
         {
-          tripletList.emplace_back(NI(i,j) + n_odd, F(i,j), 3./8.);
-          tripletList.emplace_back(NI(i,j) + n_odd, F(i, (j+1)%3), 3./8.);
-          tripletList.emplace_back(NI(i,j) + n_odd, F(i, (j+2)%3), 1./8.);
-          tripletList.emplace_back(NI(i,j) + n_odd, F(FF(i,j), (FFi(i,j)+2)%3), 1./8.);
+          tripletList.emplace_back(NI(i,j) + n_odd, tris(i,j), 3./8.);
+          tripletList.emplace_back(NI(i,j) + n_odd, tris(i, (j+1)%3), 3./8.);
+          tripletList.emplace_back(NI(i,j) + n_odd, tris(i, (j+2)%3), 1./8.);
+          tripletList.emplace_back(NI(i,j) + n_odd, tris(FF(i,j), (FFi(i,j)+2)%3), 1./8.);
         }
       }
     }
@@ -125,11 +125,11 @@ IGL_INLINE void igl::loop(
   S.setFromTriplets(tripletList.begin(), tripletList.end());
 
   // Build the new topology (Every face is replaced by four)
-  NF.resize(F.rows()*4, 3);
-  for(int i=0; i<F.rows();++i)
+  NF.resize(tris.rows()*4, 3);
+  for(int i=0; i<tris.rows();++i)
   {
     Eigen::Matrix<typename DerivedF::Scalar, 6, 1> VI(6);
-    VI << F(i,0), F(i,1), F(i,2), NI(i,0) + n_odd, NI(i,1) + n_odd, NI(i,2) + n_odd;
+    VI << tris(i,0), tris(i,1), tris(i,2), NI(i,0) + n_odd, NI(i,1) + n_odd, NI(i,2) + n_odd;
 
     Eigen::Matrix<typename DerivedF::Scalar, 3, 1> f0(3), f1(3), f2(3), f3(3);
     f0 << VI(0), VI(3), VI(5);
@@ -150,14 +150,14 @@ template <
   typename DerivedNV,
   typename DerivedNF>
 IGL_INLINE void igl::loop(
-  const Eigen::MatrixBase<DerivedV>& V,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const Eigen::MatrixBase<DerivedF>& tris,
   Eigen::PlainObjectBase<DerivedNV>& NV,
   Eigen::PlainObjectBase<DerivedNF>& NF,
   const int number_of_subdivs)
 {
-  NV = V;
-  NF = F;
+  NV = vers;
+  NF = tris;
   for(int i=0; i<number_of_subdivs; ++i)
   {
     DerivedNF tempF = NF;

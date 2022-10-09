@@ -34,39 +34,39 @@ namespace igl
   //   MatF  face index matrix, e.g. Eigen::MatrixXd
   //   Scalar  e.g. double
   // Inputs:
-  //   V  #V by dim list of initial domain positions
-  //   F  #F by #simplex size list of triangle indices into V
+  //   vers  #vers by dim list of initial domain positions
+  //   tris  #tris by #simplex size list of triangle indices into vers
   //   d  coordinate of linear constructor to build
   //   energy  ARAPEnergyType enum value defining which energy is being used.
   //     See ARAPEnergyType.h for valid options and explanations.
   // Outputs:
-  //   Kd  #V by #V/#F block of the linear constructor matrix corresponding to
+  //   Kd  #vers by #vers/#tris block of the linear constructor matrix corresponding to
   //     coordinate d
   //
   template <typename MatV, typename MatF, typename MatK>
   IGL_INLINE void arap_linear_block(
-    const MatV & V,
-    const MatF & F,
+    const MatV & vers,
+    const MatF & tris,
     const int d,
     const igl::ARAPEnergyType energy,
     MatK & Kd);
   // Helper functions for each energy type
   template <typename MatV, typename MatF, typename MatK>
   IGL_INLINE void arap_linear_block_spokes(
-    const MatV & V,
-    const MatF & F,
+    const MatV & vers,
+    const MatF & tris,
     const int d,
     MatK & Kd);
   template <typename MatV, typename MatF, typename MatK>
   IGL_INLINE void arap_linear_block_spokes_and_rims(
-    const MatV & V,
-    const MatF & F,
+    const MatV & vers,
+    const MatF & tris,
     const int d,
     MatK & Kd);
   template <typename MatV, typename MatF, typename MatK>
   IGL_INLINE void arap_linear_block_elements(
-    const MatV & V,
-    const MatF & F,
+    const MatV & vers,
+    const MatF & tris,
     const int d,
     MatK & Kd);
 }

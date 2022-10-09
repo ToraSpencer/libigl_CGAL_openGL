@@ -295,7 +295,7 @@
 } // End block : Symmetric eigenanalysis
 
     //###########################################################
-    // Normalize quaternion for matrix V
+    // Normalize quaternion for matrix vers
     //###########################################################
 
 #if !defined(USE_ACCURATE_RSQRT_IN_JACOBI_CONJUGATION) || defined(PERFORM_STRICT_QUATERNION_RENORMALIZATION)
@@ -346,10 +346,10 @@
 
 #endif
 
-{ // Begin block : Conjugation with V
+{ // Begin block : Conjugation with vers
 
     //###########################################################
-    // Transform quaternion to matrix V
+    // Transform quaternion to matrix vers
     //###########################################################
 
 #ifndef COMPUTE_V_AS_MATRIX
@@ -395,7 +395,7 @@
 #ifdef COMPUTE_V_AS_MATRIX
 #ifdef PRINT_DEBUGGING_OUTPUT
 #ifdef USE_SCALAR_IMPLEMENTATION
-    std::cout<<"Scalar V ="<<std::endl;
+    std::cout<<"Scalar vers ="<<std::endl;
     std::cout<<std::setw(12)<<Sv11.f<<"  "<<std::setw(12)<<Sv12.f<<"  "<<std::setw(12)<<Sv13.f<<std::endl;
     std::cout<<std::setw(12)<<Sv21.f<<"  "<<std::setw(12)<<Sv22.f<<"  "<<std::setw(12)<<Sv23.f<<std::endl;
     std::cout<<std::setw(12)<<Sv31.f<<"  "<<std::setw(12)<<Sv32.f<<"  "<<std::setw(12)<<Sv33.f<<std::endl;
@@ -410,7 +410,7 @@
     _mm_storeu_ps(buf,Vv13);V13=buf[0];
     _mm_storeu_ps(buf,Vv23);V23=buf[0];
     _mm_storeu_ps(buf,Vv33);V33=buf[0];
-    std::cout<<"Vector V ="<<std::endl;
+    std::cout<<"Vector vers ="<<std::endl;
     std::cout<<std::setw(12)<<V11<<"  "<<std::setw(12)<<V12<<"  "<<std::setw(12)<<V13<<std::endl;
     std::cout<<std::setw(12)<<V21<<"  "<<std::setw(12)<<V22<<"  "<<std::setw(12)<<V23<<std::endl;
     std::cout<<std::setw(12)<<V31<<"  "<<std::setw(12)<<V32<<"  "<<std::setw(12)<<V33<<std::endl;
@@ -425,7 +425,7 @@
     _mm256_storeu_ps(buf,Vv13);V13=buf[0];
     _mm256_storeu_ps(buf,Vv23);V23=buf[0];
     _mm256_storeu_ps(buf,Vv33);V33=buf[0];
-    std::cout<<"Vector V ="<<std::endl;
+    std::cout<<"Vector vers ="<<std::endl;
     std::cout<<std::setw(12)<<V11<<"  "<<std::setw(12)<<V12<<"  "<<std::setw(12)<<V13<<std::endl;
     std::cout<<std::setw(12)<<V21<<"  "<<std::setw(12)<<V22<<"  "<<std::setw(12)<<V23<<std::endl;
     std::cout<<std::setw(12)<<V31<<"  "<<std::setw(12)<<V32<<"  "<<std::setw(12)<<V33<<std::endl;
@@ -434,7 +434,7 @@
 #endif
 
     //###########################################################
-    // Multiply (from the right) with V
+    // Multiply (from the right) with vers
     //###########################################################
 
     ENABLE_SCALAR_IMPLEMENTATION(Stmp2.f=Sa12.f;)                                         ENABLE_SSE_IMPLEMENTATION(Vtmp2=Va12;)                                                    ENABLE_AVX_IMPLEMENTATION(Vtmp2=Va12;)
@@ -493,7 +493,7 @@
 
 #ifdef PRINT_DEBUGGING_OUTPUT
 #ifdef USE_SCALAR_IMPLEMENTATION
-    std::cout<<"Scalar A (after multiplying with V) ="<<std::endl;
+    std::cout<<"Scalar A (after multiplying with vers) ="<<std::endl;
     std::cout<<std::setw(12)<<Sa11.f<<"  "<<std::setw(12)<<Sa12.f<<"  "<<std::setw(12)<<Sa13.f<<std::endl;
     std::cout<<std::setw(12)<<Sa21.f<<"  "<<std::setw(12)<<Sa22.f<<"  "<<std::setw(12)<<Sa23.f<<std::endl;
     std::cout<<std::setw(12)<<Sa31.f<<"  "<<std::setw(12)<<Sa32.f<<"  "<<std::setw(12)<<Sa33.f<<std::endl;
@@ -508,7 +508,7 @@
     _mm_storeu_ps(buf,Va13);A13=buf[0];
     _mm_storeu_ps(buf,Va23);A23=buf[0];
     _mm_storeu_ps(buf,Va33);A33=buf[0];
-    std::cout<<"Vector A (after multiplying with V) ="<<std::endl;
+    std::cout<<"Vector A (after multiplying with vers) ="<<std::endl;
     std::cout<<std::setw(12)<<A11<<"  "<<std::setw(12)<<A12<<"  "<<std::setw(12)<<A13<<std::endl;
     std::cout<<std::setw(12)<<A21<<"  "<<std::setw(12)<<A22<<"  "<<std::setw(12)<<A23<<std::endl;
     std::cout<<std::setw(12)<<A31<<"  "<<std::setw(12)<<A32<<"  "<<std::setw(12)<<A33<<std::endl;
@@ -523,14 +523,14 @@
     _mm256_storeu_ps(buf,Va13);A13=buf[0];
     _mm256_storeu_ps(buf,Va23);A23=buf[0];
     _mm256_storeu_ps(buf,Va33);A33=buf[0];
-    std::cout<<"Vector A (after multiplying with V) ="<<std::endl;
+    std::cout<<"Vector A (after multiplying with vers) ="<<std::endl;
     std::cout<<std::setw(12)<<A11<<"  "<<std::setw(12)<<A12<<"  "<<std::setw(12)<<A13<<std::endl;
     std::cout<<std::setw(12)<<A21<<"  "<<std::setw(12)<<A22<<"  "<<std::setw(12)<<A23<<std::endl;
     std::cout<<std::setw(12)<<A31<<"  "<<std::setw(12)<<A32<<"  "<<std::setw(12)<<A33<<std::endl;
 #endif
 #endif
 
-} // End block : Conjugation with V
+} // End block : Conjugation with vers
 
 } // End block : Scope of qV (if not maintained)
 
@@ -596,7 +596,7 @@
     ENABLE_SCALAR_IMPLEMENTATION(Stmp1.ui=Stmp1.ui^Stmp5.ui;)                             ENABLE_SSE_IMPLEMENTATION(Vtmp1=_mm_xor_ps(Vtmp1,Vtmp5);)                                 ENABLE_AVX_IMPLEMENTATION(Vtmp1=_mm256_xor_ps(Vtmp1,Vtmp5);)
     ENABLE_SCALAR_IMPLEMENTATION(Stmp2.ui=Stmp2.ui^Stmp5.ui;)                             ENABLE_SSE_IMPLEMENTATION(Vtmp2=_mm_xor_ps(Vtmp2,Vtmp5);)                                 ENABLE_AVX_IMPLEMENTATION(Vtmp2=_mm256_xor_ps(Vtmp2,Vtmp5);)
 
-    // If columns 1-2 have been swapped, negate 2nd column of A and V so that V is still a rotation
+    // If columns 1-2 have been swapped, negate 2nd column of A and vers so that vers is still a rotation
 
     ENABLE_SCALAR_IMPLEMENTATION(Stmp5.f=-2.;)                                            ENABLE_SSE_IMPLEMENTATION(Vtmp5=_mm_set1_ps(-2.);)                                        ENABLE_AVX_IMPLEMENTATION(Vtmp5=_mm256_set1_ps(-2.);)
     ENABLE_SCALAR_IMPLEMENTATION(Stmp5.ui=Stmp5.ui&Stmp4.ui;)                             ENABLE_SSE_IMPLEMENTATION(Vtmp5=_mm_and_ps(Vtmp5,Vtmp4);)                                 ENABLE_AVX_IMPLEMENTATION(Vtmp5=_mm256_and_ps(Vtmp5,Vtmp4);)
@@ -613,7 +613,7 @@
     ENABLE_SCALAR_IMPLEMENTATION(Sv32.f=Sv32.f*Stmp4.f;)                                  ENABLE_SSE_IMPLEMENTATION(Vv32=_mm_mul_ps(Vv32,Vtmp4);)                                   ENABLE_AVX_IMPLEMENTATION(Vv32=_mm256_mul_ps(Vv32,Vtmp4);)
 #endif
 
-    // If columns 1-2 have been swapped, also update quaternion representation of V (the quaternion may become un-normalized after this)
+    // If columns 1-2 have been swapped, also update quaternion representation of vers (the quaternion may become un-normalized after this)
 
 #ifdef COMPUTE_V_AS_QUATERNION
     ENABLE_SCALAR_IMPLEMENTATION(Stmp4.f=Stmp4.f*Sone_half.f;)                            ENABLE_SSE_IMPLEMENTATION(Vtmp4=_mm_mul_ps(Vtmp4,Vone_half);)                             ENABLE_AVX_IMPLEMENTATION(Vtmp4=_mm256_mul_ps(Vtmp4,Vone_half);)
@@ -672,7 +672,7 @@
     ENABLE_SCALAR_IMPLEMENTATION(Stmp1.ui=Stmp1.ui^Stmp5.ui;)                             ENABLE_SSE_IMPLEMENTATION(Vtmp1=_mm_xor_ps(Vtmp1,Vtmp5);)                                 ENABLE_AVX_IMPLEMENTATION(Vtmp1=_mm256_xor_ps(Vtmp1,Vtmp5);)
     ENABLE_SCALAR_IMPLEMENTATION(Stmp3.ui=Stmp3.ui^Stmp5.ui;)                             ENABLE_SSE_IMPLEMENTATION(Vtmp3=_mm_xor_ps(Vtmp3,Vtmp5);)                                 ENABLE_AVX_IMPLEMENTATION(Vtmp3=_mm256_xor_ps(Vtmp3,Vtmp5);)
 
-    // If columns 1-3 have been swapped, negate 1st column of A and V so that V is still a rotation
+    // If columns 1-3 have been swapped, negate 1st column of A and vers so that vers is still a rotation
 
     ENABLE_SCALAR_IMPLEMENTATION(Stmp5.f=-2.;)                                            ENABLE_SSE_IMPLEMENTATION(Vtmp5=_mm_set1_ps(-2.);)                                        ENABLE_AVX_IMPLEMENTATION(Vtmp5=_mm256_set1_ps(-2.);)
     ENABLE_SCALAR_IMPLEMENTATION(Stmp5.ui=Stmp5.ui&Stmp4.ui;)                             ENABLE_SSE_IMPLEMENTATION(Vtmp5=_mm_and_ps(Vtmp5,Vtmp4);)                                 ENABLE_AVX_IMPLEMENTATION(Vtmp5=_mm256_and_ps(Vtmp5,Vtmp4);)
@@ -689,7 +689,7 @@
     ENABLE_SCALAR_IMPLEMENTATION(Sv31.f=Sv31.f*Stmp4.f;)                                  ENABLE_SSE_IMPLEMENTATION(Vv31=_mm_mul_ps(Vv31,Vtmp4);)                                   ENABLE_AVX_IMPLEMENTATION(Vv31=_mm256_mul_ps(Vv31,Vtmp4);)
 #endif
 
-    // If columns 1-3 have been swapped, also update quaternion representation of V (the quaternion may become un-normalized after this)
+    // If columns 1-3 have been swapped, also update quaternion representation of vers (the quaternion may become un-normalized after this)
 
 #ifdef COMPUTE_V_AS_QUATERNION
     ENABLE_SCALAR_IMPLEMENTATION(Stmp4.f=Stmp4.f*Sone_half.f;)                            ENABLE_SSE_IMPLEMENTATION(Vtmp4=_mm_mul_ps(Vtmp4,Vone_half);)                             ENABLE_AVX_IMPLEMENTATION(Vtmp4=_mm256_mul_ps(Vtmp4,Vone_half);)
@@ -748,7 +748,7 @@
     ENABLE_SCALAR_IMPLEMENTATION(Stmp2.ui=Stmp2.ui^Stmp5.ui;)                             ENABLE_SSE_IMPLEMENTATION(Vtmp2=_mm_xor_ps(Vtmp2,Vtmp5);)                                 ENABLE_AVX_IMPLEMENTATION(Vtmp2=_mm256_xor_ps(Vtmp2,Vtmp5);)
     ENABLE_SCALAR_IMPLEMENTATION(Stmp3.ui=Stmp3.ui^Stmp5.ui;)                             ENABLE_SSE_IMPLEMENTATION(Vtmp3=_mm_xor_ps(Vtmp3,Vtmp5);)                                 ENABLE_AVX_IMPLEMENTATION(Vtmp3=_mm256_xor_ps(Vtmp3,Vtmp5);)
 
-    // If columns 2-3 have been swapped, negate 3rd column of A and V so that V is still a rotation
+    // If columns 2-3 have been swapped, negate 3rd column of A and vers so that vers is still a rotation
 
     ENABLE_SCALAR_IMPLEMENTATION(Stmp5.f=-2.;)                                            ENABLE_SSE_IMPLEMENTATION(Vtmp5=_mm_set1_ps(-2.);)                                        ENABLE_AVX_IMPLEMENTATION(Vtmp5=_mm256_set1_ps(-2.);)
     ENABLE_SCALAR_IMPLEMENTATION(Stmp5.ui=Stmp5.ui&Stmp4.ui;)                             ENABLE_SSE_IMPLEMENTATION(Vtmp5=_mm_and_ps(Vtmp5,Vtmp4);)                                 ENABLE_AVX_IMPLEMENTATION(Vtmp5=_mm256_and_ps(Vtmp5,Vtmp4);)
@@ -765,7 +765,7 @@
     ENABLE_SCALAR_IMPLEMENTATION(Sv33.f=Sv33.f*Stmp4.f;)                                  ENABLE_SSE_IMPLEMENTATION(Vv33=_mm_mul_ps(Vv33,Vtmp4);)                                   ENABLE_AVX_IMPLEMENTATION(Vv33=_mm256_mul_ps(Vv33,Vtmp4);)
 #endif
 
-    // If columns 2-3 have been swapped, also update quaternion representation of V (the quaternion may become un-normalized after this)
+    // If columns 2-3 have been swapped, also update quaternion representation of vers (the quaternion may become un-normalized after this)
 
 #ifdef COMPUTE_V_AS_QUATERNION
     ENABLE_SCALAR_IMPLEMENTATION(Stmp4.f=Stmp4.f*Sone_half.f;)                            ENABLE_SSE_IMPLEMENTATION(Vtmp4=_mm_mul_ps(Vtmp4,Vone_half);)                             ENABLE_AVX_IMPLEMENTATION(Vtmp4=_mm256_mul_ps(Vtmp4,Vone_half);)
@@ -787,7 +787,7 @@
 #ifdef COMPUTE_V_AS_MATRIX
 #ifdef PRINT_DEBUGGING_OUTPUT
 #ifdef USE_SCALAR_IMPLEMENTATION
-    std::cout<<"Scalar V ="<<std::endl;
+    std::cout<<"Scalar vers ="<<std::endl;
     std::cout<<std::setw(12)<<Sv11.f<<"  "<<std::setw(12)<<Sv12.f<<"  "<<std::setw(12)<<Sv13.f<<std::endl;
     std::cout<<std::setw(12)<<Sv21.f<<"  "<<std::setw(12)<<Sv22.f<<"  "<<std::setw(12)<<Sv23.f<<std::endl;
     std::cout<<std::setw(12)<<Sv31.f<<"  "<<std::setw(12)<<Sv32.f<<"  "<<std::setw(12)<<Sv33.f<<std::endl;
@@ -802,7 +802,7 @@
     _mm_storeu_ps(buf,Vv13);V13=buf[0];
     _mm_storeu_ps(buf,Vv23);V23=buf[0];
     _mm_storeu_ps(buf,Vv33);V33=buf[0];
-    std::cout<<"Vector V ="<<std::endl;
+    std::cout<<"Vector vers ="<<std::endl;
     std::cout<<std::setw(12)<<V11<<"  "<<std::setw(12)<<V12<<"  "<<std::setw(12)<<V13<<std::endl;
     std::cout<<std::setw(12)<<V21<<"  "<<std::setw(12)<<V22<<"  "<<std::setw(12)<<V23<<std::endl;
     std::cout<<std::setw(12)<<V31<<"  "<<std::setw(12)<<V32<<"  "<<std::setw(12)<<V33<<std::endl;
@@ -817,7 +817,7 @@
     _mm256_storeu_ps(buf,Vv13);V13=buf[0];
     _mm256_storeu_ps(buf,Vv23);V23=buf[0];
     _mm256_storeu_ps(buf,Vv33);V33=buf[0];
-    std::cout<<"Vector V ="<<std::endl;
+    std::cout<<"Vector vers ="<<std::endl;
     std::cout<<std::setw(12)<<V11<<"  "<<std::setw(12)<<V12<<"  "<<std::setw(12)<<V13<<std::endl;
     std::cout<<std::setw(12)<<V21<<"  "<<std::setw(12)<<V22<<"  "<<std::setw(12)<<V23<<std::endl;
     std::cout<<std::setw(12)<<V31<<"  "<<std::setw(12)<<V32<<"  "<<std::setw(12)<<V33<<std::endl;
@@ -827,7 +827,7 @@
 
 #ifdef PRINT_DEBUGGING_OUTPUT
 #ifdef USE_SCALAR_IMPLEMENTATION
-    std::cout<<"Scalar A (after multiplying with V) ="<<std::endl;
+    std::cout<<"Scalar A (after multiplying with vers) ="<<std::endl;
     std::cout<<std::setw(12)<<Sa11.f<<"  "<<std::setw(12)<<Sa12.f<<"  "<<std::setw(12)<<Sa13.f<<std::endl;
     std::cout<<std::setw(12)<<Sa21.f<<"  "<<std::setw(12)<<Sa22.f<<"  "<<std::setw(12)<<Sa23.f<<std::endl;
     std::cout<<std::setw(12)<<Sa31.f<<"  "<<std::setw(12)<<Sa32.f<<"  "<<std::setw(12)<<Sa33.f<<std::endl;
@@ -842,7 +842,7 @@
     _mm_storeu_ps(buf,Va13);A13=buf[0];
     _mm_storeu_ps(buf,Va23);A23=buf[0];
     _mm_storeu_ps(buf,Va33);A33=buf[0];
-    std::cout<<"Vector A (after multiplying with V) ="<<std::endl;
+    std::cout<<"Vector A (after multiplying with vers) ="<<std::endl;
     std::cout<<std::setw(12)<<A11<<"  "<<std::setw(12)<<A12<<"  "<<std::setw(12)<<A13<<std::endl;
     std::cout<<std::setw(12)<<A21<<"  "<<std::setw(12)<<A22<<"  "<<std::setw(12)<<A23<<std::endl;
     std::cout<<std::setw(12)<<A31<<"  "<<std::setw(12)<<A32<<"  "<<std::setw(12)<<A33<<std::endl;
@@ -857,7 +857,7 @@
     _mm256_storeu_ps(buf,Va13);A13=buf[0];
     _mm256_storeu_ps(buf,Va23);A23=buf[0];
     _mm256_storeu_ps(buf,Va33);A33=buf[0];
-    std::cout<<"Vector A (after multiplying with V) ="<<std::endl;
+    std::cout<<"Vector A (after multiplying with vers) ="<<std::endl;
     std::cout<<std::setw(12)<<A11<<"  "<<std::setw(12)<<A12<<"  "<<std::setw(12)<<A13<<std::endl;
     std::cout<<std::setw(12)<<A21<<"  "<<std::setw(12)<<A22<<"  "<<std::setw(12)<<A23<<std::endl;
     std::cout<<std::setw(12)<<A31<<"  "<<std::setw(12)<<A32<<"  "<<std::setw(12)<<A33<<std::endl;
@@ -865,7 +865,7 @@
 #endif
 
     //###########################################################
-    // Re-normalize quaternion for matrix V
+    // Re-normalize quaternion for matrix vers
     //###########################################################
 
 #ifdef COMPUTE_V_AS_QUATERNION
@@ -917,7 +917,7 @@
 #endif
 
     //###########################################################
-    // Construct QR factorization of A*V (=U*D) using Givens rotations
+    // Construct QR factorization of A*vers (=U*D) using Givens rotations
     //###########################################################
 
 #ifdef COMPUTE_U_AS_MATRIX
@@ -1210,7 +1210,7 @@
 
 #ifdef PRINT_DEBUGGING_OUTPUT
 #ifdef USE_SCALAR_IMPLEMENTATION
-    std::cout<<"Scalar A (after multiplying with U-transpose and V) ="<<std::endl;
+    std::cout<<"Scalar A (after multiplying with U-transpose and vers) ="<<std::endl;
     std::cout<<std::setw(12)<<Sa11.f<<"  "<<std::setw(12)<<Sa12.f<<"  "<<std::setw(12)<<Sa13.f<<std::endl;
     std::cout<<std::setw(12)<<Sa21.f<<"  "<<std::setw(12)<<Sa22.f<<"  "<<std::setw(12)<<Sa23.f<<std::endl;
     std::cout<<std::setw(12)<<Sa31.f<<"  "<<std::setw(12)<<Sa32.f<<"  "<<std::setw(12)<<Sa33.f<<std::endl;
@@ -1225,7 +1225,7 @@
     _mm_storeu_ps(buf,Va13);A13=buf[0];
     _mm_storeu_ps(buf,Va23);A23=buf[0];
     _mm_storeu_ps(buf,Va33);A33=buf[0];
-    std::cout<<"Vector A (after multiplying with U-transpose and V) ="<<std::endl;
+    std::cout<<"Vector A (after multiplying with U-transpose and vers) ="<<std::endl;
     std::cout<<std::setw(12)<<A11<<"  "<<std::setw(12)<<A12<<"  "<<std::setw(12)<<A13<<std::endl;
     std::cout<<std::setw(12)<<A21<<"  "<<std::setw(12)<<A22<<"  "<<std::setw(12)<<A23<<std::endl;
     std::cout<<std::setw(12)<<A31<<"  "<<std::setw(12)<<A32<<"  "<<std::setw(12)<<A33<<std::endl;
@@ -1240,7 +1240,7 @@
     _mm256_storeu_ps(buf,Va13);A13=buf[0];
     _mm256_storeu_ps(buf,Va23);A23=buf[0];
     _mm256_storeu_ps(buf,Va33);A33=buf[0];
-    std::cout<<"Vector A (after multiplying with U-transpose and V) ="<<std::endl;
+    std::cout<<"Vector A (after multiplying with U-transpose and vers) ="<<std::endl;
     std::cout<<std::setw(12)<<A11<<"  "<<std::setw(12)<<A12<<"  "<<std::setw(12)<<A13<<std::endl;
     std::cout<<std::setw(12)<<A21<<"  "<<std::setw(12)<<A22<<"  "<<std::setw(12)<<A23<<std::endl;
     std::cout<<std::setw(12)<<A31<<"  "<<std::setw(12)<<A32<<"  "<<std::setw(12)<<A33<<std::endl;

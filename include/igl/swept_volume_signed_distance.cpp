@@ -19,8 +19,8 @@
 #include <algorithm>
 
 IGL_INLINE void igl::swept_volume_signed_distance(
-  const Eigen::MatrixXd & V,
-  const Eigen::MatrixXi & F,
+  const Eigen::MatrixXd & vers,
+  const Eigen::MatrixXi & tris,
   const std::function<Eigen::Affine3d(const double t)> & transform,
   const size_t & steps,
   const Eigen::MatrixXd & GV,
@@ -38,18 +38,18 @@ IGL_INLINE void igl::swept_volume_signed_distance(
   const bool finite_iso = isfinite(isolevel);
   const double extension = (finite_iso ? isolevel : 0) + sqrt(3.0)*h;
   Eigen::AlignedBox3d box(
-    V.colwise().minCoeff().array()-extension,
-    V.colwise().maxCoeff().array()+extension);
+    vers.colwise().minCoeff().array()-extension,
+    vers.colwise().maxCoeff().array()+extension);
   // Precomputation
   Eigen::MatrixXd FN,VN,EN;
   Eigen::MatrixXi E;
   Eigen::VectorXi EMAP;
-  per_face_normals(V,F,FN);
-  per_vertex_normals(V,F,PER_VERTEX_NORMALS_WEIGHTING_TYPE_ANGLE,FN,VN);
+  per_face_normals(vers,tris,FN);
+  per_vertex_normals(vers,tris,PER_VERTEX_NORMALS_WEIGHTING_TYPE_ANGLE,FN,VN);
   per_edge_normals(
-    V,F,PER_EDGE_NORMALS_WEIGHTING_TYPE_UNIFORM,FN,EN,E,EMAP);
+    vers,tris,PER_EDGE_NORMALS_WEIGHTING_TYPE_UNIFORM,FN,EN,E,EMAP);
   AABB<MatrixXd,3> tree;
-  tree.init(V,F);
+  tree.init(vers,tris);
   for(int ti = 0;ti<t.size();ti++)
   {
     const Affine3d At = transform(t(ti));
@@ -70,15 +70,15 @@ IGL_INLINE void igl::swept_volume_signed_distance(
       RowVector3d c,n;
       int i;
       double sqrd,s;
-      //signed_distance_pseudonormal(tree,V,F,FN,VN,EN,EMAP,gv,s,sqrd,i,c,n);
+      //signed_distance_pseudonormal(tree,vers,tris,FN,VN,EN,EMAP,gv,s,sqrd,i,c,n);
       const double min_sqrd = 
         finite_iso ? 
         pow(sqrt(3.)*h+isolevel,2) : 
         numeric_limits<double>::infinity();
-      sqrd = tree.squared_distance(V,F,gv,min_sqrd,i,c);
+      sqrd = tree.squared_distance(vers,tris,gv,min_sqrd,i,c);
       if(sqrd<min_sqrd)
       {
-        pseudonormal_test(V,F,FN,VN,EN,EMAP,gv,i,c,s,n);
+        pseudonormal_test(vers,tris,FN,VN,EN,EMAP,gv,i,c,s,n);
         if(S(g) == S(g))
         {
           S(g) = std::min(S(g),s*sqrt(sqrd));
@@ -103,8 +103,8 @@ IGL_INLINE void igl::swept_volume_signed_distance(
 }
 
 IGL_INLINE void igl::swept_volume_signed_distance(
-  const Eigen::MatrixXd & V,
-  const Eigen::MatrixXi & F,
+  const Eigen::MatrixXd & vers,
+  const Eigen::MatrixXi & tris,
   const std::function<Eigen::Affine3d(const double t)> & transform,
   const size_t & steps,
   const Eigen::MatrixXd & GV,
@@ -118,5 +118,5 @@ IGL_INLINE void igl::swept_volume_signed_distance(
   using namespace Eigen;
   S = VectorXd::Constant(GV.rows(),1,numeric_limits<double>::quiet_NaN());
   return 
-    swept_volume_signed_distance(V,F,transform,steps,GV,res,h,isolevel,S,S);
+    swept_volume_signed_distance(vers,tris,transform,steps,GV,res,h,isolevel,S,S);
 }

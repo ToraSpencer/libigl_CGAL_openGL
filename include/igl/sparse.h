@@ -13,7 +13,7 @@
 #include <Eigen/Sparse>
 namespace igl
 {
-  // Build a sparse matrix from list of indices and values (I,J,V), functions
+  // Build a sparse matrix from list of indices and values (I,J,vers), functions
   // like the sparse function in matlab
   //
   // Templates:
@@ -26,7 +26,7 @@ namespace igl
   // Input:
   //   I  nnz vector of row indices of non zeros entries in X
   //   J  nnz vector of column indices of non zeros entries in X
-  //   V  nnz vector of non-zeros entries in X
+  //   vers  nnz vector of non-zeros entries in X
   //   Optional:
   //     m  number of rows
   //     n  number of cols
@@ -37,7 +37,7 @@ namespace igl
   IGL_INLINE void sparse(
     const IndexVector & I,
     const IndexVector & J,
-    const ValueVector & V,
+    const ValueVector & vers,
     Eigen::SparseMatrix<T>& X);
   template <
     class IndexVectorI, 
@@ -47,7 +47,7 @@ namespace igl
   IGL_INLINE void sparse(
     const IndexVectorI & I,
     const IndexVectorJ & J,
-    const ValueVector & V,
+    const ValueVector & vers,
     const size_t m,
     const size_t n,
     Eigen::SparseMatrix<T>& X);

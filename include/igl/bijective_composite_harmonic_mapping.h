@@ -12,7 +12,7 @@
 
 namespace igl 
 {
-  // Compute a planar mapping of a triangulated polygon (V,F) subjected to
+  // Compute a planar mapping of a triangulated polygon (vers,tris) subjected to
   // boundary conditions (b,bc). The mapping should be bijective in the sense
   // that no triangles' areas become negative (this assumes they started
   // positive). This mapping is computed by "composing" harmonic mappings
@@ -23,12 +23,12 @@ namespace igl
   // triangular graph within a given boundary" [Xu et al. 2011].
   //
   // Inputs:
-  //   V  #V by 2 list of triangle mesh vertex positions
-  //   F  #F by 3 list of triangle indices into V
-  //   b  #b list of boundary indices into V
+  //   vers  #vers by 2 list of triangle mesh vertex positions
+  //   tris  #tris by 3 list of triangle indices into vers
+  //   b  #b list of boundary indices into vers
   //   bc  #b by 2 list of boundary conditions corresponding to b
   // Outputs:
-  //   U  #V by 2 list of output mesh vertex locations
+  //   U  #vers by 2 list of output mesh vertex locations
   // Returns true if and only if U contains a successful bijectie mapping
   //
   // 
@@ -39,15 +39,15 @@ namespace igl
     typename Derivedbc,
     typename DerivedU>
   IGL_INLINE bool bijective_composite_harmonic_mapping(
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const Eigen::MatrixBase<Derivedb> & b,
     const Eigen::MatrixBase<Derivedbc> & bc,
     Eigen::PlainObjectBase<DerivedU> & U);
   //
   // Inputs:
-  //   min_steps  minimum number of steps to take from V(b,:) to bc
-  //   max_steps  minimum number of steps to take from V(b,:) to bc (if
+  //   min_steps  minimum number of steps to take from vers(b,:) to bc
+  //   max_steps  minimum number of steps to take from vers(b,:) to bc (if
   //     max_steps == min_steps then no further number of steps will be tried)
   //   num_inner_iters  number of iterations of harmonic solves to run after
   //     for each morph step (to try to push flips back in)
@@ -62,8 +62,8 @@ namespace igl
     typename Derivedbc,
     typename DerivedU>
   IGL_INLINE bool bijective_composite_harmonic_mapping(
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const Eigen::MatrixBase<Derivedb> & b,
     const Eigen::MatrixBase<Derivedbc> & bc,
     const int min_steps,

@@ -14,15 +14,15 @@ template <
   typename Derivedc, 
   typename Derivedvol>
 IGL_INLINE void igl::centroid(
-  const Eigen::MatrixBase<DerivedV>& V,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const Eigen::MatrixBase<DerivedF>& tris,
   Eigen::PlainObjectBase<Derivedc>& cen,
   Derivedvol & vol)
 {
   using namespace Eigen;
-  assert(F.cols() == 3 && "F should contain triangles.");
-  assert(V.cols() == 3 && "V should contain 3d points.");
-  const int m = F.rows();
+  assert(tris.cols() == 3 && "tris should contain triangles.");
+  assert(vers.cols() == 3 && "vers should contain 3d points.");
+  const int m = tris.rows();
   cen.setZero();
   vol = 0;
   // loop over faces
@@ -32,9 +32,9 @@ IGL_INLINE void igl::centroid(
     // http://www2.imperial.ac.uk/~rn/centroid.pdf
     // rename corners
     typedef Eigen::Matrix<typename DerivedV::Scalar,1,3> RowVector3S;
-    const RowVector3S & a = V.row(F(f,0));
-    const RowVector3S & b = V.row(F(f,1));
-    const RowVector3S & c = V.row(F(f,2));
+    const RowVector3S & a = vers.row(tris(f,0));
+    const RowVector3S & b = vers.row(tris(f,1));
+    const RowVector3S & c = vers.row(tris(f,2));
     // un-normalized normal
     const RowVector3S & n = (b-a).cross(c-a);
     // total volume via divergence theorem: ∫ 1
@@ -51,12 +51,12 @@ template <
   typename DerivedF, 
   typename Derivedc>
 IGL_INLINE void igl::centroid(
-  const Eigen::MatrixBase<DerivedV>& V,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const Eigen::MatrixBase<DerivedF>& tris,
   Eigen::PlainObjectBase<Derivedc>& c)
 {
   typename Derivedc::Scalar vol;
-  return centroid(V,F,c,vol);
+  return centroid(vers,tris,c,vol);
 }
 
 #ifdef IGL_STATIC_LIBRARY

@@ -10,7 +10,7 @@
 
 IGL_INLINE void igl::swept_volume_bounding_box(
   const size_t & n,
-  const std::function<Eigen::RowVector3d(const size_t vi, const double t)> & V,
+  const std::function<Eigen::RowVector3d(const size_t vi, const double t)> & vers,
   const size_t & steps,
   Eigen::AlignedBox3d & box)
 {
@@ -22,7 +22,7 @@ IGL_INLINE void igl::swept_volume_bounding_box(
   {
     for(size_t vi = 0;vi<n;vi++)
     {
-      box.extend(V(vi,t(ti)).transpose());
+      box.extend(vers(vi,t(ti)).transpose());
     }
   }
 }

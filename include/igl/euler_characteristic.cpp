@@ -12,15 +12,15 @@
 
 template <typename Scalar, typename Index>
 IGL_INLINE int igl::euler_characteristic(
-  const Eigen::MatrixBase<Scalar> & V,
-  const Eigen::MatrixBase<Index> & F)
+  const Eigen::MatrixBase<Scalar> & vers,
+  const Eigen::MatrixBase<Index> & tris)
 {
 
-  int euler_v = V.rows();
+  int euler_v = vers.rows();
   Eigen::MatrixXi EV, FE, EF;
-  igl::edge_topology(V, F, EV, FE, EF);
+  igl::edge_topology(vers, tris, EV, FE, EF);
   int euler_e = EV.rows();
-  int euler_f = F.rows();
+  int euler_f = tris.rows();
 
   int euler_char = euler_v - euler_e + euler_f;
   return euler_char;
@@ -29,12 +29,12 @@ IGL_INLINE int igl::euler_characteristic(
 
 template <typename DerivedF>
 IGL_INLINE int igl::euler_characteristic(
-  const Eigen::MatrixBase<DerivedF> & F)
+  const Eigen::MatrixBase<DerivedF> & tris)
 {
-  const int nf = F.rows();
-  const int nv = F.maxCoeff()+1;
+  const int nf = tris.rows();
+  const int nv = tris.maxCoeff()+1;
   Eigen::Matrix<typename DerivedF::Scalar,Eigen::Dynamic,2> E;
-  edges(F,E);
+  edges(tris,E);
   const int ne = E.rows();
   return nv - ne + nf;
 }

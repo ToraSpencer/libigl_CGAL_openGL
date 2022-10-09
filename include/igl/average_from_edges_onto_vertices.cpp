@@ -11,7 +11,7 @@ template<typename DerivedF,typename DerivedE,typename DerivedoE,
 typename DeriveduE,typename DeriveduV>
 IGL_INLINE void
 igl::average_from_edges_onto_vertices(
-  const Eigen::MatrixBase<DerivedF> &F,
+  const Eigen::MatrixBase<DerivedF> &tris,
   const Eigen::MatrixBase<DerivedE> &E,
   const Eigen::MatrixBase<DerivedoE> &oE,
   const Eigen::MatrixBase<DeriveduE> &uE,
@@ -21,25 +21,25 @@ igl::average_from_edges_onto_vertices(
   using VecX = Eigen::Matrix<Scalar, Eigen::Dynamic, 1>;
   using Int = typename DerivedF::Scalar;
   
-  assert(E.rows()==F.rows() && "E does not match dimensions of F.");
-  assert(oE.rows()==F.rows() && "oE does not match dimensions of F.");
-  assert(E.cols()==3 && F.cols()==3 && oE.cols()==3 &&
+  assert(E.rows()==tris.rows() && "E does not match dimensions of tris.");
+  assert(oE.rows()==tris.rows() && "oE does not match dimensions of tris.");
+  assert(E.cols()==3 && tris.cols()==3 && oE.cols()==3 &&
    "This method is for triangle meshes.");
   
-  const Int n = F.maxCoeff()+1;
+  const Int n = tris.maxCoeff()+1;
   
   VecX edgesPerVertex(n);
   edgesPerVertex.setZero();
   uV.resize(n,1);
   uV.setZero();
   
-  for(Eigen::Index i=0; i<F.rows(); ++i) {
+  for(Eigen::Index i=0; i<tris.rows(); ++i) {
     for(int j=0; j<3; ++j) {
       if(oE(i,j)<0) {
         continue;
       }
       const Int e = E(i,j);
-      const Int vi=F(i,(j+1)%3), vj=F(i,(j+2)%3);
+      const Int vi=tris(i,(j+1)%3), vj=tris(i,(j+2)%3);
       
       //Count vertex valence
       ++edgesPerVertex(vi);

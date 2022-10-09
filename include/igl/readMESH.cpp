@@ -5,9 +5,9 @@
 template <typename DerivedV, typename DerivedF, typename DerivedT>
 IGL_INLINE bool igl::readMESH(
   const std::string mesh_file_name,
-  Eigen::PlainObjectBase<DerivedV>& V,
+  Eigen::PlainObjectBase<DerivedV>& vers,
   Eigen::PlainObjectBase<DerivedT>& T,
-  Eigen::PlainObjectBase<DerivedF>& F)
+  Eigen::PlainObjectBase<DerivedF>& tris)
 {
   using namespace std;
   FILE * mesh_file = fopen(mesh_file_name.c_str(),"r");
@@ -16,15 +16,15 @@ IGL_INLINE bool igl::readMESH(
     fprintf(stderr,"IOError: %s could not be opened...",mesh_file_name.c_str());
     return false;
   }
-  return readMESH(mesh_file,V,T,F);
+  return readMESH(mesh_file,vers,T,tris);
 }
 
 template <typename DerivedV, typename DerivedF, typename DerivedT>
 IGL_INLINE bool igl::readMESH(
   FILE * mesh_file,
-  Eigen::PlainObjectBase<DerivedV>& V,
+  Eigen::PlainObjectBase<DerivedV>& vers,
   Eigen::PlainObjectBase<DerivedT>& T,
-  Eigen::PlainObjectBase<DerivedF>& F)
+  Eigen::PlainObjectBase<DerivedF>& tris)
 {
   using namespace std;
 #ifndef LINE_MAX
@@ -95,7 +95,7 @@ IGL_INLINE bool igl::readMESH(
         return false;
       }
       // allocate space for vertices
-      V.resize(number_of_vertices,3);
+      vers.resize(number_of_vertices,3);
       for(int i = 0;i<number_of_vertices;i++)
       {
         double x,y,z;
@@ -105,9 +105,9 @@ IGL_INLINE bool igl::readMESH(
           fclose(mesh_file);
           return false;
         }
-        V(i,0) = x;
-        V(i,1) = y;
-        V(i,2) = z;
+        vers(i,0) = x;
+        vers(i,1) = y;
+        vers(i,2) = z;
       }
     }else if(0==strcmp(str,"Triangles"))
     {
@@ -119,7 +119,7 @@ IGL_INLINE bool igl::readMESH(
         return false;
       }
       // allocate space for triangles
-      F.resize(number_of_triangles,3);
+      tris.resize(number_of_triangles,3);
       // triangle indices
       int tri[3];
       for(int i = 0;i<number_of_triangles;i++)
@@ -131,7 +131,7 @@ IGL_INLINE bool igl::readMESH(
         }
         for(int j = 0;j<3;j++)
         {
-          F(i,j) = tri[j]-1;
+          tris(i,j) = tri[j]-1;
         }
       }
     }else if(0==strcmp(str,"Tetrahedra"))

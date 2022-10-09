@@ -23,8 +23,8 @@ namespace igl
   //    model      model matrix
   //    proj       projection matrix
   //    viewport   vieweport vector
-  //    V   #V by 3 list of mesh vertex positions
-  //    F   #F by 3 list of mesh triangle indices into V
+  //    vers   #vers by 3 list of mesh vertex positions
+  //    tris   #tris by 3 list of mesh triangle indices into vers
   // Outputs:
   //    fid  id of the first face hit
   //    bc  barycentric coordinates of hit
@@ -34,15 +34,15 @@ namespace igl
   //   igl::opengl::glfw::Viewer vr;
   //   ...
   //   igl::unproject_onto_mesh(
-  //     pos,vr.core().view,vr.core().proj,vr.core().viewport,V,F,fid,bc);
+  //     pos,vr.core().view,vr.core().proj,vr.core().viewport,vers,tris,fid,bc);
   template < typename DerivedV, typename DerivedF, typename Derivedbc>
   IGL_INLINE bool unproject_onto_mesh(
     const Eigen::Vector2f& pos,
     const Eigen::Matrix4f& model,
     const Eigen::Matrix4f& proj,
     const Eigen::Vector4f& viewport,
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     int & fid,
     Eigen::PlainObjectBase<Derivedbc> & bc);
   //

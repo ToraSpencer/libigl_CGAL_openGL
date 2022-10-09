@@ -20,15 +20,15 @@ namespace igl
   // non-manifold (zero components).
   //
   // Inputs:
-  //   F  #F by 3 list of triangle indices
+  //   tris  #tris by 3 list of triangle indices
   // Outputs:
-  //   B  #V list indicate whether each vertex is locally manifold.
+  //   B  #vers list indicate whether each vertex is locally manifold.
   // Returns whether mesh is vertex manifold.
   //
   // See also: is_edge_manifold
   template <typename DerivedF,typename DerivedB>
   IGL_INLINE bool is_vertex_manifold(
-    const Eigen::PlainObjectBase<DerivedF>& F,
+    const Eigen::PlainObjectBase<DerivedF>& tris,
     Eigen::PlainObjectBase<DerivedB>& B);
 }
 

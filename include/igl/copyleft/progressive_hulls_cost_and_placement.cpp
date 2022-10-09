@@ -15,8 +15,8 @@
 
 IGL_INLINE void igl::copyleft::progressive_hulls_cost_and_placement(
   const int e,
-  const Eigen::MatrixXd & V,
-  const Eigen::MatrixXi & F,
+  const Eigen::MatrixXd & vers,
+  const Eigen::MatrixXi & tris,
   const Eigen::MatrixXi & E,
   const Eigen::VectorXi & EMAP,
   const Eigen::MatrixXi & EF,
@@ -30,7 +30,7 @@ IGL_INLINE void igl::copyleft::progressive_hulls_cost_and_placement(
   // instabilities and flaps)
   const double w = 0.1;
 
-  assert(V.cols() == 3 && "V.cols() should be 3");
+  assert(vers.cols() == 3 && "vers.cols() should be 3");
   // Gather list of unique face neighbors
   vector<int> Nall =  circulation(e, true,EMAP,EF,EI);
   vector<int> Nother= circulation(e,false,EMAP,EF,EI);
@@ -49,12 +49,12 @@ IGL_INLINE void igl::copyleft::progressive_hulls_cost_and_placement(
   {
     const int f = N[i];
     //cout<<(f+1)<<" ";
-    const RowVector3d & v01 = V.row(F(f,1))-V.row(F(f,0));
-    const RowVector3d & v20 = V.row(F(f,2))-V.row(F(f,0));
+    const RowVector3d & v01 = vers.row(tris(f,1))-vers.row(tris(f,0));
+    const RowVector3d & v20 = vers.row(tris(f,2))-vers.row(tris(f,0));
     A.row(i) = v01.cross(v20);
-    B(i) = V.row(F(f,0)).dot(A.row(i));
+    B(i) = vers.row(tris(f,0)).dot(A.row(i));
     D(i) = 
-      (Matrix3d()<< V.row(F(f,0)), V.row(F(f,1)), V.row(F(f,2)))
+      (Matrix3d()<< vers.row(tris(f,0)), vers.row(tris(f,1)), vers.row(tris(f,2)))
       .finished().determinant();
   }
   //cout<<"];"<<endl;
@@ -70,7 +70,7 @@ IGL_INLINE void igl::copyleft::progressive_hulls_cost_and_placement(
   //}
   bool success = false;
   {
-    RowVectorXd mid = 0.5*(V.row(E(e,0))+V.row(E(e,1)));
+    RowVectorXd mid = 0.5*(vers.row(E(e,0))+vers.row(E(e,1)));
     MatrixXd G =  w*Matrix3d::Identity(3,3);
     VectorXd g0 = (1.-w)*f - w*mid.transpose();
     const int n = A.cols();
@@ -80,7 +80,7 @@ IGL_INLINE void igl::copyleft::progressive_hulls_cost_and_placement(
         A.transpose(),-B,x);
     cost  = (1.-w)*(1./6.)*(x.dot(f) - D.sum()) + 
       w*(x.transpose()-mid).squaredNorm() +
-      w*(V.row(E(e,0))-V.row(E(e,1))).norm();
+      w*(vers.row(E(e,0))-vers.row(E(e,1))).norm();
   }
 
   // A x >= B

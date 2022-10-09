@@ -23,7 +23,7 @@ typedef
   RotationList;
 
 const Eigen::RowVector3d sea_green(70./255.,252./255.,167./255.);
-Eigen::MatrixXd V,W,C,U,M;
+Eigen::MatrixXd vers,W,C,U,M;
 Eigen::MatrixXi F,BE;
 Eigen::VectorXi P;
 std::vector<RotationList > poses;
@@ -66,7 +66,7 @@ bool pre_draw(igl::opengl::glfw::Viewer & viewer)
     // Compute deformation via LBS as matrix multiplication
     if(use_dqs)
     {
-      igl::dqs(V,W,vQ,vT,U);
+      igl::dqs(vers,W,vQ,vT,U);
     }else
     {
       U = M*T;
@@ -112,8 +112,8 @@ int main(int argc, char *argv[])
 {
   using namespace Eigen;
   using namespace std;
-  igl::readOBJ(TUTORIAL_SHARED_PATH "/arm.obj",V,F);
-  U=V;
+  igl::readOBJ(TUTORIAL_SHARED_PATH "/arm.obj",vers,F);
+  U=vers;
   igl::readTGF(TUTORIAL_SHARED_PATH "/arm.tgf",C,BE);
   // retrieve parents for forward kinematics
   igl::directed_edge_parents(BE,P);
@@ -127,7 +127,7 @@ int main(int argc, char *argv[])
   poses[3][2] = rest_pose[2]*bend*rest_pose[2].conjugate();
 
   igl::readDMAT(TUTORIAL_SHARED_PATH "/arm-weights.dmat",W);
-  igl::lbs_matrix(V,W,M);
+  igl::lbs_matrix(vers,W,M);
 
   // Plot the mesh with pseudocolors
   igl::opengl::glfw::Viewer viewer;

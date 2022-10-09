@@ -5,17 +5,17 @@
 #include <Eigen/Core>
 namespace igl 
 {
-  // Remove unreferenced vertices from V, updating F accordingly
+  // Remove unreferenced vertices from vers, updating tris accordingly
   //
   // Input:
-  //   V  #V by dim list of mesh vertex positions
-  //   F  #F by ss list of simplices (Values of -1 are quitely skipped)
+  //   vers  #vers by dim list of mesh vertex positions
+  //   tris  #tris by ss list of simplices (Values of -1 are quitely skipped)
   // Outputs:
   //   NV  #NV by dim list of mesh vertex positions
   //   NF  #NF by ss list of simplices
-  //   I   #V by 1 list of indices such that: NF = IM(F) and NT = IM(T)
-  //      and V(find(IM<=size(NV,1)),:) = NV
-  //   J  #NV by 1 list, such that NV = V(J,:)
+  //   I   #vers by 1 list of indices such that: NF = IM(tris) and NT = IM(T)
+  //      and vers(find(IM<=size(NV,1)),:) = NV
+  //   J  #NV by 1 list, such that NV = vers(J,:)
   //   
   //
   template <
@@ -25,8 +25,8 @@ namespace igl
     typename DerivedNF,
     typename DerivedI>
   IGL_INLINE void remove_unreferenced(
-    const Eigen::MatrixBase<DerivedV> &V,
-    const Eigen::MatrixBase<DerivedF> &F,
+    const Eigen::MatrixBase<DerivedV> &vers,
+    const Eigen::MatrixBase<DerivedF> &tris,
     Eigen::PlainObjectBase<DerivedNV> &NV,
     Eigen::PlainObjectBase<DerivedNF> &NF,
     Eigen::PlainObjectBase<DerivedI> &I);
@@ -38,19 +38,19 @@ namespace igl
     typename DerivedI,
     typename DerivedJ>
   IGL_INLINE void remove_unreferenced(
-    const Eigen::MatrixBase<DerivedV> &V,
-    const Eigen::MatrixBase<DerivedF> &F,
+    const Eigen::MatrixBase<DerivedV> &vers,
+    const Eigen::MatrixBase<DerivedF> &tris,
     Eigen::PlainObjectBase<DerivedNV> &NV,
     Eigen::PlainObjectBase<DerivedNF> &NF,
     Eigen::PlainObjectBase<DerivedI> &I,
     Eigen::PlainObjectBase<DerivedJ> &J);
   // Inputs:
-  //   n  number of vertices (possibly greater than F.maxCoeff()+1)
-  //   F  #F by ss list of simplices
+  //   n  number of vertices (possibly greater than tris.maxCoeff()+1)
+  //   tris  #tris by ss list of simplices
   // Outputs:
-  //   IM  #V by 1 list of indices such that: NF = IM(F) and NT = IM(T)
-  //      and V(find(IM<=size(NV,1)),:) = NV
-  //   J  #RV by 1 list, such that RV = V(J,:)
+  //   IM  #vers by 1 list of indices such that: NF = IM(tris) and NT = IM(T)
+  //      and vers(find(IM<=size(NV,1)),:) = NV
+  //   J  #RV by 1 list, such that RV = vers(J,:)
   //   
   template <
     typename DerivedF,
@@ -58,7 +58,7 @@ namespace igl
     typename DerivedJ>
   IGL_INLINE void remove_unreferenced(
     const size_t n,
-    const Eigen::MatrixBase<DerivedF> &F,
+    const Eigen::MatrixBase<DerivedF> &tris,
     Eigen::PlainObjectBase<DerivedI> &I,
     Eigen::PlainObjectBase<DerivedJ> &J);
 

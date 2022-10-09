@@ -21,8 +21,8 @@
 #include "slice_mask.h"
 
 IGL_INLINE bool igl::qslim(
-  const Eigen::MatrixXd & V,
-  const Eigen::MatrixXi & F,
+  const Eigen::MatrixXd & vers,
+  const Eigen::MatrixXi & tris,
   const size_t max_m,
   Eigen::MatrixXd & U,
   Eigen::MatrixXi & G,
@@ -32,14 +32,14 @@ IGL_INLINE bool igl::qslim(
   using namespace igl;
 
   // Original number of faces
-  const int orig_m = F.rows();
+  const int orig_m = tris.rows();
   // Tracking number of faces
-  int m = F.rows();
+  int m = tris.rows();
   typedef Eigen::MatrixXd DerivedV;
   typedef Eigen::MatrixXi DerivedF;
   DerivedV VO;
   DerivedF FO;
-  igl::connect_boundary_to_infinity(V,F,VO,FO);
+  igl::connect_boundary_to_infinity(vers,tris,VO,FO);
   // decimate will not work correctly on non-edge-manifold meshes. By extension
   // this includes meshes with non-manifold vertices on the boundary since these
   // will create a non-manifold edge when connected to infinity.

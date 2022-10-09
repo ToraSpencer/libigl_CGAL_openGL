@@ -19,9 +19,9 @@ namespace igl
   //   nx  number of vertices in the x direction
   //   ny  number of vertices in the y direction
   // Outputs:
-  //   V  nx*ny by 2 list of vertex positions
-  //   Q  (nx-1)*(ny-1) by 4 list of quad indices into V
-  //   E  (nx-1)*ny+(ny-1)*nx by 2 list of undirected quad edge indices into V
+  //   vers  nx*ny by 2 list of vertex positions
+  //   Q  (nx-1)*(ny-1) by 4 list of quad indices into vers
+  //   E  (nx-1)*ny+(ny-1)*nx by 2 list of undirected quad edge indices into vers
   //
   //   See also: grid, triangulated_grid
   template<
@@ -31,7 +31,7 @@ namespace igl
   IGL_INLINE void quad_grid(
     const int nx,
     const int ny,
-    Eigen::PlainObjectBase<DerivedV> & V,
+    Eigen::PlainObjectBase<DerivedV> & vers,
     Eigen::PlainObjectBase<DerivedQ> & Q,
     Eigen::PlainObjectBase<DerivedE> & E);
   template<

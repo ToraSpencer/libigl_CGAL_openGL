@@ -14,23 +14,23 @@
 
 namespace igl
 {
-  // Constructs the symmetric area matrix A, s.t.  [V.col(0)' V.col(1)'] * A *
-  // [V.col(0); V.col(1)] is the **vector area** of the mesh (V,F).
+  // Constructs the symmetric area matrix A, s.t.  [vers.col(0)' vers.col(1)'] * A *
+  // [vers.col(0); vers.col(1)] is the **vector area** of the mesh (vers,tris).
   //
   // Templates:
-  //   DerivedV  derived type of eigen matrix for V (e.g. derived from
+  //   DerivedV  derived type of eigen matrix for vers (e.g. derived from
   //     MatrixXd)
-  //   DerivedF  derived type of eigen matrix for F (e.g. derived from
+  //   DerivedF  derived type of eigen matrix for tris (e.g. derived from
   //     MatrixXi)
   //   Scalar  scalar type for eigen sparse matrix (e.g. double)
   // Inputs:
-  //   F  #F by 3 list of mesh faces (must be triangles)
+  //   tris  #tris by 3 list of mesh faces (must be triangles)
   // Outputs:
   //   A  #Vx2 by #Vx2 area matrix
   //
   template <typename DerivedF, typename Scalar>
   IGL_INLINE void vector_area_matrix(
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedF> & tris,
     Eigen::SparseMatrix<Scalar>& A);
 }
 

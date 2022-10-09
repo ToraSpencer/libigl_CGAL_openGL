@@ -19,14 +19,14 @@ template <
   typename DerivedF,
   typename DerivedCN>
 IGL_INLINE void igl::per_corner_normals(
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const typename DerivedV::Scalar corner_threshold_degrees,
   Eigen::PlainObjectBase<DerivedCN> & CN)
 {
   Eigen::Matrix<Eigen::Index,Eigen::Dynamic,1> VF,NK;
-  vertex_triangle_adjacency(F,V.rows(),VF,NK);
-  return per_corner_normals(V,F,corner_threshold_degrees,VF,NK,CN);
+  vertex_triangle_adjacency(tris,vers.rows(),VF,NK);
+  return per_corner_normals(vers,tris,corner_threshold_degrees,VF,NK,CN);
 }
 
 template <
@@ -36,8 +36,8 @@ template <
   typename DerivedNI,
   typename DerivedCN>
 IGL_INLINE void igl::per_corner_normals(
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const typename DerivedV::Scalar corner_threshold_degrees,
   const Eigen::MatrixBase<DerivedVF> & VF,
   const Eigen::MatrixBase<DerivedNI> & NI,
@@ -46,13 +46,13 @@ IGL_INLINE void igl::per_corner_normals(
   typedef typename DerivedV::Scalar Scalar;
   typedef Eigen::Index Index;
   // unit normals
-  Eigen::Matrix<Scalar,Eigen::Dynamic,3,Eigen::RowMajor> FN(F.rows(),3);
+  Eigen::Matrix<Scalar,Eigen::Dynamic,3,Eigen::RowMajor> FN(tris.rows(),3);
   // face areas
-  Eigen::Matrix<Scalar,Eigen::Dynamic,1> FA(F.rows());
-  igl::parallel_for(F.rows(),[&](const Index f)
+  Eigen::Matrix<Scalar,Eigen::Dynamic,1> FA(tris.rows());
+  igl::parallel_for(tris.rows(),[&](const Index f)
   {
-    const Eigen::Matrix<Scalar,1,3> v10 = V.row(F(f,1))-V.row(F(f,0));
-    const Eigen::Matrix<Scalar,1,3> v20 = V.row(F(f,2))-V.row(F(f,0));
+    const Eigen::Matrix<Scalar,1,3> v10 = vers.row(tris(f,1))-vers.row(tris(f,0));
+    const Eigen::Matrix<Scalar,1,3> v20 = vers.row(tris(f,2))-vers.row(tris(f,0));
     const Eigen::Matrix<Scalar,1,3> n = v10.cross(v20);
     const Scalar a = n.norm();
     FA(f) = a;
@@ -60,9 +60,9 @@ IGL_INLINE void igl::per_corner_normals(
   },10000);
 
   // number of faces
-  const Index m = F.rows();
+  const Index m = tris.rows();
   // valence of faces
-  const Index n = F.cols();
+  const Index n = tris.cols();
   assert(n == 3);
 
   // initialize output to ***zero***
@@ -71,14 +71,14 @@ IGL_INLINE void igl::per_corner_normals(
   const Scalar cos_thresh = cos(corner_threshold_degrees*igl::PI/180);
   // loop over faces
   //for(Index i = 0;i<m;i++)
-  igl::parallel_for(F.rows(),[&](const Index i)
+  igl::parallel_for(tris.rows(),[&](const Index i)
   {
     // Normal of this face
     const auto & fnhat = FN.row(i);
     // loop over corners
     for(Index j = 0;j<n;j++)
     {
-      const auto & v = F(i,j);
+      const auto & v = tris(i,j);
       for(int k = NI[v]; k<NI[v+1]; k++)
       {
         const auto & ifn = FN.row(VF[k]);
@@ -104,29 +104,29 @@ template <
   typename DerivedCC,
   typename DerivedCN>
 IGL_INLINE void igl::per_corner_normals(
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const Eigen::MatrixBase<DerivedCI> & CI,
   const Eigen::MatrixBase<DerivedCC> & CC,
   Eigen::PlainObjectBase<DerivedCN> & CN)
 {
   typedef typename DerivedV::Scalar Scalar;
   typedef Eigen::Index Index;
-  assert(CC.rows() == F.rows()*3+1);
+  assert(CC.rows() == tris.rows()*3+1);
   // area weighted normals
-  Eigen::Matrix<Scalar,Eigen::Dynamic,3,Eigen::RowMajor> FN(F.rows(),3);
-  //for(Index f = 0;f<F.rows();f++)
-  igl::parallel_for(F.rows(),[&](const Index f)
+  Eigen::Matrix<Scalar,Eigen::Dynamic,3,Eigen::RowMajor> FN(tris.rows(),3);
+  //for(Index f = 0;f<tris.rows();f++)
+  igl::parallel_for(tris.rows(),[&](const Index f)
   {
-    const Eigen::Matrix<Scalar,1,3> v10 = V.row(F(f,1))-V.row(F(f,0));
-    const Eigen::Matrix<Scalar,1,3> v20 = V.row(F(f,2))-V.row(F(f,0));
+    const Eigen::Matrix<Scalar,1,3> v10 = vers.row(tris(f,1))-vers.row(tris(f,0));
+    const Eigen::Matrix<Scalar,1,3> v20 = vers.row(tris(f,2))-vers.row(tris(f,0));
     FN.row(f) = v10.cross(v20);
   },10000);
 
   // number of faces
-  const Index m = F.rows();
+  const Index m = tris.rows();
   // valence of faces
-  const Index n = F.cols();
+  const Index n = tris.cols();
   assert(n == 3);
 
   // initialize output to ***zero***
@@ -173,7 +173,7 @@ template <
   typename DerivedJ,
   typename DerivedNN>
 IGL_INLINE void igl::per_corner_normals(
-  const Eigen::MatrixBase<DerivedV> & V,
+  const Eigen::MatrixBase<DerivedV> & vers,
   const Eigen::MatrixBase<DerivedI> & I,
   const Eigen::MatrixBase<DerivedC> & C,
   const typename DerivedV::Scalar corner_threshold_degrees,
@@ -186,13 +186,13 @@ IGL_INLINE void igl::per_corner_normals(
   const Eigen::Index m = C.size()-1;
   typedef Eigen::Index Index;
   Eigen::MatrixXd FN;
-  per_face_normals(V,I,C,FN,VV,FF,J);
+  per_face_normals(vers,I,C,FN,VV,FF,J);
   typedef typename DerivedN::Scalar Scalar;
   Eigen::Matrix<Scalar,Eigen::Dynamic,1> AA;
   doublearea(VV,FF,AA);
   // VF[i](j) = p means p is the jth face incident on vertex i
   // to-do micro-optimization to avoid vector<vector>
-  std::vector<std::vector<Eigen::Index>> VF(V.rows());
+  std::vector<std::vector<Eigen::Index>> VF(vers.rows());
   for(Eigen::Index p = 0;p<m;p++)
   {
     // number of faces/vertices in this simple polygon
@@ -240,7 +240,7 @@ IGL_INLINE void igl::per_corner_normals(
       {
         assert(FF(k,0) == I(C(p)+((i+0)%np)));
         assert(FF(k,1) == I(C(p)+((i+1)%np)));
-        assert(FF(k,2) == V.rows()+p);
+        assert(FF(k,2) == vers.rows()+p);
         NN.row(k*3+0) = N.row(C(p)+((i+0)%np));
         NN.row(k*3+1) = N.row(C(p)+((i+1)%np));
         NN.row(k*3+2) = FN.row(p);

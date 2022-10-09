@@ -16,10 +16,10 @@
 #include "min_size.h"
 
 template <typename T, typename Derived>
-IGL_INLINE bool igl::list_to_matrix(const std::vector<std::vector<T > > & V,Eigen::PlainObjectBase<Derived>& M)
+IGL_INLINE bool igl::list_to_matrix(const std::vector<std::vector<T > > & vers,Eigen::PlainObjectBase<Derived>& M)
 {
   // number of rows
-  int m = V.size();
+  int m = vers.size();
   if(m == 0)
   {
     M.resize(
@@ -30,8 +30,8 @@ IGL_INLINE bool igl::list_to_matrix(const std::vector<std::vector<T > > & V,Eige
     return true;
   }
   // number of columns
-  int n = igl::min_size(V);
-  if(n != igl::max_size(V))
+  int n = igl::min_size(vers);
+  if(n != igl::max_size(vers))
   {
     return false;
   }
@@ -45,7 +45,7 @@ IGL_INLINE bool igl::list_to_matrix(const std::vector<std::vector<T > > & V,Eige
     // Loop over cols
     for(int j = 0;j<n;j++)
     {
-      M(i,j) = V[i][j];
+      M(i,j) = vers[i][j];
     }
   }
 
@@ -53,10 +53,10 @@ IGL_INLINE bool igl::list_to_matrix(const std::vector<std::vector<T > > & V,Eige
 }
 
 template <typename T, size_t N, typename Derived>
-IGL_INLINE bool igl::list_to_matrix(const std::vector<std::array<T, N> > & V,Eigen::PlainObjectBase<Derived>& M)
+IGL_INLINE bool igl::list_to_matrix(const std::vector<std::array<T, N> > & vers,Eigen::PlainObjectBase<Derived>& M)
 {
   // number of rows
-  int m = V.size();
+  int m = vers.size();
   if(m == 0)
   {
     M.resize(
@@ -78,7 +78,7 @@ IGL_INLINE bool igl::list_to_matrix(const std::vector<std::array<T, N> > & V,Eig
     // Loop over cols
     for(int j = 0;j<n;j++)
     {
-      M(i,j) = V[i][j];
+      M(i,j) = vers[i][j];
     }
   }
 
@@ -87,16 +87,16 @@ IGL_INLINE bool igl::list_to_matrix(const std::vector<std::array<T, N> > & V,Eig
 
 template <typename T, typename Derived>
 IGL_INLINE bool igl::list_to_matrix(
-  const std::vector<std::vector<T > > & V,
+  const std::vector<std::vector<T > > & vers,
   const int n,
   const T & padding,
   Eigen::PlainObjectBase<Derived>& M)
 {
-  const int m = V.size();
+  const int m = vers.size();
   M.resize(m,n);
   for(int i = 0;i<m;i++)
   {
-    const auto & row = V[i];
+    const auto & row = vers[i];
     if(row.size()>n)
     {
       return false;
@@ -115,10 +115,10 @@ IGL_INLINE bool igl::list_to_matrix(
 }
 
 template <typename T, typename Derived>
-IGL_INLINE bool igl::list_to_matrix(const std::vector<T > & V,Eigen::PlainObjectBase<Derived>& M)
+IGL_INLINE bool igl::list_to_matrix(const std::vector<T > & vers,Eigen::PlainObjectBase<Derived>& M)
 {
   // number of rows
-  int m = V.size();
+  int m = vers.size();
   if(m == 0)
   {
     //fprintf(stderr,"Error: list_to_matrix() list is empty()\n");
@@ -147,7 +147,7 @@ IGL_INLINE bool igl::list_to_matrix(const std::vector<T > & V,Eigen::PlainObject
   // Loop over rows
   for(int i = 0;i<m;i++)
   {
-    M(i) = V[i];
+    M(i) = vers[i];
   }
 
   return true;

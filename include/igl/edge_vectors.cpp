@@ -18,15 +18,15 @@ template<typename DerivedV,typename DerivedF,typename DerivedE,
 typename DerivedoE, typename Derivedvec>
 IGL_INLINE void
 igl::edge_vectors(
-                  const Eigen::MatrixBase<DerivedV> &V,
-                  const Eigen::MatrixBase<DerivedF> &F,
+                  const Eigen::MatrixBase<DerivedV> &vers,
+                  const Eigen::MatrixBase<DerivedF> &tris,
                   const Eigen::MatrixBase<DerivedE> &E,
                   const Eigen::MatrixBase<DerivedoE> &oE,
                   Eigen::PlainObjectBase<Derivedvec> &vec)
 {
   Eigen::Matrix<typename Derivedvec::Scalar, Eigen::Dynamic, Eigen::Dynamic>
   dummy;
-  edge_vectors<false>(V, F, E, oE, vec, dummy);
+  edge_vectors<false>(vers, tris, E, oE, vec, dummy);
 }
 
 
@@ -36,8 +36,8 @@ typename DerivedoE, typename DerivedvecParallel,
 typename DerivedvecPerpendicular>
 IGL_INLINE void
 igl::edge_vectors(
-                  const Eigen::MatrixBase<DerivedV> &V,
-                  const Eigen::MatrixBase<DerivedF> &F,
+                  const Eigen::MatrixBase<DerivedV> &vers,
+                  const Eigen::MatrixBase<DerivedF> &tris,
                   const Eigen::MatrixBase<DerivedE> &E,
                   const Eigen::MatrixBase<DerivedoE> &oE,
                   Eigen::PlainObjectBase<DerivedvecParallel> &vecParallel,
@@ -46,18 +46,18 @@ igl::edge_vectors(
   using Scalar = typename DerivedvecParallel::Scalar;
   using MatX = Eigen::Matrix<Scalar, Eigen::Dynamic, Eigen::Dynamic>;
   
-  assert(E.rows()==F.rows() && "E does not match dimensions of F.");
-  assert(oE.rows()==F.rows() && "oE does not match dimensions of F.");
-  assert(E.cols()==3 && F.cols()==3 && oE.cols()==3 &&
+  assert(E.rows()==tris.rows() && "E does not match dimensions of tris.");
+  assert(oE.rows()==tris.rows() && "oE does not match dimensions of tris.");
+  assert(E.cols()==3 && tris.cols()==3 && oE.cols()==3 &&
          "This method is for triangle meshes.");
-  assert(F.maxCoeff()<V.rows() && "V does not seem to belong to F.");
+  assert(tris.maxCoeff()<vers.rows() && "vers does not seem to belong to tris.");
   
   const typename DerivedE::Scalar m = E.maxCoeff()+1;
   
   //Compute edge-based normal
   MatX N, edgeN(m, 3);
   edgeN.setZero();
-  per_face_normals(V, F, N);
+  per_face_normals(vers, tris, N);
   for(Eigen::Index i=0; i<E.rows(); ++i) {
     for(int j=0; j<3; ++j) {
       edgeN.row(E(i,j)) += N.row(i);
@@ -76,8 +76,8 @@ igl::edge_vectors(
         continue;
       }
       const typename DerivedE::Scalar e=E(i,j);
-      const typename DerivedF::Scalar vi=F(i,(j+1)%3), vj=F(i,(j+2)%3);
-      vecParallel.row(e) = (V.row(vj)-V.row(vi)).normalized();
+      const typename DerivedF::Scalar vi=tris(i,(j+1)%3), vj=tris(i,(j+2)%3);
+      vecParallel.row(e) = (vers.row(vj)-vers.row(vi)).normalized();
       if(computePerpendicular) { //This should ideally be an if constexpr
         vecPerpendicular.row(e) =
         Eigen::AngleAxis<Scalar>(0.5*PI, edgeN.row(e)) *

@@ -28,7 +28,7 @@ namespace igl
   // Outputs:
   //   GV  nx*ny*nz by 3 list of grid vertex positions
   //   GT  (nx-1)*(ny-1)*(nz-1)*k by 4 list of tetrahedron indices into rows of
-  //     V, where k is the number of tets per cube (dependent on type)
+  //     vers, where k is the number of tets per cube (dependent on type)
   //
   //   See also: triangulated_grid, quad_grid
   template <
@@ -48,7 +48,7 @@ namespace igl
   //   type  type of tetrahedralization of cube to use
   // Outputs:
   //   GT  (nx-1)*(ny-1)*(nz-1)*k by 4 list of tetrahedron indices into rows of
-  //     V, where k is the number of tets per cube (dependent on type)
+  //     vers, where k is the number of tets per cube (dependent on type)
   //
   template <
     typename DerivedGV,

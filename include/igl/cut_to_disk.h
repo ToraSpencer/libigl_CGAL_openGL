@@ -25,10 +25,10 @@ namespace igl
   //
   // Template Parameters:
   //   Index  Integrable type large enough to represent the total number of faces
-  //     and edges in the surface represented by F, and all entries of F.
+  //     and edges in the surface represented by tris, and all entries of tris.
   //
   // Inputs:
-  //   F  #F by 3 list of the faces (must be triangles)
+  //   tris  #tris by 3 list of the faces (must be triangles)
   //
   // Outputs:
   //   cuts  List of cuts. Each cut is a sequence of vertex indices (where
@@ -41,7 +41,7 @@ namespace igl
     typename DerivedF,
     typename Index>
   IGL_INLINE void cut_to_disk(
-    const Eigen::MatrixBase<DerivedF> &F,
+    const Eigen::MatrixBase<DerivedF> &tris,
     std::vector<std::vector<Index> > &cuts);    
 };
 

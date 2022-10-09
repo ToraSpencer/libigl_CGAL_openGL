@@ -22,8 +22,8 @@ template <
   typename Scalar,
   typename Derivedn>
 IGL_INLINE void igl::pseudonormal_test(
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const Eigen::MatrixBase<DerivedFN> & FN,
   const Eigen::MatrixBase<DerivedVN> & VN,
   const Eigen::MatrixBase<DerivedEN> & EN,
@@ -43,9 +43,9 @@ IGL_INLINE void igl::pseudonormal_test(
   // the barycenter (1/3,1/3,1/3) can be made arbitrarily close to an
   // edge/vertex
   //
-  const RowVector3S A = V.row(F(f,0));
-  const RowVector3S B = V.row(F(f,1));
-  const RowVector3S C = V.row(F(f,2));
+  const RowVector3S A = vers.row(tris(f,0));
+  const RowVector3S B = vers.row(tris(f,1));
+  const RowVector3S C = vers.row(tris(f,2));
 
   const double area = [&A,&B,&C]()
   {
@@ -72,7 +72,7 @@ IGL_INLINE void igl::pseudonormal_test(
         {
           if(b(x)>epsilon)
           {
-            n = VN.row(F(f,x));
+            n = VN.row(tris(f,x));
             break;
           }
         }
@@ -83,7 +83,7 @@ IGL_INLINE void igl::pseudonormal_test(
         {
           if(b(x)<=epsilon)
           {
-            n = EN.row(EMAP(F.rows()*x+f));
+            n = EN.row(EMAP(tris.rows()*x+f));
             break;
           }
         }
@@ -100,23 +100,23 @@ IGL_INLINE void igl::pseudonormal_test(
     bool found = false;
     for(int v = 0;v<3 && !found;v++)
     {
-      if( (c-V.row(F(f,v))).norm() < epsilon)
+      if( (c-vers.row(tris(f,v))).norm() < epsilon)
       {
         found = true;
-        n = VN.row(F(f,v));
+        n = VN.row(tris(f,v));
       }
     }
     // Check each edge
     for(int e = 0;e<3 && !found;e++)
     {
-      const RowVector3S s = V.row(F(f,(e+1)%3));
-      const RowVector3S d = V.row(F(f,(e+2)%3));
+      const RowVector3S s = vers.row(tris(f,(e+1)%3));
+      const RowVector3S d = vers.row(tris(f,(e+2)%3));
       Matrix<double,1,1> sqr_d_j_x(1,1);
       Matrix<double,1,1> t(1,1);
       project_to_line_segment(c,s,d,t,sqr_d_j_x);
       if(sqrt(sqr_d_j_x(0)) < epsilon)
       {
-        n = EN.row(EMAP(F.rows()*e+f));
+        n = EN.row(EMAP(tris.rows()*e+f));
         found = true;
       }
     }
@@ -139,7 +139,7 @@ template <
   typename Scalar,
   typename Derivedn>
 IGL_INLINE void igl::pseudonormal_test(
-  const Eigen::MatrixBase<DerivedV> & V,
+  const Eigen::MatrixBase<DerivedV> & vers,
   const Eigen::MatrixBase<DerivedF> & E,
   const Eigen::MatrixBase<DerivedEN> & EN,
   const Eigen::MatrixBase<DerivedVN> & VN,
@@ -151,13 +151,13 @@ IGL_INLINE void igl::pseudonormal_test(
 {
   using namespace Eigen;
   const auto & qc = q-c;
-  const double len = (V.row(E(e,1))-V.row(E(e,0))).norm();
+  const double len = (vers.row(E(e,1))-vers.row(E(e,0))).norm();
   // barycentric coordinates
   // this .head() nonsense is for "ridiculus" templates instantiations that AABB
   // needs to compile
   Eigen::Matrix<Scalar,1,2>
-    b((c-V.row(E(e,1))).norm()/len,(c-V.row(E(e,0))).norm()/len);
-    //b((c-V.row(E(e,1)).head(c.size())).norm()/len,(c-V.row(E(e,0)).head(c.size())).norm()/len);
+    b((c-vers.row(E(e,1))).norm()/len,(c-vers.row(E(e,0))).norm()/len);
+    //b((c-vers.row(E(e,1)).head(c.size())).norm()/len,(c-vers.row(E(e,0)).head(c.size())).norm()/len);
   // Determine which normal to use
   const double epsilon = 1e-12;
   const int type = (b.array()<=epsilon).template cast<int>().sum();
@@ -184,7 +184,7 @@ IGL_INLINE void igl::pseudonormal_test(
 }
 
 // This is a bullshit template because AABB annoyingly needs templates for bad
-// combinations of 3D V with DIM=2 AABB
+// combinations of 3D vers with DIM=2 AABB
 // 
 // _Define_ as a no-op rather than monkeying around with the proper code above
 namespace igl

@@ -13,13 +13,13 @@
 
 template <typename DerivedV, typename DerivedF, typename Scalar>
 IGL_INLINE void igl::intrinsic_delaunay_cotmatrix(
-  const Eigen::MatrixBase<DerivedV> & V, 
-  const Eigen::MatrixBase<DerivedF> & F, 
+  const Eigen::MatrixBase<DerivedV> & vers, 
+  const Eigen::MatrixBase<DerivedF> & tris, 
   Eigen::SparseMatrix<Scalar>& L)
 {
   Eigen::Matrix<Scalar, Eigen::Dynamic, 3> l_intrinsic;
   DerivedF F_intrinsic;
-  return igl::intrinsic_delaunay_cotmatrix(V,F,L,l_intrinsic,F_intrinsic);
+  return igl::intrinsic_delaunay_cotmatrix(vers,tris,L,l_intrinsic,F_intrinsic);
 }
 
 template <
@@ -29,16 +29,16 @@ template <
   typename Derivedl_intrinsic,
   typename DerivedF_intrinsic>
 IGL_INLINE void igl::intrinsic_delaunay_cotmatrix(
-  const Eigen::MatrixBase<DerivedV> & V, 
-  const Eigen::MatrixBase<DerivedF> & F, 
+  const Eigen::MatrixBase<DerivedV> & vers, 
+  const Eigen::MatrixBase<DerivedF> & tris, 
   Eigen::SparseMatrix<Scalar>& L,
   Eigen::PlainObjectBase<Derivedl_intrinsic> & l_intrinsic,
   Eigen::PlainObjectBase<DerivedF_intrinsic> & F_intrinsic)
 {
-  assert(F.cols() == 3 && "Only triangles are supported");
+  assert(tris.cols() == 3 && "Only triangles are supported");
   Eigen::Matrix<Scalar, Eigen::Dynamic, 3> l;
-  igl::edge_lengths(V,F,l);
-  igl::intrinsic_delaunay_triangulation(l,F,l_intrinsic,F_intrinsic);
+  igl::edge_lengths(vers,tris,l);
+  igl::intrinsic_delaunay_triangulation(l,tris,l_intrinsic,F_intrinsic);
   igl::cotmatrix_intrinsic(l_intrinsic,F_intrinsic,L);
 }
 

@@ -37,8 +37,8 @@ template <
   typename DerivedUT,
   typename DerivedOT>
 IGL_INLINE void igl::straighten_seams(
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const Eigen::MatrixBase<DerivedVT> & VT,
   const Eigen::MatrixBase<DerivedFT> & FT,
   const Scalar tol,
@@ -48,24 +48,24 @@ IGL_INLINE void igl::straighten_seams(
 {
   using namespace Eigen;
   // number of faces
-  assert(FT.rows() == F.rows() && "#FT must == #F");
-  assert(F.cols() == 3 && "F should contain triangles");
+  assert(FT.rows() == tris.rows() && "#FT must == #tris");
+  assert(tris.cols() == 3 && "tris should contain triangles");
   assert(FT.cols() == 3 && "FT should contain triangles");
-  const int m = F.rows();
+  const int m = tris.rows();
   // Boundary edges of the texture map and 3d meshes
   Array<bool,Dynamic,1> _;
   Array<bool,Dynamic,3> BT,BF;
   on_boundary(FT,_,BT);
-  on_boundary(F,_,BF);
+  on_boundary(tris,_,BF);
   assert((!((BF && (BT!=true)).any())) && 
     "Not dealing with boundaries of mesh that get 'stitched' in texture mesh");
   typedef Matrix<typename DerivedF::Scalar,Dynamic,2> MatrixX2I; 
   const MatrixX2I ET = (MatrixX2I(FT.rows()*3,2)
     <<FT.col(1),FT.col(2),FT.col(2),FT.col(0),FT.col(0),FT.col(1)).finished();
   // "half"-edges with indices into 3D-mesh
-  const MatrixX2I EF = (MatrixX2I(F.rows()*3,2)
-    <<F.col(1),F.col(2),F.col(2),F.col(0),F.col(0),F.col(1)).finished();
-  // Find unique (undirected) edges in F
+  const MatrixX2I EF = (MatrixX2I(tris.rows()*3,2)
+    <<tris.col(1),tris.col(2),tris.col(2),tris.col(0),tris.col(0),tris.col(1)).finished();
+  // Find unique (undirected) edges in tris
   VectorXi EFMAP;
   {
     MatrixX2I _1;
@@ -96,16 +96,16 @@ IGL_INLINE void igl::straighten_seams(
     OEQ.prune([](const int r, const int c, const bool)->bool{return r!=c;});
   }
   // For each edge in OT, for each endpoint, how many _other_ texture-vertices
-  // are images of all the 3d-mesh vertices in F who map from "corners" in F/FT
+  // are images of all the 3d-mesh vertices in tris who map from "corners" in tris/FT
   // mapping to this endpoint.
   //
   // Adjacency matrix between 3d-vertices and texture-vertices
   SparseMatrix<bool> V2VT;
   sparse(
-    F,
+    tris,
     FT,
-    Array<bool,Dynamic,3>::Ones(F.rows(),F.cols()), 
-    V.rows(),
+    Array<bool,Dynamic,3>::Ones(tris.rows(),tris.cols()), 
+    vers.rows(),
     VT.rows(),
     V2VT);
   // For each 3d-vertex count how many different texture-coordinates its getting

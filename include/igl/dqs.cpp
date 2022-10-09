@@ -15,18 +15,18 @@ template <
   typename T,
   typename DerivedU>
 IGL_INLINE void igl::dqs(
-  const Eigen::MatrixBase<DerivedV> & V,
+  const Eigen::MatrixBase<DerivedV> & vers,
   const Eigen::MatrixBase<DerivedW> & W,
   const std::vector<Q,QAlloc> & vQ,
   const std::vector<T> & vT,
   Eigen::PlainObjectBase<DerivedU> & U)
 {
   using namespace std;
-  assert(V.rows() <= W.rows());
+  assert(vers.rows() <= W.rows());
   assert(W.cols() == (int)vQ.size());
   assert(W.cols() == (int)vT.size());
   // resize output
-  U.resizeLike(V);
+  U.resizeLike(vers);
 
   // Convert quats + trans into dual parts
   vector<Q> vD(vQ.size());
@@ -40,7 +40,7 @@ IGL_INLINE void igl::dqs(
   }
 
   // Loop over vertices
-  const int nv = V.rows();
+  const int nv = vers.rows();
 #pragma omp parallel for if (nv>10000)
   for(int i = 0;i<nv;i++)
   {
@@ -58,7 +58,7 @@ IGL_INLINE void igl::dqs(
     c0.coeffs() /= b0.norm();
     // See algorithm 1 in "Geometric skinning with approximate dual quaternion
     // blending" by Kavan et al
-    T v = V.row(i);
+    T v = vers.row(i);
     T d0 = c0.vec();
     T de = ce.vec();
     typename Q::Scalar a0 = c0.w();

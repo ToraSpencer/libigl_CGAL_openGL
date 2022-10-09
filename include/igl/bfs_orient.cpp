@@ -5,17 +5,17 @@
 
 template <typename DerivedF, typename DerivedFF, typename DerivedC>
 IGL_INLINE void igl::bfs_orient(
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedF> & tris,
   Eigen::PlainObjectBase<DerivedFF> & FF,
   Eigen::PlainObjectBase<DerivedC> & C)
 {
   using namespace Eigen;
   using namespace std;
   SparseMatrix<typename DerivedF::Scalar> A;
-  orientable_patches(F,C,A);
+  orientable_patches(tris,C,A);
 
   // number of faces
-  const int m = F.rows();
+  const int m = tris.rows();
   // number of patches
   const int num_cc = C.maxCoeff()+1;
   VectorXi seen = VectorXi::Zero(m);
@@ -23,9 +23,9 @@ IGL_INLINE void igl::bfs_orient(
   // Edge sets
   const int ES[3][2] = {{1,2},{2,0},{0,1}};
 
-  if(((void*)&FF) != ((void*)&F))
+  if(((void*)&FF) != ((void*)&tris))
   {
-    FF = F;
+    FF = tris;
   }
   // loop over patches
 #pragma omp parallel for
@@ -84,7 +84,7 @@ IGL_INLINE void igl::bfs_orient(
     }
   }
 
-  // make sure flip is OK if &FF = &F
+  // make sure flip is OK if &FF = &tris
 }
 
 #ifdef IGL_STATIC_LIBRARY

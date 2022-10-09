@@ -17,8 +17,8 @@ template <
   typename DerivedW,
   typename Deriveda>
 IGL_INLINE void igl::screen_space_selection(
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const igl::AABB<DerivedV, 3> & tree,
   const Eigen::MatrixBase<DerivedM>& model,
   const Eigen::MatrixBase<DerivedN>& proj,
@@ -28,15 +28,15 @@ IGL_INLINE void igl::screen_space_selection(
   Eigen::PlainObjectBase<Deriveda> & and_visible)
 {
   typedef typename DerivedV::Scalar Scalar;
-  screen_space_selection(V,model,proj,viewport,L,W);
+  screen_space_selection(vers,model,proj,viewport,L,W);
   const Eigen::RowVector3d origin =
     (model.inverse().col(3)).head(3).template cast<Scalar>();
-  igl::parallel_for(V.rows(),[&](const int i)
+  igl::parallel_for(vers.rows(),[&](const int i)
   {
     // Skip unselected points
     if(W(i)<0.5){ return; }
     igl::Hit hit;
-    tree.intersect_ray(V,F,origin,V.row(i)-origin,hit);
+    tree.intersect_ray(vers,tris,origin,vers.row(i)-origin,hit);
     and_visible(i) = !(hit.t>1e-5 && hit.t<(1-1e-5));
   });
 }
@@ -49,7 +49,7 @@ template <
   typename Ltype,
   typename DerivedW>
 IGL_INLINE void igl::screen_space_selection(
-  const Eigen::MatrixBase<DerivedV> & V,
+  const Eigen::MatrixBase<DerivedV> & vers,
   const Eigen::MatrixBase<DerivedM>& model,
   const Eigen::MatrixBase<DerivedN>& proj,
   const Eigen::MatrixBase<DerivedO>& viewport,
@@ -65,7 +65,7 @@ IGL_INLINE void igl::screen_space_selection(
     E(i,0) = i; 
     E(i,1) = (i+1)%E.rows(); 
   }
-  return screen_space_selection(V,model,proj,viewport,P,E,W);
+  return screen_space_selection(vers,model,proj,viewport,P,E,W);
 }
 
 template <
@@ -77,7 +77,7 @@ template <
   typename DerivedE,
   typename DerivedW>
 IGL_INLINE void igl::screen_space_selection(
-  const Eigen::MatrixBase<DerivedV> & V,
+  const Eigen::MatrixBase<DerivedV> & vers,
   const Eigen::MatrixBase<DerivedM>& model,
   const Eigen::MatrixBase<DerivedN>& proj,
   const Eigen::MatrixBase<DerivedO>& viewport,
@@ -87,7 +87,7 @@ IGL_INLINE void igl::screen_space_selection(
 {
   // project all mesh vertices to 2D
   DerivedV V2;
-  igl::project(V,model,proj,viewport,V2);
+  igl::project(vers,model,proj,viewport,V2);
   // In 2D this uses O(N*M) naive algorithm.
   igl::winding_number(P,E,V2,W);
   W = W.array().abs().eval();

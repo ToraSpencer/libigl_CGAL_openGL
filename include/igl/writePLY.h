@@ -17,15 +17,15 @@ namespace igl
   //   Derived from Eigen matrix parameters
   // Inputs:
   //  ply_stream  ply file output stream
-  //   V  (#V,3) matrix of vertex positions
-  //   F  (#F,3) list of face indices into vertex positions
+  //   vers  (#vers,3) matrix of vertex positions
+  //   tris  (#tris,3) list of face indices into vertex positions
   //   E  (#E,2) list of edge indices into vertex positions
-  //   N  (#V,3) list of normals
-  //   UV (#V,2) list of texture coordinates
-  //   VD (#V,*) additional vertex data
-  //   Vheader (#V) list of vertex data headers
-  //   FD (#F,*) additional face data
-  //   Fheader (#F) list of face data headers
+  //   N  (#vers,3) list of normals
+  //   UV (#vers,2) list of texture coordinates
+  //   VD (#vers,*) additional vertex data
+  //   Vheader (#vers) list of vertex data headers
+  //   FD (#tris,*) additional face data
+  //   Fheader (#tris) list of face data headers
   //   ED (#E,*) additional edge data
   //   Eheader (#E) list of edge data headers
   //   comments (*) file comments
@@ -43,8 +43,8 @@ namespace igl
 >
 bool writePLY(
   std::ostream & ply_stream,
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const Eigen::MatrixBase<DerivedE> & E,
   const Eigen::MatrixBase<DerivedN> & N,
   const Eigen::MatrixBase<DerivedUV> & UV,
@@ -68,15 +68,15 @@ bool writePLY(
   //   Derived from Eigen matrix parameters
   // Inputs:
   //  filename  ply file name
-  //   V  (#V,3) matrix of vertex positions
-  //   F  (#F,3) list of face indices into vertex positions
+  //   vers  (#vers,3) matrix of vertex positions
+  //   tris  (#tris,3) list of face indices into vertex positions
   //   E  (#E,2) list of edge indices into vertex positions
-  //   N  (#V,3) list of normals
-  //   UV (#V,2) list of texture coordinates
-  //   VD (#V,*) additional vertex data
-  //   Vheader (#V) list of vertex data headers
-  //   FD (#F,*) additional face data
-  //   Fheader (#F) list of face data headers
+  //   N  (#vers,3) list of normals
+  //   UV (#vers,2) list of texture coordinates
+  //   VD (#vers,*) additional vertex data
+  //   Vheader (#vers) list of vertex data headers
+  //   FD (#tris,*) additional face data
+  //   Fheader (#tris) list of face data headers
   //   ED (#E,*) additional edge data
   //   Eheader (#E) list of edge data headers
   //   comments (*) file comments
@@ -94,8 +94,8 @@ template <
 >
 bool writePLY(
   const std::string & filename,
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const Eigen::MatrixBase<DerivedE> & E,
   const Eigen::MatrixBase<DerivedN> & N,
   const Eigen::MatrixBase<DerivedUV> & UV,
@@ -119,8 +119,8 @@ template <
 >
 bool writePLY(
   const std::string & filename,
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris
    );
 
 template <
@@ -130,8 +130,8 @@ template <
 >
 bool writePLY(
   const std::string & filename,
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const Eigen::MatrixBase<DerivedF> & E
    );
 
@@ -144,8 +144,8 @@ template <
 >
 bool writePLY(
   const std::string & filename,
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const Eigen::MatrixBase<DerivedN> & N,
   const Eigen::MatrixBase<DerivedUV> & UV
    );
@@ -160,8 +160,8 @@ template <
 >
 bool writePLY(
   const std::string & filename,
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const Eigen::MatrixBase<DerivedE> & E,
   const Eigen::MatrixBase<DerivedN> & N,
   const Eigen::MatrixBase<DerivedUV> & UV
@@ -174,8 +174,8 @@ template <
 >
 bool writePLY(
   const std::string & filename,
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   FileEncoding encoding
    );
 
@@ -186,8 +186,8 @@ template <
 >
 bool writePLY(
   const std::string & filename,
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const Eigen::MatrixBase<DerivedE> & E,
   FileEncoding encoding
    );
@@ -201,8 +201,8 @@ template <
 >
 bool writePLY(
   const std::string & filename,
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const Eigen::MatrixBase<DerivedN> & N,
   const Eigen::MatrixBase<DerivedUV> & UV,
   const Eigen::MatrixBase<DerivedVD> & VD=Eigen::MatrixXd(0,0),
@@ -220,8 +220,8 @@ template <
 >
 bool writePLY(
   const std::string & filename,
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const Eigen::MatrixBase<DerivedE> & E,
   const Eigen::MatrixBase<DerivedN> & N,
   const Eigen::MatrixBase<DerivedUV> & UV,

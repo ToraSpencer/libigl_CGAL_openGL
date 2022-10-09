@@ -22,18 +22,18 @@ namespace igl
          mesh_file_name  path of .mesh file
        
        Outputs:
-         V  double matrix of vertex positions  #V by 3
+         vers  double matrix of vertex positions  #vers by 3
          T  #T list of tet indices into vertex positions
-         F  #F list of face indices into vertex positions
+         tris  #tris list of face indices into vertex positions
   
        Known bugs: Holes and regions are not supported
     */
   template <typename Scalar, typename Index>
   IGL_INLINE bool readMESH(
     const std::string mesh_file_name,
-    std::vector<std::vector<Scalar > > & V,
+    std::vector<std::vector<Scalar > > & vers,
     std::vector<std::vector<Index > > & T,
-    std::vector<std::vector<Index > > & F);
+    std::vector<std::vector<Index > > & tris);
   // Inputs:
   //   mesh_file  pointer to already opened .mesh file 
   // Outputs:
@@ -41,22 +41,22 @@ namespace igl
   template <typename Scalar, typename Index>
   IGL_INLINE bool readMESH(
     FILE * mesh_file,
-    std::vector<std::vector<Scalar > > & V,
+    std::vector<std::vector<Scalar > > & vers,
     std::vector<std::vector<Index > > & T,
-    std::vector<std::vector<Index > > & F);
+    std::vector<std::vector<Index > > & tris);
 
   // Input:
   //   mesh_file_name  path of .mesh file
   // Outputs:
-  //   V  eigen double matrix #V by 3
+  //   vers  eigen double matrix #vers by 3
   //   T  eigen int matrix #T by 4
-  //   F  eigen int matrix #F by 3
+  //   tris  eigen int matrix #tris by 3
   template <typename DerivedV, typename DerivedF, typename DerivedT>
   IGL_INLINE bool readMESH(
     const std::string mesh_file_name,
-    Eigen::PlainObjectBase<DerivedV>& V,
+    Eigen::PlainObjectBase<DerivedV>& vers,
     Eigen::PlainObjectBase<DerivedT>& T,
-    Eigen::PlainObjectBase<DerivedF>& F);
+    Eigen::PlainObjectBase<DerivedF>& tris);
   // Inputs:
   //   mesh_file  pointer to already opened .mesh file 
   // Outputs:
@@ -64,9 +64,9 @@ namespace igl
   template <typename DerivedV, typename DerivedF, typename DerivedT>
   IGL_INLINE bool readMESH(
     FILE * mesh_file,
-    Eigen::PlainObjectBase<DerivedV>& V,
+    Eigen::PlainObjectBase<DerivedV>& vers,
     Eigen::PlainObjectBase<DerivedT>& T,
-    Eigen::PlainObjectBase<DerivedF>& F);
+    Eigen::PlainObjectBase<DerivedF>& tris);
 }
 
 #ifndef IGL_STATIC_LIBRARY

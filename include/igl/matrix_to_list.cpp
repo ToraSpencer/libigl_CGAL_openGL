@@ -12,17 +12,17 @@
 template <typename DerivedM>
 IGL_INLINE void igl::matrix_to_list(
   const Eigen::MatrixBase<DerivedM> & M,
-  std::vector<std::vector<typename DerivedM::Scalar > > & V)
+  std::vector<std::vector<typename DerivedM::Scalar > > & vers)
 {
   using namespace std;
-  V.resize(M.rows(),vector<typename DerivedM::Scalar >(M.cols()));
+  vers.resize(M.rows(),vector<typename DerivedM::Scalar >(M.cols()));
   // loop over rows
   for(int i = 0;i<M.rows();i++)
   {
     // loop over cols
     for(int j = 0;j<M.cols();j++)
     {
-      V[i][j] = M(i,j);
+      vers[i][j] = M(i,j);
     }
   }
 }
@@ -30,16 +30,16 @@ IGL_INLINE void igl::matrix_to_list(
 template <typename DerivedM>
 IGL_INLINE void igl::matrix_to_list(
   const Eigen::MatrixBase<DerivedM> & M,
-  std::vector<typename DerivedM::Scalar > & V)
+  std::vector<typename DerivedM::Scalar > & vers)
 {
   using namespace std;
-  V.resize(M.size());
+  vers.resize(M.size());
   // loop over cols then rows
   for(int j = 0;j<M.cols();j++)
   {
     for(int i = 0;i<M.rows();i++)
     {
-      V[i+j*M.rows()] = M(i,j);
+      vers[i+j*M.rows()] = M(i,j);
     }
   }
 }
@@ -48,9 +48,9 @@ template <typename DerivedM>
 IGL_INLINE std::vector<typename DerivedM::Scalar > igl::matrix_to_list(
     const Eigen::MatrixBase<DerivedM> & M)
 {
-  std::vector<typename DerivedM::Scalar> V;
-  matrix_to_list(M,V);
-  return V;
+  std::vector<typename DerivedM::Scalar> vers;
+  matrix_to_list(M,vers);
+  return vers;
 }
 
 #ifdef IGL_STATIC_LIBRARY

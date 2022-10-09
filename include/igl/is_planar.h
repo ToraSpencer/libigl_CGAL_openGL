@@ -16,12 +16,12 @@ namespace igl
   // Determine if a set of points lies on the XY plane
   //
   // Inputs:
-  //   V  #V by dim list of vertex positions
+  //   vers  #vers by dim list of vertex positions
   // Return true if a mesh has constant value of 0 in z coordinate
   //
   // Known bugs: Doesn't determine if vertex is flat if it doesn't lie on the
   // XY plane.
-  IGL_INLINE bool is_planar(const Eigen::MatrixXd & V);
+  IGL_INLINE bool is_planar(const Eigen::MatrixXd & vers);
 }
 
 #ifndef IGL_STATIC_LIBRARY

@@ -5,7 +5,7 @@ template <
   typename DerivedV,
   typename DerivedF>
 IGL_INLINE void igl::opengl::vertex_array(
-  const Eigen::PlainObjectBase<DerivedV> & V,
+  const Eigen::PlainObjectBase<DerivedV> & vers,
   const Eigen::PlainObjectBase<DerivedF> & F,
   GLuint & va_id,
   GLuint & ab_id,
@@ -13,13 +13,13 @@ IGL_INLINE void igl::opengl::vertex_array(
 {
   // Inputs should be in RowMajor storage. If not, we have no choice but to
   // create a copy.
-  if(!(V.Options & Eigen::RowMajor))
+  if(!(vers.Options & Eigen::RowMajor))
   {
     Eigen::Matrix<
       typename DerivedV::Scalar,
       DerivedV::RowsAtCompileTime,
       DerivedV::ColsAtCompileTime,
-      Eigen::RowMajor> VR = V;
+      Eigen::RowMajor> VR = vers;
     return vertex_array(VR,F,va_id,ab_id,eab_id);
   }
   if(!(F.Options & Eigen::RowMajor))
@@ -29,7 +29,7 @@ IGL_INLINE void igl::opengl::vertex_array(
       DerivedF::RowsAtCompileTime,
       DerivedF::ColsAtCompileTime,
       Eigen::RowMajor> FR = F;
-    return vertex_array(V,FR,va_id,ab_id,eab_id);
+    return vertex_array(vers,FR,va_id,ab_id,eab_id);
   }
   // Generate and attach buffers to vertex array
   glGenVertexArrays(1, &va_id);
@@ -39,17 +39,17 @@ IGL_INLINE void igl::opengl::vertex_array(
   glBindBuffer(GL_ARRAY_BUFFER, ab_id);
   const auto size_VScalar = sizeof(typename DerivedV::Scalar);
   const auto size_FScalar = sizeof(typename DerivedF::Scalar);
-  glBufferData(GL_ARRAY_BUFFER,size_VScalar*V.size(),V.data(),GL_STATIC_DRAW);
+  glBufferData(GL_ARRAY_BUFFER,size_VScalar*vers.size(),vers.data(),GL_STATIC_DRAW);
   glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, eab_id);
   assert(sizeof(GLuint) == size_FScalar && "F type does not match GLuint");
   glBufferData(
     GL_ELEMENT_ARRAY_BUFFER, sizeof(GLuint)*F.size(), F.data(), GL_STATIC_DRAW);
   glVertexAttribPointer(
     0,
-    V.cols(),
+    vers.cols(),
     size_VScalar==sizeof(float)?GL_FLOAT:GL_DOUBLE,
     GL_FALSE,
-    V.cols()*size_VScalar,
+    vers.cols()*size_VScalar,
     (GLvoid*)0);
   glEnableVertexAttribArray(0);
   glBindBuffer(GL_ARRAY_BUFFER, 0); 

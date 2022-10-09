@@ -22,18 +22,18 @@ template <
   typename Derivedboundaries,
   typename Derivedfoldovers>
 IGL_INLINE void igl::seam_edges(
-  const Eigen::PlainObjectBase<DerivedV>& V,
+  const Eigen::PlainObjectBase<DerivedV>& vers,
   const Eigen::PlainObjectBase<DerivedTC>& TC,
-  const Eigen::PlainObjectBase<DerivedF>& F,
+  const Eigen::PlainObjectBase<DerivedF>& tris,
   const Eigen::PlainObjectBase<DerivedFTC>& FTC,
   Eigen::PlainObjectBase<Derivedseams>& seams,
   Eigen::PlainObjectBase<Derivedboundaries>& boundaries,
   Eigen::PlainObjectBase<Derivedfoldovers>& foldovers)
 {
   // Assume triangles.
-  assert( F.cols() == 3 );
-  assert( F.cols() == FTC.cols() );
-  assert( F.rows() == FTC.rows() );
+  assert( tris.cols() == 3 );
+  assert( tris.cols() == FTC.cols() );
+  assert( tris.rows() == FTC.rows() );
     
   // Assume 2D texture coordinates (foldovers tests).
   assert( TC.cols() == 2 );
@@ -51,9 +51,9 @@ IGL_INLINE void igl::seam_edges(
       return row0(0)*row1(1) - row1(0)*row0(1);
   };
     
-  seams     .setZero( 3*F.rows(), 4 );
-  boundaries.setZero( 3*F.rows(), 2 );
-  foldovers .setZero( 3*F.rows(), 4 );
+  seams     .setZero( 3*tris.rows(), 4 );
+  boundaries.setZero( 3*tris.rows(), 2 );
+  foldovers .setZero( 3*tris.rows(), 4 );
     
   int num_seams = 0;
   int num_boundaries = 0;
@@ -70,11 +70,11 @@ IGL_INLINE void igl::seam_edges(
   // as ( (a0,a1), (b0,b1) ).
     
   // We need to make a hash function for our directed edges.
-  // We'll use i*V.rows() + j.
+  // We'll use i*vers.rows() + j.
   typedef std::pair< typename DerivedF::Scalar, typename DerivedF::Scalar > 
     directed_edge;
-	const int numV = V.rows();
-	const int numF = F.rows();
+	const int numV = vers.rows();
+	const int numF = tris.rows();
 	const auto& edge_hasher = 
     [numV]( directed_edge const& e ) { return e.first*numV + e.second; };
   // When we pass a hash function object, we also need to specify the number of
@@ -82,13 +82,13 @@ IGL_INLINE void igl::seam_edges(
   // is numV + numF -2*genus.
 	std::unordered_map<directed_edge,std::pair<int,int>,decltype(edge_hasher) > 
     directed_position_edge2face_position_index(2*( numV + numF ), edge_hasher);
-  for( int fi = 0; fi < F.rows(); ++fi ) 
+  for( int fi = 0; fi < tris.rows(); ++fi ) 
   {
     for( int i = 0; i < 3; ++i )
     {
       const int j = ( i+1 ) % 3;
       directed_position_edge2face_position_index[ 
-        std::make_pair( F(fi,i), F(fi,j) ) ] = std::make_pair( fi, i );
+        std::make_pair( tris(fi,i), tris(fi,j) ) ] = std::make_pair( fi, i );
     }
   }
     

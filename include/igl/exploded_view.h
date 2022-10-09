@@ -16,15 +16,15 @@ namespace igl
   // centroid, creating an exploded-view visualization.
   //
   // Inputs:
-  //   V  #V by 3 list of tet mesh vertex positions
-  //   T  #T by 4 list of tet mesh indices into rows of V
+  //   vers  #vers by 3 list of tet mesh vertex positions
+  //   T  #T by 4 list of tet mesh indices into rows of vers
   //   s  amount to scale each tet indvidually, typically (0,1]
   //   t  amount to scale away from mesh's centroid, typically >=1
   // Outputs:
   //   EV  #T*4 by 3 list of output mesh vertex positions
   //   EF  #T*4 by 3 list of output triangle indices into rows of EV
-  //   I  #EV list of indices into V revealing birth parent
-  //   J  #EF list of indices into F revealing birth parent
+  //   I  #EV list of indices into vers revealing birth parent
+  //   J  #EF list of indices into tris revealing birth parent
   template <
     typename DerivedV,
     typename DerivedT,
@@ -33,7 +33,7 @@ namespace igl
     typename DerivedI,
     typename DerivedJ>
   IGL_INLINE void exploded_view(
-    const Eigen::MatrixBase<DerivedV> & V,
+    const Eigen::MatrixBase<DerivedV> & vers,
     const Eigen::MatrixBase<DerivedT> & T,
     const typename DerivedV::Scalar s,
     const typename DerivedV::Scalar t,

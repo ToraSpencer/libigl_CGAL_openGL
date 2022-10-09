@@ -21,7 +21,7 @@
 
 struct Mesh
 {
-  Eigen::MatrixXd V,U;
+  Eigen::MatrixXd vers,U;
   Eigen::MatrixXi T,F;
 } low,high,scene;
 
@@ -36,11 +36,11 @@ int main(int argc, char * argv[])
   
   // read the mesh, if the code is prepared outside of tutorial, the TUTORIAL_SHARED_PATH
   // should be the data folder
-  if(!readMESH(TUTORIAL_SHARED_PATH "/octopus-low.mesh",low.V,low.T,low.F))
+  if(!readMESH(TUTORIAL_SHARED_PATH "/octopus-low.mesh",low.vers,low.T,low.F))
   {
     cout<<"failed to load mesh"<<endl;
   }
-  if(!readMESH(TUTORIAL_SHARED_PATH "/octopus-high.mesh",high.V,high.T,high.F))
+  if(!readMESH(TUTORIAL_SHARED_PATH "/octopus-high.mesh",high.vers,high.T,high.F))
   {
     cout<<"failed to load mesh"<<endl;
   }
@@ -49,8 +49,8 @@ int main(int argc, char * argv[])
   {
     Eigen::VectorXi b;
     {
-      // this will create a vector from 0 to V.rows()-1 where the gap is 1
-      Eigen::VectorXi J = Eigen::VectorXi::LinSpaced(high.V.rows(),0,high.V.rows()-1);
+      // this will create a vector from 0 to vers.rows()-1 where the gap is 1
+      Eigen::VectorXi J = Eigen::VectorXi::LinSpaced(high.vers.rows(),0,high.vers.rows()-1);
       Eigen::VectorXd sqrD;
       Eigen::MatrixXd _2;
       cout<<"Finding closest points..."<<endl;
@@ -58,26 +58,26 @@ int main(int argc, char * argv[])
       // so that we will find the closest vertices istead of closest point on the face
       // so far the two meshes are not seperated. So what we are really doing here
       // is computing handles from low resolution and use that for the high resolution one
-      igl::point_mesh_squared_distance(low.V,high.V,J,sqrD,b,_2);
-      assert(sqrD.minCoeff() < 1e-7 && "low.V should exist in high.V");
+      igl::point_mesh_squared_distance(low.vers,high.vers,J,sqrD,b,_2);
+      assert(sqrD.minCoeff() < 1e-7 && "low.vers should exist in high.vers");
     }
     // force perfect positioning, rather have popping in low-res than high-res.
-    // The correct/elaborate thing to do is express original low.V in terms of
-    // linear interpolation (or extrapolation) via elements in (high.V,high.F)
+    // The correct/elaborate thing to do is express original low.vers in terms of
+    // linear interpolation (or extrapolation) via elements in (high.vers,high.F)
 
     // this is to replace the vertices on low resolution
     // with the vertices in high resolution. b is the list of vertices
     // corresponding to the indices in high resolution which has closest
     // distance to the points in low resolution
-    igl::slice(high.V,b,1,low.V);
+    igl::slice(high.vers,b,1,low.vers);
 
 
     // list of points --> list of singleton lists
     std::vector<std::vector<int> > S;
-    // S will hav size of low.V.rows() and each list inside will have 1 element
+    // S will hav size of low.vers.rows() and each list inside will have 1 element
     igl::matrix_to_list(b,S);
     cout<<"Computing weights for "<<b.size()<<
-      " handles at "<<high.V.rows()<<" vertices..."<<endl;
+      " handles at "<<high.vers.rows()<<" vertices..."<<endl;
     // Technically k should equal 3 for smooth interpolation in 3d, but 2 is
     // faster and looks OK
     const int k = 2;
@@ -86,38 +86,38 @@ int main(int argc, char * argv[])
     // it will be too expansive to use all the points in high reolution as handles
     // but since low and high resembles the same thing, using points in low reesolution
     // will give you similar performance
-    igl::biharmonic_coordinates(high.V,high.T,S,k,W);
+    igl::biharmonic_coordinates(high.vers,high.T,S,k,W);
     cout<<"Reindexing..."<<endl;
     // Throw away interior tet-vertices, keep weights and indices of boundary
     VectorXi I,J;
-    igl::remove_unreferenced(high.V.rows(),high.F,I,J);
+    igl::remove_unreferenced(high.vers.rows(),high.F,I,J);
     for_each(high.F.data(),high.F.data()+high.F.size(),[&I](int & a){a=I(a);});
     for_each(b.data(),b.data()+b.size(),[&I](int & a){a=I(a);});
-    igl::slice(MatrixXd(high.V),J,1,high.V);
+    igl::slice(MatrixXd(high.vers),J,1,high.vers);
     igl::slice(MatrixXd(W),J,1,W);
   }
 
   // Resize low res (high res will also be resized by affine precision of W)
-  low.V.rowwise() -= low.V.colwise().mean();
-  low.V /= (low.V.maxCoeff()-low.V.minCoeff());
-  low.V.rowwise() += RowVector3d(0,1,0);
-  low.U = low.V;
-  high.U = high.V;
+  low.vers.rowwise() -= low.vers.colwise().mean();
+  low.vers /= (low.vers.maxCoeff()-low.vers.minCoeff());
+  low.vers.rowwise() += RowVector3d(0,1,0);
+  low.U = low.vers;
+  high.U = high.vers;
 
   arap_data.with_dynamics = true;
   arap_data.max_iter = 10;
   arap_data.energy = ARAP_ENERGY_TYPE_DEFAULT;
   arap_data.h = 0.01;
   arap_data.ym = 0.001;
-  if(!arap_precomputation(low.V,low.T,3,VectorXi(),arap_data))
+  if(!arap_precomputation(low.vers,low.T,3,VectorXi(),arap_data))
   {
     cerr<<"arap_precomputation failed."<<endl;
     return EXIT_FAILURE;
   }
   // Constant gravitational force
   Eigen::SparseMatrix<double> M;
-  igl::massmatrix(low.V,low.T,igl::MASSMATRIX_TYPE_DEFAULT,M);
-  const size_t n = low.V.rows();
+  igl::massmatrix(low.vers,low.T,igl::MASSMATRIX_TYPE_DEFAULT,M);
+  const size_t n = low.vers.rows();
   // f = ma
   arap_data.f_ext =  M * RowVector3d(0,-9.8,0).replicate(n,1);
   // Random initial velocities to wiggle things
@@ -126,8 +126,8 @@ int main(int argc, char * argv[])
   igl::opengl::glfw::Viewer viewer;
   // Create one huge mesh containing both meshes
   igl::cat(1,low.U,high.U,scene.U);
-  // need to remap the indices since we cat the V matrices
-  igl::cat(1,low.F,MatrixXi(high.F.array()+low.V.rows()),scene.F);
+  // need to remap the indices since we cat the vers matrices
+  igl::cat(1,low.F,MatrixXi(high.F.array()+low.vers.rows()),scene.F);
   // Color each mesh
   viewer.data().set_mesh(scene.U,scene.F);
   MatrixXd C(scene.F.rows(),3);
@@ -147,7 +147,7 @@ int main(int argc, char * argv[])
         viewer.core().is_animating = !viewer.core().is_animating;
         return true;
       case 'r':
-        low.U = low.V;
+        low.U = low.vers;
         return true;
     }
   };

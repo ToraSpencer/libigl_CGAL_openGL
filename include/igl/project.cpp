@@ -31,15 +31,15 @@ Eigen::Matrix<Scalar,3,1> igl::project(
 
 template <typename DerivedV, typename DerivedM, typename DerivedN, typename DerivedO, typename DerivedP>
 IGL_INLINE void igl::project(
-  const    Eigen::MatrixBase<DerivedV>&  V,
+  const    Eigen::MatrixBase<DerivedV>&  vers,
   const    Eigen::MatrixBase<DerivedM>& model,
   const    Eigen::MatrixBase<DerivedN>& proj,
   const    Eigen::MatrixBase<DerivedO>&  viewport,
   Eigen::PlainObjectBase<DerivedP> & P)
 {
   typedef typename DerivedP::Scalar PScalar;
-  Eigen::Matrix<PScalar,DerivedV::RowsAtCompileTime,4> HV(V.rows(),4);
-  HV.leftCols(3) = V.template cast<PScalar>();
+  Eigen::Matrix<PScalar,DerivedV::RowsAtCompileTime,4> HV(vers.rows(),4);
+  HV.leftCols(3) = vers.template cast<PScalar>();
   HV.col(3).setConstant(1);
   HV = (HV*model.template cast<PScalar>().transpose()*
       proj.template cast<PScalar>().transpose()).eval();

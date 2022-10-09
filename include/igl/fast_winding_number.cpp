@@ -372,14 +372,14 @@ template <
   typename DerivedQ,
   typename DerivedW>
 IGL_INLINE void igl::fast_winding_number(
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const Eigen::MatrixBase<DerivedQ> & Q,
   Eigen::PlainObjectBase<DerivedW> & W)
 {
   igl::FastWindingNumberBVH fwn_bvh;
   int order = 2;
-  igl::fast_winding_number(V,F,order,fwn_bvh);
+  igl::fast_winding_number(vers,tris,order,fwn_bvh);
   float accuracy_scale = 2;
   igl::fast_winding_number(fwn_bvh,accuracy_scale,Q,W);
 }
@@ -388,35 +388,35 @@ template <
   typename DerivedV,
   typename DerivedF>
 IGL_INLINE void igl::fast_winding_number(
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const int order,
   FastWindingNumberBVH & fwn_bvh)
 {
-  assert(V.cols() == 3 && "V should be 3D");
-  assert(F.cols() == 3 && "F should contain triangles");
+  assert(vers.cols() == 3 && "vers should be 3D");
+  assert(tris.cols() == 3 && "tris should contain triangles");
   // Extra copies. Usuually this won't be the bottleneck.
-  fwn_bvh.U.resize(V.rows());
-  for(int i = 0;i<V.rows();i++)
+  fwn_bvh.U.resize(vers.rows());
+  for(int i = 0;i<vers.rows();i++)
   {
     for(int j = 0;j<3;j++)
     {
-      fwn_bvh.U[i][j] = V(i,j);
+      fwn_bvh.U[i][j] = vers(i,j);
     }
   }
-  // Wouldn't need to copy if F is **RowMajor**
-  fwn_bvh.F.resize(F.size());
-  for(int f = 0;f<F.rows();f++)
+  // Wouldn't need to copy if tris is **RowMajor**
+  fwn_bvh.tris.resize(tris.size());
+  for(int f = 0;f<tris.rows();f++)
   {
-    for(int c = 0;c<F.cols();c++)
+    for(int c = 0;c<tris.cols();c++)
     {
-      fwn_bvh.F[c+f*F.cols()] = F(f,c);
+      fwn_bvh.tris[c+f*tris.cols()] = tris(f,c);
     }
   }
   fwn_bvh.ut_solid_angle.clear();
   fwn_bvh.ut_solid_angle.init(
-     fwn_bvh.F.size()/3, 
-    &fwn_bvh.F[0], 
+     fwn_bvh.tris.size()/3, 
+    &fwn_bvh.tris[0], 
      fwn_bvh.U.size(), 
     &fwn_bvh.U[0], 
     order);

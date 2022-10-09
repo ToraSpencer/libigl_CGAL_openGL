@@ -14,9 +14,9 @@ int main(int argc, char *argv[])
 {
   using namespace Eigen;
   using namespace std;
-  MatrixXd V;
+  MatrixXd vers;
   MatrixXi F;
-  igl::readOFF(TUTORIAL_SHARED_PATH "/cheburashka.off",V,F);
+  igl::readOFF(TUTORIAL_SHARED_PATH "/cheburashka.off",vers,F);
 
   // Two fixed points
   VectorXi b(2,1);
@@ -27,13 +27,13 @@ int main(int argc, char *argv[])
 
   // Construct Laplacian and mass matrix
   SparseMatrix<double> L,M,Minv,Q;
-  igl::cotmatrix(V,F,L);
-  igl::massmatrix(V,F,igl::MASSMATRIX_TYPE_VORONOI,M);
+  igl::cotmatrix(vers,F,L);
+  igl::massmatrix(vers,F,igl::MASSMATRIX_TYPE_VORONOI,M);
   igl::invert_diag(M,Minv);
   // Bi-Laplacian
   Q = L * (Minv * L);
   // Zero linear term
-  VectorXd B = VectorXd::Zero(V.rows(),1);
+  VectorXd B = VectorXd::Zero(vers.rows(),1);
 
   VectorXd Z,Z_const;
   {
@@ -49,7 +49,7 @@ int main(int argc, char *argv[])
   {
     igl::min_quad_with_fixed_data<double> mqwf;
     // Constraint forcing difference of two points to be 0
-    SparseMatrix<double> Aeq(1,V.rows());
+    SparseMatrix<double> Aeq(1,vers.rows());
     // Right hand, right foot
     Aeq.insert(0,6074) = 1;
     Aeq.insert(0,6523) = -1;
@@ -66,7 +66,7 @@ int main(int argc, char *argv[])
 
   // Plot the mesh with pseudocolors
   igl::opengl::glfw::Viewer viewer;
-  viewer.data().set_mesh(V, F);
+  viewer.data().set_mesh(vers, F);
   viewer.data().show_lines = false;
   viewer.data().set_data(Z,min_z,max_z);
 

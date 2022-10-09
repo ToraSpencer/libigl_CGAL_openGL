@@ -7,7 +7,7 @@
 
 #include "tutorial_shared_path.h"
 
-Eigen::MatrixXd V;
+Eigen::MatrixXd vers;
 Eigen::MatrixXi F;
 Eigen::MatrixXd V_uv;
 Eigen::MatrixXd initial_guess;
@@ -31,8 +31,8 @@ bool key_down(igl::opengl::glfw::Viewer& viewer, unsigned char key, int modifier
   }
   else
   {
-    viewer.data().set_mesh(V,F);
-    viewer.core().align_camera_center(V,F);
+    viewer.data().set_mesh(vers,F);
+    viewer.core().align_camera_center(vers,F);
   }
 
   viewer.data().compute_normals();
@@ -44,15 +44,15 @@ int main(int argc, char *argv[])
 {
   using namespace std;
   // Load a mesh in OFF format
-  igl::readOFF(TUTORIAL_SHARED_PATH "/camelhead.off", V, F);
+  igl::readOFF(TUTORIAL_SHARED_PATH "/camelhead.off", vers, F);
 
   // Compute the initial solution for ARAP (harmonic parametrization)
   Eigen::VectorXi bnd;
   igl::boundary_loop(F,bnd);
   Eigen::MatrixXd bnd_uv;
-  igl::map_vertices_to_circle(V,bnd,bnd_uv);
+  igl::map_vertices_to_circle(vers,bnd,bnd_uv);
 
-  igl::harmonic(V,F,bnd,bnd_uv,1,initial_guess);
+  igl::harmonic(vers,F,bnd,bnd_uv,1,initial_guess);
 
   // Add dynamic regularization to avoid to specify boundary conditions
   igl::ARAPData arap_data;
@@ -63,7 +63,7 @@ int main(int argc, char *argv[])
   // Initialize ARAP
   arap_data.max_iter = 100;
   // 2 means that we're going to *solve* in 2d
-  arap_precomputation(V,F,2,b,arap_data);
+  arap_precomputation(vers,F,2,b,arap_data);
 
 
   // Solve arap using the harmonic map as initial guess
@@ -77,7 +77,7 @@ int main(int argc, char *argv[])
 
   // Plot the mesh
   igl::opengl::glfw::Viewer viewer;
-  viewer.data().set_mesh(V, F);
+  viewer.data().set_mesh(vers, F);
   viewer.data().set_uv(V_uv);
   viewer.callback_key_down = &key_down;
 

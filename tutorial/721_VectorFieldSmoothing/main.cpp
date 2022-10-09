@@ -33,10 +33,10 @@ int main(int argc, char * argv[])
   const int howManySmoothingInterations = 50;
   
   //Read our mesh
-  Eigen::MatrixXd V;
+  Eigen::MatrixXd vers;
   Eigen::MatrixXi F;
   if(!igl::read_triangle_mesh
-     (argc>1?argv[1]: TUTORIAL_SHARED_PATH "/elephant.obj",V,F)) {
+     (argc>1?argv[1]: TUTORIAL_SHARED_PATH "/elephant.obj",vers,F)) {
     std::cout << "Failed to load mesh." << std::endl;
   }
   
@@ -46,8 +46,8 @@ int main(int argc, char * argv[])
   
   //Compute edge midpoints & edge vectors
   Eigen::MatrixXd edgeMps, parVec, perpVec;
-  igl::edge_midpoints(V, F, E, oE, edgeMps);
-  igl::edge_vectors(V, F, E, oE, parVec, perpVec);
+  igl::edge_midpoints(vers, F, E, oE, edgeMps);
+  igl::edge_vectors(vers, F, E, oE, parVec, perpVec);
   
   //Constructing a function to add noise to
   const auto zraw_function = [] (const Eigen::Vector3d& x) {
@@ -73,8 +73,8 @@ int main(int argc, char * argv[])
   for(int i=0; i<howManySmoothingInterations; ++i) {
     //Compute Laplacian and mass matrix
     SparseMat L, M;
-    igl::cr_vector_mass(V, F, E, oE, M);
-    igl::cr_vector_laplacian(V, F, E, oE, L);
+    igl::cr_vector_mass(vers, F, E, oE, M);
+    igl::cr_vector_laplacian(vers, F, E, oE, L);
     
     //Implicit step
     Eigen::SimplicialLDLT<SparseMat> rhsSolver(M + howMuchToSmoothBy*L);
@@ -101,7 +101,7 @@ int main(int argc, char * argv[])
   
   //Viewer that shows noisy and denoised functions
   igl::opengl::glfw::Viewer viewer;
-  viewer.data().set_mesh(V,F);
+  viewer.data().set_mesh(vers,F);
   viewer.data().show_lines = false;
   viewer.callback_key_down =
   [&](igl::opengl::glfw::Viewer & viewer, unsigned char key, int mod)->bool

@@ -10,15 +10,15 @@
 #include <iostream>
 
 IGL_INLINE void igl::fit_plane(
-    const Eigen::MatrixXd & V,
+    const Eigen::MatrixXd & vers,
     Eigen::RowVector3d & N,
     Eigen::RowVector3d & C)
 {
-  assert(V.rows()>0);
+  assert(vers.rows()>0);
 
-  Eigen::Vector3d sum = V.colwise().sum();
+  Eigen::Vector3d sum = vers.colwise().sum();
 
-  Eigen::Vector3d center = sum.array()/(double(V.rows()));
+  Eigen::Vector3d center = sum.array()/(double(vers.rows()));
 
   C = center;
 
@@ -26,11 +26,11 @@ IGL_INLINE void igl::fit_plane(
   double sumYY=0.0f,sumYZ=0.0f;
   double sumZZ=0.0f;
 
-  for(int i=0;i<V.rows();i++)
+  for(int i=0;i<vers.rows();i++)
   {
-    double diffX=V(i,0)-center(0);
-    double diffY=V(i,1)-center(1);
-    double diffZ=V(i,2)-center(2);
+    double diffX=vers(i,0)-center(0);
+    double diffY=vers(i,1)-center(1);
+    double diffZ=vers(i,2)-center(2);
     sumXX+=diffX*diffX;
     sumXY+=diffX*diffY;
     sumXZ+=diffX*diffZ;

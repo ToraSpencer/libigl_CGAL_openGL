@@ -21,7 +21,7 @@ namespace igl
   // Outputs:
   //   U  12x3 left singular vectors stacked
   //   S  12x1 singular values stacked
-  //   V  12x3 right singular vectors stacked
+  //   vers  12x3 right singular vectors stacked
   //
   // Known bugs: this will not work correctly for double precision.
   template<typename T>
@@ -29,7 +29,7 @@ namespace igl
     const Eigen::Matrix<T, 3*4, 3>& A, 
     Eigen::Matrix<T, 3*4, 3> &U, 
     Eigen::Matrix<T, 3*4, 1> &S, 
-    Eigen::Matrix<T, 3*4, 3>&V);
+    Eigen::Matrix<T, 3*4, 3>&vers);
 }
 #ifndef IGL_STATIC_LIBRARY
 #  include "svd3x3_sse.cpp"

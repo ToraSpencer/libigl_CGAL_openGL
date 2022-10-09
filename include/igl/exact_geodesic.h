@@ -18,8 +18,8 @@ namespace igl
   // and the algorithm first described by Mitchell, Mount and Papadimitriou in 1987
   //
   // Inputs:
-  //   V  #V by 3 list of 3D vertex positions
-  //   F  #F by 3 list of mesh faces
+  //   vers  #vers by 3 list of 3D vertex positions
+  //   tris  #tris by 3 list of mesh faces
   //   VS #VS by 1 vector specifying indices of source vertices
   //   FS #FS by 1 vector specifying indices of source faces
   //   VT #VT by 1 vector specifying indices of target vertices
@@ -39,8 +39,8 @@ namespace igl
     typename DerivedFT,
     typename DerivedD>
     IGL_INLINE void exact_geodesic(
-      const Eigen::MatrixBase<DerivedV> &V,
-      const Eigen::MatrixBase<DerivedF> &F,
+      const Eigen::MatrixBase<DerivedV> &vers,
+      const Eigen::MatrixBase<DerivedF> &tris,
       const Eigen::MatrixBase<DerivedVS> &VS,
       const Eigen::MatrixBase<DerivedFS> &FS,
       const Eigen::MatrixBase<DerivedVT> &VT,

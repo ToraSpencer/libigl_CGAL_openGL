@@ -11,14 +11,14 @@ template <typename Scalar, typename Index>
 IGL_INLINE void igl::harwell_boeing(
   const Eigen::SparseMatrix<Scalar> & A,
   int & num_rows,
-  std::vector<Scalar> & V,
+  std::vector<Scalar> & vers,
   std::vector<Index> & R,
   std::vector<Index> & C)
 {
   num_rows = A.rows();
   int num_cols = A.cols();
   int nnz = A.nonZeros();
-  V.resize(nnz);
+  vers.resize(nnz);
   R.resize(nnz);
   C.resize(num_cols+1);
 
@@ -34,7 +34,7 @@ IGL_INLINE void igl::harwell_boeing(
     // Iterate over inside
     for(typename Eigen::SparseMatrix<Scalar>::InnerIterator it (A,k); it; ++it)
     {
-      V[i] = it.value();
+      vers[i] = it.value();
       R[i] = it.row();
       i++;
       // Also increment column pointer

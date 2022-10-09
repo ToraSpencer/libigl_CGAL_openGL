@@ -20,19 +20,19 @@ namespace igl
   //  Q: Does this find exactly (manifold || orientable) patches?
   // 
   //  Inputs:
-  //    F  #F by simplex-size list of facets
+  //    tris  #tris by simplex-size list of facets
   //  Outputs:
-  //    C  #F list of component ids
-  //    A  #F by #F adjacency matrix
+  //    C  #tris list of component ids
+  //    A  #tris by #tris adjacency matrix
   // 
   template <typename DerivedF, typename DerivedC, typename AScalar>
   IGL_INLINE void orientable_patches(
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedF> & tris,
     Eigen::PlainObjectBase<DerivedC> & C,
     Eigen::SparseMatrix<AScalar> & A);
   template <typename DerivedF, typename DerivedC>
   IGL_INLINE void orientable_patches(
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedF> & tris,
     Eigen::PlainObjectBase<DerivedC> & C);
 };
 #ifndef IGL_STATIC_LIBRARY

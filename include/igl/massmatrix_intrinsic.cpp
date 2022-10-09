@@ -18,18 +18,18 @@
 template <typename Derivedl, typename DerivedF, typename Scalar>
 IGL_INLINE void igl::massmatrix_intrinsic(
   const Eigen::MatrixBase<Derivedl> & l, 
-  const Eigen::MatrixBase<DerivedF> & F, 
+  const Eigen::MatrixBase<DerivedF> & tris, 
   const MassMatrixType type,
   Eigen::SparseMatrix<Scalar>& M)
 {
-  const int n = F.maxCoeff()+1;
-  return massmatrix_intrinsic(l,F,type,n,M);
+  const int n = tris.maxCoeff()+1;
+  return massmatrix_intrinsic(l,tris,type,n,M);
 }
 
 template <typename Derivedl, typename DerivedF, typename Scalar>
 IGL_INLINE void igl::massmatrix_intrinsic(
   const Eigen::MatrixBase<Derivedl> & l, 
-  const Eigen::MatrixBase<DerivedF> & F, 
+  const Eigen::MatrixBase<DerivedF> & tris, 
   const MassMatrixType type,
   const int n,
   Eigen::SparseMatrix<Scalar>& M)
@@ -37,14 +37,14 @@ IGL_INLINE void igl::massmatrix_intrinsic(
   using namespace Eigen;
   using namespace std;
   MassMatrixType eff_type = type;
-  const int m = F.rows();
-  const int simplex_size = F.cols();
+  const int m = tris.rows();
+  const int simplex_size = tris.cols();
   // Use voronoi of for triangles by default, otherwise barycentric
   if(type == MASSMATRIX_TYPE_DEFAULT)
   {
     eff_type = (simplex_size == 3?MASSMATRIX_TYPE_VORONOI:MASSMATRIX_TYPE_BARYCENTRIC);
   }
-  assert(F.cols() == 3 && "only triangles supported");
+  assert(tris.cols() == 3 && "only triangles supported");
   Matrix<Scalar,Dynamic,1> dblA;
   doublearea(l,0.,dblA);
   Matrix<typename DerivedF::Scalar,Dynamic,1> MI;
@@ -56,9 +56,9 @@ IGL_INLINE void igl::massmatrix_intrinsic(
     case MASSMATRIX_TYPE_BARYCENTRIC:
       // diagonal entries for each face corner
       MI.resize(m*3,1); MJ.resize(m*3,1); MV.resize(m*3,1);
-      MI.block(0*m,0,m,1) = F.col(0);
-      MI.block(1*m,0,m,1) = F.col(1);
-      MI.block(2*m,0,m,1) = F.col(2);
+      MI.block(0*m,0,m,1) = tris.col(0);
+      MI.block(1*m,0,m,1) = tris.col(1);
+      MI.block(2*m,0,m,1) = tris.col(2);
       MJ = MI;
       repmat(dblA,3,1,MV);
       MV.array() /= 6.0;
@@ -68,9 +68,9 @@ IGL_INLINE void igl::massmatrix_intrinsic(
         // diagonal entries for each face corner
         // http://www.alecjacobson.com/weblog/?p=874
         MI.resize(m*3,1); MJ.resize(m*3,1); MV.resize(m*3,1);
-        MI.block(0*m,0,m,1) = F.col(0);
-        MI.block(1*m,0,m,1) = F.col(1);
-        MI.block(2*m,0,m,1) = F.col(2);
+        MI.block(0*m,0,m,1) = tris.col(0);
+        MI.block(1*m,0,m,1) = tris.col(1);
+        MI.block(2*m,0,m,1) = tris.col(2);
         MJ = MI;
 
         // Holy shit this needs to be cleaned up and optimized

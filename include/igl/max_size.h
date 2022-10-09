@@ -16,10 +16,10 @@ namespace igl
   // Template:
   //   T  some list type object that implements .size()
   // Inputs:
-  //   V  vector of list types T
-  // Returns max .size() found in V, returns -1 if V is empty
+  //   vers  vector of list types T
+  // Returns max .size() found in vers, returns -1 if vers is empty
   template <typename T>
-  IGL_INLINE int max_size(const std::vector<T> & V);
+  IGL_INLINE int max_size(const std::vector<T> & vers);
 }
 
 #ifndef IGL_STATIC_LIBRARY

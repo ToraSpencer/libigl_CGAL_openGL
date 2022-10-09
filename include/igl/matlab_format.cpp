@@ -51,13 +51,13 @@ igl::matlab_format(
 {
   using namespace Eigen;
   using namespace std;
-  Matrix<typename Eigen::SparseMatrix<DerivedS>::Scalar,Dynamic,1> I,J,V;
+  Matrix<typename Eigen::SparseMatrix<DerivedS>::Scalar,Dynamic,1> I,J,vers;
   Matrix<DerivedS,Dynamic,Dynamic> SIJV;
-  find(S,I,J,V);
+  find(S,I,J,vers);
   I.array() += 1;
   J.array() += 1;
-  SIJV.resize(V.rows(),3);
-  SIJV << I,J,V;
+  SIJV.resize(vers.rows(),3);
+  SIJV << I,J,vers;
   string prefix = "";
   string suffix = "";
   if(!name.empty())

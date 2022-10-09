@@ -9,7 +9,7 @@
 
 template <typename DerivedV, typename DerivedQ, int DIM>
 IGL_INLINE void igl::in_element(
-  const Eigen::MatrixBase<DerivedV> & V,
+  const Eigen::MatrixBase<DerivedV> & vers,
   const Eigen::MatrixXi & Ele,
   const Eigen::MatrixBase<DerivedQ> & Q,
   const AABB<DerivedV,DIM> & aabb,
@@ -23,7 +23,7 @@ IGL_INLINE void igl::in_element(
   for(int e = 0;e<Qr;e++)
   {
     // find all
-    const auto R = aabb.find(V,Ele,Q.row(e).eval(),true);
+    const auto R = aabb.find(vers,Ele,Q.row(e).eval(),true);
     if(!R.empty())
     {
       I(e) = R[0];
@@ -33,7 +33,7 @@ IGL_INLINE void igl::in_element(
 
 template <typename DerivedV, typename DerivedQ, int DIM, typename Scalar>
 IGL_INLINE void igl::in_element(
-  const Eigen::MatrixBase<DerivedV> & V,
+  const Eigen::MatrixBase<DerivedV> & vers,
   const Eigen::MatrixXi & Ele,
   const Eigen::MatrixBase<DerivedQ> & Q,
   const AABB<DerivedV,DIM> & aabb,
@@ -48,7 +48,7 @@ IGL_INLINE void igl::in_element(
   for(int e = 0;e<Qr;e++)
   {
     // find all
-    const auto R = aabb.find(V,Ele,Q.row(e).eval(),false);
+    const auto R = aabb.find(vers,Ele,Q.row(e).eval(),false);
     for(const auto r : R)
     {
 #pragma omp critical

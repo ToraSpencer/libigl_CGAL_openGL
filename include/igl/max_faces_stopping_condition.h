@@ -23,7 +23,7 @@ namespace igl
   //    number of faces.
   //   orig_m  number (size) of original face list _**not**_ including any
   //     faces added to handle phony boundary faces connecting to point at
-  //     infinity. For closed meshes it's safe to set this to F.rows()
+  //     infinity. For closed meshes it's safe to set this to tris.rows()
   //   max_m  maximum number of faces
   // Outputs:
   //   stopping_condition

@@ -14,7 +14,7 @@
 namespace igl
 {
   // Find the non-zero entries and there respective indices in a sparse matrix.
-  // Like matlab's [I,J,V] = find(X)
+  // Like matlab's [I,J,vers] = find(X)
   //
   // Templates:
   //   T  should be a eigen sparse matrix primitive type like int or double
@@ -23,7 +23,7 @@ namespace igl
   // Outputs:
   //   I  nnz vector of row indices of non zeros entries in X
   //   J  nnz vector of column indices of non zeros entries in X
-  //   V  nnz vector of type T non-zeros entries in X
+  //   vers  nnz vector of type T non-zeros entries in X
   //
   template <
     typename T, 
@@ -34,7 +34,7 @@ namespace igl
     const Eigen::SparseMatrix<T>& X,
     Eigen::DenseBase<DerivedI> & I,
     Eigen::DenseBase<DerivedJ> & J,
-    Eigen::DenseBase<DerivedV> & V);
+    Eigen::DenseBase<DerivedV> & vers);
   template <
     typename DerivedX,
     typename DerivedI, 
@@ -44,7 +44,7 @@ namespace igl
     const Eigen::DenseBase<DerivedX>& X,
     Eigen::PlainObjectBase<DerivedI> & I,
     Eigen::PlainObjectBase<DerivedJ> & J,
-    Eigen::PlainObjectBase<DerivedV> & V);
+    Eigen::PlainObjectBase<DerivedV> & vers);
   template <
     typename DerivedX,
     typename DerivedI>
@@ -52,7 +52,7 @@ namespace igl
     const Eigen::DenseBase<DerivedX>& X,
     Eigen::PlainObjectBase<DerivedI> & I);
   // Find the non-zero entries and there respective indices in a sparse vector.
-  // Similar to matlab's [I,J,V] = find(X), but instead of [I,J] being
+  // Similar to matlab's [I,J,vers] = find(X), but instead of [I,J] being
   // subscripts into X, since X is a vector we just return I, a list of indices
   // into X
   //
@@ -62,12 +62,12 @@ namespace igl
   //   X  vector whose entries are to be found
   // Outputs:
   //   I  nnz vector of indices of non zeros entries in X
-  //   V  nnz vector of type T non-zeros entries in X
+  //   vers  nnz vector of type T non-zeros entries in X
   template <typename T>
   IGL_INLINE void find(
     const Eigen::SparseVector<T>& X,
     Eigen::Matrix<int,Eigen::Dynamic,1> & I,
-    Eigen::Matrix<T,Eigen::Dynamic,1> & V);
+    Eigen::Matrix<T,Eigen::Dynamic,1> & vers);
 }
 
 #ifndef IGL_STATIC_LIBRARY

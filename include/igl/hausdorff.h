@@ -24,10 +24,10 @@ namespace igl
   // better than max(min(va,Vb),min(vb,Va)). This (at least) is missing
   // "edge-edge" cases like the distance between the two different
   // triangulations of a non-planar quad in 3D. Even simpler, consider the
-  // Hausdorff distance between the non-convex, block letter V polygon (with 7
+  // Hausdorff distance between the non-convex, block letter vers polygon (with 7
   // vertices) in 2D and its convex hull. The Hausdorff distance is defined by
   // the midpoint in the middle of the segment across the concavity and some
-  // non-vertex point _on the edge_ of the V.
+  // non-vertex point _on the edge_ of the vers.
   // Known issue: due to the issue above, this also means that unreferenced
   // vertices can give unexpected results. Therefore, we assume the inputs have
   // no unreferenced vertices.
@@ -55,11 +55,11 @@ namespace igl
     const Eigen::MatrixBase<DerivedFB> & FB,
     Scalar & d);
   // Compute lower and upper bounds (l,u) on the Hausdorff distance between a triangle
-  // (V) and a pointset (e.g., mesh, triangle soup) given by a distance function
+  // (vers) and a pointset (e.g., mesh, triangle soup) given by a distance function
   // handle (dist_to_B).
   //
   // Inputs:
-  //   V   3 by 3 list of corner positions so that V.row(i) is the position of the
+  //   vers   3 by 3 list of corner positions so that vers.row(i) is the position of the
   //     ith corner
   //   dist_to_B  function taking the x,y,z coordinate of a query position and
   //     outputting the closest-point distance to some point-set B
@@ -71,7 +71,7 @@ namespace igl
     typename DerivedV,
     typename Scalar>
   IGL_INLINE void hausdorff(
-    const Eigen::MatrixBase<DerivedV>& V,
+    const Eigen::MatrixBase<DerivedV>& vers,
     const std::function<
       Scalar(const Scalar &,const Scalar &, const Scalar &)> & dist_to_B,
     Scalar & l,

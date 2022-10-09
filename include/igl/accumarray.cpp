@@ -15,15 +15,15 @@ template <
   >
 void igl::accumarray(
   const Eigen::MatrixBase<DerivedS> & S,
-  const Eigen::MatrixBase<DerivedV> & V,
+  const Eigen::MatrixBase<DerivedV> & vers,
   Eigen::PlainObjectBase<DerivedA> & A)
 {
-  assert(V.size() == S.size() && "S and V should be same size");
+  assert(vers.size() == S.size() && "S and vers should be same size");
   if(S.size() == 0) { A.resize(0,1); return; }
   A.setZero(S.maxCoeff()+1,1);
   for(int s = 0;s<S.size();s++)
   {
-    A(S(s)) += V(s);
+    A(S(s)) += vers(s);
   }
 }
 
@@ -33,14 +33,14 @@ template <
   >
 void igl::accumarray(
   const Eigen::MatrixBase<DerivedS> & S,
-  const typename DerivedA::Scalar V,
+  const typename DerivedA::Scalar vers,
   Eigen::PlainObjectBase<DerivedA> & A)
 {
   if(S.size() == 0) { A.resize(0,1); return; }
   A.setZero(S.maxCoeff()+1,1);
   for(int s = 0;s<S.size();s++)
   {
-    A(S(s)) += V;
+    A(S(s)) += vers;
   }
 }
 

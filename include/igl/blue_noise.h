@@ -18,13 +18,13 @@ namespace igl
   // Sets" [Yuksel 2015]. YMMV
   //
   // Inputs:
-  //   V  #V by dim list of mesh vertex positions
-  //   F  #F by 3 list of mesh triangle indices into rows of V
-  //   r  Poisson disk radius (evaluated according to Euclidean distance on V)
+  //   vers  #vers by dim list of mesh vertex positions
+  //   tris  #tris by 3 list of mesh triangle indices into rows of vers
+  //   r  Poisson disk radius (evaluated according to Euclidean distance on vers)
   // Outputs:
   //   B  #P by 3 list of barycentric coordinates, ith row are coordinates of
   //     ith sampled point in face FI(i)
-  //   FI  #P list of indices into F 
+  //   FI  #P list of indices into tris 
   //   P  #P by dim list of sample positions.
   // See also: random_points_on_mesh
   template <
@@ -34,8 +34,8 @@ namespace igl
     typename DerivedFI,
     typename DerivedP>
   IGL_INLINE void blue_noise(
-      const Eigen::MatrixBase<DerivedV> & V,
-      const Eigen::MatrixBase<DerivedF> & F,
+      const Eigen::MatrixBase<DerivedV> & vers,
+      const Eigen::MatrixBase<DerivedF> & tris,
       const typename DerivedV::Scalar r,
       Eigen::PlainObjectBase<DerivedB> & B,
       Eigen::PlainObjectBase<DerivedFI> & FI,

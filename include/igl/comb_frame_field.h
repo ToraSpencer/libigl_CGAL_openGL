@@ -18,21 +18,21 @@ namespace igl
   // frame field.
 
   // Inputs:
-  //   V            #V by 3 eigen Matrix of mesh vertex 3D positions
-  //   F            #F by 4 eigen Matrix of face (quad) indices
-  //   PD1          #F by 3 eigen Matrix of the first per face cross field vector
-  //   PD2          #F by 3 eigen Matrix of the second per face cross field vector
-  //   BIS1_combed  #F by 3 eigen Matrix of the first combed bisector field vector
-  //   BIS2_combed  #F by 3 eigen Matrix of the second combed bisector field vector
+  //   vers            #vers by 3 eigen Matrix of mesh vertex 3D positions
+  //   tris            #tris by 4 eigen Matrix of face (quad) indices
+  //   PD1          #tris by 3 eigen Matrix of the first per face cross field vector
+  //   PD2          #tris by 3 eigen Matrix of the second per face cross field vector
+  //   BIS1_combed  #tris by 3 eigen Matrix of the first combed bisector field vector
+  //   BIS2_combed  #tris by 3 eigen Matrix of the second combed bisector field vector
   // Output:
-  //   PD1_combed  #F by 3 eigen Matrix of the first combed cross field vector
-  //   PD2_combed  #F by 3 eigen Matrix of the second combed cross field vector
+  //   PD1_combed  #tris by 3 eigen Matrix of the first combed cross field vector
+  //   PD2_combed  #tris by 3 eigen Matrix of the second combed cross field vector
   //
 
 
   template <typename DerivedV, typename DerivedF, typename DerivedP>
-  IGL_INLINE void comb_frame_field(const Eigen::MatrixBase<DerivedV> &V,
-                                        const Eigen::MatrixBase<DerivedF> &F,
+  IGL_INLINE void comb_frame_field(const Eigen::MatrixBase<DerivedV> &vers,
+                                        const Eigen::MatrixBase<DerivedF> &tris,
                                         const Eigen::MatrixBase<DerivedP> &PD1,
                                         const Eigen::MatrixBase<DerivedP> &PD2,
                                         const Eigen::MatrixBase<DerivedP> &BIS1_combed,

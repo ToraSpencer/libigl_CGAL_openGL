@@ -19,13 +19,13 @@ namespace igl
   // Templates:
   //  Index  index type
   // Inputs:
-  //   F  #V by dim list of mesh faces
+  //   tris  #vers by dim list of mesh faces
   // Outputs:
   //   L  list of loops where L[i] = ordered list of boundary vertices in loop i
   //
   template <typename DerivedF, typename Index>
   IGL_INLINE void boundary_loop(
-    const Eigen::MatrixBase<DerivedF>& F, 
+    const Eigen::MatrixBase<DerivedF>& tris, 
     std::vector<std::vector<Index> >& L);
 
 
@@ -35,13 +35,13 @@ namespace igl
   // Templates:
   //  Index  index type
   // Inputs:
-  //   F  #V by dim list of mesh faces
+  //   tris  #vers by dim list of mesh faces
   // Outputs:
   //   L  ordered list of boundary vertices of longest boundary loop
   //
   template <typename DerivedF, typename Index>
   IGL_INLINE void boundary_loop(
-    const Eigen::MatrixBase<DerivedF>& F, 
+    const Eigen::MatrixBase<DerivedF>& tris, 
     std::vector<Index>& L);
 
   // Compute ordered boundary loops for a manifold mesh and return the 
@@ -50,13 +50,13 @@ namespace igl
   // Templates:
   //  Index  index type
   // Inputs:
-  //   F  #V by dim list of mesh faces
+  //   tris  #vers by dim list of mesh faces
   // Outputs:
   //   L  ordered list of boundary vertices of longest boundary loop
   //
   template <typename DerivedF, typename DerivedL>
   IGL_INLINE void boundary_loop(
-    const Eigen::MatrixBase<DerivedF>& F, 
+    const Eigen::MatrixBase<DerivedF>& tris, 
     Eigen::PlainObjectBase<DerivedL>& L);
 }
 

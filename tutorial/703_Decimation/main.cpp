@@ -29,47 +29,44 @@ int main(int argc,  char * argv[])
 
   MatrixXd vers, versOld; 
   MatrixXi tris, trisOld; 
+  VectorXi edgeUeInfo;
+  MatrixXi uEdges, UeTrisInfo, UeCornersInfo;
+  Eigen::VectorXi timeStamps;
+  MatrixXd collapsedVers;                       // 边收缩之后生成的顶点的位置；
+  int num_collapsed;                                // 边收缩循环的计数；
+  igl::min_heap< std::tuple<double, int, int>> pQueue;
   igl::opengl::glfw::Viewer viewer; 
   read_triangle_mesh(filename, versOld, trisOld); 
 
-  // Prepare array-based edge data structures and priority queue
-  VectorXi EMAP; 
-  MatrixXi edges, EF, EI; 
-  igl::min_heap< std::tuple<double, int, int> > workQueue; 
-  Eigen::VectorXi EQ; 
-
-  // If an edge were collapsed,  we'd collapse it to these points:
-  MatrixXd C; 
-  int num_collapsed;            // 边收缩循环的计数；
 
   // lambda——所有数据复位
   const auto & reset = [&]()
   {
     tris = trisOld; 
     vers = versOld; 
-    edge_flaps(tris, edges, EMAP, EF, EI); 
-    C.resize(edges.rows(), vers.cols()); 
-    VectorXd costs(edges.rows()); 
+    edge_flaps(tris, uEdges, edgeUeInfo, UeTrisInfo, UeCornersInfo); 
+    collapsedVers.resize(uEdges.rows(), vers.cols()); 
+    VectorXd costs(uEdges.rows()); 
 
-    // https://stackoverflow.com/questions/2852140/priority-queue-clear-method
-    workQueue = {}; 
-    EQ = Eigen::VectorXi::Zero(edges.rows()); 
+    pQueue = {};            // https://stackoverflow.com/questions/2852140/priority-queue-clear-method
+    timeStamps = Eigen::VectorXi::Zero(uEdges.rows()); 
 
+    // r1. 计算每条边的折叠cost值，以及折叠之后的顶点坐标，存入优先队列pQueue；
     {
-      Eigen::VectorXd costs(edges.rows()); 
-      igl::parallel_for(edges.rows(), \
-          [&](const int e)
+      Eigen::VectorXd costs(uEdges.rows()); 
+      igl::parallel_for(uEdges.rows(), \
+          [&](const int i)
           {
-            double cost = e; 
-            RowVectorXd p(1, 3); 
-            shortest_edge_and_midpoint(e, vers, tris, edges, EMAP, EF, EI, cost, p); 
-            C.row(e) = p; 
-            costs(e) = cost; 
+            double cost = i; 
+            RowVectorXd edgeCenter(1, 3);           // 取边的中点作为边折叠之后的顶点；
+            shortest_edge_and_midpoint(i, vers, tris, uEdges, edgeUeInfo, UeTrisInfo, UeCornersInfo, cost, edgeCenter); 
+            collapsedVers.row(i) = edgeCenter; 
+            costs(i) = cost; 
           },\
           10000); 
 
-      for(int e = 0; e<edges.rows(); e++)
-        workQueue.emplace(costs(e), e, 0); 
+      for(int i = 0; i < uEdges.rows(); i++)
+        pQueue.emplace(costs(i), i, 0); 
     }
 
     num_collapsed = 0; 
@@ -78,24 +75,27 @@ int main(int argc,  char * argv[])
     viewer.data().set_face_based(true); 
   }; 
 
+
   // lambda——执行网格精简，准备渲染的数据；
   const auto &pre_draw = [&](igl::opengl::glfw::Viewer & viewer)->bool
   {
-    // 每一次动画循环中，收缩10%的边；
-    if(viewer.core().is_animating && !workQueue.empty())
+    // p1. 每一次动画循环中，收缩10%的边；
+    if(viewer.core().is_animating && !pQueue.empty())
     {
       bool FlagCollapsed = false;           // 本次循环中边收缩是否执行成功；
 
-      // 执行边收缩——collapse edge
-      const int max_iter = std::ceil(0.01*workQueue.size()); 
+      // p1.1 执行边收缩——collapse edge
+      const int max_iter = std::ceil(0.01*pQueue.size()); 
       for(int j = 0; j < max_iter; j++)
       {
-        if(!collapse_edge(shortest_edge_and_midpoint, vers, tris, edges, EMAP, EF, EI, workQueue, EQ, C))   // collapse_edge()重载2.2
+        if(!collapse_edge(shortest_edge_and_midpoint, vers, tris, uEdges, \
+                    edgeUeInfo, UeTrisInfo, UeCornersInfo, pQueue, timeStamps, collapsedVers))              // collapse_edge()重载2.2
             break; 
         FlagCollapsed = true; 
         num_collapsed++; 
       }
 
+      // p1.2 
       if(FlagCollapsed)
       {
         viewer.data().clear(); 
@@ -106,6 +106,7 @@ int main(int argc,  char * argv[])
 
     return false; 
   }; 
+
 
   // lambda——键盘事件响应；
   const auto &key_down = [&](igl::opengl::glfw::Viewer &viewer, unsigned char key, int mod)->bool

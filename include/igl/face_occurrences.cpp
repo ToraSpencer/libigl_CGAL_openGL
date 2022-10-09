@@ -15,14 +15,14 @@
 
 template <typename IntegerF, typename IntegerC>
 IGL_INLINE void igl::face_occurrences(
-  const std::vector<std::vector<IntegerF> > & F,
+  const std::vector<std::vector<IntegerF> > & tris,
   std::vector<IntegerC> & C)
 {
   using namespace std;
 
   // Get a list of sorted faces
-  vector<vector<IntegerF> > sortedF = F;
-  for(int i = 0; i < (int)F.size();i++)
+  vector<vector<IntegerF> > sortedF = tris;
+  for(int i = 0; i < (int)tris.size();i++)
   {
     sort(sortedF[i].begin(),sortedF[i].end());
   }
@@ -43,8 +43,8 @@ IGL_INLINE void igl::face_occurrences(
   }
 
   // Resize output to fit number of ones
-  C.resize(F.size());
-  for(int i = 0;i< (int)F.size();i++)
+  C.resize(tris.size());
+  for(int i = 0;i< (int)tris.size();i++)
   {
     // sorted face should definitely be in counts map
     assert(counts.find(sortedF[i]) != counts.end());
@@ -54,12 +54,12 @@ IGL_INLINE void igl::face_occurrences(
 
 template <typename DerivedF, typename DerivedC>
 IGL_INLINE void igl::face_occurrences(
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedF> & tris,
   Eigen::PlainObjectBase<DerivedC> & C)
 {
   // Should really just rewrite using Eigen+libigl ...
   std::vector<std::vector<typename DerivedF::Scalar> > vF;
-  matrix_to_list(F,vF);
+  matrix_to_list(tris,vF);
   std::vector<typename DerivedC::Scalar> vC;
   igl::face_occurrences(vF,vC);
   list_to_matrix(vC,C);

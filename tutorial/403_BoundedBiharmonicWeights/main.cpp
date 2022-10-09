@@ -28,7 +28,7 @@ typedef
 
 const Eigen::RowVector3d sea_green(70./255.,252./255.,167./255.);
 int selected = 0;
-Eigen::MatrixXd V,W,U,C,M;
+Eigen::MatrixXd vers,W,U,C,M;
 Eigen::MatrixXi T,F,BE;
 Eigen::VectorXi P;
 RotationList pose;
@@ -103,8 +103,8 @@ int main(int argc, char *argv[])
 {
   using namespace Eigen;
   using namespace std;
-  igl::readMESH(TUTORIAL_SHARED_PATH "/hand.mesh",V,T,F);
-  U=V;
+  igl::readMESH(TUTORIAL_SHARED_PATH "/hand.mesh",vers,T,F);
+  U=vers;
   igl::readTGF(TUTORIAL_SHARED_PATH "/hand.tgf",C,BE);
   // retrieve parents for forward kinematics
   igl::directed_edge_parents(BE,P);
@@ -119,31 +119,31 @@ int main(int argc, char *argv[])
   VectorXi b;
   // List of boundary conditions of each weight function
   MatrixXd bc;
-  igl::boundary_conditions(V,T,C,VectorXi(),BE,MatrixXi(),b,bc);
+  igl::boundary_conditions(vers,T,C,VectorXi(),BE,MatrixXi(),b,bc);
 
   // compute BBW weights matrix
   igl::BBWData bbw_data;
   // only a few iterations for sake of demo
   bbw_data.active_set_params.max_iter = 8;
   bbw_data.verbosity = 2;
-  if(!igl::bbw(V,T,b,bc,bbw_data,W))
+  if(!igl::bbw(vers,T,b,bc,bbw_data,W))
   {
     return EXIT_FAILURE;
   }
 
-  //MatrixXd Vsurf = V.topLeftCorner(F.maxCoeff()+1,V.cols());
+  //MatrixXd Vsurf = vers.topLeftCorner(F.maxCoeff()+1,vers.cols());
   //MatrixXd Wsurf;
   //if(!igl::bone_heat(Vsurf,F,C,VectorXi(),BE,MatrixXi(),Wsurf))
   //{
   //  return false;
   //}
-  //W.setConstant(V.rows(),Wsurf.cols(),1);
+  //W.setConstant(vers.rows(),Wsurf.cols(),1);
   //W.topLeftCorner(Wsurf.rows(),Wsurf.cols()) = Wsurf = Wsurf = Wsurf = Wsurf;
 
   // Normalize weights to sum to one
   igl::normalize_row_sums(W,W);
   // precompute linear blend skinning matrix
-  igl::lbs_matrix(V,W,M);
+  igl::lbs_matrix(vers,W,M);
 
   // Plot the mesh with pseudocolors
   igl::opengl::glfw::Viewer viewer;

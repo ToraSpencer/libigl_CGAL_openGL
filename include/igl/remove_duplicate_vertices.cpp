@@ -11,7 +11,7 @@ template <
   typename DerivedSVI, 
   typename DerivedSVJ>
 IGL_INLINE void igl::remove_duplicate_vertices(
-  const Eigen::MatrixBase<DerivedV>& V,
+  const Eigen::MatrixBase<DerivedV>& vers,
   const double epsilon,
   Eigen::PlainObjectBase<DerivedSV>& SV,
   Eigen::PlainObjectBase<DerivedSVI>& SVI,
@@ -20,12 +20,12 @@ IGL_INLINE void igl::remove_duplicate_vertices(
   if(epsilon > 0)
   {
     DerivedV rV,rSV;
-    round((V/(epsilon)).eval(),rV);
+    round((vers/(epsilon)).eval(),rV);
     unique_rows(rV,rSV,SVI,SVJ);
-    slice(V,SVI,colon<typename DerivedSVI::Scalar>(0,V.cols()-1),SV);
+    slice(vers,SVI,colon<typename DerivedSVI::Scalar>(0,vers.cols()-1),SV);
   }else
   {
-    unique_rows(V,SV,SVI,SVJ);
+    unique_rows(vers,SV,SVI,SVJ);
   }
 }
 
@@ -37,8 +37,8 @@ template <
   typename DerivedSVJ,
   typename DerivedSF>
 IGL_INLINE void igl::remove_duplicate_vertices(
-  const Eigen::MatrixBase<DerivedV>& V,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const Eigen::MatrixBase<DerivedF>& tris,
   const double epsilon,
   Eigen::PlainObjectBase<DerivedSV>& SV,
   Eigen::PlainObjectBase<DerivedSVI>& SVI,
@@ -47,13 +47,13 @@ IGL_INLINE void igl::remove_duplicate_vertices(
 {
   using namespace Eigen;
   using namespace std;
-  remove_duplicate_vertices(V,epsilon,SV,SVI,SVJ);
-  SF.resizeLike(F);
-  for(int f = 0;f<F.rows();f++)
+  remove_duplicate_vertices(vers,epsilon,SV,SVI,SVJ);
+  SF.resizeLike(tris);
+  for(int f = 0;f<tris.rows();f++)
   {
-    for(int c = 0;c<F.cols();c++)
+    for(int c = 0;c<tris.cols();c++)
     {
-      SF(f,c) = SVJ(F(f,c));
+      SF(f,c) = SVJ(tris(f,c));
     }
   }
 }

@@ -42,7 +42,7 @@ namespace igl
     const int num_samples,
     Eigen::PlainObjectBase<DerivedS> & S);
   // Inputs:
-  //   AABB  axis-aligned bounding box hierarchy around (V,F)
+  //   AABB  axis-aligned bounding box hierarchy around (vers,tris)
   template <
     typename DerivedV,
     int DIM,
@@ -52,15 +52,15 @@ namespace igl
     typename DerivedS >
   IGL_INLINE void shape_diameter_function(
     const igl::AABB<DerivedV,DIM> & aabb,
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const Eigen::MatrixBase<DerivedP> & P,
     const Eigen::MatrixBase<DerivedN> & N,
     const int num_samples,
     Eigen::PlainObjectBase<DerivedS> & S);
   // Inputs:
-  //    V  #V by 3 list of mesh vertex positions
-  //    F  #F by 3 list of mesh face indices into V
+  //    vers  #vers by 3 list of mesh vertex positions
+  //    tris  #tris by 3 list of mesh face indices into vers
   template <
     typename DerivedV,
     typename DerivedF,
@@ -68,21 +68,21 @@ namespace igl
     typename DerivedN,
     typename DerivedS >
   IGL_INLINE void shape_diameter_function(
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const Eigen::MatrixBase<DerivedP> & P,
     const Eigen::MatrixBase<DerivedN> & N,
     const int num_samples,
     Eigen::PlainObjectBase<DerivedS> & S);
-  //   per_face  whether to compute per face (S is #F by 1) or per vertex (S is
-  //     #V by 1)
+  //   per_face  whether to compute per face (S is #tris by 1) or per vertex (S is
+  //     #vers by 1)
   template <
     typename DerivedV,
     typename DerivedF,
     typename DerivedS>
   IGL_INLINE void shape_diameter_function(
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const bool per_face,
     const int num_samples,
     Eigen::PlainObjectBase<DerivedS> & S);

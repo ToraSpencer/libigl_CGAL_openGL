@@ -14,18 +14,18 @@
 #include "min_size.h"
 
 template <class Row, class Mat>
-IGL_INLINE bool igl::rows_to_matrix(const std::vector<Row> & V,Mat & M)
+IGL_INLINE bool igl::rows_to_matrix(const std::vector<Row> & vers,Mat & M)
 {
   // number of columns
-  int m = V.size();
+  int m = vers.size();
   if(m == 0)
   {
     fprintf(stderr,"Error: rows_to_matrix() list is empty()\n");
     return false;
   }
   // number of rows
-  int n = igl::min_size(V);
-  if(n != igl::max_size(V))
+  int n = igl::min_size(vers);
+  if(n != igl::max_size(vers))
   {
     fprintf(stderr,"Error: rows_to_matrix()"
       " list elements are not all the same size\n");
@@ -37,10 +37,10 @@ IGL_INLINE bool igl::rows_to_matrix(const std::vector<Row> & V,Mat & M)
 
   // Loop over rows
   int i = 0;
-  typename std::vector<Row>::const_iterator iter = V.begin();
-  while(iter != V.end())
+  typename std::vector<Row>::const_iterator iter = vers.begin();
+  while(iter != vers.end())
   {
-    M.row(i) = V[i];
+    M.row(i) = vers[i];
     // increment index and iterator
     i++;
     iter++;

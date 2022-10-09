@@ -150,14 +150,14 @@ namespace igl
     FastWindingNumber::HDK_Sample::UT_SolidAngle<float,float> ut_solid_angle;
     // Need copies of these so they stay alive between calls.
     std::vector<FastWindingNumber::HDK_Sample::UT_Vector3T<float> > U;
-    std::vector<int> F;
+    std::vector<int> tris;
   };
   // Compute approximate winding number of a triangle soup mesh according to
   // "Fast Winding Numbers for Soups and Clouds" [Barill et al. 2018].
   //
   // Inputs:
-  //   V  #V by 3 list of mesh vertex positions
-  //   F  #F by 3 list of triangle mesh indices into rows of V
+  //   vers  #vers by 3 list of mesh vertex positions
+  //   tris  #tris by 3 list of triangle mesh indices into rows of vers
   //   Q  #Q by 3 list of query positions
   // Outputs:
   //   W  #Q list of winding number values
@@ -167,16 +167,16 @@ namespace igl
     typename DerivedQ,
     typename DerivedW>
   IGL_INLINE void fast_winding_number(
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const Eigen::MatrixBase<DerivedQ> & Q,
     Eigen::PlainObjectBase<DerivedW> & W);
   // Precomputation for computing approximate winding numbers of a triangle
   // soup.
   //
   // Inputs:
-  //   V  #V by 3 list of mesh vertex positions
-  //   F  #F by 3 list of triangle mesh indices into rows of V
+  //   vers  #vers by 3 list of mesh vertex positions
+  //   tris  #tris by 3 list of triangle mesh indices into rows of vers
   //   order  Taylor series expansion order to use (e.g., 2)
   // Outputs:
   //   fwn_bvh  Precomputed bounding volume hierarchy
@@ -185,8 +185,8 @@ namespace igl
     typename DerivedV,
     typename DerivedF>
   IGL_INLINE void fast_winding_number(
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const int order,
     FastWindingNumberBVH & fwn_bvh);
   // After precomputation, compute winding number at a each of many points in a

@@ -14,8 +14,8 @@ template <
   typename uE2Etype,
   typename sharptype>
 IGL_INLINE void igl::sharp_edges(
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const typename DerivedV::Scalar angle,
   Eigen::PlainObjectBase<DerivedSE> & SE,
   Eigen::PlainObjectBase<DerivedE> & E,
@@ -31,11 +31,11 @@ IGL_INLINE void igl::sharp_edges(
   typedef Eigen::Matrix<Scalar,1,3> RowVector3S;
   typedef Eigen::Matrix<Index,Eigen::Dynamic,1> VectorXI;
 
-  unique_edge_map(F,E,uE,EMAP,uE2E);
+  unique_edge_map(tris,E,uE,EMAP,uE2E);
   MatrixX3S N;
-  per_face_normals(V,F,N);
+  per_face_normals(vers,tris,N);
   // number of faces
-  const Index m = F.rows();
+  const Index m = tris.rows();
   // Dihedral angles
   //std::vector<Eigen::Triplet<Scalar,int> > DIJV;
   sharp.clear();
@@ -59,7 +59,7 @@ IGL_INLINE void igl::sharp_edges(
       const RowVector3S nj = N.row(fj);
       // Edge vector
       // normalization might not be necessary
-      const RowVector3S ev = (V.row(E(ei,1)) - V.row(E(ei,0))).normalized();
+      const RowVector3S ev = (vers.row(E(ei,1)) - vers.row(E(ei,0))).normalized();
       const Scalar dij = 
         igl::PI - atan2((ni.cross(nj)).dot(ev),ni.dot(nj));
       //DIJV.emplace_back(fi,fj,dij);
@@ -86,8 +86,8 @@ template <
   typename DerivedF,
   typename DerivedSE>
 IGL_INLINE void igl::sharp_edges(
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const typename DerivedV::Scalar angle,
   Eigen::PlainObjectBase<DerivedSE> & SE
   )
@@ -102,7 +102,7 @@ IGL_INLINE void igl::sharp_edges(
   VectorXI EMAP;
   std::vector<std::vector<Index> > uE2E;
   std::vector<int>  sharp;
-  return sharp_edges(V,F,angle,SE,E,uE,EMAP,uE2E,sharp);
+  return sharp_edges(vers,tris,angle,SE,E,uE,EMAP,uE2E,sharp);
 }
 
 #ifdef IGL_STATIC_LIBRARY

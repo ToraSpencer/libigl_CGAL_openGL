@@ -14,18 +14,18 @@ namespace igl
   // Computes the barycenter of every simplex
   //
   // Inputs:
-  //   V  #V x dim matrix of vertex coordinates
-  //   F  #F x simplex_size  matrix of indices of simplex corners into V
+  //   vers  #vers x dim matrix of vertex coordinates
+  //   tris  #tris x simplex_size  matrix of indices of simplex corners into vers
   // Output:
-  //   BC  #F x dim matrix of 3d vertices
+  //   BC  #tris x dim matrix of 3d vertices
   //
   template <
     typename DerivedV,
     typename DerivedF,
     typename DerivedBC>
   IGL_INLINE void barycenter(
-      const Eigen::MatrixBase<DerivedV> & V,
-      const Eigen::MatrixBase<DerivedF> & F,
+      const Eigen::MatrixBase<DerivedV> & vers,
+      const Eigen::MatrixBase<DerivedF> & tris,
       Eigen::PlainObjectBase<DerivedBC> & BC);
 }
 

@@ -11,7 +11,7 @@
 #include <iostream>
 
 // Broken Implementation
-IGL_INLINE void igl::mvc(const Eigen::MatrixXd &V, const Eigen::MatrixXd &C, Eigen::MatrixXd &W)
+IGL_INLINE void igl::mvc(const Eigen::MatrixXd &vers, const Eigen::MatrixXd &C, Eigen::MatrixXd &W)
 {
   
   // at least three control points
@@ -19,7 +19,7 @@ IGL_INLINE void igl::mvc(const Eigen::MatrixXd &V, const Eigen::MatrixXd &C, Eig
   
   // dimension of points
   assert(C.cols() == 3 || C.cols() == 2);
-  assert(V.cols() == 3 || V.cols() == 2);
+  assert(vers.cols() == 3 || vers.cols() == 2);
   
   // number of polygon points
   int num = C.rows();
@@ -28,26 +28,26 @@ IGL_INLINE void igl::mvc(const Eigen::MatrixXd &V, const Eigen::MatrixXd &C, Eig
   int i_prev, i_next;
   
   // check if either are 3D but really all z's are 0
-  bool V_flat = (V.cols() == 3) && (std::sqrt( (V.col(3)).dot(V.col(3)) ) < 1e-10);
+  bool V_flat = (vers.cols() == 3) && (std::sqrt( (vers.col(3)).dot(vers.col(3)) ) < 1e-10);
   bool C_flat = (C.cols() == 3) && (std::sqrt( (C.col(3)).dot(C.col(3)) ) < 1e-10);
 
   // if both are essentially 2D then ignore z-coords
-  if((C.cols() == 2 || C_flat) && (V.cols() == 2 || V_flat))
+  if((C.cols() == 2 || C_flat) && (vers.cols() == 2 || V_flat))
   {
     // ignore z coordinate
-    V1 = V.block(0,0,V.rows(),2);
+    V1 = vers.block(0,0,vers.rows(),2);
     C1 = C.block(0,0,C.rows(),2);
   }
   else
   {
     // give dummy z coordinate to either mesh or poly
-    if(V.rows() == 2)
+    if(vers.rows() == 2)
     {
-      V1 = Eigen::MatrixXd(V.rows(),3);
-      V1.block(0,0,V.rows(),2) = V;
+      V1 = Eigen::MatrixXd(vers.rows(),3);
+      V1.block(0,0,vers.rows(),2) = vers;
     }
     else
-      V1 = V;
+      V1 = vers;
 
     if(C.rows() == 2)
     {
@@ -91,7 +91,7 @@ IGL_INLINE void igl::mvc(const Eigen::MatrixXd &V, const Eigen::MatrixXd &C, Eig
     {
       double dist_to_plane_V = std::abs((V1.row(i)-p.transpose()).dot(n));
       if(dist_to_plane_V>1e-10)
-        std::cerr<<"Distance from V to plane of C is large..."<<std::endl;
+        std::cerr<<"Distance from vers to plane of C is large..."<<std::endl;
     }
     
     // change of basis
@@ -117,7 +117,7 @@ IGL_INLINE void igl::mvc(const Eigen::MatrixXd &V, const Eigen::MatrixXd &C, Eig
     
   }
   
-  // vectors from V to every C, where CmV(i,j,:) is the vector from domain
+  // vectors from vers to every C, where CmV(i,j,:) is the vector from domain
   // vertex j to handle i
   double EPS = 1e-10;
   Eigen::MatrixXd WW = Eigen::MatrixXd(C1.rows(), V1.rows());
@@ -136,7 +136,7 @@ IGL_INLINE void igl::mvc(const Eigen::MatrixXd &V, const Eigen::MatrixXd &C, Eig
       Eigen::VectorXd v = C1.row(i) - V1.row(j);
       Eigen::VectorXd vnext = C1.row(i_next) - V1.row(j);
       Eigen::VectorXd vprev = C1.row(i_prev) - V1.row(j);
-      // distance from V to every C, where dist_C_V(i,j) is the distance from domain
+      // distance from vers to every C, where dist_C_V(i,j) is the distance from domain
       // vertex j to handle i
       dist_C_V(i,j) = std::sqrt(v.dot(v));
       double dist_C_V_next = std::sqrt(vnext.dot(vnext));
@@ -188,7 +188,7 @@ IGL_INLINE void igl::mvc(const Eigen::MatrixXd &V, const Eigen::MatrixXd &C, Eig
   }
   
   // normalize W
-  for (int i = 0; i<V.rows(); ++i)
+  for (int i = 0; i<vers.rows(); ++i)
     WW.col(i) /= WW.col(i).sum();
   
   // we've made W transpose

@@ -17,20 +17,20 @@ namespace igl
   // as possible to a cross field, in the least square sense.
   //
   // Inputs:
-  //   V       #V by 3 coordinates of the vertices
-  //   F       #F by 3 list of mesh faces (must be triangles)
-  //   FF1     #F by 3 first representative vector of the frame field
-  //   FF2     #F by 3 second representative vector of the frame field
+  //   vers       #vers by 3 coordinates of the vertices
+  //   tris       #tris by 3 list of mesh faces (must be triangles)
+  //   FF1     #tris by 3 first representative vector of the frame field
+  //   FF2     #tris by 3 second representative vector of the frame field
   //   lambda  laplacian regularization parameter 0=no regularization 1=full regularization
   //
   // Outputs:
-  //   V_d     #F by 3 deformed, first representative vector
-  //   V_d     #F by 3 deformed, first representative vector
-  //   V_d     #F by 3 deformed, first representative vector
+  //   V_d     #tris by 3 deformed, first representative vector
+  //   V_d     #tris by 3 deformed, first representative vector
+  //   V_d     #tris by 3 deformed, first representative vector
   //
   IGL_INLINE void frame_field_deformer(
-    const Eigen::MatrixXd& V,
-    const Eigen::MatrixXi& F,
+    const Eigen::MatrixXd& vers,
+    const Eigen::MatrixXi& tris,
     const Eigen::MatrixXd& FF1,
     const Eigen::MatrixXd& FF2,
     Eigen::MatrixXd&       V_d,

@@ -17,12 +17,12 @@ namespace igl
   // e.g., [Fisher et al. 2007].
   //
   // Inputs:
-  //   V  #V by dim list of mesh vertex positions
-  //   F  #F by 3 list of mesh elements (triangles or tetrahedra)
+  //   vers  #vers by dim list of mesh vertex positions
+  //   tris  #tris by 3 list of mesh elements (triangles or tetrahedra)
   // Outputs: 
-  //   L  #V by #V cotangent matrix, each row i corresponding to V(i,:)
-  //   l_intrinsic  #F by 3 list of intrinsic edge-lengths used to compute L
-  //   F_intrinsic  #F by 3 list of intrinsic face indices used to compute L
+  //   L  #vers by #vers cotangent matrix, each row i corresponding to vers(i,:)
+  //   l_intrinsic  #tris by 3 list of intrinsic edge-lengths used to compute L
+  //   F_intrinsic  #tris by 3 list of intrinsic face indices used to compute L
   //
   // See also: intrinsic_delaunay_triangulation, cotmatrix, cotmatrix_intrinsic
   template <
@@ -32,15 +32,15 @@ namespace igl
     typename Derivedl_intrinsic,
     typename DerivedF_intrinsic>
   IGL_INLINE void intrinsic_delaunay_cotmatrix(
-    const Eigen::MatrixBase<DerivedV> & V, 
-    const Eigen::MatrixBase<DerivedF> & F, 
+    const Eigen::MatrixBase<DerivedV> & vers, 
+    const Eigen::MatrixBase<DerivedF> & tris, 
     Eigen::SparseMatrix<Scalar>& L,
     Eigen::PlainObjectBase<Derivedl_intrinsic> & l_intrinsic,
     Eigen::PlainObjectBase<DerivedF_intrinsic> & F_intrinsic);
   template <typename DerivedV, typename DerivedF, typename Scalar>
   IGL_INLINE void intrinsic_delaunay_cotmatrix(
-    const Eigen::MatrixBase<DerivedV> & V, 
-    const Eigen::MatrixBase<DerivedF> & F, 
+    const Eigen::MatrixBase<DerivedV> & vers, 
+    const Eigen::MatrixBase<DerivedF> & tris, 
     Eigen::SparseMatrix<Scalar>& L);
 }
 

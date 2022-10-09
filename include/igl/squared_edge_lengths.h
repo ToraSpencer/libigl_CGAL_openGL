@@ -21,14 +21,14 @@ namespace igl
   //   DerivedF derived from face indices matrix type: i.e. MatrixXi
   //   DerivedL derived from edge lengths matrix type: i.e. MatrixXd
   // Inputs:
-  //   V  eigen matrix #V by 3
-  //   F  #F by 2 list of mesh edges
+  //   vers  eigen matrix #vers by 3
+  //   tris  #tris by 2 list of mesh edges
   //    or
-  //   F  #F by 3 list of mesh faces (must be triangles)
+  //   tris  #tris by 3 list of mesh faces (must be triangles)
   //    or
   //   T  #T by 4 list of mesh elements (must be tets)
   // Outputs:
-  //   L  #F by {1|3|6} list of edge lengths squared
+  //   L  #tris by {1|3|6} list of edge lengths squared
   //     for edges, column of lengths
   //     for triangles, columns correspond to edges [1,2],[2,0],[0,1]
   //     for tets, columns correspond to edges
@@ -36,8 +36,8 @@ namespace igl
   //
   template <typename DerivedV, typename DerivedF, typename DerivedL>
   IGL_INLINE void squared_edge_lengths(
-    const Eigen::MatrixBase<DerivedV>& V,
-    const Eigen::MatrixBase<DerivedF>& F,
+    const Eigen::MatrixBase<DerivedV>& vers,
+    const Eigen::MatrixBase<DerivedF>& tris,
     Eigen::PlainObjectBase<DerivedL>& L);
 }
 

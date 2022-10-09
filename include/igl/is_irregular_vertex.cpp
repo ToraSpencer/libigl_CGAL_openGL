@@ -11,28 +11,28 @@
 #include "is_border_vertex.h"
 
 template <typename DerivedV, typename DerivedF>
-IGL_INLINE std::vector<bool> igl::is_irregular_vertex(const Eigen::MatrixBase<DerivedV> &V, const Eigen::MatrixBase<DerivedF> &F)
+IGL_INLINE std::vector<bool> igl::is_irregular_vertex(const Eigen::MatrixBase<DerivedV> &vers, const Eigen::MatrixBase<DerivedF> &tris)
 {
-  Eigen::VectorXi count = Eigen::VectorXi::Zero(F.maxCoeff()+1);
+  Eigen::VectorXi count = Eigen::VectorXi::Zero(tris.maxCoeff()+1);
 
-  for(unsigned i=0; i<F.rows();++i)
+  for(unsigned i=0; i<tris.rows();++i)
   {
-    for(unsigned j=0; j<F.cols();++j)
+    for(unsigned j=0; j<tris.cols();++j)
     {
-      if (F(i,j) < F(i,(j+1)%F.cols())) // avoid duplicate edges
+      if (tris(i,j) < tris(i,(j+1)%tris.cols())) // avoid duplicate edges
       {
-        count(F(i,j  )) += 1;
-        count(F(i,(j+1)%F.cols())) += 1;
+        count(tris(i,j  )) += 1;
+        count(tris(i,(j+1)%tris.cols())) += 1;
       }
     }
   }
 
-  std::vector<bool> border = is_border_vertex(F);
+  std::vector<bool> border = is_border_vertex(tris);
 
   std::vector<bool> res(count.size());
 
   for (unsigned i=0; i<res.size(); ++i)
-    res[i] = !border[i] && count[i] != (F.cols() == 3 ? 6 : 4 );
+    res[i] = !border[i] && count[i] != (tris.cols() == 3 ? 6 : 4 );
 
   return res;
 }

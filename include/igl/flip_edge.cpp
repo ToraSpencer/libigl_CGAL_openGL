@@ -15,7 +15,7 @@ template <
   typename DerivedEMAP,
   typename uE2EType>
 IGL_INLINE void igl::flip_edge(
-  Eigen::PlainObjectBase<DerivedF> & F,
+  Eigen::PlainObjectBase<DerivedF> & tris,
   Eigen::PlainObjectBase<DerivedE> & E,
   Eigen::PlainObjectBase<DeriveduE> & uE,
   Eigen::PlainObjectBase<DerivedEMAP> & EMAP,
@@ -23,15 +23,15 @@ IGL_INLINE void igl::flip_edge(
   const size_t uei)
 {
   typedef typename DerivedF::Scalar Index;
-  const size_t num_faces = F.rows();
-  assert(F.cols() == 3);
+  const size_t num_faces = tris.rows();
+  assert(tris.cols() == 3);
   // Edge to flip [v1,v2] --> [v3,v4]
   // Before:
-  // F(f1,:) = [v1,v2,v4] // in some cyclic order
-  // F(f2,:) = [v1,v3,v2] // in some cyclic order
+  // tris(f1,:) = [v1,v2,v4] // in some cyclic order
+  // tris(f2,:) = [v1,v3,v2] // in some cyclic order
   // After: 
-  // F(f1,:) = [v1,v3,v4] // in *this* order 
-  // F(f2,:) = [v2,v4,v3] // in *this* order
+  // tris(f1,:) = [v1,v3,v4] // in *this* order 
+  // tris(f2,:) = [v2,v4,v3] // in *this* order
   //
   //          v1                 v1
   //          /|\                / \
@@ -54,12 +54,12 @@ IGL_INLINE void igl::flip_edge(
   assert(c2 < 3);
 
   assert(f1 != f2);
-  const size_t v1 = F(f1, (c1+1)%3);
-  const size_t v2 = F(f1, (c1+2)%3);
-  const size_t v4 = F(f1, c1);
-  const size_t v3 = F(f2, c2);
-  assert(F(f2, (c2+2)%3) == v1);
-  assert(F(f2, (c2+1)%3) == v2);
+  const size_t v1 = tris(f1, (c1+1)%3);
+  const size_t v2 = tris(f1, (c1+2)%3);
+  const size_t v4 = tris(f1, c1);
+  const size_t v3 = tris(f2, c2);
+  assert(tris(f2, (c2+2)%3) == v1);
+  assert(tris(f2, (c2+1)%3) == v2);
 
   const size_t e_12 = half_edges[0];
   const size_t e_24 = f1 + ((c1 + 1) % 3) * num_faces;
@@ -85,12 +85,12 @@ IGL_INLINE void igl::flip_edge(
   const size_t ue_13 = EMAP(e_13);
   const size_t ue_32 = EMAP(e_32);
 
-  F(f1, 0) = v1;
-  F(f1, 1) = v3;
-  F(f1, 2) = v4;
-  F(f2, 0) = v2;
-  F(f2, 1) = v4;
-  F(f2, 2) = v3;
+  tris(f1, 0) = v1;
+  tris(f1, 1) = v3;
+  tris(f1, 2) = v4;
+  tris(f2, 0) = v2;
+  tris(f2, 1) = v4;
+  tris(f2, 2) = v3;
 
   uE(uei, 0) = v3;
   uE(uei, 1) = v4;
@@ -140,10 +140,10 @@ IGL_INLINE void igl::flip_edge(
       const size_t first_c  = adj_faces[0] / num_faces;
       const size_t second_f = adj_faces[1] % num_faces;
       const size_t second_c = adj_faces[1] / num_faces;
-      const size_t vertex_0 = F(first_f, (first_c+1) % 3);
-      const size_t vertex_1 = F(first_f, (first_c+2) % 3);
-      assert(vertex_0 == F(second_f, (second_c+2) % 3));
-      assert(vertex_1 == F(second_f, (second_c+1) % 3));
+      const size_t vertex_0 = tris(first_f, (first_c+1) % 3);
+      const size_t vertex_1 = tris(first_f, (first_c+2) % 3);
+      assert(vertex_0 == tris(second_f, (second_c+2) % 3));
+      assert(vertex_1 == tris(second_f, (second_c+1) % 3));
     }
   };
 

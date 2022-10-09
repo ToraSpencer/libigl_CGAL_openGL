@@ -42,16 +42,16 @@
 //}
 
 IGL_INLINE void igl::exterior_edges(
-  const Eigen::MatrixXi & F,
+  const Eigen::MatrixXi & tris,
   Eigen::MatrixXi & E)
 {
   using namespace Eigen;
   using namespace std;
-  assert(F.cols() == 3);
-  const size_t m = F.rows();
+  assert(tris.cols() == 3);
+  const size_t m = tris.rows();
   MatrixXi all_E,sall_E,sort_order;
   // Sort each edge by index
-  oriented_facets(F,all_E);
+  oriented_facets(tris,all_E);
   sort(all_E,2,true,sall_E,sort_order);
   // Find unique edges
   MatrixXi uE;
@@ -97,10 +97,10 @@ IGL_INLINE void igl::exterior_edges(
   }
 }
 
-IGL_INLINE Eigen::MatrixXi igl::exterior_edges( const Eigen::MatrixXi & F)
+IGL_INLINE Eigen::MatrixXi igl::exterior_edges( const Eigen::MatrixXi & tris)
 {
   using namespace Eigen;
   MatrixXi E;
-  exterior_edges(F,E);
+  exterior_edges(tris,E);
   return E;
 }

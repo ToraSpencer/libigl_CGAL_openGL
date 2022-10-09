@@ -21,12 +21,12 @@ IGL_INLINE void igl::sort_vectors_ccw(
   Eigen::Matrix<typename DerivedS::Scalar,1,3> e3 = N.normalized();
   Eigen::Matrix<typename DerivedS::Scalar,1,3> e2 = e3.cross(e1);
 
-  Eigen::Matrix<typename DerivedS::Scalar,3,3> F; F<<e1.transpose(),e2.transpose(),e3.transpose();
+  Eigen::Matrix<typename DerivedS::Scalar,3,3> tris; tris<<e1.transpose(),e2.transpose(),e3.transpose();
 
   Eigen::Matrix<typename DerivedS::Scalar,Eigen::Dynamic,1> angles(half_degree,1);
   for (int i=0; i<half_degree; ++i)
   {
-    Eigen::Matrix<typename DerivedS::Scalar,1,3> Pl = F.colPivHouseholderQr().solve(P.segment(i*3,3).transpose()).transpose();
+    Eigen::Matrix<typename DerivedS::Scalar,1,3> Pl = tris.colPivHouseholderQr().solve(P.segment(i*3,3).transpose()).transpose();
 //    assert(fabs(Pl(2))/Pl.cwiseAbs().maxCoeff() <1e-5);
     angles[i] = atan2(Pl(1),Pl(0));
   }

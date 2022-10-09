@@ -17,8 +17,8 @@ template <
      typename DerivedA
      >
 IGL_INLINE void igl::outer_vertex(
-        const Eigen::MatrixBase<DerivedV> & V,
-        const Eigen::MatrixBase<DerivedF> & F,
+        const Eigen::MatrixBase<DerivedV> & vers,
+        const Eigen::MatrixBase<DerivedF> & tris,
         const Eigen::MatrixBase<DerivedI> & I,
         IndexType & v_index,
         Eigen::PlainObjectBase<DerivedA> & A)
@@ -41,8 +41,8 @@ IGL_INLINE void igl::outer_vertex(
         size_t f = I(i, 0);
         for (size_t j=0; j<3; j++)
         {
-            Index v = F(f, j);
-            auto vx = V(v, 0);
+            Index v = tris(f, j);
+            auto vx = vers(v, 0);
             if (outer_vid == INVALID || vx > outer_val)
             {
                 outer_val = vx;
@@ -54,10 +54,10 @@ IGL_INLINE void igl::outer_vertex(
             } else if (vx == outer_val)
             {
                 // Break tie.
-                auto vy = V(v,1);
-                auto vz = V(v, 2);
-                auto outer_y = V(outer_vid, 1);
-                auto outer_z = V(outer_vid, 2);
+                auto vy = vers(v,1);
+                auto vz = vers(v, 2);
+                auto outer_y = vers(outer_vid, 1);
+                auto outer_z = vers(outer_vid, 2);
                 assert(!(vy == outer_y && vz == outer_z));
                 bool replace = (vy > outer_y) ||
                     ((vy == outer_y) && (vz > outer_z));
@@ -86,8 +86,8 @@ template<
     typename DerivedA
     >
 IGL_INLINE void igl::outer_edge(
-        const Eigen::MatrixBase<DerivedV> & V,
-        const Eigen::MatrixBase<DerivedF> & F,
+        const Eigen::MatrixBase<DerivedV> & vers,
+        const Eigen::MatrixBase<DerivedF> & tris,
         const Eigen::MatrixBase<DerivedI> & I,
         IndexType & v1,
         IndexType & v2,
@@ -108,8 +108,8 @@ IGL_INLINE void igl::outer_edge(
 
     Index outer_vid;
     Eigen::Matrix<Index,Eigen::Dynamic,1> candidate_faces;
-    outer_vertex(V, F, I, outer_vid, candidate_faces);
-    const ScalarArray3& outer_v = V.row(outer_vid);
+    outer_vertex(vers, tris, I, outer_vid, candidate_faces);
+    const ScalarArray3& outer_v = vers.row(outer_vid);
     assert(candidate_faces.size() > 0);
 
     auto get_vertex_index = [&](const IndexArray3& f, Index vid) -> Index
@@ -138,7 +138,7 @@ IGL_INLINE void igl::outer_edge(
             return;
         }
 
-        const ScalarArray3 opp_v = V.row(opp_vid);
+        const ScalarArray3 opp_v = vers.row(opp_vid);
         if (!infinite_slope_detected && outer_v[0] != opp_v[0])
         {
             // Finite slope
@@ -190,7 +190,7 @@ IGL_INLINE void igl::outer_edge(
     for (size_t i=0; i<num_candidate_faces; i++)
     {
         const Index fid = candidate_faces(i);
-        const IndexArray3& f = F.row(fid);
+        const IndexArray3& f = tris.row(fid);
         size_t id = get_vertex_index(f, outer_vid);
         Index next_vid = f((id+1)%3);
         Index prev_vid = f((id+2)%3);
@@ -212,8 +212,8 @@ template<
     typename IndexType
     >
 IGL_INLINE void igl::outer_facet(
-        const Eigen::MatrixBase<DerivedV> & V,
-        const Eigen::MatrixBase<DerivedF> & F,
+        const Eigen::MatrixBase<DerivedV> & vers,
+        const Eigen::MatrixBase<DerivedF> & tris,
         const Eigen::MatrixBase<DerivedN> & N,
         const Eigen::MatrixBase<DerivedI> & I,
         IndexType & f,
@@ -230,7 +230,7 @@ IGL_INLINE void igl::outer_facet(
 
     Index v1,v2;
     Eigen::Matrix<Index,Eigen::Dynamic,1> incident_faces;
-    outer_edge(V, F, I, v1, v2, incident_faces);
+    outer_edge(vers, tris, I, v1, v2, incident_faces);
     assert(incident_faces.size() > 0);
 
     auto generic_fabs = [&](const Scalar& val) -> const Scalar {

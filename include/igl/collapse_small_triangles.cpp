@@ -18,8 +18,8 @@
 #include <iostream>
 
 void igl::collapse_small_triangles(
-  const Eigen::MatrixXd & V,
-  const Eigen::MatrixXi & F,
+  const Eigen::MatrixXd & vers,
+  const Eigen::MatrixXi & tris,
   const double eps,
   Eigen::MatrixXi & FF)
 {
@@ -27,19 +27,19 @@ void igl::collapse_small_triangles(
   using namespace std;
 
   // Compute bounding box diagonal length
-  double bbd = bounding_box_diagonal(V);
+  double bbd = bounding_box_diagonal(vers);
   MatrixXd l;
-  edge_lengths(V,F,l);
+  edge_lengths(vers,tris,l);
   VectorXd dblA;
   doublearea(l,0.,dblA);
 
   // Minimum area tolerance
   const double min_dblarea = 2.0*eps*bbd*bbd;
 
-  Eigen::VectorXi FIM = colon<int>(0,V.rows()-1);
+  Eigen::VectorXi FIM = colon<int>(0,vers.rows()-1);
   int num_edge_collapses = 0;
   // Loop over triangles
-  for(int f = 0;f<F.rows();f++)
+  for(int f = 0;f<tris.rows();f++)
   {
     if(dblA(f) < min_dblarea)
     {
@@ -75,13 +75,13 @@ void igl::collapse_small_triangles(
       assert(i != minli);
       assert(j != minli);
       assert(i != j);
-      FIM(F(f,i)) = FIM(F(f,j));
+      FIM(tris(f,i)) = FIM(tris(f,j));
       num_edge_collapses++;
     }
   }
 
   // Reindex faces
-  MatrixXi rF = F;
+  MatrixXi rF = tris;
   // Loop over triangles
   for(int f = 0;f<rF.rows();f++)
   {
@@ -135,5 +135,5 @@ void igl::collapse_small_triangles(
   //return;
 
   MatrixXi recFF = FF;
-  return collapse_small_triangles(V,recFF,eps,FF);
+  return collapse_small_triangles(vers,recFF,eps,FF);
 }

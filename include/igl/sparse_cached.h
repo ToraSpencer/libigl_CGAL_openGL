@@ -13,7 +13,7 @@
 #include <Eigen/Sparse>
 namespace igl
 {
-  // Build a sparse matrix from list of indices and values (I,J,V), similarly to 
+  // Build a sparse matrix from list of indices and values (I,J,vers), similarly to 
   // the sparse function in matlab. Divides the construction in two phases, one
   // for fixing the sparsity pattern, and one to populate it with values. Compared to
   // igl::sparse, this version is slower for the first time (since it requires a
@@ -29,7 +29,7 @@ namespace igl
   // Input:
   //   I  nnz vector of row indices of non zeros entries in X
   //   J  nnz vector of column indices of non zeros entries in X
-  //   V  nnz vector of non-zeros entries in X
+  //   vers  nnz vector of non-zeros entries in X
   //   Optional:
   //     m  number of rows
   //     n  number of cols
@@ -71,7 +71,7 @@ namespace igl
 
   template <typename DerivedV, typename Scalar>
   IGL_INLINE void sparse_cached(
-    const Eigen::MatrixBase<DerivedV>& V,
+    const Eigen::MatrixBase<DerivedV>& vers,
     const Eigen::VectorXi& data,
     Eigen::SparseMatrix<Scalar>& X
     );

@@ -17,9 +17,9 @@ namespace igl
   // polygon corners and sizes
   //
   // Inputs:
-  //   P  #P list of lists of vertex indices into rows of some matrix V
+  //   P  #P list of lists of vertex indices into rows of some matrix vers
   // Outputs:
-  //   I  #I vectorized list of polygon corner indices into rows of some matrix V
+  //   I  #I vectorized list of polygon corner indices into rows of some matrix vers
   //   C  #P+1 list of cumulative polygon sizes so that C(i+1)-C(i) = size of
   //     the ith polygon, and so I(C(i)) through I(C(i+1)-1) are the indices of
   //     the ith polygon

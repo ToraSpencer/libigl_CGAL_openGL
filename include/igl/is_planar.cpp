@@ -6,13 +6,13 @@
 // v. 2.0. If a copy of the MPL was not distributed with this file, You can 
 // obtain one at http://mozilla.org/MPL/2.0/.
 #include "is_planar.h"
-IGL_INLINE bool igl::is_planar(const Eigen::MatrixXd & V)
+IGL_INLINE bool igl::is_planar(const Eigen::MatrixXd & vers)
 {
-  if(V.size() == 0) return false;
-  if(V.cols() == 2) return true;
-  for(int i = 0;i<V.rows();i++)
+  if(vers.size() == 0) return false;
+  if(vers.cols() == 2) return true;
+  for(int i = 0;i<vers.rows();i++)
   {
-    if(V(i,2) != 0) return false;
+    if(vers(i,2) != 0) return false;
   }
   return true;
 }

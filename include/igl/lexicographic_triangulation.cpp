@@ -21,7 +21,7 @@ template<
 IGL_INLINE void igl::lexicographic_triangulation(
     const Eigen::MatrixBase<DerivedP>& P,
     Orient2D orient2D,
-    Eigen::PlainObjectBase<DerivedF>& F)
+    Eigen::PlainObjectBase<DerivedF>& tris)
 {
   typedef typename DerivedP::Scalar Scalar;
   const size_t num_pts = P.rows();
@@ -118,9 +118,9 @@ IGL_INLINE void igl::lexicographic_triangulation(
       // All input points are collinear.
       // Do nothing here.
   } else {
-      F.resize(num_faces, 3);
+      tris.resize(num_faces, 3);
       for (size_t i=0; i<num_faces; i++) {
-          F.row(i) = faces[i];
+          tris.row(i) = faces[i];
       }
   }
 }

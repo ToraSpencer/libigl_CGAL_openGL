@@ -14,18 +14,18 @@
 template <typename DerivedF, typename DerivedE, typename DerivedOE>
 IGL_INLINE void
 igl::orient_halfedges(
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedF>& tris,
   Eigen::PlainObjectBase<DerivedE>& E,
   Eigen::PlainObjectBase<DerivedOE>& oE)
 {
-  assert(F.cols()==3 && "This only works for triangle meshes.");
+  assert(tris.cols()==3 && "This only works for triangle meshes.");
   
   using Int = typename DerivedF::Scalar;
   
-  const Eigen::Index m = F.rows();
+  const Eigen::Index m = tris.rows();
   
   DerivedE allE, EE;
-  oriented_facets(F, allE);
+  oriented_facets(tris, allE);
   Eigen::Matrix<Int, Eigen::Dynamic, 1> IA, IC;
   unique_simplices(allE, EE, IA, IC);
   

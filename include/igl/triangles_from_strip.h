@@ -17,12 +17,12 @@ namespace igl
   // Inputs:
   //   S  #S list of indices
   // Outputs:
-  //   F  #S-2 by 3 list of triangle indices
+  //   tris  #S-2 by 3 list of triangle indices
   //
   template <typename DerivedS, typename DerivedF>
   IGL_INLINE void triangles_from_strip(
     const Eigen::MatrixBase<DerivedS>& S,
-    Eigen::PlainObjectBase<DerivedF>& F);
+    Eigen::PlainObjectBase<DerivedF>& tris);
 }
 
 #ifndef IGL_STATIC_LIBRARY

@@ -14,22 +14,22 @@
 
 template <typename DerivedF, typename Index>
 IGL_INLINE void igl::boundary_loop(
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedF> & tris,
     std::vector<std::vector<Index> >& L)
 {
   using namespace std;
   using namespace Eigen;
 
-  if(F.rows() == 0)
+  if(tris.rows() == 0)
     return;
 
-  VectorXd Vdummy(F.maxCoeff()+1,1);
+  VectorXd Vdummy(tris.maxCoeff()+1,1);
   Eigen::Matrix<typename DerivedF::Scalar, Eigen::Dynamic, Eigen::Dynamic> TT,TTi;
   vector<std::vector<int> > VF, VFi;
-  triangle_triangle_adjacency(F,TT,TTi);
-  vertex_triangle_adjacency(Vdummy,F,VF,VFi);
+  triangle_triangle_adjacency(tris,TT,TTi);
+  vertex_triangle_adjacency(Vdummy,tris,VF,VFi);
 
-  vector<bool> unvisited = is_border_vertex(F);
+  vector<bool> unvisited = is_border_vertex(tris);
   set<int> unseen;
   for (size_t i = 0; i < unvisited.size(); ++i)
   {
@@ -61,11 +61,11 @@ IGL_INLINE void igl::boundary_loop(
         if (TT.row(fid).minCoeff() < 0.) // Face contains boundary edge
         {
           int vLoc = -1;
-          if (F(fid,0) == v) vLoc = 0;
-          if (F(fid,1) == v) vLoc = 1;
-          if (F(fid,2) == v) vLoc = 2;
+          if (tris(fid,0) == v) vLoc = 0;
+          if (tris(fid,1) == v) vLoc = 1;
+          if (tris(fid,2) == v) vLoc = 2;
 
-          int vNext = F(fid,(vLoc + 1) % F.cols());
+          int vNext = tris(fid,(vLoc + 1) % tris.cols());
 
           newBndEdge = false;
           if (unvisited[vNext] && TT(fid,vLoc) < 0)
@@ -91,17 +91,17 @@ IGL_INLINE void igl::boundary_loop(
 
 template <typename DerivedF, typename Index>
 IGL_INLINE void igl::boundary_loop(
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedF>& tris,
   std::vector<Index>& L)
 {
   using namespace Eigen;
   using namespace std;
 
-  if(F.rows() == 0)
+  if(tris.rows() == 0)
     return;
 
   vector<vector<int> > Lall;
-  boundary_loop(F,Lall);
+  boundary_loop(tris,Lall);
 
   int idxMax = -1;
   size_t maxLen = 0;
@@ -130,17 +130,17 @@ IGL_INLINE void igl::boundary_loop(
 
 template <typename DerivedF, typename DerivedL>
 IGL_INLINE void igl::boundary_loop(
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedF>& tris,
   Eigen::PlainObjectBase<DerivedL>& L)
 {
   using namespace Eigen;
   using namespace std;
 
-  if(F.rows() == 0)
+  if(tris.rows() == 0)
     return;
 
   vector<int> Lvec;
-  boundary_loop(F,Lvec);
+  boundary_loop(tris,Lvec);
 
   L.resize(Lvec.size(), 1);
   for (size_t i = 0; i < Lvec.size(); ++i)

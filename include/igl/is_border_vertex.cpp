@@ -12,20 +12,20 @@
 
 template <typename DerivedF>
 IGL_INLINE std::vector<bool> igl::is_border_vertex(
-  const Eigen::MatrixBase<DerivedF> &F)
+  const Eigen::MatrixBase<DerivedF> &tris)
 {
   Eigen::Matrix<typename DerivedF::Scalar, Eigen::Dynamic, Eigen::Dynamic> FF;
-  igl::triangle_triangle_adjacency(F,FF);
-  std::vector<bool> ret(F.maxCoeff()+1);
+  igl::triangle_triangle_adjacency(tris,FF);
+  std::vector<bool> ret(tris.maxCoeff()+1);
   for(unsigned i=0; i<ret.size();++i)
     ret[i] = false;
 
-  for(unsigned i=0; i<F.rows();++i)
-    for(unsigned j=0;j<F.cols();++j)
+  for(unsigned i=0; i<tris.rows();++i)
+    for(unsigned j=0;j<tris.cols();++j)
       if(FF(i,j) == -1)
       {
-        ret[F(i,j)]       = true;
-        ret[F(i,(j+1)%F.cols())] = true;
+        ret[tris(i,j)]       = true;
+        ret[tris(i,(j+1)%tris.cols())] = true;
       }
   return ret;
 }

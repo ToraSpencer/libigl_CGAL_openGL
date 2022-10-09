@@ -16,7 +16,7 @@ template <
   typename DerivedEle,
   typename Scalar>
 IGL_INLINE void igl::normal_derivative(
-  const Eigen::MatrixBase<DerivedV> & V,
+  const Eigen::MatrixBase<DerivedV> & vers,
   const Eigen::MatrixBase<DerivedEle> & Ele,
   Eigen::SparseMatrix<Scalar>& DD)
 {
@@ -27,12 +27,12 @@ IGL_INLINE void igl::normal_derivative(
   assert( ((ss==3) || (ss==4)) && "Only triangles or tets");
   // cotangents
   Matrix<Scalar,Dynamic,Dynamic> C;
-  cotmatrix_entries(V,Ele,C);
+  cotmatrix_entries(vers,Ele,C);
   vector<Triplet<Scalar> > IJV;
   // Number of elements
   const size_t m = Ele.rows();
   // Number of vertices
-  const size_t n = V.rows();
+  const size_t n = vers.rows();
   switch(ss)
   {
     default:

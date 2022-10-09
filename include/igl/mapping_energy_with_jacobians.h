@@ -16,8 +16,8 @@ namespace igl
 {
    // compute the rotation-invariant energy of a mapping (represented in Jacobians and areas)
    // Input:
-   // Ji: #F by 4 (9 if 3D) entries of jacobians
-   // areas: #F by 1 face areas
+   // Ji: #tris by 4 (9 if 3D) entries of jacobians
+   // areas: #tris by 1 face areas
    // slim_energy: energy type as in igl::MappingEnergyType
    // exp_factor: see igl::MappingEnergyType
    //

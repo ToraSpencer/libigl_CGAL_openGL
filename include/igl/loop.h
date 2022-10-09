@@ -15,13 +15,13 @@
 
 namespace igl
 {
-  // LOOP Given the triangle mesh [V, F], where n_verts = V.rows(), computes
+  // LOOP Given the triangle mesh [vers, tris], where n_verts = vers.rows(), computes
   // newV and a sparse matrix S s.t. [newV, newF] is the subdivided mesh where
-  // newV = S*V.
+  // newV = S*vers.
   //
   // Inputs:
   //   n_verts  an integer (number of mesh vertices)
-  //   F  an m by 3 matrix of integers of triangle faces
+  //   tris  an m by 3 matrix of integers of triangle faces
   // Outputs:
   //   S  a sparse matrix (will become the subdivision matrix)
   //   newF  a matrix containing the new faces
@@ -31,14 +31,14 @@ namespace igl
     typename DerivedNF>
   IGL_INLINE void loop(
     const int n_verts,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedF> & tris,
     Eigen::SparseMatrix<SType>& S,
     Eigen::PlainObjectBase<DerivedNF> & NF);
-  // LOOP Given the triangle mesh [V, F], computes number_of_subdivs steps of loop subdivision and outputs the new mesh [newV, newF]
+  // LOOP Given the triangle mesh [vers, tris], computes number_of_subdivs steps of loop subdivision and outputs the new mesh [newV, newF]
   //
   // Inputs:
-  //  V an n by 3 matrix of vertices
-  //  F an m by 3 matrix of integers of triangle faces
+  //  vers an n by 3 matrix of vertices
+  //  tris an m by 3 matrix of integers of triangle faces
   //  number_of_subdivs an integer that specifies how many subdivision steps to do
   // Outputs:
   //  NV a matrix containing the new vertices
@@ -49,8 +49,8 @@ namespace igl
     typename DerivedNV,
     typename DerivedNF>
   IGL_INLINE void loop(
-    const Eigen::MatrixBase<DerivedV>& V,
-    const Eigen::MatrixBase<DerivedF>& F,
+    const Eigen::MatrixBase<DerivedV>& vers,
+    const Eigen::MatrixBase<DerivedF>& tris,
     Eigen::PlainObjectBase<DerivedNV>& NV,
     Eigen::PlainObjectBase<DerivedNF>& NF,
     const int number_of_subdivs = 1);

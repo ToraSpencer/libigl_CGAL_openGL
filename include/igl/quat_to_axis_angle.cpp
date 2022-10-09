@@ -27,9 +27,9 @@ IGL_INLINE void igl::quat_to_axis_angle(
     {
         double a;
         if( q[3]>=1.0f )
-            a = 0; // and keep V
+            a = 0; // and keep vers
         else if( q[3]<=-1.0f )
-            a = PI; // and keep V
+            a = PI; // and keep vers
         else if( fabs(q[0]*q[0]+q[1]*q[1]+q[2]*q[2]+q[3]*q[3])<igl::EPS_SQ<Q_type>())
         {
             a = 0;

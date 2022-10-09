@@ -10,7 +10,7 @@
 namespace igl
 {
     /*
-       Compute distances from a set of points vers0 to a triangle mesh (vers,F)
+       Compute distances from a set of points vers0 to a triangle mesh (vers,tris)
   
        Inputs:
          vers0  #vers0 by 3 list of query point positions

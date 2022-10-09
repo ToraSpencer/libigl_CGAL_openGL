@@ -14,23 +14,23 @@ namespace igl
 {
   namespace copyleft
   {
-    // Assumes (V,F) is a closed manifold mesh 
+    // Assumes (vers,tris) is a closed manifold mesh 
     // Collapses edges until desired number of faces is achieved but ensures
     // that new vertices are placed outside all previous meshes as per
     // "progressive hulls" in "Silhouette clipping" [Sander et al. 2000].
     //
     // Inputs:
-    //   V  #V by dim list of vertex positions
-    //   F  #F by 3 list of face indices into V.
+    //   vers  #vers by dim list of vertex positions
+    //   tris  #tris by 3 list of face indices into vers.
     //   max_m  desired number of output faces
     // Outputs:
-    //   U  #U by dim list of output vertex posistions (can be same ref as V)
+    //   U  #U by dim list of output vertex posistions (can be same ref as vers)
     //   G  #G by 3 list of output face indices into U (can be same ref as G)
-    //   J  #G list of indices into F of birth faces
+    //   J  #G list of indices into tris of birth faces
     // Returns true if m was reached (otherwise #G > m)
     IGL_INLINE bool progressive_hulls(
-      const Eigen::MatrixXd & V,
-      const Eigen::MatrixXi & F,
+      const Eigen::MatrixXd & vers,
+      const Eigen::MatrixXi & tris,
       const size_t max_m,
       Eigen::MatrixXd & U,
       Eigen::MatrixXi & G,

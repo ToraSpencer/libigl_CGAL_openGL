@@ -20,8 +20,8 @@ template <
   typename DerivedSU,
   typename DerivedL>
   IGL_INLINE void igl::remesh_along_isoline(
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const Eigen::MatrixBase<DerivedS> & S,
     const typename DerivedS::Scalar val,
     Eigen::PlainObjectBase<DerivedU> & U,
@@ -31,8 +31,8 @@ template <
     Eigen::SparseMatrix<BCtype> & BC,
     Eigen::PlainObjectBase<DerivedL> & L)
 {
-  igl::remesh_along_isoline(V.rows(),F,S,val,G,SU,J,BC,L);
-  U = BC * V;
+  igl::remesh_along_isoline(vers.rows(),tris,S,val,G,SU,J,BC,L);
+  U = BC * vers;
 }
 
 template <
@@ -45,7 +45,7 @@ template <
   typename DerivedL>
   IGL_INLINE void igl::remesh_along_isoline(
     const int num_vertices,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const Eigen::MatrixBase<DerivedS> & S,
     const typename DerivedS::Scalar val,
     Eigen::PlainObjectBase<DerivedG> & G,
@@ -73,17 +73,17 @@ template <
 
   // Loop over each face
   std::unordered_map<int, std::unordered_map<int, int>> edgeToBirthVert;
-  for(int f = 0;f<F.rows();f++)
+  for(int f = 0;f<tris.rows();f++)
   {
     bool Psign[2];
     int P[2];
     int count = 0;
     for(int p = 0;p<3;p++)
     {
-      const bool psign = S(F(f,p)) > isoval;
+      const bool psign = S(tris(f,p)) > isoval;
       // Find crossings
       const int n = (p+1)%3;
-      const bool nsign = S(F(f,n)) > isoval;
+      const bool nsign = S(tris(f,n)) > isoval;
       if(psign != nsign)
       {
         P[count] = p;
@@ -99,10 +99,10 @@ template <
       case 0:
       {
         // Easy case
-        std::vector<typename DerivedG::Scalar> row = {F(f,0),F(f,1),F(f,2)};
+        std::vector<typename DerivedG::Scalar> row = {tris(f,0),tris(f,1),tris(f,2)};
         vG.push_back(row);
         vJ.push_back(f);
-        vL.push_back( S(F(f,0))>isoval ? isoval_i+1 : isoval_i );
+        vL.push_back( S(tris(f,0))>isoval ? isoval_i+1 : isoval_i );
         break;
       }
       case 2:
@@ -118,21 +118,21 @@ template <
         // Create two new vertices
         for(int i = 0;i<2;i++)
         {
-          if ((edgeToBirthVert.find(F(f, P[i])) == edgeToBirthVert.end()) || (edgeToBirthVert.at(F(f, P[i])).find(F(f, (P[i] + 1) % 3)) == edgeToBirthVert.at(F(f, P[i])).end()))
+          if ((edgeToBirthVert.find(tris(f, P[i])) == edgeToBirthVert.end()) || (edgeToBirthVert.at(tris(f, P[i])).find(tris(f, (P[i] + 1) % 3)) == edgeToBirthVert.at(tris(f, P[i])).end()))
           {
-            const double bci = (isoval - S(F(f,(P[i]+1)%3)))/
-              (S(F(f,P[i]))-S(F(f,(P[i]+1)%3)));
-            vBC.emplace_back(Ucount,F(f,P[i]),bci);
-            vBC.emplace_back(Ucount,F(f,(P[i]+1)%3),1.0-bci);
-            edgeToBirthVert[F(f, P[i])][F(f, (P[i] + 1) % 3)] = Ucount;
-            edgeToBirthVert[F(f, (P[i] + 1) % 3)][F(f, P[i])] = Ucount;
+            const double bci = (isoval - S(tris(f,(P[i]+1)%3)))/
+              (S(tris(f,P[i]))-S(tris(f,(P[i]+1)%3)));
+            vBC.emplace_back(Ucount,tris(f,P[i]),bci);
+            vBC.emplace_back(Ucount,tris(f,(P[i]+1)%3),1.0-bci);
+            edgeToBirthVert[tris(f, P[i])][tris(f, (P[i] + 1) % 3)] = Ucount;
+            edgeToBirthVert[tris(f, (P[i] + 1) % 3)][tris(f, P[i])] = Ucount;
             Ucount++;
           }
         }
-        const int v0 = F(f,P[0]);
+        const int v0 = tris(f,P[0]);
         assert(((P[0]+1)%3) == P[1]);
-        const int v1 = F(f,P[1]);
-        const int v2 = F(f,(P[1]+1)%3);
+        const int v1 = tris(f,P[1]);
+        const int v2 = tris(f,(P[1]+1)%3);
         const int v01 = edgeToBirthVert[v0][v1];
         const int v12 = edgeToBirthVert[v1][v2];
         // v0

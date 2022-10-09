@@ -22,7 +22,7 @@ namespace igl
   //  "A Smoothness Energy without Boundary Distortion for Curved Surfaces"
   //
   // Inputs:
-  //  V, F: input mesh
+  //  vers, tris: input mesh
   //
   // Outputs:
   //  Q: computed Hessian energy matrix
@@ -30,14 +30,14 @@ namespace igl
   template <typename DerivedV, typename DerivedF, typename ScalarQ>
   IGL_INLINE void
   curved_hessian_energy(
-    const Eigen::MatrixBase<DerivedV>& V,
-    const Eigen::MatrixBase<DerivedF>& F,
+    const Eigen::MatrixBase<DerivedV>& vers,
+    const Eigen::MatrixBase<DerivedF>& tris,
     Eigen::SparseMatrix<ScalarQ>& Q);
 
   // Version that exposes the edge orientation used.
   //
   // Inputs:
-  //  V, F: input mesh
+  //  vers, tris: input mesh
   //  E: a mapping from each halfedge to each edge, as computed with
   //     orient_halfedges.
   //     will be computed if not provided.
@@ -52,8 +52,8 @@ namespace igl
   typename DerivedOE, typename ScalarQ>
   IGL_INLINE void
   curved_hessian_energy(
-    const Eigen::MatrixBase<DerivedV>& V,
-    const Eigen::MatrixBase<DerivedF>& F,
+    const Eigen::MatrixBase<DerivedV>& vers,
+    const Eigen::MatrixBase<DerivedF>& tris,
     const Eigen::MatrixBase<DerivedE>& E,
     const Eigen::MatrixBase<DerivedOE>& oE,
     Eigen::SparseMatrix<ScalarQ>& Q);
@@ -62,8 +62,8 @@ namespace igl
   typename DerivedOE, typename ScalarQ>
   IGL_INLINE void
   curved_hessian_energy(
-    const Eigen::MatrixBase<DerivedV>& V,
-    const Eigen::MatrixBase<DerivedF>& F,
+    const Eigen::MatrixBase<DerivedV>& vers,
+    const Eigen::MatrixBase<DerivedF>& tris,
     Eigen::PlainObjectBase<DerivedE>& E,
     Eigen::PlainObjectBase<DerivedOE>& oE,
     Eigen::SparseMatrix<ScalarQ>& Q);
@@ -72,7 +72,7 @@ namespace igl
   // Version that uses intrinsic quantities as input
   //
   // Inputs:
-  //  F: input mesh connectivity
+  //  tris: input mesh connectivity
   //  l_sq: squared edge lengths of each halfedge
   //  dA: double area of each face
   //  E: a mapping from each halfedge to each edge.
@@ -86,7 +86,7 @@ namespace igl
   typename DerivedOE, typename ScalarQ>
   IGL_INLINE void
   curved_hessian_energy_intrinsic(
-    const Eigen::MatrixBase<DerivedF>& F,
+    const Eigen::MatrixBase<DerivedF>& tris,
     const Eigen::MatrixBase<DerivedL_sq>& l_sq,
     const Eigen::MatrixBase<DerivedE>& E,
     const Eigen::MatrixBase<DerivedOE>& oE,
@@ -96,7 +96,7 @@ namespace igl
   typename DerivedE, typename DerivedOE, typename ScalarQ>
   IGL_INLINE void
   curved_hessian_energy_intrinsic(
-    const Eigen::MatrixBase<DerivedF>& F,
+    const Eigen::MatrixBase<DerivedF>& tris,
     const Eigen::MatrixBase<DerivedL_sq>& l_sq,
     const Eigen::MatrixBase<DeriveddA>& dA,
     const Eigen::MatrixBase<DerivedE>& E,

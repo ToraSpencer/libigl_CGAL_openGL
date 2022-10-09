@@ -11,7 +11,7 @@
 IGL_INLINE void igl::orth(const Eigen::MatrixXd &A, Eigen::MatrixXd &Q)
 {
 
-  //perform svd on A = U*S*V' (V is not computed and only the thin U is computed)
+  //perform svd on A = U*S*vers' (vers is not computed and only the thin U is computed)
   Eigen::JacobiSVD<Eigen::MatrixXd> svd(A, Eigen::ComputeThinU );
   Eigen::MatrixXd U = svd.matrixU();
   const Eigen::VectorXd S = svd.singularValues();

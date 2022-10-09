@@ -18,14 +18,14 @@
 template <typename Scalar, typename Index>
 IGL_INLINE bool igl::writeMESH(
   const std::string mesh_file_name,
-  const std::vector<std::vector<Scalar > > & V,
+  const std::vector<std::vector<Scalar > > & vers,
   const std::vector<std::vector<Index > > & T,
-  const std::vector<std::vector<Index > > & F)
+  const std::vector<std::vector<Index > > & tris)
 {
   Eigen::MatrixXd mV;
   Eigen::MatrixXi mT,mF;
   bool is_rect;
-  is_rect = list_to_matrix(V,mV);
+  is_rect = list_to_matrix(vers,mV);
   if(!is_rect)
   {
     return false;
@@ -35,7 +35,7 @@ IGL_INLINE bool igl::writeMESH(
   {
     return false;
   }
-  is_rect = list_to_matrix(F,mF);
+  is_rect = list_to_matrix(tris,mF);
   if(!is_rect)
   {
     return false;
@@ -47,9 +47,9 @@ IGL_INLINE bool igl::writeMESH(
 template <typename DerivedV, typename DerivedT, typename DerivedF>
 IGL_INLINE bool igl::writeMESH(
   const std::string str,
-  const Eigen::MatrixBase<DerivedV> & V, 
+  const Eigen::MatrixBase<DerivedV> & vers, 
   const Eigen::MatrixBase<DerivedT> & T,
-  const Eigen::MatrixBase<DerivedF> & F)
+  const Eigen::MatrixBase<DerivedF> & tris)
 {
   using namespace std;
   using namespace Eigen;
@@ -66,11 +66,11 @@ IGL_INLINE bool igl::writeMESH(
   //mesh_file<<"MeshVersionFormatted 1\n";
   //mesh_file<<"Dimension 3\n";
   //mesh_file<<"Vertices\n";
-  //mesh_file<<V.rows()<<"\n";
-  //mesh_file<<V.format(format)<<"\n";
+  //mesh_file<<vers.rows()<<"\n";
+  //mesh_file<<vers.format(format)<<"\n";
   //mesh_file<<"Triangles\n";
-  //mesh_file<<F.rows()<<"\n";
-  //mesh_file<<(F.array()+1).eval().format(format)<<"\n";
+  //mesh_file<<tris.rows()<<"\n";
+  //mesh_file<<(tris.array()+1).eval().format(format)<<"\n";
   //mesh_file<<"Tetrahedra\n";
   //mesh_file<<T.rows()<<"\n";
   //mesh_file<<(T.array()+1).eval().format(format)<<"\n";
@@ -88,32 +88,32 @@ IGL_INLINE bool igl::writeMESH(
   // print tet vertices
   fprintf(mesh_file,"Vertices\n");
   // print number of tet vertices
-  int number_of_tet_vertices = V.rows();
+  int number_of_tet_vertices = vers.rows();
   fprintf(mesh_file,"%d\n",number_of_tet_vertices);
   // loop over tet vertices
   for(int i = 0;i<number_of_tet_vertices;i++)
   {
     // print position of ith tet vertex
     fprintf(mesh_file,"%.17lg %.17lg %.17lg 1\n",
-      (double)V(i,0),
-      (double)V(i,1),
-      (double)V(i,2));
+      (double)vers(i,0),
+      (double)vers(i,1),
+      (double)vers(i,2));
   }
   verbose("WARNING: save_mesh() assumes that vertices have"
       " same indices in surface as volume...\n");
   // print faces
   fprintf(mesh_file,"Triangles\n");
   // print number of triangles
-  int number_of_triangles = F.rows();
+  int number_of_triangles = tris.rows();
   fprintf(mesh_file,"%d\n",number_of_triangles);
   // loop over faces
   for(int i = 0;i<number_of_triangles;i++)
   {
     // loop over vertices in face
     fprintf(mesh_file,"%d %d %d 1\n", 
-      (int)F(i,0)+1, 
-      (int)F(i,1)+1, 
-      (int)F(i,2)+1);
+      (int)tris(i,0)+1, 
+      (int)tris(i,1)+1, 
+      (int)tris(i,2)+1);
   }
   // print tetrahedra
   fprintf(mesh_file,"Tetrahedra\n");

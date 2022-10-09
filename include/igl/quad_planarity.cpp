@@ -10,18 +10,18 @@
 
 template <typename DerivedV, typename DerivedF, typename DerivedP>
 IGL_INLINE void igl::quad_planarity(
-  const Eigen::MatrixBase<DerivedV>& V,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const Eigen::MatrixBase<DerivedF>& tris,
   Eigen::PlainObjectBase<DerivedP> & P)
 {
-  int nf = F.rows();
+  int nf = tris.rows();
   P.setZero(nf,1);
   for (int i =0; i<nf; ++i)
   {
-    const Eigen::Matrix<typename DerivedV::Scalar,1,3> &v1 = V.row(F(i,0));
-    const Eigen::Matrix<typename DerivedV::Scalar,1,3> &v2 = V.row(F(i,1));
-    const Eigen::Matrix<typename DerivedV::Scalar,1,3> &v3 = V.row(F(i,2));
-    const Eigen::Matrix<typename DerivedV::Scalar,1,3> &v4 = V.row(F(i,3));
+    const Eigen::Matrix<typename DerivedV::Scalar,1,3> &v1 = vers.row(tris(i,0));
+    const Eigen::Matrix<typename DerivedV::Scalar,1,3> &v2 = vers.row(tris(i,1));
+    const Eigen::Matrix<typename DerivedV::Scalar,1,3> &v3 = vers.row(tris(i,2));
+    const Eigen::Matrix<typename DerivedV::Scalar,1,3> &v4 = vers.row(tris(i,3));
     Eigen::Matrix<typename DerivedV::Scalar,1,3> diagCross=(v3-v1).cross(v4-v2);
     typename DerivedV::Scalar denom = 
       diagCross.norm()*(((v3-v1).norm()+(v4-v2).norm())/2);

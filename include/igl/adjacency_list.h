@@ -7,32 +7,32 @@
 #include <vector>
 namespace igl 
 {
-  // Constructs the graph adjacency list of a given mesh (V,F)
+  // Constructs the graph adjacency list of a given mesh (vers,tris)
   // Templates:
   //   T  should be a eigen sparse matrix primitive type like int or double
   // Inputs:
-  //   F       #F by dim list of mesh faces (must be triangles)
+  //   tris       #tris by dim list of mesh faces (must be triangles)
   //   sorted  flag that indicates if the list should be sorted counter-clockwise
   // Outputs: 
   //   A  vector<vector<T> > containing at row i the adjacent vertices of vertex i
   //
   // Example:
-  //   // Mesh in (V,F)
+  //   // Mesh in (vers,tris)
   //   vector<vector<double> > A;
-  //   adjacency_list(F,A);
+  //   adjacency_list(tris,A);
   //
   // See also: edges, cotmatrix, diag
   template <typename Index, typename IndexVector>
   IGL_INLINE void adjacency_list(
-    const Eigen::MatrixBase<Index>  & F,
+    const Eigen::MatrixBase<Index>  & tris,
     std::vector<std::vector<IndexVector> >& A,
     bool sorted = false);
 
   // Variant that accepts polygonal faces. 
-  // Each element of F is a set of indices of a polygonal face.
+  // Each element of tris is a set of indices of a polygonal face.
   template <typename Index>
   IGL_INLINE void adjacency_list(
-    const std::vector<std::vector<Index> > & F,
+    const std::vector<std::vector<Index> > & tris,
     std::vector<std::vector<Index> >& A);
 
 }

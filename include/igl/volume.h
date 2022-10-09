@@ -12,13 +12,13 @@
 namespace igl
 {
   // VOLUME Compute volume for all tets of a given tet mesh
-  // (V,T)
+  // (vers,T)
   //
-  // vol = volume(V,T)
+  // vol = volume(vers,T)
   //
   // Inputs:
-  //   V  #V by dim list of vertex positions
-  //   T  #V by 4 list of tet indices
+  //   vers  #vers by dim list of vertex positions
+  //   T  #vers by 4 list of tet indices
   // Outputs:
   //   vol  #T list of tetrahedron volumes
   //
@@ -27,7 +27,7 @@ namespace igl
     typename DerivedT, 
     typename Derivedvol>
   IGL_INLINE void volume(
-    const Eigen::MatrixBase<DerivedV>& V,
+    const Eigen::MatrixBase<DerivedV>& vers,
     const Eigen::MatrixBase<DerivedT>& T,
     Eigen::PlainObjectBase<Derivedvol>& vol);
   template <
@@ -56,7 +56,7 @@ namespace igl
   // Intrinsic version:
   //
   // Inputs:
-  //   L  #V by 6 list of edge lengths (see edge_lengths)
+  //   L  #vers by 6 list of edge lengths (see edge_lengths)
   template <
     typename DerivedL, 
     typename Derivedvol>

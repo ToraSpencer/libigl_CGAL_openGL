@@ -14,8 +14,8 @@ template <
   typename DerivedF,
   typename DerivedD>
 IGL_INLINE void igl::is_delaunay(
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   Eigen::PlainObjectBase<DerivedD> & D)
 {
   typedef typename DerivedV::Scalar Scalar;
@@ -41,13 +41,13 @@ IGL_INLINE void igl::is_delaunay(
   MatrixX2I E,uE;
   VectorXI EMAP;
   std::vector<std::vector<typename DerivedF::Scalar> > uE2E;
-  igl::unique_edge_map(F, E, uE, EMAP, uE2E);
-  const int num_faces = F.rows();
-  D.setConstant(F.rows(),F.cols(),false);
+  igl::unique_edge_map(tris, E, uE, EMAP, uE2E);
+  const int num_faces = tris.rows();
+  D.setConstant(tris.rows(),tris.cols(),false);
   // loop over all unique edges
   for(int ue = 0;ue < uE2E.size(); ue++)
   {
-    const bool ue_is_d = is_delaunay(V,F,uE2E,float_incircle,ue);
+    const bool ue_is_d = is_delaunay(vers,tris,uE2E,float_incircle,ue);
     // Set for all instances
     for(int e = 0;e<uE2E[ue].size();e++)
     {
@@ -63,15 +63,15 @@ template <
   typename InCircle,
   typename ueiType>
 IGL_INLINE bool igl::is_delaunay(
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const std::vector<std::vector<uE2EType> > & uE2E,
   const InCircle incircle,
   const ueiType uei)
 {
   if(uE2E[uei].size() == 1) return true;
   if(uE2E[uei].size() > 2) return false;
-  const int num_faces = F.rows();
+  const int num_faces = tris.rows();
   typedef typename DerivedV::Scalar Scalar;
   const auto& half_edges = uE2E[uei];
   assert((half_edges.size() == 2)  && "uE2E[uei].size() should be 2");
@@ -82,14 +82,14 @@ IGL_INLINE bool igl::is_delaunay(
   assert(c1 < 3);
   assert(c2 < 3);
   assert(f1 != f2);
-  const size_t v1 = F(f1, (c1+1)%3);
-  const size_t v2 = F(f1, (c1+2)%3);
-  const size_t v4 = F(f1, c1);
-  const size_t v3 = F(f2, c2);
-  const Scalar p1[] = {V(v1, 0), V(v1, 1)};
-  const Scalar p2[] = {V(v2, 0), V(v2, 1)};
-  const Scalar p3[] = {V(v3, 0), V(v3, 1)};
-  const Scalar p4[] = {V(v4, 0), V(v4, 1)};
+  const size_t v1 = tris(f1, (c1+1)%3);
+  const size_t v2 = tris(f1, (c1+2)%3);
+  const size_t v4 = tris(f1, c1);
+  const size_t v3 = tris(f2, c2);
+  const Scalar p1[] = {vers(v1, 0), vers(v1, 1)};
+  const Scalar p2[] = {vers(v2, 0), vers(v2, 1)};
+  const Scalar p3[] = {vers(v3, 0), vers(v3, 1)};
+  const Scalar p4[] = {vers(v4, 0), vers(v4, 1)};
   auto orientation = incircle(p1, p2, p4, p3);
   return orientation <= 0;
 }

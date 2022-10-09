@@ -20,16 +20,16 @@ namespace igl
   // output mesh should be as manifold as the input.
   //
   // Inputs:
-  //   V  #V by dim list of mesh vertex positions
-  //   F  #F by 3 list of mesh triangle indices into V
-  //   S  #V by 1 list of scalar field
+  //   vers  #vers by dim list of mesh vertex positions
+  //   tris  #tris by 3 list of mesh triangle indices into vers
+  //   S  #vers by 1 list of scalar field
   //   val  value of S to remesh along
   // Outputs:
-  //  U  #U by dim list of mesh vertex positions #U>=#V
-  //  G  #G by 3 list of mesh triangle indices into U, #G>=#F
+  //  U  #U by dim list of mesh vertex positions #U>=#vers
+  //  G  #G by 3 list of mesh triangle indices into U, #G>=#tris
   //  SU  #U list of scalar field values over new mesh
-  //  J  #G list of indices into F revealing birth triangles
-  //  BC  #U by #V sparse matrix of barycentric coordinates so that U = BC*V
+  //  J  #G list of indices into tris revealing birth triangles
+  //  BC  #U by #vers sparse matrix of barycentric coordinates so that U = BC*vers
   //  L  #G list of bools whether scalar field in triangle below or above val
   template <
     typename DerivedV,
@@ -42,8 +42,8 @@ namespace igl
     typename DerivedSU,
     typename DerivedL>
     IGL_INLINE void remesh_along_isoline(
-      const Eigen::MatrixBase<DerivedV> & V,
-      const Eigen::MatrixBase<DerivedF> & F,
+      const Eigen::MatrixBase<DerivedV> & vers,
+      const Eigen::MatrixBase<DerivedF> & tris,
       const Eigen::MatrixBase<DerivedS> & S,
       const typename DerivedS::Scalar val,
       Eigen::PlainObjectBase<DerivedU> & U,
@@ -53,7 +53,7 @@ namespace igl
       Eigen::SparseMatrix<BCtype> & BC,
       Eigen::PlainObjectBase<DerivedL> & L);
   // Input:
-  //   n  number of vertices (#V)
+  //   n  number of vertices (#vers)
   template <
     typename DerivedF,
     typename DerivedS,
@@ -64,7 +64,7 @@ namespace igl
     typename DerivedL>
     IGL_INLINE void remesh_along_isoline(
       const int n,
-      const Eigen::MatrixBase<DerivedF> & F,
+      const Eigen::MatrixBase<DerivedF> & tris,
       const Eigen::MatrixBase<DerivedS> & S,
       const typename DerivedS::Scalar val,
       Eigen::PlainObjectBase<DerivedG> & G,

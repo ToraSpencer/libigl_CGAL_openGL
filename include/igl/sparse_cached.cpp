@@ -100,19 +100,19 @@ IGL_INLINE void igl::sparse_cached(
 
 template <typename DerivedV, typename Scalar>
 IGL_INLINE void igl::sparse_cached(
-  const Eigen::MatrixBase<DerivedV>& V,
+  const Eigen::MatrixBase<DerivedV>& vers,
   const Eigen::VectorXi& data,
   Eigen::SparseMatrix<Scalar>& X)
 {
-  assert(V.size() == data.size());
+  assert(vers.size() == data.size());
 
   // Clear it first
   for (unsigned i = 0; i<data.size(); ++i)
     *(X.valuePtr() + data[i]) = 0;
  
   // Then sum them up
-  for (unsigned i = 0; i<V.size(); ++i)
-    *(X.valuePtr() + data[i]) += V[i];
+  for (unsigned i = 0; i<vers.size(); ++i)
+    *(X.valuePtr() + data[i]) += vers[i];
 }
 
 

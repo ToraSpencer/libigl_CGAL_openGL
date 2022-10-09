@@ -23,8 +23,8 @@ namespace igl {
     // ``igl::cgal::remesh_self_intersection`` for more details.
     //
     // Inputs:
-    //   F  #F by 3 list representing triangles.
-    //   EMAP  #F*3 list of indices of unique undirected edges.
+    //   tris  #tris by 3 list representing triangles.
+    //   EMAP  #tris*3 list of indices of unique undirected edges.
     //   uE2E  #uE list of lists of indices into E of coexisting edges.
     //
     // Output:
@@ -34,7 +34,7 @@ namespace igl {
         typename DerivedEMAP,
         typename uE2EType>
     IGL_INLINE void extract_non_manifold_edge_curves(
-            const Eigen::MatrixBase<DerivedF>& F,
+            const Eigen::MatrixBase<DerivedF>& tris,
             const Eigen::MatrixBase<DerivedEMAP>& EMAP,
             const std::vector<std::vector<uE2EType> >& uE2E,
             std::vector<std::vector<size_t> >& curves);

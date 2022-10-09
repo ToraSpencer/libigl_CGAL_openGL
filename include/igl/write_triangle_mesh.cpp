@@ -19,8 +19,8 @@
 template <typename DerivedV, typename DerivedF>
 IGL_INLINE bool igl::write_triangle_mesh(
   const std::string str,
-  const Eigen::MatrixBase<DerivedV>& V,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const Eigen::MatrixBase<DerivedF>& tris,
   FileEncoding encoding)
 {
   using namespace std;
@@ -32,22 +32,22 @@ IGL_INLINE bool igl::write_triangle_mesh(
   if(e == "mesh")
   {
     Eigen::MatrixXi _1;
-    return writeMESH(str,V,_1,F);
+    return writeMESH(str,vers,_1,tris);
   }else if(e == "obj")
   {
-    return writeOBJ(str,V,F);
+    return writeOBJ(str,vers,tris);
   }else if(e == "off")
   {
-    return writeOFF(str,V,F);
+    return writeOFF(str,vers,tris);
   }else if(e == "ply")
   {
-    return writePLY(str,V,F,encoding);
+    return writePLY(str,vers,tris,encoding);
   }else if(e == "stl")
   {
-    return writeSTL(str,V,F,encoding);
+    return writeSTL(str,vers,tris,encoding);
   }else if(e == "wrl")
   {
-    return writeWRL(str,V,F);
+    return writeWRL(str,vers,tris);
   }else
   {
     assert("Unsupported file format");

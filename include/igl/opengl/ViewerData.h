@@ -48,8 +48,8 @@ public:
   IGL_INLINE void set_face_based(bool newvalue);
 
   // Helpers that can draw the most common meshes
-  IGL_INLINE void set_mesh(const Eigen::MatrixXd& V, const Eigen::MatrixXi& F);
-  IGL_INLINE void set_vertices(const Eigen::MatrixXd& V);
+  IGL_INLINE void set_mesh(const Eigen::MatrixXd& vers, const Eigen::MatrixXi& F);
+  IGL_INLINE void set_vertices(const Eigen::MatrixXd& vers);
   IGL_INLINE void set_normals(const Eigen::MatrixXd& N);
 
   IGL_INLINE void set_visible(bool value, unsigned int core_id = 1);
@@ -57,14 +57,14 @@ public:
   // Set the color of the mesh
   //
   // Inputs:
-  //   C  #V|#F|1 by 3 list of colors
+  //   C  #vers|#F|1 by 3 list of colors
   IGL_INLINE void set_colors(const Eigen::MatrixXd &C);
 
 
   // Set per-vertex UV coordinates
   //
   // Inputs:
-  //   UV  #V by 2 list of UV coordinates (indexed by F)
+  //   UV  #vers by 2 list of UV coordinates (indexed by F)
   IGL_INLINE void set_uv(const Eigen::MatrixXd& UV);
 
   // Set per-corner UV coordinates
@@ -105,7 +105,7 @@ public:
   // Inputs:
   //   caxis_min  caxis minimum bound
   //   caxis_max  caxis maximum bound
-  //   D  #V by 1 list of scalar values
+  //   D  #vers by 1 list of scalar values
   //   cmap colormap type
   //   num_steps number of intervals to discretize the colormap
   //
@@ -158,7 +158,7 @@ public:
   // Sets edges given a list of points and eminating vectors
   IGL_INLINE void set_edges_from_vector_field(
     const Eigen::MatrixXd& P, 
-    const Eigen::MatrixXd& V, 
+    const Eigen::MatrixXd& vers, 
     const Eigen::MatrixXd& C);
 
   // Clear the edge data
@@ -196,7 +196,7 @@ public:
   // Copy visualization options from one viewport to another
   IGL_INLINE void copy_options(const ViewerCore &from, const ViewerCore &to);
 
-  Eigen::MatrixXd V; // Vertices of the current mesh (#V x 3)
+  Eigen::MatrixXd vers; // Vertices of the current mesh (#vers x 3)
   Eigen::MatrixXi F; // Faces of the mesh (#F x 3)
 
   // Per face attributes
@@ -311,7 +311,7 @@ namespace igl
   {
     inline void serialization(bool s, igl::opengl::ViewerData& obj, std::vector<char>& buffer)
     {
-      SERIALIZE_MEMBER(V);
+      SERIALIZE_MEMBER(vers);
       SERIALIZE_MEMBER(F);
       SERIALIZE_MEMBER(F_normals);
       SERIALIZE_MEMBER(F_material_ambient);

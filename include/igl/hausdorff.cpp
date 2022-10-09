@@ -40,7 +40,7 @@ template <
   typename DerivedV,
   typename Scalar>
 IGL_INLINE void igl::hausdorff(
-  const Eigen::MatrixBase<DerivedV>& V,
+  const Eigen::MatrixBase<DerivedV>& vers,
   const std::function<Scalar(const Scalar &,const Scalar &, const Scalar &)> & dist_to_B,
   Scalar & l,
   Scalar & u)
@@ -51,7 +51,7 @@ IGL_INLINE void igl::hausdorff(
   Scalar e_max = 0;
   for(int i=0;i<3;i++)
   {
-    e(i) = (V.row((i+1)%3)-V.row((i+2)%3)).norm();
+    e(i) = (vers.row((i+1)%3)-vers.row((i+2)%3)).norm();
     e_max = std::max(e_max,e(i));
   }
   // Semiperimeter
@@ -70,7 +70,7 @@ IGL_INLINE void igl::hausdorff(
   Scalar u2 = 0;
   for(int i=0;i<3;i++)
   {
-    d(i) = dist_to_B(V(i,0),V(i,1),V(i,2));
+    d(i) = dist_to_B(vers(i,0),vers(i,1),vers(i,2));
     // Lower bound is simply the max over vertex distances
     l = std::max(d(i),l);
     // u1 is the minimum of corner distances + maximum adjacent edge

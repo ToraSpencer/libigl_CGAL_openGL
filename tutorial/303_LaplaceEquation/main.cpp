@@ -17,9 +17,9 @@ int main(int argc, char *argv[])
 {
   using namespace Eigen;
   using namespace std;
-  MatrixXd V;
+  MatrixXd vers;
   MatrixXi F;
-  igl::readOFF(TUTORIAL_SHARED_PATH "/camelhead.off",V,F);
+  igl::readOFF(TUTORIAL_SHARED_PATH "/camelhead.off",vers,F);
 
   // Find boundary edges
   MatrixXi E;
@@ -29,19 +29,19 @@ int main(int argc, char *argv[])
   igl::unique(E,b,IA,IC);
   // List of all vertex indices
   VectorXi all,in;
-  igl::colon<int>(0,V.rows()-1,all);
+  igl::colon<int>(0,vers.rows()-1,all);
   // List of interior indices
   igl::setdiff(all,b,in,IA);
 
   // Construct and slice up Laplacian
   SparseMatrix<double> L,L_in_in,L_in_b;
-  igl::cotmatrix(V,F,L);
+  igl::cotmatrix(vers,F,L);
   igl::slice(L,in,in,L_in_in);
   igl::slice(L,in,b,L_in_b);
 
   // Dirichlet boundary conditions from z-coordinate
   VectorXd bc;
-  VectorXd Z = V.col(2);
+  VectorXd Z = vers.col(2);
   igl::slice(Z,b,bc);
 
   // Solve PDE
@@ -53,7 +53,7 @@ int main(int argc, char *argv[])
   // Alternative, short hand
   igl::min_quad_with_fixed_data<double> mqwf;
   // Linear term is 0
-  VectorXd B = VectorXd::Zero(V.rows(),1);
+  VectorXd B = VectorXd::Zero(vers.rows(),1);
   // Empty constraints
   VectorXd Beq;
   SparseMatrix<double> Aeq;
@@ -63,7 +63,7 @@ int main(int argc, char *argv[])
 
   // Plot the mesh with pseudocolors
   igl::opengl::glfw::Viewer viewer;
-  viewer.data().set_mesh(V, F);
+  viewer.data().set_mesh(vers, F);
   viewer.data().show_lines = false;
   viewer.data().set_data(Z);
   viewer.launch();

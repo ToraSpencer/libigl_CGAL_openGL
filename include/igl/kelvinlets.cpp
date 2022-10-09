@@ -19,7 +19,7 @@ namespace igl {
 //   x  dim-vector of point to be deformed
 //   x0 dim-vector of brush tip
 //   f  dim-vector of brush force (translation)
-//   F  dim by dim matrix of brush force matrix  (linear)
+//   tris  dim by dim matrix of brush force matrix  (linear)
 //   kp  parameters for the kelvinlet brush like brush radius, scale etc
 // Returns:
 //   X  dim-vector of the new point x gets displaced to post deformation
@@ -32,7 +32,7 @@ IGL_INLINE auto kelvinlet_evaluator(const Scalar dt,
                                     const Eigen::MatrixBase<Derivedx>& x,
                                     const Eigen::MatrixBase<Derivedx0>& x0,
                                     const Eigen::MatrixBase<Derivedf>& f,
-                                    const Eigen::MatrixBase<DerivedF>& F,
+                                    const Eigen::MatrixBase<DerivedF>& tris,
                                     const igl::KelvinletParams<Scalar>& kp)
   -> Eigen::Matrix<Scalar, 3, 1>
 {
@@ -65,20 +65,20 @@ IGL_INLINE auto kelvinlet_evaluator(const Scalar dt,
     }
     case igl::BrushType::TWIST: {
       // Regularized Kelvinlets: Formula (15)
-      kelvinlet = [&r, &F, &r_norm_sq](const Scalar& epsilon) {
+      kelvinlet = [&r, &tris, &r_norm_sq](const Scalar& epsilon) {
         const auto r_epsilon = sqrt(r_norm_sq + epsilon * epsilon);
         const auto r_epsilon_3 = r_epsilon * r_epsilon * r_epsilon;
         return -a *
                (1 / (r_epsilon_3) +
                 3 * epsilon * epsilon /
                   (2 * r_epsilon_3 * r_epsilon * r_epsilon)) *
-               F * r;
+               tris * r;
       };
       break;
     }
     case igl::BrushType::SCALE: {
       // Regularized Kelvinlets: Formula (16)
-      kelvinlet = [&r, &F, &r_norm_sq](const Scalar& epsilon) {
+      kelvinlet = [&r, &tris, &r_norm_sq](const Scalar& epsilon) {
         static constexpr auto b_compressible = a / 4; // assumes poisson ratio 0
         const auto r_epsilon = sqrt(r_norm_sq + epsilon * epsilon);
         const auto r_epsilon_3 = r_epsilon * r_epsilon * r_epsilon;
@@ -86,19 +86,19 @@ IGL_INLINE auto kelvinlet_evaluator(const Scalar dt,
           (2 * b_compressible - a) *
           (1 / (r_epsilon_3) +
            3 * (epsilon * epsilon) / (2 * r_epsilon_3 * r_epsilon * r_epsilon));
-        return coeff * F * r;
+        return coeff * tris * r;
       };
       break;
     }
     case igl::BrushType::PINCH: {
       // Regularized Kelvinlets: Formula (17)
-      kelvinlet = [&r, &F, &r_norm_sq, &kp](const Scalar& epsilon) {
+      kelvinlet = [&r, &tris, &r_norm_sq, &kp](const Scalar& epsilon) {
         const auto r_epsilon = sqrt(r_norm_sq + kp.epsilon * kp.epsilon);
         const auto r_epsilon_3 = r_epsilon * r_epsilon * r_epsilon;
-        auto t1 = ((2 * b - a) / r_epsilon_3) * F * r;
+        auto t1 = ((2 * b - a) / r_epsilon_3) * tris * r;
         auto t2_coeff = 3 / (2 * r_epsilon * r_epsilon * r_epsilon_3);
-        auto t2 = t2_coeff * (2 * b * (r.transpose().dot(F * r)) * r +
-                              a * epsilon * epsilon * epsilon * F * r);
+        auto t2 = t2_coeff * (2 * b * (r.transpose().dot(tris * r)) * r +
+                              a * epsilon * epsilon * epsilon * tris * r);
         return t1 - t2;
       };
       break;
@@ -129,7 +129,7 @@ IGL_INLINE auto kelvinlet_evaluator(const Scalar dt,
 //   x  dim-vector of point to be deformed
 //   x0 dim-vector of brush tip
 //   f  dim-vector of brush force (translation)
-//   F  dim by dim matrix of brush force matrix  (linear)
+//   tris  dim by dim matrix of brush force matrix  (linear)
 //   kp parameters for the kelvinlet brush like brush radius, scale etc
 // Outputs:
 //   result dim vector holding the third order approximation result
@@ -145,7 +145,7 @@ IGL_INLINE void integrate(const Scalar t,
                           const Eigen::MatrixBase<Derivedx>& x,
                           const Eigen::MatrixBase<Derivedx0>& x0,
                           const Eigen::MatrixBase<Derivedf>& f,
-                          const Eigen::MatrixBase<DerivedF>& F,
+                          const Eigen::MatrixBase<DerivedF>& tris,
                           const igl::KelvinletParams<Scalar>& kp,
                           Eigen::MatrixBase<Derivedx>& result,
                           Scalar& error)
@@ -171,13 +171,13 @@ IGL_INLINE void integrate(const Scalar t,
   constexpr Scalar d3 = 1 / 3.0f;
   constexpr Scalar d4 = 1 / 8.0f;
 
-  auto k1 = dt * kelvinlet_evaluator(t + dt * a1, x, x0, f, F, kp);
-  auto k2 = dt * kelvinlet_evaluator(t + dt * a2, x + k1 * b21, x0, f, F, kp);
+  auto k1 = dt * kelvinlet_evaluator(t + dt * a1, x, x0, f, tris, kp);
+  auto k2 = dt * kelvinlet_evaluator(t + dt * a2, x + k1 * b21, x0, f, tris, kp);
   auto k3 = dt * kelvinlet_evaluator(
-                   t + dt * a3, x + k1 * b31 + k2 * b32, x0, f, F, kp);
+                   t + dt * a3, x + k1 * b31 + k2 * b32, x0, f, tris, kp);
   auto k4 =
     dt * kelvinlet_evaluator(
-           t + dt * a4, x + k1 * b41 + k2 * b42 + k3 * b43, x0, f, F, kp);
+           t + dt * a4, x + k1 * b41 + k2 * b42 + k3 * b43, x0, f, tris, kp);
   auto r1 = x + k1 * d1 + k2 * d2 + k3 * d3 + k4 * d4;
   auto r2 = x + k1 * c1 + k2 * c2 + k3 * c3;
   result = r2;
@@ -190,10 +190,10 @@ template<typename DerivedV,
          typename DerivedF,
          typename DerivedU>
 IGL_INLINE void kelvinlets(
-  const Eigen::MatrixBase<DerivedV>& V,
+  const Eigen::MatrixBase<DerivedV>& vers,
   const Eigen::MatrixBase<Derivedx0>& x0,
   const Eigen::MatrixBase<Derivedf>& f,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedF>& tris,
   const KelvinletParams<typename DerivedV::Scalar>& params,
   Eigen::PlainObjectBase<DerivedU>& U)
 {
@@ -205,7 +205,7 @@ IGL_INLINE void kelvinlets(
     Scalar dt = 0.1;
     Scalar t = 0;
 
-    Eigen::Matrix<Scalar, 3, 1> x = V.row(index).transpose();
+    Eigen::Matrix<Scalar, 3, 1> x = vers.row(index).transpose();
     decltype(x) result;
     Scalar error;
     // taking smaller steps seems to prevents weird inside-out artifacts in the
@@ -213,7 +213,7 @@ IGL_INLINE void kelvinlets(
     // numerically integrate the ODEs
     while (t < 1) {
       dt = std::min(dt, 1 - t);
-      integrate(t, dt, x, x0, f, F, params, result, error);
+      integrate(t, dt, x, x0, f, tris, params, result, error);
       auto new_dt = dt * safety * std::pow(max_error / error, 1 / 3.0);
       if (error <= max_error || dt <= 0.001) {
         x = result;
@@ -226,8 +226,8 @@ IGL_INLINE void kelvinlets(
     U.row(index) = x.transpose();
   };
 
-  const int n = V.rows();
-  U.resize(n, V.cols());
+  const int n = vers.rows();
+  U.resize(n, vers.cols());
   igl::parallel_for(n, calc_displacement, 1000);
 }
 }

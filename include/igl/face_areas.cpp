@@ -11,13 +11,13 @@
 
 template <typename DerivedV, typename DerivedT, typename DerivedA>
 IGL_INLINE void igl::face_areas(
-  const Eigen::MatrixBase<DerivedV>& V,
+  const Eigen::MatrixBase<DerivedV>& vers,
   const Eigen::MatrixBase<DerivedT>& T,
   Eigen::PlainObjectBase<DerivedA>& A)
 {
   assert(T.cols() == 4);
   DerivedA L;
-  edge_lengths(V,T,L);
+  edge_lengths(vers,T,L);
   return face_areas(L,A);
 }
 

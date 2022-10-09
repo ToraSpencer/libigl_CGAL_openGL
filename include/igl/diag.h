@@ -16,9 +16,9 @@ namespace igl
   // http://forum.kde.org/viewtopic.php?f=74&t=117476&p=292388#p292388
   //
   // This is superceded by 
-  //   VectorXd V = X.diagonal() and 
-  //   SparseVector<double> V = X.diagonal().sparseView()
-  //   SparseMatrix<double> X = V.asDiagonal().sparseView()
+  //   VectorXd vers = X.diagonal() and 
+  //   SparseVector<double> vers = X.diagonal().sparseView()
+  //   SparseMatrix<double> X = vers.asDiagonal().sparseView()
   //
   //
   // Either extracts the main diagonal of a matrix as a vector OR converts a
@@ -30,28 +30,28 @@ namespace igl
   // Inputs:
   //   X  an m by n sparse matrix
   // Outputs:
-  //   V  a min(m,n) sparse vector
+  //   vers  a min(m,n) sparse vector
   template <typename T>
   IGL_INLINE void diag(
     const Eigen::SparseMatrix<T>& X, 
-    Eigen::SparseVector<T>& V);
+    Eigen::SparseVector<T>& vers);
   template <typename T,typename DerivedV>
   IGL_INLINE void diag(
     const Eigen::SparseMatrix<T>& X, 
-    Eigen::MatrixBase<DerivedV>& V);
+    Eigen::MatrixBase<DerivedV>& vers);
   // Templates:
   //   T  should be a eigen sparse matrix primitive type like int or double
   // Inputs:
-  //  V  a m sparse vector
+  //  vers  a m sparse vector
   // Outputs:
   //  X  a m by m sparse matrix
   template <typename T>
   IGL_INLINE void diag(
-    const Eigen::SparseVector<T>& V,
+    const Eigen::SparseVector<T>& vers,
     Eigen::SparseMatrix<T>& X);
   template <typename T, typename DerivedV>
   IGL_INLINE void diag(
-    const Eigen::MatrixBase<DerivedV>& V,
+    const Eigen::MatrixBase<DerivedV>& vers,
     Eigen::SparseMatrix<T>& X);
 }
 

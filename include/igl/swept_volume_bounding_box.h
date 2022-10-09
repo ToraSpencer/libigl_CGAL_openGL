@@ -18,7 +18,7 @@ namespace igl
   //
   // Inputs:
   //   n  number of mesh vertices
-  //   V  function handle so that V(i,t) returns the 3d position of vertex
+  //   vers  function handle so that vers(i,t) returns the 3d position of vertex
   //     i at time t, for t∈[0,1]
   //   steps  number of time steps: steps=3 --> t∈{0,0.5,1}
   // Outputs:
@@ -26,7 +26,7 @@ namespace igl
   IGL_INLINE void swept_volume_bounding_box(
     const size_t & n,
     const std::function<
-      Eigen::RowVector3d(const size_t vi, const double t)> & V,
+      Eigen::RowVector3d(const size_t vi, const double t)> & vers,
     const size_t & steps,
     Eigen::AlignedBox3d & box);
 }

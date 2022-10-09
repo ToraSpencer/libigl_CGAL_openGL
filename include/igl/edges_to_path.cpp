@@ -37,25 +37,25 @@ IGL_INLINE void igl::edges_to_path(
     unique(OE,U,IA,vE);
   }
 
-  Eigen::VectorXi V = Eigen::VectorXi::Zero(vE.maxCoeff()+1);
+  Eigen::VectorXi vers = Eigen::VectorXi::Zero(vE.maxCoeff()+1);
   for(int e = 0;e<vE.size();e++)
   {
-    V(vE(e))++;
-    assert(V(vE(e))<=2);
+    vers(vE(e))++;
+    assert(vers(vE(e))<=2);
   }
   // Try to find a vertex with valence = 1
   int c = 2;
   int s = vE(0);
-  for(int v = 0;v<V.size();v++)
+  for(int v = 0;v<vers.size();v++)
   {
-    if(V(v) == 1)
+    if(vers(v) == 1)
     {
-      c = V(v);
+      c = vers(v);
       s = v;
       break;
     }
   }
-  assert(V(s) == c);
+  assert(vers(s) == c);
   assert(c == 2 || c == 1);
 
   // reshape E to be #E by 2
@@ -83,8 +83,8 @@ IGL_INLINE void igl::edges_to_path(
     sort(EI,2,true,sEI,_);
   }
   {
-    Eigen::Array<bool,Eigen::Dynamic,1> F;
-    ismember_rows(sEI,sE,F,J);
+    Eigen::Array<bool,Eigen::Dynamic,1> tris;
+    ismember_rows(sEI,sE,tris,J);
   }
   K.resize(I.size()-1);
   for(int k = 0;k<K.size();k++)

@@ -15,20 +15,20 @@ template <
   typename DerivedUF,
   typename Scalar>
 IGL_INLINE void igl::project_isometrically_to_plane(
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   Eigen::PlainObjectBase<DerivedU> & U,
   Eigen::PlainObjectBase<DerivedUF> & UF,
   Eigen::SparseMatrix<Scalar>& I)
 {
   using namespace std;
   using namespace Eigen;
-  assert(F.cols() == 3 && "F should contain triangles");
+  assert(tris.cols() == 3 && "tris should contain triangles");
   typedef Eigen::Matrix<typename DerivedV::Scalar, Eigen::Dynamic, Eigen::Dynamic> MatrixX;
   MatrixX l;
-  edge_lengths(V,F,l);
+  edge_lengths(vers,tris,l);
   // Number of faces
-  const int m = F.rows();
+  const int m = tris.rows();
 
   // First corner at origin
   U = DerivedU::Zero(m*3,2);
@@ -51,10 +51,10 @@ IGL_INLINE void igl::project_isometrically_to_plane(
     for(int c = 0;c<3;c++)
     {
       UF(f,c) = c*m+f;
-      ijv.push_back(IJV(F(f,c),c*m+f,1));
+      ijv.push_back(IJV(tris(f,c),c*m+f,1));
     }
   }
-  I.resize(V.rows(),m*3);
+  I.resize(vers.rows(),m*3);
   I.setFromTriplets(ijv.begin(),ijv.end());
 }
 

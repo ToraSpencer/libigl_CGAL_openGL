@@ -30,7 +30,7 @@ IGL_INLINE void igl::polar_dec(
   Eigen::PlainObjectBase<DerivedT> & T,
   Eigen::PlainObjectBase<DerivedU> & U,
   Eigen::PlainObjectBase<DerivedS> & S,
-  Eigen::PlainObjectBase<DerivedV> & V)
+  Eigen::PlainObjectBase<DerivedV> & vers)
 {
   using namespace std;
   using namespace Eigen;
@@ -44,26 +44,26 @@ IGL_INLINE void igl::polar_dec(
   if(fetestexcept(FE_UNDERFLOW) || eig.eigenvalues()(0)/eig.eigenvalues()(2)<th)
   {
     cout<<"resorting to svd 1..."<<endl;
-    return polar_svd(A,R,T,U,S,V);
+    return polar_svd(A,R,T,U,S,vers);
   }
 
   S = eig.eigenvalues().cwiseSqrt();
 
-  V = eig.eigenvectors();
-  U = A * V;
-  R = U * S.asDiagonal().inverse() * V.transpose();
-  T = V * S.asDiagonal() * V.transpose();
+  vers = eig.eigenvectors();
+  U = A * vers;
+  R = U * S.asDiagonal().inverse() * vers.transpose();
+  T = vers * S.asDiagonal() * vers.transpose();
 
   S = S.reverse().eval();
-  V = V.rowwise().reverse().eval();
+  vers = vers.rowwise().reverse().eval();
   U = U.rowwise().reverse().eval() * S.asDiagonal().inverse();
 
   if(R.determinant() < 0)
   {
     // Annoyingly the .eval() is necessary
-    auto W = V.eval();
-    const auto & SVT = S.asDiagonal() * V.adjoint();
-    W.col(V.cols()-1) *= -1.;
+    auto W = vers.eval();
+    const auto & SVT = S.asDiagonal() * vers.adjoint();
+    W.col(vers.cols()-1) *= -1.;
     R = U*W.transpose();
     T = W*SVT;
   }
@@ -71,7 +71,7 @@ IGL_INLINE void igl::polar_dec(
   if(std::fabs(R.squaredNorm()-3.) > th)
   {
     cout<<"resorting to svd 2..."<<endl;
-    return polar_svd(A,R,T,U,S,V);
+    return polar_svd(A,R,T,U,S,vers);
   }
 }
 
@@ -85,9 +85,9 @@ IGL_INLINE void igl::polar_dec(
   Eigen::PlainObjectBase<DerivedT> & T)
 {
   DerivedA U;
-  DerivedA V;
+  DerivedA vers;
   Eigen::Matrix<typename DerivedA::Scalar,DerivedA::RowsAtCompileTime,1> S;
-  return igl::polar_dec(A,R,T,U,S,V);
+  return igl::polar_dec(A,R,T,U,S,vers);
 }
 
 #ifdef IGL_STATIC_LIBRARY

@@ -30,7 +30,7 @@ typedef
   RotationList;
 
 const Eigen::RowVector3d sea_green(70./255.,252./255.,167./255.);
-Eigen::MatrixXd V,U,M;
+Eigen::MatrixXd vers,U,M;
 Eigen::MatrixXi F;
 Eigen::VectorXi S,b;
 Eigen::MatrixXd L;
@@ -57,11 +57,11 @@ bool pre_draw(igl::opengl::glfw::Viewer & viewer)
   using namespace std;
   if(resolve)
   {
-    MatrixXd bc(b.size(),V.cols());
+    MatrixXd bc(b.size(),vers.cols());
     VectorXd Beq(3*b.size());
     for(int i = 0;i<b.size();i++)
     {
-      bc.row(i) = V.row(b(i));
+      bc.row(i) = vers.row(b(i));
       switch(i%4)
       {
         case 2:
@@ -146,11 +146,11 @@ int main(int argc, char *argv[])
 {
   using namespace Eigen;
   using namespace std;
-  igl::readOBJ(TUTORIAL_SHARED_PATH "/armadillo.obj",V,F);
-  U=V;
+  igl::readOBJ(TUTORIAL_SHARED_PATH "/armadillo.obj",vers,F);
+  U=vers;
   MatrixXd W;
   igl::readDMAT(TUTORIAL_SHARED_PATH "/armadillo-weights.dmat",W);
-  igl::lbs_matrix_column(V,W,M);
+  igl::lbs_matrix_column(vers,W,M);
 
   // Cluster according to weights
   VectorXi G;
@@ -175,7 +175,7 @@ int main(int argc, char *argv[])
   for(int i = 0;i<m;i++)
   {
     RowVector4d homo;
-    homo << V.row(b(i)),1.;
+    homo << vers.row(b(i)),1.;
     for(int d = 0;d<3;d++)
     {
       for(int c = 0;c<(3+1);c++)
@@ -185,7 +185,7 @@ int main(int argc, char *argv[])
     }
   }
   Aeq.setFromTriplets(ijv.begin(),ijv.end());
-  igl::arap_dof_precomputation(V,F,M,G,arap_dof_data);
+  igl::arap_dof_precomputation(vers,F,M,G,arap_dof_data);
   igl::arap_dof_recomputation(VectorXi(),Aeq,arap_dof_data);
   // Initialize
   MatrixXd Istack = MatrixXd::Identity(3,3+1).replicate(1,m);
@@ -194,21 +194,21 @@ int main(int argc, char *argv[])
   // Precomputation for ARAP
   cout<<"Initializing ARAP..."<<endl;
   arap_data.max_iter = 1;
-  igl::arap_precomputation(V,F,V.cols(),b,arap_data);
+  igl::arap_precomputation(vers,F,vers.cols(),b,arap_data);
   // Grouped arap
   cout<<"Initializing ARAP with grouped edge-sets..."<<endl;
   arap_grouped_data.max_iter = 2;
   arap_grouped_data.G = G;
-  igl::arap_precomputation(V,F,V.cols(),b,arap_grouped_data);
+  igl::arap_precomputation(vers,F,vers.cols(),b,arap_grouped_data);
 
 
   // bounding box diagonal
-  bbd = (V.colwise().maxCoeff()- V.colwise().minCoeff()).norm();
+  bbd = (vers.colwise().maxCoeff()- vers.colwise().minCoeff()).norm();
 
   // Plot the mesh with pseudocolors
   igl::opengl::glfw::Viewer viewer;
   viewer.data().set_mesh(U, F);
-  viewer.data().add_points(igl::slice(V,b,1),sea_green);
+  viewer.data().add_points(igl::slice(vers,b,1),sea_green);
   viewer.data().show_lines = false;
   viewer.callback_pre_draw = &pre_draw;
   viewer.callback_key_down = &key_down;

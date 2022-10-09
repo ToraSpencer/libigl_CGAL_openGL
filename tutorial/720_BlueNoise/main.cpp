@@ -20,13 +20,13 @@
 int main(int argc, char *argv[])
 {
 
-  Eigen::MatrixXd V;
+  Eigen::MatrixXd vers;
   Eigen::MatrixXi F;
   igl::read_triangle_mesh(
-    argc>1?argv[1]: TUTORIAL_SHARED_PATH "/elephant.obj",V,F);
+    argc>1?argv[1]: TUTORIAL_SHARED_PATH "/elephant.obj",vers,F);
   Eigen::MatrixXd N;
-  igl::per_vertex_normals(V,F,N);
-  const double bbd = (V.colwise().maxCoeff()- V.colwise().minCoeff()).norm();
+  igl::per_vertex_normals(vers,F,N);
+  const double bbd = (vers.colwise().maxCoeff()- vers.colwise().minCoeff()).norm();
 
   Eigen::MatrixXd P_blue;
   Eigen::MatrixXd N_blue;
@@ -35,16 +35,16 @@ int main(int argc, char *argv[])
   {
     const int n_desired = argc>2?atoi(argv[2]):50000;
     // Heuristic to  determine radius from desired number 
-    const double r = [&V,&F](const int n)
+    const double r = [&vers,&F](const int n)
     {
       Eigen::VectorXd A;
-      igl::doublearea(V,F,A);
+      igl::doublearea(vers,F,A);
       return sqrt(((A.sum()*0.5/(n*0.6162910373))/igl::PI));
     }(n_desired);
     printf("blue noise radius: %g\n",r);
     Eigen::MatrixXd B;
     Eigen::VectorXi I;
-    igl::blue_noise(V,F,r,B,I,P_blue);
+    igl::blue_noise(vers,F,r,B,I,P_blue);
     igl::barycentric_interpolation(N,F,B,I,N_blue);
     N_blue.rowwise().normalize();
   }
@@ -55,7 +55,7 @@ int main(int argc, char *argv[])
   {
     Eigen::MatrixXd B;
     Eigen::VectorXi I;
-    igl::random_points_on_mesh(P_blue.rows(),V,F,B,I,P_white);
+    igl::random_points_on_mesh(P_blue.rows(),vers,F,B,I,P_white);
     igl::barycentric_interpolation(N,F,B,I,N_white);
     N_white.rowwise().normalize();
   }
@@ -65,7 +65,7 @@ int main(int argc, char *argv[])
 
   // Plot the mesh
   igl::opengl::glfw::Viewer viewer;
-  viewer.data().set_mesh(V,F);
+  viewer.data().set_mesh(vers,F);
   viewer.data().show_lines = false;
   viewer.data().show_faces = false;
   viewer.data().point_size = 4;

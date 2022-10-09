@@ -24,15 +24,15 @@ namespace igl
   //   Index  type for indices (will be read as int and cast to Index)
   // Inputs:
   //   str  path to file
-  //   V  eigen double matrix #V by 3
-  //   F  eigen int matrix #F by 3
+  //   vers  eigen double matrix #vers by 3
+  //   tris  eigen int matrix #tris by 3
   //   encoding  set file encoding (ascii or binary) when both are available
   // Returns true iff success
   template <typename DerivedV, typename DerivedF>
   IGL_INLINE bool write_triangle_mesh(
     const std::string str,
-    const Eigen::MatrixBase<DerivedV>& V,
-    const Eigen::MatrixBase<DerivedF>& F,
+    const Eigen::MatrixBase<DerivedV>& vers,
+    const Eigen::MatrixBase<DerivedF>& tris,
     FileEncoding encoding = FileEncoding::Ascii);
 }
 

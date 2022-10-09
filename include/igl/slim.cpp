@@ -53,13 +53,13 @@ namespace igl
     IGL_INLINE void add_soft_constraints(igl::SLIMData& s, Eigen::SparseMatrix<double> &L);
     IGL_INLINE double compute_energy(igl::SLIMData& s, const Eigen::MatrixXd &V_new);
     IGL_INLINE double compute_soft_const_energy(igl::SLIMData& s,
-                                                const Eigen::MatrixXd &V,
-                                                const Eigen::MatrixXi &F,
+                                                const Eigen::MatrixXd &vers,
+                                                const Eigen::MatrixXi &tris,
                                                 const Eigen::MatrixXd &V_o);
 
     IGL_INLINE void solve_weighted_arap(igl::SLIMData& s,
-                                        const Eigen::MatrixXd &V,
-                                        const Eigen::MatrixXi &F,
+                                        const Eigen::MatrixXd &vers,
+                                        const Eigen::MatrixXi &tris,
                                         Eigen::MatrixXd &uv,
                                         Eigen::VectorXi &soft_b_p,
                                         Eigen::MatrixXd &soft_bc_p);
@@ -73,7 +73,7 @@ namespace igl
 
     IGL_INLINE void compute_jacobians(igl::SLIMData& s, const Eigen::MatrixXd &uv)
     {
-      if (s.F.cols() == 3)
+      if (s.tris.cols() == 3)
       {
         // Ji=[D1*u,D2*u,D1*v,D2*v];
         s.Ji.col(0) = s.Dx * uv.col(0);
@@ -105,8 +105,8 @@ namespace igl
 
 
     IGL_INLINE void solve_weighted_arap(igl::SLIMData& s,
-                                        const Eigen::MatrixXd &V,
-                                        const Eigen::MatrixXi &F,
+                                        const Eigen::MatrixXd &vers,
+                                        const Eigen::MatrixXi &tris,
                                         Eigen::MatrixXd &uv,
                                         Eigen::VectorXi &soft_b_p,
                                         Eigen::MatrixXd &soft_bc_p)
@@ -156,22 +156,22 @@ namespace igl
         s.v_n = s.v_num;
         s.f_n = s.f_num;
 
-        if (s.F.cols() == 3)
+        if (s.tris.cols() == 3)
         {
           s.dim = 2;
           Eigen::MatrixXd F1, F2, F3;
-          igl::local_basis(s.V, s.F, F1, F2, F3);
+          igl::local_basis(s.vers, s.tris, F1, F2, F3);
           Eigen::SparseMatrix<double> G;
-          igl::grad(s.V, s.F, G);
+          igl::grad(s.vers, s.tris, G);
           Eigen::SparseMatrix<double> Face_Proj;
 
-          auto face_proj = [](Eigen::MatrixXd& F){
+          auto face_proj = [](Eigen::MatrixXd& tris){
             std::vector<Eigen::Triplet<double> >IJV;
-            int f_num = F.rows();
-            for(int i=0; i<F.rows(); i++) {
-              IJV.push_back(Eigen::Triplet<double>(i, i, F(i,0)));
-              IJV.push_back(Eigen::Triplet<double>(i, i+f_num, F(i,1)));
-              IJV.push_back(Eigen::Triplet<double>(i, i+2*f_num, F(i,2)));
+            int f_num = tris.rows();
+            for(int i=0; i<tris.rows(); i++) {
+              IJV.push_back(Eigen::Triplet<double>(i, i, tris(i,0)));
+              IJV.push_back(Eigen::Triplet<double>(i, i+f_num, tris(i,1)));
+              IJV.push_back(Eigen::Triplet<double>(i, i+2*f_num, tris(i,2)));
             }
             Eigen::SparseMatrix<double> P(f_num, 3*f_num);
             P.setFromTriplets(IJV.begin(), IJV.end());
@@ -185,11 +185,11 @@ namespace igl
         {
           s.dim = 3;
           Eigen::SparseMatrix<double> G;
-          igl::grad(s.V, s.F, G,
+          igl::grad(s.vers, s.tris, G,
                     s.mesh_improvement_3d /*use normal gradient, or one from a "regular" tet*/);
-          s.Dx = G.block(0, 0, s.F.rows(), s.V.rows());
-          s.Dy = G.block(s.F.rows(), 0, s.F.rows(), s.V.rows());
-          s.Dz = G.block(2 * s.F.rows(), 0, s.F.rows(), s.V.rows());
+          s.Dx = G.block(0, 0, s.tris.rows(), s.vers.rows());
+          s.Dy = G.block(s.tris.rows(), 0, s.tris.rows(), s.vers.rows());
+          s.Dz = G.block(2 * s.tris.rows(), 0, s.tris.rows(), s.vers.rows());
         }
 
         s.W.resize(s.f_n, s.dim * s.dim);
@@ -291,12 +291,12 @@ namespace igl
     {
       compute_jacobians(s,V_new);
       return mapping_energy_with_jacobians(s.Ji, s.M, s.slim_energy, s.exp_factor) +
-             compute_soft_const_energy(s, s.V, s.F, V_new);
+             compute_soft_const_energy(s, s.vers, s.tris, V_new);
     }
 
     IGL_INLINE double compute_soft_const_energy(igl::SLIMData& s,
-                                                const Eigen::MatrixXd &V,
-                                                const Eigen::MatrixXi &F,
+                                                const Eigen::MatrixXd &vers,
+                                                const Eigen::MatrixXi &tris,
                                                 const Eigen::MatrixXd &V_o)
     {
       double e = 0;
@@ -746,8 +746,8 @@ std::vector<Eigen::Triplet<double> > & IJV)
 /// Slim Implementation
 
 IGL_INLINE void igl::slim_precompute(
-  const Eigen::MatrixXd &V, 
-  const Eigen::MatrixXi &F, 
+  const Eigen::MatrixXd &vers, 
+  const Eigen::MatrixXi &tris, 
   const Eigen::MatrixXd &V_init, 
   igl::SLIMData &data,
   igl::MappingEnergyType slim_energy, 
@@ -756,12 +756,12 @@ IGL_INLINE void igl::slim_precompute(
   double soft_p)
 {
 
-  data.V = V;
-  data.F = F;
+  data.vers = vers;
+  data.tris = tris;
   data.V_o = V_init;
 
-  data.v_num = V.rows();
-  data.f_num = F.rows();
+  data.v_num = vers.rows();
+  data.f_num = tris.rows();
 
   data.slim_energy = slim_energy;
 
@@ -771,13 +771,13 @@ IGL_INLINE void igl::slim_precompute(
 
   data.proximal_p = 0.0001;
 
-  igl::doublearea(V, F, data.M);
+  igl::doublearea(vers, tris, data.M);
   data.M /= 2.;
   data.mesh_area = data.M.sum();
   data.mesh_improvement_3d = false; // whether to use a jacobian derived from a real mesh or an abstract regular mesh (used for mesh improvement)
   data.exp_factor = 1.0; // param used only for exponential energies (e.g exponential symmetric dirichlet)
 
-  assert (F.cols() == 3 || F.cols() == 4);
+  assert (tris.cols() == 3 || tris.cols() == 4);
 
   igl::slim::pre_calc(data);
   data.energy = igl::slim::compute_energy(data,data.V_o) / data.mesh_area;
@@ -792,14 +792,14 @@ IGL_INLINE Eigen::MatrixXd igl::slim_solve(igl::SLIMData &data, int iter_num)
 
     // Solve Weighted Proxy
     igl::slim::update_weights_and_closest_rotations(data, dest_res);
-    igl::slim::solve_weighted_arap(data,data.V, data.F, dest_res, data.b, data.bc);
+    igl::slim::solve_weighted_arap(data,data.vers, data.tris, dest_res, data.b, data.bc);
 
     double old_energy = data.energy;
 
     std::function<double(Eigen::MatrixXd &)> compute_energy = [&](
         Eigen::MatrixXd &aaa) { return igl::slim::compute_energy(data,aaa); };
 
-    data.energy = igl::flip_avoiding_line_search(data.F, data.V_o, dest_res, compute_energy,
+    data.energy = igl::flip_avoiding_line_search(data.tris, data.V_o, dest_res, compute_energy,
                                                  data.energy * data.mesh_area) / data.mesh_area;
   }
   return data.V_o;

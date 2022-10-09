@@ -21,12 +21,12 @@ namespace igl
   // lengths.
   //
   // Inputs:
-  //   V  #V by dim list of mesh vertex positions
+  //   vers  #vers by dim list of mesh vertex positions
   //   b  #W list of vertex ids
   // Outputs:
   //   UV   #W by 2 list of 2D position on the unit circle for the vertices in b
   IGL_INLINE void map_vertices_to_circle(
-  	const Eigen::MatrixXd& V,
+  	const Eigen::MatrixXd& vers,
     const Eigen::VectorXi& bnd,
   	Eigen::MatrixXd& UV);
 }

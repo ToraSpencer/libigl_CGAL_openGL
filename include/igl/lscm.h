@@ -26,17 +26,17 @@ namespace igl
   // should contain at least two vertices per connected component.
   //
   // Inputs:
-  //   V  #V by 3 list of mesh vertex positions
-  //   F  #F by 3 list of mesh faces (must be triangles)
-  //   b  #b boundary indices into V
+  //   vers  #vers by 3 list of mesh vertex positions
+  //   tris  #tris by 3 list of mesh faces (must be triangles)
+  //   b  #b boundary indices into vers
   //   bc #b by 3 list of boundary values
   // Outputs:
-  //   UV #V by 2 list of 2D mesh vertex positions in UV space
+  //   UV #vers by 2 list of 2D mesh vertex positions in UV space
   // Returns true only on solver success.
   //
   IGL_INLINE bool lscm( 
-      const Eigen::MatrixXd& V, 
-      const Eigen::MatrixXi& F,
+      const Eigen::MatrixXd& vers, 
+      const Eigen::MatrixXi& tris,
       const Eigen::VectorXi& b, 
       const Eigen::MatrixXd& bc, 
       Eigen::MatrixXd& V_uv);

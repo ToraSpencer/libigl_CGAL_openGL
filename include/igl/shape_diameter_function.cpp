@@ -76,22 +76,22 @@ template <
   typename DerivedS >
 IGL_INLINE void igl::shape_diameter_function(
   const igl::AABB<DerivedV,DIM> & aabb,
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const Eigen::MatrixBase<DerivedP> & P,
   const Eigen::MatrixBase<DerivedN> & N,
   const int num_samples,
   Eigen::PlainObjectBase<DerivedS> & S)
 {
-  const auto & shoot_ray = [&aabb,&V,&F](
+  const auto & shoot_ray = [&aabb,&vers,&tris](
     const Eigen::Vector3f& _s,
     const Eigen::Vector3f& dir)->double
   {
     Eigen::Vector3f s = _s+1e-4*dir;
     igl::Hit hit;
     if(aabb.intersect_ray(
-      V,
-      F,
+      vers,
+      tris,
       s  .cast<typename DerivedV::Scalar>().eval(),
       dir.cast<typename DerivedV::Scalar>().eval(),
       hit))
@@ -113,23 +113,23 @@ template <
   typename DerivedN,
   typename DerivedS >
 IGL_INLINE void igl::shape_diameter_function(
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const Eigen::MatrixBase<DerivedP> & P,
   const Eigen::MatrixBase<DerivedN> & N,
   const int num_samples,
   Eigen::PlainObjectBase<DerivedS> & S)
 {
-  if(F.rows() < 100)
+  if(tris.rows() < 100)
   {
     // Super naive
-    const auto & shoot_ray = [&V,&F](
+    const auto & shoot_ray = [&vers,&tris](
       const Eigen::Vector3f& _s,
       const Eigen::Vector3f& dir)->double
     {
       Eigen::Vector3f s = _s+1e-4*dir;
       igl::Hit hit;
-      if(ray_mesh_intersect(s,dir,V,F,hit))
+      if(ray_mesh_intersect(s,dir,vers,tris,hit))
       {
         return hit.t;
       }else
@@ -140,8 +140,8 @@ IGL_INLINE void igl::shape_diameter_function(
     return shape_diameter_function(shoot_ray,P,N,num_samples,S);
   }
   AABB<DerivedV,3> aabb;
-  aabb.init(V,F);
-  return shape_diameter_function(aabb,V,F,P,N,num_samples,S);
+  aabb.init(vers,tris);
+  return shape_diameter_function(aabb,vers,tris,P,N,num_samples,S);
 }
 
 template <
@@ -149,8 +149,8 @@ template <
   typename DerivedF,
   typename DerivedS>
 IGL_INLINE void igl::shape_diameter_function(
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const bool per_face,
   const int num_samples,
   Eigen::PlainObjectBase<DerivedS> & S)
@@ -158,16 +158,16 @@ IGL_INLINE void igl::shape_diameter_function(
   if (per_face)
   {
     DerivedV N;
-    igl::per_face_normals(V, F, N);
+    igl::per_face_normals(vers, tris, N);
     DerivedV P;
-    igl::barycenter(V, F, P);
-    return igl::shape_diameter_function(V, F, P, N, num_samples, S);
+    igl::barycenter(vers, tris, P);
+    return igl::shape_diameter_function(vers, tris, P, N, num_samples, S);
   }
   else
   {
     DerivedV N;
-    igl::per_vertex_normals(V, F, N);
-    return igl::shape_diameter_function(V, F, V, N, num_samples, S);
+    igl::per_vertex_normals(vers, tris, N);
+    return igl::shape_diameter_function(vers, tris, vers, N, num_samples, S);
   }
 }
 

@@ -12,8 +12,8 @@
 
 template <typename MatV, typename MatF, typename MatK>
 IGL_INLINE void igl::arap_linear_block(
-  const MatV & V,
-  const MatF & F,
+  const MatV & vers,
+  const MatF & tris,
   const int d,
   const igl::ARAPEnergyType energy,
   MatK & Kd)
@@ -21,13 +21,13 @@ IGL_INLINE void igl::arap_linear_block(
   switch(energy)
   {
     case ARAP_ENERGY_TYPE_SPOKES:
-      return igl::arap_linear_block_spokes(V,F,d,Kd);
+      return igl::arap_linear_block_spokes(vers,tris,d,Kd);
       break;
     case ARAP_ENERGY_TYPE_SPOKES_AND_RIMS:
-      return igl::arap_linear_block_spokes_and_rims(V,F,d,Kd);
+      return igl::arap_linear_block_spokes_and_rims(vers,tris,d,Kd);
       break;
     case ARAP_ENERGY_TYPE_ELEMENTS:
-      return igl::arap_linear_block_elements(V,F,d,Kd);
+      return igl::arap_linear_block_elements(vers,tris,d,Kd);
       break;
     default:
       verbose("Unsupported energy type: %d\n",energy);
@@ -38,8 +38,8 @@ IGL_INLINE void igl::arap_linear_block(
 
 template <typename MatV, typename MatF, typename MatK>
 IGL_INLINE void igl::arap_linear_block_spokes(
-  const MatV & V,
-  const MatF & F,
+  const MatV & vers,
+  const MatF & tris,
   const int d,
   MatK & Kd)
 {
@@ -48,18 +48,18 @@ IGL_INLINE void igl::arap_linear_block_spokes(
   using namespace std;
   using namespace Eigen;
   // simplex size (3: triangles, 4: tetrahedra)
-  int simplex_size = F.cols();
+  int simplex_size = tris.cols();
   // Number of elements
-  int m = F.rows();
+  int m = tris.rows();
   // Temporary output
   Matrix<int,Dynamic,2> edges;
-  Kd.resize(V.rows(), V.rows());
+  Kd.resize(vers.rows(), vers.rows());
   vector<Triplet<Scalar> > Kd_IJV;
   if(simplex_size == 3)
   {
     // triangles
-    Kd.reserve(7*V.rows());
-    Kd_IJV.reserve(7*V.rows());
+    Kd.reserve(7*vers.rows());
+    Kd_IJV.reserve(7*vers.rows());
     edges.resize(3,2);
     edges << 
       1,2,
@@ -68,8 +68,8 @@ IGL_INLINE void igl::arap_linear_block_spokes(
   }else if(simplex_size == 4)
   {
     // tets
-    Kd.reserve(17*V.rows());
-    Kd_IJV.reserve(17*V.rows());
+    Kd.reserve(17*vers.rows());
+    Kd_IJV.reserve(17*vers.rows());
     edges.resize(6,2);
     edges << 
       1,2,
@@ -81,7 +81,7 @@ IGL_INLINE void igl::arap_linear_block_spokes(
   }
   // gather cotangent weights
   Matrix<Scalar,Dynamic,Dynamic> C;
-  cotmatrix_entries(V,F,C);
+  cotmatrix_entries(vers,tris,C);
   // should have weights for each edge
   assert(C.cols() == edges.rows());
   // loop over elements
@@ -90,9 +90,9 @@ IGL_INLINE void igl::arap_linear_block_spokes(
     // loop over edges of element
     for(int e = 0;e<edges.rows();e++)
     {
-      int source = F(i,edges(e,0));
-      int dest = F(i,edges(e,1));
-      double v = 0.5*C(i,e)*(V(source,d)-V(dest,d));
+      int source = tris(i,edges(e,0));
+      int dest = tris(i,edges(e,1));
+      double v = 0.5*C(i,e)*(vers(source,d)-vers(dest,d));
       Kd_IJV.push_back(Triplet<Scalar>(source,dest,v));
       Kd_IJV.push_back(Triplet<Scalar>(dest,source,-v));
       Kd_IJV.push_back(Triplet<Scalar>(source,source,v));
@@ -105,8 +105,8 @@ IGL_INLINE void igl::arap_linear_block_spokes(
 
 template <typename MatV, typename MatF, typename MatK>
 IGL_INLINE void igl::arap_linear_block_spokes_and_rims(
-  const MatV & V,
-  const MatF & F,
+  const MatV & vers,
+  const MatF & tris,
   const int d,
   MatK & Kd)
 {
@@ -115,18 +115,18 @@ IGL_INLINE void igl::arap_linear_block_spokes_and_rims(
   using namespace std;
   using namespace Eigen;
   // simplex size (3: triangles, 4: tetrahedra)
-  int simplex_size = F.cols();
+  int simplex_size = tris.cols();
   // Number of elements
-  int m = F.rows();
+  int m = tris.rows();
   // Temporary output
-  Kd.resize(V.rows(), V.rows());
+  Kd.resize(vers.rows(), vers.rows());
   vector<Triplet<Scalar> > Kd_IJV;
   Matrix<int,Dynamic,2> edges;
   if(simplex_size == 3)
   {
     // triangles
-    Kd.reserve(7*V.rows());
-    Kd_IJV.reserve(7*V.rows());
+    Kd.reserve(7*vers.rows());
+    Kd_IJV.reserve(7*vers.rows());
     edges.resize(3,2);
     edges << 
       1,2,
@@ -135,8 +135,8 @@ IGL_INLINE void igl::arap_linear_block_spokes_and_rims(
   }else if(simplex_size == 4)
   {
     // tets
-    Kd.reserve(17*V.rows());
-    Kd_IJV.reserve(17*V.rows());
+    Kd.reserve(17*vers.rows());
+    Kd_IJV.reserve(17*vers.rows());
     edges.resize(6,2);
     edges << 
       1,2,
@@ -150,7 +150,7 @@ IGL_INLINE void igl::arap_linear_block_spokes_and_rims(
   }
   // gather cotangent weights
   Matrix<Scalar,Dynamic,Dynamic> C;
-  cotmatrix_entries(V,F,C);
+  cotmatrix_entries(vers,tris,C);
   // should have weights for each edge
   assert(C.cols() == edges.rows());
   // loop over elements
@@ -159,14 +159,14 @@ IGL_INLINE void igl::arap_linear_block_spokes_and_rims(
     // loop over edges of element
     for(int e = 0;e<edges.rows();e++)
     {
-      int source = F(i,edges(e,0));
-      int dest = F(i,edges(e,1));
-      double v = C(i,e)*(V(source,d)-V(dest,d))/3.0;
+      int source = tris(i,edges(e,0));
+      int dest = tris(i,edges(e,1));
+      double v = C(i,e)*(vers(source,d)-vers(dest,d))/3.0;
       // loop over edges again
       for(int f = 0;f<edges.rows();f++)
       {
-        int Rs = F(i,edges(f,0));
-        int Rd = F(i,edges(f,1));
+        int Rs = tris(i,edges(f,0));
+        int Rd = tris(i,edges(f,1));
         if(Rs == source && Rd == dest)
         {
           Kd_IJV.push_back(Triplet<Scalar>(Rs,Rd,v));
@@ -189,8 +189,8 @@ IGL_INLINE void igl::arap_linear_block_spokes_and_rims(
 
 template <typename MatV, typename MatF, typename MatK>
 IGL_INLINE void igl::arap_linear_block_elements(
-  const MatV & V,
-  const MatF & F,
+  const MatV & vers,
+  const MatF & tris,
   const int d,
   MatK & Kd)
 {
@@ -198,18 +198,18 @@ IGL_INLINE void igl::arap_linear_block_elements(
   using namespace std;
   using namespace Eigen;
   // simplex size (3: triangles, 4: tetrahedra)
-  int simplex_size = F.cols();
+  int simplex_size = tris.cols();
   // Number of elements
-  int m = F.rows();
+  int m = tris.rows();
   // Temporary output
-  Kd.resize(V.rows(), F.rows());
+  Kd.resize(vers.rows(), tris.rows());
   vector<Triplet<Scalar> > Kd_IJV;
   Matrix<int,Dynamic,2> edges;
   if(simplex_size == 3)
   {
     // triangles
-    Kd.reserve(7*V.rows());
-    Kd_IJV.reserve(7*V.rows());
+    Kd.reserve(7*vers.rows());
+    Kd_IJV.reserve(7*vers.rows());
     edges.resize(3,2);
     edges << 
       1,2,
@@ -218,8 +218,8 @@ IGL_INLINE void igl::arap_linear_block_elements(
   }else if(simplex_size == 4)
   {
     // tets
-    Kd.reserve(17*V.rows());
-    Kd_IJV.reserve(17*V.rows());
+    Kd.reserve(17*vers.rows());
+    Kd_IJV.reserve(17*vers.rows());
     edges.resize(6,2);
     edges << 
       1,2,
@@ -231,7 +231,7 @@ IGL_INLINE void igl::arap_linear_block_elements(
   }
   // gather cotangent weights
   Matrix<Scalar,Dynamic,Dynamic> C;
-  cotmatrix_entries(V,F,C);
+  cotmatrix_entries(vers,tris,C);
   // should have weights for each edge
   assert(C.cols() == edges.rows());
   // loop over elements
@@ -240,9 +240,9 @@ IGL_INLINE void igl::arap_linear_block_elements(
     // loop over edges of element
     for(int e = 0;e<edges.rows();e++)
     {
-      int source = F(i,edges(e,0));
-      int dest = F(i,edges(e,1));
-      double v = C(i,e)*(V(source,d)-V(dest,d));
+      int source = tris(i,edges(e,0));
+      int dest = tris(i,edges(e,1));
+      double v = C(i,e)*(vers(source,d)-vers(dest,d));
       Kd_IJV.push_back(Triplet<Scalar>(source,i,v));
       Kd_IJV.push_back(Triplet<Scalar>(dest,i,-v));
     }

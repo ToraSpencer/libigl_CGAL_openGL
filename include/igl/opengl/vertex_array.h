@@ -7,11 +7,11 @@ namespace igl
 {
   namespace opengl
   {
-    // Create a GL_VERTEX_ARRAY for a given mesh (V,F)
+    // Create a GL_VERTEX_ARRAY for a given mesh (vers,F)
     //
     // Inputs:
-    //   V  #V by dim list of mesh vertex positions
-    //   F  #F by 3 list of mesh triangle indices into V
+    //   vers  #vers by dim list of mesh vertex positions
+    //   F  #F by 3 list of mesh triangle indices into vers
     // Outputs:
     //   va_id  id of vertex array
     //   ab_id  id of array buffer (vertex buffer object)
@@ -25,7 +25,7 @@ namespace igl
       // be `Eigen::PlainObjectBase` because we want to directly access it's
       // underlying storage. It cannot be `Eigen::MatrixBase` (see
       // http://stackoverflow.com/questions/25094948/)
-      const Eigen::PlainObjectBase<DerivedV> & V,
+      const Eigen::PlainObjectBase<DerivedV> & vers,
       const Eigen::PlainObjectBase<DerivedF> & F,
       GLuint & va_id,
       GLuint & ab_id,

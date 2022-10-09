@@ -15,12 +15,12 @@ namespace igl
   // Dual quaternion skinning
   //
   // Inputs:
-  //   V  #V by 3 list of rest positions
+  //   vers  #vers by 3 list of rest positions
   //   W  #W by #C list of weights
   //   vQ  #C list of rotation quaternions
   //   vT  #C list of translation vectors
   // Outputs:
-  //   U  #V by 3 list of new positions
+  //   U  #vers by 3 list of new positions
   template <
     typename DerivedV,
     typename DerivedW,
@@ -29,7 +29,7 @@ namespace igl
     typename T,
     typename DerivedU>
   IGL_INLINE void dqs(
-    const Eigen::MatrixBase<DerivedV> & V,
+    const Eigen::MatrixBase<DerivedV> & vers,
     const Eigen::MatrixBase<DerivedW> & W,
     const std::vector<Q,QAlloc> & vQ,
     const std::vector<T> & vT,

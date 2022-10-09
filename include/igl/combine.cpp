@@ -18,8 +18,8 @@ template <
 IGL_INLINE void igl::combine(
   const std::vector<DerivedVV> & VV,
   const std::vector<DerivedFF> & FF,
-  Eigen::PlainObjectBase<DerivedV> & V,
-  Eigen::PlainObjectBase<DerivedF> & F,
+  Eigen::PlainObjectBase<DerivedV> & vers,
+  Eigen::PlainObjectBase<DerivedF> & tris,
   Eigen::PlainObjectBase<DerivedVsizes> & Vsizes,
   Eigen::PlainObjectBase<DerivedFsizes> & Fsizes)
 {
@@ -44,8 +44,8 @@ IGL_INLINE void igl::combine(
     m+=Fi.rows();
     assert((Fi.size()==0 || ss == Fi.cols()) && "All face lists should have same #columns");
   }
-  V.resize(n,dim);
-  F.resize(m,ss);
+  vers.resize(n,dim);
+  tris.resize(m,ss);
   {
     int kv = 0;
     int kf = 0;
@@ -57,17 +57,17 @@ IGL_INLINE void igl::combine(
       const int mi = Fi.rows();
       if(Fi.size() >0)
       {
-        F.block(kf,0,mi,ss) = Fi.array()+kv;
+        tris.block(kf,0,mi,ss) = Fi.array()+kv;
       }
       kf+=mi;
       if(Vi.size() >0)
       {
-        V.block(kv,0,ni,dim) = Vi;
+        vers.block(kv,0,ni,dim) = Vi;
       }
       kv+=ni;
     }
-    assert(kv == V.rows());
-    assert(kf == F.rows());
+    assert(kv == vers.rows());
+    assert(kf == tris.rows());
   }
 }
 
@@ -79,11 +79,11 @@ template <
 IGL_INLINE void igl::combine(
   const std::vector<DerivedVV> & VV,
   const std::vector<DerivedFF> & FF,
-  Eigen::PlainObjectBase<DerivedV> & V,
-  Eigen::PlainObjectBase<DerivedF> & F)
+  Eigen::PlainObjectBase<DerivedV> & vers,
+  Eigen::PlainObjectBase<DerivedF> & tris)
 {
   Eigen::VectorXi Vsizes,Fsizes;
-  return igl::combine(VV,FF,V,F,Vsizes,Fsizes);
+  return igl::combine(VV,FF,vers,tris,Vsizes,Fsizes);
 }
 
 #ifdef IGL_STATIC_LIBRARY

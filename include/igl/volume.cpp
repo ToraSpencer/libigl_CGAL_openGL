@@ -13,7 +13,7 @@ template <
   typename DerivedT,
   typename Derivedvol>
 IGL_INLINE void igl::volume(
-  const Eigen::MatrixBase<DerivedV>& V,
+  const Eigen::MatrixBase<DerivedV>& vers,
   const Eigen::MatrixBase<DerivedT>& T,
   Eigen::PlainObjectBase<Derivedvol>& vol)
 {
@@ -23,10 +23,10 @@ IGL_INLINE void igl::volume(
   for(int t = 0;t<m;t++)
   {
     typedef Eigen::Matrix<typename DerivedV::Scalar,1,3> RowVector3S;
-    const RowVector3S & a = V.row(T(t,0));
-    const RowVector3S & b = V.row(T(t,1));
-    const RowVector3S & c = V.row(T(t,2));
-    const RowVector3S & d = V.row(T(t,3));
+    const RowVector3S & a = vers.row(T(t,0));
+    const RowVector3S & b = vers.row(T(t,1));
+    const RowVector3S & c = vers.row(T(t,2));
+    const RowVector3S & d = vers.row(T(t,3));
     vol(t) = -(a-d).dot((b-d).cross(c-d))/6.;
   }
 }
@@ -85,12 +85,12 @@ IGL_INLINE void igl::volume(
     const ScalarS v = L(t,1);
     const ScalarS w = L(t,2);
     const ScalarS U = L(t,3);
-    const ScalarS V = L(t,4);
+    const ScalarS vers = L(t,4);
     const ScalarS W = L(t,5);
     const ScalarS X = (w - U + v)*(U + v + w);
     const ScalarS x = (U - v + w)*(v - w + U);
-    const ScalarS Y = (u - V + w)*(V + w + u);
-    const ScalarS y = (V - w + u)*(w - u + V);
+    const ScalarS Y = (u - vers + w)*(vers + w + u);
+    const ScalarS y = (vers - w + u)*(w - u + vers);
     const ScalarS Z = (v - W + u)*(W + u + v);
     const ScalarS z = (W - u + v)*(u - v + W);
     const ScalarS a = sqrt(x*Y*Z);

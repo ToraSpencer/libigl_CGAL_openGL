@@ -6,12 +6,12 @@ namespace igl
 {
   // FIND_EARS  Find all ears (faces with two boundary edges) in a given mesh
   // 
-  // [ears,ear_opp] = find_ears(F)
+  // [ears,ear_opp] = find_ears(tris)
   //
   // Inputs:
-  //   F  #F by 3 list of triangle mesh indices
+  //   tris  #tris by 3 list of triangle mesh indices
   // Outputs:
-  //   ears  #ears list of indices into F of ears
+  //   ears  #ears list of indices into tris of ears
   //   ear_opp  #ears list of indices indicating which edge is non-boundary
   //     (connecting to flops)
   // 
@@ -20,7 +20,7 @@ namespace igl
     typename Derivedear,
     typename Derivedear_opp>
   IGL_INLINE void ears(
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedF> & tris,
     Eigen::PlainObjectBase<Derivedear> & ear,
     Eigen::PlainObjectBase<Derivedear_opp> & ear_opp);
 }

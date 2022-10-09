@@ -17,21 +17,21 @@ namespace igl
 {
   struct ARAPData
   {
-    // n  #V
-    // G  #V list of group indices (1 to k) for each vertex, such that vertex i
+    // n  #vers
+    // G  #vers list of group indices (1 to k) for each vertex, such that vertex i
     //    is assigned to group G(i)
     // energy  type of energy to use
     // with_dynamics  whether using dynamics (need to call arap_precomputation
     //   after changing)
-    // f_ext  #V by dim list of external forces
-    // vel  #V by dim list of velocities
+    // f_ext  #vers by dim list of external forces
+    // vel  #vers by dim list of velocities
     // h  dynamics time step
     // ym  ~Young's modulus smaller is softer, larger is more rigid/stiff
     // max_iter  maximum inner iterations
     // K  rhs pre-multiplier
     // M  mass matrix
     // solver_data  quadratic solver data
-    // b  list of boundary indices into V
+    // b  list of boundary indices into vers
     // dim  dimension being used for solving
     int n;
     Eigen::VectorXi G;
@@ -67,11 +67,11 @@ namespace igl
   // Compute necessary information to start using an ARAP deformation
   //
   // Inputs:
-  //   V  #V by dim list of mesh positions
-  //   F  #F by simplex-size list of triangle|tet indices into V
+  //   vers  #vers by dim list of mesh positions
+  //   tris  #tris by simplex-size list of triangle|tet indices into vers
   //   dim  dimension being used at solve time. For deformation usually dim =
-  //     V.cols(), for surface parameterization V.cols() = 3 and dim = 2
-  //   b  #b list of "boundary" fixed vertex indices into V
+  //     vers.cols(), for surface parameterization vers.cols() = 3 and dim = 2
+  //   b  #b list of "boundary" fixed vertex indices into vers
   // Outputs:
   //   data  struct containing necessary precomputation
   template <
@@ -79,15 +79,15 @@ namespace igl
     typename DerivedF,
     typename Derivedb>
   IGL_INLINE bool arap_precomputation(
-    const Eigen::PlainObjectBase<DerivedV> & V,
-    const Eigen::PlainObjectBase<DerivedF> & F,
+    const Eigen::PlainObjectBase<DerivedV> & vers,
+    const Eigen::PlainObjectBase<DerivedF> & tris,
     const int dim,
     const Eigen::PlainObjectBase<Derivedb> & b,
     ARAPData & data);
   // Inputs:
   //   bc  #b by dim list of boundary conditions
   //   data  struct containing necessary precomputation and parameters
-  //   U  #V by dim initial guess
+  //   U  #vers by dim initial guess
   template <
     typename Derivedbc,
     typename DerivedU>

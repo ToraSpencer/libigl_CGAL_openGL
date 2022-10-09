@@ -21,16 +21,16 @@ namespace igl
   // non-manifold.
   //
   // Inputs:
-  //   F    #F by 3 list of triangles.
-  //   E    #F*3 by 2 list of all of directed edges
+  //   tris    #tris by 3 list of triangles.
+  //   E    #tris*3 by 2 list of all of directed edges
   //   uE   #uE by 2 list of unique undirected edges
-  //   EMAP #F*3 list of indices into uE, mapping each directed edge to unique
+  //   EMAP #tris*3 list of indices into uE, mapping each directed edge to unique
   //        undirected edge
   //   uE2E #uE list of lists of indices into E of coexisting edges
   //   ue   index into uE the edge to be flipped.
   //
   // Output:
-  //   Updated F, E, uE, EMAP and uE2E.
+  //   Updated tris, E, uE, EMAP and uE2E.
   template <
     typename DerivedF,
     typename DerivedE,
@@ -38,7 +38,7 @@ namespace igl
     typename DerivedEMAP,
     typename uE2EType>
   IGL_INLINE void flip_edge(
-    Eigen::PlainObjectBase<DerivedF> & F,
+    Eigen::PlainObjectBase<DerivedF> & tris,
     Eigen::PlainObjectBase<DerivedE> & E,
     Eigen::PlainObjectBase<DeriveduE> & uE,
     Eigen::PlainObjectBase<DerivedEMAP> & EMAP,

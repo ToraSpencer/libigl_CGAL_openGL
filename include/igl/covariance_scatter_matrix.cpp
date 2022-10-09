@@ -16,19 +16,19 @@
 #include "PI.h"
 
 IGL_INLINE void igl::covariance_scatter_matrix(
-  const Eigen::MatrixXd & V, 
-  const Eigen::MatrixXi & F,
+  const Eigen::MatrixXd & vers, 
+  const Eigen::MatrixXi & tris,
   const ARAPEnergyType energy,
   Eigen::SparseMatrix<double>& CSM)
 {
   using namespace Eigen;
   // number of mesh vertices
-  int n = V.rows();
-  assert(n > F.maxCoeff());
+  int n = vers.rows();
+  assert(n > tris.maxCoeff());
   // dimension of mesh
-  int dim = V.cols();
+  int dim = vers.cols();
   // Number of mesh elements
-  int m = F.rows();
+  int m = tris.rows();
 
   // number of rotations
   int nr;
@@ -52,15 +52,15 @@ IGL_INLINE void igl::covariance_scatter_matrix(
   }
 
   SparseMatrix<double> KX,KY,KZ;
-  arap_linear_block(V,F,0,energy,KX);
-  arap_linear_block(V,F,1,energy,KY);
+  arap_linear_block(vers,tris,0,energy,KX);
+  arap_linear_block(vers,tris,1,energy,KY);
   SparseMatrix<double> Z(n,nr);
   if(dim == 2)
   {
     CSM = cat(1,cat(2,KX,Z),cat(2,Z,KY)).transpose();
   }else if(dim == 3)
   {
-    arap_linear_block(V,F,2,energy,KZ);
+    arap_linear_block(vers,tris,2,energy,KZ);
     SparseMatrix<double>ZZ(n,nr*2);
     CSM = 
       cat(1,cat(1,cat(2,KX,ZZ),cat(2,cat(2,Z,KY),Z)),cat(2,ZZ,KZ)).transpose();

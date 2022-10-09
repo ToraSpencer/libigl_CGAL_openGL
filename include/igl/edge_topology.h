@@ -19,8 +19,8 @@ namespace igl
   // mesh)
   //
   // Inputs:
-  //   V  #V by dim list of mesh vertex positions (unused)
-  //   F  #F by 3 list of triangle indices into V
+  //   vers  #vers by dim list of mesh vertex positions (unused)
+  //   tris  #tris by 3 list of triangle indices into vers
   // Outputs:
   //   EV  #Ex2 matrix storing the edge description as pair of indices to
   //       vertices
@@ -28,7 +28,7 @@ namespace igl
   //   EF  #Ex2 matrix storing the Edge-Triangle relation
   //
   // TODO: This seems to be a inferior duplicate of edge_flaps.h:
-  //   - unused input parameter V
+  //   - unused input parameter vers
   //   - roughly 2x slower than edge_flaps
   //   - outputs less information: edge_flaps reveals corner opposite edge
   //   - FE uses non-standard and ambiguous order: FE(f,c) is merely an edge
@@ -36,8 +36,8 @@ namespace igl
   //     reveals the edge _opposite_ corner c of face f
 template <typename DerivedV, typename DerivedF, typename DerivedE>
   IGL_INLINE void edge_topology(
-    const Eigen::MatrixBase<DerivedV>& V,
-    const Eigen::MatrixBase<DerivedF>& F, 
+    const Eigen::MatrixBase<DerivedV>& vers,
+    const Eigen::MatrixBase<DerivedF>& tris, 
     Eigen::PlainObjectBase<DerivedE>& EV, 
     Eigen::PlainObjectBase<DerivedE>& FE, 
     Eigen::PlainObjectBase<DerivedE>& EF);

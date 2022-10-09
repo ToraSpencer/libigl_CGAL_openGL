@@ -24,7 +24,7 @@ IGL_INLINE void igl::svd3x3_avx(
   const Eigen::Matrix<T, 3*8, 3>& A,
   Eigen::Matrix<T, 3*8, 3> &U,
   Eigen::Matrix<T, 3*8, 1> &S,
-  Eigen::Matrix<T, 3*8, 3>&V)
+  Eigen::Matrix<T, 3*8, 3>&vers)
 {
   // this code assumes USE_AVX_IMPLEMENTATION is defined
   float Ashuffle[9][8], Ushuffle[9][8], Vshuffle[9][8], Sshuffle[3][8];
@@ -84,7 +84,7 @@ IGL_INLINE void igl::svd3x3_avx(
       for (int k=0; k<8; k++)
       {
         U(i + 3*k, j) = Ushuffle[i + j*3][k];
-        V(i + 3*k, j) = Vshuffle[i + j*3][k];
+        vers(i + 3*k, j) = Vshuffle[i + j*3][k];
       }
     }
   }
@@ -101,7 +101,7 @@ IGL_INLINE void igl::svd3x3_avx(
 
 #ifdef IGL_STATIC_LIBRARY
 // forced instantiation
-//template void igl::svd3x3_avx(const Eigen::Matrix<float, 3*8, 3>& A, Eigen::Matrix<float, 3*8, 3> &U, Eigen::Matrix<float, 3*8, 1> &S, Eigen::Matrix<float, 3*8, 3>&V);
+//template void igl::svd3x3_avx(const Eigen::Matrix<float, 3*8, 3>& A, Eigen::Matrix<float, 3*8, 3> &U, Eigen::Matrix<float, 3*8, 1> &S, Eigen::Matrix<float, 3*8, 3>&vers);
 // doesn't even make sense with double because the wunder-SVD code is only single precision anyway...
 template void igl::svd3x3_avx<float>(Eigen::Matrix<float, 24, 3, 0, 24, 3> const&, Eigen::Matrix<float, 24, 3, 0, 24, 3>&, Eigen::Matrix<float, 24, 1, 0, 24, 1>&, Eigen::Matrix<float, 24, 3, 0, 24, 3>&);
 #endif

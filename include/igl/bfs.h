@@ -14,15 +14,15 @@ namespace igl
        breadth first search
   
        Inputs:
-         A  #V list of adjacency lists  or #V by #V adjacency matrix
+         A  #vers list of adjacency lists  or #vers by #vers adjacency matrix
          s  starting node (index into A)
 
        Outputs:
-         disCoveredIdx  #V list of indices into rows of A in the order in which graph nodes
+         disCoveredIdx  #vers list of indices into rows of A in the order in which graph nodes
            are discovered.
-         bfsTreeVec  #V list of indices into rows of A of predecessor in resulting
+         bfsTreeVec  #vers list of indices into rows of A of predecessor in resulting
            spanning tree {-1 indicates root/not discovered), order corresponds to
-           V **not** disCoveredIdx.
+           vers **not** disCoveredIdx.
     */
   template <
     typename AType,

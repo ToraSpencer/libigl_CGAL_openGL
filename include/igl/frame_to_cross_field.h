@@ -15,17 +15,17 @@ namespace igl
 {
   // Convert a frame field into its closest cross field
   // Inputs:
-  //   V       #V by 3 coordinates of the vertices
-  //   F       #F by 3 list of mesh faces (must be triangles)
-  //   FF1     #F by 3 the first representative vector of the frame field (up to permutation and sign)
-  //   FF2     #F by 3 the second representative vector of the frame field (up to permutation and sign)
+  //   vers       #vers by 3 coordinates of the vertices
+  //   tris       #tris by 3 list of mesh faces (must be triangles)
+  //   FF1     #tris by 3 the first representative vector of the frame field (up to permutation and sign)
+  //   FF2     #tris by 3 the second representative vector of the frame field (up to permutation and sign)
   //
   // Outputs:
-  //   X       #F by 3 representative vector of the closest cross field
+  //   X       #tris by 3 representative vector of the closest cross field
   //
   IGL_INLINE void frame_to_cross_field(
-    const Eigen::MatrixXd& V,
-    const Eigen::MatrixXi& F,
+    const Eigen::MatrixXd& vers,
+    const Eigen::MatrixXi& tris,
     const Eigen::MatrixXd& FF1,
     const Eigen::MatrixXd& FF2,
     Eigen::MatrixXd& X);

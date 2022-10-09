@@ -41,12 +41,12 @@ namespace igl
   //
   //
   // Inputs:
-  //   F  n by 3 list of triangle indices
+  //   tris  n by 3 list of triangle indices
   // Outputs:
-  //   C  max(F) list of component ids
+  //   C  max(tris) list of component ids
   template <typename DerivedF, typename DerivedC>
   IGL_INLINE void vertex_components(
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedF> & tris,
     Eigen::PlainObjectBase<DerivedC> & C);
 
 }

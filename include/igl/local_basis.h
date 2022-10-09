@@ -20,18 +20,18 @@ namespace igl
   //   DerivedV derived from vertex positions matrix type: i.e. MatrixXd
   //   DerivedF derived from face indices matrix type: i.e. MatrixXi
   // Inputs:
-  //   V  eigen matrix #V by 3
-  //   F  #F by 3 list of mesh faces (must be triangles)
+  //   vers  eigen matrix #vers by 3
+  //   tris  #tris by 3 list of mesh faces (must be triangles)
   // Outputs:
-  //   B1 eigen matrix #F by 3, each vector is tangent to the triangle
-  //   B2 eigen matrix #F by 3, each vector is tangent to the triangle and perpendicular to B1
-  //   B3 eigen matrix #F by 3, normal of the triangle
+  //   B1 eigen matrix #tris by 3, each vector is tangent to the triangle
+  //   B2 eigen matrix #tris by 3, each vector is tangent to the triangle and perpendicular to B1
+  //   B3 eigen matrix #tris by 3, normal of the triangle
   //
   // See also: adjacency_matrix
   template <typename DerivedV, typename DerivedF>
   IGL_INLINE void local_basis(
-    const Eigen::MatrixBase<DerivedV>& V,
-    const Eigen::MatrixBase<DerivedF>& F,
+    const Eigen::MatrixBase<DerivedV>& vers,
+    const Eigen::MatrixBase<DerivedF>& tris,
     Eigen::PlainObjectBase<DerivedV>& B1,
     Eigen::PlainObjectBase<DerivedV>& B2,
     Eigen::PlainObjectBase<DerivedV>& B3

@@ -13,12 +13,12 @@ template <
   typename DerivedF,
   typename DerivedR>
 IGL_INLINE void igl::circumradius(
-  const Eigen::MatrixBase<DerivedV> & V, 
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers, 
+  const Eigen::MatrixBase<DerivedF> & tris,
   Eigen::PlainObjectBase<DerivedR> & R)
 {
   Eigen::Matrix<typename DerivedV::Scalar,Eigen::Dynamic,3> l;
-  igl::edge_lengths(V,F,l);
+  igl::edge_lengths(vers,tris,l);
   DerivedR A;
   igl::doublearea(l,0.,A);
   // use formula: R=abc/(4*area) to compute the circum radius

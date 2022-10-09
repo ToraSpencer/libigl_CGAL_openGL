@@ -15,23 +15,23 @@ namespace igl
   // Compute internal angles for a triangle mesh
   //
   // Inputs:
-  //   V  #V by dim eigen Matrix of mesh vertex nD positions
-  //   F  #F by poly-size eigen Matrix of face (triangle) indices
+  //   vers  #vers by dim eigen Matrix of mesh vertex nD positions
+  //   tris  #tris by poly-size eigen Matrix of face (triangle) indices
   // Output:
-  //   K  #F by poly-size eigen Matrix of internal angles
+  //   K  #tris by poly-size eigen Matrix of internal angles
   //     for triangles, columns correspond to edges [1,2],[2,0],[0,1]
   //
   // Known Issues:
   //   if poly-size ≠ 3 then dim must equal 3.
   template <typename DerivedV, typename DerivedF, typename DerivedK>
   IGL_INLINE void internal_angles(
-    const Eigen::MatrixBase<DerivedV>& V,
-    const Eigen::MatrixBase<DerivedF>& F,
+    const Eigen::MatrixBase<DerivedV>& vers,
+    const Eigen::MatrixBase<DerivedF>& tris,
     Eigen::PlainObjectBase<DerivedK> & K);
   // Inputs:
-  //   L_sq  #F by 3 list of squared edge lengths
+  //   L_sq  #tris by 3 list of squared edge lengths
   // Output:
-  //   K  #F by poly-size eigen Matrix of internal angles
+  //   K  #tris by poly-size eigen Matrix of internal angles
   //     for triangles, columns correspond to edges [1,2],[2,0],[0,1]
   //
   // Note:

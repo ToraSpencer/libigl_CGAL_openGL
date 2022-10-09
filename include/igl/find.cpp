@@ -19,12 +19,12 @@ IGL_INLINE void igl::find(
   const Eigen::SparseMatrix<T>& X,
   Eigen::DenseBase<DerivedI> & I,
   Eigen::DenseBase<DerivedJ> & J,
-  Eigen::DenseBase<DerivedV> & V)
+  Eigen::DenseBase<DerivedV> & vers)
 {
   // Resize outputs to fit nonzeros
   I.derived().resize(X.nonZeros(),1);
   J.derived().resize(X.nonZeros(),1);
-  V.derived().resize(X.nonZeros(),1);
+  vers.derived().resize(X.nonZeros(),1);
 
   int i = 0;
   // Iterate over outside
@@ -33,7 +33,7 @@ IGL_INLINE void igl::find(
     // Iterate over inside
     for(typename Eigen::SparseMatrix<T>::InnerIterator it (X,k); it; ++it)
     {
-      V(i) = it.value();
+      vers(i) = it.value();
       I(i) = it.row();
       J(i) = it.col();
       i++;
@@ -50,12 +50,12 @@ IGL_INLINE void igl::find(
   const Eigen::DenseBase<DerivedX>& X,
   Eigen::PlainObjectBase<DerivedI> & I,
   Eigen::PlainObjectBase<DerivedJ> & J,
-  Eigen::PlainObjectBase<DerivedV> & V)
+  Eigen::PlainObjectBase<DerivedV> & vers)
 {
   const int nnz = X.count();
   I.resize(nnz,1);
   J.resize(nnz,1);
-  V.resize(nnz,1);
+  vers.resize(nnz,1);
   {
     int k = 0;
     for(int j = 0;j<X.cols();j++)
@@ -66,7 +66,7 @@ IGL_INLINE void igl::find(
         {
           I(k) = i;
           J(k) = j;
-          V(k) = X(i,j);
+          vers(k) = X(i,j);
           k++;
         }
       }
@@ -103,18 +103,18 @@ template <typename T>
 IGL_INLINE void igl::find(
   const Eigen::SparseVector<T>& X,
   Eigen::Matrix<int,Eigen::Dynamic,1> & I,
-  Eigen::Matrix<T,Eigen::Dynamic,1> & V)
+  Eigen::Matrix<T,Eigen::Dynamic,1> & vers)
 {
   // Resize outputs to fit nonzeros
   I.resize(X.nonZeros());
-  V.resize(X.nonZeros());
+  vers.resize(X.nonZeros());
 
   int i = 0;
   // loop over non-zeros
   for(typename Eigen::SparseVector<T>::InnerIterator it(X); it; ++it)
   {
     I(i) = it.index();
-    V(i) = it.value();
+    vers(i) = it.value();
     i++;
   }
 }

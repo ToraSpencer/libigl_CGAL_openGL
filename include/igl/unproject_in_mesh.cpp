@@ -59,19 +59,19 @@ template < typename DerivedV, typename DerivedF, typename Derivedobj>
       const Eigen::Matrix4f& model,
       const Eigen::Matrix4f& proj,
       const Eigen::Vector4f& viewport,
-      const Eigen::MatrixBase<DerivedV> & V,
-      const Eigen::MatrixBase<DerivedF> & F,
+      const Eigen::MatrixBase<DerivedV> & vers,
+      const Eigen::MatrixBase<DerivedF> & tris,
       Eigen::PlainObjectBase<Derivedobj> & obj,
       std::vector<igl::Hit > & hits)
 {
   using namespace std;
   using namespace Eigen;
-  const auto & shoot_ray = [&V,&F](
+  const auto & shoot_ray = [&vers,&tris](
     const Eigen::Vector3f& s,
     const Eigen::Vector3f& dir,
     std::vector<igl::Hit> & hits)
   {
-    ray_mesh_intersect(s,dir,V,F,hits);
+    ray_mesh_intersect(s,dir,vers,tris,hits);
   };
   return unproject_in_mesh(pos,model,proj,viewport,shoot_ray,obj,hits);
 }
@@ -82,12 +82,12 @@ template < typename DerivedV, typename DerivedF, typename Derivedobj>
       const Eigen::Matrix4f& model,
       const Eigen::Matrix4f& proj,
       const Eigen::Vector4f& viewport,
-      const Eigen::MatrixBase<DerivedV> & V,
-      const Eigen::MatrixBase<DerivedF> & F,
+      const Eigen::MatrixBase<DerivedV> & vers,
+      const Eigen::MatrixBase<DerivedF> & tris,
       Eigen::PlainObjectBase<Derivedobj> & obj)
 {
   std::vector<igl::Hit> hits;
-  return unproject_in_mesh(pos,model,proj,viewport,V,F,obj,hits);
+  return unproject_in_mesh(pos,model,proj,viewport,vers,tris,obj,hits);
 }
 #ifdef IGL_STATIC_LIBRARY
 // Explicit template instantiation

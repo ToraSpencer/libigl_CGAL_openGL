@@ -11,14 +11,14 @@
 
 namespace igl
 {
-  //  IS_BOUNDARY_EDGE Determine for each edge E if it is a "boundary edge" in F.
+  //  IS_BOUNDARY_EDGE Determine for each edge E if it is a "boundary edge" in tris.
   //  Boundary edges are undirected edges which occur only once.
   // 
   //  Inputs:
   //    E  #E by 2 list of edges
-  //    F  #F by 3 list of triangles
+  //    tris  #tris by 3 list of triangles
   //  Outputs:
-  //    B  #E list bools. true iff unoriented edge occurs exactly once in F
+  //    B  #E list bools. true iff unoriented edge occurs exactly once in tris
   //      (non-manifold and non-existant edges will be false)
   // 
   template <
@@ -27,18 +27,18 @@ namespace igl
     typename DerivedB>
   void is_boundary_edge(
     const Eigen::PlainObjectBase<DerivedE> & E,
-    const Eigen::PlainObjectBase<DerivedF> & F,
+    const Eigen::PlainObjectBase<DerivedF> & tris,
     Eigen::PlainObjectBase<DerivedB> & B);
-  // Wrapper where Edges should also be computed from F
+  // Wrapper where Edges should also be computed from tris
   //   E  #E by 2 list of edges
-  //   EMAP  #F*3 list of indices mapping allE to E
+  //   EMAP  #tris*3 list of indices mapping allE to E
   template <
     typename DerivedF,
     typename DerivedE,
     typename DerivedB,
     typename DerivedEMAP>
   void is_boundary_edge(
-    const Eigen::PlainObjectBase<DerivedF> & F,
+    const Eigen::PlainObjectBase<DerivedF> & tris,
     Eigen::PlainObjectBase<DerivedB> & B,
     Eigen::PlainObjectBase<DerivedE> & E,
     Eigen::PlainObjectBase<DerivedEMAP> & EMAP);

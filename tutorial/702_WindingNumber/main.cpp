@@ -11,7 +11,7 @@
 
 #include "tutorial_shared_path.h"
 
-Eigen::MatrixXd V,BC;
+Eigen::MatrixXd vers,BC;
 Eigen::VectorXd W;
 Eigen::MatrixXi T,F,G;
 double slice_z = 0.5;
@@ -28,7 +28,7 @@ void update_visualization(igl::opengl::glfw::Viewer & viewer)
   using namespace Eigen;
   using namespace std;
   Eigen::Vector4d plane(
-    0,0,1,-((1-slice_z)*V.col(2).minCoeff()+slice_z*V.col(2).maxCoeff()));
+    0,0,1,-((1-slice_z)*vers.col(2).minCoeff()+slice_z*vers.col(2).maxCoeff()));
   MatrixXd V_vis;
   MatrixXi F_vis;
   VectorXi J;
@@ -36,11 +36,11 @@ void update_visualization(igl::opengl::glfw::Viewer & viewer)
     SparseMatrix<double> bary;
     // Value of plane's implicit function at all vertices
     const VectorXd IV = 
-      (V.col(0)*plane(0) + 
-        V.col(1)*plane(1) + 
-        V.col(2)*plane(2)).array()
+      (vers.col(0)*plane(0) + 
+        vers.col(1)*plane(1) + 
+        vers.col(2)*plane(2)).array()
       + plane(3);
-    igl::marching_tets(V,T,IV,V_vis,F_vis,J,bary);
+    igl::marching_tets(vers,T,IV,V_vis,F_vis,J,bary);
   }
   VectorXd W_vis;
   igl::slice(W,J,W_vis);
@@ -50,24 +50,24 @@ void update_visualization(igl::opengl::glfw::Viewer & viewer)
 
 
   const auto & append_mesh = [&C_vis,&F_vis,&V_vis](
-    const Eigen::MatrixXd & V,
+    const Eigen::MatrixXd & vers,
     const Eigen::MatrixXi & F,
     const RowVector3d & color)
   {
     F_vis.conservativeResize(F_vis.rows()+F.rows(),3);
     F_vis.bottomRows(F.rows()) = F.array()+V_vis.rows();
-    V_vis.conservativeResize(V_vis.rows()+V.rows(),3);
-    V_vis.bottomRows(V.rows()) = V;
+    V_vis.conservativeResize(V_vis.rows()+vers.rows(),3);
+    V_vis.bottomRows(vers.rows()) = vers;
     C_vis.conservativeResize(C_vis.rows()+F.rows(),3);
     C_vis.bottomRows(F.rows()).rowwise() = color;
   };
   switch(overlay)
   {
     case OVERLAY_INPUT:
-      append_mesh(V,F,RowVector3d(1.,0.894,0.227));
+      append_mesh(vers,F,RowVector3d(1.,0.894,0.227));
       break;
     case OVERLAY_OUTPUT:
-      append_mesh(V,G,RowVector3d(0.8,0.8,0.8));
+      append_mesh(vers,G,RowVector3d(0.8,0.8,0.8));
       break;
     default:
       break;
@@ -109,16 +109,16 @@ int main(int argc, char *argv[])
   cout<<"'.'/','  push back/pull forward slicing plane."<<endl;
   cout<<endl;
 
-  // Load mesh: (V,T) tet-mesh of convex hull, F contains facets of input
+  // Load mesh: (vers,T) tet-mesh of convex hull, F contains facets of input
   // surface mesh _after_ self-intersection resolution
-  igl::readMESH(TUTORIAL_SHARED_PATH "/big-sigcat.mesh",V,T,F);
+  igl::readMESH(TUTORIAL_SHARED_PATH "/big-sigcat.mesh",vers,T,F);
 
   // Compute barycenters of all tets
-  igl::barycenter(V,T,BC);
+  igl::barycenter(vers,T,BC);
 
   // Compute generalized winding number at all barycenters
   cout<<"Computing winding number over all "<<T.rows()<<" tets..."<<endl;
-  igl::winding_number(V,F,BC,W);
+  igl::winding_number(vers,F,BC,W);
 
   // Extract interior tets
   MatrixXi CT((W.array()>0.5).count(),4);

@@ -14,12 +14,12 @@
 // from "Graphics Gems", Academic Press, 1990
 template <typename DerivedV, typename DerivedP>
 IGL_INLINE void igl::bezier(
-  const Eigen::MatrixBase<DerivedV> & V,
+  const Eigen::MatrixBase<DerivedV> & vers,
   const typename DerivedV::Scalar t,
   Eigen::PlainObjectBase<DerivedP> & P)
 {
   // working local copy
-  DerivedV Vtemp = V;
+  DerivedV Vtemp = vers;
   int degree = Vtemp.rows()-1;
   /* Triangle computation	*/
   for (int i = 1; i <= degree; i++)
@@ -34,15 +34,15 @@ IGL_INLINE void igl::bezier(
 
 template <typename DerivedV, typename DerivedT, typename DerivedP>
 IGL_INLINE void igl::bezier(
-  const Eigen::MatrixBase<DerivedV> & V,
+  const Eigen::MatrixBase<DerivedV> & vers,
   const Eigen::MatrixBase<DerivedT> & T,
   Eigen::PlainObjectBase<DerivedP> & P)
 {
-  P.resize(T.size(),V.cols());
+  P.resize(T.size(),vers.cols());
   for(int i = 0;i<T.size();i++)
   {
     Eigen::Matrix<typename DerivedV::Scalar,1,DerivedV::ColsAtCompileTime> Pi;
-    bezier(V,T(i),Pi);
+    bezier(vers,T(i),Pi);
     P.row(i) = Pi;
   }
 }

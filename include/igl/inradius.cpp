@@ -14,13 +14,13 @@ template <
   typename DerivedF,
   typename DerivedR>
 IGL_INLINE void igl::inradius(
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   Eigen::PlainObjectBase<DerivedR> & r)
 {
   Eigen::Matrix<typename DerivedV::Scalar,Eigen::Dynamic,3> l;
   Eigen::Matrix<typename DerivedV::Scalar,Eigen::Dynamic,1> R;
-  igl::edge_lengths(V,F,l);
+  igl::edge_lengths(vers,tris,l);
   // If R is the circumradius,
   // R*r = (abc)/(2*(a+b+c))
   // R = abc/(4*area)

@@ -14,18 +14,18 @@ namespace igl
 {
   // Consistently orient faces in orientable patches using BFS
   //
-  // F = bfs_orient(F,V);
+  // tris = bfs_orient(tris,vers);
   //
   // Inputs:
-  //  F  #F by 3 list of faces
+  //  tris  #tris by 3 list of faces
   // Outputs:
-  //  FF  #F by 3 list of faces (OK if same as F)
-  //  C  #F list of component ids
+  //  FF  #tris by 3 list of faces (OK if same as tris)
+  //  C  #tris list of component ids
   //
   //
   template <typename DerivedF, typename DerivedFF, typename DerivedC>
   IGL_INLINE void bfs_orient(
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedF> & tris,
     Eigen::PlainObjectBase<DerivedFF> & FF,
     Eigen::PlainObjectBase<DerivedC> & C);
 }

@@ -14,14 +14,14 @@ namespace igl
   //   OV  #OV by 3 list of input mesh vertex positions
   //   OF  #OF by 3 list of input mesh triangle indices into OV
   // Outputs:
-  //   V  #V by 3 list of output mesh vertex positions
-  //   F  #F by 3 list of input mesh triangle indices into V
-  //   J  #F list of indices into OF of birth parents
+  //   vers  #vers by 3 list of output mesh vertex positions
+  //   tris  #tris by 3 list of input mesh triangle indices into vers
+  //   J  #tris list of indices into OF of birth parents
   IGL_INLINE void simplify_polyhedron(
     const Eigen::MatrixXd & OV,
     const Eigen::MatrixXi & OF,
-    Eigen::MatrixXd & V,
-    Eigen::MatrixXi & F,
+    Eigen::MatrixXd & vers,
+    Eigen::MatrixXi & tris,
     Eigen::VectorXi & J);
 }
 #ifndef IGL_STATIC_LIBRARY

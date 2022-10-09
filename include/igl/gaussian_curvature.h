@@ -15,15 +15,15 @@ namespace igl
   // averaging by local area).
   //
   // Inputs:
-  //   V  #V by 3 eigen Matrix of mesh vertex 3D positions
-  //   F  #F by 3 eigen Matrix of face (triangle) indices
+  //   vers  #vers by 3 eigen Matrix of mesh vertex 3D positions
+  //   tris  #tris by 3 eigen Matrix of face (triangle) indices
   // Output:
-  //   K  #V by 1 eigen Matrix of discrete gaussian curvature values
+  //   K  #vers by 1 eigen Matrix of discrete gaussian curvature values
   //
   template <typename DerivedV, typename DerivedF, typename DerivedK>
   IGL_INLINE void gaussian_curvature(
-    const Eigen::MatrixBase<DerivedV>& V,
-    const Eigen::MatrixBase<DerivedF>& F,
+    const Eigen::MatrixBase<DerivedV>& vers,
+    const Eigen::MatrixBase<DerivedF>& tris,
     Eigen::PlainObjectBase<DerivedK> & K);
 }
 

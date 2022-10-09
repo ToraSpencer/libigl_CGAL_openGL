@@ -17,7 +17,7 @@ template <
   typename DerivedI,
   typename DerivedJ>
 IGL_INLINE void igl::exploded_view(
-  const Eigen::MatrixBase<DerivedV> & V,
+  const Eigen::MatrixBase<DerivedV> & vers,
   const Eigen::MatrixBase<DerivedT> & T,
   const typename DerivedV::Scalar s,
   const typename DerivedV::Scalar t,
@@ -32,9 +32,9 @@ IGL_INLINE void igl::exploded_view(
   I.resize(EV.rows());
   J.resize(EF.rows());
   Eigen::MatrixXd BC;
-  igl::barycenter(V,T,BC);
+  igl::barycenter(vers,T,BC);
   Eigen::VectorXd vol;
-  igl::volume(V,T,vol);
+  igl::volume(vers,T,vol);
   const Eigen::RowVectorXd c = vol.transpose()*BC/vol.array().sum();
   for(int i = 0;i<T.rows();i++)
   {
@@ -43,7 +43,7 @@ IGL_INLINE void igl::exploded_view(
     for(int j = 0;j<4;j++)
     {
       // vector to barycenter
-      const auto v = V.row(T(i,j))-BC.row(i);
+      const auto v = vers.row(T(i,j))-BC.row(i);
       // scale vector and add to scaled barycenter
       EV.row(i*4+j) = v*s+tbc;
       I(i*4+j) = T(i,j);

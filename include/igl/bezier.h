@@ -8,25 +8,25 @@ namespace igl
   // Evaluate a polynomial Bezier Curve.
   //
   // Inputs:
-  //   V  #V by dim list of Bezier control points
+  //   vers  #vers by dim list of Bezier control points
   //   t  evaluation parameter within [0,1]
   // Outputs:
   //   P  1 by dim output point 
   template <typename DerivedV, typename DerivedP>
   IGL_INLINE void bezier(
-    const Eigen::MatrixBase<DerivedV> & V,
+    const Eigen::MatrixBase<DerivedV> & vers,
     const typename DerivedV::Scalar t,
     Eigen::PlainObjectBase<DerivedP> & P);
   // Evaluate a polynomial Bezier Curve.
   //
   // Inputs:
-  //   V  #V by dim list of Bezier control points
+  //   vers  #vers by dim list of Bezier control points
   //   T  #T evaluation parameters within [0,1]
   // Outputs:
   //   P  #T  by dim output points
   template <typename DerivedV, typename DerivedT, typename DerivedP>
   IGL_INLINE void bezier(
-    const Eigen::MatrixBase<DerivedV> & V,
+    const Eigen::MatrixBase<DerivedV> & vers,
     const Eigen::MatrixBase<DerivedT> & T,
     Eigen::PlainObjectBase<DerivedP> & P);
   // Evaluate a polynomial Bezier spline with a fixed parameter set for each

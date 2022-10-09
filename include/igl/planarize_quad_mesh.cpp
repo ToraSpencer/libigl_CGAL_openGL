@@ -141,7 +141,7 @@ inline void igl::PlanarizerShapeUp<DerivedV, DerivedF>::assembleNi()
   Ni.setFromTriplets(tripletList.begin(), tripletList.end());
 }
 
-//assumes V stacked [x;y;z;x;y;z...];
+//assumes vers stacked [x;y;z;x;y;z...];
 template <typename DerivedV, typename DerivedF>
 inline void igl::PlanarizerShapeUp<DerivedV, DerivedF>::assembleSelector(int fi,
                                                                             Eigen::SparseMatrix<typename DerivedV::Scalar > &S)

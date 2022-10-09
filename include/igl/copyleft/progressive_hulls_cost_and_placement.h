@@ -23,13 +23,13 @@ namespace igl
     //
     // Inputs:
     //   e  index of edge to be collapsed
-    //   V  #V by 3 list of vertex positions
-    //   F  #F by 3 list of faces indices into V
-    //   E  #E by 3 list of edges indices into V
-    //   EMAP #F*3 list of indices into E, mapping each directed edge to unique
+    //   vers  #vers by 3 list of vertex positions
+    //   tris  #tris by 3 list of faces indices into vers
+    //   E  #E by 3 list of edges indices into vers
+    //   EMAP #tris*3 list of indices into E, mapping each directed edge to unique
     //     unique edge in E
     //   EF  #E by 2 list of edge flaps, EF(e,0)=f means e=(i-->j) is the edge of
-    //     F(f,:) opposite the vth corner, where EI(e,0)=v. Similarly EF(e,1) "
+    //     tris(f,:) opposite the vth corner, where EI(e,0)=v. Similarly EF(e,1) "
     //     e=(j->i)
     //   EI  #E by 2 list of edge flap corners (see above).
     // Outputs:
@@ -38,8 +38,8 @@ namespace igl
     //
     IGL_INLINE void progressive_hulls_cost_and_placement(
       const int e,
-      const Eigen::MatrixXd & V,
-      const Eigen::MatrixXi & F,
+      const Eigen::MatrixXd & vers,
+      const Eigen::MatrixXi & tris,
       const Eigen::MatrixXi & E,
       const Eigen::VectorXi & EMAP,
       const Eigen::MatrixXi & EF,

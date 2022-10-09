@@ -17,7 +17,7 @@ IGL_INLINE igl::HalfEdgeIterator<DerivedF,DerivedFF,DerivedFFi>::HalfEdgeIterato
     int _ei,
     bool _reverse
 )
-: fi(_fi), ei(_ei), reverse(_reverse), F(_F), FF(_FF), FFi(_FFi)
+: fi(_fi), ei(_ei), reverse(_reverse), tris(_F), FF(_FF), FFi(_FFi)
 {}
 
 template <typename DerivedF, typename DerivedFF, typename DerivedFFi>
@@ -97,14 +97,14 @@ template <typename DerivedF, typename DerivedFF, typename DerivedFFi>
 IGL_INLINE int igl::HalfEdgeIterator<DerivedF,DerivedFF,DerivedFFi>::Vi()
 {
   assert(fi >= 0);
-  assert(fi < F.rows());
+  assert(fi < tris.rows());
   assert(ei >= 0);
   assert(ei <= 2);
 
   if (!reverse)
-    return (F)(fi,ei);
+    return (tris)(fi,ei);
   else
-    return (F)(fi,(ei+1)%3);
+    return (tris)(fi,(ei+1)%3);
 }
 
 // Get face index
@@ -130,7 +130,7 @@ IGL_INLINE bool igl::HalfEdgeIterator<DerivedF,DerivedFF,DerivedFFi>::operator==
           (fi == p2.fi) &&
               (ei == p2.ei) &&
               (reverse == p2.reverse) &&
-              (F   == p2.F) &&
+              (tris   == p2.tris) &&
               (FF  == p2.FF) &&
               (FFi == p2.FFi)
       );

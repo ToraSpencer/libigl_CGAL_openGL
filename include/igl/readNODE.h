@@ -24,22 +24,22 @@ namespace igl
   // Input:
   //   node_file_name  path of .node file
   // Outputs:
-  //   V  double matrix of vertex positions  #V by dim
+  //   vers  double matrix of vertex positions  #vers by dim
   //   I  list of indices (first tells whether 0 or 1 indexed)
   template <typename Scalar, typename Index>
   IGL_INLINE bool readNODE(
     const std::string node_file_name,
-    std::vector<std::vector<Scalar > > & V,
+    std::vector<std::vector<Scalar > > & vers,
     std::vector<std::vector<Index > > & I);
 
   // Input:
   //   node_file_name  path of .node file
   // Outputs:
-  //   V  eigen double matrix #V by dim
+  //   vers  eigen double matrix #vers by dim
   template <typename DerivedV, typename DerivedI>
   IGL_INLINE bool readNODE(
     const std::string node_file_name,
-    Eigen::PlainObjectBase<DerivedV>& V,
+    Eigen::PlainObjectBase<DerivedV>& vers,
     Eigen::PlainObjectBase<DerivedI>& I);
 }
 

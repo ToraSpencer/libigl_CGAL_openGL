@@ -17,12 +17,12 @@ namespace igl
   // For connected components on vertices see igl::vertex_components
   //
   // Inputs:
-  //   F  #F by 3 list of triangle indices
+  //   tris  #tris by 3 list of triangle indices
   // Outputs:
-  //   C  #F list of connected component ids
+  //   C  #tris list of connected component ids
   template <typename DerivedF, typename DerivedC>
   IGL_INLINE int facet_components(
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedF> & tris,
     Eigen::PlainObjectBase<DerivedC> & C);
 
   // Compute connected components of facets based on edge-edge adjacency.
@@ -33,7 +33,7 @@ namespace igl
   //   TT  #TT by 3 list of list of adjacency triangles (see
   //   triangle_triangle_adjacency.h)
   // Outputs:
-  //   C  #F list of connected component ids
+  //   C  #tris list of connected component ids
   //   counts #C list of number of facets in each components
   template <
     typename TTIndex, 

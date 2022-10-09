@@ -10,17 +10,17 @@ namespace igl
   // computing crease-aware per-corner normals.
   //
   // Inputs:
-  //   V  #V by 3 list of mesh vertex positions
-  //   F  #F by 3 list of triangle mesh indices into rows of V
+  //   vers  #vers by 3 list of mesh vertex positions
+  //   tris  #tris by 3 list of triangle mesh indices into rows of vers
   //   corner_threshold_radians  dihedral angle considered non-smooth (in
   //     radians)
   // Outputs:
-  //   CI  #CI list of face neighbors as indices into rows of F
-  //   CC  3*#F+1 list of cumulative sizes so that CC(i*3+j+1) - CC(i*3+j) is
-  //     the number of faces considered smoothly incident on corner at F(i,j)
+  //   CI  #CI list of face neighbors as indices into rows of tris
+  //   CC  3*#tris+1 list of cumulative sizes so that CC(i*3+j+1) - CC(i*3+j) is
+  //     the number of faces considered smoothly incident on corner at tris(i,j)
   void smooth_corner_adjacency(
-    const Eigen::MatrixXd & V,
-    const Eigen::MatrixXi & F,
+    const Eigen::MatrixXd & vers,
+    const Eigen::MatrixXi & tris,
     const double corner_threshold_radians,
     Eigen::VectorXi & CI,
     Eigen::VectorXi & CC);
@@ -29,12 +29,12 @@ namespace igl
   // from a .obj file).
   //
   // Inputs:
-  //   FV  #F by 3 list of triangle mesh indices into rows of some V
-  //   FN  #F by 3 list of triangle mesh indices into rows of some N
+  //   FV  #tris by 3 list of triangle mesh indices into rows of some vers
+  //   FN  #tris by 3 list of triangle mesh indices into rows of some N
   // Outputs:
-  //   CI  #CI list of face neighbors as indices into rows of F
-  //   CC  3*#F+1 list of cumulative sizes so that CC(i*3+j+1) - CC(i*3+j) is
-  //     the number of faces considered smoothly incident on corner at F(i,j)
+  //   CI  #CI list of face neighbors as indices into rows of tris
+  //   CC  3*#tris+1 list of cumulative sizes so that CC(i*3+j+1) - CC(i*3+j) is
+  //     the number of faces considered smoothly incident on corner at tris(i,j)
   void smooth_corner_adjacency(
     const Eigen::MatrixXi & FV,
     const Eigen::MatrixXi & FN,

@@ -10,14 +10,14 @@
 
 template <typename DerivedF, typename Atype>
 IGL_INLINE void igl::facet_adjacency_matrix(
-  const Eigen::MatrixBase<DerivedF> & F, Eigen::SparseMatrix<Atype> & A)
+  const Eigen::MatrixBase<DerivedF> & tris, Eigen::SparseMatrix<Atype> & A)
 {
   using namespace Eigen;
   typedef typename DerivedF::Scalar Index;
-  const auto m = F.rows();
+  const auto m = tris.rows();
   Eigen::Matrix<Index,Dynamic,1> EMAP,uEE,uEC;
   Eigen::Matrix<Index,Dynamic,2> E,uE;
-  igl::unique_edge_map(F,E,uE,EMAP,uEC,uEE);
+  igl::unique_edge_map(tris,E,uE,EMAP,uEC,uEE);
   std::vector<Eigen::Triplet<Index> > AIJV;
   AIJV.reserve(2*uE.rows());
   const Eigen::Index nu = uE.rows();

@@ -18,8 +18,8 @@
 
 template <typename DerivedV, typename DerivedF, typename Scalar>
 IGL_INLINE void igl::hessian(
-                             const Eigen::MatrixBase<DerivedV> & V,
-                             const Eigen::MatrixBase<DerivedF> & F,
+                             const Eigen::MatrixBase<DerivedV> & vers,
+                             const Eigen::MatrixBase<DerivedF> & tris,
                              Eigen::SparseMatrix<Scalar>& H)
 {
     typedef typename DerivedV::Scalar denseScalar;
@@ -28,25 +28,25 @@ IGL_INLINE void igl::hessian(
     typedef typename Eigen::DiagonalMatrix
                        <Scalar, Eigen::Dynamic, Eigen::Dynamic> DiagMat;
 
-    int dim = V.cols();
+    int dim = vers.cols();
     assert((dim==2 || dim==3) &&
            "The dimension of the vertices should be 2 or 3");
 
     //Construct the combined gradient matric
     SparseMat G;
-    igl::grad(V,
-              F,
+    igl::grad(vers,
+              tris,
               G, false);
-    SparseMat GG(F.rows(), dim*V.rows());
+    SparseMat GG(tris.rows(), dim*vers.rows());
     GG.reserve(G.nonZeros());
     for(int i=0; i<dim; ++i)
-        GG.middleCols(i*G.cols(),G.cols()) = G.middleRows(i*F.rows(),F.rows());
+        GG.middleCols(i*G.cols(),G.cols()) = G.middleRows(i*tris.rows(),tris.rows());
     SparseMat D;
     igl::repdiag(GG,dim,D);
 
     //Compute area matrix
     VecXd areas;
-    igl::doublearea(V, F, areas);
+    igl::doublearea(vers, tris, areas);
     DiagMat A = (0.5*areas).replicate(dim,1).asDiagonal();
 
     //Compute FEM Hessian

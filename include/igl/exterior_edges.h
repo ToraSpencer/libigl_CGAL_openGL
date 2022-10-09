@@ -16,15 +16,15 @@ namespace igl
   // the opposite edge (j,i) counts as -1
   //
   // Inputs:
-  //   F  #F by simplex_size list of "faces"
+  //   tris  #tris by simplex_size list of "faces"
   // Outputs:
   //   E  #E by simplex_size-1  list of exterior edges
   //
   IGL_INLINE void exterior_edges(
-    const Eigen::MatrixXi & F,
+    const Eigen::MatrixXi & tris,
     Eigen::MatrixXi & E);
   // Inline version
-  IGL_INLINE Eigen::MatrixXi exterior_edges( const Eigen::MatrixXi & F);
+  IGL_INLINE Eigen::MatrixXi exterior_edges( const Eigen::MatrixXi & tris);
 }
 #ifndef IGL_STATIC_LIBRARY
 #  include "exterior_edges.cpp"

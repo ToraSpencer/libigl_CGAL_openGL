@@ -13,15 +13,15 @@
 
 template <typename DerivedV, typename mType>
 IGL_INLINE bool igl::median(
-  const Eigen::MatrixBase<DerivedV> & V, mType & m)
+  const Eigen::MatrixBase<DerivedV> & vers, mType & m)
 {
   using namespace std;
-  if(V.size() == 0)
+  if(vers.size() == 0)
   {
     return false;
   }
   vector<typename DerivedV::Scalar> vV;
-  matrix_to_list(V,vV);
+  matrix_to_list(vers,vV);
   // http://stackoverflow.com/a/1719155/148668
   size_t n = vV.size()/2;
   nth_element(vV.begin(),vV.begin()+n,vV.end());

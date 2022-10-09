@@ -26,7 +26,7 @@ namespace igl {
   typename DerivedI>
       IGL_INLINE void knn(
               const Eigen::MatrixBase<DerivedP>& P,
-              const Eigen::MatrixBase<DerivedV>& V,
+              const Eigen::MatrixBase<DerivedV>& vers,
               size_t k,
               const std::vector<std::vector<IndexType> > & point_indices,
               const Eigen::MatrixBase<DerivedCH>& CH,
@@ -41,11 +41,11 @@ namespace igl {
 
 
     const size_t Psize = P.rows();
-    const size_t Vsize = V.rows();
+    const size_t Vsize = vers.rows();
     if(Vsize <= k) {
         I.resize(Psize,Vsize);
         for(size_t i = 0; i < Psize; ++i) {
-            Eigen::Matrix<Scalar,Eigen::Dynamic,1> D = (V.rowwise() - P.row(i)).rowwise().norm();
+            Eigen::Matrix<Scalar,Eigen::Dynamic,1> D = (vers.rowwise() - P.row(i)).rowwise().norm();
             Eigen::Matrix<Scalar,Eigen::Dynamic,1> S;
             Eigen::VectorXi R;
             igl::sort(D,1,true,S,R);
@@ -82,11 +82,11 @@ namespace igl {
       // and the indices n to n+m-1 for the m octree cells
 
       // Using lambda to compare elements.
-      auto cmp = [&point_of_interest, &V, &CN, &W,
+      auto cmp = [&point_of_interest, &vers, &CN, &W,
                   Vsize, &distance_to_cube](int left, int right) {
         Scalar leftdistance, rightdistance;
         if(left < Vsize){ //left is a point index
-          leftdistance = (V.row(left) - point_of_interest).norm();
+          leftdistance = (vers.row(left) - point_of_interest).norm();
         } else { //left is an octree cell
           leftdistance = distance_to_cube(point_of_interest,
                                             CN.row(left-Vsize),
@@ -94,7 +94,7 @@ namespace igl {
         }
 
         if(right < Vsize){ //left is a point index
-          rightdistance = (V.row(right) - point_of_interest).norm();
+          rightdistance = (vers.row(right) - point_of_interest).norm();
         } else { //left is an octree cell
           rightdistance = distance_to_cube(point_of_interest,
                                              CN.row(right-Vsize),

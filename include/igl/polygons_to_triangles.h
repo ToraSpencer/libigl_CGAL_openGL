@@ -19,13 +19,13 @@ namespace igl
   // and degrade otherwise.
   //
   // Inputs:
-  //   I  #I vectorized list of polygon corner indices into rows of some matrix V
+  //   I  #I vectorized list of polygon corner indices into rows of some matrix vers
   //   C  #polygons+1 list of cumulative polygon sizes so that C(i+1)-C(i) =
   //     size of the ith polygon, and so I(C(i)) through I(C(i+1)-1) are the
   //     indices of the ith polygon
   // Outputs:
-  //   F  #F by 3 list of triangle indices into rows of V
-  //   J  #F list of indices into 0:#P-1 of corresponding polygon
+  //   tris  #tris by 3 list of triangle indices into rows of vers
+  //   J  #tris list of indices into 0:#P-1 of corresponding polygon
   //
   template <
     typename DerivedI,
@@ -35,7 +35,7 @@ namespace igl
   IGL_INLINE void polygons_to_triangles(
     const Eigen::MatrixBase<DerivedI> & I,
     const Eigen::MatrixBase<DerivedC> & C,
-    Eigen::PlainObjectBase<DerivedF> & F,
+    Eigen::PlainObjectBase<DerivedF> & tris,
     Eigen::PlainObjectBase<DerivedJ> & J);
 }
 

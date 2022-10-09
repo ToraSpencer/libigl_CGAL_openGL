@@ -15,11 +15,11 @@ template<
 IGL_INLINE void igl::quad_grid(
   const int nx,
   const int ny,
-  Eigen::PlainObjectBase<DerivedV> & V,
+  Eigen::PlainObjectBase<DerivedV> & vers,
   Eigen::PlainObjectBase<DerivedQ> & Q,
   Eigen::PlainObjectBase<DerivedE> & E)
 {
-  grid(Eigen::Vector2i(nx,ny),V);
+  grid(Eigen::Vector2i(nx,ny),vers);
   return igl::quad_grid(nx,ny,Q,E);
 }
 
@@ -45,8 +45,8 @@ IGL_INLINE void igl::quad_grid(
       for(int x = 0;x<nx;x++)
       {
         //// Add a vertex
-        //V(v,0) = (-1.0) + double(x)/double(nx-1) * (1.0 - (-1.0));
-        //V(v,2) = (-1.0) + double(y)/double(ny-1) * (1.0 - (-1.0));
+        //vers(v,0) = (-1.0) + double(x)/double(nx-1) * (1.0 - (-1.0));
+        //vers(v,2) = (-1.0) + double(y)/double(ny-1) * (1.0 - (-1.0));
         I(x,y) = v;
         v++;
         // Add a verical edge
@@ -77,13 +77,13 @@ IGL_INLINE void igl::quad_grid(
           Q(q,2) = I(x-1,y-1);
           Q(q,3) = I(x-0,y-1);
           q++;
-          //F(f,2) = I(x-0,y-0);
-          //F(f,1) = I(x-1,y-0);
-          //F(f,0) = I(x-1,y-1);
+          //tris(f,2) = I(x-0,y-0);
+          //tris(f,1) = I(x-1,y-0);
+          //tris(f,0) = I(x-1,y-1);
           //f++;
-          //F(f,2) = I(x-0,y-0);
-          //F(f,1) = I(x-1,y-1);
-          //F(f,0) = I(x-0,y-1);
+          //tris(f,2) = I(x-0,y-0);
+          //tris(f,1) = I(x-1,y-1);
+          //tris(f,0) = I(x-0,y-1);
           //f++;
         }
       }

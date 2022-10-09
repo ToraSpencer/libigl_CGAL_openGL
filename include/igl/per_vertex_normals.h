@@ -27,18 +27,18 @@ namespace igl
   };
   // Compute vertex normals via vertex position list, face list
   // Inputs:
-  //   V  #V by 3 eigen Matrix of mesh vertex 3D positions
-  //   F  #F by 3 eigne Matrix of face (triangle) indices
+  //   vers  #vers by 3 eigen Matrix of mesh vertex 3D positions
+  //   tris  #tris by 3 eigne Matrix of face (triangle) indices
   //   weighting  Weighting type
   // Output:
-  //   N  #V by 3 eigen Matrix of mesh vertex 3D normals
+  //   N  #vers by 3 eigen Matrix of mesh vertex 3D normals
   template <
     typename DerivedV, 
     typename DerivedF,
     typename DerivedN>
   IGL_INLINE void per_vertex_normals(
-    const Eigen::MatrixBase<DerivedV>& V,
-    const Eigen::MatrixBase<DerivedF>& F,
+    const Eigen::MatrixBase<DerivedV>& vers,
+    const Eigen::MatrixBase<DerivedF>& tris,
     const igl::PerVertexNormalsWeightingType weighting,
     Eigen::PlainObjectBase<DerivedN> & N);
   // Without weighting
@@ -47,15 +47,15 @@ namespace igl
     typename DerivedF,
     typename DerivedN>
   IGL_INLINE void per_vertex_normals(
-    const Eigen::MatrixBase<DerivedV>& V,
-    const Eigen::MatrixBase<DerivedF>& F,
+    const Eigen::MatrixBase<DerivedV>& vers,
+    const Eigen::MatrixBase<DerivedF>& tris,
     Eigen::PlainObjectBase<DerivedN> & N);
   // Inputs:
-  //   FN  #F by 3 matrix of face (triangle) normals
+  //   FN  #tris by 3 matrix of face (triangle) normals
   template <typename DerivedV, typename DerivedF, typename DerivedFN, typename DerivedN>
   IGL_INLINE void per_vertex_normals(
-    const Eigen::MatrixBase<DerivedV>& V,
-    const Eigen::MatrixBase<DerivedF>& F,
+    const Eigen::MatrixBase<DerivedV>& vers,
+    const Eigen::MatrixBase<DerivedF>& tris,
     const PerVertexNormalsWeightingType weighting,
     const Eigen::MatrixBase<DerivedFN>& FN,
     Eigen::PlainObjectBase<DerivedN> & N);
@@ -66,8 +66,8 @@ namespace igl
     typename DerivedFN,
     typename DerivedN>
   IGL_INLINE void per_vertex_normals(
-    const Eigen::MatrixBase<DerivedV>& V,
-    const Eigen::MatrixBase<DerivedF>& F,
+    const Eigen::MatrixBase<DerivedV>& vers,
+    const Eigen::MatrixBase<DerivedF>& tris,
     const Eigen::MatrixBase<DerivedFN>& FN,
     Eigen::PlainObjectBase<DerivedN> & N);
 

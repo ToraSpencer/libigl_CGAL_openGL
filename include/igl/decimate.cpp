@@ -32,8 +32,8 @@ IGL_INLINE bool igl::decimate(
 
   igl::connect_boundary_to_infinity(vers, tris, VO, FO);
   Eigen::VectorXi edgeUeInfo;
-  Eigen::MatrixXi E, EF, EI;
-  edge_flaps(FO, E, edgeUeInfo, EF, EI);
+  Eigen::MatrixXi uEdges, UeTrisInfo, UeCornersInfo;
+  edge_flaps(FO, uEdges, edgeUeInfo, UeTrisInfo, UeCornersInfo);
 
   // decimate will not work correctly on non-edge-manifold meshes. By extension
   // this includes meshes with non-manifold vertices on the boundary since these
@@ -41,7 +41,7 @@ IGL_INLINE bool igl::decimate(
   {
     Eigen::Array<bool, Eigen::Dynamic, Eigen::Dynamic> BF;
     Eigen::Array<bool, Eigen::Dynamic, 1> BE;
-    if(!is_edge_manifold(FO, E.rows(), edgeUeInfo, BF, BE))
+    if(!is_edge_manifold(FO, uEdges.rows(), edgeUeInfo, BF, BE))
         return false;
   }
 
@@ -52,7 +52,7 @@ IGL_INLINE bool igl::decimate(
   bool ret = decimate(VO, FO, 
         shortest_edge_and_midpoint, 
         max_faces_stopping_condition(trisCount, trisCountOri, max_m), 
-        always_try, never_care, E, edgeUeInfo, EF, EI, 
+        always_try, never_care, uEdges, edgeUeInfo, UeTrisInfo, UeCornersInfo, 
         versOut, trisOut, 
         newOldTrisInfo, 
         newOldVersInfo);
@@ -118,12 +118,12 @@ IGL_INLINE bool igl::decimate(
   )
 {
   Eigen::VectorXi edgeUeInfo;
-  Eigen::MatrixXi E, EF, EI;
-  edge_flaps(tris, E, edgeUeInfo, EF, EI);
+  Eigen::MatrixXi uEdges, UeTrisInfo, UeCornersInfo;
+  edge_flaps(tris, uEdges, edgeUeInfo, UeTrisInfo, UeCornersInfo);
   return igl::decimate(
     vers, tris, 
     cost_and_placement, stopping_condition, pre_collapse, post_collapse, 
-    E, edgeUeInfo, EF, EI, 
+    uEdges, edgeUeInfo, UeTrisInfo, UeCornersInfo, 
     versOut, trisOut, newOldTrisInfo, newOldVersInfo);
 }
 
@@ -148,57 +148,68 @@ IGL_INLINE bool igl::decimate(
     using namespace Eigen;
     using namespace std;
 
-    // Working copies
+    // 1. 准备数据
     Eigen::MatrixXd versCopy = vers;
     Eigen::MatrixXi trisCopy = tris;
     VectorXi edgeUeInfo;
-    MatrixXi E, EF, EI;
-    edge_flaps(trisCopy, E, edgeUeInfo, EF, EI);
+    MatrixXi uEdges, UeTrisInfo, UeCornersInfo;
+    edge_flaps(trisCopy, uEdges, edgeUeInfo, UeTrisInfo, UeCornersInfo);
 
     {
         Eigen::Array<bool, Eigen::Dynamic, Eigen::Dynamic> BF;
         Eigen::Array<bool, Eigen::Dynamic, 1> BE;
-        if (!is_edge_manifold(trisCopy, E.rows(), edgeUeInfo, BF, BE))
+        if (!is_edge_manifold(trisCopy, uEdges.rows(), edgeUeInfo, BF, BE))
             return false;
     }
 
-    igl::min_heap<std::tuple<double, int, int> > Q;
+            // 优先队列；
+    igl::min_heap<std::tuple<double, int, int> > pQueue;
 
-    // Could reserve with https://stackoverflow.com/a/29236236/148668
-    Eigen::VectorXi EQ = Eigen::VectorXi::Zero(E.rows());
+            // Could reserve with https://stackoverflow.com/a/29236236/148668
+    Eigen::VectorXi EQ = Eigen::VectorXi::Zero(uEdges.rows());
 
-    // If an edge were collapsed, we'd collapse it to these points:
-    MatrixXd C(E.rows(), versCopy.cols());
+            // If an edge were collapsed, we'd collapse it to these points:
+    MatrixXd collapsed(uEdges.rows(), versCopy.cols());
 
-    // Pushing into a vector then using constructor was slower. Maybe using std::move + make_heap would squeeze out something?
+            // note
+            /*
+                 Pushing into a vector then using constructor was slower. 
+                        Maybe using std::move + make_heap would squeeze out something?
 
-    // Separating the cost/placement evaluation from the Q filling is a
-    // performance hit for serial but faster if we can parallelize the cost/placement.
+                 Separating the cost/placement evaluation from the pQueue filling is a  performance hit for serial 
+                        but faster if we can parallelize the cost/placement.
+            */
+
+
+    // 2. 计算每条无向边的cost值，以此为优先级存入优先队列
     {
-        Eigen::VectorXd costs(E.rows());
-        igl::parallel_for(E.rows(), [&](const int e)
+        Eigen::VectorXd costs(uEdges.rows());
+        igl::parallel_for(uEdges.rows(), [&](const int e)
             {
                 double cost = e;
                 RowVectorXd p(1, 3);
-                cost_and_placement(e, versCopy, trisCopy, E, edgeUeInfo, EF, EI, cost, p);
-                C.row(e) = p;
+                cost_and_placement(e, versCopy, trisCopy, uEdges, edgeUeInfo, UeTrisInfo, UeCornersInfo, cost, p);
+                collapsed.row(e) = p;
                 costs(e) = cost;
             },
             10000);
-        for (int e = 0; e < E.rows(); e++)
-            Q.emplace(costs(e), e, 0);
+
+        for (int i = 0; i < uEdges.rows(); i++)
+            pQueue.emplace(costs(i), i, 0);
     }
 
+
+    // 3. 优先队列中执行边折叠：
     int prev_e = -1;
     bool clean_finish = false;
-
     while (true)
     {
         int e, e1, e2, f1, f2;
-        if (collapse_edge(cost_and_placement, pre_collapse, post_collapse,
-            versCopy, trisCopy, E, edgeUeInfo, EF, EI, Q, EQ, C, e, e1, e2, f1, f2))
+        if (collapse_edge(cost_and_placement, pre_collapse, post_collapse,\
+                versCopy, trisCopy, uEdges, edgeUeInfo, UeTrisInfo, UeCornersInfo, \
+                pQueue, EQ, collapsed, e, e1, e2, f1, f2))          // collapse_edge()重载2；
         {
-            if (stopping_condition(versCopy, trisCopy, E, edgeUeInfo, EF, EI, Q, EQ, C, e, e1, e2, f1, f2))
+            if (stopping_condition(versCopy, trisCopy, uEdges, edgeUeInfo, UeTrisInfo, UeCornersInfo, pQueue, EQ, collapsed, e, e1, e2, f1, f2))
             {
                 clean_finish = true;
                 break;
@@ -207,7 +218,7 @@ IGL_INLINE bool igl::decimate(
         else
         {
             if (e == -1)
-                break;                // a candidate edge was not even found in Q.
+                break;                // a candidate edge was not even found in pQueue.
             if (prev_e == e)
             {
                 assert(false && "Edge collapse no progress... bad stopping condition?");
@@ -219,26 +230,26 @@ IGL_INLINE bool igl::decimate(
         prev_e = e;
     }
 
-    // remove all IGL_COLLAPSE_EDGE_NULL faces
-    MatrixXi F2(trisCopy.rows(), 3);
+
+    // 4. 删除所有含有标记为IGL_COLLAPSE_EDGE_NULL边的三角片：
+    MatrixXi tris0(trisCopy.rows(), 3);
+    VectorXi _1;
     newOldTrisInfo.resize(trisCopy.rows());
     int m = 0;
-    for (int f = 0; f < trisCopy.rows(); f++)
+    for (int i = 0; i < trisCopy.rows(); i++)
     {
-        if (
-            trisCopy(f, 0) != IGL_COLLAPSE_EDGE_NULL ||
-            trisCopy(f, 1) != IGL_COLLAPSE_EDGE_NULL ||
-            trisCopy(f, 2) != IGL_COLLAPSE_EDGE_NULL)
+        if (trisCopy(i, 0) != IGL_COLLAPSE_EDGE_NULL ||
+            trisCopy(i, 1) != IGL_COLLAPSE_EDGE_NULL ||
+            trisCopy(i, 2) != IGL_COLLAPSE_EDGE_NULL)
         {
-            F2.row(m) = trisCopy.row(f);
-            newOldTrisInfo(m) = f;
+            tris0.row(m) = trisCopy.row(i);
+            newOldTrisInfo(m) = i;
             m++;
         }
     }
-    F2.conservativeResize(m, F2.cols());
+    tris0.conservativeResize(m, tris0.cols());
     newOldTrisInfo.conservativeResize(m);
-    VectorXi _1;
-    igl::remove_unreferenced(versCopy, F2, versOut, trisOut, _1, newOldVersInfo);
+    igl::remove_unreferenced(versCopy, tris0, versOut, trisOut, _1, newOldVersInfo);
 
     return clean_finish;
 }

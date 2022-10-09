@@ -12,7 +12,7 @@
 template <typename Scalar, typename Index>
 IGL_INLINE bool igl::readNODE(
   const std::string node_file_name,
-  std::vector<std::vector<Scalar > > & V,
+  std::vector<std::vector<Scalar > > & vers,
   std::vector<std::vector<Index > > & I)
 {
   // TODO: should be templated
@@ -20,7 +20,7 @@ IGL_INLINE bool igl::readNODE(
   Eigen::MatrixXi mI;
   if(igl::readNODE(node_file_name,mV,mI))
   {
-    matrix_to_list(mV,V);
+    matrix_to_list(mV,vers);
     matrix_to_list(mI,I);
     return true;
   }else
@@ -32,7 +32,7 @@ IGL_INLINE bool igl::readNODE(
 template <typename DerivedV, typename DerivedI>
 IGL_INLINE bool igl::readNODE(
   const std::string node_file_name,
-  Eigen::PlainObjectBase<DerivedV>& V,
+  Eigen::PlainObjectBase<DerivedV>& vers,
   Eigen::PlainObjectBase<DerivedI>& I)
 {
   using namespace std;
@@ -90,7 +90,7 @@ IGL_INLINE bool igl::readNODE(
   //}
 
   // resize output
-  V.resize(n,dim);
+  vers.resize(n,dim);
   I.resize(n,1);
 
   int line_no = 0;
@@ -120,7 +120,7 @@ IGL_INLINE bool igl::readNODE(
     // Read coordinates
     for(int d = 0;d<dim;d++)
     {
-      if(sscanf(l,"%lf%n",&V(p,d),&offset) != 1)
+      if(sscanf(l,"%lf%n",&vers(p,d),&offset) != 1)
       {
         fprintf(stderr,"readNODE Error: bad coordinates (%d) in %s...\n",
           line_no,
@@ -149,7 +149,7 @@ IGL_INLINE bool igl::readNODE(
     p++;
   }
 
-  assert(p == V.rows());
+  assert(p == vers.rows());
 
   fclose(node_file);
   return true;

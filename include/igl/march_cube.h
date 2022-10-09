@@ -13,13 +13,13 @@ namespace igl
              cS         list of 8 scalar field values at grid corners
              cI         list of 8 indices of corners into rows of GV
              isovalue        level-set value being extracted (often 0)
-             V          #V by 3 current list of output mesh vertex positions
-             n       current number of mesh vertices (i.e., occupied rows in V)
-             F          #F by 3 current list of output mesh triangle indices into rows of V
-             m          current number of mesh triangles (i.e., occupied rows in F)
+             vers          #vers by 3 current list of output mesh vertex positions
+             n       current number of mesh vertices (i.e., occupied rows in vers)
+             tris          #tris by 3 current list of output mesh triangle indices into rows of vers
+             m          current number of mesh triangles (i.e., occupied rows in tris)
              E2V        current edge (GV_i,GV_j) to vertex (V_k) map
 
-           Side-effects: V,n,F,m,E2V are updated to contain new vertices and faces of any constructed mesh elements
+           Side-effects: vers,n,tris,m,E2V are updated to contain new vertices and faces of any constructed mesh elements
   */
   template <
     typename DerivedGV,
@@ -32,9 +32,9 @@ namespace igl
     const Eigen::Matrix<Scalar,8,1> & cS,
     const Eigen::Matrix<Index,8,1> & cI,
     const Scalar & isovalue,
-    Eigen::PlainObjectBase<DerivedV> &V,
+    Eigen::PlainObjectBase<DerivedV> &vers,
     Index & n,
-    Eigen::PlainObjectBase<DerivedF> &F,
+    Eigen::PlainObjectBase<DerivedF> &tris,
     Index & m,
     std::unordered_map<int64_t,int> & E2V);
 }

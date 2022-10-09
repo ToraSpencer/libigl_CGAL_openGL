@@ -15,15 +15,15 @@ int main(int argc, char *argv[])
   using namespace Eigen;
   using namespace std;
 
-  MatrixXd V;
+  MatrixXd vers;
   MatrixXi F;
 
-  igl::readOBJ(TUTORIAL_SHARED_PATH "/horse_quad.obj",V,F);
+  igl::readOBJ(TUTORIAL_SHARED_PATH "/horse_quad.obj",vers,F);
 
   // Count the number of irregular vertices, the border is ignored
-  vector<bool> irregular = igl::is_irregular_vertex(V,F);
+  vector<bool> irregular = igl::is_irregular_vertex(vers,F);
 
-  int vertex_count = V.rows();
+  int vertex_count = vers.rows();
   int irregular_vertex_count = 
     std::count(irregular.begin(),irregular.end(),true);
   double irregular_ratio = double(irregular_vertex_count)/vertex_count;
@@ -33,7 +33,7 @@ int main(int argc, char *argv[])
 
   // Compute areas, min, max and standard deviation
   VectorXd area;
-  igl::doublearea(V,F,area);
+  igl::doublearea(vers,F,area);
   area = area.array() / 2;
 
   double area_avg   = area.mean();
@@ -46,7 +46,7 @@ int main(int argc, char *argv[])
 
   // Compute per face angles, min, max and standard deviation
   MatrixXd angles;
-  igl::internal_angles(V,F,angles);
+  igl::internal_angles(vers,F,angles);
   angles = 360.0 * (angles/(2*igl::PI));            // Convert to degrees
 
   double angle_avg   = angles.mean();

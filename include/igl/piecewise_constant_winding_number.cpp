@@ -14,11 +14,11 @@ template <
   typename DeriveduE,
   typename uE2EType>
 IGL_INLINE bool igl::piecewise_constant_winding_number(
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedF>& tris,
   const Eigen::MatrixBase<DeriveduE>& uE,
   const std::vector<std::vector<uE2EType> >& uE2E)
 {
-  const size_t num_faces = F.rows();
+  const size_t num_faces = tris.rows();
   const size_t num_edges = uE.rows();
   const auto edge_index_to_face_index = [&](size_t ei)
   {
@@ -26,13 +26,13 @@ IGL_INLINE bool igl::piecewise_constant_winding_number(
   };
   const auto is_consistent = [&](size_t fid, size_t s, size_t d)
   {
-    if ((size_t)F(fid, 0) == s && (size_t)F(fid, 1) == d) return true;
-    if ((size_t)F(fid, 1) == s && (size_t)F(fid, 2) == d) return true;
-    if ((size_t)F(fid, 2) == s && (size_t)F(fid, 0) == d) return true;
+    if ((size_t)tris(fid, 0) == s && (size_t)tris(fid, 1) == d) return true;
+    if ((size_t)tris(fid, 1) == s && (size_t)tris(fid, 2) == d) return true;
+    if ((size_t)tris(fid, 2) == s && (size_t)tris(fid, 0) == d) return true;
 
-    if ((size_t)F(fid, 0) == d && (size_t)F(fid, 1) == s) return false;
-    if ((size_t)F(fid, 1) == d && (size_t)F(fid, 2) == s) return false;
-    if ((size_t)F(fid, 2) == d && (size_t)F(fid, 0) == s) return false;
+    if ((size_t)tris(fid, 0) == d && (size_t)tris(fid, 1) == s) return false;
+    if ((size_t)tris(fid, 1) == d && (size_t)tris(fid, 2) == s) return false;
+    if ((size_t)tris(fid, 2) == d && (size_t)tris(fid, 0) == s) return false;
     throw "Invalid face!!";
   };
   for (size_t i=0; i<num_edges; i++)
@@ -61,13 +61,13 @@ IGL_INLINE bool igl::piecewise_constant_winding_number(
 }
 template <typename DerivedF>
 IGL_INLINE bool igl::piecewise_constant_winding_number(
-  const Eigen::MatrixBase<DerivedF>& F)
+  const Eigen::MatrixBase<DerivedF>& tris)
 {
   Eigen::Matrix<typename DerivedF::Scalar,Eigen::Dynamic,2> E, uE;
   Eigen::Matrix<typename DerivedF::Scalar,Eigen::Dynamic,1> EMAP;
   std::vector<std::vector<size_t> > uE2E;
-  unique_edge_map(F, E, uE, EMAP, uE2E);
-  return piecewise_constant_winding_number(F,uE,uE2E);
+  unique_edge_map(tris, E, uE, EMAP, uE2E);
+  return piecewise_constant_winding_number(tris,uE,uE2E);
 }
 
 #ifdef IGL_STATIC_LIBRARY

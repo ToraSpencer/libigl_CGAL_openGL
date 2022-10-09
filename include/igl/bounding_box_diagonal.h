@@ -15,9 +15,9 @@ namespace igl
   // box
   //
   // Inputs:
-  //   V  #V by 3 list of vertex/point positions
+  //   vers  #vers by 3 list of vertex/point positions
   // Returns length of bounding box diagonal
-  IGL_INLINE double bounding_box_diagonal( const Eigen::MatrixXd & V);
+  IGL_INLINE double bounding_box_diagonal( const Eigen::MatrixXd & vers);
 }
 
 #ifndef IGL_STATIC_LIBRARY

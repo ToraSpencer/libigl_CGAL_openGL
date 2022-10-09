@@ -16,17 +16,17 @@ namespace igl
 
 
   // Inputs:
-  //   V                #V by 3 eigen Matrix of mesh vertex 3D positions
-  //   F                #F by 3 eigen Matrix of face (quad) indices
-  //   mismatch         #F by 3 eigen Matrix containing the integer mismatch of the cross field
+  //   vers                #vers by 3 eigen Matrix of mesh vertex 3D positions
+  //   tris                #tris by 3 eigen Matrix of face (quad) indices
+  //   mismatch         #tris by 3 eigen Matrix containing the integer mismatch of the cross field
   //                    across all face edges
   // Output:
-  //   isSingularity    #V by 1 boolean eigen Vector indicating the presence of a singularity on a vertex
-  //   singularityIndex #V by 1 integer eigen Vector containing the singularity indices
+  //   isSingularity    #vers by 1 boolean eigen Vector indicating the presence of a singularity on a vertex
+  //   singularityIndex #vers by 1 integer eigen Vector containing the singularity indices
   //
   template <typename DerivedV, typename DerivedF, typename DerivedM, typename DerivedO>
-  IGL_INLINE void find_cross_field_singularities(const Eigen::MatrixBase<DerivedV> &V,
-                                                 const Eigen::MatrixBase<DerivedF> &F,
+  IGL_INLINE void find_cross_field_singularities(const Eigen::MatrixBase<DerivedV> &vers,
+                                                 const Eigen::MatrixBase<DerivedF> &tris,
                                                  const Eigen::MatrixBase<DerivedM> &mismatch,
                                                  Eigen::PlainObjectBase<DerivedO> &isSingularity,
                                                  Eigen::PlainObjectBase<DerivedO> &singularityIndex);
@@ -34,17 +34,17 @@ namespace igl
   // Wrapper that calculates the mismatch if it is not provided.
   // Note that the field in PD1 and PD2 MUST BE combed (see igl::comb_cross_field).
   // Inputs:
-  //   V                #V by 3 eigen Matrix of mesh vertex 3D positions
-  //   F                #F by 3 eigen Matrix of face (quad) indices
-  //   PD1              #F by 3 eigen Matrix of the first per face cross field vector
-  //   PD2              #F by 3 eigen Matrix of the second per face  cross field vector
+  //   vers                #vers by 3 eigen Matrix of mesh vertex 3D positions
+  //   tris                #tris by 3 eigen Matrix of face (quad) indices
+  //   PD1              #tris by 3 eigen Matrix of the first per face cross field vector
+  //   PD2              #tris by 3 eigen Matrix of the second per face  cross field vector
   // Output:
-  //   isSingularity    #V by 1 boolean eigen Vector indicating the presence of a singularity on a vertex
-  //   singularityIndex #V by 1 integer eigen Vector containing the singularity indices
+  //   isSingularity    #vers by 1 boolean eigen Vector indicating the presence of a singularity on a vertex
+  //   singularityIndex #vers by 1 integer eigen Vector containing the singularity indices
   //
   template <typename DerivedV, typename DerivedF, typename DerivedO>
-  IGL_INLINE void find_cross_field_singularities(const Eigen::MatrixBase<DerivedV> &V,
-                                                 const Eigen::MatrixBase<DerivedF> &F,
+  IGL_INLINE void find_cross_field_singularities(const Eigen::MatrixBase<DerivedV> &vers,
+                                                 const Eigen::MatrixBase<DerivedF> &tris,
                                                  const Eigen::MatrixBase<DerivedV> &PD1,
                                                  const Eigen::MatrixBase<DerivedV> &PD2,
                                                  Eigen::PlainObjectBase<DerivedO> &isSingularity,

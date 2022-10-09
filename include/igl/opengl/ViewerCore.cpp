@@ -21,64 +21,64 @@
 #include <iostream>
 
 IGL_INLINE void igl::opengl::ViewerCore::align_camera_center(
-  const Eigen::MatrixXd& V,
+  const Eigen::MatrixXd& vers,
   const Eigen::MatrixXi& F)
 {
-  if(V.rows() == 0)
+  if(vers.rows() == 0)
     return;
 
-  get_scale_and_shift_to_fit_mesh(V,F,camera_base_zoom,camera_base_translation);
+  get_scale_and_shift_to_fit_mesh(vers,F,camera_base_zoom,camera_base_translation);
   // Rather than crash on empty mesh...
-  if(V.size() > 0)
+  if(vers.size() > 0)
   {
-    object_scale = (V.colwise().maxCoeff() - V.colwise().minCoeff()).norm();
+    object_scale = (vers.colwise().maxCoeff() - vers.colwise().minCoeff()).norm();
   }
 }
 
 IGL_INLINE void igl::opengl::ViewerCore::get_scale_and_shift_to_fit_mesh(
-  const Eigen::MatrixXd& V,
+  const Eigen::MatrixXd& vers,
   const Eigen::MatrixXi& F,
   float& zoom,
   Eigen::Vector3f& shift)
 {
-  if (V.rows() == 0)
+  if (vers.rows() == 0)
     return;
 
   Eigen::MatrixXd BC;
   if (F.rows() <= 1)
   {
-    BC = V;
+    BC = vers;
   } else
   {
-    igl::barycenter(V,F,BC);
+    igl::barycenter(vers,F,BC);
   }
   return get_scale_and_shift_to_fit_mesh(BC,zoom,shift);
 }
 
 IGL_INLINE void igl::opengl::ViewerCore::align_camera_center(
-  const Eigen::MatrixXd& V)
+  const Eigen::MatrixXd& vers)
 {
-  if(V.rows() == 0)
+  if(vers.rows() == 0)
     return;
 
-  get_scale_and_shift_to_fit_mesh(V,camera_base_zoom,camera_base_translation);
+  get_scale_and_shift_to_fit_mesh(vers,camera_base_zoom,camera_base_translation);
   // Rather than crash on empty mesh...
-  if(V.size() > 0)
+  if(vers.size() > 0)
   {
-    object_scale = (V.colwise().maxCoeff() - V.colwise().minCoeff()).norm();
+    object_scale = (vers.colwise().maxCoeff() - vers.colwise().minCoeff()).norm();
   }
 }
 
 IGL_INLINE void igl::opengl::ViewerCore::get_scale_and_shift_to_fit_mesh(
-  const Eigen::MatrixXd& V,
+  const Eigen::MatrixXd& vers,
   float& zoom,
   Eigen::Vector3f& shift)
 {
-  if (V.rows() == 0)
+  if (vers.rows() == 0)
     return;
 
-  auto min_point = V.colwise().minCoeff();
-  auto max_point = V.colwise().maxCoeff();
+  auto min_point = vers.colwise().minCoeff();
+  auto max_point = vers.colwise().maxCoeff();
   auto centroid  = (0.5*(min_point + max_point)).eval();
   shift.setConstant(0);
   shift.head(centroid.size()) = -centroid.cast<float>();
@@ -180,7 +180,7 @@ IGL_INLINE void igl::opengl::ViewerCore::draw(
   glUniform1f(lighting_factori, lighting_factor); // enables lighting
   glUniform4f(fixed_colori, 0.0, 0.0, 0.0, 0.0);
 
-  if (data.V.rows()>0)
+  if (data.vers.rows()>0)
   {
     // Render fill
     if (is_set(data.show_faces))

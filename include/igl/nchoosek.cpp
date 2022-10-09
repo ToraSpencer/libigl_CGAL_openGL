@@ -30,24 +30,24 @@ IGL_INLINE double igl::nchoosek(const int n, const int k)
 
 template < typename DerivedV, typename DerivedU>
 IGL_INLINE void igl::nchoosek(
-  const Eigen::MatrixBase<DerivedV> & V,
+  const Eigen::MatrixBase<DerivedV> & vers,
   const int k,
   Eigen::PlainObjectBase<DerivedU> & U)
 {
   using namespace Eigen;
-  if(V.size() == 0)
+  if(vers.size() == 0)
   {
     U.resize(0,k);
     return;
   }
-  assert((V.cols() == 1 || V.rows() == 1) && "V must be a vector");
-  U.resize(nchoosek(V.size(),k),k);
+  assert((vers.cols() == 1 || vers.rows() == 1) && "vers must be a vector");
+  U.resize(nchoosek(vers.size(),k),k);
   int running_i  = 0;
   int running_j = 0;
   Matrix<typename DerivedU::Scalar,1,Dynamic> running(1,k);
-  int N = V.size();
+  int N = vers.size();
   const std::function<void(int,int)> doCombs =
-    [&running,&N,&doCombs,&running_i,&running_j,&U,&V](int offset, int k)
+    [&running,&N,&doCombs,&running_i,&running_j,&U,&vers](int offset, int k)
   {
     if(k==0)
     {
@@ -57,7 +57,7 @@ IGL_INLINE void igl::nchoosek(
     }
     for (int i = offset; i <= N - k; ++i)
     {
-      running(running_j) = V(i);
+      running(running_j) = vers(i);
       running_j++;
       doCombs(i+1,k-1);
       running_j--;

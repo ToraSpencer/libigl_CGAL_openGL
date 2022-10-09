@@ -11,8 +11,8 @@
 template <typename Scalar, typename Index>
 IGL_INLINE bool igl::readWRL(
   const std::string wrl_file_name,
-  std::vector<std::vector<Scalar > > & V,
-  std::vector<std::vector<Index > > & F)
+  std::vector<std::vector<Scalar > > & vers,
+  std::vector<std::vector<Index > > & tris)
 {
   using namespace std;
   FILE * wrl_file = fopen(wrl_file_name.c_str(),"r");
@@ -21,14 +21,14 @@ IGL_INLINE bool igl::readWRL(
     printf("IOError: %s could not be opened...",wrl_file_name.c_str());
     return false;
   }
-  return readWRL(wrl_file,V,F);
+  return readWRL(wrl_file,vers,tris);
 }
 
 template <typename Scalar, typename Index>
 IGL_INLINE bool igl::readWRL(
   FILE * wrl_file,
-  std::vector<std::vector<Scalar > > & V,
-  std::vector<std::vector<Index > > & F)
+  std::vector<std::vector<Scalar > > & vers,
+  std::vector<std::vector<Index > > & tris)
 {
   using namespace std;
 
@@ -63,7 +63,7 @@ IGL_INLINE bool igl::readWRL(
       point[0] = x;
       point[1] = y;
       point[2] = z;
-      V.push_back(point);
+      vers.push_back(point);
       //printf("(%g, %g, %g)\n",x,y,z);
     }else if(floats_read != 0)
     {
@@ -81,7 +81,7 @@ IGL_INLINE bool igl::readWRL(
     haystack = string(line);
     still_comments = string::npos == haystack.find(needle);
   }
-  // read F
+  // read tris
   int ints_read = 1;
   while(ints_read > 0)
   {
@@ -99,7 +99,7 @@ IGL_INLINE bool igl::readWRL(
           face.push_back(i);
         }else
         {
-          F.push_back(face);
+          tris.push_back(face);
           break;
         }
       }else

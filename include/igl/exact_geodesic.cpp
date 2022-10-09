@@ -3163,25 +3163,25 @@ template <
   typename DerivedFT,
   typename DerivedD>
 IGL_INLINE void igl::exact_geodesic(
-  const Eigen::MatrixBase<DerivedV> &V,
-  const Eigen::MatrixBase<DerivedF> &F,
+  const Eigen::MatrixBase<DerivedV> &vers,
+  const Eigen::MatrixBase<DerivedF> &tris,
   const Eigen::MatrixBase<DerivedVS> &VS,
   const Eigen::MatrixBase<DerivedFS> &FS,
   const Eigen::MatrixBase<DerivedVT> &VT,
   const Eigen::MatrixBase<DerivedFT> &FT,
   Eigen::PlainObjectBase<DerivedD> &D)
 {
-  assert(V.cols() == 3 && F.cols() == 3 && "Only support 3D triangle mesh");
+  assert(vers.cols() == 3 && tris.cols() == 3 && "Only support 3D triangle mesh");
   assert(VS.cols() <=1 && FS.cols() <= 1 && VT.cols() <= 1 && FT.cols() <=1 && "Only support one dimensional inputs");
-  std::vector<typename DerivedV::Scalar> points(V.rows() * V.cols());
-  std::vector<typename DerivedF::Scalar> faces(F.rows() * F.cols());
+  std::vector<typename DerivedV::Scalar> points(vers.rows() * vers.cols());
+  std::vector<typename DerivedF::Scalar> faces(tris.rows() * tris.cols());
   for (int i = 0; i < points.size(); i++)
   {
-    points[i] = V(i / 3, i % 3);
+    points[i] = vers(i / 3, i % 3);
   }
   for (int i = 0; i < faces.size(); i++)
   {
-    faces[i] = F(i / 3, i % 3);
+    faces[i] = tris(i / 3, i % 3);
   }
 
   igl::geodesic::Mesh mesh;

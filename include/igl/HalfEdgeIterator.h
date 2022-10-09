@@ -32,12 +32,12 @@ namespace igl
   //    and encoded by (face, edge \in {0,1,2}, bool reverse)
   //
   // Inputs:
-  //    F #F by 3 list of "faces"
-  //    FF #F by 3 list of triangle-triangle adjacency.
-  //    FFi #F by 3 list of FF inverse. For FF and FFi, refer to
+  //    tris #tris by 3 list of "faces"
+  //    FF #tris by 3 list of triangle-triangle adjacency.
+  //    FFi #tris by 3 list of FF inverse. For FF and FFi, refer to
   //        "triangle_triangle_adjacency.h"
   // Usages:
-  //    FlipF/E/V changes solely one actual face/edge/vertex resp.
+  //    FlipF/E/vers changes solely one actual face/edge/vertex resp.
   //    NextFE iterates through one-ring of a vertex robustly.
   //
   template <
@@ -100,7 +100,7 @@ namespace igl
     bool reverse;
 
     // All the same type? This is likely to break.
-    const Eigen::MatrixBase<DerivedF> & F;
+    const Eigen::MatrixBase<DerivedF> & tris;
     const Eigen::MatrixBase<DerivedFF> & FF;
     const Eigen::MatrixBase<DerivedFFi> & FFi;
   };

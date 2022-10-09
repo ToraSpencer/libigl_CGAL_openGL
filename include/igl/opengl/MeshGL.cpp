@@ -403,7 +403,7 @@ R"(#version 150 core
       // Determine the final quad's position and size:
       vec4 P = gl_in[0].gl_Position + vec4( vOffset[0]*TextShiftFactor, 0.0, 0.0, 0.0 ); // 0.04
       vec4 U = vec4(1, 0, 0, 0) * RenderSize.x; // 1.0
-      vec4 V = vec4(0, 1, 0, 0) * RenderSize.y; // 1.0
+      vec4 vers = vec4(0, 1, 0, 0) * RenderSize.y; // 1.0
 
       // Determine the texture coordinates:
       int letter = vCharacter[0]; // used to be the character
@@ -416,10 +416,10 @@ R"(#version 150 core
       float T1 = T0 + CellSize.y;
 
       // Output the quad's vertices:
-      gTexCoord = vec2(S0, T1); gl_Position = P - U - V; EmitVertex();
-      gTexCoord = vec2(S1, T1); gl_Position = P + U - V; EmitVertex();
-      gTexCoord = vec2(S0, T0); gl_Position = P - U + V; EmitVertex();
-      gTexCoord = vec2(S1, T0); gl_Position = P + U + V; EmitVertex();
+      gTexCoord = vec2(S0, T1); gl_Position = P - U - vers; EmitVertex();
+      gTexCoord = vec2(S1, T1); gl_Position = P + U - vers; EmitVertex();
+      gTexCoord = vec2(S0, T0); gl_Position = P - U + vers; EmitVertex();
+      gTexCoord = vec2(S1, T0); gl_Position = P + U + vers; EmitVertex();
       EndPrimitive();
     }
 )";

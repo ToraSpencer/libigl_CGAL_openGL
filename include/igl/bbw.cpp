@@ -39,7 +39,7 @@ template <
   typename Derivedbc,
   typename DerivedW>
 IGL_INLINE bool igl::bbw(
-  const Eigen::PlainObjectBase<DerivedV> & V,
+  const Eigen::PlainObjectBase<DerivedV> & vers,
   const Eigen::PlainObjectBase<DerivedEle> & Ele,
   const Eigen::PlainObjectBase<Derivedb> & b,
   const Eigen::PlainObjectBase<Derivedbc> & bc,
@@ -51,12 +51,12 @@ IGL_INLINE bool igl::bbw(
   using namespace Eigen;
   assert(!data.partition_unity && "partition_unity not implemented yet");
   // number of domain vertices
-  int n = V.rows();
+  int n = vers.rows();
   // number of handles
   int m = bc.cols();
   // Build biharmonic operator
   Eigen::SparseMatrix<typename DerivedV::Scalar> Q;
-  harmonic(V,Ele,2,Q);
+  harmonic(vers,Ele,2,Q);
   W.derived().resize(n,m);
   // No linear terms
   VectorXd c = VectorXd::Zero(n);

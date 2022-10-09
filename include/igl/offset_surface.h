@@ -10,8 +10,8 @@ namespace igl
   // signed distance values from the input triangle mesh.
   //
   // Inputs:
-  //   V  #V by 3 list of mesh vertex positions
-  //   F  #F by 3 list of mesh triangle indices into V
+  //   vers  #vers by 3 list of mesh vertex positions
+  //   tris  #tris by 3 list of mesh triangle indices into vers
   //   isolevel  iso level to extract (signed distance: negative inside)
   //   s  number of grid cells along longest side (controls resolution)
   //   signed_distance_type  type of signing to use (see
@@ -34,8 +34,8 @@ namespace igl
     typename Derivedside,
     typename DerivedS>
   void offset_surface(
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F,
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris,
     const isolevelType isolevel,
     const typename Derivedside::Scalar s,
     const SignedDistanceType & signed_distance_type,

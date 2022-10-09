@@ -11,20 +11,20 @@
   
 template <typename DerivedV, typename DerivedF, typename DerivedL>
 IGL_INLINE void igl::squared_edge_lengths(
-  const Eigen::MatrixBase<DerivedV>& V,
-  const Eigen::MatrixBase<DerivedF>& F,
+  const Eigen::MatrixBase<DerivedV>& vers,
+  const Eigen::MatrixBase<DerivedF>& tris,
   Eigen::PlainObjectBase<DerivedL>& L)
 {
   using namespace std;
-  const int m = F.rows();
-  switch(F.cols())
+  const int m = tris.rows();
+  switch(tris.cols())
   {
     case 2:
     {
-      L.resize(F.rows(),1);
-      for(int i = 0;i<F.rows();i++)
+      L.resize(tris.rows(),1);
+      for(int i = 0;i<tris.rows();i++)
       {
-        L(i,0) = (V.row(F(i,1))-V.row(F(i,0))).squaredNorm();
+        L(i,0) = (vers.row(tris(i,1))-vers.row(tris(i,0))).squaredNorm();
       }
       break;
     }
@@ -34,11 +34,11 @@ IGL_INLINE void igl::squared_edge_lengths(
       // loop over faces
       parallel_for(
         m,
-        [&V,&F,&L](const int i)
+        [&vers,&tris,&L](const int i)
         {
-          L(i,0) = (V.row(F(i,1))-V.row(F(i,2))).squaredNorm();
-          L(i,1) = (V.row(F(i,2))-V.row(F(i,0))).squaredNorm();
-          L(i,2) = (V.row(F(i,0))-V.row(F(i,1))).squaredNorm();
+          L(i,0) = (vers.row(tris(i,1))-vers.row(tris(i,2))).squaredNorm();
+          L(i,1) = (vers.row(tris(i,2))-vers.row(tris(i,0))).squaredNorm();
+          L(i,2) = (vers.row(tris(i,0))-vers.row(tris(i,1))).squaredNorm();
         },
         1000);
       break;
@@ -49,21 +49,21 @@ IGL_INLINE void igl::squared_edge_lengths(
       // loop over faces
       parallel_for(
         m,
-        [&V,&F,&L](const int i)
+        [&vers,&tris,&L](const int i)
         {
-          L(i,0) = (V.row(F(i,3))-V.row(F(i,0))).squaredNorm();
-          L(i,1) = (V.row(F(i,3))-V.row(F(i,1))).squaredNorm();
-          L(i,2) = (V.row(F(i,3))-V.row(F(i,2))).squaredNorm();
-          L(i,3) = (V.row(F(i,1))-V.row(F(i,2))).squaredNorm();
-          L(i,4) = (V.row(F(i,2))-V.row(F(i,0))).squaredNorm();
-          L(i,5) = (V.row(F(i,0))-V.row(F(i,1))).squaredNorm();
+          L(i,0) = (vers.row(tris(i,3))-vers.row(tris(i,0))).squaredNorm();
+          L(i,1) = (vers.row(tris(i,3))-vers.row(tris(i,1))).squaredNorm();
+          L(i,2) = (vers.row(tris(i,3))-vers.row(tris(i,2))).squaredNorm();
+          L(i,3) = (vers.row(tris(i,1))-vers.row(tris(i,2))).squaredNorm();
+          L(i,4) = (vers.row(tris(i,2))-vers.row(tris(i,0))).squaredNorm();
+          L(i,5) = (vers.row(tris(i,0))-vers.row(tris(i,1))).squaredNorm();
         },
         1000);
       break;
     }
     default:
     {
-      cerr<< "squared_edge_lengths.h: Error: Simplex size ("<<F.cols()<<
+      cerr<< "squared_edge_lengths.h: Error: Simplex size ("<<tris.cols()<<
         ") not supported"<<endl;
       assert(false);
     }

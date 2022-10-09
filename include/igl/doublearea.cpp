@@ -8,29 +8,29 @@
 
 template <typename DerivedV, typename DerivedF, typename DeriveddblA>
 IGL_INLINE void igl::doublearea(
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   Eigen::PlainObjectBase<DeriveddblA> & dblA)
 {
   // quads are handled by a specialized function
-  if (F.cols() == 4) return doublearea_quad(V,F,dblA);
+  if (tris.cols() == 4) return doublearea_quad(vers,tris,dblA);
 
-  const int dim = V.cols();
+  const int dim = vers.cols();
   // Only support triangles
-  assert(F.cols() == 3);
-  const size_t m = F.rows();
+  assert(tris.cols() == 3);
+  const size_t m = tris.rows();
   // Compute edge lengths
   Eigen::Matrix<typename DerivedV::Scalar, Eigen::Dynamic, 3> l;
 
   // Projected area helper
   const auto & proj_doublearea =
-    [&V,&F](const int x, const int y, const int f)
+    [&vers,&tris](const int x, const int y, const int f)
     ->typename DerivedV::Scalar
   {
-    auto rx = V(F(f,0),x)-V(F(f,2),x);
-    auto sx = V(F(f,1),x)-V(F(f,2),x);
-    auto ry = V(F(f,0),y)-V(F(f,2),y);
-    auto sy = V(F(f,1),y)-V(F(f,2),y);
+    auto rx = vers(tris(f,0),x)-vers(tris(f,2),x);
+    auto sx = vers(tris(f,1),x)-vers(tris(f,2),x);
+    auto ry = vers(tris(f,0),y)-vers(tris(f,2),y);
+    auto sy = vers(tris(f,1),y)-vers(tris(f,2),y);
     return rx*sy - ry*sx;
   };
 
@@ -61,7 +61,7 @@ IGL_INLINE void igl::doublearea(
     }
     default:
     {
-      edge_lengths(V,F,l);
+      edge_lengths(vers,tris,l);
       return doublearea(l,0.,dblA);
     }
   }
@@ -194,29 +194,29 @@ IGL_INLINE void igl::doublearea(
 
 template <typename DerivedV, typename DerivedF, typename DeriveddblA>
 IGL_INLINE void igl::doublearea_quad(
-  const Eigen::MatrixBase<DerivedV> & V,
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedV> & vers,
+  const Eigen::MatrixBase<DerivedF> & tris,
   Eigen::PlainObjectBase<DeriveddblA> & dblA)
 {
-  assert(V.cols() == 3); // Only supports points in 3D
-  assert(F.cols() == 4); // Only support quads
-  const size_t m = F.rows();
+  assert(vers.cols() == 3); // Only supports points in 3D
+  assert(tris.cols() == 4); // Only support quads
+  const size_t m = tris.rows();
 
   // Split the quads into triangles
-  Eigen::MatrixXi Ft(F.rows()*2,3);
+  Eigen::MatrixXi Ft(tris.rows()*2,3);
 
   for(size_t i=0; i<m;++i)
   {
-    Ft.row(i*2    ) << F(i,0), F(i,1), F(i,2);
-    Ft.row(i*2 + 1) << F(i,2), F(i,3), F(i,0);
+    Ft.row(i*2    ) << tris(i,0), tris(i,1), tris(i,2);
+    Ft.row(i*2 + 1) << tris(i,2), tris(i,3), tris(i,0);
   }
 
   // Compute areas
   Eigen::VectorXd doublearea_tri;
-  igl::doublearea(V,Ft,doublearea_tri);
+  igl::doublearea(vers,Ft,doublearea_tri);
 
-  dblA.resize(F.rows(),1);
-  for(unsigned i=0; i<F.rows();++i)
+  dblA.resize(tris.rows(),1);
+  for(unsigned i=0; i<tris.rows();++i)
   {
     dblA(i) = doublearea_tri(i*2) + doublearea_tri(i*2 + 1);
   }

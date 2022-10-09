@@ -78,11 +78,11 @@ IGL_INLINE void igl::vertex_components(
 
 template <typename DerivedF, typename DerivedC>
 IGL_INLINE void igl::vertex_components(
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedF> & tris,
   Eigen::PlainObjectBase<DerivedC> & C)
 {
   Eigen::SparseMatrix<typename DerivedC::Scalar> A;
-  adjacency_matrix(F,A);
+  adjacency_matrix(tris,A);
   return vertex_components(A,C);
 }
 

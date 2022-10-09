@@ -5,20 +5,20 @@
   typename VectorIndex,
   typename DerivedF_filled>
 IGL_INLINE void igl::topological_hole_fill(
-  const Eigen::MatrixBase<DerivedF> & F,
+  const Eigen::MatrixBase<DerivedF> & tris,
   const Eigen::MatrixBase<Derivedb> & b,
   const std::vector<VectorIndex> & holes,
   Eigen::PlainObjectBase<DerivedF_filled> &F_filled)
 {
   int n_filled_faces = 0;
   int num_holes = holes.size();
-  int real_F_num = F.rows();
-  const int V_rows = F.maxCoeff()+1;
+  int real_F_num = tris.rows();
+  const int V_rows = tris.maxCoeff()+1;
 
   for (int i = 0; i < num_holes; i++)
     n_filled_faces += holes[i].size();
   F_filled.resize(n_filled_faces + real_F_num, 3);
-  F_filled.topRows(real_F_num) = F;
+  F_filled.topRows(real_F_num) = tris;
 
   int new_vert_id = V_rows;
   int new_face_id = real_F_num;

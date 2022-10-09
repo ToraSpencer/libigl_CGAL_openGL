@@ -22,8 +22,8 @@ IGL_INLINE void igl::qslim_optimal_collapse_edge_callbacks(
   typedef std::tuple<Eigen::MatrixXd,Eigen::RowVectorXd,double> Quadric;
   cost_and_placement = [&quadrics,&v1,&v2](
     const int e,
-    const Eigen::MatrixXd & V,
-    const Eigen::MatrixXi & /*F*/,
+    const Eigen::MatrixXd & vers,
+    const Eigen::MatrixXi & /*tris*/,
     const Eigen::MatrixXi & E,
     const Eigen::VectorXi & /*EMAP*/,
     const Eigen::MatrixXi & /*EF*/,
@@ -51,8 +51,8 @@ IGL_INLINE void igl::qslim_optimal_collapse_edge_callbacks(
   };
   // Remember endpoints
   pre_collapse = [&v1,&v2](
-    const Eigen::MatrixXd &                             ,/*V*/
-    const Eigen::MatrixXi &                             ,/*F*/
+    const Eigen::MatrixXd &                             ,/*vers*/
+    const Eigen::MatrixXi &                             ,/*tris*/
     const Eigen::MatrixXi & E                           ,
     const Eigen::VectorXi &                             ,/*EMAP*/
     const Eigen::MatrixXi &                             ,/*EF*/
@@ -68,8 +68,8 @@ IGL_INLINE void igl::qslim_optimal_collapse_edge_callbacks(
   };
   // update quadric
   post_collapse = [&v1,&v2,&quadrics](
-      const Eigen::MatrixXd &                             ,   /*V*/
-      const Eigen::MatrixXi &                             ,   /*F*/
+      const Eigen::MatrixXd &                             ,   /*vers*/
+      const Eigen::MatrixXi &                             ,   /*tris*/
       const Eigen::MatrixXi &                             ,   /*E*/
       const Eigen::VectorXi &                             ,/*EMAP*/
       const Eigen::MatrixXi &                             ,  /*EF*/

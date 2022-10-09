@@ -18,24 +18,24 @@
 
 template <typename MT, typename DerivedV, typename DerivedF, typename DerivedE, typename DerivedEMAP>
 void igl::crouzeix_raviart_massmatrix(
-    const Eigen::MatrixBase<DerivedV> & V,
-    const Eigen::MatrixBase<DerivedF> & F, 
+    const Eigen::MatrixBase<DerivedV> & vers,
+    const Eigen::MatrixBase<DerivedF> & tris, 
     Eigen::SparseMatrix<MT> & M,
     Eigen::PlainObjectBase<DerivedE> & E,
     Eigen::PlainObjectBase<DerivedEMAP> & EMAP)
 {
   // All occurrences of directed "facets"
   Eigen::Matrix<typename DerivedF::Scalar, Eigen::Dynamic, Eigen::Dynamic> allE;
-  oriented_facets(F,allE);
+  oriented_facets(tris,allE);
   Eigen::Matrix<typename DerivedF::Scalar, Eigen::Dynamic, 1> _1;
   unique_simplices(allE,E,_1,EMAP);
-  return crouzeix_raviart_massmatrix(V,F,E,EMAP,M);
+  return crouzeix_raviart_massmatrix(vers,tris,E,EMAP,M);
 }
 
 template <typename MT, typename DerivedV, typename DerivedF, typename DerivedE, typename DerivedEMAP>
 void igl::crouzeix_raviart_massmatrix(
-    const Eigen::MatrixBase<DerivedV> & V, 
-    const Eigen::MatrixBase<DerivedF> & F, 
+    const Eigen::MatrixBase<DerivedV> & vers, 
+    const Eigen::MatrixBase<DerivedF> & tris, 
     const Eigen::MatrixBase<DerivedE> & E,
     const Eigen::MatrixBase<DerivedEMAP> & EMAP,
     Eigen::SparseMatrix<MT> & M)
@@ -44,23 +44,23 @@ void igl::crouzeix_raviart_massmatrix(
   using namespace std;
   // Mesh should be edge-manifold (TODO: replace `is_edge_manifold` with
   // `is_facet_manifold`)
-  assert(F.cols() != 3 || is_edge_manifold(F));
+  assert(tris.cols() != 3 || is_edge_manifold(tris));
   // number of elements (triangles)
-  const int m = F.rows();
+  const int m = tris.rows();
   // Get triangle areas/volumes
   VectorXd TA;
   // Element simplex size
-  const int ss = F.cols();
+  const int ss = tris.cols();
   switch(ss)
   {
     default:
       assert(false && "Unsupported simplex size");
     case 3:
-      doublearea(V,F,TA);
+      doublearea(vers,tris,TA);
       TA *= 0.5;
       break;
     case 4:
-      volume(V,F,TA);
+      volume(vers,tris,TA);
       break;
   }
   vector<Triplet<MT> > MIJV(ss*m);
