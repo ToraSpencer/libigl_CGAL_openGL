@@ -264,6 +264,12 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\include\igl\circulation.cpp" />
+    <ClCompile Include="..\..\include\igl\collapse_edge.cpp" />
+    <ClCompile Include="..\..\include\igl\decimate.cpp" />
+    <ClCompile Include="..\..\include\igl\decimate_trivial_callbacks.cpp" />
+    <ClCompile Include="..\..\include\igl\max_faces_stopping_condition.cpp" />
+    <ClCompile Include="..\..\include\igl\remove_unreferenced.cpp" />
     <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\tutorial\703_Decimation\main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -293,6 +299,15 @@
       <Project>{9CA06C63-B92D-3A5B-AA49-B8C8916AEBAD}</Project>
       <Name>igl_opengl_glfw</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\igl\circulation.h" />
+    <ClInclude Include="..\..\include\igl\collapse_edge.h" />
+    <ClInclude Include="..\..\include\igl\decimate.h" />
+    <ClInclude Include="..\..\include\igl\decimate_callback_types.h" />
+    <ClInclude Include="..\..\include\igl\decimate_trivial_callbacks.h" />
+    <ClInclude Include="..\..\include\igl\max_faces_stopping_condition.h" />
+    <ClInclude Include="..\..\include\igl\remove_unreferenced.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

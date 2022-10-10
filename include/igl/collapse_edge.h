@@ -24,23 +24,23 @@ namespace igl
     Assumes (vers,tris) is a closed manifold mesh (except for previously collapsed faces which should be set to:
           [IGL_COLLAPSE_EDGE_NULL IGL_COLLAPSE_EDGE_NULL IGL_COLLAPSE_EDGE_NULL].
      
-     Collapses exactly two faces and exactly 3 uEdges from uEdges (edgeIdx and one side of each face gets collapsed to the other).
+     Collapses exactly two faces and exactly 3 uEdges from uEdges (uEdgeIdx and one side of each face gets collapsed to the other).
 
      This is implemented in a way that it can be repeatedly called until satisfaction and then the garbage in tris
           can be collected by removing NULL faces.
 
      Inputs:
-       edgeIdx                      index into uEdges of edge to try to collapse. uEdges(edgeIdx,:) = [s d] or [d s] so that s<d, then d is collapsed to s.
+       uEdgeIdx                      index into uEdges of edge to try to collapse. uEdges(uEdgeIdx,:) = [s d] or [d s] so that s<d, then d is collapsed to s.
        collapsedVer              dim list of vertex position where to place merged vertex
 
      Inputs/Outputs:
-       vers                     by dim list of vertex positions, lesser index of uEdges(edgeIdx,:) will be set to midpoint of edge.
+       vers                     by dim list of vertex positions, lesser index of uEdges(uEdgeIdx,:) will be set to midpoint of edge.
        tris                       by 3 list of face indices into vers.
        uEdges                  by 2 list of edge indices into vers.
        edgeUeInfo         tris*3 list of indices into uEdges, mapping each directed edge to unique unique edge in uEdges
-       UeTrisInfo           #uEdges by 2 list of edge flaps, UeTrisInfo(edgeIdx,0)=f means edgeIdx=(i-->j) is the edge of
-                                                tris(f,:) opposite the vth corner, where UeCornersInfo(edgeIdx,0)=v. 
-                                                Similarly UeTrisInfo(edgeIdx,1) " edgeIdx=(j->i)
+       UeTrisInfo           #uEdges by 2 list of edge flaps, UeTrisInfo(uEdgeIdx,0)=f means uEdgeIdx=(i-->j) is the edge of
+                                                tris(f,:) opposite the vth corner, where UeCornersInfo(uEdgeIdx,0)=v. 
+                                                Similarly UeTrisInfo(uEdgeIdx,1) " uEdgeIdx=(j->i)
        UeCornersInfo    #uEdges by 2 list of edge flap corners (see above).
        e1                       index into uEdges of edge collpased on left
        e2                       index into uEdges of edge collpased on right
@@ -50,7 +50,7 @@ namespace igl
      Returns true if edge was collapsed
   */
   IGL_INLINE bool collapse_edge(
-    const int edgeIdx,
+    const int uEdgeIdx,
     const Eigen::RowVectorXd & collapsedVer,
     Eigen::MatrixXd & vers,
     Eigen::MatrixXi & tris,
@@ -66,7 +66,7 @@ namespace igl
 
   // 重载1——折叠一条边；
   IGL_INLINE bool collapse_edge(
-    const int edgeIdx,
+    const int uEdgeIdx,
     const Eigen::RowVectorXd & collapsedVer,
     /*const*/ std::vector<int> & Nsv,
     const std::vector<int> & Nsf,
@@ -84,9 +84,9 @@ namespace igl
     int & f2);
 
 
-  // 重载2.1
+  // 重载1.2
   IGL_INLINE bool collapse_edge(
-    const int edgeIdx,
+    const int uEdgeIdx,
     const Eigen::RowVectorXd & collapsedVer,
     Eigen::MatrixXd & vers,
     Eigen::MatrixXi & tris,
@@ -96,7 +96,7 @@ namespace igl
     Eigen::MatrixXi & UeCornersInfo);
 
 
-  // 重载2.2
+  // 重载2.1
   /*
        Collapse least-cost edge from a priority queue and update queue 
 
@@ -128,14 +128,14 @@ namespace igl
     Eigen::MatrixXd & collapsedVers);
 
 
-  // 重载2.3
+  // 重载2.2
   /*
    Inputs:
      pre_collapse  callback called with index of edge whose collapse is about
        to be attempted. This function should return whether to **proceed**
        with the collapse: returning true means "yes, try to collapse",
        returning false means "No, consider this edge 'uncollapsable', behave
-       as if collapse_edge(edgeIdx) returned false.
+       as if collapse_edge(uEdgeIdx) returned false.
      post_collapse  callback called with index of edge whose collapse was
        just attempted and a flag revealing whether this was successful.
   */
@@ -157,7 +157,7 @@ namespace igl
   // 重载2
   /*
        Outputs:
-         edgeIdx  index into uEdges of attempted collapsed edge. Set to -1 if Q is empty or
+         uEdgeIdx  index into uEdges of attempted collapsed edge. Set to -1 if Q is empty or
                 contains only infinite cost uEdges.
          e1  index into uEdges of edge collpased on left.
          e2  index into uEdges of edge collpased on right.
@@ -177,7 +177,7 @@ namespace igl
     igl::min_heap< std::tuple<double,int,int> > & Q,
     Eigen::VectorXi & timeStamps,
     Eigen::MatrixXd & collapsedVers,
-    int & edgeIdx,
+    int & uEdgeIdx,
     int & e1,
     int & e2,
     int & f1,

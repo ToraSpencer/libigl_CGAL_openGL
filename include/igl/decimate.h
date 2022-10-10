@@ -6,13 +6,15 @@
 
 namespace igl
 {
-    // 使用边折叠算法精简网格：
+    // decimate()——使用边折叠算法精简网格：
 
-    // 重载1.1
+
+    // 重载1.1——使用默认的函数子执行边折叠网格精简；
       /*
            Assumes (vers,tris) is a manifold mesh (possibly with boundary) Collapses edges
-           until desired number of faces is achieved. This uses default edge cost and
-           merged vertex placement functions {edge length, edge midpoint}.
+                until desired number of faces is achieved. 
+
+           This uses default edge cost and merged vertex placement functions {edge length, edge midpoint}.
   
            Inputs:
              vers                       #vers by dim list of vertex positions
@@ -37,7 +39,7 @@ namespace igl
     Eigen::VectorXi & newOldVersInfo);
 
 
-  // 重载1.1。1
+  // 重载1.1.1
   /*
        Inputs:
          vers  #vers by dim list of vertex positions
@@ -69,10 +71,21 @@ namespace igl
   
 
        Inputs:
-         cost_and_placement              function computing cost of collapsing an edge and 3d
+         cost_and_placement              计算折叠边cost值，和折叠后顶点坐标的函数子；               
+                                                        库中提供的几种该类型函数子：           
+                                                                shortest_edge_and_midpoint()——默认；
+                                                                infinite_cost_stopping_condition()接口中获取
+                                                                qslim_optimal_collapse_edge_callbacks()接口中获取
+                                                        
+                                                        function computing cost of collapsing an edge and 3d
                                                                position where it should be placed: cost_and_placement(vers,tris,edges,edgeUeInfo,EF,EI,cost,placement);
          
-         stopping_condition                function returning whether to stop collapsing edges
+         stopping_condition                决定边折叠循环停止条件的函数子；
+                                                        库中提供的几种该类型函数子：                                                               
+                                                                max_faces_stopping_condition()——默认；
+                                                                infinite_cost_stopping_condition()接口中获取；
+                                                        
+                                                        function returning whether to stop collapsing edges
                                                                based on current state. Guaranteed to be called after _successfully_
                                                                collapsing edge e removing edges (e,e1,e2) and faces (f1,f2):
                                                                bool should_stop =  stopping_condition(vers,tris,edges,edgeUeInfo,EF,EI,Q,Qit,C,e,e1,e2,f1,f2);
@@ -92,9 +105,11 @@ namespace igl
   /*
        Inputs:
          pre_collapse               callback called with index of edge whose collapse is about  to be attempted (see collapse_edge)
+                                            默认情形是什么都不做；
 
          post_collapse              callback called with index of edge whose collapse was
                                                    just attempted and a flag revealing whether this was successful (see collapse_edge)
+                                            默认情形是什么都不做；
   */
   IGL_INLINE bool decimate(
     const Eigen::MatrixXd & vers,

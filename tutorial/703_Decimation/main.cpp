@@ -5,6 +5,7 @@
 #include <igl/shortest_edge_and_midpoint.h>
 #include <igl/parallel_for.h>
 #include <igl/read_triangle_mesh.h>
+#include <igl/writeOBJ.h>
 #include <igl/opengl/glfw/Viewer.h>
 #include <Eigen/Core>
 #include <iostream>
@@ -37,6 +38,8 @@ int main(int argc,  char * argv[])
   igl::min_heap< std::tuple<double, int, int>> pQueue;
   igl::opengl::glfw::Viewer viewer; 
   read_triangle_mesh(filename, versOld, trisOld); 
+
+  int loopCount = 0;
 
 
   // lambda——所有数据复位
@@ -89,7 +92,7 @@ int main(int argc,  char * argv[])
       for(int j = 0; j < max_iter; j++)
       {
         if(!collapse_edge(shortest_edge_and_midpoint, vers, tris, uEdges, \
-                    edgeUeInfo, UeTrisInfo, UeCornersInfo, pQueue, timeStamps, collapsedVers))              // collapse_edge()重载2.2
+                    edgeUeInfo, UeTrisInfo, UeCornersInfo, pQueue, timeStamps, collapsedVers))              // collapse_edge()重载2.1
             break; 
         FlagCollapsed = true; 
         num_collapsed++; 
@@ -101,6 +104,11 @@ int main(int argc,  char * argv[])
         viewer.data().clear(); 
         viewer.data().set_mesh(vers, tris); 
         viewer.data().set_face_based(true); 
+
+        //// for debug:
+        //char objName[512];
+        //sprintf_s(objName, 512, "E:/meshDecimated%d.obj", loopCount++);
+        //igl::writeOBJ(objName, vers, tris);
       }
     }
 

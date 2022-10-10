@@ -1,13 +1,7 @@
-// This file is part of libigl, a simple c++ geometry processing library.
-// 
-// Copyright (C) 2016 Alec Jacobson <alecjacobson@gmail.com>
-// 
-// This Source Code Form is subject to the terms of the Mozilla Public License 
-// v. 2.0. If a copy of the MPL was not distributed with this file, You can 
-// obtain one at http://mozilla.org/MPL/2.0/.
 #include "qslim_optimal_collapse_edge_callbacks.h"
 #include "quadric_binary_plus_operator.h"
 #include <Eigen/LU>
+
 
 IGL_INLINE void igl::qslim_optimal_collapse_edge_callbacks(
   Eigen::MatrixXi & E,
@@ -20,6 +14,8 @@ IGL_INLINE void igl::qslim_optimal_collapse_edge_callbacks(
   decimate_post_collapse_callback      & post_collapse)
 {
   typedef std::tuple<Eigen::MatrixXd,Eigen::RowVectorXd,double> Quadric;
+
+  // lambda！！cost_and_placement()
   cost_and_placement = [&quadrics,&v1,&v2](
     const int e,
     const Eigen::MatrixXd & vers,
@@ -49,7 +45,9 @@ IGL_INLINE void igl::qslim_optimal_collapse_edge_callbacks(
       p.setConstant(0);
     }
   };
-  // Remember endpoints
+
+
+  // lambda！！pre_collapse()
   pre_collapse = [&v1,&v2](
     const Eigen::MatrixXd &                             ,/*vers*/
     const Eigen::MatrixXi &                             ,/*tris*/
@@ -66,7 +64,9 @@ IGL_INLINE void igl::qslim_optimal_collapse_edge_callbacks(
     v2 = E(e,1);
     return true;
   };
-  // update quadric
+
+
+  // lambda！！post_collapse()�� update quadric
   post_collapse = [&v1,&v2,&quadrics](
       const Eigen::MatrixXd &                             ,   /*vers*/
       const Eigen::MatrixXi &                             ,   /*tris*/
@@ -86,9 +86,8 @@ IGL_INLINE void igl::qslim_optimal_collapse_edge_callbacks(
       )->void
   {
     if(collapsed)
-    {
-      quadrics[v1<v2?v1:v2] = quadrics[v1] + quadrics[v2];
-    }
+          quadrics[v1<v2?v1:v2] = quadrics[v1] + quadrics[v2];
   };
+
 }
 

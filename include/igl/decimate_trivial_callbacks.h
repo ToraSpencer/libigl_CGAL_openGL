@@ -7,6 +7,7 @@
 namespace igl
 {
 
+    // 生成网格精简算法中需要使用的函数子（默认情形，什么都不做）—— pre_collapse(), post_collapse();
   /*
       Function to build trivial preand post collapse actions.
   

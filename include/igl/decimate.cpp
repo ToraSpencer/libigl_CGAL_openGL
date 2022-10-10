@@ -12,7 +12,7 @@
 #include "shortest_edge_and_midpoint.h"
 
 
-// 重载1.1
+// 重载1.1——使用默认的函数子执行边折叠网格精简；
 IGL_INLINE bool igl::decimate(
   const Eigen::MatrixXd & vers, 
   const Eigen::MatrixXi & tris, 
@@ -23,7 +23,7 @@ IGL_INLINE bool igl::decimate(
   Eigen::VectorXi & newOldVersInfo)
 {
   const int trisCountOri = tris.rows();          // Original number of faces
-  int trisCount = tris.rows();                   // Tracking number of faces
+  int trisCount = tris.rows();                          // Tracking number of faces
 
   typedef Eigen::MatrixXd DerivedV;
   typedef Eigen::MatrixXi DerivedF;
@@ -35,9 +35,15 @@ IGL_INLINE bool igl::decimate(
   Eigen::MatrixXi uEdges, UeTrisInfo, UeCornersInfo;
   edge_flaps(FO, uEdges, edgeUeInfo, UeTrisInfo, UeCornersInfo);
 
-  // decimate will not work correctly on non-edge-manifold meshes. By extension
-  // this includes meshes with non-manifold vertices on the boundary since these
-  // will create a non-manifold edge when connected to infinity.
+
+  // note:
+  /*
+       decimate will not work correctly on non-edge-manifold meshes. 
+
+       By extension this includes meshes with non-manifold vertices on the boundary since these
+            will create a non-manifold edge when connected to infinity.
+  */
+
   {
     Eigen::Array<bool, Eigen::Dynamic, Eigen::Dynamic> BF;
     Eigen::Array<bool, Eigen::Dynamic, 1> BE;
@@ -45,14 +51,16 @@ IGL_INLINE bool igl::decimate(
         return false;
   }
 
+
   decimate_pre_collapse_callback always_try;
   decimate_post_collapse_callback never_care;
-  decimate_trivial_callbacks(always_try, never_care);
+  decimate_trivial_callbacks(always_try, never_care);             // 生成默认的pre_collapse和post_collapse函数子；
 
   bool ret = decimate(VO, FO, 
-        shortest_edge_and_midpoint, 
-        max_faces_stopping_condition(trisCount, trisCountOri, max_m), 
-        always_try, never_care, uEdges, edgeUeInfo, UeTrisInfo, UeCornersInfo, 
+        shortest_edge_and_midpoint,                                                                   // cost_and_placement()函数子；                                                                 
+        max_faces_stopping_condition(trisCount, trisCountOri, max_m),             // 生成stopping_condition()函数子；
+        always_try, never_care,                                                             // pre_collapse和post_collapse函数子
+        uEdges, edgeUeInfo, UeTrisInfo, UeCornersInfo, 
         versOut, trisOut, 
         newOldTrisInfo, 
         newOldVersInfo);
@@ -247,9 +255,11 @@ IGL_INLINE bool igl::decimate(
             m++;
         }
     }
-    tris0.conservativeResize(m, tris0.cols());
+    tris0.conservativeResize(m, tris0.cols());              // 这里相当于shrink_to_fit();
     newOldTrisInfo.conservativeResize(m);
-    igl::remove_unreferenced(versCopy, tris0, versOut, trisOut, _1, newOldVersInfo);
+
+    // 5. 删除网格中的孤立顶点：
+    igl::remove_unreferenced(versCopy, tris0, versOut, trisOut, _1, newOldVersInfo);            // 重载1.1
 
     return clean_finish;
 }

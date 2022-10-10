@@ -22,9 +22,9 @@ namespace igl
          mesh_file_name  path of .mesh file
        
        Outputs:
-         vers  double matrix of vertex positions  #vers by 3
-         T  #T list of tet indices into vertex positions
-         tris  #tris list of face indices into vertex positions
+         vers           double matrix of vertex positions  #vers by 3
+         T              #T list of tet indices into vertex positions
+         tris            #tris list of face indices into vertex positions
   
        Known bugs: Holes and regions are not supported
     */
@@ -34,6 +34,8 @@ namespace igl
     std::vector<std::vector<Scalar > > & vers,
     std::vector<std::vector<Index > > & T,
     std::vector<std::vector<Index > > & tris);
+
+
   // Inputs:
   //   mesh_file  pointer to already opened .mesh file 
   // Outputs:
@@ -57,6 +59,8 @@ namespace igl
     Eigen::PlainObjectBase<DerivedV>& vers,
     Eigen::PlainObjectBase<DerivedT>& T,
     Eigen::PlainObjectBase<DerivedF>& tris);
+
+
   // Inputs:
   //   mesh_file  pointer to already opened .mesh file 
   // Outputs:
