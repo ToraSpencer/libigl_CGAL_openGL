@@ -1,4 +1,6 @@
 #include "topological_hole_fill.h"
+
+
   template <
   typename DerivedF,
   typename Derivedb,
@@ -8,40 +10,52 @@ IGL_INLINE void igl::topological_hole_fill(
   const Eigen::MatrixBase<DerivedF> & tris,
   const Eigen::MatrixBase<Derivedb> & b,
   const std::vector<VectorIndex> & holes,
-  Eigen::PlainObjectBase<DerivedF_filled> &F_filled)
+  Eigen::PlainObjectBase<DerivedF_filled> &trisOut)
 {
-  int n_filled_faces = 0;
-  int num_holes = holes.size();
-  int real_F_num = tris.rows();
-  const int V_rows = tris.maxCoeff()+1;
+  int filledCount = 0;
+  int holesCount = holes.size();
+  int trisCount = tris.rows();
+  const int versCount = tris.maxCoeff()+1;
 
-  for (int i = 0; i < num_holes; i++)
-    n_filled_faces += holes[i].size();
-  F_filled.resize(n_filled_faces + real_F_num, 3);
-  F_filled.topRows(real_F_num) = tris;
+  for (int i = 0; i < holesCount; i++)
+    filledCount += holes[i].size();
 
-  int new_vert_id = V_rows;
-  int new_face_id = real_F_num;
+  trisOut.resize(filledCount + trisCount, 3);
+  trisOut.topRows(trisCount) = tris;
 
-  for (int i = 0; i < num_holes; i++, new_vert_id++)
+  int newVerIdx = versCount;
+  int newTriIdx = trisCount;
+
+  // 补每一个洞的循环
+  for (int i = 0; i < holesCount; i++, newVerIdx++)
   {
-    int cur_bnd_size = holes[i].size();
-    int it = 0;
-    int back = holes[i].size() - 1;
-    F_filled.row(new_face_id++) << holes[i][it], holes[i][back], new_vert_id;
-    while (it != back)
+    int holeVersCount = holes[i].size();                // 当前洞所含顶点数；
+    int index = 0;
+
+    // 洞中生成新的三角片；
+    trisOut.row(newTriIdx++) << holes[i][index], holes[i][holeVersCount - 1], newVerIdx;
+    while (index != holeVersCount - 1)
     {
-      F_filled.row(new_face_id++)
-          << holes[i][(it + 1)],
-          holes[i][(it)], new_vert_id;
-      it++;
+          trisOut.row(newTriIdx++) << holes[i][(index + 1)], holes[i][(index)], newVerIdx;
+          index++;
     }
   }
-  assert(new_face_id == F_filled.rows());
-  assert(new_vert_id == V_rows + num_holes);
+  assert(newTriIdx == trisOut.rows());
+  assert(newVerIdx == versCount + holesCount);
 
 }
 
+
 #ifdef IGL_STATIC_LIBRARY
-template void igl::topological_hole_fill<Eigen::Matrix<int, -1, -1, 0, -1, -1>, Eigen::Matrix<int, -1, 1, 0, -1, 1>, std::vector<int, std::allocator<int> > >(Eigen::MatrixBase<Eigen::Matrix<int, -1, -1, 0, -1, -1> > const&, Eigen::MatrixBase<Eigen::Matrix<int, -1, 1,0, -1, 1> > const&, std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > const&, Eigen::PlainObjectBase<Eigen::Matrix<int, -1, -1, 0, -1, -1> >&);
+template void igl::topological_hole_fill<\
+            Eigen::Matrix<int, -1, -1, 0, -1, -1>, \
+            Eigen::Matrix<int, -1, 1, 0, -1, 1>, \
+            std::vector<int, std::allocator<int> > >
+            (
+                Eigen::MatrixBase<Eigen::Matrix<int, -1, -1, 0, -1, -1> > const&, \
+                Eigen::MatrixBase<Eigen::Matrix<int, -1, 1, 0, -1, 1> > const&, \
+                std::vector<std::vector<int, std::allocator<int> >, std::allocator<std::vector<int, std::allocator<int> > > > const&, \
+                Eigen::PlainObjectBase<Eigen::Matrix<int, -1, -1, 0, -1, -1> >&
+            );
+ 
 #endif

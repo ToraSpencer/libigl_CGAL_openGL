@@ -6,252 +6,263 @@
 #include <iostream>
 #include <limits>
 
-template <typename DerivedV, typename DerivedF, typename DeriveddblA>
+
+// 重载1：
+template <typename DerivedV,  typename DerivedF,  typename DeriveddblA>
 IGL_INLINE void igl::doublearea(
-  const Eigen::MatrixBase<DerivedV> & vers,
-  const Eigen::MatrixBase<DerivedF> & tris,
-  Eigen::PlainObjectBase<DeriveddblA> & dblA)
+  const Eigen::MatrixBase<DerivedV> & vers, 
+  const Eigen::MatrixBase<DerivedF> & tris, 
+  Eigen::PlainObjectBase<DeriveddblA> & dbArea)
 {
   // quads are handled by a specialized function
-  if (tris.cols() == 4) return doublearea_quad(vers,tris,dblA);
+  if (tris.cols() == 4) return doublearea_quad(vers, tris, dbArea); 
 
-  const int dim = vers.cols();
+  const int dim = vers.cols(); 
   // Only support triangles
-  assert(tris.cols() == 3);
-  const size_t m = tris.rows();
+  assert(tris.cols() == 3); 
+  const size_t m = tris.rows(); 
   // Compute edge lengths
-  Eigen::Matrix<typename DerivedV::Scalar, Eigen::Dynamic, 3> l;
+  Eigen::Matrix<typename DerivedV::Scalar,  Eigen::Dynamic,  3> l; 
 
   // Projected area helper
   const auto & proj_doublearea =
-    [&vers,&tris](const int x, const int y, const int f)
+    [&vers, &tris](const int x,  const int y,  const int f)
     ->typename DerivedV::Scalar
   {
-    auto rx = vers(tris(f,0),x)-vers(tris(f,2),x);
-    auto sx = vers(tris(f,1),x)-vers(tris(f,2),x);
-    auto ry = vers(tris(f,0),y)-vers(tris(f,2),y);
-    auto sy = vers(tris(f,1),y)-vers(tris(f,2),y);
-    return rx*sy - ry*sx;
-  };
+    auto rx = vers(tris(f, 0), x)-vers(tris(f, 2), x); 
+    auto sx = vers(tris(f, 1), x)-vers(tris(f, 2), x); 
+    auto ry = vers(tris(f, 0), y)-vers(tris(f, 2), y); 
+    auto sy = vers(tris(f, 1), y)-vers(tris(f, 2), y); 
+    return rx*sy - ry*sx; 
+  }; 
 
   switch(dim)
   {
     case 3:
     {
-      dblA = DeriveddblA::Zero(m,1);
-      for(size_t f = 0;f<m;f++)
+      dbArea = DeriveddblA::Zero(m, 1); 
+      for(size_t f = 0; f<m; f++)
       {
-        for(int d = 0;d<3;d++)
+        for(int d = 0; d<3; d++)
         {
-          const auto dblAd = proj_doublearea(d,(d+1)%3,f);
-          dblA(f) += dblAd*dblAd;
+          const auto dblAd = proj_doublearea(d, (d+1)%3, f); 
+          dbArea(f) += dblAd*dblAd; 
         }
       }
-      dblA = dblA.array().sqrt().eval();
-      break;
+      dbArea = dbArea.array().sqrt().eval(); 
+      break; 
     }
     case 2:
     {
-      dblA.resize(m,1);
-      for(size_t f = 0;f<m;f++)
+      dbArea.resize(m, 1); 
+      for(size_t f = 0; f<m; f++)
       {
-        dblA(f) = proj_doublearea(0,1,f);
+        dbArea(f) = proj_doublearea(0, 1, f); 
       }
-      break;
+      break; 
     }
     default:
     {
-      edge_lengths(vers,tris,l);
-      return doublearea(l,0.,dblA);
+      edge_lengths(vers, tris, l); 
+      return doublearea(l, 0., dbArea); 
     }
   }
 }
 
 
+// 重载2：
 template <
-  typename DerivedA,
-  typename DerivedB,
-  typename DerivedC,
+  typename DerivedA, 
+  typename DerivedB, 
+  typename DerivedC, 
   typename DerivedD>
 IGL_INLINE void igl::doublearea(
-  const Eigen::MatrixBase<DerivedA> & A,
-  const Eigen::MatrixBase<DerivedB> & B,
-  const Eigen::MatrixBase<DerivedC> & C,
+  const Eigen::MatrixBase<DerivedA> & A, 
+  const Eigen::MatrixBase<DerivedB> & B, 
+  const Eigen::MatrixBase<DerivedC> & C, 
   Eigen::PlainObjectBase<DerivedD> & D)
 {
-  assert((B.cols() == A.cols()) && "dimensions of A and B should match");
-  assert((C.cols() == A.cols()) && "dimensions of A and C should match");
-  assert(A.rows() == B.rows() && "corners should have same length");
-  assert(A.rows() == C.rows() && "corners should have same length");
+  assert((B.cols() == A.cols()) && "dimensions of A and B should match"); 
+  assert((C.cols() == A.cols()) && "dimensions of A and C should match"); 
+  assert(A.rows() == B.rows() && "corners should have same length"); 
+  assert(A.rows() == C.rows() && "corners should have same length"); 
   switch(A.cols())
   {
     case 2:
     {
       // For 2d compute signed area
-      const auto & R = A-C;
-      const auto & S = B-C;
+      const auto & R = A-C; 
+      const auto & S = B-C; 
       D = (R.col(0).array()*S.col(1).array() - 
-          R.col(1).array()*S.col(0).array()).template cast<
-        typename DerivedD::Scalar>();
-      break;
+          R.col(1).array()*S.col(0).array()).template cast<typename DerivedD::Scalar>(); 
+      break; 
     }
     default:
     {
-      Eigen::Matrix<typename DerivedD::Scalar,DerivedD::RowsAtCompileTime,3>
-        uL(A.rows(),3);
-      uL.col(0) = ((B-C).rowwise().norm()).template cast<typename DerivedD::Scalar>();
-      uL.col(1) = ((C-A).rowwise().norm()).template cast<typename DerivedD::Scalar>();
-      uL.col(2) = ((A-B).rowwise().norm()).template cast<typename DerivedD::Scalar>();
-      doublearea(uL,D);
+      Eigen::Matrix<typename DerivedD::Scalar, DerivedD::RowsAtCompileTime, 3>
+        uL(A.rows(), 3); 
+      uL.col(0) = ((B-C).rowwise().norm()).template cast<typename DerivedD::Scalar>(); 
+      uL.col(1) = ((C-A).rowwise().norm()).template cast<typename DerivedD::Scalar>(); 
+      uL.col(2) = ((A-B).rowwise().norm()).template cast<typename DerivedD::Scalar>(); 
+      doublearea(uL, D); 
     }
   }
 }
 
+
+// doublearea_single()
 template <
-  typename DerivedA,
-  typename DerivedB,
+  typename DerivedA, 
+  typename DerivedB, 
   typename DerivedC>
 IGL_INLINE typename DerivedA::Scalar igl::doublearea_single(
-  const Eigen::MatrixBase<DerivedA> & A,
-  const Eigen::MatrixBase<DerivedB> & B,
+  const Eigen::MatrixBase<DerivedA> & A, 
+  const Eigen::MatrixBase<DerivedB> & B, 
   const Eigen::MatrixBase<DerivedC> & C)
 {
-  assert(A.size() == 2 && "Vertices should be 2D");
-  assert(B.size() == 2 && "Vertices should be 2D");
-  assert(C.size() == 2 && "Vertices should be 2D");
-  auto r = A-C;
-  auto s = B-C;
-  return r(0)*s(1) - r(1)*s(0);
+  assert(A.size() == 2 && "Vertices should be 2D"); 
+  assert(B.size() == 2 && "Vertices should be 2D"); 
+  assert(C.size() == 2 && "Vertices should be 2D"); 
+  auto r = A-C; 
+  auto s = B-C; 
+  return r(0)*s(1) - r(1)*s(0); 
 }
 
-template <typename Derivedl, typename DeriveddblA>
+
+// 重载3.1
+template <typename Derivedl,  typename DeriveddblA>
 IGL_INLINE void igl::doublearea(
-  const Eigen::MatrixBase<Derivedl> & ul,
-  Eigen::PlainObjectBase<DeriveddblA> & dblA)
+  const Eigen::MatrixBase<Derivedl> & ul, 
+  Eigen::PlainObjectBase<DeriveddblA> & dbArea)
 {
   // Default is to leave NaNs and fire asserts in debug mode
-  return doublearea(
-    ul,std::numeric_limits<typename Derivedl::Scalar>::quiet_NaN(),dblA);
+  return doublearea(ul, std::numeric_limits<typename Derivedl::Scalar>::quiet_NaN(), dbArea); 
 }
 
-template <typename Derivedl, typename DeriveddblA>
+
+// 重载3
+template <typename Derivedl,  typename DeriveddblA>
 IGL_INLINE void igl::doublearea(
-  const Eigen::MatrixBase<Derivedl> & ul,
-  const typename Derivedl::Scalar nan_replacement,
-  Eigen::PlainObjectBase<DeriveddblA> & dblA)
+  const Eigen::MatrixBase<Derivedl> & ul, 
+  const typename Derivedl::Scalar nan_replacement, 
+  Eigen::PlainObjectBase<DeriveddblA> & dbArea)
 {
-  using namespace Eigen;
-  using namespace std;
-  typedef typename Derivedl::Index Index;
+  using namespace Eigen; 
+  using namespace std; 
+  typedef typename Derivedl::Index Index; 
+
   // Only support triangles
-  assert(ul.cols() == 3);
+  assert(ul.cols() == 3); 
+
   // Number of triangles
-  const Index m = ul.rows();
-  Eigen::Matrix<typename Derivedl::Scalar, Eigen::Dynamic, 3> l;
-  MatrixXi _;
-  //
-  // "Miscalculating Area and Angles of a Needle-like Triangle"
-  // https://people.eecs.berkeley.edu/~wkahan/Triangle.pdf
-  igl::sort(ul,2,false,l,_);
+  const Index m = ul.rows(); 
+  Eigen::Matrix<typename Derivedl::Scalar,  Eigen::Dynamic,  3> l; 
+  MatrixXi _; 
+
+  // "Miscalculating Area and Angles of a Needle-like Triangle"  https://people.eecs.berkeley.edu/~wkahan/Triangle.pdf
+  igl::sort(ul, 2, false, l, _); 
+
   // semiperimeters
-  //Matrix<typename Derivedl::Scalar,Dynamic,1> s = l.rowwise().sum()*0.5;
-  //assert((Index)s.rows() == m);
+  //Matrix<typename Derivedl::Scalar, Dynamic, 1> s = l.rowwise().sum()*0.5; 
+  //assert((Index)s.rows() == m); 
   // resize output
-  dblA.resize(l.rows(),1);
-  parallel_for(
-    m,
-    [&l,&dblA,&nan_replacement](const int i)
+  dbArea.resize(l.rows(), 1); 
+
+  parallel_for(m, 
+    [&l, &dbArea, &nan_replacement](const int i)
     {
       // Kahan's Heron's formula
-      typedef typename Derivedl::Scalar Scalar;
+      typedef typename Derivedl::Scalar Scalar; 
       const Scalar arg =
-        (l(i,0)+(l(i,1)+l(i,2)))*
-        (l(i,2)-(l(i,0)-l(i,1)))*
-        (l(i,2)+(l(i,0)-l(i,1)))*
-        (l(i,0)+(l(i,1)-l(i,2)));
-      dblA(i) = 2.0*0.25*sqrt(arg);
+        (l(i, 0)+(l(i, 1)+l(i, 2)))*
+        (l(i, 2)-(l(i, 0)-l(i, 1)))*
+        (l(i, 2)+(l(i, 0)-l(i, 1)))*
+        (l(i, 0)+(l(i, 1)-l(i, 2))); 
+      dbArea(i) = 2.0*0.25*sqrt(arg); 
+
       // Alec: If the input edge lengths were computed from floating point
       // vertex positions then there's no guarantee that they fulfill the
       // triangle inequality (in their floating point approximations). For
       // nearly degenerate triangles the round-off error during side-length
       // computation may be larger than (or rather smaller) than the height of
-      // the triangle. In "Lecture Notes on Geometric Robustness" Shewchuck 09,
-      // Section 3.1 http://www.cs.berkeley.edu/~jrs/meshpapers/robnotes.pdf,
+      // the triangle. In "Lecture Notes on Geometric Robustness" Shewchuck 09, 
+      // Section 3.1 http://www.cs.berkeley.edu/~jrs/meshpapers/robnotes.pdf, 
       // he recommends computing the triangle areas for 2D and 3D using 2D
       // signed areas computed with determinants.
       assert( 
         (nan_replacement == nan_replacement || 
-          (l(i,2) - (l(i,0)-l(i,1)))>=0)
-          && "Side lengths do not obey the triangle inequality.");
-      if(dblA(i) != dblA(i))
-      {
-        dblA(i) = nan_replacement;
-      }
-      assert(dblA(i) == dblA(i) && "DOUBLEAREA() PRODUCED NaN");
-    },
-    1000l);
+          (l(i, 2) - (l(i, 0)-l(i, 1)))>=0)
+          && "Side lengths do not obey the triangle inequality."); 
+
+      if(dbArea(i) != dbArea(i))
+        dbArea(i) = nan_replacement; 
+
+      assert(dbArea(i) == dbArea(i) && "DOUBLEAREA() PRODUCED NaN"); 
+    }, 
+    1000l); 
 }
 
-template <typename DerivedV, typename DerivedF, typename DeriveddblA>
+
+// igl::doublearea_quad()
+template <typename DerivedV,  typename DerivedF,  typename DeriveddblA>
 IGL_INLINE void igl::doublearea_quad(
-  const Eigen::MatrixBase<DerivedV> & vers,
-  const Eigen::MatrixBase<DerivedF> & tris,
-  Eigen::PlainObjectBase<DeriveddblA> & dblA)
+  const Eigen::MatrixBase<DerivedV> & vers, 
+  const Eigen::MatrixBase<DerivedF> & tris, 
+  Eigen::PlainObjectBase<DeriveddblA> & dbArea)
 {
-  assert(vers.cols() == 3); // Only supports points in 3D
-  assert(tris.cols() == 4); // Only support quads
-  const size_t m = tris.rows();
+  assert(vers.cols() == 3);          // Only supports points in 3D
+  assert(tris.cols() == 4);         // Only support quads
+  const size_t m = tris.rows(); 
 
   // Split the quads into triangles
-  Eigen::MatrixXi Ft(tris.rows()*2,3);
+  Eigen::MatrixXi Ft(tris.rows()*2, 3); 
 
-  for(size_t i=0; i<m;++i)
+  for(size_t i=0;  i<m; ++i)
   {
-    Ft.row(i*2    ) << tris(i,0), tris(i,1), tris(i,2);
-    Ft.row(i*2 + 1) << tris(i,2), tris(i,3), tris(i,0);
+    Ft.row(i*2    ) << tris(i, 0),  tris(i, 1),  tris(i, 2); 
+    Ft.row(i*2 + 1) << tris(i, 2),  tris(i, 3),  tris(i, 0); 
   }
 
   // Compute areas
-  Eigen::VectorXd doublearea_tri;
-  igl::doublearea(vers,Ft,doublearea_tri);
+  Eigen::VectorXd doublearea_tri; 
+  igl::doublearea(vers, Ft, doublearea_tri); 
 
-  dblA.resize(tris.rows(),1);
-  for(unsigned i=0; i<tris.rows();++i)
-  {
-    dblA(i) = doublearea_tri(i*2) + doublearea_tri(i*2 + 1);
-  }
+  dbArea.resize(tris.rows(), 1); 
+  for(unsigned i=0;  i<tris.rows(); ++i)
+    dbArea(i) = doublearea_tri(i*2) + doublearea_tri(i*2 + 1); 
 }
+
 
 #ifdef IGL_STATIC_LIBRARY
 // Explicit template instantiation
 // generated by autoexplicit.sh
-template void igl::doublearea<Eigen::Matrix<float, -1, -1, 0, -1, -1>, Eigen::Matrix<int, -1, -1, 0, -1, -1>, Eigen::Matrix<float, -1, 1, 0, -1, 1> >(Eigen::MatrixBase<Eigen::Matrix<float, -1, -1, 0, -1, -1> > const&, Eigen::MatrixBase<Eigen::Matrix<int, -1, -1, 0, -1, -1> > const&, Eigen::PlainObjectBase<Eigen::Matrix<float, -1, 1, 0, -1, 1> >&);
-template void igl::doublearea<Eigen::Matrix<double, -1, -1, 0, -1, -1>, Eigen::Matrix<double, -1, 1, 0, -1, 1> >(Eigen::MatrixBase<Eigen::Matrix<double, -1, -1, 0, -1, -1> > const&, Eigen::Matrix<double, -1, -1, 0, -1, -1>::Scalar, Eigen::PlainObjectBase<Eigen::Matrix<double, -1, 1, 0, -1, 1> >&);
-template void igl::doublearea<Eigen::Matrix<double, -1, 2, 0, -1, 2>, Eigen::Matrix<int, -1, -1, 0, -1, -1>, Eigen::Matrix<double, -1, 1, 0, -1, 1> >(Eigen::MatrixBase<Eigen::Matrix<double, -1, 2, 0, -1, 2> > const&, Eigen::MatrixBase<Eigen::Matrix<int, -1, -1, 0, -1, -1> > const&, Eigen::PlainObjectBase<Eigen::Matrix<double, -1, 1, 0, -1, 1> >&);
-template void igl::doublearea<Eigen::Matrix<double, -1, -1, 1, -1, -1>, Eigen::Matrix<double, -1, 1, 0, -1, 1> >(Eigen::MatrixBase<Eigen::Matrix<double, -1, -1, 1, -1, -1> > const&, Eigen::Matrix<double, -1, -1, 1, -1, -1>::Scalar, Eigen::PlainObjectBase<Eigen::Matrix<double, -1, 1, 0, -1, 1> >&);
-template void igl::doublearea<Eigen::Matrix<float, -1, 3, 0, -1, 3>, Eigen::Matrix<int, -1, 3, 0, -1, 3>, Eigen::Matrix<float, -1, 1, 0, -1, 1> >(Eigen::MatrixBase<Eigen::Matrix<float, -1, 3, 0, -1, 3> > const&, Eigen::MatrixBase<Eigen::Matrix<int, -1, 3, 0, -1, 3> > const&, Eigen::PlainObjectBase<Eigen::Matrix<float, -1, 1, 0, -1, 1> >&);
-template void igl::doublearea<Eigen::Matrix<float, -1, 3, 0, -1, 3>, Eigen::Matrix<int, -1, 3, 0, -1, 3>, Eigen::Matrix<double, -1, 1, 0, -1, 1> >(Eigen::MatrixBase<Eigen::Matrix<float, -1, 3, 0, -1, 3> > const&, Eigen::MatrixBase<Eigen::Matrix<int, -1, 3, 0, -1, 3> > const&, Eigen::PlainObjectBase<Eigen::Matrix<double, -1, 1, 0, -1, 1> >&);
-template void igl::doublearea<Eigen::Matrix<float, -1, 3, 0, -1, 3>, Eigen::Matrix<int, -1, -1, 0, -1, -1>, Eigen::Matrix<float, -1, 1, 0, -1, 1> >(Eigen::MatrixBase<Eigen::Matrix<float, -1, 3, 0, -1, 3> > const&, Eigen::MatrixBase<Eigen::Matrix<int, -1, -1, 0, -1, -1> > const&, Eigen::PlainObjectBase<Eigen::Matrix<float, -1, 1, 0, -1, 1> >&);
-template void igl::doublearea<Eigen::Matrix<float, -1, 3, 1, -1, 3>, Eigen::Matrix<int, -1, 3, 1, -1, 3>, Eigen::Matrix<float, -1, 1, 0, -1, 1> >(Eigen::MatrixBase<Eigen::Matrix<float, -1, 3, 1, -1, 3> > const&, Eigen::MatrixBase<Eigen::Matrix<int, -1, 3, 1, -1, 3> > const&, Eigen::PlainObjectBase<Eigen::Matrix<float, -1, 1, 0, -1, 1> >&);
-template void igl::doublearea<Eigen::Matrix<float, -1, 3, 1, -1, 3>, Eigen::Matrix<int, -1, 3, 1, -1, 3>, Eigen::Matrix<double, -1, 1, 0, -1, 1> >(Eigen::MatrixBase<Eigen::Matrix<float, -1, 3, 1, -1, 3> > const&, Eigen::MatrixBase<Eigen::Matrix<int, -1, 3, 1, -1, 3> > const&, Eigen::PlainObjectBase<Eigen::Matrix<double, -1, 1, 0, -1, 1> >&);
-template void igl::doublearea<Eigen::Matrix<float, 1, 3, 1, 1, 3>, Eigen::Matrix<float, 1, 3, 1, 1, 3>, Eigen::Matrix<float, 1, 3, 1, 1, 3>, Eigen::Matrix<double, 1, 1, 0, 1, 1> >(Eigen::MatrixBase<Eigen::Matrix<float, 1, 3, 1, 1, 3> > const&, Eigen::MatrixBase<Eigen::Matrix<float, 1, 3, 1, 1, 3> > const&, Eigen::MatrixBase<Eigen::Matrix<float, 1, 3, 1, 1, 3> > const&, Eigen::PlainObjectBase<Eigen::Matrix<double, 1, 1, 0, 1, 1> >&);
-template void igl::doublearea<Eigen::Matrix<float, -1, 3, 1, -1, 3>, Eigen::Matrix<int, -1, -1, 0, -1, -1>, Eigen::Matrix<float, -1, 1, 0, -1, 1> >(Eigen::MatrixBase<Eigen::Matrix<float, -1, 3, 1, -1, 3> > const&, Eigen::MatrixBase<Eigen::Matrix<int, -1, -1, 0, -1, -1> > const&, Eigen::PlainObjectBase<Eigen::Matrix<float, -1, 1, 0, -1, 1> >&);
-template void igl::doublearea<Eigen::Matrix<double, -1, -1, 1, -1, -1>, Eigen::Matrix<int, -1, -1, 0, -1, -1>, Eigen::Matrix<double, -1, 1, 0, -1, 1> >(Eigen::MatrixBase<Eigen::Matrix<double, -1, -1, 1, -1, -1> > const&, Eigen::MatrixBase<Eigen::Matrix<int, -1, -1, 0, -1, -1> > const&, Eigen::PlainObjectBase<Eigen::Matrix<double, -1, 1, 0, -1, 1> >&);
-template void igl::doublearea<Eigen::Matrix<double, -1, -1, 0, -1, -1>, Eigen::Matrix<double, -1, -1, 0, -1, -1>, Eigen::Matrix<double, -1, -1, 0, -1, -1>, Eigen::Matrix<double, -1, 1, 0, -1, 1> >(Eigen::MatrixBase<Eigen::Matrix<double, -1, -1, 0, -1, -1> > const&, Eigen::MatrixBase<Eigen::Matrix<double, -1, -1, 0, -1, -1> > const&, Eigen::MatrixBase<Eigen::Matrix<double, -1, -1, 0, -1, -1> > const&, Eigen::PlainObjectBase<Eigen::Matrix<double, -1, 1, 0, -1, 1> >&);
-template void igl::doublearea<Eigen::Matrix<float, -1, 3, 1, -1, 3>, Eigen::Matrix<unsigned int, -1, 3, 1, -1, 3>, Eigen::Matrix<float, -1, 1, 0, -1, 1> >(Eigen::MatrixBase<Eigen::Matrix<float, -1, 3, 1, -1, 3> > const&, Eigen::MatrixBase<Eigen::Matrix<unsigned int, -1, 3, 1, -1, 3> > const&, Eigen::PlainObjectBase<Eigen::Matrix<float, -1, 1, 0, -1, 1> >&);
-template void igl::doublearea<Eigen::Matrix<double, -1, 3, 0, -1, 3>, Eigen::Matrix<double, -1, 1, 0, -1, 1> >(Eigen::MatrixBase<Eigen::Matrix<double, -1, 3, 0, -1, 3> > const&, Eigen::PlainObjectBase<Eigen::Matrix<double, -1, 1, 0, -1, 1> >&);
-template void igl::doublearea<Eigen::Matrix<float, -1, 3, 1, -1, 3>, Eigen::Matrix<unsigned int, -1, -1, 1, -1, -1>, Eigen::Matrix<double, -1, 1, 0, -1, 1> >(Eigen::MatrixBase<Eigen::Matrix<float, -1, 3, 1, -1, 3> > const&, Eigen::MatrixBase<Eigen::Matrix<unsigned int, -1, -1, 1, -1, -1> > const&, Eigen::PlainObjectBase<Eigen::Matrix<double, -1, 1, 0, -1, 1> >&);
-template void igl::doublearea<Eigen::Matrix<double, -1, 3, 1, -1, 3>, Eigen::Matrix<unsigned int, -1, -1, 1, -1, -1>, Eigen::Matrix<double, -1, 1, 0, -1, 1> >(Eigen::MatrixBase<Eigen::Matrix<double, -1, 3, 1, -1, 3> > const&, Eigen::MatrixBase<Eigen::Matrix<unsigned int, -1, -1, 1, -1, -1> > const&, Eigen::PlainObjectBase<Eigen::Matrix<double, -1, 1, 0, -1, 1> >&);
-template void igl::doublearea<Eigen::Matrix<double, -1, -1, 0, -1, -1>, Eigen::Matrix<int, -1, -1, 0, -1, -1>, Eigen::Matrix<double, -1, 1, 0, -1, 1> >(Eigen::MatrixBase<Eigen::Matrix<double, -1, -1, 0, -1, -1> > const&, Eigen::MatrixBase<Eigen::Matrix<int, -1, -1, 0, -1, -1> > const&, Eigen::PlainObjectBase<Eigen::Matrix<double, -1, 1, 0, -1, 1> >&);
-template void igl::doublearea<Eigen::Matrix<double, -1, -1, 0, -1, -1>, Eigen::Matrix<double, -1, 1, 0, -1, 1> >(Eigen::MatrixBase<Eigen::Matrix<double, -1, -1, 0, -1, -1> > const&, Eigen::PlainObjectBase<Eigen::Matrix<double, -1, 1, 0, -1, 1> >&);
-template void igl::doublearea<Eigen::Matrix<double, -1, -1, 0, -1, -1>, Eigen::Matrix<int, -1, -1, 0, -1, -1>, Eigen::Matrix<int, -1, 1, 0, -1, 1> >(Eigen::MatrixBase<Eigen::Matrix<double, -1, -1, 0, -1, -1> > const&, Eigen::MatrixBase<Eigen::Matrix<int, -1, -1, 0, -1, -1> > const&, Eigen::PlainObjectBase<Eigen::Matrix<int, -1, 1, 0, -1, 1> >&);
-template void igl::doublearea<Eigen::Matrix<double, -1, 3, 0, -1, 3>, Eigen::Matrix<int, -1, 3, 0, -1, 3>, Eigen::Matrix<double, -1, 1, 0, -1, 1> >(Eigen::MatrixBase<Eigen::Matrix<double, -1, 3, 0, -1, 3> > const&, Eigen::MatrixBase<Eigen::Matrix<int, -1, 3, 0, -1, 3> > const&, Eigen::PlainObjectBase<Eigen::Matrix<double, -1, 1, 0, -1, 1> >&);
-template void igl::doublearea<Eigen::Matrix<double, -1, 3, 0, -1, 3>, Eigen::Matrix<int, -1, 3, 0, -1, 3>, Eigen::Matrix<double, -1, -1, 0, -1, -1> >(Eigen::MatrixBase<Eigen::Matrix<double, -1, 3, 0, -1, 3> > const&, Eigen::MatrixBase<Eigen::Matrix<int, -1, 3, 0, -1, 3> > const&, Eigen::PlainObjectBase<Eigen::Matrix<double, -1, -1, 0, -1, -1> >&);
-template void igl::doublearea<Eigen::Matrix<double, -1, -1, 0, -1, -1>, Eigen::Matrix<int, -1, -1, 0, -1, -1>, Eigen::Matrix<double, -1, -1, 0, -1, -1> >(Eigen::MatrixBase<Eigen::Matrix<double, -1, -1, 0, -1, -1> > const&, Eigen::MatrixBase<Eigen::Matrix<int, -1, -1, 0, -1, -1> > const&, Eigen::PlainObjectBase<Eigen::Matrix<double, -1, -1, 0, -1, -1> >&);
-template void igl::doublearea<Eigen::Matrix<double, 1, 3, 1, 1, 3>, Eigen::Matrix<double, 1, 3, 1, 1, 3>, Eigen::Matrix<double, 1, 3, 1, 1, 3>, Eigen::Matrix<double, 1, 1, 0, 1, 1> >(Eigen::MatrixBase<Eigen::Matrix<double, 1, 3, 1, 1, 3> > const&, Eigen::MatrixBase<Eigen::Matrix<double, 1, 3, 1, 1, 3> > const&, Eigen::MatrixBase<Eigen::Matrix<double, 1, 3, 1, 1, 3> > const&, Eigen::PlainObjectBase<Eigen::Matrix<double, 1, 1, 0, 1, 1> >&);
-template void igl::doublearea<Eigen::Matrix<double, -1, -1, 0, -1, -1>, Eigen::Matrix<double, -1, -1, 0, -1, -1> >(Eigen::MatrixBase<Eigen::Matrix<double, -1, -1, 0, -1, -1> > const&, Eigen::PlainObjectBase<Eigen::Matrix<double, -1, -1, 0, -1, -1> >&);
-template void igl::doublearea<Eigen::Matrix<double, -1, -1, 0, -1, -1>, Eigen::Matrix<double, -1, -1, 0, -1, -1>, Eigen::Matrix<double, -1, -1, 0, -1, -1>, Eigen::Matrix<double, -1, -1, 0, -1, -1> >(Eigen::MatrixBase<Eigen::Matrix<double, -1, -1, 0, -1, -1> > const&, Eigen::MatrixBase<Eigen::Matrix<double, -1, -1, 0, -1, -1> > const&, Eigen::MatrixBase<Eigen::Matrix<double, -1, -1, 0, -1, -1> > const&, Eigen::PlainObjectBase<Eigen::Matrix<double, -1, -1, 0, -1, -1> >&);
-template void igl::doublearea<Eigen::Matrix<double, -1, 3, 1, -1, 3>, Eigen::Matrix<int, -1, 3, 1, -1, 3>, Eigen::Matrix<double, -1, 1, 0, -1, 1> >(Eigen::MatrixBase<Eigen::Matrix<double, -1, 3, 1, -1, 3> > const&, Eigen::MatrixBase<Eigen::Matrix<int, -1, 3, 1, -1, 3> > const&, Eigen::PlainObjectBase<Eigen::Matrix<double, -1, 1, 0, -1, 1> >&);
-template Eigen::Matrix<double, -1, -1, 0, -1, -1>::Scalar igl::doublearea_single<Eigen::Matrix<double, -1, -1, 0, -1, -1>, Eigen::Matrix<double, -1, -1, 0, -1, -1>, Eigen::Matrix<double, -1, -1, 0, -1, -1> >(Eigen::MatrixBase<Eigen::Matrix<double, -1, -1, 0, -1, -1> > const&, Eigen::MatrixBase<Eigen::Matrix<double, -1, -1, 0, -1, -1> > const&, Eigen::MatrixBase<Eigen::Matrix<double, -1, -1, 0, -1, -1> > const&);
-template Eigen::Matrix<double, 2, 1, 0, 2, 1>::Scalar igl::doublearea_single<Eigen::Matrix<double, 2, 1, 0, 2, 1>, Eigen::Matrix<double, 2, 1, 0, 2, 1>, Eigen::Matrix<double, 2, 1, 0, 2, 1> >(Eigen::MatrixBase<Eigen::Matrix<double, 2, 1, 0, 2, 1> > const&, Eigen::MatrixBase<Eigen::Matrix<double, 2, 1, 0, 2, 1> > const&, Eigen::MatrixBase<Eigen::Matrix<double, 2, 1, 0, 2, 1> > const&);
+template void igl::doublearea<Eigen::Matrix<float,  -1,  -1,  0,  -1,  -1>,  Eigen::Matrix<int,  -1,  -1,  0,  -1,  -1>,  Eigen::Matrix<float,  -1,  1,  0,  -1,  1> >(Eigen::MatrixBase<Eigen::Matrix<float,  -1,  -1,  0,  -1,  -1> > const&,  Eigen::MatrixBase<Eigen::Matrix<int,  -1,  -1,  0,  -1,  -1> > const&,  Eigen::PlainObjectBase<Eigen::Matrix<float,  -1,  1,  0,  -1,  1> >&); 
+template void igl::doublearea<Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1>,  Eigen::Matrix<double,  -1,  1,  0,  -1,  1> >(Eigen::MatrixBase<Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1> > const&,  Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1>::Scalar,  Eigen::PlainObjectBase<Eigen::Matrix<double,  -1,  1,  0,  -1,  1> >&); 
+template void igl::doublearea<Eigen::Matrix<double,  -1,  2,  0,  -1,  2>,  Eigen::Matrix<int,  -1,  -1,  0,  -1,  -1>,  Eigen::Matrix<double,  -1,  1,  0,  -1,  1> >(Eigen::MatrixBase<Eigen::Matrix<double,  -1,  2,  0,  -1,  2> > const&,  Eigen::MatrixBase<Eigen::Matrix<int,  -1,  -1,  0,  -1,  -1> > const&,  Eigen::PlainObjectBase<Eigen::Matrix<double,  -1,  1,  0,  -1,  1> >&); 
+template void igl::doublearea<Eigen::Matrix<double,  -1,  -1,  1,  -1,  -1>,  Eigen::Matrix<double,  -1,  1,  0,  -1,  1> >(Eigen::MatrixBase<Eigen::Matrix<double,  -1,  -1,  1,  -1,  -1> > const&,  Eigen::Matrix<double,  -1,  -1,  1,  -1,  -1>::Scalar,  Eigen::PlainObjectBase<Eigen::Matrix<double,  -1,  1,  0,  -1,  1> >&); 
+template void igl::doublearea<Eigen::Matrix<float,  -1,  3,  0,  -1,  3>,  Eigen::Matrix<int,  -1,  3,  0,  -1,  3>,  Eigen::Matrix<float,  -1,  1,  0,  -1,  1> >(Eigen::MatrixBase<Eigen::Matrix<float,  -1,  3,  0,  -1,  3> > const&,  Eigen::MatrixBase<Eigen::Matrix<int,  -1,  3,  0,  -1,  3> > const&,  Eigen::PlainObjectBase<Eigen::Matrix<float,  -1,  1,  0,  -1,  1> >&); 
+template void igl::doublearea<Eigen::Matrix<float,  -1,  3,  0,  -1,  3>,  Eigen::Matrix<int,  -1,  3,  0,  -1,  3>,  Eigen::Matrix<double,  -1,  1,  0,  -1,  1> >(Eigen::MatrixBase<Eigen::Matrix<float,  -1,  3,  0,  -1,  3> > const&,  Eigen::MatrixBase<Eigen::Matrix<int,  -1,  3,  0,  -1,  3> > const&,  Eigen::PlainObjectBase<Eigen::Matrix<double,  -1,  1,  0,  -1,  1> >&); 
+template void igl::doublearea<Eigen::Matrix<float,  -1,  3,  0,  -1,  3>,  Eigen::Matrix<int,  -1,  -1,  0,  -1,  -1>,  Eigen::Matrix<float,  -1,  1,  0,  -1,  1> >(Eigen::MatrixBase<Eigen::Matrix<float,  -1,  3,  0,  -1,  3> > const&,  Eigen::MatrixBase<Eigen::Matrix<int,  -1,  -1,  0,  -1,  -1> > const&,  Eigen::PlainObjectBase<Eigen::Matrix<float,  -1,  1,  0,  -1,  1> >&); 
+template void igl::doublearea<Eigen::Matrix<float,  -1,  3,  1,  -1,  3>,  Eigen::Matrix<int,  -1,  3,  1,  -1,  3>,  Eigen::Matrix<float,  -1,  1,  0,  -1,  1> >(Eigen::MatrixBase<Eigen::Matrix<float,  -1,  3,  1,  -1,  3> > const&,  Eigen::MatrixBase<Eigen::Matrix<int,  -1,  3,  1,  -1,  3> > const&,  Eigen::PlainObjectBase<Eigen::Matrix<float,  -1,  1,  0,  -1,  1> >&); 
+template void igl::doublearea<Eigen::Matrix<float,  -1,  3,  1,  -1,  3>,  Eigen::Matrix<int,  -1,  3,  1,  -1,  3>,  Eigen::Matrix<double,  -1,  1,  0,  -1,  1> >(Eigen::MatrixBase<Eigen::Matrix<float,  -1,  3,  1,  -1,  3> > const&,  Eigen::MatrixBase<Eigen::Matrix<int,  -1,  3,  1,  -1,  3> > const&,  Eigen::PlainObjectBase<Eigen::Matrix<double,  -1,  1,  0,  -1,  1> >&); 
+template void igl::doublearea<Eigen::Matrix<float,  1,  3,  1,  1,  3>,  Eigen::Matrix<float,  1,  3,  1,  1,  3>,  Eigen::Matrix<float,  1,  3,  1,  1,  3>,  Eigen::Matrix<double,  1,  1,  0,  1,  1> >(Eigen::MatrixBase<Eigen::Matrix<float,  1,  3,  1,  1,  3> > const&,  Eigen::MatrixBase<Eigen::Matrix<float,  1,  3,  1,  1,  3> > const&,  Eigen::MatrixBase<Eigen::Matrix<float,  1,  3,  1,  1,  3> > const&,  Eigen::PlainObjectBase<Eigen::Matrix<double,  1,  1,  0,  1,  1> >&); 
+template void igl::doublearea<Eigen::Matrix<float,  -1,  3,  1,  -1,  3>,  Eigen::Matrix<int,  -1,  -1,  0,  -1,  -1>,  Eigen::Matrix<float,  -1,  1,  0,  -1,  1> >(Eigen::MatrixBase<Eigen::Matrix<float,  -1,  3,  1,  -1,  3> > const&,  Eigen::MatrixBase<Eigen::Matrix<int,  -1,  -1,  0,  -1,  -1> > const&,  Eigen::PlainObjectBase<Eigen::Matrix<float,  -1,  1,  0,  -1,  1> >&); 
+template void igl::doublearea<Eigen::Matrix<double,  -1,  -1,  1,  -1,  -1>,  Eigen::Matrix<int,  -1,  -1,  0,  -1,  -1>,  Eigen::Matrix<double,  -1,  1,  0,  -1,  1> >(Eigen::MatrixBase<Eigen::Matrix<double,  -1,  -1,  1,  -1,  -1> > const&,  Eigen::MatrixBase<Eigen::Matrix<int,  -1,  -1,  0,  -1,  -1> > const&,  Eigen::PlainObjectBase<Eigen::Matrix<double,  -1,  1,  0,  -1,  1> >&); 
+template void igl::doublearea<Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1>,  Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1>,  Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1>,  Eigen::Matrix<double,  -1,  1,  0,  -1,  1> >(Eigen::MatrixBase<Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1> > const&,  Eigen::MatrixBase<Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1> > const&,  Eigen::MatrixBase<Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1> > const&,  Eigen::PlainObjectBase<Eigen::Matrix<double,  -1,  1,  0,  -1,  1> >&); 
+template void igl::doublearea<Eigen::Matrix<float,  -1,  3,  1,  -1,  3>,  Eigen::Matrix<unsigned int,  -1,  3,  1,  -1,  3>,  Eigen::Matrix<float,  -1,  1,  0,  -1,  1> >(Eigen::MatrixBase<Eigen::Matrix<float,  -1,  3,  1,  -1,  3> > const&,  Eigen::MatrixBase<Eigen::Matrix<unsigned int,  -1,  3,  1,  -1,  3> > const&,  Eigen::PlainObjectBase<Eigen::Matrix<float,  -1,  1,  0,  -1,  1> >&); 
+template void igl::doublearea<Eigen::Matrix<double,  -1,  3,  0,  -1,  3>,  Eigen::Matrix<double,  -1,  1,  0,  -1,  1> >(Eigen::MatrixBase<Eigen::Matrix<double,  -1,  3,  0,  -1,  3> > const&,  Eigen::PlainObjectBase<Eigen::Matrix<double,  -1,  1,  0,  -1,  1> >&); 
+template void igl::doublearea<Eigen::Matrix<float,  -1,  3,  1,  -1,  3>,  Eigen::Matrix<unsigned int,  -1,  -1,  1,  -1,  -1>,  Eigen::Matrix<double,  -1,  1,  0,  -1,  1> >(Eigen::MatrixBase<Eigen::Matrix<float,  -1,  3,  1,  -1,  3> > const&,  Eigen::MatrixBase<Eigen::Matrix<unsigned int,  -1,  -1,  1,  -1,  -1> > const&,  Eigen::PlainObjectBase<Eigen::Matrix<double,  -1,  1,  0,  -1,  1> >&); 
+template void igl::doublearea<Eigen::Matrix<double,  -1,  3,  1,  -1,  3>,  Eigen::Matrix<unsigned int,  -1,  -1,  1,  -1,  -1>,  Eigen::Matrix<double,  -1,  1,  0,  -1,  1> >(Eigen::MatrixBase<Eigen::Matrix<double,  -1,  3,  1,  -1,  3> > const&,  Eigen::MatrixBase<Eigen::Matrix<unsigned int,  -1,  -1,  1,  -1,  -1> > const&,  Eigen::PlainObjectBase<Eigen::Matrix<double,  -1,  1,  0,  -1,  1> >&); 
+template void igl::doublearea<Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1>,  Eigen::Matrix<int,  -1,  -1,  0,  -1,  -1>,  Eigen::Matrix<double,  -1,  1,  0,  -1,  1> >(Eigen::MatrixBase<Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1> > const&,  Eigen::MatrixBase<Eigen::Matrix<int,  -1,  -1,  0,  -1,  -1> > const&,  Eigen::PlainObjectBase<Eigen::Matrix<double,  -1,  1,  0,  -1,  1> >&); 
+template void igl::doublearea<Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1>,  Eigen::Matrix<double,  -1,  1,  0,  -1,  1> >(Eigen::MatrixBase<Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1> > const&,  Eigen::PlainObjectBase<Eigen::Matrix<double,  -1,  1,  0,  -1,  1> >&); 
+template void igl::doublearea<Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1>,  Eigen::Matrix<int,  -1,  -1,  0,  -1,  -1>,  Eigen::Matrix<int,  -1,  1,  0,  -1,  1> >(Eigen::MatrixBase<Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1> > const&,  Eigen::MatrixBase<Eigen::Matrix<int,  -1,  -1,  0,  -1,  -1> > const&,  Eigen::PlainObjectBase<Eigen::Matrix<int,  -1,  1,  0,  -1,  1> >&); 
+template void igl::doublearea<Eigen::Matrix<double,  -1,  3,  0,  -1,  3>,  Eigen::Matrix<int,  -1,  3,  0,  -1,  3>,  Eigen::Matrix<double,  -1,  1,  0,  -1,  1> >(Eigen::MatrixBase<Eigen::Matrix<double,  -1,  3,  0,  -1,  3> > const&,  Eigen::MatrixBase<Eigen::Matrix<int,  -1,  3,  0,  -1,  3> > const&,  Eigen::PlainObjectBase<Eigen::Matrix<double,  -1,  1,  0,  -1,  1> >&); 
+template void igl::doublearea<Eigen::Matrix<double,  -1,  3,  0,  -1,  3>,  Eigen::Matrix<int,  -1,  3,  0,  -1,  3>,  Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1> >(Eigen::MatrixBase<Eigen::Matrix<double,  -1,  3,  0,  -1,  3> > const&,  Eigen::MatrixBase<Eigen::Matrix<int,  -1,  3,  0,  -1,  3> > const&,  Eigen::PlainObjectBase<Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1> >&); 
+template void igl::doublearea<Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1>,  Eigen::Matrix<int,  -1,  -1,  0,  -1,  -1>,  Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1> >(Eigen::MatrixBase<Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1> > const&,  Eigen::MatrixBase<Eigen::Matrix<int,  -1,  -1,  0,  -1,  -1> > const&,  Eigen::PlainObjectBase<Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1> >&); 
+template void igl::doublearea<Eigen::Matrix<double,  1,  3,  1,  1,  3>,  Eigen::Matrix<double,  1,  3,  1,  1,  3>,  Eigen::Matrix<double,  1,  3,  1,  1,  3>,  Eigen::Matrix<double,  1,  1,  0,  1,  1> >(Eigen::MatrixBase<Eigen::Matrix<double,  1,  3,  1,  1,  3> > const&,  Eigen::MatrixBase<Eigen::Matrix<double,  1,  3,  1,  1,  3> > const&,  Eigen::MatrixBase<Eigen::Matrix<double,  1,  3,  1,  1,  3> > const&,  Eigen::PlainObjectBase<Eigen::Matrix<double,  1,  1,  0,  1,  1> >&); 
+template void igl::doublearea<Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1>,  Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1> >(Eigen::MatrixBase<Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1> > const&,  Eigen::PlainObjectBase<Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1> >&); 
+template void igl::doublearea<Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1>,  Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1>,  Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1>,  Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1> >(Eigen::MatrixBase<Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1> > const&,  Eigen::MatrixBase<Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1> > const&,  Eigen::MatrixBase<Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1> > const&,  Eigen::PlainObjectBase<Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1> >&); 
+template void igl::doublearea<Eigen::Matrix<double,  -1,  3,  1,  -1,  3>,  Eigen::Matrix<int,  -1,  3,  1,  -1,  3>,  Eigen::Matrix<double,  -1,  1,  0,  -1,  1> >(Eigen::MatrixBase<Eigen::Matrix<double,  -1,  3,  1,  -1,  3> > const&,  Eigen::MatrixBase<Eigen::Matrix<int,  -1,  3,  1,  -1,  3> > const&,  Eigen::PlainObjectBase<Eigen::Matrix<double,  -1,  1,  0,  -1,  1> >&); 
+template Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1>::Scalar igl::doublearea_single<Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1>,  Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1>,  Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1> >(Eigen::MatrixBase<Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1> > const&,  Eigen::MatrixBase<Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1> > const&,  Eigen::MatrixBase<Eigen::Matrix<double,  -1,  -1,  0,  -1,  -1> > const&); 
+template Eigen::Matrix<double,  2,  1,  0,  2,  1>::Scalar igl::doublearea_single<Eigen::Matrix<double,  2,  1,  0,  2,  1>,  Eigen::Matrix<double,  2,  1,  0,  2,  1>,  Eigen::Matrix<double,  2,  1,  0,  2,  1> >(Eigen::MatrixBase<Eigen::Matrix<double,  2,  1,  0,  2,  1> > const&,  Eigen::MatrixBase<Eigen::Matrix<double,  2,  1,  0,  2,  1> > const&,  Eigen::MatrixBase<Eigen::Matrix<double,  2,  1,  0,  2,  1> > const&); 
 #endif
