@@ -7,7 +7,7 @@ IGL_INLINE void igl::decimate_trivial_callbacks( decimate_pre_collapse_callback 
     const Eigen::MatrixXd &                             ,/*vers*/
     const Eigen::MatrixXi &                             ,/*tris*/
     const Eigen::MatrixXi &                             ,/*E*/
-    const Eigen::VectorXi &                             ,/*EMAP*/
+    const Eigen::VectorXi &                             ,/*edgeUeInfo*/
     const Eigen::MatrixXi &                             ,/*EF*/
     const Eigen::MatrixXi &                             ,/*EI*/
     const igl::min_heap< std::tuple<double,int,int> > & ,/*Q*/
@@ -21,7 +21,7 @@ IGL_INLINE void igl::decimate_trivial_callbacks( decimate_pre_collapse_callback 
     const Eigen::MatrixXd &                             ,/*vers*/
     const Eigen::MatrixXi &                             ,/*tris*/
     const Eigen::MatrixXi &                             ,/*E*/
-    const Eigen::VectorXi &                             ,/*EMAP*/
+    const Eigen::VectorXi &                             ,/*edgeUeInfo*/
     const Eigen::MatrixXi &                             ,/*EF*/
     const Eigen::MatrixXi &                             ,/*EI*/
     const igl::min_heap< std::tuple<double,int,int> > & ,/*Q*/

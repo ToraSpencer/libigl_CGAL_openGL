@@ -22,7 +22,7 @@ namespace igl
   //   FN  #tris by 3 list of triangle normals 
   //   VN  #vers by 3 list of vertex normals (ANGLE WEIGHTING)
   //   EN  #E by 3 list of edge normals (UNIFORM WEIGHTING)
-  //   EMAP  #tris*3 mapping edges in tris to E
+  //   edgeUeInfo  #tris*3 mapping edges in tris to E
   //   q  Query point
   //   f  index into tris to face to which c belongs
   //   c  Point on (vers,tris)
@@ -46,7 +46,7 @@ namespace igl
     const Eigen::MatrixBase<DerivedFN> & FN,
     const Eigen::MatrixBase<DerivedVN> & VN,
     const Eigen::MatrixBase<DerivedEN> & EN,
-    const Eigen::MatrixBase<DerivedEMAP> & EMAP,
+    const Eigen::MatrixBase<DerivedEMAP> & edgeUeInfo,
     const Eigen::MatrixBase<Derivedq> & q,
     const int f,
     Eigen::PlainObjectBase<Derivedc> & c,

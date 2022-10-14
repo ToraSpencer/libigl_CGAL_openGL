@@ -16,8 +16,8 @@ namespace igl
   // Outputs:
   //   SE  #SE by 2 list of edge indices into vers
   //   uE  #uE by 2 list of unique undirected edges
-  //   EMAP #tris*3 list of indices into uE, mapping each directed edge to unique
-  //     undirected edge so that uE(EMAP(f+#tris*c)) is the unique edge
+  //   edgeUeInfo #tris*3 list of indices into uE, mapping each directed edge to unique
+  //     undirected edge so that uE(edgeUeInfo(f+#tris*c)) is the unique edge
   //     corresponding to E.row(f+#tris*c)
   //   uE2E  #uE list of lists of indices into E of coexisting edges, so that
   //     E.row(uE2E[i][j]) corresponds to uE.row(i) for all j in
@@ -39,7 +39,7 @@ namespace igl
     Eigen::PlainObjectBase<DerivedSE> & SE,
     Eigen::PlainObjectBase<DerivedE> & E,
     Eigen::PlainObjectBase<DeriveduE> & uE,
-    Eigen::PlainObjectBase<DerivedEMAP> & EMAP,
+    Eigen::PlainObjectBase<DerivedEMAP> & edgeUeInfo,
     std::vector<std::vector<uE2Etype> > & uE2E,
     std::vector< sharptype > & sharp);
   template <

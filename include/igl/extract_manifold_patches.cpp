@@ -18,7 +18,7 @@ template<
   typename DerivedP>
 IGL_INLINE size_t igl::extract_manifold_patches(
   const Eigen::MatrixBase<DerivedF>& tris,
-  const Eigen::MatrixBase<DerivedEMAP>& EMAP,
+  const Eigen::MatrixBase<DerivedEMAP>& edgeUeInfo,
   const std::vector<std::vector<uE2EType> >& uE2E,
   Eigen::PlainObjectBase<DerivedP>& P)
 {
@@ -31,11 +31,11 @@ IGL_INLINE size_t igl::extract_manifold_patches(
     };
     auto is_manifold_edge = [&](size_t fi, size_t ci) -> bool {
         const size_t ei = face_and_corner_index_to_edge_index(fi, ci);
-        return uE2E[EMAP(ei, 0)].size() == 2;
+        return uE2E[edgeUeInfo(ei, 0)].size() == 2;
     };
     auto get_adj_face_index = [&](size_t fi, size_t ci) -> size_t {
         const size_t ei = face_and_corner_index_to_edge_index(fi, ci);
-        const auto& adj_faces = uE2E[EMAP(ei, 0)];
+        const auto& adj_faces = uE2E[edgeUeInfo(ei, 0)];
         assert(adj_faces.size() == 2);
         if (adj_faces[0] == ei) {
             return edge_index_to_face_index(adj_faces[1]);
@@ -84,10 +84,10 @@ IGL_INLINE size_t igl::extract_manifold_patches(
     Eigen::PlainObjectBase<DerivedP> &P)
 {
   Eigen::MatrixXi E, uE;
-  Eigen::VectorXi EMAP;
+  Eigen::VectorXi edgeUeInfo;
   std::vector<std::vector<size_t> > uE2E;
-  igl::unique_edge_map(tris, E, uE, EMAP, uE2E);
-  return igl::extract_manifold_patches(tris, EMAP, uE2E, P);
+  igl::unique_edge_map(tris, E, uE, edgeUeInfo, uE2E);
+  return igl::extract_manifold_patches(tris, edgeUeInfo, uE2E, P);
 }
 
 #ifdef IGL_STATIC_LIBRARY

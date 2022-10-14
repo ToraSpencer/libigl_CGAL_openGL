@@ -14,7 +14,7 @@ template <
   typename Index>
 IGL_INLINE bool igl::edge_exists_near(
   const Eigen::MatrixBase<DeriveduE> & uE,
-  const Eigen::MatrixBase<DerivedEMAP> & EMAP,
+  const Eigen::MatrixBase<DerivedEMAP> & edgeUeInfo,
   const std::vector<std::vector< uE2EType> > & uE2E,
   const Index & a,
   const Index & b,
@@ -31,8 +31,8 @@ IGL_INLINE bool igl::edge_exists_near(
   //
   // face_queue  Queue containing faces incident on exactly one of a/b
   // Using a vector seems mildly faster
-  assert(EMAP.size()%3 == 0);
-  const Index num_faces = EMAP.size()/3;
+  assert(edgeUeInfo.size()%3 == 0);
+  const Index num_faces = edgeUeInfo.size()/3;
   const Index f1 = uE2E[uei][0]%num_faces;
   const Index f2 = uE2E[uei][1]%num_faces;
   // map is faster than unordered_map here, and vector + brute force
@@ -49,7 +49,7 @@ IGL_INLINE bool igl::edge_exists_near(
     for(int c = 0;c<3;c++)
     {
       // Unique edge id
-      const Index uec = EMAP(c*num_faces+f);
+      const Index uec = edgeUeInfo(c*num_faces+f);
       const Index s = uE(uec,0);
       const Index d = uE(uec,1);
       const bool ona = s == a || d == a;

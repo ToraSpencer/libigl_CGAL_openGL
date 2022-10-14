@@ -52,21 +52,21 @@ int main(int argc, char * argv[])
   igl::cr_vector_laplacian(vers, F, E, oE, vecL);
   const int m = vecL.rows()/2; //The number of edges in the mesh
   
-  //Convert the E / oE matrix format to list of edges / EMAP format required
+  //Convert the E / oE matrix format to list of edges / edgeUeInfo format required
   // by the functions constructing scalar Crouzeix-Raviart functions
-  Eigen::MatrixXi Elist(m,2), EMAP(3*F.rows(),1);
+  Eigen::MatrixXi Elist(m,2), edgeUeInfo(3*F.rows(),1);
   for(int i=0; i<F.rows(); ++i) {
     for(int j=0; j<3; ++j) {
       const int e = E(i,j);
-      EMAP(i+j*F.rows()) = e;
+      edgeUeInfo(i+j*F.rows()) = e;
       if(oE(i,j)>0) {
         Elist.row(e) << F(i, (j+1)%3), F(i, (j+2)%3);
       }
     }
   }
   SparseMat scalarL, scalarM;
-  igl::crouzeix_raviart_massmatrix(vers, F, Elist, EMAP, scalarM);
-  igl::crouzeix_raviart_cotmatrix(vers, F, Elist, EMAP, scalarL);
+  igl::crouzeix_raviart_massmatrix(vers, F, Elist, edgeUeInfo, scalarM);
+  igl::crouzeix_raviart_cotmatrix(vers, F, Elist, edgeUeInfo, scalarL);
   
   //Compute edge midpoints & edge vectors
   Eigen::MatrixXd edgeMps, parVec, perpVec;

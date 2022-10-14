@@ -18,7 +18,7 @@ IGL_INLINE void igl::copyleft::progressive_hulls_cost_and_placement(
   const Eigen::MatrixXd & vers,
   const Eigen::MatrixXi & tris,
   const Eigen::MatrixXi & E,
-  const Eigen::VectorXi & EMAP,
+  const Eigen::VectorXi & edgeUeInfo,
   const Eigen::MatrixXi & EF,
   const Eigen::MatrixXi & EI,
   double & cost,
@@ -32,8 +32,8 @@ IGL_INLINE void igl::copyleft::progressive_hulls_cost_and_placement(
 
   assert(vers.cols() == 3 && "vers.cols() should be 3");
   // Gather list of unique face neighbors
-  vector<int> Nall =  circulation(e, true,EMAP,EF,EI);
-  vector<int> Nother= circulation(e,false,EMAP,EF,EI);
+  vector<int> Nall =  circulation(e, true,edgeUeInfo,EF,EI);
+  vector<int> Nother= circulation(e,false,edgeUeInfo,EF,EI);
   Nall.insert(Nall.end(),Nother.begin(),Nother.end());
   vector<int> N;
   igl::unique(Nall,N);

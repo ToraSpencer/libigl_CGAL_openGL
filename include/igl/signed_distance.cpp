@@ -66,7 +66,7 @@ IGL_INLINE void igl::signed_distance(
   // Need to be Dynamic columns to work with both 2d and 3d
   Eigen::Matrix<typename DerivedV::Scalar,Eigen::Dynamic,Eigen::Dynamic> FN,VN,EN;
   Eigen::Matrix<typename DerivedF::Scalar,Eigen::Dynamic,2> E;
-  Eigen::Matrix<typename DerivedF::Scalar,Eigen::Dynamic,1> EMAP;
+  Eigen::Matrix<typename DerivedF::Scalar,Eigen::Dynamic,1> edgeUeInfo;
   WindingNumberAABB<RowVector3S,DerivedV,DerivedF> hier3;
   igl::FastWindingNumberBVH fwn_bvh;
   Eigen::VectorXf W;
@@ -106,7 +106,7 @@ IGL_INLINE void igl::signed_distance(
           per_face_normals(vers,tris,FN);
           per_vertex_normals(vers,tris,PER_VERTEX_NORMALS_WEIGHTING_TYPE_ANGLE,FN,VN);
           per_edge_normals(
-            vers,tris,PER_EDGE_NORMALS_WEIGHTING_TYPE_UNIFORM,FN,EN,E,EMAP);
+            vers,tris,PER_EDGE_NORMALS_WEIGHTING_TYPE_UNIFORM,FN,EN,E,edgeUeInfo);
           break;
         case 2:
           FN.resize(tris.rows(),2);
@@ -209,7 +209,7 @@ IGL_INLINE void igl::signed_distance(
           RowVector3S n3;
           Eigen::Matrix<typename DerivedV::Scalar,1,2>  n2;
           dim==3 ?
-            pseudonormal_test(vers,tris,FN,VN,EN,EMAP,q3,i,c3,s,n3):
+            pseudonormal_test(vers,tris,FN,VN,EN,edgeUeInfo,q3,i,c3,s,n3):
             // This should use (vers,tris,FN), not (vers,E,EN) since E is auxiliary for
             // 3D case, not the input "tris"acets.
             pseudonormal_test(vers,tris,FN,VN,q2,i,c2,s,n2);
@@ -268,13 +268,13 @@ IGL_INLINE typename DerivedV::Scalar igl::signed_distance_pseudonormal(
   const Eigen::MatrixBase<DerivedFN> & FN,
   const Eigen::MatrixBase<DerivedVN> & VN,
   const Eigen::MatrixBase<DerivedEN> & EN,
-  const Eigen::MatrixBase<DerivedEMAP> & EMAP,
+  const Eigen::MatrixBase<DerivedEMAP> & edgeUeInfo,
   const Eigen::MatrixBase<Derivedq> & q)
 {
   typename DerivedV::Scalar s,sqrd;
   Eigen::Matrix<typename DerivedV::Scalar,1,3> n,c;
   int i = -1;
-  signed_distance_pseudonormal(tree,vers,tris,FN,VN,EN,EMAP,q,s,sqrd,i,c,n);
+  signed_distance_pseudonormal(tree,vers,tris,FN,VN,EN,edgeUeInfo,q,s,sqrd,i,c,n);
   return s*sqrt(sqrd);
 }
 
@@ -299,7 +299,7 @@ IGL_INLINE void igl::signed_distance_pseudonormal(
   const Eigen::MatrixBase<DerivedFN> & FN,
   const Eigen::MatrixBase<DerivedVN> & VN,
   const Eigen::MatrixBase<DerivedEN> & EN,
-  const Eigen::MatrixBase<DerivedEMAP> & EMAP,
+  const Eigen::MatrixBase<DerivedEMAP> & edgeUeInfo,
   Eigen::PlainObjectBase<DerivedS> & S,
   Eigen::PlainObjectBase<DerivedI> & I,
   Eigen::PlainObjectBase<DerivedC> & C,
@@ -319,7 +319,7 @@ IGL_INLINE void igl::signed_distance_pseudonormal(
     RowVector3S n,c;
     int i = -1;
     RowVector3S q = P.row(p);
-    signed_distance_pseudonormal(tree,vers,tris,FN,VN,EN,EMAP,q,s,sqrd,i,c,n);
+    signed_distance_pseudonormal(tree,vers,tris,FN,VN,EN,edgeUeInfo,q,s,sqrd,i,c,n);
     S(p) = s*sqrt(sqrd);
     I(p) = i;
     N.row(p) = n;
@@ -346,7 +346,7 @@ IGL_INLINE void igl::signed_distance_pseudonormal(
   const Eigen::MatrixBase<DerivedFN> & FN,
   const Eigen::MatrixBase<DerivedVN> & VN,
   const Eigen::MatrixBase<DerivedEN> & EN,
-  const Eigen::MatrixBase<DerivedEMAP> & EMAP,
+  const Eigen::MatrixBase<DerivedEMAP> & edgeUeInfo,
   const Eigen::MatrixBase<Derivedq> & q,
   Scalar & s,
   Scalar & sqrd,
@@ -362,7 +362,7 @@ IGL_INLINE void igl::signed_distance_pseudonormal(
   // Alec: Why was this constructor around c necessary?
   //sqrd = tree.squared_distance(vers,tris,q,i,(RowVector3S&)c);
   sqrd = tree.squared_distance(vers,tris,q,i,c);
-  pseudonormal_test(vers,tris,FN,VN,EN,EMAP,q,i,c,s,n);
+  pseudonormal_test(vers,tris,FN,VN,EN,edgeUeInfo,q,i,c,s,n);
 }
 
 

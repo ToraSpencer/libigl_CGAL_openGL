@@ -22,14 +22,14 @@ void igl::crouzeix_raviart_massmatrix(
     const Eigen::MatrixBase<DerivedF> & tris, 
     Eigen::SparseMatrix<MT> & M,
     Eigen::PlainObjectBase<DerivedE> & E,
-    Eigen::PlainObjectBase<DerivedEMAP> & EMAP)
+    Eigen::PlainObjectBase<DerivedEMAP> & edgeUeInfo)
 {
   // All occurrences of directed "facets"
   Eigen::Matrix<typename DerivedF::Scalar, Eigen::Dynamic, Eigen::Dynamic> allE;
   oriented_facets(tris,allE);
   Eigen::Matrix<typename DerivedF::Scalar, Eigen::Dynamic, 1> _1;
-  unique_simplices(allE,E,_1,EMAP);
-  return crouzeix_raviart_massmatrix(vers,tris,E,EMAP,M);
+  unique_simplices(allE,E,_1,edgeUeInfo);
+  return crouzeix_raviart_massmatrix(vers,tris,E,edgeUeInfo,M);
 }
 
 template <typename MT, typename DerivedV, typename DerivedF, typename DerivedE, typename DerivedEMAP>
@@ -37,7 +37,7 @@ void igl::crouzeix_raviart_massmatrix(
     const Eigen::MatrixBase<DerivedV> & vers, 
     const Eigen::MatrixBase<DerivedF> & tris, 
     const Eigen::MatrixBase<DerivedE> & E,
-    const Eigen::MatrixBase<DerivedEMAP> & EMAP,
+    const Eigen::MatrixBase<DerivedEMAP> & edgeUeInfo,
     Eigen::SparseMatrix<MT> & M)
 {
   using namespace Eigen;
@@ -64,12 +64,12 @@ void igl::crouzeix_raviart_massmatrix(
       break;
   }
   vector<Triplet<MT> > MIJV(ss*m);
-  assert(EMAP.size() == m*ss);
+  assert(edgeUeInfo.size() == m*ss);
   for(int f = 0;f<m;f++)
   {
     for(int c = 0;c<ss;c++)
     {
-      MIJV[f+m*c] = Triplet<MT>(EMAP(f+m*c, 0),EMAP(f+m*c, 0),TA(f)/(double)(ss));
+      MIJV[f+m*c] = Triplet<MT>(edgeUeInfo(f+m*c, 0),edgeUeInfo(f+m*c, 0),TA(f)/(double)(ss));
     }
   }
   M.resize(E.rows(),E.rows());

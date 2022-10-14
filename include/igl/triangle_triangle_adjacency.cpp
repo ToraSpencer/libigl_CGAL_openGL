@@ -184,10 +184,10 @@ template <
   typedef Matrix<typename DerivedF::Scalar,Dynamic,2> MatrixX2I;
   typedef Matrix<typename DerivedF::Index,Dynamic,1> VectorXI;
   MatrixX2I E,uE;
-  VectorXI EMAP;
+  VectorXI edgeUeInfo;
   vector<vector<Index> > uE2E;
-  unique_edge_map(tris,E,uE,EMAP,uE2E);
-  return triangle_triangle_adjacency(E,EMAP,uE2E,construct_TTi,TT,TTi);
+  unique_edge_map(tris,E,uE,edgeUeInfo,uE2E);
+  return triangle_triangle_adjacency(E,edgeUeInfo,uE2E,construct_TTi,TT,TTi);
 }
 
 template <
@@ -198,7 +198,7 @@ template <
   typename TTiIndex>
   IGL_INLINE void igl::triangle_triangle_adjacency(
     const Eigen::MatrixBase<DerivedE> & E,
-    const Eigen::MatrixBase<DerivedEMAP> & EMAP,
+    const Eigen::MatrixBase<DerivedEMAP> & edgeUeInfo,
     const std::vector<std::vector<uE2EType> > & uE2E,
     const bool construct_TTi,
     std::vector<std::vector<std::vector<TTIndex> > > & TT,
@@ -229,7 +229,7 @@ template <
       {
         const Index e = f + m*c;
         //const Index c = e/m;
-        const vector<uE2EType> & N = uE2E[EMAP(e)];
+        const vector<uE2EType> & N = uE2E[edgeUeInfo(e)];
         for(const auto & ne : N)
         {
           const Index nf = ne%m;

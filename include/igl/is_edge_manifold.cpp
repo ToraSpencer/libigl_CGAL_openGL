@@ -15,25 +15,25 @@ template <
 IGL_INLINE bool igl::is_edge_manifold(
   const Eigen::MatrixBase<DerivedF>& tris, 
   const typename DerivedF::Index ne, 
-  const Eigen::MatrixBase<DerivedEMAP>& EMAP, 
+  const Eigen::MatrixBase<DerivedEMAP>& edgeUeInfo, 
   Eigen::PlainObjectBase<DerivedBF>& BF, 
   Eigen::PlainObjectBase<DerivedBE>& BE)
 {
   typedef typename DerivedF::Index Index;
   std::vector<Index> count(ne, 0);
-  for(Index e = 0; e<EMAP.rows(); e++)
-        count[EMAP[e]]++;
+  for(Index e = 0; e<edgeUeInfo.rows(); e++)
+        count[edgeUeInfo[e]]++;
 
   const Index trisCount = tris.rows();
   BF.resize(trisCount, 3);
   BE.resize(ne, 1);
   bool all = true;
 
-  for(Index e = 0; e < EMAP.rows(); e++)
+  for(Index e = 0; e < edgeUeInfo.rows(); e++)
   {
-    const bool manifold = count[EMAP[e]] <= 2;
+    const bool manifold = count[edgeUeInfo[e]] <= 2;
     all &= BF(e%trisCount, e/trisCount) = manifold;
-    BE(EMAP[e]) = manifold;
+    BE(edgeUeInfo[e]) = manifold;
   }
 
   return all;
@@ -49,14 +49,14 @@ IGL_INLINE bool igl::is_edge_manifold(
   const Eigen::MatrixBase<DerivedF>& tris, 
   Eigen::PlainObjectBase<DerivedBF>& BF, 
   Eigen::PlainObjectBase<DerivedE>& uEdges, 
-  Eigen::PlainObjectBase<DerivedEMAP>& EMAP, 
+  Eigen::PlainObjectBase<DerivedEMAP>& edgeUeInfo, 
   Eigen::PlainObjectBase<DerivedBE>& BE)
 {
   using namespace Eigen;
   typedef Matrix<typename DerivedF::Scalar, Dynamic, 2> MatrixXF2;
   MatrixXF2 allE;
-  unique_edge_map(tris, allE, uEdges, EMAP);
-  return is_edge_manifold(tris, uEdges.rows(), EMAP, BF, BE);
+  unique_edge_map(tris, allE, uEdges, edgeUeInfo);
+  return is_edge_manifold(tris, uEdges.rows(), edgeUeInfo, BF, BE);
 }
 
 template <typename DerivedF>
@@ -66,8 +66,8 @@ IGL_INLINE bool igl::is_edge_manifold(
   Eigen::Array<bool, Eigen::Dynamic, Eigen::Dynamic> BF;
   Eigen::Array<bool, Eigen::Dynamic, 1> BE;
   Eigen::MatrixXi uEdges;
-  Eigen::VectorXi EMAP;
-  return is_edge_manifold(tris, BF, uEdges, EMAP, BE);
+  Eigen::VectorXi edgeUeInfo;
+  return is_edge_manifold(tris, BF, uEdges, edgeUeInfo, BE);
 }
 
 #ifdef IGL_STATIC_LIBRARY

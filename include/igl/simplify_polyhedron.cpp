@@ -25,7 +25,7 @@ IGL_INLINE void igl::simplify_polyhedron(
     const Eigen::MatrixXd & vers,
     const Eigen::MatrixXi & tris,
     const Eigen::MatrixXi & E,
-    const Eigen::VectorXi & EMAP,
+    const Eigen::VectorXi & edgeUeInfo,
     const Eigen::MatrixXi & EF,
     const Eigen::MatrixXi & EI,
     double & cost,
@@ -39,7 +39,7 @@ IGL_INLINE void igl::simplify_polyhedron(
       const Eigen::MatrixXd & vers,
       const Eigen::MatrixXi & tris,
       const Eigen::MatrixXi & E,
-      const Eigen::VectorXi & EMAP,
+      const Eigen::VectorXi & edgeUeInfo,
       const Eigen::MatrixXi & EF,
       const Eigen::MatrixXi & EI,
       double & cost,
@@ -48,7 +48,7 @@ IGL_INLINE void igl::simplify_polyhedron(
       const auto vi = E(e,positive);
       const auto vj = E(e,!positive);
       p = vers.row(vj);
-      std::vector<int> faces = igl::circulation(e,positive,EMAP,EF,EI);
+      std::vector<int> faces = igl::circulation(e,positive,edgeUeInfo,EF,EI);
       cost = 0;
       for(auto f : faces)
       {
@@ -75,8 +75,8 @@ IGL_INLINE void igl::simplify_polyhedron(
     p.resize(3);
     double cost0, cost1;
     Eigen::RowVectorXd p0, p1;
-    perfect_directed(e,false,vers,tris,E,EMAP,EF,EI,cost0,p0);
-    perfect_directed(e,true,vers,tris,E,EMAP,EF,EI,cost1,p1);
+    perfect_directed(e,false,vers,tris,E,edgeUeInfo,EF,EI,cost0,p0);
+    perfect_directed(e,true,vers,tris,E,edgeUeInfo,EF,EI,cost1,p1);
     if(cost0 < cost1)
     {
       cost = cost0;

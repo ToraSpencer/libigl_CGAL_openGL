@@ -26,7 +26,7 @@ igl::FastWindingNumberBVH fwn_bvh;
 
 Eigen::MatrixXd normals,VN,EN;
 Eigen::MatrixXi E;
-Eigen::VectorXi EMAP;
+Eigen::VectorXi edgeUeInfo;
 double max_distance = 1;
 
 double slice_z = 0.5;
@@ -86,7 +86,7 @@ void update_visualization(igl::opengl::glfw::Viewer & viewer)
   {
     VectorXi I;
     MatrixXd N,C;
-    signed_distance_pseudonormal(versSection,vers,tris,tree, normals, VN,EN,EMAP,S_vis,I,C,N);     // bunny网格是water-tight的；
+    signed_distance_pseudonormal(versSection,vers,tris,tree, normals, VN,EN,edgeUeInfo,S_vis,I,C,N);     // bunny网格是water-tight的；
   } 
   else 
     signed_distance_fast_winding_number(versSection, vers, tris, tree, fwn_bvh, S_vis);
@@ -171,7 +171,7 @@ int main(int argc, char *argv[])
   // Precompute vertex,edge and face normals
   igl::per_face_normals(vers, tris, normals);
   igl::per_vertex_normals(vers, tris, igl::PER_VERTEX_NORMALS_WEIGHTING_TYPE_ANGLE, normals, VN);
-  igl::per_edge_normals(vers,tris,igl::PER_EDGE_NORMALS_WEIGHTING_TYPE_UNIFORM,normals,EN,E,EMAP);
+  igl::per_edge_normals(vers,tris,igl::PER_EDGE_NORMALS_WEIGHTING_TYPE_UNIFORM,normals,EN,E,edgeUeInfo);
 
   // fast winding number setup (just init fwn bvh)
   igl::fast_winding_number(vers, tris, 2, fwn_bvh);

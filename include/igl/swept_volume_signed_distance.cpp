@@ -43,11 +43,11 @@ IGL_INLINE void igl::swept_volume_signed_distance(
   // Precomputation
   Eigen::MatrixXd FN,VN,EN;
   Eigen::MatrixXi E;
-  Eigen::VectorXi EMAP;
+  Eigen::VectorXi edgeUeInfo;
   per_face_normals(vers,tris,FN);
   per_vertex_normals(vers,tris,PER_VERTEX_NORMALS_WEIGHTING_TYPE_ANGLE,FN,VN);
   per_edge_normals(
-    vers,tris,PER_EDGE_NORMALS_WEIGHTING_TYPE_UNIFORM,FN,EN,E,EMAP);
+    vers,tris,PER_EDGE_NORMALS_WEIGHTING_TYPE_UNIFORM,FN,EN,E,edgeUeInfo);
   AABB<MatrixXd,3> tree;
   tree.init(vers,tris);
   for(int ti = 0;ti<t.size();ti++)
@@ -70,7 +70,7 @@ IGL_INLINE void igl::swept_volume_signed_distance(
       RowVector3d c,n;
       int i;
       double sqrd,s;
-      //signed_distance_pseudonormal(tree,vers,tris,FN,VN,EN,EMAP,gv,s,sqrd,i,c,n);
+      //signed_distance_pseudonormal(tree,vers,tris,FN,VN,EN,edgeUeInfo,gv,s,sqrd,i,c,n);
       const double min_sqrd = 
         finite_iso ? 
         pow(sqrt(3.)*h+isolevel,2) : 
@@ -78,7 +78,7 @@ IGL_INLINE void igl::swept_volume_signed_distance(
       sqrd = tree.squared_distance(vers,tris,gv,min_sqrd,i,c);
       if(sqrd<min_sqrd)
       {
-        pseudonormal_test(vers,tris,FN,VN,EN,EMAP,gv,i,c,s,n);
+        pseudonormal_test(vers,tris,FN,VN,EN,edgeUeInfo,gv,i,c,s,n);
         if(S(g) == S(g))
         {
           S(g) = std::min(S(g),s*sqrt(sqrd));

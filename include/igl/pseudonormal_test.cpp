@@ -27,7 +27,7 @@ IGL_INLINE void igl::pseudonormal_test(
   const Eigen::MatrixBase<DerivedFN> & FN,
   const Eigen::MatrixBase<DerivedVN> & VN,
   const Eigen::MatrixBase<DerivedEN> & EN,
-  const Eigen::MatrixBase<DerivedEMAP> & EMAP,
+  const Eigen::MatrixBase<DerivedEMAP> & edgeUeInfo,
   const Eigen::MatrixBase<Derivedq> & q,
   const int f,
   Eigen::PlainObjectBase<Derivedc> & c,
@@ -83,7 +83,7 @@ IGL_INLINE void igl::pseudonormal_test(
         {
           if(b(x)<=epsilon)
           {
-            n = EN.row(EMAP(tris.rows()*x+f));
+            n = EN.row(edgeUeInfo(tris.rows()*x+f));
             break;
           }
         }
@@ -116,7 +116,7 @@ IGL_INLINE void igl::pseudonormal_test(
       project_to_line_segment(c,s,d,t,sqr_d_j_x);
       if(sqrt(sqr_d_j_x(0)) < epsilon)
       {
-        n = EN.row(EMAP(tris.rows()*e+f));
+        n = EN.row(edgeUeInfo(tris.rows()*e+f));
         found = true;
       }
     }

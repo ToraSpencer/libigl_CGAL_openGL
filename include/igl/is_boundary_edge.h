@@ -31,7 +31,7 @@ namespace igl
     Eigen::PlainObjectBase<DerivedB> & B);
   // Wrapper where Edges should also be computed from tris
   //   E  #E by 2 list of edges
-  //   EMAP  #tris*3 list of indices mapping allE to E
+  //   edgeUeInfo  #tris*3 list of indices mapping allE to E
   template <
     typename DerivedF,
     typename DerivedE,
@@ -41,7 +41,7 @@ namespace igl
     const Eigen::PlainObjectBase<DerivedF> & tris,
     Eigen::PlainObjectBase<DerivedB> & B,
     Eigen::PlainObjectBase<DerivedE> & E,
-    Eigen::PlainObjectBase<DerivedEMAP> & EMAP);
+    Eigen::PlainObjectBase<DerivedEMAP> & edgeUeInfo);
 }
 
 #ifndef IGL_STATIC_LIBRARY

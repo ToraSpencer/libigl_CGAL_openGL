@@ -43,21 +43,21 @@ void igl::is_boundary_edge(
   // sort directed edges into undirected edges
   MatrixXi sorted_EallE,_;
   sort(EallE,2,true,sorted_EallE,_);
-  // Determine unique undirected edges E and map to directed edges EMAP
+  // Determine unique undirected edges E and map to directed edges edgeUeInfo
   MatrixXi uE;
-  VectorXi EMAP;
-  unique_rows(sorted_EallE,uE,_,EMAP);
+  VectorXi edgeUeInfo;
+  unique_rows(sorted_EallE,uE,_,edgeUeInfo);
   // Counts of occurrences
   VectorXi N = VectorXi::Zero(uE.rows());
-  for(int e = 0;e<EMAP.rows();e++)
+  for(int e = 0;e<edgeUeInfo.rows();e++)
   {
-    N(EMAP(e))++;
+    N(edgeUeInfo(e))++;
   }
   B.resize(E.rows());
   // Look of occurrences of 2: one for original and another for boundary
   for(int e = 0;e<E.rows();e++)
   {
-    B(e) = (N(EMAP(e)) == 2);
+    B(e) = (N(edgeUeInfo(e)) == 2);
   }
 }
 
@@ -71,7 +71,7 @@ void igl::is_boundary_edge(
   const Eigen::PlainObjectBase<DerivedF> & tris,
   Eigen::PlainObjectBase<DerivedB> & B,
   Eigen::PlainObjectBase<DerivedE> & E,
-  Eigen::PlainObjectBase<DerivedEMAP> & EMAP)
+  Eigen::PlainObjectBase<DerivedEMAP> & edgeUeInfo)
 {
   using namespace Eigen;
   using namespace std;
@@ -95,13 +95,13 @@ void igl::is_boundary_edge(
   // sort directed edges into undirected edges
   MatrixXi sorted_allE,_;
   sort(allE,2,true,sorted_allE,_);
-  // Determine unique undirected edges E and map to directed edges EMAP
-  unique_rows(sorted_allE,E,_,EMAP);
+  // Determine unique undirected edges E and map to directed edges edgeUeInfo
+  unique_rows(sorted_allE,E,_,edgeUeInfo);
   // Counts of occurrences
   VectorXi N = VectorXi::Zero(E.rows());
-  for(int e = 0;e<EMAP.rows();e++)
+  for(int e = 0;e<edgeUeInfo.rows();e++)
   {
-    N(EMAP(e))++;
+    N(edgeUeInfo(e))++;
   }
   B.resize(E.rows());
   // Look of occurrences of 1

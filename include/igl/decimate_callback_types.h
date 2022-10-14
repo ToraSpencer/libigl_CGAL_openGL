@@ -13,7 +13,7 @@ namespace igl
       const Eigen::MatrixXd &                             ,/*vers*/
       const Eigen::MatrixXi &                             ,/*tris*/
       const Eigen::MatrixXi &                             ,/*E*/
-      const Eigen::VectorXi &                             ,/*EMAP*/
+      const Eigen::VectorXi &                             ,/*edgeUeInfo*/
       const Eigen::MatrixXi &                             ,/*EF*/
       const Eigen::MatrixXi &                             ,/*EI*/
       double &                                            ,/*cost*/
@@ -25,7 +25,7 @@ namespace igl
       const Eigen::MatrixXd &                             ,/*vers*/
       const Eigen::MatrixXi &                             ,/*tris*/
       const Eigen::MatrixXi &                             ,/*E*/
-      const Eigen::VectorXi &                             ,/*EMAP*/
+      const Eigen::VectorXi &                             ,/*edgeUeInfo*/
       const Eigen::MatrixXi &                             ,/*EF*/
       const Eigen::MatrixXi &                             ,/*EI*/
       const igl::min_heap< std::tuple<double,int,int> > & ,/*Q*/
@@ -43,7 +43,7 @@ namespace igl
       const Eigen::MatrixXd &                             ,/*vers*/
       const Eigen::MatrixXi &                             ,/*tris*/
       const Eigen::MatrixXi &                             ,/*E*/
-      const Eigen::VectorXi &                             ,/*EMAP*/
+      const Eigen::VectorXi &                             ,/*edgeUeInfo*/
       const Eigen::MatrixXi &                             ,/*EF*/
       const Eigen::MatrixXi &                             ,/*EI*/
       const igl::min_heap< std::tuple<double,int,int> > & ,/*Q*/
@@ -57,7 +57,7 @@ namespace igl
       const Eigen::MatrixXd &                             ,/*vers*/
       const Eigen::MatrixXi &                             ,/*tris*/
       const Eigen::MatrixXi &                             ,/*E*/
-      const Eigen::VectorXi &                             ,/*EMAP*/
+      const Eigen::VectorXi &                             ,/*edgeUeInfo*/
       const Eigen::MatrixXi &                             ,/*EF*/
       const Eigen::MatrixXi &                             ,/*EI*/
       const igl::min_heap< std::tuple<double,int,int> > & ,/*Q*/

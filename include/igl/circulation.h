@@ -16,7 +16,7 @@ namespace igl
        Inputs:
              edgeIdx               index into E of edge to circulate
              ccw           true为尾端点，false为尾端点；
-             EMAP       #tris*3 list of indices into E, mapping each directed edge to unique unique edge in E
+             edgeUeInfo       #tris*3 list of indices into E, mapping each directed edge to unique unique edge in E
              EF             #E by 2 list of edge flaps, EF(edgeIdx,0)=f means edgeIdx=(i-->j) is the edge of
                                         tris(f,:) opposite the vth corner, where EI(edgeIdx,0)=v. Similarly EF(edgeIdx,1) "       edgeIdx=(j->i)
              EI              #E by 2 list of edge flap corners (see above).
@@ -29,7 +29,7 @@ namespace igl
   IGL_INLINE std::vector<int> circulation(
     const int edgeIdx,
     const bool ccw,
-    const Eigen::VectorXi & EMAP,
+    const Eigen::VectorXi & edgeUeInfo,
     const Eigen::MatrixXi & EF,
     const Eigen::MatrixXi & EI);
 
@@ -38,7 +38,7 @@ namespace igl
   IGL_INLINE void circulation(
     const int edgeIdx,
     const bool ccw,
-    const Eigen::VectorXi & EMAP,
+    const Eigen::VectorXi & edgeUeInfo,
     const Eigen::MatrixXi & EF,
     const Eigen::MatrixXi & EI,
     Eigen::VectorXi & vN);
@@ -54,7 +54,7 @@ namespace igl
     const int edgeIdx,
     const bool ccw,
     const Eigen::MatrixXi & tris,
-    const Eigen::VectorXi & EMAP,
+    const Eigen::VectorXi & edgeUeInfo,
     const Eigen::MatrixXi & EF,
     const Eigen::MatrixXi & EI,
     std::vector<int> & nbrVersIdx,

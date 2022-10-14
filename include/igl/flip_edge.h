@@ -24,13 +24,13 @@ namespace igl
   //   tris    #tris by 3 list of triangles.
   //   E    #tris*3 by 2 list of all of directed edges
   //   uE   #uE by 2 list of unique undirected edges
-  //   EMAP #tris*3 list of indices into uE, mapping each directed edge to unique
+  //   edgeUeInfo #tris*3 list of indices into uE, mapping each directed edge to unique
   //        undirected edge
   //   uE2E #uE list of lists of indices into E of coexisting edges
   //   ue   index into uE the edge to be flipped.
   //
   // Output:
-  //   Updated tris, E, uE, EMAP and uE2E.
+  //   Updated tris, E, uE, edgeUeInfo and uE2E.
   template <
     typename DerivedF,
     typename DerivedE,
@@ -41,7 +41,7 @@ namespace igl
     Eigen::PlainObjectBase<DerivedF> & tris,
     Eigen::PlainObjectBase<DerivedE> & E,
     Eigen::PlainObjectBase<DeriveduE> & uE,
-    Eigen::PlainObjectBase<DerivedEMAP> & EMAP,
+    Eigen::PlainObjectBase<DerivedEMAP> & edgeUeInfo,
     std::vector<std::vector<uE2EType> > & uE2E,
     const size_t uei);
 }

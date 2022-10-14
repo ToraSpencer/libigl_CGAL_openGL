@@ -30,7 +30,7 @@ namespace igl
        Outputs:
          BF                  #tris by 3 list of flags revealing if edge opposite corresponding vertex  is non-manifold.
          uEdges         #uEdges by 2 list of unique edges
-         EMAP           3*#tris list of indices of opposite edges in "uEdges"
+         edgeUeInfo           3*#tris list of indices of opposite edges in "uEdges"
          BE                 #uEdges list of flages whether edge is non-manifold
   */
   template <
@@ -43,14 +43,14 @@ namespace igl
     const Eigen::MatrixBase<DerivedF>& tris,
     Eigen::PlainObjectBase<DerivedBF>& BF,
     Eigen::PlainObjectBase<DerivedE>& uEdges,
-    Eigen::PlainObjectBase<DerivedEMAP>& EMAP,
+    Eigen::PlainObjectBase<DerivedEMAP>& edgeUeInfo,
     Eigen::PlainObjectBase<DerivedBE>& BE);
 
 
   // Inputs:
   //   tris  #tris by 3 list of triangle indices
   //   ne  number of edges (#uEdges)
-  //   EMAP  3*#tris list of indices of opposite edges in "uEdges"
+  //   edgeUeInfo  3*#tris list of indices of opposite edges in "uEdges"
   // Outputs:
   //   BF  #tris by 3 list of flags revealing if edge opposite corresponding vertex
   //     is non-manifold.
@@ -63,7 +63,7 @@ namespace igl
   IGL_INLINE bool is_edge_manifold(
     const Eigen::MatrixBase<DerivedF>& tris,
     const typename DerivedF::Index ne,
-    const Eigen::MatrixBase<DerivedEMAP>& EMAP,
+    const Eigen::MatrixBase<DerivedEMAP>& edgeUeInfo,
     Eigen::PlainObjectBase<DerivedBF>& BF,
     Eigen::PlainObjectBase<DerivedBE>& BE);
 }

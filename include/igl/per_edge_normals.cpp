@@ -26,7 +26,7 @@ IGL_INLINE void igl::per_edge_normals(
   const Eigen::MatrixBase<DerivedFN>& FN,
   Eigen::PlainObjectBase<DerivedN> & N,
   Eigen::PlainObjectBase<DerivedE> & E,
-  Eigen::PlainObjectBase<DerivedEMAP> & EMAP)
+  Eigen::PlainObjectBase<DerivedEMAP> & edgeUeInfo)
 
 {
   using namespace Eigen;
@@ -39,8 +39,8 @@ IGL_INLINE void igl::per_edge_normals(
   oriented_facets(tris,allE);
   // Find unique undirected edges and mapping
   Matrix<typename DerivedF::Scalar, Dynamic, 1> _;
-  unique_simplices(allE,E,_,EMAP);
-  // now sort(allE,2) == E(EMAP,:), that is, if EMAP(i) = j, then E.row(j) is
+  unique_simplices(allE,E,_,edgeUeInfo);
+  // now sort(allE,2) == E(edgeUeInfo,:), that is, if edgeUeInfo(i) = j, then E.row(j) is
   // the undirected edge corresponding to the directed edge allE.row(i).
 
   Eigen::VectorXd W;
@@ -66,10 +66,10 @@ IGL_INLINE void igl::per_edge_normals(
     {
       if(weighting == PER_EDGE_NORMALS_WEIGHTING_TYPE_UNIFORM)
       {
-        N.row(EMAP(f+c*m, 0)) += FN.row(f);
+        N.row(edgeUeInfo(f+c*m, 0)) += FN.row(f);
       }else
       {
-        N.row(EMAP(f+c*m, 0)) += W(f) * FN.row(f);
+        N.row(edgeUeInfo(f+c*m, 0)) += W(f) * FN.row(f);
       }
     }
   }
@@ -90,11 +90,11 @@ IGL_INLINE void igl::per_edge_normals(
   const PerEdgeNormalsWeightingType weighting,
   Eigen::PlainObjectBase<DerivedN> & N,
   Eigen::PlainObjectBase<DerivedE> & E,
-  Eigen::PlainObjectBase<DerivedEMAP> & EMAP)
+  Eigen::PlainObjectBase<DerivedEMAP> & edgeUeInfo)
 {
   Eigen::Matrix<typename DerivedN::Scalar,Eigen::Dynamic,3> FN;
   per_face_normals(vers,tris,FN);
-  return per_edge_normals(vers,tris,weighting,FN,N,E,EMAP);
+  return per_edge_normals(vers,tris,weighting,FN,N,E,edgeUeInfo);
 }
 
 template <
@@ -108,10 +108,10 @@ IGL_INLINE void igl::per_edge_normals(
   const Eigen::MatrixBase<DerivedF>& tris,
   Eigen::PlainObjectBase<DerivedN> & N,
   Eigen::PlainObjectBase<DerivedE> & E,
-  Eigen::PlainObjectBase<DerivedEMAP> & EMAP)
+  Eigen::PlainObjectBase<DerivedEMAP> & edgeUeInfo)
 {
   return 
-    per_edge_normals(vers,tris,PER_EDGE_NORMALS_WEIGHTING_TYPE_DEFAULT,N,E,EMAP);
+    per_edge_normals(vers,tris,PER_EDGE_NORMALS_WEIGHTING_TYPE_DEFAULT,N,E,edgeUeInfo);
 }
 
 #ifdef IGL_STATIC_LIBRARY

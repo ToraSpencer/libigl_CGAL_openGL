@@ -64,9 +64,9 @@ IGL_INLINE bool igl::piecewise_constant_winding_number(
   const Eigen::MatrixBase<DerivedF>& tris)
 {
   Eigen::Matrix<typename DerivedF::Scalar,Eigen::Dynamic,2> E, uE;
-  Eigen::Matrix<typename DerivedF::Scalar,Eigen::Dynamic,1> EMAP;
+  Eigen::Matrix<typename DerivedF::Scalar,Eigen::Dynamic,1> edgeUeInfo;
   std::vector<std::vector<size_t> > uE2E;
-  unique_edge_map(tris, E, uE, EMAP, uE2E);
+  unique_edge_map(tris, E, uE, edgeUeInfo, uE2E);
   return piecewise_constant_winding_number(tris,uE,uE2E);
 }
 

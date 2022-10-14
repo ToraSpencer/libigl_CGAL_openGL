@@ -19,7 +19,7 @@ namespace igl {
     //
     // Inputs:
     //   tris  #tris by 3 list representing triangles.
-    //   EMAP  #tris*3 list of indices of unique undirected edges.
+    //   edgeUeInfo  #tris*3 list of indices of unique undirected edges.
     //   uE2E  #uE list of lists of indices into E of coexisting edges.
     //
     // Output:
@@ -34,7 +34,7 @@ namespace igl {
       typename DerivedP>
     IGL_INLINE size_t extract_manifold_patches(
       const Eigen::MatrixBase<DerivedF>& tris,
-      const Eigen::MatrixBase<DerivedEMAP>& EMAP,
+      const Eigen::MatrixBase<DerivedEMAP>& edgeUeInfo,
       const std::vector<std::vector<uE2EType> >& uE2E,
       Eigen::PlainObjectBase<DerivedP>& P);
     template <

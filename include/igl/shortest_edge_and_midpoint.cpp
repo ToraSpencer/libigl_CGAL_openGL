@@ -5,7 +5,7 @@ IGL_INLINE void igl::shortest_edge_and_midpoint(
   const Eigen::MatrixXd & vers,
   const Eigen::MatrixXi & /*tris*/,
   const Eigen::MatrixXi & uEdges,
-  const Eigen::VectorXi & /*EMAP*/,
+  const Eigen::VectorXi & /*edgeUeInfo*/,
   const Eigen::MatrixXi & /*EF*/,
   const Eigen::MatrixXi & /*EI*/,
   double & cost,

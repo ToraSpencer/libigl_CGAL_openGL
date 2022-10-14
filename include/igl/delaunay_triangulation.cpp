@@ -39,9 +39,9 @@ IGL_INLINE void igl::delaunay_triangulation(
 
   typedef Eigen::Matrix<typename DerivedF::Scalar,Eigen::Dynamic,2> MatrixX2I;
   MatrixX2I E,uE;
-  Eigen::VectorXi EMAP;
+  Eigen::VectorXi edgeUeInfo;
   std::vector<std::vector<Index> > uE2E;
-  igl::unique_edge_map(tris, E, uE, EMAP, uE2E);
+  igl::unique_edge_map(tris, E, uE, edgeUeInfo, uE2E);
 
   bool all_delaunay = false;
   while(!all_delaunay) {
@@ -50,7 +50,7 @@ IGL_INLINE void igl::delaunay_triangulation(
       if (uE2E[i].size() == 2) {
         if (!is_delaunay(vers,tris,uE2E,incircle,i)) {
           all_delaunay = false;
-          flip_edge(tris, E, uE, EMAP, uE2E, i);
+          flip_edge(tris, E, uE, edgeUeInfo, uE2E, i);
         }
       }
     }

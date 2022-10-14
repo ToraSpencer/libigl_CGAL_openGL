@@ -29,9 +29,9 @@ IGL_INLINE void igl::intrinsic_delaunay_triangulation(
   typedef Eigen::Matrix<typename DerivedF::Scalar,Eigen::Dynamic,2> MatrixX2I;
   typedef Eigen::Matrix<typename DerivedF::Scalar,Eigen::Dynamic,1> VectorXI;
   MatrixX2I E,uE;
-  VectorXI EMAP;
+  VectorXI edgeUeInfo;
   std::vector<std::vector<typename DerivedF::Scalar> > uE2E;
-  return intrinsic_delaunay_triangulation(l_in,F_in,l,tris,E,uE,EMAP,uE2E);
+  return intrinsic_delaunay_triangulation(l_in,F_in,l,tris,E,uE,edgeUeInfo,uE2E);
 }
 
 template <
@@ -50,10 +50,10 @@ IGL_INLINE void igl::intrinsic_delaunay_triangulation(
   Eigen::PlainObjectBase<DerivedF> & tris,
   Eigen::PlainObjectBase<DerivedE> & E,
   Eigen::PlainObjectBase<DeriveduE> & uE,
-  Eigen::PlainObjectBase<DerivedEMAP> & EMAP,
+  Eigen::PlainObjectBase<DerivedEMAP> & edgeUeInfo,
   std::vector<std::vector<uE2EType> > & uE2E)
 {
-  igl::unique_edge_map(F_in, E, uE, EMAP, uE2E);
+  igl::unique_edge_map(F_in, E, uE, edgeUeInfo, uE2E);
   // We're going to work in place
   l = l_in;
   tris = F_in;
@@ -171,11 +171,11 @@ IGL_INLINE void igl::intrinsic_delaunay_triangulation(
         const size_t e_41 = f1 + ((c1 + 2) % 3) * num_faces;
         const size_t e_13 = f2 + ((c2 + 1) % 3) * num_faces;
         const size_t e_32 = f2 + ((c2 + 2) % 3) * num_faces;
-        const size_t ue_24 = EMAP(e_24);
-        const size_t ue_41 = EMAP(e_41);
-        const size_t ue_13 = EMAP(e_13);
-        const size_t ue_32 = EMAP(e_32);
-        flip_edge(tris, E, uE, EMAP, uE2E, uei);
+        const size_t ue_24 = edgeUeInfo(e_24);
+        const size_t ue_41 = edgeUeInfo(e_41);
+        const size_t ue_13 = edgeUeInfo(e_13);
+        const size_t ue_32 = edgeUeInfo(e_32);
+        flip_edge(tris, E, uE, edgeUeInfo, uE2E, uei);
         Q.push_back(ue_24);
         Q.push_back(ue_41);
         Q.push_back(ue_13);

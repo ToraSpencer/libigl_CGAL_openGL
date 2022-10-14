@@ -94,9 +94,9 @@ IGL_INLINE bool igl::biharmonic_coordinates(
 #else
     Eigen::SparseMatrix<Scalar> M;
     Eigen::Matrix<Integer, Dynamic, Dynamic> E;
-    Eigen::Matrix<Integer, Dynamic, 1> EMAP;
-    crouzeix_raviart_massmatrix(vers,T,M,E,EMAP);
-    crouzeix_raviart_cotmatrix(vers,T,E,EMAP,L);
+    Eigen::Matrix<Integer, Dynamic, 1> edgeUeInfo;
+    crouzeix_raviart_massmatrix(vers,T,M,E,edgeUeInfo);
+    crouzeix_raviart_cotmatrix(vers,T,E,edgeUeInfo,L);
     // Ad  #E by #vers facet-vertex incidence matrix
     Eigen::SparseMatrix<Scalar> Ad(E.rows(),vers.rows());
     {
@@ -126,7 +126,7 @@ IGL_INLINE bool igl::biharmonic_coordinates(
       {
         if(C(f,c))
         {
-          const int e = EMAP(f+T.rows()*c);
+          const int e = edgeUeInfo(f+T.rows()*c);
           Minv.diagonal()(e) = 0;
         }
       }

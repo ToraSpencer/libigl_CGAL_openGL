@@ -17,7 +17,7 @@ namespace igl
              vers               #vers by dim list of vertex positions
              tris               #tris by 3 list of faces (ignored)
              uEdges         #uEdges by 2 list of edge indices into vers
-             EMAP           #tris*3 list of half-edges indices into uEdges (ignored)
+             edgeUeInfo           #tris*3 list of half-edges indices into uEdges (ignored)
              EF                 #uEdges by 2 list of edge-face flaps into tris (ignored)
              EI                 #uEdges by 2 list of edge-face opposite corners (ignored)
 
@@ -30,7 +30,7 @@ namespace igl
     const Eigen::MatrixXd & vers,
     const Eigen::MatrixXi & /*tris*/,
     const Eigen::MatrixXi & uEdges,
-    const Eigen::VectorXi & /*EMAP*/,
+    const Eigen::VectorXi & /*edgeUeInfo*/,
     const Eigen::MatrixXi & /*EF*/,
     const Eigen::MatrixXi & /*EI*/,
     double & cost,

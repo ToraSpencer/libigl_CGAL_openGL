@@ -24,7 +24,7 @@ namespace igl
   //     that s<d, then d is collapsed to s.
   //   tris  #tris by 3 list of face indices into vers.
   //   E  #E by 2 list of edge indices into vers.
-  //   EMAP #tris*3 list of indices into E, mapping each directed edge to unique
+  //   edgeUeInfo #tris*3 list of indices into E, mapping each directed edge to unique
   //     unique edge in E
   //   EF  #E by 2 list of edge flaps, EF(e,0)=f means e=(i-->j) is the edge of
   //     tris(f,:) opposite the vth corner, where EI(e,0)=v. Similarly EF(e,1) "
@@ -35,7 +35,7 @@ namespace igl
     const int e,
     const Eigen::MatrixXi & tris,
     const Eigen::MatrixXi & E,
-    const Eigen::VectorXi & EMAP,
+    const Eigen::VectorXi & edgeUeInfo,
     const Eigen::MatrixXi & EF,
     const Eigen::MatrixXi & EI);
   // Inputs:

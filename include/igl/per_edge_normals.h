@@ -30,7 +30,7 @@ namespace igl
   // Output:
   //   N  #2 by 3 matrix of mesh edge 3D normals per row
   //   E  #E by 2 matrix of edge indices per row
-  //   EMAP  #E by 1 matrix of indices from all edges to E
+  //   edgeUeInfo  #E by 1 matrix of indices from all edges to E
   //
   template <
     typename DerivedV, 
@@ -46,7 +46,7 @@ namespace igl
     const Eigen::MatrixBase<DerivedFN>& FN,
     Eigen::PlainObjectBase<DerivedN> & N,
     Eigen::PlainObjectBase<DerivedE> & E,
-    Eigen::PlainObjectBase<DerivedEMAP> & EMAP);
+    Eigen::PlainObjectBase<DerivedEMAP> & edgeUeInfo);
   template <
     typename DerivedV, 
     typename DerivedF, 
@@ -59,7 +59,7 @@ namespace igl
     const PerEdgeNormalsWeightingType weight,
     Eigen::PlainObjectBase<DerivedN> & N,
     Eigen::PlainObjectBase<DerivedE> & E,
-    Eigen::PlainObjectBase<DerivedEMAP> & EMAP);
+    Eigen::PlainObjectBase<DerivedEMAP> & edgeUeInfo);
   template <
     typename DerivedV, 
     typename DerivedF, 
@@ -71,7 +71,7 @@ namespace igl
     const Eigen::MatrixBase<DerivedF>& tris,
     Eigen::PlainObjectBase<DerivedN> & N,
     Eigen::PlainObjectBase<DerivedE> & E,
-    Eigen::PlainObjectBase<DerivedEMAP> & EMAP);
+    Eigen::PlainObjectBase<DerivedEMAP> & edgeUeInfo);
 }
 
 #ifndef IGL_STATIC_LIBRARY

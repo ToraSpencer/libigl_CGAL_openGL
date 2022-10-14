@@ -17,7 +17,7 @@ namespace igl
   //
   // Inputs:
   //   uE  #uE by 2 list of unique undirected edges
-  //   EMAP #tris*3 list of indices into uE, mapping each directed edge to unique
+  //   edgeUeInfo #tris*3 list of indices into uE, mapping each directed edge to unique
   //     undirected edge
   //   uE2E  #uE list of lists of indices into E of coexisting edges
   //   E  #tris*3 by 2 list of half-edges
@@ -34,7 +34,7 @@ namespace igl
     typename Index>
   IGL_INLINE bool edge_exists_near(
     const Eigen::MatrixBase<DeriveduE> & uE,
-    const Eigen::MatrixBase<DerivedEMAP> & EMAP,
+    const Eigen::MatrixBase<DerivedEMAP> & edgeUeInfo,
     const std::vector<std::vector< uE2EType> > & uE2E,
     const Index & a,
     const Index & b,

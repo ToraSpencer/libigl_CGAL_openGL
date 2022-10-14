@@ -113,7 +113,7 @@ namespace igl
   //   FN  #tris by 3 list of triangle normals 
   //   VN  #vers by 3 list of vertex normals (ANGLE WEIGHTING)
   //   EN  #E by 3 list of edge normals (UNIFORM WEIGHTING)
-  //   EMAP  #tris*3 mapping edges in tris to E
+  //   edgeUeInfo  #tris*3 mapping edges in tris to E
   //   q  Query point
   // Returns signed distance to mesh
   //
@@ -132,7 +132,7 @@ namespace igl
     const Eigen::MatrixBase<DerivedFN> & FN,
     const Eigen::MatrixBase<DerivedVN> & VN,
     const Eigen::MatrixBase<DerivedEN> & EN,
-    const Eigen::MatrixBase<DerivedEMAP> & EMAP,
+    const Eigen::MatrixBase<DerivedEMAP> & edgeUeInfo,
     const Eigen::MatrixBase<Derivedq> & q);
   template <
     typename DerivedP,
@@ -154,7 +154,7 @@ namespace igl
     const Eigen::MatrixBase<DerivedFN> & FN,
     const Eigen::MatrixBase<DerivedVN> & VN,
     const Eigen::MatrixBase<DerivedEN> & EN,
-    const Eigen::MatrixBase<DerivedEMAP> & EMAP,
+    const Eigen::MatrixBase<DerivedEMAP> & edgeUeInfo,
     Eigen::PlainObjectBase<DerivedS> & SDF,
     Eigen::PlainObjectBase<DerivedI> & I,
     Eigen::PlainObjectBase<DerivedC> & C,
@@ -185,7 +185,7 @@ namespace igl
     const Eigen::MatrixBase<DerivedFN> & FN,
     const Eigen::MatrixBase<DerivedVN> & VN,
     const Eigen::MatrixBase<DerivedEN> & EN,
-    const Eigen::MatrixBase<DerivedEMAP> & EMAP,
+    const Eigen::MatrixBase<DerivedEMAP> & edgeUeInfo,
     const Eigen::MatrixBase<Derivedq> & q,
     Scalar & s,
     Scalar & sqrd,

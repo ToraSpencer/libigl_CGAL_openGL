@@ -112,7 +112,7 @@ namespace igl
   // Inputs:
   //   E  #tris*3 by 2 list of all of directed edges in order (see
   //     `oriented_facets`)
-  //   EMAP #tris*3 list of indices into uE, mapping each directed edge to unique
+  //   edgeUeInfo #tris*3 list of indices into uE, mapping each directed edge to unique
   //     undirected edge
   //   uE2E  #uE list of lists of indices into E of coexisting edges
   // See also: unique_edge_map, oriented_facets
@@ -124,7 +124,7 @@ namespace igl
     typename TTiIndex>
     IGL_INLINE void triangle_triangle_adjacency(
       const Eigen::MatrixBase<DerivedE> & E,
-      const Eigen::MatrixBase<DerivedEMAP> & EMAP,
+      const Eigen::MatrixBase<DerivedEMAP> & edgeUeInfo,
       const std::vector<std::vector<uE2EType > > & uE2E,
       const bool construct_TTi,
       std::vector<std::vector<std::vector<TTIndex> > > & TT,

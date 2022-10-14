@@ -24,9 +24,9 @@ IGL_INLINE void igl::is_intrinsic_delaunay(
   typedef Eigen::Matrix<typename DerivedF::Scalar,Eigen::Dynamic,2> MatrixX2I;
   typedef Eigen::Matrix<typename DerivedF::Scalar,Eigen::Dynamic,1> VectorXI;
   MatrixX2I E,uE;
-  VectorXI EMAP;
+  VectorXI edgeUeInfo;
   std::vector<std::vector<typename DerivedF::Scalar> > uE2E;
-  igl::unique_edge_map(tris, E, uE, EMAP, uE2E);
+  igl::unique_edge_map(tris, E, uE, edgeUeInfo, uE2E);
   return is_intrinsic_delaunay(l,tris,uE2E,D);
 }
 

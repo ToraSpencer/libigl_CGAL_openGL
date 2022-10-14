@@ -20,7 +20,7 @@ IGL_INLINE void igl::sharp_edges(
   Eigen::PlainObjectBase<DerivedSE> & SE,
   Eigen::PlainObjectBase<DerivedE> & E,
   Eigen::PlainObjectBase<DeriveduE> & uE,
-  Eigen::PlainObjectBase<DerivedEMAP> & EMAP,
+  Eigen::PlainObjectBase<DerivedEMAP> & edgeUeInfo,
   std::vector<std::vector<uE2Etype> > & uE2E,
   std::vector< sharptype > & sharp)
 {
@@ -31,7 +31,7 @@ IGL_INLINE void igl::sharp_edges(
   typedef Eigen::Matrix<Scalar,1,3> RowVector3S;
   typedef Eigen::Matrix<Index,Eigen::Dynamic,1> VectorXI;
 
-  unique_edge_map(tris,E,uE,EMAP,uE2E);
+  unique_edge_map(tris,E,uE,edgeUeInfo,uE2E);
   MatrixX3S N;
   per_face_normals(vers,tris,N);
   // number of faces
@@ -99,10 +99,10 @@ IGL_INLINE void igl::sharp_edges(
   typedef Eigen::Matrix<Scalar,1,3> RowVector3S;
   typedef Eigen::Matrix<Index,Eigen::Dynamic,1> VectorXI;
   MatrixX2I E,uE;
-  VectorXI EMAP;
+  VectorXI edgeUeInfo;
   std::vector<std::vector<Index> > uE2E;
   std::vector<int>  sharp;
-  return sharp_edges(vers,tris,angle,SE,E,uE,EMAP,uE2E,sharp);
+  return sharp_edges(vers,tris,angle,SE,E,uE,edgeUeInfo,uE2E,sharp);
 }
 
 #ifdef IGL_STATIC_LIBRARY

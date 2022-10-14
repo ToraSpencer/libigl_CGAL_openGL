@@ -24,7 +24,7 @@ namespace igl
   // Outputs:
   //   L  #E by #E edge/face-based diagonal cotangent matrix
   //   E  #E by 2/3 list of edges/faces
-  //   EMAP  #tris*3/4 list of indices mapping allE to E
+  //   edgeUeInfo  #tris*3/4 list of indices mapping allE to E
   //
   // See also: crouzeix_raviart_massmatrix
   template <typename DerivedV, typename DerivedF, typename LT, typename DerivedE, typename DerivedEMAP>
@@ -33,14 +33,14 @@ namespace igl
       const Eigen::MatrixBase<DerivedF> & tris, 
       Eigen::SparseMatrix<LT> & L,
       Eigen::PlainObjectBase<DerivedE> & E,
-      Eigen::PlainObjectBase<DerivedEMAP> & EMAP);
-  // wrapper if E and EMAP are already computed (better match!)
+      Eigen::PlainObjectBase<DerivedEMAP> & edgeUeInfo);
+  // wrapper if E and edgeUeInfo are already computed (better match!)
   template <typename DerivedV, typename DerivedF, typename DerivedE, typename DerivedEMAP, typename LT>
   void crouzeix_raviart_cotmatrix(
       const Eigen::MatrixBase<DerivedV> & vers, 
       const Eigen::MatrixBase<DerivedF> & tris, 
       const Eigen::MatrixBase<DerivedE> & E,
-      const Eigen::MatrixBase<DerivedEMAP> & EMAP,
+      const Eigen::MatrixBase<DerivedEMAP> & edgeUeInfo,
       Eigen::SparseMatrix<LT> & L);
 }
 #ifndef IGL_STATIC_LIBRARY

@@ -17,14 +17,14 @@ void igl::crouzeix_raviart_cotmatrix(
   const Eigen::MatrixBase<DerivedF> & tris,
   Eigen::SparseMatrix<LT> & L,
   Eigen::PlainObjectBase<DerivedE> & E,
-  Eigen::PlainObjectBase<DerivedEMAP> & EMAP)
+  Eigen::PlainObjectBase<DerivedEMAP> & edgeUeInfo)
 {
   // All occurrences of directed "facets"
   Eigen::Matrix<typename DerivedF::Scalar, Eigen::Dynamic, Eigen::Dynamic>  allE;
   oriented_facets(tris,allE);
   Eigen::VectorXi _1;
-  unique_simplices(allE,E,_1,EMAP);
-  return crouzeix_raviart_cotmatrix(vers,tris,E,EMAP,L);
+  unique_simplices(allE,E,_1,edgeUeInfo);
+  return crouzeix_raviart_cotmatrix(vers,tris,E,edgeUeInfo,L);
 }
 
 template <typename DerivedV, typename DerivedF, typename DerivedE, typename DerivedEMAP, typename LT>
@@ -32,7 +32,7 @@ void igl::crouzeix_raviart_cotmatrix(
   const Eigen::MatrixBase<DerivedV> & vers,
   const Eigen::MatrixBase<DerivedF> & tris,
   const Eigen::MatrixBase<DerivedE> & E,
-  const Eigen::MatrixBase<DerivedEMAP> & EMAP,
+  const Eigen::MatrixBase<DerivedEMAP> & edgeUeInfo,
   Eigen::SparseMatrix<LT> & L)
 {
   // number of rows
@@ -84,8 +84,8 @@ void igl::crouzeix_raviart_cotmatrix(
     for(int c = 0;c<k;c++)
     {
       LIJV.emplace_back(
-        EMAP(F2E(f,LI(c)), 0),
-        EMAP(F2E(f,LJ(c)), 0),
+        edgeUeInfo(F2E(f,LI(c)), 0),
+        edgeUeInfo(F2E(f,LJ(c)), 0),
         (c<(k/2)?-1.:1.) * factor *C(f,LV(c)));
     }
   }

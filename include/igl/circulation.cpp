@@ -6,15 +6,15 @@
 IGL_INLINE std::vector<int> igl::circulation(
   const int edgeIdx, 
   const bool ccw, 
-  const Eigen::VectorXi & EMAP, 
+  const Eigen::VectorXi & edgeUeInfo, 
   const Eigen::MatrixXi & EF, 
   const Eigen::MatrixXi & EI)
 {
   // prepare output
   std::vector<int> N;
   N.reserve(6);
-  const int m = EMAP.size()/3;
-  assert(m*3 == EMAP.size());
+  const int m = edgeUeInfo.size()/3;
+  assert(m*3 == edgeUeInfo.size());
   const auto & step = [&](const int edgeIdx,  const int ff, int & ne, int & nf)
   {
     assert((EF(edgeIdx, 1) == ff || EF(edgeIdx, 0) == ff) && "edgeIdx should touch ff");
@@ -25,7 +25,7 @@ IGL_INLINE std::vector<int> igl::circulation(
     nf = EF(edgeIdx, nside);
     // get next edge 
     const int dir = ccw?-1:1;
-    ne = EMAP(nf+m*((nv+dir+3)%3));
+    ne = edgeUeInfo(nf+m*((nv+dir+3)%3));
   };
   // Always start with first face (ccw in step will be sure to turn right
   // direction)
@@ -51,12 +51,12 @@ IGL_INLINE std::vector<int> igl::circulation(
 IGL_INLINE void igl::circulation(
   const int edgeIdx, 
   const bool ccw, 
-  const Eigen::VectorXi & EMAP, 
+  const Eigen::VectorXi & edgeUeInfo, 
   const Eigen::MatrixXi & EF, 
   const Eigen::MatrixXi & EI, 
   Eigen::VectorXi & vN)
 {
-  std::vector<int> N = circulation(edgeIdx, ccw, EMAP, EF, EI);
+  std::vector<int> N = circulation(edgeIdx, ccw, edgeUeInfo, EF, EI);
   igl::list_to_matrix(N, vN);
 }
 
@@ -66,7 +66,7 @@ IGL_INLINE void igl::circulation(
   const int edgeIdx, 
   const bool ccw, 
   const Eigen::MatrixXi & tris, 
-  const Eigen::VectorXi & EMAP, 
+  const Eigen::VectorXi & edgeUeInfo, 
   const Eigen::MatrixXi & EF, 
   const Eigen::MatrixXi & EI, 
   std::vector<int> & nbrVersIdx, 
@@ -93,8 +93,8 @@ IGL_INLINE void igl::circulation(
 
   nbrVersIdx.clear(); nbrVersIdx.reserve(10);
   nbrTrisIdx.clear(); nbrTrisIdx.reserve(10);
-  const int m = EMAP.size()/3;
-  assert(m*3 == EMAP.size());
+  const int m = edgeUeInfo.size()/3;
+  assert(m*3 == edgeUeInfo.size());
 
   const auto & step = [&]( const int edgeIdx,  const int ff,   int & ne,   /*int& re,  */  int & rv,   int & nf)
   {
@@ -108,8 +108,8 @@ IGL_INLINE void igl::circulation(
     // get next edge 
     const int dir = ccw?-1:1;
     rv = tris(nf,  nv);
-    ne = EMAP(nf+m*((nv+dir+3)%3));
-    //re = EMAP(nf+m*((nv+2*dir+3)%3));
+    ne = edgeUeInfo(nf+m*((nv+dir+3)%3));
+    //re = edgeUeInfo(nf+m*((nv+2*dir+3)%3));
   };
 
   // Always start with first face (ccw in step will be sure to turn right direction)

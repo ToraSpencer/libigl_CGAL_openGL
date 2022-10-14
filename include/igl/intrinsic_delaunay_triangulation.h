@@ -47,7 +47,7 @@ namespace igl
   //   E  #tris*3 by 2 list of all directed edges, such that E.row(f+#tris*c) is the
   //     edge opposite tris(f,c)
   //   uE  #uE by 2 list of unique undirected edges
-  //   EMAP #tris*3 list of indices into uE, mapping each directed edge to unique
+  //   edgeUeInfo #tris*3 list of indices into uE, mapping each directed edge to unique
   //     undirected edge
   //   uE2E  #uE list of lists of indices into E of coexisting edges
   //
@@ -68,7 +68,7 @@ namespace igl
     Eigen::PlainObjectBase<DerivedF> & tris,
     Eigen::PlainObjectBase<DerivedE> & E,
     Eigen::PlainObjectBase<DeriveduE> & uE,
-    Eigen::PlainObjectBase<DerivedEMAP> & EMAP,
+    Eigen::PlainObjectBase<DerivedEMAP> & edgeUeInfo,
     std::vector<std::vector<uE2EType> > & uE2E);
 }
 

@@ -55,12 +55,12 @@ IGL_INLINE void igl::exterior_edges(
   sort(all_E,2,true,sall_E,sort_order);
   // Find unique edges
   MatrixXi uE;
-  VectorXi IA,EMAP;
-  unique_rows(sall_E,uE,IA,EMAP);
+  VectorXi IA,edgeUeInfo;
+  unique_rows(sall_E,uE,IA,edgeUeInfo);
   VectorXi counts = VectorXi::Zero(uE.rows());
   for(size_t a = 0;a<3*m;a++)
   {
-    counts(EMAP(a)) += (sort_order(a)==0?1:-1);
+    counts(edgeUeInfo(a)) += (sort_order(a)==0?1:-1);
   }
 
   E.resize(all_E.rows(),2);
