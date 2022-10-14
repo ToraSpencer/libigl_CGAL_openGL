@@ -3,6 +3,7 @@
 #include <Eigen/LU>
 
 
+// 生成qslim网格精简算法中需要使用的函数子—— cost_and_placement(), pre_collapse(), post_collapse();
 IGL_INLINE void igl::qslim_optimal_collapse_edge_callbacks(
   Eigen::MatrixXi & E,
   std::vector<std::tuple<Eigen::MatrixXd,Eigen::RowVectorXd,double> > & 

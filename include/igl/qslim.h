@@ -23,20 +23,20 @@ namespace igl
          max_m        desired number of output faces
 
        Outputs:
-         U              #U by dim list of output vertex posistions (can be same ref as vers)
-         G               #G by 3 list of output face indices into U (can be same ref as tris)
-         J              #G list of indices into tris of birth face
-         I               #U list of indices into vers of birth vertices
+         versOut              #versOut by dim list of output vertex posistions (can be same ref as vers)
+         trisOut               #trisOut by 3 list of output face indices into versOut (can be same ref as tris)
+         newOldTrisInfo              #trisOut list of indices into tris of birth face
+         newOldVersInfo               #versOut list of indices into vers of birth vertices
   */
 
   IGL_INLINE bool qslim(
     const Eigen::MatrixXd & vers,
     const Eigen::MatrixXi & tris,
     const size_t max_m,
-    Eigen::MatrixXd & U,
-    Eigen::MatrixXi & G,
-    Eigen::VectorXi & J,
-    Eigen::VectorXi & I);
+    Eigen::MatrixXd & versOut,
+    Eigen::MatrixXi & trisOut,
+    Eigen::VectorXi & newOldTrisInfo,
+    Eigen::VectorXi & newOldVersInfo);
 }
 
 
