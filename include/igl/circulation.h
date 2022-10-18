@@ -15,7 +15,7 @@ namespace igl
   
        Inputs:
              edgeIdx               index into E of edge to circulate
-             ccw           true为尾端点，false为尾端点；
+             ccw           true为尾端点，false为首端点；
              edgeUeInfo       #tris*3 list of indices into E, mapping each directed edge to unique unique edge in E
              EF             #E by 2 list of edge flaps, EF(edgeIdx,0)=f means edgeIdx=(i-->j) is the edge of
                                         tris(f,:) opposite the vth corner, where EI(edgeIdx,0)=v. Similarly EF(edgeIdx,1) "       edgeIdx=(j->i)

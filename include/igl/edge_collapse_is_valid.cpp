@@ -1,10 +1,3 @@
-// This file is part of libigl, a simple c++ geometry processing library.
-// 
-// Copyright (C) 2015 Alec Jacobson <alecjacobson@gmail.com>
-// 
-// This Source Code Form is subject to the terms of the Mozilla Public License 
-// v. 2.0. If a copy of the MPL was not distributed with this file, You can 
-// obtain one at http://mozilla.org/MPL/2.0/.
 #include "edge_collapse_is_valid.h"
 #include "collapse_edge.h"
 #include "circulation.h"
@@ -13,6 +6,8 @@
 #include "list_to_matrix.h"
 #include <vector>
 
+
+// жиди1
 IGL_INLINE bool igl::edge_collapse_is_valid(
   const int e,
   const Eigen::MatrixXi & tris,
@@ -85,40 +80,39 @@ IGL_INLINE bool igl::edge_collapse_is_valid(
   return true;
 }
 
+
+// жиди2ЃЛ
 IGL_INLINE bool igl::edge_collapse_is_valid(
-  std::vector<int> & Nsv,
-  std::vector<int> & Ndv)
+  std::vector<int> & srcNbrIdx,
+  std::vector<int> & desNbrIdx)
 {
   // Do we really need to check if edge is IGL_COLLAPSE_EDGE_NULL ?
-
-  if(Nsv.size()<2 || Ndv.size()<2)
+  if(srcNbrIdx.size()<2 || desNbrIdx.size()<2)
   {
     // Bogus data
     assert(false);
     return false;
   }
+
   // determine if the first two vertices are the same before reordering.
-  // If they are and there are 3 each, then (I claim) this is an edge on a
-  // single tet.
-  const bool first_two_same = (Nsv[0] == Ndv[0]) && (Nsv[1] == Ndv[1]);
-  if(Nsv.size() == 3 && Ndv.size() == 3 && first_two_same)
-  {
-    // single tet
-    return false;
-  }
+  // If they are and there are 3 each, then (I claim) this is an edge on a single tet.
+  const bool first_two_same = (srcNbrIdx[0] == desNbrIdx[0]) && (srcNbrIdx[1] == desNbrIdx[1]);
+  if(srcNbrIdx.size() == 3 && desNbrIdx.size() == 3 && first_two_same) 
+    return false;           // single tet
+ 
+
   // https://stackoverflow.com/a/19483741/148668
-  std::sort(Nsv.begin(), Nsv.end());
-  std::sort(Ndv.begin(), Ndv.end());
+  std::sort(srcNbrIdx.begin(), srcNbrIdx.end());
+  std::sort(desNbrIdx.begin(), desNbrIdx.end());
   std::vector<int> Nint;
-  std::set_intersection(
-    Nsv.begin(), Nsv.end(), Ndv.begin(), Ndv.end(), std::back_inserter(Nint));
-  // check if edge collapse is valid: intersection of vertex neighbors of s and
-  // d should be exactly 2+(s,d) = 4
+  std::set_intersection(srcNbrIdx.begin(), srcNbrIdx.end(), desNbrIdx.begin(), desNbrIdx.end(), std::back_inserter(Nint));
+
+  // check if edge collapse is valid: intersection of vertex neighbors of s and d should be exactly 2+(s,d) = 4
+
   // http://stackoverflow.com/a/27049418/148668
   if(Nint.size() != 2)
-  {
     return false;
-  }
+ 
   
   return true;
 }

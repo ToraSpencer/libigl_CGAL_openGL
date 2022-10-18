@@ -14,15 +14,15 @@
 Eigen::MatrixXd vers, baryCenters; 
 Eigen::VectorXd windingNums; 
 Eigen::MatrixXi tets, tris, G; 
-double slice_z = 0.5; 
 
+double slice_z = 0.5;
 enum OverLayType
 {
-  OVERLAY_NONE = 0, 
-  OVERLAY_INPUT = 1, 
-  OVERLAY_OUTPUT = 2, 
-  NUM_OVERLAY = 3, 
-} overlay = OVERLAY_NONE; 
+    OVERLAY_NONE = 0,
+    OVERLAY_INPUT = 1,
+    OVERLAY_OUTPUT = 2,
+    NUM_OVERLAY = 3,
+} overlay = OVERLAY_NONE;
 
 
 void update_visualization(igl::opengl::glfw::Viewer & viewer)
@@ -84,6 +84,7 @@ void update_visualization(igl::opengl::glfw::Viewer & viewer)
   viewer.data().set_face_based(true); 
 }
 
+
 bool key_down(igl::opengl::glfw::Viewer& viewer,  unsigned char key,  int mod)
 {
   switch(key)
@@ -119,10 +120,9 @@ int main(int argc,  char *argv[])
   // Load mesh: (vers, tets) tet-mesh of convex hull,  tris contains facets of input surface mesh _after_ self-intersection resolution
   igl::readMESH(TUTORIAL_SHARED_PATH "/big-sigcat.mesh", vers,  tets,  tris); 
 
-  // Compute barycenters of all tets
-  igl::barycenter(vers, tets, baryCenters); 
+  igl::barycenter(vers, tets, baryCenters);         // 计算每个体素的重心；
 
-  // Compute generalized winding number at all barycenters
+  // 计算每个体素重心的缠绕数；
   cout<<"Computing winding number over all "<< tets.rows()<< " tets..." << endl; 
   igl::winding_number(vers, tris, baryCenters, windingNums); 
 

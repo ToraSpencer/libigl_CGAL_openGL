@@ -8,6 +8,9 @@
 
 namespace igl 
 {
+    // adjacency_matrix()——生成三角网格或四边形网格的邻接矩阵；有向边存在元素为1，否则为0；
+
+
   // Constructs the graph adjacency matrix  of a given mesh (vers,tris)
   // Templates:
   //   T  should be a eigen sparse matrix primitive type like int or double

@@ -12,7 +12,8 @@
 #include <Eigen/Dense>
 #include <vector>
 
-namespace igl {
+namespace igl 
+{
     // Extract non-manifold curves from a given mesh.
     // A non-manifold curves are a set of connected non-manifold edges that
     // does not touch other non-manifold edges except at the end points.

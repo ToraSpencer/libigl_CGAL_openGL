@@ -12,10 +12,14 @@ namespace igl
 {
     // winding_number()——
 
+
+    // 
   /*
        Computes the generalized winding number at each dim-dimensional query 
                     point in O with respect to the oriented  one-codimensional mesh (vers,tris). 
+
        This is equivalent to summing the subtended  signed angles/solid angles of each element in (vers,tris). 
+
        See, "Robust Inside-Outside Segmentation using Generalized Winding Numbers" [Jacobson et al. 2013].
   
        Inputs:
@@ -26,7 +30,7 @@ namespace igl
          O               #O by dim list of query points
 
        Output:
-         W              #O by 1 list of winding numbers
+         wNums              #O by 1 list of winding numbers
   
        See also: igl::fast_winding_number
   */
@@ -39,18 +43,18 @@ namespace igl
     const Eigen::MatrixBase<DerivedV> & vers,
     const Eigen::MatrixBase<DerivedF> & tris,
     const Eigen::MatrixBase<DerivedO> & O,
-    Eigen::PlainObjectBase<DerivedW> & W);
+    Eigen::PlainObjectBase<DerivedW> & wNums);
 
 
-  // Compute winding number of a single point
-  //
-  // Inputs:
-  //  vers  n by dim list of vertex positions
-  //  tris  #tris by dim list of triangle indices, minimum index is 0
-  //  p  single origin position
-  // Outputs:
-  //  w  winding number of this point
-  //
+  //    计算单个顶点的缠绕数： 
+  /* 
+       Inputs:
+        vers  n by dim list of vertex positions
+        tris  #tris by dim list of triangle indices, minimum index is 0
+        p  single origin position
+       Outputs:
+        w  winding number of this point
+  */
   template <
     typename DerivedV,
     typename DerivedF,

@@ -56,7 +56,7 @@ IGL_INLINE bool igl::decimate(
   decimate_post_collapse_callback never_care;
   decimate_trivial_callbacks(always_try, never_care);             // 生成默认的pre_collapse和post_collapse函数子；
 
-  bool ret = decimate(VO, FO, 
+  bool ret = decimate(VO, FO,                          // 重载1；
         shortest_edge_and_midpoint,                                                                   // cost_and_placement()函数子；                                                                 
         max_faces_stopping_condition(trisCount, trisCountOri, max_m),             // 生成stopping_condition()函数子；
         always_try, never_care,                                                             // pre_collapse和post_collapse函数子

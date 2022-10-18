@@ -11,31 +11,35 @@ IGL_INLINE std::vector<int> igl::circulation(
   const Eigen::MatrixXi & EI)
 {
   // prepare output
-  std::vector<int> N;
-  N.reserve(6);
+  std::vector<int> relaTrisIdx;
+  relaTrisIdx.reserve(6);
   const int m = edgeUeInfo.size()/3;
   assert(m*3 == edgeUeInfo.size());
+
+  // lambda——
   const auto & step = [&](const int edgeIdx,  const int ff, int & ne, int & nf)
   {
     assert((EF(edgeIdx, 1) == ff || EF(edgeIdx, 0) == ff) && "edgeIdx should touch ff");
-    //const int fside = EF(edgeIdx, 1)==ff?1:0;
-    const int nside = EF(edgeIdx, 0)==ff?1:0;
+    const int nside = EF(edgeIdx, 0)==ff ? 1 : 0;
     const int nv = EI(edgeIdx, nside);
+
     // get next face
     nf = EF(edgeIdx, nside);
+
     // get next edge 
-    const int dir = ccw?-1:1;
-    ne = edgeUeInfo(nf+m*((nv+dir+3)%3));
+    const int dir = ccw ? -1 : 1;
+    ne = edgeUeInfo(nf + m*((nv + dir + 3)%3));
   };
-  // Always start with first face (ccw in step will be sure to turn right
-  // direction)
+
+  // Always start with first face (ccw in step will be sure to turn right direction)
   const int f0 = EF(edgeIdx, 0);
   int fi = f0;
   int ei = edgeIdx;
+
   while(true)
   {
     step(ei, fi, ei, fi);
-    N.push_back(fi);
+    relaTrisIdx.push_back(fi);
     // back to start?
     if(fi == f0)
     {
@@ -43,7 +47,8 @@ IGL_INLINE std::vector<int> igl::circulation(
       break;
     }
   }
-  return N;
+
+  return relaTrisIdx;
 }
 
 
@@ -56,8 +61,8 @@ IGL_INLINE void igl::circulation(
   const Eigen::MatrixXi & EI, 
   Eigen::VectorXi & vN)
 {
-  std::vector<int> N = circulation(edgeIdx, ccw, edgeUeInfo, EF, EI);
-  igl::list_to_matrix(N, vN);
+  std::vector<int> relaTrisIdx = circulation(edgeIdx, ccw, edgeUeInfo, EF, EI);
+  igl::list_to_matrix(relaTrisIdx, vN);
 }
 
 
