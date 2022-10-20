@@ -16,7 +16,7 @@ IGL_INLINE void igl::qslim_optimal_collapse_edge_callbacks(
 {
   typedef std::tuple<Eigen::MatrixXd,Eigen::RowVectorXd,double> Quadric;
 
-  // lambda——cost_and_placement()
+  // lambda——cost_and_placement()——qslim算法中计算每条边折叠的cost值，以及折叠后顶点的位置：
   cost_and_placement = [&quadrics,&v1,&v2](
     const int e,
     const Eigen::MatrixXd & vers,
@@ -31,13 +31,14 @@ IGL_INLINE void igl::qslim_optimal_collapse_edge_callbacks(
     // Combined quadric
     Quadric quadric_p;
     quadric_p = quadrics[E(e,0)] + quadrics[E(e,1)];
-    // Quadric: p'Ap + 2b'p + c
-    // optimal point: Ap = -b, or rather because we have row vectors: pA=-b
+
+    // Quadric: p'Ap + 2b'p + c,  optimal point: Ap = -b, or rather because we have row vectors: pA=-b
     const auto & A = std::get<0>(quadric_p);
     const auto & b = std::get<1>(quadric_p);
     const auto & c = std::get<2>(quadric_p);
     p = -b*A.inverse();
     cost = p.dot(p*A) + 2*p.dot(b) + c;
+
     // Force infs and nans to infinity
     if(std::isinf(cost) || cost!=cost)
     {

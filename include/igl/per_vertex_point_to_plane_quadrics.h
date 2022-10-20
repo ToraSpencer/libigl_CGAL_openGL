@@ -9,7 +9,7 @@
 namespace igl
 {
 
-    // per_vertex_point_to_plane_quadrics()——
+    // per_vertex_point_to_plane_quadrics()——计算每个顶点的Q矩阵：
 
     /*
        Compute quadrics per vertex of a "closed" triangle mesh (vers,tris). 

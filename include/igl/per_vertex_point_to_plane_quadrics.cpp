@@ -5,14 +5,14 @@
 #include <cmath>
 
 
+// 计算每个顶点的Q矩阵：
 IGL_INLINE void igl::per_vertex_point_to_plane_quadrics(
   const Eigen::MatrixXd & vers, 
   const Eigen::MatrixXi & tris, 
   const Eigen::MatrixXi & edgeUeInfo, 
   const Eigen::MatrixXi & UeTrisInfo, 
   const Eigen::MatrixXi & EI, 
-  std::vector<
-    std::tuple<Eigen::MatrixXd, Eigen::RowVectorXd, double> > & quadrics)
+  std::vector< std::tuple<Eigen::MatrixXd, Eigen::RowVectorXd, double> > & quadrics)
 {
   using namespace std; 
   typedef std::tuple<Eigen::MatrixXd, Eigen::RowVectorXd, double> Quadric; 

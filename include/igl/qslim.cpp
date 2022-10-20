@@ -45,7 +45,7 @@ IGL_INLINE bool igl::qslim(
   Eigen::MatrixXi uEdges, UeTrisInfo, UeCornersInfo; 
   edge_flaps(tris0, uEdges, edgeUeInfo, UeTrisInfo, UeCornersInfo); 
 
-  // 2. Quadrics per vertex
+  // 2. 计算每个顶点的Q矩阵：
   typedef std::tuple<Eigen::MatrixXd, Eigen::RowVectorXd, double> Quadric; 
   std::vector<Quadric> quadrics; 
   per_vertex_point_to_plane_quadrics(vers0, tris0, edgeUeInfo, UeTrisInfo, UeCornersInfo, quadrics); 
