@@ -12,7 +12,7 @@
 #include "tutorial_shared_path.h"
 
 Eigen::MatrixXd vers;
-Eigen::MatrixXi F;
+Eigen::MatrixXi tris;
 
 int main(int argc, char *argv[])
 {
@@ -22,27 +22,27 @@ int main(int argc, char *argv[])
   if(argc>1)
     filename = argv[1];
 
-  igl::read_triangle_mesh(filename, vers, F);
+  igl::read_triangle_mesh(filename, vers, tris);
 
   // 1. 手动分步计算平均曲率：
   MatrixXd HN;
   SparseMatrix<double> L,M,Minv;
-  igl::cotmatrix(vers,F,L);
-  igl::massmatrix(vers,F,igl::MASSMATRIX_TYPE_VORONOI,M);
+  igl::cotmatrix(vers,tris,L);
+  igl::massmatrix(vers,tris,igl::MASSMATRIX_TYPE_VORONOI,M);
   igl::invert_diag(M,Minv);
 
   //    Laplace-Beltrami of position
-  HN = -Minv*(L*vers);
+  HN = -Minv*(L*vers);                     
 
   //    Extract magnitude as mean curvature
-  VectorXd H1 = HN.rowwise().norm();
+  VectorXd H1 = HN.rowwise().norm();                 // 顶点平均曲率的模；absolute discret mean curvature at vertex
 
   // 2. 直接使用轮子计算 
   MatrixXd PD1,PD2;
   VectorXd PV1,PV2;
 
   //    igl::principal_curvature()——使用二次曲面拟合计算最大、最小曲率及其方向
-  igl::principal_curvature(vers,F,PD1,PD2,PV1,PV2);
+  igl::principal_curvature(vers,tris,PD1,PD2,PV1,PV2);
 
   VectorXd H2 = 0.5*(PV1+PV2);          // 平均曲率
 
@@ -51,10 +51,10 @@ int main(int argc, char *argv[])
 
   // 4. 绘图：
   igl::opengl::glfw::Viewer viewer;
-  viewer.data().set_mesh(vers, F);
+  viewer.data().set_mesh(vers, tris);
   viewer.data().set_data(H2);
 
-  const double aveLen = igl::avg_edge_length(vers,F);         // 所有边的平均边长，作为指示线的长度
+  const double aveLen = igl::avg_edge_length(vers, tris);         // 所有边的平均边长，作为指示线的长度
   const RowVector3d red(0.8,0.2,0.2), blue(0.2,0.2,0.8);    // RGB色彩向量；
 
   //        指示线用边数据的形式渲染出来；

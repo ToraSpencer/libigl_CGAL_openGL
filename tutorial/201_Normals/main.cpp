@@ -15,48 +15,48 @@ Eigen::MatrixXd N_corners;
 
 
 // 键盘事件回调函数
-bool key_down(igl::opengl::glfw::Viewer& viewer,  unsigned char key,  int modifier)
+bool key_down(igl::opengl::glfw::Viewer& viewer, unsigned char key, int modifier)
 {
-  switch(key)
-  {
+    switch (key)
+    {
     case '1':
-      viewer.data().set_normals(N_faces);
-      return true;
+        viewer.data().set_normals(N_faces);
+        return true;
     case '2':
-      viewer.data().set_normals(N_vertices);
-      return true;
+        viewer.data().set_normals(N_vertices);
+        return true;
     case '3':
-      viewer.data().set_normals(N_corners);
-      return true;
+        viewer.data().set_normals(N_corners);
+        return true;
     default: break;
-  }
-  return false;
+    }
+    return false;
 }
 
 
-int main(int argc,  char *argv[])
+int main(int argc, char* argv[])
 {
-  igl::read_triangle_mesh(argc>1?argv[1]: TUTORIAL_SHARED_PATH "/fandisk.off", vers, tris);
+    igl::read_triangle_mesh(argc > 1 ? argv[1] : TUTORIAL_SHARED_PATH "/fandisk.off", vers, tris);
 
-  // 面法线向量
-  igl::per_face_normals(vers, tris, N_faces);
+    // 面法线向量
+    igl::per_face_normals(vers, tris, N_faces);
 
-  // 顶点法向
-  igl::per_vertex_normals(vers, tris, N_vertices);
+    // 顶点法向
+    igl::per_vertex_normals(vers, tris, N_vertices);
 
-  // Compute per-corner normals,  |dihedral angle| > 20 degrees --> crease
-  igl::per_corner_normals(vers,  tris,  20,  N_corners);
+    // Compute per-corner normals,  |dihedral angle| > 20 degrees --> crease
+    igl::per_corner_normals(vers, tris, 20, N_corners);
 
-  // Plot the mesh
-  igl::opengl::glfw::Viewer viewer;
-  viewer.callback_key_down = &key_down;
-  viewer.data().show_lines = true;
-  viewer.data().set_mesh(vers,  tris);
-  viewer.data().set_normals(N_faces);
+    // Plot the mesh
+    igl::opengl::glfw::Viewer viewer;
+    viewer.callback_key_down = &key_down;
+    viewer.data().show_lines = true;
+    viewer.data().set_mesh(vers, tris);
+    viewer.data().set_normals(N_faces);
 
-  std::cout<<
-    "Press '1' for per-face normals."<<std::endl<<
-    "Press '2' for per-vertex normals."<<std::endl<<
-    "Press '3' for per-corner normals."<<std::endl;
-  viewer.launch();
+    std::cout <<
+        "Press '1' for per-face normals." << std::endl <<
+        "Press '2' for per-vertex normals." << std::endl <<
+        "Press '3' for per-corner normals." << std::endl;
+    viewer.launch();
 }

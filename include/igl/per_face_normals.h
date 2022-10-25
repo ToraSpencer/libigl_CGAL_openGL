@@ -1,14 +1,10 @@
-// This file is part of libigl, a simple c++ geometry processing library.
-// 
-// Copyright (C) 2013 Alec Jacobson <alecjacobson@gmail.com>
-// 
-// This Source Code Form is subject to the terms of the Mozilla Public License 
-// v. 2.0. If a copy of the MPL was not distributed with this file, You can 
-// obtain one at http://mozilla.org/MPL/2.0/.
 #ifndef IGL_PER_FACE_NORMALS_H
 #define IGL_PER_FACE_NORMALS_H
 #include "igl_inline.h"
 #include <Eigen/Core>
+
+
+
 namespace igl
 {
   // Compute face normals via vertex position list, face list
@@ -28,6 +24,8 @@ namespace igl
     const Eigen::MatrixBase<DerivedF>& tris,
     const Eigen::MatrixBase<DerivedZ> & Z,
     Eigen::PlainObjectBase<DerivedN> & N);
+
+
   // Wrapper with Z = (0,0,0). Note that this means that row norms will be zero
   // (i.e. not 1) for degenerate normals.
   template <typename DerivedV, typename DerivedF, typename DerivedN>
@@ -35,6 +33,8 @@ namespace igl
     const Eigen::MatrixBase<DerivedV>& vers,
     const Eigen::MatrixBase<DerivedF>& tris,
     Eigen::PlainObjectBase<DerivedN> & N);
+
+
   // Special version where order of face indices is guaranteed not to effect
   // output.
   template <typename DerivedV, typename DerivedF, typename DerivedN>
@@ -42,6 +42,8 @@ namespace igl
     const Eigen::MatrixBase<DerivedV>& vers,
     const Eigen::MatrixBase<DerivedF>& tris,
     Eigen::PlainObjectBase<DerivedN> & N);
+
+
   // Inputs:
   //   vers  #vers by 3 list of mesh vertex positions
   //   I  #I vectorized list of polygon corner indices into rows of some matrix vers

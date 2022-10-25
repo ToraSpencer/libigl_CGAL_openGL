@@ -9,9 +9,9 @@ IGL_INLINE void igl::per_face_normals(
   const Eigen::MatrixBase<DerivedV>& vers,
   const Eigen::MatrixBase<DerivedF>& tris,
   const Eigen::MatrixBase<DerivedZ> & Z,
-  Eigen::PlainObjectBase<DerivedN> & N)
+  Eigen::PlainObjectBase<DerivedN> & triNorms)
 {
-  N.resize(tris.rows(),3);
+  triNorms.resize(tris.rows(),3);
 
   int Frows = tris.rows();
 #pragma omp parallel for if (Frows>10000)
@@ -19,12 +19,12 @@ IGL_INLINE void igl::per_face_normals(
   {
     const Eigen::Matrix<typename DerivedV::Scalar, 1, 3> v1 = vers.row(tris(i,1)) - vers.row(tris(i,0));
     const Eigen::Matrix<typename DerivedV::Scalar, 1, 3> v2 = vers.row(tris(i,2)) - vers.row(tris(i,0));
-    N.row(i) = v1.cross(v2);//.normalized();
-    typename DerivedV::Scalar r = N.row(i).norm();
+    triNorms.row(i) = v1.cross(v2);         //.normalized();
+    typename DerivedV::Scalar r = triNorms.row(i).norm();
     if(r == 0)
-      N.row(i) = Z;
+      triNorms.row(i) = Z;
     else
-      N.row(i) /= r;
+      triNorms.row(i) /= r;
   }
 }
 
@@ -34,11 +34,11 @@ template <typename DerivedV, typename DerivedF, typename DerivedN>
 IGL_INLINE void igl::per_face_normals(
   const Eigen::MatrixBase<DerivedV>& vers,
   const Eigen::MatrixBase<DerivedF>& tris,
-  Eigen::PlainObjectBase<DerivedN> & N)
+  Eigen::PlainObjectBase<DerivedN> & triNorms)
 {
   using namespace Eigen;
   Matrix<typename DerivedN::Scalar,3,1> Z(0,0,0);
-  return per_face_normals(vers,tris,Z,N);
+  return per_face_normals(vers,tris,Z,triNorms);
 }
 
 
@@ -47,7 +47,7 @@ template <typename DerivedV, typename DerivedF, typename DerivedN>
 IGL_INLINE void igl::per_face_normals_stable(
   const Eigen::MatrixBase<DerivedV>& vers,
   const Eigen::MatrixBase<DerivedF>& tris,
-  Eigen::PlainObjectBase<DerivedN> & N)
+  Eigen::PlainObjectBase<DerivedN> & triNorms)
 {
   using namespace Eigen;
   typedef Matrix<typename DerivedV::Scalar,1,3> RowVectorV3;
@@ -55,7 +55,7 @@ IGL_INLINE void igl::per_face_normals_stable(
 
   const size_t m = tris.rows();
 
-  N.resize(tris.rows(),3);
+  triNorms.resize(tris.rows(),3);
   // Grad all points
   for(size_t f = 0;f<m;f++)
   {
@@ -91,10 +91,10 @@ IGL_INLINE void igl::per_face_normals_stable(
         return (a+b)+c;
       };
 
-      N(f,d) = sum3(n0(d),n1(d),n2(d));
+      triNorms(f,d) = sum3(n0(d),n1(d),n2(d));
     }
     // sum better not be sure, or else NaN
-    N.row(f) /= N.row(f).norm();
+    triNorms.row(f) /= triNorms.row(f).norm();
   }
 
 }
@@ -115,7 +115,7 @@ IGL_INLINE void igl::per_face_normals(
   const Eigen::MatrixBase<DerivedV> & vers,
   const Eigen::MatrixBase<DerivedI> & I,
   const Eigen::MatrixBase<DerivedC> & C,
-  Eigen::PlainObjectBase<DerivedN> & N,
+  Eigen::PlainObjectBase<DerivedN> & triNorms,
   Eigen::PlainObjectBase<DerivedVV> & VV,
   Eigen::PlainObjectBase<DerivedFF> & FF,
   Eigen::PlainObjectBase<DerivedJ> & J)
@@ -133,14 +133,14 @@ IGL_INLINE void igl::per_face_normals(
 
   // number of polygons
   const Eigen::Index m = C.size()-1;
-  N.resize(m,3);
+  triNorms.resize(m,3);
   FF.resize(C(m),3);
   J.resize(C(m));
   {
     Eigen::Index k = 0;
     for(Eigen::Index p = 0;p<m;p++)
     {
-      N.row(p).setZero();
+      triNorms.row(p).setZero();
       // number of faces/vertices in this simple polygon
       const Index np = C(p+1)-C(p);
       for(Eigen::Index i = 0;i<np;i++)
@@ -152,13 +152,13 @@ IGL_INLINE void igl::per_face_normals(
         J(k) = p;
         k++;
         typedef Eigen::Matrix<Scalar,1,3> V3;
-        N.row(p) +=
+        triNorms.row(p) +=
           V3(VV.row(I(C(p)+((i+0)%np)))-VV.row(vers.rows()+p)).cross(
           V3(VV.row(I(C(p)+((i+1)%np)))-VV.row(vers.rows()+p)));
       }
 
       // normalize to take average
-      N.row(p) /= N.row(p).stableNorm();
+      triNorms.row(p) /= triNorms.row(p).stableNorm();
     }
     assert(k == FF.rows());
   }
