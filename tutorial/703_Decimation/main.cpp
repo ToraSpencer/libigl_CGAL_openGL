@@ -24,7 +24,8 @@ int main(int argc,  char * argv[])
   cout<<"  [space]  toggle animation."<<endl; 
   cout<<"  'r'  reset."<<endl; 
 
-  string filename(TUTORIAL_SHARED_PATH "/fertility.off"); 
+  // string filename(TUTORIAL_SHARED_PATH "/fertility.off"); 
+  string filename("E:/材料/roundSurf.obj");
   if(argc>=2)
         filename = argv[1]; 
 
@@ -82,7 +83,7 @@ int main(int argc,  char * argv[])
   // lambda——执行网格精简，准备渲染的数据；
   const auto &pre_draw = [&](igl::opengl::glfw::Viewer & viewer)->bool
   {
-    // p1. 每一次动画循环中，收缩10%的边；
+    // p1. 每一次动画循环中，收缩1%的边；
     if(viewer.core().is_animating && !pQueue.empty())
     {
       bool FlagCollapsed = false;           // 本次循环中边收缩是否执行成功；
@@ -101,17 +102,14 @@ int main(int argc,  char * argv[])
       // p1.2 
       if(FlagCollapsed)
       {
+
         viewer.data().clear(); 
         viewer.data().set_mesh(vers, tris); 
         viewer.data().set_face_based(true); 
-
-        //// for debug:
-        //char objName[512];
-        //sprintf_s(objName, 512, "E:/meshDecimated%d.obj", loopCount++);
-        //igl::writeOBJ(objName, vers, tris);
       }
     }
 
+    std::cout << "loop : " << loopCount++ << ", uEdgesCount : " << uEdges.rows() << std::endl;
     return false; 
   }; 
 
@@ -141,6 +139,7 @@ int main(int argc,  char * argv[])
   // 2. visualize, working loop; 
   viewer.core().background_color.setConstant(1); 
   viewer.core().is_animating = true;                                 // 动画
+  viewer.core().animation_max_fps = 1.0;            // 指定最大动画帧率；
   viewer.callback_key_down = key_down; 
   viewer.callback_pre_draw = pre_draw; 
   return viewer.launch(); 

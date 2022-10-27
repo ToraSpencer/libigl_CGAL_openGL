@@ -27,28 +27,31 @@
     <Filter Include="Source Files">
       <UniqueIdentifier>{18953F89-488E-399C-8A5D-B5FE92FAA7FF}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Head Files">
+      <UniqueIdentifier>{d9be6767-98ad-454f-b160-d668c432ee5f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\include\igl\circulation.h">
-      <Filter>Source Files</Filter>
+      <Filter>Head Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\igl\collapse_edge.h">
-      <Filter>Source Files</Filter>
+      <Filter>Head Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\igl\decimate.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="..\..\include\igl\decimate_callback_types.h">
-      <Filter>Source Files</Filter>
+      <Filter>Head Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\igl\decimate_trivial_callbacks.h">
-      <Filter>Source Files</Filter>
+      <Filter>Head Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\igl\decimate_callback_types.h">
+      <Filter>Head Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\igl\max_faces_stopping_condition.h">
-      <Filter>Source Files</Filter>
+      <Filter>Head Files</Filter>
     </ClInclude>
     <ClInclude Include="..\..\include\igl\remove_unreferenced.h">
-      <Filter>Source Files</Filter>
+      <Filter>Head Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

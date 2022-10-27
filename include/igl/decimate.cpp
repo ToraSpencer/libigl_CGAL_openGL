@@ -51,7 +51,6 @@ IGL_INLINE bool igl::decimate(
         return false;
   }
 
-
   decimate_pre_collapse_callback always_try;
   decimate_post_collapse_callback never_care;
   decimate_trivial_callbacks(always_try, never_care);             // 生成默认的pre_collapse和post_collapse函数子；
