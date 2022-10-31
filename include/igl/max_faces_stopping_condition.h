@@ -9,7 +9,7 @@
 
 namespace igl
 {
-    // 生成decimate()接口中迭代终止函数子stopping_condition();
+    // 生成decimate()接口中迭代终止函数子stopping_condition()，这里的终止条件是达到给定的三角片数即终止;
     /*
        Stopping condition function compatible with igl::decimate. The outpute
        function handle will return true if number of faces is less than max_m
@@ -29,6 +29,8 @@ namespace igl
     const int orig_m,
     const int max_m,
     decimate_stopping_condition_callback & stopping_condition);
+
+
   IGL_INLINE decimate_stopping_condition_callback
     max_faces_stopping_condition(
       int & m,

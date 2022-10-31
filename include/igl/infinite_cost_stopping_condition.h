@@ -11,14 +11,18 @@
 
 namespace igl
 {
-  // Stopping condition function compatible with igl::decimate. The output
-  // function handle will return true if cost of next edge is infinite.
-  //
-  // Inputs:
-  //   cost_and_placement  handle being used by igl::collapse_edge
-  // Outputs:
-  //   stopping_condition
-  //
+
+    // 生成decimate()接口中迭代终止函数子stopping_condition()——这里的终止条件是，如果下一条边的折叠cost是无穷大，则返回true；
+    /*
+       Stopping condition function compatible with igl::decimate. 
+       The output function handle will return true if cost of next edge is infinite.
+  
+       Inputs:
+         cost_and_placement  handle being used by igl::collapse_edge
+
+       Outputs:
+         stopping_condition
+  */
   IGL_INLINE void infinite_cost_stopping_condition(
     const decimate_cost_and_placement_callback & cost_and_placement,
     decimate_stopping_condition_callback & stopping_condition);

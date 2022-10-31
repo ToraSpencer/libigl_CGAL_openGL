@@ -31,33 +31,31 @@ IGL_INLINE bool igl::qslim(
   typedef Eigen::MatrixXi DerivedF; 
   DerivedV vers0; 
   DerivedF tris0; 
+  Eigen::VectorXi edgeUeInfo;
+  Eigen::MatrixXi uEdges, UeTrisInfo, UeCornersInfo;
+  decimate_cost_and_placement_callback cost_and_placement;
+  decimate_pre_collapse_callback       pre_collapse;
+  decimate_post_collapse_callback      post_collapse;
+  typedef std::tuple<Eigen::MatrixXd, Eigen::RowVectorXd, double> Quadric;
+  std::vector<Quadric> quadrics;
+  int v1 = -1;       // State variables keeping track of edge we just collapsed
+  int v2 = -1;
 
   // 1. 
   igl::connect_boundary_to_infinity(vers, tris,  vers0,  tris0); 
 
-  // decimate will not work correctly on non-edge-manifold meshes. 
-  
   // this includes meshes with non-manifold vertices on the boundary since these will create a non-manifold edge when connected to infinity.
-  if(!is_edge_manifold(tris0))
+  if(!is_edge_manifold(tris0))       // decimate will not work correctly on non-edge-manifold meshes. 
         return false; 
 
-  Eigen::VectorXi edgeUeInfo; 
-  Eigen::MatrixXi uEdges, UeTrisInfo, UeCornersInfo; 
   edge_flaps(tris0, uEdges, edgeUeInfo, UeTrisInfo, UeCornersInfo); 
 
+
   // 2. 计算每个顶点的Q矩阵：
-  typedef std::tuple<Eigen::MatrixXd, Eigen::RowVectorXd, double> Quadric; 
-  std::vector<Quadric> quadrics; 
   per_vertex_point_to_plane_quadrics(vers0, tris0, edgeUeInfo, UeTrisInfo, UeCornersInfo, quadrics); 
 
-  // State variables keeping track of edge we just collapsed
-  int v1 = -1; 
-  int v2 = -1; 
 
-  // 3. Callbacks for computing and updating metric
-  decimate_cost_and_placement_callback cost_and_placement; 
-  decimate_pre_collapse_callback       pre_collapse; 
-  decimate_post_collapse_callback      post_collapse; 
+  // 3. 获取边折叠前后的pre_collapse(), post_collapse()函数子，以及计算边折叠cost值的函数子cost_and_placement();
   qslim_optimal_collapse_edge_callbacks(uEdges, quadrics, v1, v2,  cost_and_placement, pre_collapse, post_collapse); 
   
   // 4. Call to greedy decimator
@@ -70,7 +68,7 @@ IGL_INLINE bool igl::qslim(
         versOut,  trisOut,  newOldTrisInfo,  newOldVersInfo); 
 
   // 5. Remove phony boundary faces and clean up
-  const Eigen::Array<bool, Eigen::Dynamic, 1> keep = (newOldTrisInfo.array()<trisCountOri); 
+  const Eigen::Array<bool, Eigen::Dynamic, 1> keep = (newOldTrisInfo.array() < trisCountOri); 
   igl::slice_mask(Eigen::MatrixXi(trisOut), keep, 1, trisOut); 
   igl::slice_mask(Eigen::VectorXi(newOldTrisInfo),  keep,  1,  newOldTrisInfo); 
   Eigen::VectorXi _1, I2; 

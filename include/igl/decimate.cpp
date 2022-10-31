@@ -169,14 +169,9 @@ IGL_INLINE bool igl::decimate(
             return false;
     }
 
-            // 优先队列；
-    igl::min_heap<std::tuple<double, int, int> > pQueue;
-
-            // Could reserve with https://stackoverflow.com/a/29236236/148668
-    Eigen::VectorXi EQ = Eigen::VectorXi::Zero(uEdges.rows());
-
-            // If an edge were collapsed, we'd collapse it to these points:
-    MatrixXd collapsed(uEdges.rows(), versCopy.cols());
+    igl::min_heap<std::tuple<double, int, int> > pQueue;        // 优先队列；            
+    Eigen::VectorXi EQ = Eigen::VectorXi::Zero(uEdges.rows());      // Could reserve with https://stackoverflow.com/a/29236236/148668        
+    MatrixXd collapsed(uEdges.rows(), versCopy.cols());  // If an edge were collapsed, we'd collapse it to these points:
 
             // note
             /*
@@ -188,8 +183,11 @@ IGL_INLINE bool igl::decimate(
             */
 
 
-    // 2. 计算每条无向边的cost值，以此为优先级存入优先队列
+    // 2. 使用cost_and_placement函数子计算每条无向边的cost值，以此为优先级存入优先队列
     {
+        // 最简边折叠精简算法使用的cost_and_placement函数子是shortest_edge_and_midpoint
+
+        // qslim算法中使用的cost_and_placement函数子从qslim_optimal_collapse_edge_callbacks()接口中获取；
         Eigen::VectorXd costs(uEdges.rows());
         igl::parallel_for(uEdges.rows(), [&](const int e)
             {
@@ -212,17 +210,21 @@ IGL_INLINE bool igl::decimate(
     while (true)
     {
         int e, e1, e2, f1, f2;
+
+        // 执行pre_collapse()操作，折叠边，执行post_collapse()，再更新相关的边的cost值；
         if (collapse_edge(cost_and_placement, pre_collapse, post_collapse,\
                 versCopy, trisCopy, uEdges, edgeUeInfo, UeTrisInfo, UeCornersInfo, \
                 pQueue, EQ, collapsed, e, e1, e2, f1, f2))          // collapse_edge()重载2；
         {
+            // 若满足终止条件——stopping_condition函数子返回true，则跳出折叠循环
             if (stopping_condition(versCopy, trisCopy, uEdges, edgeUeInfo, UeTrisInfo, UeCornersInfo, pQueue, EQ, collapsed, e, e1, e2, f1, f2))
             {
+                // LIBIGL中当前有两种终止条件函数子：max_faces_stopping_condition(), infinite_cost_stopping_condition();
                 clean_finish = true;
                 break;
             }
         }
-        else
+        else  // 边折叠失败，退出循环：
         {
             if (e == -1)
                 break;                // a candidate edge was not even found in pQueue.
@@ -234,6 +236,7 @@ IGL_INLINE bool igl::decimate(
 
             // Edge was not collapsed... must have been invalid. collapse_edge should have updated its cost to inf... continue
         }
+
         prev_e = e;
     }
 

@@ -286,8 +286,6 @@ IGL_INLINE bool igl::collapse_edge(
          break; 
 
     assert(std::get<2>(edgeTuple)  < timeStamps(uEdgeIdx) || timeStamps(uEdgeIdx) == -1);          // must be stale or dead.
-
-    // try again.
   }
  
   // If we just need original face neighbors of edge,  could we gather that more directly than gathering face neighbors of each vertex?
@@ -305,6 +303,7 @@ IGL_INLINE bool igl::collapse_edge(
         collapsed = collapse_edge(uEdgeIdx, collapsedVers.row(uEdgeIdx), nbrVersIdx_src, nbrTrisIdx_src, nbrVersIdx_des, nbrTrisIdx_des, vers, tris, uEdges, edgeUeInfo, EF, EI, e1, e2, f1, f2); 
   else
         collapsed = false;                       // Aborted by pre collapse callback
+
   post_collapse(vers, tris, uEdges, edgeUeInfo, EF, EI, workQueue, timeStamps, \
         collapsedVers, uEdgeIdx, e1, e2, f1, f2, collapsed);          // 默认情形下post_collapse()什么都不做
 

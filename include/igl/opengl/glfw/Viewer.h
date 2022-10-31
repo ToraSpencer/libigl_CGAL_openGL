@@ -53,7 +53,7 @@ namespace glfw
     IGL_INLINE bool load_mesh_from_file(const std::string & mesh_file_name);
     IGL_INLINE bool   save_mesh_to_file(const std::string & mesh_file_name);
 
-    // 回调函数
+    // 事件响应回调函数
     IGL_INLINE bool key_pressed(unsigned int unicode_key,int modifier);
     IGL_INLINE bool key_down(int key,int modifier);
     IGL_INLINE bool key_up(int key,int modifier);
@@ -125,9 +125,8 @@ namespace glfw
     // Returns 0 if not found
     IGL_INLINE size_t mesh_index(const int id) const;
 
-    ////////////////////////////
+
     // Multi-viewport methods //
-    ////////////////////////////
 
     // Return the current viewport, or the viewport corresponding to a given unique identifier
     //
@@ -162,15 +161,12 @@ namespace glfw
     // (current_mouse_x, current_mouse_y)
     IGL_INLINE void select_hovered_core();
 
-public:
-    //////////////////////
-    // Member variables //
-    //////////////////////
 
-    // Alec: I call this data_list instead of just data to avoid confusion with
-    // old "data" variable.
-    // Stores all the data that should be visualized
-    std::vector<ViewerData> data_list;
+    // 成员数据：
+public:
+
+    // Alec: I call this data_list instead of just data to avoid confusion with old "data" variable.
+    std::vector<ViewerData> data_list;           // Stores all the data that should be visualized
 
     size_t selected_data_index;
     int next_data_id;
@@ -183,6 +179,7 @@ public:
 
     // List of registered plugins
     std::vector<ViewerPlugin*> plugins;
+
     // Temporary data stored when the mouse button is pressed
     Eigen::Quaternionf down_rotation;
     int current_mouse_x;
@@ -193,6 +190,7 @@ public:
     Eigen::Vector3f down_translation;
     bool down;
     bool hack_never_moved;
+
     // Keep track of the global position of the scrollwheel
     float scroll_position;
  

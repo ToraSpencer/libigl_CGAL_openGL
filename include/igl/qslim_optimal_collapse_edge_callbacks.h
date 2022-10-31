@@ -20,6 +20,7 @@ namespace igl
          quadrics                       reference to list of working per vertex quadrics 
          v1                                  working variable to maintain end point of collapsed edge
          v2                                 working variable to maintain end point of collapsed edge
+
        Outputs
          cost_and_placement                 callback for evaluating cost of edge collapse and  determining placement of vertex (see collapse_edge)
          pre_collapse                               callback before edge collapse (see collapse_edge)

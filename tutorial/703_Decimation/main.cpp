@@ -25,7 +25,7 @@ int main(int argc,  char * argv[])
   cout<<"  'r'  reset."<<endl; 
 
   // string filename(TUTORIAL_SHARED_PATH "/fertility.off"); 
-  string filename("E:/²ÄÁÏ/roundSurf.obj");
+  string filename("E:/²ÄÁÏ/tooth.obj");
   if(argc>=2)
         filename = argv[1]; 
 
@@ -102,7 +102,6 @@ int main(int argc,  char * argv[])
       // p1.2 
       if(FlagCollapsed)
       {
-
         viewer.data().clear(); 
         viewer.data().set_mesh(vers, tris); 
         viewer.data().set_face_based(true); 
