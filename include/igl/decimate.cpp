@@ -170,7 +170,7 @@ IGL_INLINE bool igl::decimate(
     }
 
     igl::min_heap<std::tuple<double, int, int> > pQueue;        // 优先队列；            
-    Eigen::VectorXi EQ = Eigen::VectorXi::Zero(uEdges.rows());      // Could reserve with https://stackoverflow.com/a/29236236/148668        
+    Eigen::VectorXi timeStamps = Eigen::VectorXi::Zero(uEdges.rows());      // Could reserve with https://stackoverflow.com/a/29236236/148668        
     MatrixXd collapsed(uEdges.rows(), versCopy.cols());  // If an edge were collapsed, we'd collapse it to these points:
 
             // note
@@ -214,10 +214,10 @@ IGL_INLINE bool igl::decimate(
         // 执行pre_collapse()操作，折叠边，执行post_collapse()，再更新相关的边的cost值；
         if (collapse_edge(cost_and_placement, pre_collapse, post_collapse,\
                 versCopy, trisCopy, uEdges, edgeUeInfo, UeTrisInfo, UeCornersInfo, \
-                pQueue, EQ, collapsed, e, e1, e2, f1, f2))          // collapse_edge()重载2；
+                pQueue, timeStamps, collapsed, e, e1, e2, f1, f2))          // collapse_edge()重载2；
         {
             // 若满足终止条件——stopping_condition函数子返回true，则跳出折叠循环
-            if (stopping_condition(versCopy, trisCopy, uEdges, edgeUeInfo, UeTrisInfo, UeCornersInfo, pQueue, EQ, collapsed, e, e1, e2, f1, f2))
+            if (stopping_condition(versCopy, trisCopy, uEdges, edgeUeInfo, UeTrisInfo, UeCornersInfo, pQueue, timeStamps, collapsed, e, e1, e2, f1, f2))
             {
                 // LIBIGL中当前有两种终止条件函数子：max_faces_stopping_condition(), infinite_cost_stopping_condition();
                 clean_finish = true;
