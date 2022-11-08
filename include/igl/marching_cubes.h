@@ -6,6 +6,7 @@
 
 namespace igl
 {
+    // marching_cubes()жиди1ЃК
   /*
        performs marching cubes reconstruction on a grid defined by values, and points, 
             and generates a mesh defined by vertices and faces
@@ -39,6 +40,7 @@ namespace igl
     Eigen::PlainObjectBase<DerivedF> &trisResult);
 
 
+  // marching_cubes()жиди2ЃК
   template <
     typename DerivedS, 
     typename DerivedGV, 

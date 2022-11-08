@@ -13,22 +13,22 @@ IGL_INLINE bool igl::collapse_edge(
   Eigen::MatrixXi & tris, 
   Eigen::MatrixXi & uEdges, 
   Eigen::VectorXi & edgeUeInfo, 
-  Eigen::MatrixXi & EF, 
-  Eigen::MatrixXi & EI, 
+  Eigen::MatrixXi & UeTrisInfo, 
+  Eigen::MatrixXi & UeCornersInfo, 
   int & e1, 
   int & e2, 
   int & f1, 
   int & f2)
 {
   std::vector<int>  nbrTrisIdx_src, nbrVersIdx_src; 
-  circulation(uEdgeIdx,  true, tris, edgeUeInfo, EF, EI,  nbrVersIdx_src, nbrTrisIdx_src); 
+  circulation(uEdgeIdx,  true, tris, edgeUeInfo, UeTrisInfo, UeCornersInfo,  nbrVersIdx_src, nbrTrisIdx_src); 
   std::vector<int>  nbrTrisIdx_des, nbrVersIdx_des; 
-  circulation(uEdgeIdx,  false, tris, edgeUeInfo, EF, EI,  nbrVersIdx_des, nbrTrisIdx_des); 
-  return collapse_edge(uEdgeIdx, collapsedVer, nbrVersIdx_src, nbrTrisIdx_src, nbrVersIdx_des, nbrTrisIdx_des, vers, tris, uEdges, edgeUeInfo, EF, EI, e1, e2, f1, f2); 
+  circulation(uEdgeIdx,  false, tris, edgeUeInfo, UeTrisInfo, UeCornersInfo,  nbrVersIdx_des, nbrTrisIdx_des); 
+  return collapse_edge(uEdgeIdx, collapsedVer, nbrVersIdx_src, nbrTrisIdx_src, nbrVersIdx_des, nbrTrisIdx_des, vers, tris, uEdges, edgeUeInfo, UeTrisInfo, UeCornersInfo, e1, e2, f1, f2); 
 }
 
 
-// 重载1——折叠一条边；
+// 重载1——折叠索引为uEdgeIdx的无向边；
 IGL_INLINE bool igl::collapse_edge(
   const int uEdgeIdx, 
   const Eigen::RowVectorXd & collapsedVer, 
@@ -40,8 +40,8 @@ IGL_INLINE bool igl::collapse_edge(
   Eigen::MatrixXi & tris, 
   Eigen::MatrixXi & uEdges, 
   Eigen::VectorXi & edgeUeInfo, 
-  Eigen::MatrixXi & EF, 
-  Eigen::MatrixXi & EI, 
+  Eigen::MatrixXi & UeTrisInfo, 
+  Eigen::MatrixXi & UeCornersInfo, 
   int & a_e1, 
   int & a_e2, 
   int & a_f1, 
@@ -72,22 +72,22 @@ IGL_INLINE bool igl::collapse_edge(
   vers.row(desIdx) = collapsedVer; 
 
   // lambda——replace edge and associate information with NULL
-  const auto & kill_edge = [&uEdges, &EI, &EF](const int uEdgeIdx)
+  const auto & kill_edge = [&uEdges, &UeCornersInfo, &UeTrisInfo](const int uEdgeIdx)
   {
     uEdges(uEdgeIdx, 0) = IGL_COLLAPSE_EDGE_NULL; 
     uEdges(uEdgeIdx, 1) = IGL_COLLAPSE_EDGE_NULL; 
-    EF(uEdgeIdx, 0) = IGL_COLLAPSE_EDGE_NULL; 
-    EF(uEdgeIdx, 1) = IGL_COLLAPSE_EDGE_NULL; 
-    EI(uEdgeIdx, 0) = IGL_COLLAPSE_EDGE_NULL; 
-    EI(uEdgeIdx, 1) = IGL_COLLAPSE_EDGE_NULL; 
+    UeTrisInfo(uEdgeIdx, 0) = IGL_COLLAPSE_EDGE_NULL; 
+    UeTrisInfo(uEdgeIdx, 1) = IGL_COLLAPSE_EDGE_NULL; 
+    UeCornersInfo(uEdgeIdx, 0) = IGL_COLLAPSE_EDGE_NULL; 
+    UeCornersInfo(uEdgeIdx, 1) = IGL_COLLAPSE_EDGE_NULL; 
   }; 
 
   // update edge info for each flap
   const int trisCount = tris.rows(); 
   for(int side = 0; side<2; side++)
   {
-    const int f = EF(uEdgeIdx, side); 
-    const int v = EI(uEdgeIdx, side); 
+    const int f = UeTrisInfo(uEdgeIdx, side); 
+    const int v = UeCornersInfo(uEdgeIdx, side); 
     const int sign = (eFlipFlag==0?1:-1)*(1-2*side); 
     // next edge emanating from desIdx
     const int e1 = edgeUeInfo(f+trisCount*((v+sign*1+3)%3)); 
@@ -96,12 +96,12 @@ IGL_INLINE bool igl::collapse_edge(
     assert(uEdges(e1, 0) == desIdx || uEdges(e1, 1) == desIdx); 
     assert(uEdges(e2, 0) == srcIdx || uEdges(e2, 1) == srcIdx); 
     // face adjacent to f on e1,  also incident on desIdx
-    const bool flip1 = EF(e1, 1)==f; 
-    const int f1 = flip1 ? EF(e1, 0) : EF(e1, 1); 
+    const bool flip1 = UeTrisInfo(e1, 1)==f; 
+    const int f1 = flip1 ? UeTrisInfo(e1, 0) : UeTrisInfo(e1, 1); 
     assert(f1!=f); 
     assert(tris(f1, 0)==desIdx || tris(f1, 1)==desIdx || tris(f1, 2) == desIdx); 
     // across from which vertex of f1 does e1 appear?
-    const int v1 = flip1 ? EI(e1, 0) : EI(e1, 1); 
+    const int v1 = flip1 ? UeCornersInfo(e1, 0) : UeCornersInfo(e1, 1); 
     // Kill e1
     kill_edge(e1); 
     // Kill f
@@ -112,10 +112,10 @@ IGL_INLINE bool igl::collapse_edge(
     assert(edgeUeInfo(f1+trisCount*v1) == e1); 
     edgeUeInfo(f1+trisCount*v1) = e2; 
     // side opposite f2,  the face adjacent to f on e2,  also incident on srcIdx
-    const int opp2 = (EF(e2, 0)==f?0:1); 
-    assert(EF(e2, opp2) == f); 
-    EF(e2, opp2) = f1; 
-    EI(e2, opp2) = v1; 
+    const int opp2 = (UeTrisInfo(e2, 0)==f?0:1); 
+    assert(UeTrisInfo(e2, opp2) == f); 
+    UeTrisInfo(e2, opp2) = f1; 
+    UeCornersInfo(e2, opp2) = v1; 
     // remap e2 from desIdx to srcIdx
     uEdges(e2, 0) = uEdges(e2, 0)==desIdx ? srcIdx : uEdges(e2, 0); 
     uEdges(e2, 1) = uEdges(e2, 1)==desIdx ? srcIdx : uEdges(e2, 1); 
@@ -145,7 +145,7 @@ IGL_INLINE bool igl::collapse_edge(
         if(tris(f, v) == desIdx)
         {
           const int e1 = edgeUeInfo(f+trisCount*((v+1)%3)); 
-          const int flip1 = (EF(e1, 0)==f)?1:0; 
+          const int flip1 = (UeTrisInfo(e1, 0)==f)?1:0; 
           assert( uEdges(e1, flip1) == desIdx || uEdges(e1, flip1) == srcIdx); 
           uEdges(e1, flip1) = srcIdx; 
           const int e2 = edgeUeInfo(f+trisCount*((v+2)%3)); 
@@ -153,7 +153,7 @@ IGL_INLINE bool igl::collapse_edge(
           // Skip if we just handled this edge (claim: this will be all except for the first non-trivial face)
           if(e2 != p1)
           {
-            const int flip2 = (EF(e2, 0)==f)?0:1; 
+            const int flip2 = (UeTrisInfo(e2, 0)==f)?0:1; 
             assert( uEdges(e2, flip2) == desIdx || uEdges(e2, flip2) == srcIdx); 
             uEdges(e2, flip2) = srcIdx; 
           }
@@ -165,7 +165,6 @@ IGL_INLINE bool igl::collapse_edge(
       }
     }
   }
-
 
   // Finally,  "remove" this edge and its information
   kill_edge(uEdgeIdx); 
@@ -181,11 +180,11 @@ IGL_INLINE bool igl::collapse_edge(
   Eigen::MatrixXi & tris, 
   Eigen::MatrixXi & uEdges, 
   Eigen::VectorXi & edgeUeInfo, 
-  Eigen::MatrixXi & EF, 
-  Eigen::MatrixXi & EI)
+  Eigen::MatrixXi & UeTrisInfo, 
+  Eigen::MatrixXi & UeCornersInfo)
 {
   int e1, e2, f1, f2; 
-  return collapse_edge(uEdgeIdx, collapsedVer, vers, tris, uEdges, edgeUeInfo, EF, EI, e1, e2, f1, f2); 
+  return collapse_edge(uEdgeIdx, collapsedVer, vers, tris, uEdges, edgeUeInfo, UeTrisInfo, UeCornersInfo, e1, e2, f1, f2); 
 }
 
 
@@ -196,8 +195,8 @@ IGL_INLINE bool igl::collapse_edge(
   Eigen::MatrixXi & tris, 
   Eigen::MatrixXi & uEdges, 
   Eigen::VectorXi & edgeUeInfo, 
-  Eigen::MatrixXi & EF, 
-  Eigen::MatrixXi & EI, 
+  Eigen::MatrixXi & UeTrisInfo, 
+  Eigen::MatrixXi & UeCornersInfo, 
   igl::min_heap< std::tuple<double, int, int> > & workQueue, 
   Eigen::VectorXi & timeStamps, 
   Eigen::MatrixXd & collapsedVers)
@@ -211,7 +210,7 @@ IGL_INLINE bool igl::collapse_edge(
   
   return 
     collapse_edge(cost_and_placement, always_try, never_care, \
-            vers, tris, uEdges, edgeUeInfo, EF, EI, workQueue, timeStamps, collapsedVers, uEdgeIdx, e1, e2, f1, f2); 
+            vers, tris, uEdges, edgeUeInfo, UeTrisInfo, UeCornersInfo, workQueue, timeStamps, collapsedVers, uEdgeIdx, e1, e2, f1, f2); 
 }
 
 
@@ -224,8 +223,8 @@ IGL_INLINE bool igl::collapse_edge(
   Eigen::MatrixXi & tris, 
   Eigen::MatrixXi & uEdges, 
   Eigen::VectorXi & edgeUeInfo, 
-  Eigen::MatrixXi & EF, 
-  Eigen::MatrixXi & EI, 
+  Eigen::MatrixXi & UeTrisInfo, 
+  Eigen::MatrixXi & UeCornersInfo, 
   igl::min_heap< std::tuple<double, int, int> > & workQueue, 
   Eigen::VectorXi & timeStamps, 
   Eigen::MatrixXd & collapsedVers)
@@ -234,7 +233,7 @@ IGL_INLINE bool igl::collapse_edge(
   return 
     collapse_edge(
       cost_and_placement, pre_collapse, post_collapse, 
-      vers, tris, uEdges, edgeUeInfo, EF, EI, workQueue, timeStamps, collapsedVers, uEdgeIdx, e1, e2, f1, f2); 
+      vers, tris, uEdges, edgeUeInfo, UeTrisInfo, UeCornersInfo, workQueue, timeStamps, collapsedVers, uEdgeIdx, e1, e2, f1, f2); 
 }
 
 
@@ -247,13 +246,13 @@ IGL_INLINE bool igl::collapse_edge(
   Eigen::MatrixXi & tris, 
   Eigen::MatrixXi & uEdges, 
   Eigen::VectorXi & edgeUeInfo, 
-  Eigen::MatrixXi & EF, 
-  Eigen::MatrixXi & EI, 
-  igl::min_heap< std::tuple<double, int, int> > & workQueue, 
-  Eigen::VectorXi & timeStamps, 
-  Eigen::MatrixXd & collapsedVers, 
-  int & uEdgeIdx, 
-  int & e1, 
+  Eigen::MatrixXi & UeTrisInfo, 
+  Eigen::MatrixXi & UeCornersInfo, 
+  igl::min_heap< std::tuple<double, int, int> > & workQueue,        // 存储边cost值的优先队列；
+  Eigen::VectorXi & timeStamps,         // timeStamps列表 
+  Eigen::MatrixXd & collapsedVers,          // 每条边折叠之后的顶点
+  int & uEdgeIdx,                               // 队首的被折叠的无向边索引；
+  int & e1,                             
   int & e2, 
   int & f1, 
   int & f2)
@@ -265,13 +264,14 @@ IGL_INLINE bool igl::collapse_edge(
   std::tuple<double, int, int> edgeTuple; 
   while(true)
   {
+      // 1.1
     if(workQueue.empty())   // no uEdges to collapse
     {
       uEdgeIdx = -1; 
       return false; 
     }
 
-    // 出队：
+    // 1.2取队首元素，队首元素出队：
     edgeTuple = workQueue.top(); 
     if(std::get<0>(edgeTuple) == std::numeric_limits<double>::infinity())
     {
@@ -279,12 +279,13 @@ IGL_INLINE bool igl::collapse_edge(
       return false; 
     }
     workQueue.pop(); 
-    uEdgeIdx = std::get<1>(edgeTuple); 
+    uEdgeIdx = std::get<1>(edgeTuple);          // 队首的无向边索引;
 
-    // Check if matches timestamp
+    // 1.3 Check if matches timestamp
     if(std::get<2>(edgeTuple) == timeStamps(uEdgeIdx))
          break; 
 
+    // 1.4
     assert(std::get<2>(edgeTuple)  < timeStamps(uEdgeIdx) || timeStamps(uEdgeIdx) == -1);          // must be stale or dead.
   }
  
@@ -292,22 +293,22 @@ IGL_INLINE bool igl::collapse_edge(
   
   // 2. 计算当前边两端点1领域的顶点、三角片：
   std::vector<int> nbrTrisIdx_src, nbrVersIdx_src; 
-  circulation(uEdgeIdx, true, tris, edgeUeInfo, EF, EI,  nbrVersIdx_src, nbrTrisIdx_src); 
+  circulation(uEdgeIdx, true, tris, edgeUeInfo, UeTrisInfo, UeCornersInfo,  nbrVersIdx_src, nbrTrisIdx_src); 
   std::vector<int>  nbrTrisIdx_des, nbrVersIdx_des; 
-  circulation(uEdgeIdx,  false, tris, edgeUeInfo, EF, EI,  nbrVersIdx_des, nbrTrisIdx_des); 
+  circulation(uEdgeIdx,  false, tris, edgeUeInfo, UeTrisInfo, UeCornersInfo,  nbrVersIdx_des, nbrTrisIdx_des); 
 
 
   // 3. 折叠队首的边：
   bool collapsed = true; 
-  if(pre_collapse(vers, tris, uEdges, edgeUeInfo, EF, EI, workQueue, timeStamps, collapsedVers, uEdgeIdx)) // 默认情形下pre_collapse()什么都不做
-        collapsed = collapse_edge(uEdgeIdx, collapsedVers.row(uEdgeIdx), nbrVersIdx_src, nbrTrisIdx_src, nbrVersIdx_des, nbrTrisIdx_des, vers, tris, uEdges, edgeUeInfo, EF, EI, e1, e2, f1, f2); 
+  if(pre_collapse(vers, tris, uEdges, edgeUeInfo, UeTrisInfo, UeCornersInfo, workQueue, timeStamps, collapsedVers, uEdgeIdx)) // 默认情形下pre_collapse()什么都不做
+        collapsed = collapse_edge(uEdgeIdx, collapsedVers.row(uEdgeIdx), nbrVersIdx_src, nbrTrisIdx_src, nbrVersIdx_des, nbrTrisIdx_des, vers, tris, uEdges, edgeUeInfo, UeTrisInfo, UeCornersInfo, e1, e2, f1, f2); 
   else
         collapsed = false;                       // Aborted by pre collapse callback
 
-  post_collapse(vers, tris, uEdges, edgeUeInfo, EF, EI, workQueue, timeStamps, \
+  post_collapse(vers, tris, uEdges, edgeUeInfo, UeTrisInfo, UeCornersInfo, workQueue, timeStamps, \
         collapsedVers, uEdgeIdx, e1, e2, f1, f2, collapsed);          // 默认情形下post_collapse()什么都不做
 
-   // 4. 
+   // 4. 折叠操作之后，更新相关timeStamp， 更新相关边的cost值
   if(collapsed)
   {
     // 4.1 Erase the two,  other collapsed uEdges by marking their timestamps as -1
@@ -356,7 +357,7 @@ IGL_INLINE bool igl::collapse_edge(
        // 计算边折叠的cost值，及折叠后的顶点坐标：
        double cost; 
        RowVectorXd place; 
-       cost_and_placement(ueIdx, vers, tris, uEdges, edgeUeInfo, EF, EI, cost, place); 
+       cost_and_placement(ueIdx, vers, tris, uEdges, edgeUeInfo, UeTrisInfo, UeCornersInfo, cost, place); 
 
        // Increment timestamp
        timeStamps(ueIdx)++; 

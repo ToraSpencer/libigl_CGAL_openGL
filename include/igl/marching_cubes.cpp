@@ -7,6 +7,7 @@
 // Adapted from public domain code at http://paulbourke.net/geometry/polygonise/marchingsource.cpp
 
 
+// marching_cubes()重载1：
 template <typename DerivedS,  typename DerivedGV,  typename DerivedV,  typename DerivedF>
 IGL_INLINE void igl::marching_cubes(
     const Eigen::MatrixBase<DerivedS> &scalarFied, 
@@ -26,8 +27,8 @@ IGL_INLINE void igl::marching_cubes(
   std::unordered_map<int64_t,  int> E2V;
   versResult.resize(std::pow(nx*ny*nz, 2./3.), 3);
   trisResult.resize(std::pow(nx*ny*nz, 2./3.), 3);
-  Index n = 0;
-  Index m = 0;
+  Index curVersCount = 0;
+  Index curTrisCount = 0;
 
   // lambda——栅格的三维下标映射到一维的索引：
   const auto xyz2i = [&nx, &ny, &nz](const int & x,  const int & y,  const int & z)->unsigned
@@ -36,25 +37,24 @@ IGL_INLINE void igl::marching_cubes(
   };
 
   // lambda
-  const auto cube = [&gridCenters, &scalarFied, &versResult, &n, &trisResult, &m, &isovalue, &E2V, &xyz2i, &ioffset]
+  const auto cube = [&gridCenters, &scalarFied, &versResult, &curVersCount, &trisResult, &curTrisCount, &isovalue, &E2V, &xyz2i, &ioffset]
   (const int x,  const int y,  const int z)
   {
-    const unsigned i = xyz2i(x, y, z);
+    const unsigned gridIdx = xyz2i(x, y, z);
 
     // Make a local copy of the values at the cube's corners
-    static Eigen::Matrix<Scalar, 8, 1> cS;
-    static Eigen::Matrix<Index, 8, 1> cI;
+    static Eigen::Matrix<Scalar, 8, 1> cS;              // 方块的八个顶点的SDF值？？
+    static Eigen::Matrix<Index, 8, 1> cI;               // 方块的八个顶点在栅格中的索引？？
 
     // Find which vertices are inside of the surface and which are outside
-    for(int c = 0; c < 8; c++)
+    for(int i = 0; i < 8; i++)
     {
-      const unsigned originIdx = i + ioffset[c];
-      cI(c) = originIdx;
-      cS(c) = scalarFied(originIdx);
+      const unsigned originIdx = gridIdx + ioffset[i];
+      cI(i) = originIdx;
+      cS(i) = scalarFied(originIdx);
     }
 
-  march_cube(gridCenters, cS, cI, isovalue, versResult, n, trisResult, m, E2V);
-
+  march_cube(gridCenters, cS, cI, isovalue, versResult, curVersCount, trisResult, curTrisCount, E2V);
   };
 
 
@@ -62,20 +62,16 @@ IGL_INLINE void igl::marching_cubes(
   /*
        Should be possible to parallelize safely if threads are "well separated".
        Like red-black Gauss Seidel. Probably each thread need's their own E2V, versResult, trisResult, 
-       and then merge at the end. Annoying part are the edges lying on the
-        interface between chunks.  
+             and then merge at the end. 
+       Annoying part are the edges lying on the  interface between chunks.  
   */ 
   for(int z=0;z<nz-1;z++)
-  {
-    for(int y=0;y<ny-1;y++)
-    {
+    for(int y=0;y<ny-1;y++) 
       for(int x=0;x<nx-1;x++)
-          cube(x, y, z);
-    }
-  }
+          cube(x, y, z); 
 
-  versResult.conservativeResize(n, 3);
-  trisResult.conservativeResize(m, 3);
+  versResult.conservativeResize(curVersCount, 3);
+  trisResult.conservativeResize(curTrisCount, 3);
 }
 
 
@@ -99,25 +95,26 @@ IGL_INLINE void igl::marching_cubes(
   std::unordered_map<int64_t, int> E2V;
   versResult.resize(4*gridCenters.rows(), 3);
   trisResult.resize(4*gridCenters.rows(), 3);
-  Index n = 0;
-  Index m = 0;
+  Index curVersCount = 0;
+  Index curTrisCount = 0;
 
   // march over cubes
-  for(Index c = 0;c<GI.rows();c++)
+  for(Index i = 0;i<GI.rows();i++)
   {
     //Make a local copy of the values at the cube's corners
     static Eigen::Matrix<Scalar, 8, 1> cS;
     static Eigen::Matrix<Index, 8, 1> cI;
-    for(int v = 0; v < 8; v++)
+    for(int k = 0; k < 8; k++)
     {
-      cI(v) = GI(c, v);
-      cS(v) = scalarFied(GI(c, v));
+      cI(k) = GI(i, k);
+      cS(k) = scalarFied(GI(i, k));
     }
-    march_cube(gridCenters, cS, cI, isovalue, versResult, n, trisResult, m, E2V);
+    march_cube(gridCenters, cS, cI, isovalue, versResult, curVersCount, trisResult, curTrisCount, E2V);
   }
-  versResult.conservativeResize(n, 3);
-  trisResult.conservativeResize(m, 3);
+  versResult.conservativeResize(curVersCount, 3);
+  trisResult.conservativeResize(curTrisCount, 3);
 }
+
 
 #ifdef IGL_STATIC_LIBRARY
 // Explicit template instantiation
