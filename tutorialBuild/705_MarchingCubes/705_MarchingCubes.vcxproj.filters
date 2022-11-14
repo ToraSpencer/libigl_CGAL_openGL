@@ -4,10 +4,36 @@
     <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\tutorial\705_MarchingCubes\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\include\igl\march_cube.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\igl\marching_cubes.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\include\igl\marching_tets.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
       <UniqueIdentifier>{18953F89-488E-399C-8A5D-B5FE92FAA7FF}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Head Files">
+      <UniqueIdentifier>{fd53a05d-c4ce-456d-ade5-68876e736b9e}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\igl\march_cube.h">
+      <Filter>Head Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\igl\marching_cubes.h">
+      <Filter>Head Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\igl\marching_cubes_tables.h">
+      <Filter>Head Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\include\igl\marching_tets.h">
+      <Filter>Head Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
