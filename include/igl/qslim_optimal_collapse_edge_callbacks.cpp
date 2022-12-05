@@ -5,9 +5,8 @@
 
 // 生成qslim网格精简算法中需要使用的函数子—— cost_and_placement(), pre_collapse(), post_collapse();
 IGL_INLINE void igl::qslim_optimal_collapse_edge_callbacks(
-  Eigen::MatrixXi & E,
-  std::vector<std::tuple<Eigen::MatrixXd,Eigen::RowVectorXd,double> > & 
-    quadrics,
+  Eigen::MatrixXi & uEdges,
+  std::vector<std::tuple<Eigen::MatrixXd,Eigen::RowVectorXd,double> > &quadrics,
   int & v1,
   int & v2,
   decimate_cost_and_placement_callback & cost_and_placement,
@@ -18,33 +17,33 @@ IGL_INLINE void igl::qslim_optimal_collapse_edge_callbacks(
 
   // lambda——cost_and_placement()——qslim算法中计算每条边折叠的cost值，以及折叠后顶点的位置：
   cost_and_placement = [&quadrics,&v1,&v2](
-    const int e,
+    const int ueIdx,
     const Eigen::MatrixXd & vers,
     const Eigen::MatrixXi & /*tris*/,
-    const Eigen::MatrixXi & E,
+    const Eigen::MatrixXi & uEdges,
     const Eigen::VectorXi & /*edgeUeInfo*/,
     const Eigen::MatrixXi & /*EF*/,
     const Eigen::MatrixXi & /*EI*/,
     double & cost,
-    Eigen::RowVectorXd & p)
+    Eigen::RowVectorXd & place)
   {
     // Combined quadric
     Quadric quadric_p;
-    quadric_p = quadrics[E(e,0)] + quadrics[E(e,1)];
+    quadric_p = quadrics[uEdges(ueIdx,0)] + quadrics[uEdges(ueIdx,1)];
 
-    // Quadric: p'Ap + 2b'p + c,  optimal point: Ap = -b, or rather because we have row vectors: pA=-b
+    // Quadric: place'Ap + 2b'place + c,  optimal point: Ap = -b, or rather because we have row vectors: pA=-b
     const auto & A = std::get<0>(quadric_p);
     const auto & b = std::get<1>(quadric_p);
     const auto & c = std::get<2>(quadric_p);
-    p = -b*A.inverse();
-    cost = p.dot(p*A) + 2*p.dot(b) + c;
+    place = -b*A.inverse();
+    cost = place.dot(place*A) + 2*place.dot(b) + c;
 
     // Force infs and nans to infinity
     if(std::isinf(cost) || cost!=cost)
     {
       cost = std::numeric_limits<double>::infinity();
       // Prevent NaNs. Actually NaNs might be useful for debugging.
-      p.setConstant(0);
+      place.setConstant(0);
     }
   };
 
@@ -53,17 +52,17 @@ IGL_INLINE void igl::qslim_optimal_collapse_edge_callbacks(
   pre_collapse = [&v1,&v2](
     const Eigen::MatrixXd &                             ,/*vers*/
     const Eigen::MatrixXi &                             ,/*tris*/
-    const Eigen::MatrixXi & E                           ,
+    const Eigen::MatrixXi & uEdges                           ,
     const Eigen::VectorXi &                             ,/*edgeUeInfo*/
     const Eigen::MatrixXi &                             ,/*EF*/
     const Eigen::MatrixXi &                             ,/*EI*/
     const igl::min_heap< std::tuple<double,int,int> > & ,/*Q*/
     const Eigen::VectorXi &                             ,/*EQ*/
     const Eigen::MatrixXd &                             ,/*C*/
-    const int e)->bool
+    const int ueIdx)->bool
   {
-    v1 = E(e,0);
-    v2 = E(e,1);
+    v1 = uEdges(ueIdx,0);
+    v2 = uEdges(ueIdx,1);
     return true;
   };
 
@@ -72,14 +71,14 @@ IGL_INLINE void igl::qslim_optimal_collapse_edge_callbacks(
   post_collapse = [&v1,&v2,&quadrics](
       const Eigen::MatrixXd &                             ,   /*vers*/
       const Eigen::MatrixXi &                             ,   /*tris*/
-      const Eigen::MatrixXi &                             ,   /*E*/
+      const Eigen::MatrixXi &                             ,   /*uEdges*/
       const Eigen::VectorXi &                             ,/*edgeUeInfo*/
       const Eigen::MatrixXi &                             ,  /*EF*/
       const Eigen::MatrixXi &                             ,  /*EI*/
       const igl::min_heap< std::tuple<double,int,int> > & ,/*Q*/
       const Eigen::VectorXi &                             ,/*EQ*/
       const Eigen::MatrixXd &                             ,   /*C*/
-      const int                                           ,   /*e*/
+      const int                                           ,   /*ueIdx*/
       const int                                           ,  /*e1*/
       const int                                           ,  /*e2*/
       const int                                           ,  /*f1*/

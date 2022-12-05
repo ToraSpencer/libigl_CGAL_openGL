@@ -249,9 +249,9 @@ IGL_INLINE bool igl::collapse_edge(
   Eigen::MatrixXi & UeTrisInfo, 
   Eigen::MatrixXi & UeCornersInfo, 
   igl::min_heap< std::tuple<double, int, int> > & workQueue,        // 存储边cost值的优先队列；
-  Eigen::VectorXi & timeStamps,         // timeStamps列表 
+  Eigen::VectorXi & timeStamps,                 // timeStamps列表 
   Eigen::MatrixXd & collapsedVers,          // 每条边折叠之后的顶点
-  int & uEdgeIdx,                               // 队首的被折叠的无向边索引；
+  int & uEdgeIdx,                                        // 队首的被折叠的无向边索引；
   int & e1,                             
   int & e2, 
   int & f1, 
@@ -260,11 +260,11 @@ IGL_INLINE bool igl::collapse_edge(
   using namespace Eigen; 
   using namespace igl; 
 
-  // 1. 队列的循环
+  // 1. 取队首元素，队首元素出队：
   std::tuple<double, int, int> edgeTuple; 
   while(true)
   {
-      // 1.1
+      // 1.1 若队列为空，退出循环；
     if(workQueue.empty())   // no uEdges to collapse
     {
       uEdgeIdx = -1; 
@@ -285,7 +285,7 @@ IGL_INLINE bool igl::collapse_edge(
     if(std::get<2>(edgeTuple) == timeStamps(uEdgeIdx))
          break; 
 
-    // 1.4
+    // 1.4 错误处理
     assert(std::get<2>(edgeTuple)  < timeStamps(uEdgeIdx) || timeStamps(uEdgeIdx) == -1);          // must be stale or dead.
   }
  

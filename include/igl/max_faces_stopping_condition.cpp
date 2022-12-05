@@ -1,13 +1,14 @@
 #include "max_faces_stopping_condition.h"
 
+
 IGL_INLINE void igl::max_faces_stopping_condition(
-  int & m,
-  const int orig_m,
-  const int max_m,
+  int & trisCountNew,
+  const int trisCount,
+  const int tarTrisCount,
   decimate_stopping_condition_callback & stopping_condition)
 {
   stopping_condition = 
-    [orig_m,max_m,&m](
+    [trisCount,tarTrisCount,&trisCountNew](
     const Eigen::MatrixXd &,
     const Eigen::MatrixXi &,
     const Eigen::MatrixXi &,
@@ -24,19 +25,23 @@ IGL_INLINE void igl::max_faces_stopping_condition(
     const int f2)->bool
     {
       // Only subtract if we're collapsing a real face
-      if(f1 < orig_m) m-=1;
-      if(f2 < orig_m) m-=1;
-      return m<=(int)max_m;
+      if(f1 < trisCount) 
+          trisCountNew-=1;
+      if(f2 < trisCount) 
+          trisCountNew-=1;
+
+      return trisCountNew<=(int)tarTrisCount;
     };
 }
 
+
 IGL_INLINE igl::decimate_stopping_condition_callback
 igl::max_faces_stopping_condition(
-  int & m,
-  const int orig_m,
-  const int max_m)
+  int & trisCountNew,
+  const int trisCount,
+  const int tarTrisCount)
 {
   decimate_stopping_condition_callback stopping_condition;
-  max_faces_stopping_condition(m,orig_m,max_m,stopping_condition);
+  max_faces_stopping_condition(trisCountNew,trisCount,tarTrisCount,stopping_condition);
   return stopping_condition;
 }
