@@ -13,21 +13,21 @@ template <
 IGL_INLINE void igl::remove_duplicate_vertices(
   const Eigen::MatrixBase<DerivedV>& vers,
   const double epsilon,
-  Eigen::PlainObjectBase<DerivedSV>& SV,
-  Eigen::PlainObjectBase<DerivedSVI>& SVI,
-  Eigen::PlainObjectBase<DerivedSVJ>& SVJ)
+  Eigen::PlainObjectBase<DerivedSV>& versOut,
+  Eigen::PlainObjectBase<DerivedSVI>& selectedIdxes,
+  Eigen::PlainObjectBase<DerivedSVJ>& oldNewIdxInfo)
 {
   if(epsilon > 0)
   {
-    DerivedV rV,rSV;
-    round((vers/(epsilon)).eval(),rV);
-    unique_rows(rV,rSV,SVI,SVJ);
-    slice(vers,SVI,colon<typename DerivedSVI::Scalar>(0,vers.cols()-1),SV);
-  }else
-  {
-    unique_rows(vers,SV,SVI,SVJ);
+    DerivedV rV, rSV;
+    round((vers/(epsilon)).eval(), rV);
+    unique_rows(rV, rSV, selectedIdxes, oldNewIdxInfo);
+    slice(vers, selectedIdxes, colon<typename DerivedSVI::Scalar>(0, vers.cols()-1), versOut);
   }
+  else
+    unique_rows(vers, versOut, selectedIdxes, oldNewIdxInfo);         // 若epsilon == 0, 则对顶点去重；
 }
+
 
 template <
   typename DerivedV, 
@@ -40,23 +40,22 @@ IGL_INLINE void igl::remove_duplicate_vertices(
   const Eigen::MatrixBase<DerivedV>& vers,
   const Eigen::MatrixBase<DerivedF>& tris,
   const double epsilon,
-  Eigen::PlainObjectBase<DerivedSV>& SV,
-  Eigen::PlainObjectBase<DerivedSVI>& SVI,
-  Eigen::PlainObjectBase<DerivedSVJ>& SVJ,
+  Eigen::PlainObjectBase<DerivedSV>& versOut,
+  Eigen::PlainObjectBase<DerivedSVI>& selectedIdxes,
+  Eigen::PlainObjectBase<DerivedSVJ>& oldNewIdxInfo,
   Eigen::PlainObjectBase<DerivedSF>& SF)
 {
   using namespace Eigen;
   using namespace std;
-  remove_duplicate_vertices(vers,epsilon,SV,SVI,SVJ);
+  remove_duplicate_vertices(vers,epsilon,versOut,selectedIdxes,oldNewIdxInfo);
   SF.resizeLike(tris);
   for(int f = 0;f<tris.rows();f++)
-  {
     for(int c = 0;c<tris.cols();c++)
-    {
-      SF(f,c) = SVJ(tris(f,c));
-    }
-  }
+      SF(f,c) = oldNewIdxInfo(tris(f,c));
 }
+
+
+
 
 #ifdef IGL_STATIC_LIBRARY
 // Explicit template instantiation

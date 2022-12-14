@@ -598,6 +598,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "igl_opengl_glfw", "igl_open
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "604_Triangle", "604_Triangle\604_Triangle.vcxproj", "{7CADC562-526F-371C-9F7B-60056C3E904F}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "606_AmbientOcclusion", "606_AmbientOcclusion\606_AmbientOcclusion.vcxproj", "{46139666-00BE-3A18-9443-E7AAE4BB9A5D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -1066,6 +1068,14 @@ Global
 		{7CADC562-526F-371C-9F7B-60056C3E904F}.Release|x64.Build.0 = Release|x64
 		{7CADC562-526F-371C-9F7B-60056C3E904F}.RelWithDebInfo|x64.ActiveCfg = RelWithDebInfo|x64
 		{7CADC562-526F-371C-9F7B-60056C3E904F}.RelWithDebInfo|x64.Build.0 = RelWithDebInfo|x64
+		{46139666-00BE-3A18-9443-E7AAE4BB9A5D}.Debug|x64.ActiveCfg = Debug|x64
+		{46139666-00BE-3A18-9443-E7AAE4BB9A5D}.Debug|x64.Build.0 = Debug|x64
+		{46139666-00BE-3A18-9443-E7AAE4BB9A5D}.MinSizeRel|x64.ActiveCfg = MinSizeRel|x64
+		{46139666-00BE-3A18-9443-E7AAE4BB9A5D}.MinSizeRel|x64.Build.0 = MinSizeRel|x64
+		{46139666-00BE-3A18-9443-E7AAE4BB9A5D}.Release|x64.ActiveCfg = Release|x64
+		{46139666-00BE-3A18-9443-E7AAE4BB9A5D}.Release|x64.Build.0 = Release|x64
+		{46139666-00BE-3A18-9443-E7AAE4BB9A5D}.RelWithDebInfo|x64.ActiveCfg = RelWithDebInfo|x64
+		{46139666-00BE-3A18-9443-E7AAE4BB9A5D}.RelWithDebInfo|x64.Build.0 = RelWithDebInfo|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

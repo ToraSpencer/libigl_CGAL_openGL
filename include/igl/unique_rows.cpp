@@ -1,10 +1,3 @@
-// This file is part of libigl, a simple c++ geometry processing library.
-//
-// Copyright (C) 2017 Alec Jacobson <alecjacobson@gmail.com>
-//
-// This Source Code Form is subject to the terms of the Mozilla Public License
-// v. 2.0. If a copy of the MPL was not distributed with this file, You can
-// obtain one at http://mozilla.org/MPL/2.0/.
 #include "unique_rows.h"
 #include "sortrows.h"
 
@@ -26,44 +19,40 @@ IGL_INLINE void igl::unique_rows(
   DerivedA sortA;
   sortrows(A,true,sortA,IM);
 
-
   const int num_rows = sortA.rows();
   const int num_cols = sortA.cols();
   vector<int> vIA(num_rows);
   for(int i=0;i<num_rows;i++)
-  {
     vIA[i] = i;
-  }
 
-  auto index_equal = [&sortA, &num_cols](const size_t i, const size_t j) {
-    for (size_t c=0; c<num_cols; c++) {
+  // lambda
+  auto index_equal = [&sortA, &num_cols](const size_t i, const size_t j) 
+  {
+    for (size_t c=0; c<num_cols; c++) 
       if (sortA(i,c) != sortA(j,c))
         return false;
-    }
+    
     return true;
   };
-  vIA.erase(
-    std::unique(
-    vIA.begin(),
-    vIA.end(),
-    index_equal
-    ),vIA.end());
+
+  vIA.erase(std::unique(vIA.begin(), vIA.end(), index_equal),vIA.end());
 
   IC.resize(A.rows(),1);
+
   {
     int j = 0;
     for(int i = 0;i<num_rows;i++)
     {
       if(sortA.row(vIA[j]) != sortA.row(i))
-      {
         j++;
-      }
       IC(IM(i,0),0) = j;
     }
   }
+
   const int unique_rows = vIA.size();
   C.resize(unique_rows,A.cols());
   IA.resize(unique_rows,1);
+
   // Reindex IA according to IM
   for(int i = 0;i<unique_rows;i++)
   {
@@ -71,6 +60,7 @@ IGL_INLINE void igl::unique_rows(
     C.row(i) = A.row(IA(i,0));
   }
 }
+
 
 #ifdef IGL_STATIC_LIBRARY
 // Explicit template instantiation
