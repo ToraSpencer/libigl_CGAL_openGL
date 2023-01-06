@@ -25,106 +25,115 @@ IGL_INLINE void igl::march_cube(
   const Scalar & isovalue, 
   Eigen::PlainObjectBase<DerivedV> &versResult, 
   Index & curVersCount, 
-  Eigen::PlainObjectBase<DerivedF> &tris, 
+  Eigen::PlainObjectBase<DerivedF> &trisResult, 
   Index & curTrisCount, 
-  std::unordered_map<int64_t, int> & E2V)
+  std::unordered_map<int64_t, int> & edgeIsctMap)
 {
+    /*
+    const DerivedGV& gridCenters,															栅格数据
+    const Eigen::Matrix<Scalar, 8, 1>& cornerSDF,									当前立方体八个顶点的SDF值
+    const Eigen::Matrix<Index, 8, 1>& cornerIdx,									当前立方体八个顶点在栅格中的索引；
+    const Scalar& isovalue,																		需要提取的等值面的SDF值
+    Eigen::PlainObjectBase<DerivedV>& versResult,								输出网格的顶点
+    Index& curVersCount,																			当前累计生成的输出网格顶点数
+    Eigen::PlainObjectBase<DerivedF>& trisResult,									输出网格的三角片
+    Index& curTrisCount,																			当前累计生成的输出网格三角片数
+    std::unordered_map<int64_t, int>& edgeIsctMap								边编码-边交点索引的哈希表；
+*/
+
 
 // These consts get stored reasonably
 #include "marching_cubes_tables.h"
 
   // Seems this is also successfully inlined
-  const auto ij2vertex = [&E2V, &versResult, &curVersCount, &gridCenters](const Index & i,  const Index & j,  const Scalar & t)->Index
+  const auto ij2vertex = [&edgeIsctMap, &versResult, &curVersCount, &gridCenters](const Index & i,  const Index & j,  const Scalar & t)->Index
   {
     // Seems this is successfully inlined.
-    const auto ij2key = [](int32_t i, int32_t j)
+    const auto genMCedgeCode = [](int32_t vaIdx, int32_t vbIdx)
     {
-      if(i>j){ std::swap(i, j); }
-      std::int64_t ret = 0;
-      ret |= i;
-      ret |= static_cast<std::int64_t>(j) << 32;
-      return ret;
+      if(vaIdx > vbIdx)
+          std::swap(vaIdx, vbIdx);
+      std::int64_t edgeCode = 0;
+      edgeCode |= vaIdx;
+      edgeCode |= static_cast<std::int64_t>(vbIdx) << 32;
+      return edgeCode;
     };
 
-    const auto key = ij2key(i, j);
-    const auto it = E2V.find(key);
+    const auto edgeCode = genMCedgeCode(i, j);
+    const auto iter = edgeIsctMap.find(edgeCode);
     int v = -1;
 
-    if(it == E2V.end())
+    if(iter == edgeIsctMap.end())
     {
       // 生成新的顶点：
       if(curVersCount==versResult.rows())
           versResult.conservativeResize(versResult.rows()*2+1, versResult.cols()); 
       versResult.row(curVersCount) = gridCenters.row(i) + t*(gridCenters.row(j) - gridCenters.row(i));
       v = curVersCount;
-      E2V[key] = v;
+      edgeIsctMap[edgeCode] = v;
       curVersCount++;
     }
     else
-      v = it->second;
+      v = iter->second;
     
     return v;
   };
 
-    int c_flags = 0;
-    for(int c = 0; c < 8; c++)
+  // 1. 计算当前立方体的顶点状态编码，即8个顶点在等值面的内外状态1；
+  Eigen::Matrix<Index, 12, 1> isctVerIdxes;           // 立方体边上的交点的绝对索引——是在最终输出网格中的索引；
+  int cornerState = 0;											// 立方体顶点状态编码；256种情形；
+  for(int c = 0; c < 8; c++)
       if(cornerSDF(c) > isovalue)
-        c_flags |= 1<<c; 
+          cornerState |= 1<<c; 
 
-    // Find which edges are intersected by the surface
-    int e_flags = aiCubeEdgeFlags[c_flags];
+    // 2. 确定当前立方体中和等值面相交的边；
+    int edgeState = aiCubeEdgeFlags[cornerState];
     
     // If the cube is entirely inside or outside of the surface,  then there will be no intersections
-    if(e_flags == 0)
+    if(edgeState == 0)
         return; 
 
-    // Find the point of intersection of the surface with each edge. Then find the normal to the surface at those points
-    Eigen::Matrix<Index, 12, 1> edge_vertices;
-    for(int e = 0; e < 12; e++)
+    // 3. 确定等值面和当前立方体的边的交点； Find the point of intersection of the surface with each edge. Then find the normal to the surface at those points
+    for(int i = 0; i < 12; i++)
     {
 #ifndef NDEBUG
-      edge_vertices[e] = -1;
+      isctVerIdxes[i] = -1;
 #endif
 
       //if there is an intersection on this edge
-      if(e_flags & (1<<e))
+      if(edgeState & (1<<i))
       {
         // find crossing point assuming linear interpolation along edges
-        const Scalar & a = cornerSDF(a2eConnection[e][0]);
-        const Scalar & b = cornerSDF(a2eConnection[e][1]);
+        const Scalar & SDFa = cornerSDF(a2eConnection[i][0]);
+        const Scalar & SDFb = cornerSDF(a2eConnection[i][1]);
         Scalar t;
-        {
-          const Scalar delta = b-a;
-          if(delta == 0)
-              t = 0.5; 
-
-          t = (isovalue - a)/delta;
-        };
+        const Scalar delta = SDFb-SDFa;
+        t = (isovalue - SDFa)/delta;
 
         // record global index into local table
-        edge_vertices[e] = ij2vertex(cornerIdx(a2eConnection[e][0]), cornerIdx(a2eConnection[e][1]), t);
-        assert(edge_vertices[e] >= 0);
-        assert(edge_vertices[e] < curVersCount);
+        isctVerIdxes[i] = ij2vertex(cornerIdx(a2eConnection[i][0]), cornerIdx(a2eConnection[i][1]), t);
+        assert(isctVerIdxes[i] >= 0);
+        assert(isctVerIdxes[i] < curVersCount);
       }
     }
 
-    // Insert the triangles that were found.  There can be up to five per cube
-    for(int f = 0; f < 5; f++)
+    // 4. 生成当前立方体中的三角片，一个立方体中最多生成5个三角片；
+    for(int i = 0; i < 5; i++)
     {
-      if(a2fConnectionTable[c_flags][3*f] < 0) 
+      if(a2fConnectionTable[cornerState][3*i] < 0) 
           break;
       
-      if(curTrisCount==tris.rows())
-          tris.conservativeResize(tris.rows()*2+1, tris.cols()); 
+      if(curTrisCount==trisResult.rows())
+          trisResult.conservativeResize(trisResult.rows()*2+1, trisResult.cols()); 
 
-      assert(edge_vertices[a2fConnectionTable[c_flags][3*f+0]]>=0);
-      assert(edge_vertices[a2fConnectionTable[c_flags][3*f+1]]>=0);
-      assert(edge_vertices[a2fConnectionTable[c_flags][3*f+2]]>=0);
+      assert(isctVerIdxes[a2fConnectionTable[cornerState][3*i+0]]>=0);
+      assert(isctVerIdxes[a2fConnectionTable[cornerState][3*i+1]]>=0);
+      assert(isctVerIdxes[a2fConnectionTable[cornerState][3*i+2]]>=0);
 
-      tris.row(curTrisCount) <<
-        edge_vertices[a2fConnectionTable[c_flags][3*f+0]], 
-        edge_vertices[a2fConnectionTable[c_flags][3*f+1]], 
-        edge_vertices[a2fConnectionTable[c_flags][3*f+2]];
+      trisResult.row(curTrisCount) <<
+        isctVerIdxes[a2fConnectionTable[cornerState][3*i+0]], 
+        isctVerIdxes[a2fConnectionTable[cornerState][3*i+1]], 
+        isctVerIdxes[a2fConnectionTable[cornerState][3*i+2]];
       curTrisCount++;
     }
 }

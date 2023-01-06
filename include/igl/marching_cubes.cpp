@@ -23,8 +23,8 @@ IGL_INLINE void igl::marching_cubes(
   typedef unsigned Index;
 
   // use same order as a2fVertexOffset
-  const unsigned ioffset[8] = {0, 1, 1+nx, nx, nx*ny, 1+nx*ny, 1+nx+nx*ny, nx+nx*ny};
-  std::unordered_map<int64_t,  int> E2V;
+  const unsigned cornerIdxOffset[8] = {0, 1, 1+nx, nx, nx*ny, 1+nx*ny, 1+nx+nx*ny, nx+nx*ny};
+  std::unordered_map<int64_t,  int> edgeIsctMap;
   versResult.resize(std::pow(nx*ny*nz, 2./3.), 3);
   trisResult.resize(std::pow(nx*ny*nz, 2./3.), 3);
   Index curVersCount = 0;
@@ -32,46 +32,48 @@ IGL_INLINE void igl::marching_cubes(
 
 
   // lambda——栅格的三维下标映射到一维的索引：
-  const auto xyz2Idx = [&nx, &ny, &nz](const int & x,  const int & y,  const int & z)->unsigned
+  const auto getGridIdx = [&nx, &ny, &nz](const int & x,  const int & y,  const int & z)->unsigned
   {
     return x+nx*(y+ny*(z));
   };
 
 
   // lambda——生成一个cube
-  const auto cube = [&gridCenters, &scalarFied, &versResult, &curVersCount, &trisResult, &curTrisCount, &isovalue, &E2V, &xyz2Idx, &ioffset]
+  const auto genCube = [&gridCenters, &scalarFied, &versResult, &curVersCount, &trisResult, \
+      &curTrisCount, &isovalue, &edgeIsctMap, &getGridIdx, &cornerIdxOffset]
   (const int x,  const int y,  const int z)
   {
-    const unsigned gridIdx = xyz2Idx(x, y, z);
+     // L.1 计算当前栅格的索引：
+    const unsigned gridIdx = getGridIdx(x, y, z);
 
-    // Make a local copy of the values at the cube's corners
-    static Eigen::Matrix<Scalar, 8, 1> cornerSDF;              // 方块的八个顶点的SDF值？？
-    static Eigen::Matrix<Index, 8, 1> cornerIdx;               // 方块的八个顶点在栅格中的索引？？
-
-    // Find which vertices are inside of the surface and which are outside
-    for(int i = 0; i < 8; i++)
+    // L.2 计算当前栅格对应的立方体的八个顶点的数据；
+    static Eigen::Matrix<Scalar, 8, 1> cornerSDF;              // 方块的八个顶点的SDF值 
+    static Eigen::Matrix<Index, 8, 1> cornerIdx;               // 方块的八个顶点在栅格中的索引  
+    for(int i = 0; i < 8; i++)  // Find which vertices are inside of the surface and which are outside
     {
-      const unsigned originIdx = gridIdx + ioffset[i];
+      const unsigned originIdx = gridIdx + cornerIdxOffset[i];
       cornerIdx(i) = originIdx;
       cornerSDF(i) = scalarFied(originIdx);
     }
- 
-    march_cube(gridCenters, cornerSDF, cornerIdx, isovalue, versResult, curVersCount, trisResult, curTrisCount, E2V);
+
+    // L.3 生成当前立方体内的三角片
+    march_cube(gridCenters, cornerSDF, cornerIdx, isovalue, versResult, curVersCount, trisResult, curTrisCount, edgeIsctMap);
   };
 
 
-  // march over all cubes (loop order chosen to match memory)
+  // 1. march over all cubes (loop order chosen to match memory)
   /*
        Should be possible to parallelize safely if threads are "well separated".
-       Like red-black Gauss Seidel. Probably each thread need's their own E2V, versResult, trisResult, 
+       Like red-black Gauss Seidel. Probably each thread need's their own edgeIsctMap, versResult, trisResult, 
              and then merge at the end. 
        Annoying part are the edges lying on the  interface between chunks.  
   */ 
   for(int z=0;z<nz-1;z++)
     for(int y=0;y<ny-1;y++) 
       for(int x=0;x<nx-1;x++)
-          cube(x, y, z); 
+          genCube(x, y, z); 
 
+  // 2. shrink_to_fit();
   versResult.conservativeResize(curVersCount, 3);
   trisResult.conservativeResize(curTrisCount, 3);
 }
@@ -95,7 +97,7 @@ IGL_INLINE void igl::marching_cubes(
   typedef Eigen::Index Index;
   typedef typename DerivedV::Scalar Scalar;
 
-  std::unordered_map<int64_t, int> E2V;
+  std::unordered_map<int64_t, int> edgeIsctMap;
   versResult.resize(4*gridCenters.rows(), 3);
   trisResult.resize(4*gridCenters.rows(), 3);
   Index curVersCount = 0;
@@ -112,7 +114,7 @@ IGL_INLINE void igl::marching_cubes(
       cornerIdx(k) = GI(i, k);
       cornerSDF(k) = scalarFied(GI(i, k));
     }
-    march_cube(gridCenters, cornerSDF, cornerIdx, isovalue, versResult, curVersCount, trisResult, curTrisCount, E2V);
+    march_cube(gridCenters, cornerSDF, cornerIdx, isovalue, versResult, curVersCount, trisResult, curTrisCount, edgeIsctMap);
   }
   versResult.conservativeResize(curVersCount, 3);
   trisResult.conservativeResize(curTrisCount, 3);
