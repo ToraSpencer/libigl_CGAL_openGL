@@ -8,19 +8,23 @@
 
 namespace igl
 {
-  // Shoot a ray against a mesh (vers,tris) and collect all hits. If you have many
-  // rays, consider using AABB.h
-  //
-  // Inputs:
-  //   source  3-vector origin of ray
-  //   dir  3-vector direction of ray
-  //   vers  #vers by 3 list of mesh vertex positions
-  //   tris  #tris by 3 list of mesh face indices into vers
-  // Outputs:
-  //    hits  **sorted** list of hits
-  // Returns true if there were any hits (hits.size() > 0)
-  //
-  // See also: AABB.h
+    // 重载1：网格射线求交； 注：如果射线很多建议使用AABB.h
+    /*
+       Shoot a ray against a mesh (vers,tris) and collect all hits. 
+       If you have many rays, consider using AABB.h
+  
+       Inputs:
+         source  3-vector origin of ray
+         dir  3-vector direction of ray
+         vers  #vers by 3 list of mesh vertex positions
+         tris  #tris by 3 list of mesh face indices into vers
+
+       Outputs:
+          hits  **sorted** list of hits
+       Returns true if there were any hits (hits.size() > 0)
+  
+       See also: AABB.h
+    */
   template <
     typename Derivedsource,
     typename Deriveddir,
