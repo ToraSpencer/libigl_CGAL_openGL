@@ -264,6 +264,7 @@
     </ProjectReference>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\include\igl\signed_distance.cpp" />
     <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\tutorial\704_SignedDistance\main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -293,6 +294,9 @@
       <Project>{9CA06C63-B92D-3A5B-AA49-B8C8916AEBAD}</Project>
       <Name>igl_opengl_glfw</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\igl\signed_distance.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

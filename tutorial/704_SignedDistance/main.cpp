@@ -48,7 +48,6 @@ void update_visualization(igl::opengl::glfw::Viewer & viewer)
   // 1. 构造探测平面plane;
   Eigen::Vector4d plane(0,0,1,-((1-slice_z)*vers.col(2).minCoeff()+slice_z*vers.col(2).maxCoeff()));
 
-
   // 2. 选取探测平面切割的三角片；Extract triangle mesh slice through volume mesh and subdivide nasty triangles
   {
     VectorXi J;
@@ -78,7 +77,6 @@ void update_visualization(igl::opengl::glfw::Viewer & viewer)
       trisSection = igl::cat(1,F_vis_bad,F_vis_good);
     }
   }
-
 
   // 3. 计算符号距离场；
   VectorXd S_vis; 

@@ -4,10 +4,21 @@
     <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\tutorial\704_SignedDistance\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="..\..\include\igl\signed_distance.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Source Files">
       <UniqueIdentifier>{18953F89-488E-399C-8A5D-B5FE92FAA7FF}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Head Files">
+      <UniqueIdentifier>{c2cc9473-7d42-4bbe-9c0c-942dfbd850d1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\include\igl\signed_distance.h">
+      <Filter>Head Files</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
