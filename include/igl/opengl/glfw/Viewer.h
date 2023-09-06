@@ -224,9 +224,9 @@ public:
     EIGEN_MAKE_ALIGNED_OPERATOR_NEW
   };
 
-} // end namespace
-} // end namespace
-} // end namespace
+}  
+}  
+} 
 
 #ifndef IGL_STATIC_LIBRARY
 #  include "Viewer.cpp"

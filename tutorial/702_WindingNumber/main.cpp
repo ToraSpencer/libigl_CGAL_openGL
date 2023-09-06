@@ -130,14 +130,9 @@ int main(int argc,  char *argv[])
   MatrixXi CT((windingNums.array()>0.5).count(), 4); 
   {
     size_t k = 0; 
-    for(size_t t = 0; t<tets.rows(); t++)
-    {
-      if(windingNums(t)>0.5)
-      {
-        CT.row(k) = tets.row(t); 
-        k++; 
-      }
-    }
+    for(size_t t = 0; t<tets.rows(); t++) 
+        if(windingNums(t)>0.5) 
+            CT.row(k++) = tets.row(t);   
   }
 
   // find bounary facets of interior tets

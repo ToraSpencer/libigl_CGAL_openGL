@@ -136,7 +136,7 @@ bool key_down(igl::opengl::glfw::Viewer& viewer, unsigned char key, int mod)
 }
 
 
-int main(int argc, char *argv[])
+int originalMain(int argc, char *argv[])
 {
   using namespace Eigen;
   using namespace std;
@@ -180,4 +180,16 @@ int main(int argc, char *argv[])
   viewer.callback_key_down = &key_down;
   viewer.data().show_lines = false;
   viewer.launch();
+
+  return 0;
+}
+ 
+
+int main(int argc, char** argv) 
+{
+    // return originalMain(argc, argv);
+
+    test0();
+
+    return 0;
 }

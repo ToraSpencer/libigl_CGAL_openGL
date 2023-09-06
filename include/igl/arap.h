@@ -1,10 +1,3 @@
-// This file is part of libigl, a simple c++ geometry processing library.
-// 
-// Copyright (C) 2013 Alec Jacobson <alecjacobson@gmail.com>
-// 
-// This Source Code Form is subject to the terms of the Mozilla Public License 
-// v. 2.0. If a copy of the MPL was not distributed with this file, You can 
-// obtain one at http://mozilla.org/MPL/2.0/.
 #ifndef IGL_ARAP_H
 #define IGL_ARAP_H
 #include "igl_inline.h"
@@ -13,26 +6,27 @@
 #include <Eigen/Core>
 #include <Eigen/Sparse>
 
+// ARAP deformation(As Rigid As Possible Deformation)——尽可能刚性的变形；
 namespace igl
 {
   struct ARAPData
   {
-    // n  #vers
-    // G  #vers list of group indices (1 to k) for each vertex, such that vertex i
-    //    is assigned to group G(i)
-    // energy  type of energy to use
-    // with_dynamics  whether using dynamics (need to call arap_precomputation
-    //   after changing)
-    // f_ext  #vers by dim list of external forces
-    // vel  #vers by dim list of velocities
-    // h  dynamics time step
-    // ym  ~Young's modulus smaller is softer, larger is more rigid/stiff
-    // max_iter  maximum inner iterations
-    // K  rhs pre-multiplier
-    // M  mass matrix
-    // solver_data  quadratic solver data
-    // b  list of boundary indices into vers
-    // dim  dimension being used for solving
+      /*
+         n  #vers
+         G  #vers list of group indices (1 to k) for each vertex, such that vertex i is assigned to group G(i)
+                    energy  type of energy to use  with_dynamics  whether using dynamics (need to call arap_precomputation
+                    after changing)
+         f_ext      #vers by dim list of external forces
+         vel         #vers by dim list of velocities
+         h            dynamics time step
+         ym         ~Young's modulus smaller is softer, larger is more rigid/stiff
+         max_iter   maximum inner iterations
+         K          rhs pre-multiplier
+         M          mass matrix
+         solver_data    quadratic solver data
+         b              list of boundary indices into vers
+         dim        dimension being used for solving
+      */
     int n;
     Eigen::VectorXi G;
     ARAPEnergyType energy;
@@ -64,16 +58,21 @@ namespace igl
     };
   };
   
-  // Compute necessary information to start using an ARAP deformation
-  //
-  // Inputs:
-  //   vers  #vers by dim list of mesh positions
-  //   tris  #tris by simplex-size list of triangle|tet indices into vers
-  //   dim  dimension being used at solve time. For deformation usually dim =
-  //     vers.cols(), for surface parameterization vers.cols() = 3 and dim = 2
-  //   b  #b list of "boundary" fixed vertex indices into vers
-  // Outputs:
-  //   data  struct containing necessary precomputation
+
+  // ARAP变形的预处理计算：
+  /*
+   Compute necessary information to start using an ARAP deformation
+  
+   Inputs:
+     vers      #vers by dim list of mesh positions
+     tris       #tris by simplex-size list of triangle|tet indices into vers
+     dim      dimension being used at solve time. For deformation usually dim =
+                            vers.cols(), for surface parameterization vers.cols() = 3 and dim = 2
+     b          #b list of "boundary" fixed vertex indices into vers
+
+   Outputs:
+     data       struct containing necessary precomputation
+  */
   template <
     typename DerivedV,
     typename DerivedF,
@@ -84,17 +83,22 @@ namespace igl
     const int dim,
     const Eigen::PlainObjectBase<Derivedb> & b,
     ARAPData & data);
-  // Inputs:
-  //   bc  #b by dim list of boundary conditions
-  //   data  struct containing necessary precomputation and parameters
-  //   U  #vers by dim initial guess
+
+
+  // ARAP变形：
+  /*
+       Inputs:
+         bc             输入的边界条件；#b by dim list of boundary conditions
+         data          arap_precomputation()计算出的预处理数据；struct containing necessary precomputation and parameters
+         versOut              输出点云；#vers by dim initial guess
+  */
   template <
     typename Derivedbc,
     typename DerivedU>
   IGL_INLINE bool arap_solve(
     const Eigen::PlainObjectBase<Derivedbc> & bc,
-    ARAPData & data,
-    Eigen::PlainObjectBase<DerivedU> & U);
+    ARAPData& data,
+    Eigen::PlainObjectBase<DerivedU>& versOut);
 };
 
 #ifndef IGL_STATIC_LIBRARY

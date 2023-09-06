@@ -1,9 +1,7 @@
-
 #ifndef IGL_OPENGL_VIEWERCORE_H
 #define IGL_OPENGL_VIEWERCORE_H
 
 #include <igl/opengl/MeshGL.h>
-
 #include <igl/igl_inline.h>
 #include <Eigen/Geometry>
 #include <Eigen/Core>
@@ -17,7 +15,6 @@ namespace opengl
 class ViewerData;
 
 // Basic class of the 3D mesh viewer
-// TODO: write documentation
 class ViewerCore
 {
 public:
@@ -35,12 +32,9 @@ public:
   // ------------------- Camera control functions
 
   // Adjust the view to see the entire model
-  IGL_INLINE void align_camera_center(
-    const Eigen::MatrixXd& vers,
-    const Eigen::MatrixXi& F);
+  IGL_INLINE void align_camera_center(const Eigen::MatrixXd& vers, const Eigen::MatrixXi& F);
 
-  // Determines how much to zoom and shift such that the mesh fills the unit
-  // box (centered at the origin)
+  // Determines how much to zoom and shift such that the mesh fills the unit box (centered at the origin)
   IGL_INLINE void get_scale_and_shift_to_fit_mesh(
     const Eigen::MatrixXd& vers,
     const Eigen::MatrixXi& F,
@@ -48,23 +42,19 @@ public:
     Eigen::Vector3f& shift);
 
     // Adjust the view to see the entire model
-    IGL_INLINE void align_camera_center(
-      const Eigen::MatrixXd& vers);
+    IGL_INLINE void align_camera_center(const Eigen::MatrixXd& vers);
 
-    // Determines how much to zoom and shift such that the mesh fills the unit
-    // box (centered at the origin)
+    // Determines how much to zoom and shift such that the mesh fills the unit box (centered at the origin)
     IGL_INLINE void get_scale_and_shift_to_fit_mesh(
       const Eigen::MatrixXd& vers,
       float & zoom,
       Eigen::Vector3f& shift);
 
-  // ------------------- Drawing functions
+  /////////////////////////////////////////////////////////////////////////////////////////////////////// »æÍ¼½Ó¿Ú
 
   // Clear the frame buffers
   IGL_INLINE void clear_framebuffers();
-
-  // Draw everything
-  //
+   
   // data cannot be const because it is being set to "clean"
   IGL_INLINE void draw(ViewerData& data, bool update_matrices = true);
   IGL_INLINE void draw_buffer(
@@ -74,10 +64,8 @@ public:
     Eigen::Matrix<unsigned char,Eigen::Dynamic,Eigen::Dynamic>& G,
     Eigen::Matrix<unsigned char,Eigen::Dynamic,Eigen::Dynamic>& B,
     Eigen::Matrix<unsigned char,Eigen::Dynamic,Eigen::Dynamic>& A);
-  IGL_INLINE void draw_labels(
-    ViewerData& data,
-    const igl::opengl::MeshGL::TextGL& labels
-  );
+
+  IGL_INLINE void draw_labels(ViewerData& data, const igl::opengl::MeshGL::TextGL& labels);
 
   // Trackball angle (quaternion)
   enum RotationType
@@ -87,6 +75,7 @@ public:
     ROTATION_TYPE_NO_ROTATION = 2,
     NUM_ROTATION_TYPES = 3
   };
+
   IGL_INLINE void set_rotation_type(const RotationType & value);
 
   // ------------------- Option helpers
@@ -130,7 +119,6 @@ public:
   float camera_view_angle;
   float camera_dnear;
   float camera_dfar;
-
   bool depth_test;
 
   // Animation
@@ -154,9 +142,12 @@ public:
 }
 }
 
+
 #include <igl/serialize.h>
-namespace igl {
-  namespace serialization {
+namespace igl 
+{
+  namespace serialization 
+  {
 
     inline void serialization(bool s, igl::opengl::ViewerCore& obj, std::vector<char>& buffer)
     {
@@ -206,6 +197,7 @@ namespace igl {
     }
   }
 }
+
 
 #ifndef IGL_STATIC_LIBRARY
 #  include "ViewerCore.cpp"

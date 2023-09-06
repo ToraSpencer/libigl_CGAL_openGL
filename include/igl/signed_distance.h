@@ -1,14 +1,15 @@
 #ifndef IGL_SIGNED_DISTANCE_H
 #define IGL_SIGNED_DISTANCE_H
 
-// 计算网格距离场：
-
+// 计算网格符号距离场：
 #include "igl_inline.h"
 #include "AABB.h"
 #include "WindingNumberAABB.h"
 #include "fast_winding_number.h"
 #include <Eigen/Core>
 #include <vector>
+
+
 namespace igl
 {
   enum SignedDistanceType
@@ -48,7 +49,6 @@ namespace igl
        Known bugs: This only computes distances to triangles. So unreferenced
        vertices and degenerate triangles are ignored.
   */
-
   template <
     typename DerivedP,
     typename DerivedV,
@@ -134,6 +134,8 @@ namespace igl
     const Eigen::MatrixBase<DerivedEN> & EN,
     const Eigen::MatrixBase<DerivedEMAP> & edgeUeInfo,
     const Eigen::MatrixBase<Derivedq> & q);
+
+
   template <
     typename DerivedP,
     typename DerivedV,
@@ -192,6 +194,8 @@ namespace igl
     int & i,
     Eigen::PlainObjectBase<Derivedc> & c,
     Eigen::PlainObjectBase<Derivedn> & n);
+
+
   template <
     typename DerivedV,
     typename DerivedE,
@@ -213,6 +217,8 @@ namespace igl
     int & i,
     Eigen::PlainObjectBase<Derivedc> & c,
     Eigen::PlainObjectBase<Derivedn> & n);
+
+
   // Inputs:
   //   tree  AABB acceleration tree (see cgal/point_mesh_squared_distance.h)
   //   hier  Winding number evaluation hierarchy
@@ -228,6 +234,8 @@ namespace igl
     const Eigen::MatrixBase<DerivedF> & tris,
     const igl::WindingNumberAABB<Derivedq,DerivedV,DerivedF> & hier,
     const Eigen::MatrixBase<Derivedq> & q);
+
+
   // Outputs:
   //   s  sign
   //   sqrd  squared distance
@@ -248,6 +256,8 @@ namespace igl
     Scalar & sqrd,
     int & i,
     Eigen::PlainObjectBase<Derivedc> & c);
+
+
   template <
     typename DerivedV,
     typename DerivedF,
