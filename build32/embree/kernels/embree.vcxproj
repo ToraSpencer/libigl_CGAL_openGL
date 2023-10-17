@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{54EB17E6-1583-38FD-8C58-27D0F9ED9568}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <Platform>Win32</Platform>
+    <ProjectName>embree</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\build32\embree\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">embree.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">embree3</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\build32\embree\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">embree.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">embree3</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\build32\embree\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">embree.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">embree3</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Full</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;DEBUG;TBB_USE_DEBUG;__SSE__;__SSE2__;EMBREE_LOWEST_ISA;TASKING_INTERNAL;EMBREE_TARGET_SSE2;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;DEBUG;TBB_USE_DEBUG;__SSE__;__SSE2__;EMBREE_LOWEST_ISA;TASKING_INTERNAL;EMBREE_TARGET_SSE2;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Full</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;__SSE__;__SSE2__;EMBREE_LOWEST_ISA;TASKING_INTERNAL;EMBREE_TARGET_SSE2;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;__SSE__;__SSE2__;EMBREE_LOWEST_ISA;TASKING_INTERNAL;EMBREE_TARGET_SSE2;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Full</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;DEBUG;__SSE__;__SSE2__;EMBREE_LOWEST_ISA;TASKING_INTERNAL;EMBREE_TARGET_SSE2;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;DEBUG;__SSE__;__SSE2__;EMBREE_LOWEST_ISA;TASKING_INTERNAL;EMBREE_TARGET_SSE2;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\..\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/embree/kernels/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+D:\CMake\bin\cmake.exe -SG:/gitRepositories/libigl_CGAL_openGL -BG:/gitRepositories/libigl_CGAL_openGL/build32 --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/build32/embree/kernels/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\build32\embree\kernels\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/embree/kernels/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+D:\CMake\bin\cmake.exe -SG:/gitRepositories/libigl_CGAL_openGL -BG:/gitRepositories/libigl_CGAL_openGL/build32 --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/build32/embree/kernels/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\build32\embree\kernels\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/embree/kernels/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+D:\CMake\bin\cmake.exe -SG:/gitRepositories/libigl_CGAL_openGL -BG:/gitRepositories/libigl_CGAL_openGL/build32 --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/build32/embree/kernels/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\build32\embree\kernels\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\embree.rc" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\common\device.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\common\stat.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\common\acceln.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\common\accelset.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\common\state.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\common\rtcore.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\common\rtcore_builder.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\common\scene.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\common\alloc.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\common\geometry.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\common\scene_user_geometry.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\common\scene_instance.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\common\scene_triangle_mesh.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\common\scene_quad_mesh.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\common\scene_curves.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\common\scene_line_segments.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\common\scene_grid_mesh.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\common\scene_points.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\common\motion_derivative.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\subdiv\bezier_curve.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\subdiv\bspline_curve.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\subdiv\catmullrom_curve.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\geometry\primitive4.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\geometry\instance_intersector.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\geometry\curve_intersector_virtual.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\geometry\curve_intersector_virtual2.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\builders\primrefgen.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\bvh\bvh.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\bvh\bvh_statistics.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\bvh\bvh4_factory.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\bvh\bvh8_factory.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\bvh\bvh_collider.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\bvh\bvh_rotate.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\bvh\bvh_refit.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\bvh\bvh_builder.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\bvh\bvh_builder_hair.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\bvh\bvh_builder_hair_mb.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\bvh\bvh_builder_morton.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\bvh\bvh_builder_sah.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\bvh\bvh_builder_sah_spatial.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\bvh\bvh_builder_sah_mb.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\bvh\bvh_builder_twolevel.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\bvh\bvh_intersector1_bvh4.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\common\scene_subdiv_mesh.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\subdiv\tessellation_cache.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\subdiv\subdivpatch1base.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\subdiv\catmullclark_coefficients.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\geometry\grid_soa.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\subdiv\subdivpatch1base_eval.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\bvh\bvh_builder_subdiv.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\bvh\bvh_intersector_hybrid4_bvh4.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\bvh\bvh_intersector_stream_bvh4.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\bvh\bvh_intersector_stream_filters.cpp" />
+    <Object Include="G:\gitRepositories\libigl_CGAL_openGL\build32\embree\common\algorithms\algorithms.dir\$(Configuration)\parallel_for.obj" />
+    <Object Include="G:\gitRepositories\libigl_CGAL_openGL\build32\embree\common\algorithms\algorithms.dir\$(Configuration)\parallel_reduce.obj" />
+    <Object Include="G:\gitRepositories\libigl_CGAL_openGL\build32\embree\common\algorithms\algorithms.dir\$(Configuration)\parallel_prefix_sum.obj" />
+    <Object Include="G:\gitRepositories\libigl_CGAL_openGL\build32\embree\common\algorithms\algorithms.dir\$(Configuration)\parallel_for_for.obj" />
+    <Object Include="G:\gitRepositories\libigl_CGAL_openGL\build32\embree\common\algorithms\algorithms.dir\$(Configuration)\parallel_for_for_prefix_sum.obj" />
+    <Object Include="G:\gitRepositories\libigl_CGAL_openGL\build32\embree\common\algorithms\algorithms.dir\$(Configuration)\parallel_partition.obj" />
+    <Object Include="G:\gitRepositories\libigl_CGAL_openGL\build32\embree\common\algorithms\algorithms.dir\$(Configuration)\parallel_sort.obj" />
+    <Object Include="G:\gitRepositories\libigl_CGAL_openGL\build32\embree\common\algorithms\algorithms.dir\$(Configuration)\parallel_set.obj" />
+    <Object Include="G:\gitRepositories\libigl_CGAL_openGL\build32\embree\common\algorithms\algorithms.dir\$(Configuration)\parallel_map.obj" />
+    <Object Include="G:\gitRepositories\libigl_CGAL_openGL\build32\embree\common\algorithms\algorithms.dir\$(Configuration)\parallel_filter.obj" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\ZERO_CHECK.vcxproj">
+      <Project>{CBF727F8-FB59-30A7-975E-D8B00BADD442}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\embree\common\algorithms\algorithms.vcxproj">
+      <Project>{1BBB7536-518E-3B0D-BEC1-0EF06C59F1AB}</Project>
+      <Name>algorithms</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\embree\common\lexers\lexers.vcxproj">
+      <Project>{D8DE7800-56B3-3618-8E6F-7B76F31376AA}</Project>
+      <Name>lexers</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\embree\common\math\math.vcxproj">
+      <Project>{A12DDA6F-21C9-3362-BD03-510E0C79B5E7}</Project>
+      <Name>math</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\embree\common\simd\simd.vcxproj">
+      <Project>{C2D23F6D-7DE1-3B64-BBB1-11508DBB9A39}</Project>
+      <Name>simd</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\embree\common\sys\sys.vcxproj">
+      <Project>{2E4EB707-8C34-32C4-8FFA-FE5EAA7F2B18}</Project>
+      <Name>sys</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\embree\common\tasking\tasking.vcxproj">
+      <Project>{4E39C0F3-13F5-362B-9EC0-A9D0B0709F5A}</Project>
+      <Name>tasking</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

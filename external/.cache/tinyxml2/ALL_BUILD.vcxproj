@@ -3,6 +3,9 @@
   <PropertyGroup>
     <PreferredToolArchitecture>x64</PreferredToolArchitecture>
   </PropertyGroup>
+  <PropertyGroup>
+    <ResolveNugetPackages>false</ResolveNugetPackages>
+  </PropertyGroup>
   <ItemGroup Label="ProjectConfigurations">
     <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
@@ -22,9 +25,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{80C90BE3-3212-39FE-BE87-33DC2FD34030}</ProjectGuid>
-    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <ProjectGuid>{448533C0-0C28-3359-94E3-C6ACDB8F09BD}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
     <Platform>x64</Platform>
     <ProjectName>ALL_BUILD</ProjectName>
     <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
@@ -109,7 +112,7 @@
       <UseUtf8Encoding>Always</UseUtf8Encoding>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2 -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2 --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/generate.stamp
+D:\CMake\bin\cmake.exe -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2 -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2 --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -117,12 +120,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\3.21.0-rc2\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\tmp\tinyxml2-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\CMake\share\cmake-3.27\Modules\CMakeDetermineSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeGenericSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeInitializeConfigs.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystem.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInitialize.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject\PatchInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\RepositoryInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\UpdateInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\cfgcmd.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitclone.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitupdate.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\mkdirs.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\shared_internal_commands.cmake;D:\CMake\share\cmake-3.27\Modules\FindGit.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageHandleStandardArgs.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageMessage.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-Initialize.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\WindowsPaths.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\3.27.4\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\tmp\tinyxml2-download-mkdirs.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2 -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2 --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/generate.stamp
+D:\CMake\bin\cmake.exe -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2 -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2 --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -130,12 +133,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\3.21.0-rc2\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\tmp\tinyxml2-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\CMake\share\cmake-3.27\Modules\CMakeDetermineSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeGenericSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeInitializeConfigs.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystem.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInitialize.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject\PatchInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\RepositoryInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\UpdateInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\cfgcmd.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitclone.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitupdate.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\mkdirs.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\shared_internal_commands.cmake;D:\CMake\share\cmake-3.27\Modules\FindGit.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageHandleStandardArgs.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageMessage.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-Initialize.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\WindowsPaths.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\3.27.4\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\tmp\tinyxml2-download-mkdirs.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2 -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2 --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/generate.stamp
+D:\CMake\bin\cmake.exe -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2 -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2 --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -143,12 +146,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\3.21.0-rc2\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\tmp\tinyxml2-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\CMake\share\cmake-3.27\Modules\CMakeDetermineSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeGenericSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeInitializeConfigs.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystem.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInitialize.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject\PatchInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\RepositoryInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\UpdateInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\cfgcmd.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitclone.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitupdate.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\mkdirs.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\shared_internal_commands.cmake;D:\CMake\share\cmake-3.27\Modules\FindGit.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageHandleStandardArgs.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageMessage.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-Initialize.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\WindowsPaths.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\3.27.4\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\tmp\tinyxml2-download-mkdirs.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2 -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2 --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/generate.stamp
+D:\CMake\bin\cmake.exe -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2 -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2 --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/tinyxml2/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -156,7 +159,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\3.21.0-rc2\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\tmp\tinyxml2-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\CMake\share\cmake-3.27\Modules\CMakeDetermineSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeGenericSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeInitializeConfigs.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystem.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInitialize.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject\PatchInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\RepositoryInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\UpdateInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\cfgcmd.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitclone.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitupdate.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\mkdirs.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\shared_internal_commands.cmake;D:\CMake\share\cmake-3.27\Modules\FindGit.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageHandleStandardArgs.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageMessage.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-Initialize.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\WindowsPaths.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\3.27.4\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download-prefix\tmp\tinyxml2-download-mkdirs.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
@@ -165,13 +168,13 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\ZERO_CHECK.vcxproj">
-      <Project>{5EBD530A-7B05-3437-A8AF-D42E05E34764}</Project>
+      <Project>{408170AD-D71C-315A-979C-6A8609FFDA96}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
     <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\tinyxml2-download.vcxproj">
-      <Project>{57CC3EEA-31A8-3905-8243-4763D7C499FE}</Project>
+      <Project>{B8CAA6FD-29A7-3A81-B3D0-8505C9AA46AC}</Project>
       <Name>tinyxml2-download</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>

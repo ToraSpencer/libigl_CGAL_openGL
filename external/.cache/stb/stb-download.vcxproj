@@ -22,9 +22,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{AFEA72B3-E2B3-3C05-8227-CFCCB1C7253E}</ProjectGuid>
-    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <ProjectGuid>{E3C22A86-877D-3280-A956-EC1653887A72}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
     <Platform>x64</Platform>
     <ProjectName>stb-download</ProjectName>
     <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
@@ -105,24 +105,12 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\72811cfae7714686e821d09e84b0413d\stb-download-mkdir.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\979b044caba5a5acb10f451ad2544463\stb-download-mkdir.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Creating directories for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/stb
+D:\CMake\bin\cmake.exe -Dcfgdir=/Debug -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/tmp/stb-download-mkdirs.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/build/stb-build
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/tmp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-mkdir
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/Debug/stb-download-mkdir
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -131,25 +119,13 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-mkdir</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Debug\stb-download-mkdir</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Creating directories for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/stb
+D:\CMake\bin\cmake.exe -Dcfgdir=/Release -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/tmp/stb-download-mkdirs.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/build/stb-build
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/tmp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-mkdir
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/Release/stb-download-mkdir
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -158,25 +134,13 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-mkdir</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Release\stb-download-mkdir</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Creating directories for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/stb
+D:\CMake\bin\cmake.exe -Dcfgdir=/MinSizeRel -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/tmp/stb-download-mkdirs.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/build/stb-build
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/tmp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-mkdir
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/MinSizeRel/stb-download-mkdir
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -185,25 +149,13 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-mkdir</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\MinSizeRel\stb-download-mkdir</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Creating directories for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/stb
+D:\CMake\bin\cmake.exe -Dcfgdir=/RelWithDebInfo -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/tmp/stb-download-mkdirs.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/build/stb-build
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/tmp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-mkdir
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/RelWithDebInfo/stb-download-mkdir
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -212,21 +164,21 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-mkdir</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\RelWithDebInfo\stb-download-mkdir</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\72811cfae7714686e821d09e84b0413d\stb-download-download.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\979b044caba5a5acb10f451ad2544463\stb-download-download.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing download step (git clone) for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
 cd G:\gitRepositories\libigl_CGAL_openGL\external
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/tmp/stb-download-gitclone.cmake
+D:\CMake\bin\cmake.exe -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/tmp/stb-download-gitclone.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-download
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/Debug/stb-download-download
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -234,8 +186,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\stb-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-download</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\stb-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Debug\stb-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Debug\stb-download-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Performing download step (git clone) for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
@@ -243,9 +195,9 @@ cd G:\gitRepositories\libigl_CGAL_openGL\external
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/tmp/stb-download-gitclone.cmake
+D:\CMake\bin\cmake.exe -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/tmp/stb-download-gitclone.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-download
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/Release/stb-download-download
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -253,8 +205,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\stb-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-download</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\stb-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Release\stb-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Release\stb-download-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Performing download step (git clone) for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
@@ -262,9 +214,9 @@ cd G:\gitRepositories\libigl_CGAL_openGL\external
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/tmp/stb-download-gitclone.cmake
+D:\CMake\bin\cmake.exe -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/tmp/stb-download-gitclone.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-download
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/MinSizeRel/stb-download-download
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -272,8 +224,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\stb-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-download</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\stb-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\MinSizeRel\stb-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\MinSizeRel\stb-download-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Performing download step (git clone) for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
@@ -281,9 +233,9 @@ cd G:\gitRepositories\libigl_CGAL_openGL\external
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/tmp/stb-download-gitclone.cmake
+D:\CMake\bin\cmake.exe -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/tmp/stb-download-gitclone.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-download
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/RelWithDebInfo/stb-download-download
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -291,20 +243,20 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\stb-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-download</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\stb-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\RelWithDebInfo\stb-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\RelWithDebInfo\stb-download-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\72811cfae7714686e821d09e84b0413d\stb-download-update.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\979b044caba5a5acb10f451ad2544463\stb-download-update.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing update step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
 cd G:\gitRepositories\libigl_CGAL_openGL\external\stb
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/tmp/stb-download-gitupdate.cmake
+D:\CMake\bin\cmake.exe -Dcan_fetch=YES -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/tmp/stb-download-gitupdate.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -312,8 +264,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-download;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-update</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\tmp\stb-download-gitupdate.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\stb-download-update-info.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Debug\stb-download-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Debug\stb-download-update</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Performing update step for 'stb-download'</Message>
@@ -322,7 +274,7 @@ cd G:\gitRepositories\libigl_CGAL_openGL\external\stb
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/tmp/stb-download-gitupdate.cmake
+D:\CMake\bin\cmake.exe -Dcan_fetch=YES -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/tmp/stb-download-gitupdate.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -330,8 +282,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-download;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-update</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\tmp\stb-download-gitupdate.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\stb-download-update-info.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Release\stb-download-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Release\stb-download-update</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Performing update step for 'stb-download'</Message>
@@ -340,7 +292,7 @@ cd G:\gitRepositories\libigl_CGAL_openGL\external\stb
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/tmp/stb-download-gitupdate.cmake
+D:\CMake\bin\cmake.exe -Dcan_fetch=YES -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/tmp/stb-download-gitupdate.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -348,8 +300,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-download;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-update</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\tmp\stb-download-gitupdate.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\stb-download-update-info.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\MinSizeRel\stb-download-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\MinSizeRel\stb-download-update</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Performing update step for 'stb-download'</Message>
@@ -358,7 +310,7 @@ cd G:\gitRepositories\libigl_CGAL_openGL\external\stb
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/tmp/stb-download-gitupdate.cmake
+D:\CMake\bin\cmake.exe -Dcan_fetch=YES -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/tmp/stb-download-gitupdate.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -366,19 +318,19 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-download;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-update</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\tmp\stb-download-gitupdate.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\stb-download-update-info.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\RelWithDebInfo\stb-download-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\RelWithDebInfo\stb-download-update</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\72811cfae7714686e821d09e84b0413d\stb-download-patch.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\979b044caba5a5acb10f451ad2544463\stb-download-patch.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No patch step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-patch
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/Debug/stb-download-patch
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -386,15 +338,15 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-update;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-patch</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\stb-download-patch-info.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Debug\stb-download-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Debug\stb-download-patch</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No patch step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-patch
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/Release/stb-download-patch
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -402,15 +354,15 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-update;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-patch</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\stb-download-patch-info.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Release\stb-download-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Release\stb-download-patch</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No patch step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-patch
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/MinSizeRel/stb-download-patch
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -418,15 +370,15 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-update;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-patch</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\stb-download-patch-info.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\MinSizeRel\stb-download-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\MinSizeRel\stb-download-patch</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No patch step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-patch
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/RelWithDebInfo/stb-download-patch
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -434,23 +386,23 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-update;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-patch</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\stb-download-patch-info.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\RelWithDebInfo\stb-download-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\RelWithDebInfo\stb-download-patch</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\72811cfae7714686e821d09e84b0413d\stb-download-configure.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\979b044caba5a5acb10f451ad2544463\stb-download-configure.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No configure step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\stb-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\stb-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-configure
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/Debug/stb-download-configure
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -458,18 +410,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\tmp\stb-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-patch;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-configure</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\tmp\stb-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Debug\stb-download-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Debug\stb-download-configure</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No configure step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\stb-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\stb-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-configure
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/Release/stb-download-configure
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -477,18 +429,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\tmp\stb-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-patch;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-configure</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\tmp\stb-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Release\stb-download-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Release\stb-download-configure</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No configure step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\stb-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\stb-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-configure
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/MinSizeRel/stb-download-configure
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -496,18 +448,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\tmp\stb-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-patch;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-configure</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\tmp\stb-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\MinSizeRel\stb-download-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\MinSizeRel\stb-download-configure</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No configure step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\stb-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\stb-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-configure
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/RelWithDebInfo/stb-download-configure
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -515,22 +467,22 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\tmp\stb-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-patch;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-configure</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\tmp\stb-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\RelWithDebInfo\stb-download-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\RelWithDebInfo\stb-download-configure</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\72811cfae7714686e821d09e84b0413d\stb-download-build.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\979b044caba5a5acb10f451ad2544463\stb-download-build.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No build step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\stb-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\stb-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-build
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/Debug/stb-download-build
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -538,18 +490,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-configure;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-build</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Debug\stb-download-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Debug\stb-download-build</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No build step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\stb-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\stb-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-build
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/Release/stb-download-build
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -557,18 +509,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-configure;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-build</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Release\stb-download-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Release\stb-download-build</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No build step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\stb-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\stb-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-build
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/MinSizeRel/stb-download-build
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -576,18 +528,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-configure;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-build</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\MinSizeRel\stb-download-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\MinSizeRel\stb-download-build</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No build step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\stb-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\stb-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-build
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/RelWithDebInfo/stb-download-build
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -595,22 +547,22 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-configure;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-build</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\RelWithDebInfo\stb-download-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\RelWithDebInfo\stb-download-build</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\72811cfae7714686e821d09e84b0413d\stb-download-install.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\979b044caba5a5acb10f451ad2544463\stb-download-install.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No install step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\stb-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\stb-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-install
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/Debug/stb-download-install
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -618,18 +570,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-build;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-install</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Debug\stb-download-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Debug\stb-download-install</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No install step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\stb-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\stb-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-install
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/Release/stb-download-install
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -637,18 +589,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-build;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-install</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Release\stb-download-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Release\stb-download-install</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No install step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\stb-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\stb-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-install
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/MinSizeRel/stb-download-install
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -656,18 +608,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-build;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-install</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\MinSizeRel\stb-download-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\MinSizeRel\stb-download-install</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No install step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\stb-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\stb-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-install
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/RelWithDebInfo/stb-download-install
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -675,22 +627,22 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-build;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-install</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\RelWithDebInfo\stb-download-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\RelWithDebInfo\stb-download-install</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\72811cfae7714686e821d09e84b0413d\stb-download-test.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\979b044caba5a5acb10f451ad2544463\stb-download-test.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No test step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\stb-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\stb-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-test
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/Debug/stb-download-test
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -698,18 +650,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-install;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-test</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Debug\stb-download-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Debug\stb-download-test</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No test step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\stb-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\stb-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-test
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/Release/stb-download-test
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -717,18 +669,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-install;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-test</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Release\stb-download-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Release\stb-download-test</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No test step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\stb-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\stb-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-test
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/MinSizeRel/stb-download-test
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -736,18 +688,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-install;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-test</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\MinSizeRel\stb-download-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\MinSizeRel\stb-download-test</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No test step for 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\stb-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\stb-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-test
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/RelWithDebInfo/stb-download-test
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -755,20 +707,20 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-install;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-test</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\RelWithDebInfo\stb-download-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\RelWithDebInfo\stb-download-test</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\a23da636455b59b404c88861c5267e1d\stb-download-complete.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\6f0dc3e6543c9c057e2e7d67e2dbd778\stb-download-complete.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Completed 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/$(Configuration)
+D:\CMake\bin\cmake.exe -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/Debug
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/$(Configuration)/stb-download-complete
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/Debug/stb-download-complete
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-done
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/Debug/stb-download-done
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -776,17 +728,17 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-test;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\$(Configuration)\stb-download-complete</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Debug\stb-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Debug\stb-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Debug\stb-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Debug\stb-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Debug\stb-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Debug\stb-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Debug\stb-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Debug\stb-download-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\Debug\stb-download-complete</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Completed 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/$(Configuration)
+D:\CMake\bin\cmake.exe -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/Release
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/$(Configuration)/stb-download-complete
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/Release/stb-download-complete
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-done
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/Release/stb-download-done
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -794,17 +746,17 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-test;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\$(Configuration)\stb-download-complete</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Release\stb-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Release\stb-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Release\stb-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Release\stb-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Release\stb-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Release\stb-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Release\stb-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\Release\stb-download-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\Release\stb-download-complete</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Completed 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/$(Configuration)
+D:\CMake\bin\cmake.exe -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/MinSizeRel
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/$(Configuration)/stb-download-complete
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/MinSizeRel/stb-download-complete
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-done
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/MinSizeRel/stb-download-done
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -812,17 +764,17 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-test;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\$(Configuration)\stb-download-complete</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\MinSizeRel\stb-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\MinSizeRel\stb-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\MinSizeRel\stb-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\MinSizeRel\stb-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\MinSizeRel\stb-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\MinSizeRel\stb-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\MinSizeRel\stb-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\MinSizeRel\stb-download-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\MinSizeRel\stb-download-complete</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Completed 'stb-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/$(Configuration)
+D:\CMake\bin\cmake.exe -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/RelWithDebInfo
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/$(Configuration)/stb-download-complete
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/RelWithDebInfo/stb-download-complete
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/$(Configuration)/stb-download-done
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/stb-download-prefix/src/stb-download-stamp/RelWithDebInfo/stb-download-done
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -830,14 +782,14 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\$(Configuration)\stb-download-test;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\$(Configuration)\stb-download-complete</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\RelWithDebInfo\stb-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\RelWithDebInfo\stb-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\RelWithDebInfo\stb-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\RelWithDebInfo\stb-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\RelWithDebInfo\stb-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\RelWithDebInfo\stb-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\RelWithDebInfo\stb-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\src\stb-download-stamp\RelWithDebInfo\stb-download-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\RelWithDebInfo\stb-download-complete</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\c3d097b224c7f1b07952bd9fefffdfea\stb-download.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\14952ce774b47fff702f5465239d9c93\stb-download.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"></Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
 :cmEnd
@@ -846,7 +798,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\$(Configuration)\stb-download-complete;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\Debug\stb-download-complete;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\stb-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
@@ -858,7 +810,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\$(Configuration)\stb-download-complete;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\Release\stb-download-complete;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\stb-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
@@ -870,7 +822,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\$(Configuration)\stb-download-complete;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\MinSizeRel\stb-download-complete;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\stb-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
@@ -882,7 +834,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\$(Configuration)\stb-download-complete;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\RelWithDebInfo\stb-download-complete;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\stb-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
@@ -893,7 +845,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <UseUtf8Encoding>Always</UseUtf8Encoding>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/generate.stamp
+D:\CMake\bin\cmake.exe -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -901,12 +853,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\3.21.0-rc2\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\tmp\stb-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\CMake\share\cmake-3.27\Modules\CMakeDetermineSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeGenericSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeInitializeConfigs.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystem.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInitialize.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject\PatchInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\RepositoryInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\UpdateInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\cfgcmd.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitclone.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitupdate.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\mkdirs.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\shared_internal_commands.cmake;D:\CMake\share\cmake-3.27\Modules\FindGit.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageHandleStandardArgs.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageMessage.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-Initialize.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\WindowsPaths.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\3.27.4\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\tmp\stb-download-mkdirs.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/generate.stamp
+D:\CMake\bin\cmake.exe -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -914,12 +866,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\3.21.0-rc2\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\tmp\stb-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\CMake\share\cmake-3.27\Modules\CMakeDetermineSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeGenericSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeInitializeConfigs.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystem.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInitialize.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject\PatchInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\RepositoryInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\UpdateInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\cfgcmd.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitclone.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitupdate.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\mkdirs.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\shared_internal_commands.cmake;D:\CMake\share\cmake-3.27\Modules\FindGit.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageHandleStandardArgs.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageMessage.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-Initialize.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\WindowsPaths.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\3.27.4\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\tmp\stb-download-mkdirs.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/generate.stamp
+D:\CMake\bin\cmake.exe -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -927,12 +879,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\3.21.0-rc2\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\tmp\stb-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\CMake\share\cmake-3.27\Modules\CMakeDetermineSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeGenericSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeInitializeConfigs.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystem.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInitialize.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject\PatchInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\RepositoryInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\UpdateInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\cfgcmd.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitclone.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitupdate.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\mkdirs.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\shared_internal_commands.cmake;D:\CMake\share\cmake-3.27\Modules\FindGit.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageHandleStandardArgs.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageMessage.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-Initialize.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\WindowsPaths.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\3.27.4\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\tmp\stb-download-mkdirs.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/generate.stamp
+D:\CMake\bin\cmake.exe -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/stb/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -940,7 +892,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\3.21.0-rc2\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\tmp\stb-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\CMake\share\cmake-3.27\Modules\CMakeDetermineSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeGenericSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeInitializeConfigs.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystem.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInitialize.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject\PatchInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\RepositoryInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\UpdateInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\cfgcmd.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitclone.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitupdate.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\mkdirs.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\shared_internal_commands.cmake;D:\CMake\share\cmake-3.27\Modules\FindGit.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageHandleStandardArgs.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageMessage.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-Initialize.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\WindowsPaths.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\3.27.4\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\stb-download-prefix\tmp\stb-download-mkdirs.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
@@ -951,7 +903,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\stb\ZERO_CHECK.vcxproj">
-      <Project>{FD55AD8B-26ED-3ABC-B7C9-4089B0972121}</Project>
+      <Project>{7AF35E97-A4D1-388A-917D-8C77AB158F92}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>

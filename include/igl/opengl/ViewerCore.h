@@ -11,25 +11,85 @@ namespace igl
 namespace opengl
 {
 
-// Forward declaration
+  //////////////////////////////////////////////////////////////////////////////////////////////// 前置声明 
 class ViewerData;
 
-// Basic class of the 3D mesh viewer
+
+// ViewerCore类——Viewer类的核心：
 class ViewerCore
 {
+    /////////////////////////////////////////////////////////////////////////////////////////////////////// 支持类型；
 public:
+
+    // Trackball angle (quaternion)
+    enum RotationType
+    {
+        ROTATION_TYPE_TRACKBALL = 0,
+        ROTATION_TYPE_TWO_AXIS_VALUATOR_FIXED_UP = 1,
+        ROTATION_TYPE_NO_ROTATION = 2,
+        NUM_ROTATION_TYPES = 3
+    };
+
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////// 成员数据；
+public:
+
+    unsigned int id = 1u;                     // Unique identifier
+    Eigen::Vector4f background_color;           // Colors
+
+    // 光照：
+    Eigen::Vector3f light_position;
+    float lighting_factor;
+
+    // 旋转：
+    RotationType rotation_type;
+    Eigen::Quaternionf trackball_angle;
+
+    // 相机参数：
+    float camera_base_zoom;
+    float camera_zoom;
+    bool orthographic;
+    Eigen::Vector3f camera_base_translation;
+    Eigen::Vector3f camera_translation;
+    Eigen::Vector3f camera_eye;
+    Eigen::Vector3f camera_up;
+    Eigen::Vector3f camera_center;
+    float camera_view_angle;
+    float camera_dnear;
+    float camera_dfar;
+    bool depth_test;
+
+    // 动画
+    bool is_animating;
+    double animation_max_fps;
+
+    // Save the OpenGL transformation matrices used for the previous rendering pass
+    Eigen::Matrix4f view;
+    Eigen::Matrix4f proj;
+    Eigen::Matrix4f norm;
+
+    float object_scale;                 // Caches the two-norm between the min/max point of the bounding box
+    Eigen::Vector4f viewport;       // Viewport size
+
+    // ？？？
+public:
+    EIGEN_MAKE_ALIGNED_OPERATOR_NEW
+
+
+public:
+
+    /////////////////////////////////////////////////////////////////////////////////////////////////////// 构造、析构
   IGL_INLINE ViewerCore();
 
-  // Initialization
-  IGL_INLINE void init();
 
-  // Shutdown
-  IGL_INLINE void shut();
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////   
 
-  // Serialization code
-  IGL_INLINE void InitSerialization();
+  IGL_INLINE void init();                    // Initialization
+  IGL_INLINE void shut();                           // Shutdown
+  IGL_INLINE void InitSerialization();            // Serialization code
 
-  // ------------------- Camera control functions
+
+  /////////////////////////////////////////////////////////////////////////////////////////////////////// Camera control functions
 
   // Adjust the view to see the entire model
   IGL_INLINE void align_camera_center(const Eigen::MatrixXd& vers, const Eigen::MatrixXi& F);
@@ -45,10 +105,9 @@ public:
     IGL_INLINE void align_camera_center(const Eigen::MatrixXd& vers);
 
     // Determines how much to zoom and shift such that the mesh fills the unit box (centered at the origin)
-    IGL_INLINE void get_scale_and_shift_to_fit_mesh(
-      const Eigen::MatrixXd& vers,
-      float & zoom,
-      Eigen::Vector3f& shift);
+    IGL_INLINE void get_scale_and_shift_to_fit_mesh(const Eigen::MatrixXd& vers,\
+      float & zoom, Eigen::Vector3f& shift);
+
 
   /////////////////////////////////////////////////////////////////////////////////////////////////////// 绘图接口
 
@@ -67,18 +126,10 @@ public:
 
   IGL_INLINE void draw_labels(ViewerData& data, const igl::opengl::MeshGL::TextGL& labels);
 
-  // Trackball angle (quaternion)
-  enum RotationType
-  {
-    ROTATION_TYPE_TRACKBALL = 0,
-    ROTATION_TYPE_TWO_AXIS_VALUATOR_FIXED_UP = 1,
-    ROTATION_TYPE_NO_ROTATION = 2,
-    NUM_ROTATION_TYPES = 3
-  };
-
   IGL_INLINE void set_rotation_type(const RotationType & value);
 
-  // ------------------- Option helpers
+
+  ///////////////////////////////////////////////////////////////////////////////////////////////////////  Option helpers
 
   // Set a ViewerData visualization option for this viewport
   IGL_INLINE void set(unsigned int &property_mask, bool value = true) const;
@@ -92,51 +143,6 @@ public:
   // Check whether a ViewerData visualization option is set for this viewport
   IGL_INLINE bool is_set(unsigned int property_mask) const;
 
-  // ------------------- Properties
-
-  // Unique identifier
-  unsigned int id = 1u;
-
-  // Colors
-  Eigen::Vector4f background_color;
-
-  // Lighting
-  Eigen::Vector3f light_position;
-  float lighting_factor;
-
-  RotationType rotation_type;
-  Eigen::Quaternionf trackball_angle;
-
-  // Camera parameters
-  float camera_base_zoom;
-  float camera_zoom;
-  bool orthographic;
-  Eigen::Vector3f camera_base_translation;
-  Eigen::Vector3f camera_translation;
-  Eigen::Vector3f camera_eye;
-  Eigen::Vector3f camera_up;
-  Eigen::Vector3f camera_center;
-  float camera_view_angle;
-  float camera_dnear;
-  float camera_dfar;
-  bool depth_test;
-
-  // Animation
-  bool is_animating;
-  double animation_max_fps;
-
-  // Caches the two-norm between the min/max point of the bounding box
-  float object_scale;
-
-  // Viewport size
-  Eigen::Vector4f viewport;
-
-  // Save the OpenGL transformation matrices used for the previous rendering pass
-  Eigen::Matrix4f view;
-  Eigen::Matrix4f proj;
-  Eigen::Matrix4f norm;
-  public:
-      EIGEN_MAKE_ALIGNED_OPERATOR_NEW
 };
 
 }

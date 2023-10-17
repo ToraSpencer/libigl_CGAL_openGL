@@ -1,0 +1,5 @@
+if(EXISTS "G:/gitRepositories/libigl_CGAL_openGL/build32/tests/libigl_tests_tests-b858cb2.cmake")
+  include("G:/gitRepositories/libigl_CGAL_openGL/build32/tests/libigl_tests_tests-b858cb2.cmake")
+else()
+  add_test(libigl_tests_NOT_BUILT-b858cb2 libigl_tests_NOT_BUILT-b858cb2)
+endif()

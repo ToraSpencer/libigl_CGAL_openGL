@@ -1,51 +1,54 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
   <ItemGroup Label="ProjectConfigurations">
-    <ProjectConfiguration Include="Debug|Win32">
+    <ProjectConfiguration Include="Debug|x64">
       <Configuration>Debug</Configuration>
-      <Platform>Win32</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="Release|Win32">
+    <ProjectConfiguration Include="Release|x64">
       <Configuration>Release</Configuration>
-      <Platform>Win32</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="MinSizeRel|Win32">
+    <ProjectConfiguration Include="MinSizeRel|x64">
       <Configuration>MinSizeRel</Configuration>
-      <Platform>Win32</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
-    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
       <Configuration>RelWithDebInfo</Configuration>
-      <Platform>Win32</Platform>
+      <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{CF0C3A3C-01BB-3897-908A-7800F00A1600}</ProjectGuid>
-    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
     <Keyword>Win32Proj</Keyword>
-    <Platform>Win32</Platform>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
     <ProjectName>glfw-download</ProjectName>
     <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
     <ConfigurationType>Utility</ConfigurationType>
     <CharacterSet>MultiByte</CharacterSet>
-    <PlatformToolset>v141</PlatformToolset>
+    <PlatformToolset>v142</PlatformToolset>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
   <ImportGroup Label="ExtensionSettings">
@@ -56,12 +59,12 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup>
     <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
-    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
   </PropertyGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <Midl>
       <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
@@ -71,7 +74,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <Midl>
       <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
@@ -81,7 +84,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
     <Midl>
       <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
@@ -91,7 +94,7 @@
       <ProxyFileName>%(Filename)_p.c</ProxyFileName>
     </Midl>
   </ItemDefinitionGroup>
-  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
     <Midl>
       <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
@@ -102,24 +105,12 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\fec540ddf6fbfc90bdde64a9d73663f3\glfw-download-mkdir.rule">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Creating directories for 'glfw-download'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/glfw
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\5d4f6f5b4bdf94303100cd6748f0c454\glfw-download-mkdir.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Creating directories for 'glfw-download'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+D:\CMake\bin\cmake.exe -Dcfgdir=/Debug -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/tmp/glfw-download-mkdirs.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/GAMES102Study/build/hw7_maxikai/build/glfw-build
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/tmp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/$(Configuration)
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/$(Configuration)/glfw-download-mkdir
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/Debug/glfw-download-mkdir
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -127,26 +118,14 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-mkdir</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Creating directories for 'glfw-download'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/glfw
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Debug\glfw-download-mkdir</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Creating directories for 'glfw-download'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+D:\CMake\bin\cmake.exe -Dcfgdir=/Release -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/tmp/glfw-download-mkdirs.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/GAMES102Study/build/hw7_maxikai/build/glfw-build
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/tmp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/$(Configuration)
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/$(Configuration)/glfw-download-mkdir
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/Release/glfw-download-mkdir
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -154,26 +133,14 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-mkdir</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Creating directories for 'glfw-download'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/glfw
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Release\glfw-download-mkdir</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Creating directories for 'glfw-download'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+D:\CMake\bin\cmake.exe -Dcfgdir=/MinSizeRel -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/tmp/glfw-download-mkdirs.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/GAMES102Study/build/hw7_maxikai/build/glfw-build
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/tmp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/$(Configuration)
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/$(Configuration)/glfw-download-mkdir
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/MinSizeRel/glfw-download-mkdir
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -181,26 +148,14 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-mkdir</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Creating directories for 'glfw-download'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/glfw
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\MinSizeRel\glfw-download-mkdir</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Creating directories for 'glfw-download'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+D:\CMake\bin\cmake.exe -Dcfgdir=/RelWithDebInfo -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/tmp/glfw-download-mkdirs.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/GAMES102Study/build/hw7_maxikai/build/glfw-build
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/tmp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/$(Configuration)
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/$(Configuration)/glfw-download-mkdir
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/RelWithDebInfo/glfw-download-mkdir
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -208,22 +163,22 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-mkdir</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\RelWithDebInfo\glfw-download-mkdir</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\fec540ddf6fbfc90bdde64a9d73663f3\glfw-download-download.rule">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Performing download step (git clone) for 'glfw-download'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\5d4f6f5b4bdf94303100cd6748f0c454\glfw-download-download.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing download step (git clone) for 'glfw-download'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
 cd G:\gitRepositories\libigl_CGAL_openGL\external
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/tmp/glfw-download-gitclone.cmake
+D:\CMake\bin\cmake.exe -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/tmp/glfw-download-gitclone.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/$(Configuration)/glfw-download-download
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/Debug/glfw-download-download
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -231,18 +186,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\glfw-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-download</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Performing download step (git clone) for 'glfw-download'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\glfw-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Debug\glfw-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Debug\glfw-download-download</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Performing download step (git clone) for 'glfw-download'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
 cd G:\gitRepositories\libigl_CGAL_openGL\external
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/tmp/glfw-download-gitclone.cmake
+D:\CMake\bin\cmake.exe -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/tmp/glfw-download-gitclone.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/$(Configuration)/glfw-download-download
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/Release/glfw-download-download
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -250,18 +205,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\glfw-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-download</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Performing download step (git clone) for 'glfw-download'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\glfw-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Release\glfw-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Release\glfw-download-download</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Performing download step (git clone) for 'glfw-download'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
 cd G:\gitRepositories\libigl_CGAL_openGL\external
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/tmp/glfw-download-gitclone.cmake
+D:\CMake\bin\cmake.exe -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/tmp/glfw-download-gitclone.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/$(Configuration)/glfw-download-download
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/MinSizeRel/glfw-download-download
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -269,18 +224,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\glfw-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-download</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Performing download step (git clone) for 'glfw-download'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\glfw-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\MinSizeRel\glfw-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\MinSizeRel\glfw-download-download</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Performing download step (git clone) for 'glfw-download'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
 cd G:\gitRepositories\libigl_CGAL_openGL\external
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/tmp/glfw-download-gitclone.cmake
+D:\CMake\bin\cmake.exe -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/tmp/glfw-download-gitclone.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/$(Configuration)/glfw-download-download
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/RelWithDebInfo/glfw-download-download
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -288,20 +243,20 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\glfw-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-download</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\glfw-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\RelWithDebInfo\glfw-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\RelWithDebInfo\glfw-download-download</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\fec540ddf6fbfc90bdde64a9d73663f3\glfw-download-update.rule">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Performing update step for 'glfw-download'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\5d4f6f5b4bdf94303100cd6748f0c454\glfw-download-update.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing update step for 'glfw-download'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
 cd G:\gitRepositories\libigl_CGAL_openGL\external\glfw
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/tmp/glfw-download-gitupdate.cmake
+D:\CMake\bin\cmake.exe -Dcan_fetch=YES -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/tmp/glfw-download-gitupdate.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -309,16 +264,17 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-download;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-update</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Performing update step for 'glfw-download'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\tmp\glfw-download-gitupdate.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\glfw-download-update-info.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Debug\glfw-download-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Debug\glfw-download-update</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Performing update step for 'glfw-download'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
 cd G:\gitRepositories\libigl_CGAL_openGL\external\glfw
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/tmp/glfw-download-gitupdate.cmake
+D:\CMake\bin\cmake.exe -Dcan_fetch=YES -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/tmp/glfw-download-gitupdate.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -326,16 +282,17 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-download;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-update</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Performing update step for 'glfw-download'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\tmp\glfw-download-gitupdate.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\glfw-download-update-info.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Release\glfw-download-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Release\glfw-download-update</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Performing update step for 'glfw-download'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
 cd G:\gitRepositories\libigl_CGAL_openGL\external\glfw
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/tmp/glfw-download-gitupdate.cmake
+D:\CMake\bin\cmake.exe -Dcan_fetch=YES -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/tmp/glfw-download-gitupdate.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -343,16 +300,17 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-download;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-update</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Performing update step for 'glfw-download'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\tmp\glfw-download-gitupdate.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\glfw-download-update-info.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\MinSizeRel\glfw-download-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\MinSizeRel\glfw-download-update</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Performing update step for 'glfw-download'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
 cd G:\gitRepositories\libigl_CGAL_openGL\external\glfw
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/tmp/glfw-download-gitupdate.cmake
+D:\CMake\bin\cmake.exe -Dcan_fetch=YES -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/tmp/glfw-download-gitupdate.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -360,33 +318,19 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-download;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-update</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\tmp\glfw-download-gitupdate.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\glfw-download-update-info.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\RelWithDebInfo\glfw-download-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\RelWithDebInfo\glfw-download-update</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\fec540ddf6fbfc90bdde64a9d73663f3\glfw-download-patch.rule">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">No patch step for 'glfw-download'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\5d4f6f5b4bdf94303100cd6748f0c454\glfw-download-patch.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No patch step for 'glfw-download'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/$(Configuration)/glfw-download-patch
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-update;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-patch</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">No patch step for 'glfw-download'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/$(Configuration)/glfw-download-patch
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/Debug/glfw-download-patch
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -394,29 +338,15 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-update;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-patch</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">No patch step for 'glfw-download'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\glfw-download-patch-info.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Debug\glfw-download-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Debug\glfw-download-patch</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No patch step for 'glfw-download'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/$(Configuration)/glfw-download-patch
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-update;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-patch</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">No patch step for 'glfw-download'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/$(Configuration)/glfw-download-patch
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/Release/glfw-download-patch
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -424,22 +354,55 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-update;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-patch</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\glfw-download-patch-info.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Release\glfw-download-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Release\glfw-download-patch</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No patch step for 'glfw-download'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+D:\CMake\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/MinSizeRel/glfw-download-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\glfw-download-patch-info.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\MinSizeRel\glfw-download-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\MinSizeRel\glfw-download-patch</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No patch step for 'glfw-download'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+D:\CMake\bin\cmake.exe -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/RelWithDebInfo/glfw-download-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\glfw-download-patch-info.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\RelWithDebInfo\glfw-download-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\RelWithDebInfo\glfw-download-patch</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\fec540ddf6fbfc90bdde64a9d73663f3\glfw-download-configure.rule">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">No configure step for 'glfw-download'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-cd G:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glfw-build
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\5d4f6f5b4bdf94303100cd6748f0c454\glfw-download-configure.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No configure step for 'glfw-download'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\glfw-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/$(Configuration)/glfw-download-configure
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/Debug/glfw-download-configure
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -447,18 +410,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\tmp\glfw-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-patch;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-configure</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">No configure step for 'glfw-download'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-cd G:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glfw-build
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\tmp\glfw-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Debug\glfw-download-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Debug\glfw-download-configure</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No configure step for 'glfw-download'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\glfw-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/$(Configuration)/glfw-download-configure
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/Release/glfw-download-configure
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -466,18 +429,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\tmp\glfw-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-patch;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-configure</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">No configure step for 'glfw-download'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
-cd G:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glfw-build
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\tmp\glfw-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Release\glfw-download-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Release\glfw-download-configure</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No configure step for 'glfw-download'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\glfw-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/$(Configuration)/glfw-download-configure
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/MinSizeRel/glfw-download-configure
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -485,18 +448,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\tmp\glfw-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-patch;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-configure</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">No configure step for 'glfw-download'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
-cd G:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glfw-build
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\tmp\glfw-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\MinSizeRel\glfw-download-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\MinSizeRel\glfw-download-configure</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No configure step for 'glfw-download'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\glfw-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/$(Configuration)/glfw-download-configure
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/RelWithDebInfo/glfw-download-configure
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -504,22 +467,22 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\tmp\glfw-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-patch;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-configure</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\tmp\glfw-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\RelWithDebInfo\glfw-download-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\RelWithDebInfo\glfw-download-configure</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\fec540ddf6fbfc90bdde64a9d73663f3\glfw-download-build.rule">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">No build step for 'glfw-download'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-cd G:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glfw-build
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\5d4f6f5b4bdf94303100cd6748f0c454\glfw-download-build.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No build step for 'glfw-download'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\glfw-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/$(Configuration)/glfw-download-build
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/Debug/glfw-download-build
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -527,18 +490,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-configure;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-build</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">No build step for 'glfw-download'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-cd G:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glfw-build
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Debug\glfw-download-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Debug\glfw-download-build</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No build step for 'glfw-download'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\glfw-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/$(Configuration)/glfw-download-build
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/Release/glfw-download-build
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -546,18 +509,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-configure;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-build</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">No build step for 'glfw-download'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
-cd G:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glfw-build
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Release\glfw-download-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Release\glfw-download-build</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No build step for 'glfw-download'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\glfw-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/$(Configuration)/glfw-download-build
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/MinSizeRel/glfw-download-build
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -565,18 +528,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-configure;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-build</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">No build step for 'glfw-download'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
-cd G:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glfw-build
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\MinSizeRel\glfw-download-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\MinSizeRel\glfw-download-build</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No build step for 'glfw-download'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\glfw-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/$(Configuration)/glfw-download-build
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/RelWithDebInfo/glfw-download-build
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -584,22 +547,22 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-configure;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-build</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\RelWithDebInfo\glfw-download-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\RelWithDebInfo\glfw-download-build</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\fec540ddf6fbfc90bdde64a9d73663f3\glfw-download-install.rule">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">No install step for 'glfw-download'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-cd G:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glfw-build
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\5d4f6f5b4bdf94303100cd6748f0c454\glfw-download-install.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No install step for 'glfw-download'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\glfw-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/$(Configuration)/glfw-download-install
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/Debug/glfw-download-install
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -607,18 +570,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-build;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-install</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">No install step for 'glfw-download'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-cd G:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glfw-build
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Debug\glfw-download-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Debug\glfw-download-install</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No install step for 'glfw-download'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\glfw-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/$(Configuration)/glfw-download-install
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/Release/glfw-download-install
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -626,18 +589,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-build;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-install</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">No install step for 'glfw-download'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
-cd G:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glfw-build
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Release\glfw-download-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Release\glfw-download-install</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No install step for 'glfw-download'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\glfw-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/$(Configuration)/glfw-download-install
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/MinSizeRel/glfw-download-install
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -645,18 +608,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-build;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-install</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">No install step for 'glfw-download'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
-cd G:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glfw-build
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\MinSizeRel\glfw-download-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\MinSizeRel\glfw-download-install</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No install step for 'glfw-download'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\glfw-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/$(Configuration)/glfw-download-install
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/RelWithDebInfo/glfw-download-install
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -664,22 +627,22 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-build;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-install</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\RelWithDebInfo\glfw-download-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\RelWithDebInfo\glfw-download-install</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\fec540ddf6fbfc90bdde64a9d73663f3\glfw-download-test.rule">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">No test step for 'glfw-download'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-cd G:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glfw-build
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\5d4f6f5b4bdf94303100cd6748f0c454\glfw-download-test.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No test step for 'glfw-download'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\glfw-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/$(Configuration)/glfw-download-test
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/Debug/glfw-download-test
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -687,18 +650,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-install;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-test</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">No test step for 'glfw-download'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-cd G:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glfw-build
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Debug\glfw-download-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Debug\glfw-download-test</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No test step for 'glfw-download'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\glfw-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/$(Configuration)/glfw-download-test
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/Release/glfw-download-test
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -706,18 +669,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-install;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-test</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">No test step for 'glfw-download'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
-cd G:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glfw-build
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Release\glfw-download-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Release\glfw-download-test</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No test step for 'glfw-download'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\glfw-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/$(Configuration)/glfw-download-test
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/MinSizeRel/glfw-download-test
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -725,18 +688,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-install;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-test</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">No test step for 'glfw-download'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
-cd G:\gitRepositories\GAMES102Study\build\hw7_maxikai\build\glfw-build
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\MinSizeRel\glfw-download-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\MinSizeRel\glfw-download-test</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No test step for 'glfw-download'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\glfw-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/$(Configuration)/glfw-download-test
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/RelWithDebInfo/glfw-download-test
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -744,37 +707,20 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-install;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-test</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\RelWithDebInfo\glfw-download-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\RelWithDebInfo\glfw-download-test</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\430a0751eb5f68e49d303ef76492010b\glfw-download-complete.rule">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Completed 'glfw-download'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeFiles/$(Configuration)
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\739db9ae40e9a5cc6391ba4b4500289d\glfw-download-complete.rule">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Completed 'glfw-download'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+D:\CMake\bin\cmake.exe -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeFiles/Debug
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeFiles/$(Configuration)/glfw-download-complete
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeFiles/Debug/glfw-download-complete
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/$(Configuration)/glfw-download-done
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-test;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\$(Configuration)\glfw-download-complete</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Completed 'glfw-download'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeFiles/$(Configuration)
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeFiles/$(Configuration)/glfw-download-complete
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/$(Configuration)/glfw-download-done
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/Debug/glfw-download-done
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -782,33 +728,17 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-test;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\$(Configuration)\glfw-download-complete</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Completed 'glfw-download'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeFiles/$(Configuration)
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Debug\glfw-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Debug\glfw-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Debug\glfw-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Debug\glfw-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Debug\glfw-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Debug\glfw-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Debug\glfw-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Debug\glfw-download-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\Debug\glfw-download-complete</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Completed 'glfw-download'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+D:\CMake\bin\cmake.exe -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeFiles/Release
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeFiles/$(Configuration)/glfw-download-complete
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeFiles/Release/glfw-download-complete
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/$(Configuration)/glfw-download-done
-if %errorlevel% neq 0 goto :cmEnd
-:cmEnd
-endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
-:cmErrorLevel
-exit /b %1
-:cmDone
-if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-test;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\$(Configuration)\glfw-download-complete</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Completed 'glfw-download'</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeFiles/$(Configuration)
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeFiles/$(Configuration)/glfw-download-complete
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/$(Configuration)/glfw-download-done
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/Release/glfw-download-done
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -816,64 +746,106 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\$(Configuration)\glfw-download-test;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\$(Configuration)\glfw-download-complete</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Release\glfw-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Release\glfw-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Release\glfw-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Release\glfw-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Release\glfw-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Release\glfw-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Release\glfw-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\Release\glfw-download-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\Release\glfw-download-complete</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Completed 'glfw-download'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+D:\CMake\bin\cmake.exe -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeFiles/MinSizeRel
+if %errorlevel% neq 0 goto :cmEnd
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeFiles/MinSizeRel/glfw-download-complete
+if %errorlevel% neq 0 goto :cmEnd
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/MinSizeRel/glfw-download-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\MinSizeRel\glfw-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\MinSizeRel\glfw-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\MinSizeRel\glfw-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\MinSizeRel\glfw-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\MinSizeRel\glfw-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\MinSizeRel\glfw-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\MinSizeRel\glfw-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\MinSizeRel\glfw-download-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\MinSizeRel\glfw-download-complete</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Completed 'glfw-download'</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+D:\CMake\bin\cmake.exe -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeFiles/RelWithDebInfo
+if %errorlevel% neq 0 goto :cmEnd
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeFiles/RelWithDebInfo/glfw-download-complete
+if %errorlevel% neq 0 goto :cmEnd
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/glfw-download-prefix/src/glfw-download-stamp/RelWithDebInfo/glfw-download-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\RelWithDebInfo\glfw-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\RelWithDebInfo\glfw-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\RelWithDebInfo\glfw-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\RelWithDebInfo\glfw-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\RelWithDebInfo\glfw-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\RelWithDebInfo\glfw-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\RelWithDebInfo\glfw-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\src\glfw-download-stamp\RelWithDebInfo\glfw-download-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\RelWithDebInfo\glfw-download-complete</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\ebd3105f43bd34c2b12ccc8479e929b8\glfw-download.rule">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'"></Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"></Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 :cmErrorLevel
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\$(Configuration)\glfw-download-complete;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\glfw-download</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'"></Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\Debug\glfw-download-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\glfw-download</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'"></Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 :cmErrorLevel
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\$(Configuration)\glfw-download-complete;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\glfw-download</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'"></Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\Release\glfw-download-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\glfw-download</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'"></Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 :cmErrorLevel
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\$(Configuration)\glfw-download-complete;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\glfw-download</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'"></Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\MinSizeRel\glfw-download-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\glfw-download</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'"></Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 :cmErrorLevel
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\$(Configuration)\glfw-download-complete;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\glfw-download</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\RelWithDebInfo\glfw-download-complete;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\glfw-download</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+      <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeLists.txt">
-      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeFiles/generate.stamp
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+D:\CMake\bin\cmake.exe -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -881,12 +853,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\3.21.0-rc2\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\tmp\glfw-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeFiles/generate.stamp
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\CMake\share\cmake-3.27\Modules\CMakeDetermineSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeGenericSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeInitializeConfigs.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystem.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInitialize.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject\PatchInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\RepositoryInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\UpdateInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\cfgcmd.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitclone.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitupdate.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\mkdirs.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\shared_internal_commands.cmake;D:\CMake\share\cmake-3.27\Modules\FindGit.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageHandleStandardArgs.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageMessage.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-Initialize.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\WindowsPaths.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\3.27.4\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\tmp\glfw-download-mkdirs.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+D:\CMake\bin\cmake.exe -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -894,12 +866,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\3.21.0-rc2\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\tmp\glfw-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeFiles/generate.stamp
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\CMake\share\cmake-3.27\Modules\CMakeDetermineSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeGenericSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeInitializeConfigs.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystem.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInitialize.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject\PatchInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\RepositoryInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\UpdateInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\cfgcmd.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitclone.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitupdate.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\mkdirs.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\shared_internal_commands.cmake;D:\CMake\share\cmake-3.27\Modules\FindGit.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageHandleStandardArgs.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageMessage.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-Initialize.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\WindowsPaths.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\3.27.4\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\tmp\glfw-download-mkdirs.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+D:\CMake\bin\cmake.exe -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -907,12 +879,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\3.21.0-rc2\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\tmp\glfw-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">false</LinkObjects>
-      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeLists.txt</Message>
-      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeFiles/generate.stamp
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\CMake\share\cmake-3.27\Modules\CMakeDetermineSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeGenericSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeInitializeConfigs.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystem.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInitialize.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject\PatchInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\RepositoryInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\UpdateInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\cfgcmd.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitclone.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitupdate.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\mkdirs.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\shared_internal_commands.cmake;D:\CMake\share\cmake-3.27\Modules\FindGit.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageHandleStandardArgs.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageMessage.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-Initialize.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\WindowsPaths.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\3.27.4\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\tmp\glfw-download-mkdirs.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+D:\CMake\bin\cmake.exe -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/glfw/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -920,9 +892,9 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\3.21.0-rc2\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\tmp\glfw-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\generate.stamp</Outputs>
-      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\CMake\share\cmake-3.27\Modules\CMakeDetermineSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeGenericSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeInitializeConfigs.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystem.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInitialize.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject\PatchInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\RepositoryInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\UpdateInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\cfgcmd.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitclone.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitupdate.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\mkdirs.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\shared_internal_commands.cmake;D:\CMake\share\cmake-3.27\Modules\FindGit.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageHandleStandardArgs.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageMessage.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-Initialize.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\WindowsPaths.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\3.27.4\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\glfw-download-prefix\tmp\glfw-download-mkdirs.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glfw\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>

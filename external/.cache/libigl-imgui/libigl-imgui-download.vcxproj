@@ -22,9 +22,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{1B0D5E33-5D81-3D77-9E52-197501B6170B}</ProjectGuid>
-    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <ProjectGuid>{D2305839-DA45-368D-B451-19E4099B143B}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
     <Platform>x64</Platform>
     <ProjectName>libigl-imgui-download</ProjectName>
     <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
@@ -105,24 +105,12 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\a4a74bb75f2b5584046d06ffbcbcfae2\libigl-imgui-download-mkdir.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\45ec756889ea875f1428a4224f46a291\libigl-imgui-download-mkdir.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Creating directories for 'libigl-imgui-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/libigl-imgui
+D:\CMake\bin\cmake.exe -Dcfgdir=/Debug -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/tmp/libigl-imgui-download-mkdirs.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/build/libigl-imgui-build
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/tmp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/$(Configuration)
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/$(Configuration)/libigl-imgui-download-mkdir
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/Debug/libigl-imgui-download-mkdir
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -131,25 +119,13 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-mkdir</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Debug\libigl-imgui-download-mkdir</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Creating directories for 'libigl-imgui-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/libigl-imgui
+D:\CMake\bin\cmake.exe -Dcfgdir=/Release -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/tmp/libigl-imgui-download-mkdirs.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/build/libigl-imgui-build
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/tmp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/$(Configuration)
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/$(Configuration)/libigl-imgui-download-mkdir
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/Release/libigl-imgui-download-mkdir
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -158,25 +134,13 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-mkdir</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Release\libigl-imgui-download-mkdir</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Creating directories for 'libigl-imgui-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/libigl-imgui
+D:\CMake\bin\cmake.exe -Dcfgdir=/MinSizeRel -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/tmp/libigl-imgui-download-mkdirs.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/build/libigl-imgui-build
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/tmp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/$(Configuration)
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/$(Configuration)/libigl-imgui-download-mkdir
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/MinSizeRel/libigl-imgui-download-mkdir
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -185,25 +149,13 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-mkdir</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\MinSizeRel\libigl-imgui-download-mkdir</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Creating directories for 'libigl-imgui-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/libigl-imgui
+D:\CMake\bin\cmake.exe -Dcfgdir=/RelWithDebInfo -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/tmp/libigl-imgui-download-mkdirs.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/build/libigl-imgui-build
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/tmp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/$(Configuration)
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/$(Configuration)/libigl-imgui-download-mkdir
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/RelWithDebInfo/libigl-imgui-download-mkdir
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -212,21 +164,21 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-mkdir</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\RelWithDebInfo\libigl-imgui-download-mkdir</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\a4a74bb75f2b5584046d06ffbcbcfae2\libigl-imgui-download-download.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\45ec756889ea875f1428a4224f46a291\libigl-imgui-download-download.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing download step (git clone) for 'libigl-imgui-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
 cd G:\gitRepositories\libigl_CGAL_openGL\external
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/tmp/libigl-imgui-download-gitclone.cmake
+D:\CMake\bin\cmake.exe -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/tmp/libigl-imgui-download-gitclone.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/$(Configuration)/libigl-imgui-download-download
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/Debug/libigl-imgui-download-download
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -234,8 +186,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\libigl-imgui-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-download</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\libigl-imgui-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Debug\libigl-imgui-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Debug\libigl-imgui-download-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Performing download step (git clone) for 'libigl-imgui-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
@@ -243,9 +195,9 @@ cd G:\gitRepositories\libigl_CGAL_openGL\external
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/tmp/libigl-imgui-download-gitclone.cmake
+D:\CMake\bin\cmake.exe -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/tmp/libigl-imgui-download-gitclone.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/$(Configuration)/libigl-imgui-download-download
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/Release/libigl-imgui-download-download
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -253,8 +205,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\libigl-imgui-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-download</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\libigl-imgui-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Release\libigl-imgui-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Release\libigl-imgui-download-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Performing download step (git clone) for 'libigl-imgui-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
@@ -262,9 +214,9 @@ cd G:\gitRepositories\libigl_CGAL_openGL\external
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/tmp/libigl-imgui-download-gitclone.cmake
+D:\CMake\bin\cmake.exe -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/tmp/libigl-imgui-download-gitclone.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/$(Configuration)/libigl-imgui-download-download
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/MinSizeRel/libigl-imgui-download-download
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -272,8 +224,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\libigl-imgui-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-download</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\libigl-imgui-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\MinSizeRel\libigl-imgui-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\MinSizeRel\libigl-imgui-download-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Performing download step (git clone) for 'libigl-imgui-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
@@ -281,9 +233,9 @@ cd G:\gitRepositories\libigl_CGAL_openGL\external
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/tmp/libigl-imgui-download-gitclone.cmake
+D:\CMake\bin\cmake.exe -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/tmp/libigl-imgui-download-gitclone.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/$(Configuration)/libigl-imgui-download-download
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/RelWithDebInfo/libigl-imgui-download-download
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -291,20 +243,20 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\libigl-imgui-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-download</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\libigl-imgui-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\RelWithDebInfo\libigl-imgui-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\RelWithDebInfo\libigl-imgui-download-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\a4a74bb75f2b5584046d06ffbcbcfae2\libigl-imgui-download-update.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\45ec756889ea875f1428a4224f46a291\libigl-imgui-download-update.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing update step for 'libigl-imgui-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
 cd G:\gitRepositories\libigl_CGAL_openGL\external\libigl-imgui
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/tmp/libigl-imgui-download-gitupdate.cmake
+D:\CMake\bin\cmake.exe -Dcan_fetch=YES -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/tmp/libigl-imgui-download-gitupdate.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -312,8 +264,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-download;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-update</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\tmp\libigl-imgui-download-gitupdate.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\libigl-imgui-download-update-info.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Debug\libigl-imgui-download-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Debug\libigl-imgui-download-update</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Performing update step for 'libigl-imgui-download'</Message>
@@ -322,7 +274,7 @@ cd G:\gitRepositories\libigl_CGAL_openGL\external\libigl-imgui
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/tmp/libigl-imgui-download-gitupdate.cmake
+D:\CMake\bin\cmake.exe -Dcan_fetch=YES -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/tmp/libigl-imgui-download-gitupdate.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -330,8 +282,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-download;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-update</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\tmp\libigl-imgui-download-gitupdate.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\libigl-imgui-download-update-info.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Release\libigl-imgui-download-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Release\libigl-imgui-download-update</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Performing update step for 'libigl-imgui-download'</Message>
@@ -340,7 +292,7 @@ cd G:\gitRepositories\libigl_CGAL_openGL\external\libigl-imgui
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/tmp/libigl-imgui-download-gitupdate.cmake
+D:\CMake\bin\cmake.exe -Dcan_fetch=YES -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/tmp/libigl-imgui-download-gitupdate.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -348,8 +300,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-download;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-update</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\tmp\libigl-imgui-download-gitupdate.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\libigl-imgui-download-update-info.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\MinSizeRel\libigl-imgui-download-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\MinSizeRel\libigl-imgui-download-update</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Performing update step for 'libigl-imgui-download'</Message>
@@ -358,7 +310,7 @@ cd G:\gitRepositories\libigl_CGAL_openGL\external\libigl-imgui
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/tmp/libigl-imgui-download-gitupdate.cmake
+D:\CMake\bin\cmake.exe -Dcan_fetch=YES -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/tmp/libigl-imgui-download-gitupdate.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -366,19 +318,19 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-download;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-update</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\tmp\libigl-imgui-download-gitupdate.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\libigl-imgui-download-update-info.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\RelWithDebInfo\libigl-imgui-download-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\RelWithDebInfo\libigl-imgui-download-update</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\a4a74bb75f2b5584046d06ffbcbcfae2\libigl-imgui-download-patch.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\45ec756889ea875f1428a4224f46a291\libigl-imgui-download-patch.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No patch step for 'libigl-imgui-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/$(Configuration)/libigl-imgui-download-patch
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/Debug/libigl-imgui-download-patch
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -386,15 +338,15 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-update;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-patch</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\libigl-imgui-download-patch-info.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Debug\libigl-imgui-download-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Debug\libigl-imgui-download-patch</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No patch step for 'libigl-imgui-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/$(Configuration)/libigl-imgui-download-patch
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/Release/libigl-imgui-download-patch
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -402,15 +354,15 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-update;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-patch</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\libigl-imgui-download-patch-info.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Release\libigl-imgui-download-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Release\libigl-imgui-download-patch</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No patch step for 'libigl-imgui-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/$(Configuration)/libigl-imgui-download-patch
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/MinSizeRel/libigl-imgui-download-patch
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -418,15 +370,15 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-update;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-patch</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\libigl-imgui-download-patch-info.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\MinSizeRel\libigl-imgui-download-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\MinSizeRel\libigl-imgui-download-patch</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No patch step for 'libigl-imgui-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/$(Configuration)/libigl-imgui-download-patch
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/RelWithDebInfo/libigl-imgui-download-patch
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -434,23 +386,23 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-update;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-patch</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\libigl-imgui-download-patch-info.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\RelWithDebInfo\libigl-imgui-download-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\RelWithDebInfo\libigl-imgui-download-patch</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\a4a74bb75f2b5584046d06ffbcbcfae2\libigl-imgui-download-configure.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\45ec756889ea875f1428a4224f46a291\libigl-imgui-download-configure.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No configure step for 'libigl-imgui-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\libigl-imgui-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\libigl-imgui-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/$(Configuration)/libigl-imgui-download-configure
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/Debug/libigl-imgui-download-configure
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -458,18 +410,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\tmp\libigl-imgui-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-patch;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-configure</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\tmp\libigl-imgui-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Debug\libigl-imgui-download-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Debug\libigl-imgui-download-configure</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No configure step for 'libigl-imgui-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\libigl-imgui-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\libigl-imgui-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/$(Configuration)/libigl-imgui-download-configure
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/Release/libigl-imgui-download-configure
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -477,18 +429,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\tmp\libigl-imgui-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-patch;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-configure</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\tmp\libigl-imgui-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Release\libigl-imgui-download-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Release\libigl-imgui-download-configure</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No configure step for 'libigl-imgui-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\libigl-imgui-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\libigl-imgui-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/$(Configuration)/libigl-imgui-download-configure
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/MinSizeRel/libigl-imgui-download-configure
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -496,18 +448,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\tmp\libigl-imgui-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-patch;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-configure</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\tmp\libigl-imgui-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\MinSizeRel\libigl-imgui-download-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\MinSizeRel\libigl-imgui-download-configure</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No configure step for 'libigl-imgui-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\libigl-imgui-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\libigl-imgui-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/$(Configuration)/libigl-imgui-download-configure
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/RelWithDebInfo/libigl-imgui-download-configure
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -515,22 +467,22 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\tmp\libigl-imgui-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-patch;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-configure</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\tmp\libigl-imgui-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\RelWithDebInfo\libigl-imgui-download-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\RelWithDebInfo\libigl-imgui-download-configure</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\a4a74bb75f2b5584046d06ffbcbcfae2\libigl-imgui-download-build.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\45ec756889ea875f1428a4224f46a291\libigl-imgui-download-build.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No build step for 'libigl-imgui-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\libigl-imgui-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\libigl-imgui-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/$(Configuration)/libigl-imgui-download-build
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/Debug/libigl-imgui-download-build
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -538,18 +490,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-configure;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-build</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Debug\libigl-imgui-download-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Debug\libigl-imgui-download-build</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No build step for 'libigl-imgui-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\libigl-imgui-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\libigl-imgui-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/$(Configuration)/libigl-imgui-download-build
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/Release/libigl-imgui-download-build
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -557,18 +509,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-configure;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-build</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Release\libigl-imgui-download-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Release\libigl-imgui-download-build</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No build step for 'libigl-imgui-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\libigl-imgui-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\libigl-imgui-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/$(Configuration)/libigl-imgui-download-build
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/MinSizeRel/libigl-imgui-download-build
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -576,18 +528,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-configure;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-build</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\MinSizeRel\libigl-imgui-download-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\MinSizeRel\libigl-imgui-download-build</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No build step for 'libigl-imgui-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\libigl-imgui-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\libigl-imgui-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/$(Configuration)/libigl-imgui-download-build
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/RelWithDebInfo/libigl-imgui-download-build
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -595,22 +547,22 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-configure;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-build</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\RelWithDebInfo\libigl-imgui-download-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\RelWithDebInfo\libigl-imgui-download-build</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\a4a74bb75f2b5584046d06ffbcbcfae2\libigl-imgui-download-install.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\45ec756889ea875f1428a4224f46a291\libigl-imgui-download-install.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No install step for 'libigl-imgui-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\libigl-imgui-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\libigl-imgui-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/$(Configuration)/libigl-imgui-download-install
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/Debug/libigl-imgui-download-install
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -618,18 +570,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-build;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-install</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Debug\libigl-imgui-download-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Debug\libigl-imgui-download-install</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No install step for 'libigl-imgui-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\libigl-imgui-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\libigl-imgui-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/$(Configuration)/libigl-imgui-download-install
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/Release/libigl-imgui-download-install
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -637,18 +589,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-build;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-install</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Release\libigl-imgui-download-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Release\libigl-imgui-download-install</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No install step for 'libigl-imgui-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\libigl-imgui-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\libigl-imgui-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/$(Configuration)/libigl-imgui-download-install
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/MinSizeRel/libigl-imgui-download-install
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -656,18 +608,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-build;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-install</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\MinSizeRel\libigl-imgui-download-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\MinSizeRel\libigl-imgui-download-install</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No install step for 'libigl-imgui-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\libigl-imgui-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\libigl-imgui-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/$(Configuration)/libigl-imgui-download-install
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/RelWithDebInfo/libigl-imgui-download-install
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -675,22 +627,22 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-build;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-install</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\RelWithDebInfo\libigl-imgui-download-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\RelWithDebInfo\libigl-imgui-download-install</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\a4a74bb75f2b5584046d06ffbcbcfae2\libigl-imgui-download-test.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\45ec756889ea875f1428a4224f46a291\libigl-imgui-download-test.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No test step for 'libigl-imgui-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\libigl-imgui-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\libigl-imgui-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/$(Configuration)/libigl-imgui-download-test
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/Debug/libigl-imgui-download-test
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -698,18 +650,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-install;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-test</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Debug\libigl-imgui-download-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Debug\libigl-imgui-download-test</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No test step for 'libigl-imgui-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\libigl-imgui-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\libigl-imgui-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/$(Configuration)/libigl-imgui-download-test
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/Release/libigl-imgui-download-test
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -717,18 +669,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-install;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-test</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Release\libigl-imgui-download-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Release\libigl-imgui-download-test</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No test step for 'libigl-imgui-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\libigl-imgui-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\libigl-imgui-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/$(Configuration)/libigl-imgui-download-test
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/MinSizeRel/libigl-imgui-download-test
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -736,18 +688,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-install;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-test</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\MinSizeRel\libigl-imgui-download-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\MinSizeRel\libigl-imgui-download-test</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No test step for 'libigl-imgui-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\libigl-imgui-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\libigl-imgui-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/$(Configuration)/libigl-imgui-download-test
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/RelWithDebInfo/libigl-imgui-download-test
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -755,20 +707,20 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-install;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-test</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\RelWithDebInfo\libigl-imgui-download-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\RelWithDebInfo\libigl-imgui-download-test</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\7b6899ed7a75dbbe0117d2b59381b173\libigl-imgui-download-complete.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\6c1348f8589b4e44213019c66e1894b9\libigl-imgui-download-complete.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Completed 'libigl-imgui-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/CMakeFiles/$(Configuration)
+D:\CMake\bin\cmake.exe -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/CMakeFiles/Debug
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/CMakeFiles/$(Configuration)/libigl-imgui-download-complete
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/CMakeFiles/Debug/libigl-imgui-download-complete
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/$(Configuration)/libigl-imgui-download-done
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/Debug/libigl-imgui-download-done
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -776,17 +728,17 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-test;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\$(Configuration)\libigl-imgui-download-complete</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Debug\libigl-imgui-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Debug\libigl-imgui-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Debug\libigl-imgui-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Debug\libigl-imgui-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Debug\libigl-imgui-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Debug\libigl-imgui-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Debug\libigl-imgui-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Debug\libigl-imgui-download-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\Debug\libigl-imgui-download-complete</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Completed 'libigl-imgui-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/CMakeFiles/$(Configuration)
+D:\CMake\bin\cmake.exe -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/CMakeFiles/Release
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/CMakeFiles/$(Configuration)/libigl-imgui-download-complete
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/CMakeFiles/Release/libigl-imgui-download-complete
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/$(Configuration)/libigl-imgui-download-done
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/Release/libigl-imgui-download-done
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -794,17 +746,17 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-test;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\$(Configuration)\libigl-imgui-download-complete</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Release\libigl-imgui-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Release\libigl-imgui-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Release\libigl-imgui-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Release\libigl-imgui-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Release\libigl-imgui-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Release\libigl-imgui-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Release\libigl-imgui-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\Release\libigl-imgui-download-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\Release\libigl-imgui-download-complete</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Completed 'libigl-imgui-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/CMakeFiles/$(Configuration)
+D:\CMake\bin\cmake.exe -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/CMakeFiles/MinSizeRel
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/CMakeFiles/$(Configuration)/libigl-imgui-download-complete
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/CMakeFiles/MinSizeRel/libigl-imgui-download-complete
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/$(Configuration)/libigl-imgui-download-done
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/MinSizeRel/libigl-imgui-download-done
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -812,17 +764,17 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-test;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\$(Configuration)\libigl-imgui-download-complete</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\MinSizeRel\libigl-imgui-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\MinSizeRel\libigl-imgui-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\MinSizeRel\libigl-imgui-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\MinSizeRel\libigl-imgui-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\MinSizeRel\libigl-imgui-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\MinSizeRel\libigl-imgui-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\MinSizeRel\libigl-imgui-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\MinSizeRel\libigl-imgui-download-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\MinSizeRel\libigl-imgui-download-complete</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Completed 'libigl-imgui-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/CMakeFiles/$(Configuration)
+D:\CMake\bin\cmake.exe -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/CMakeFiles/RelWithDebInfo
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/CMakeFiles/$(Configuration)/libigl-imgui-download-complete
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/CMakeFiles/RelWithDebInfo/libigl-imgui-download-complete
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/$(Configuration)/libigl-imgui-download-done
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/libigl-imgui-download-prefix/src/libigl-imgui-download-stamp/RelWithDebInfo/libigl-imgui-download-done
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -830,14 +782,14 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\$(Configuration)\libigl-imgui-download-test;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\$(Configuration)\libigl-imgui-download-complete</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\RelWithDebInfo\libigl-imgui-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\RelWithDebInfo\libigl-imgui-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\RelWithDebInfo\libigl-imgui-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\RelWithDebInfo\libigl-imgui-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\RelWithDebInfo\libigl-imgui-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\RelWithDebInfo\libigl-imgui-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\RelWithDebInfo\libigl-imgui-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\src\libigl-imgui-download-stamp\RelWithDebInfo\libigl-imgui-download-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\RelWithDebInfo\libigl-imgui-download-complete</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\e1114cf251d600f24547c52b1467e4b0\libigl-imgui-download.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\82b84a376c789d13406471f8bb92840c\libigl-imgui-download.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"></Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
 :cmEnd
@@ -846,7 +798,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\$(Configuration)\libigl-imgui-download-complete;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\Debug\libigl-imgui-download-complete;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\libigl-imgui-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
@@ -858,7 +810,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\$(Configuration)\libigl-imgui-download-complete;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\Release\libigl-imgui-download-complete;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\libigl-imgui-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
@@ -870,7 +822,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\$(Configuration)\libigl-imgui-download-complete;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\MinSizeRel\libigl-imgui-download-complete;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\libigl-imgui-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
@@ -882,7 +834,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\$(Configuration)\libigl-imgui-download-complete;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\RelWithDebInfo\libigl-imgui-download-complete;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\libigl-imgui-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
@@ -893,7 +845,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <UseUtf8Encoding>Always</UseUtf8Encoding>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/CMakeFiles/generate.stamp
+D:\CMake\bin\cmake.exe -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -901,12 +853,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\3.21.0-rc2\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\tmp\libigl-imgui-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\CMake\share\cmake-3.27\Modules\CMakeDetermineSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeGenericSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeInitializeConfigs.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystem.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInitialize.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject\PatchInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\RepositoryInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\UpdateInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\cfgcmd.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitclone.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitupdate.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\mkdirs.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\shared_internal_commands.cmake;D:\CMake\share\cmake-3.27\Modules\FindGit.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageHandleStandardArgs.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageMessage.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-Initialize.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\WindowsPaths.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\3.27.4\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\tmp\libigl-imgui-download-mkdirs.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/CMakeFiles/generate.stamp
+D:\CMake\bin\cmake.exe -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -914,12 +866,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\3.21.0-rc2\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\tmp\libigl-imgui-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\CMake\share\cmake-3.27\Modules\CMakeDetermineSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeGenericSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeInitializeConfigs.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystem.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInitialize.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject\PatchInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\RepositoryInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\UpdateInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\cfgcmd.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitclone.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitupdate.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\mkdirs.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\shared_internal_commands.cmake;D:\CMake\share\cmake-3.27\Modules\FindGit.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageHandleStandardArgs.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageMessage.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-Initialize.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\WindowsPaths.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\3.27.4\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\tmp\libigl-imgui-download-mkdirs.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/CMakeFiles/generate.stamp
+D:\CMake\bin\cmake.exe -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -927,12 +879,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\3.21.0-rc2\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\tmp\libigl-imgui-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\CMake\share\cmake-3.27\Modules\CMakeDetermineSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeGenericSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeInitializeConfigs.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystem.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInitialize.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject\PatchInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\RepositoryInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\UpdateInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\cfgcmd.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitclone.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitupdate.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\mkdirs.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\shared_internal_commands.cmake;D:\CMake\share\cmake-3.27\Modules\FindGit.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageHandleStandardArgs.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageMessage.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-Initialize.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\WindowsPaths.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\3.27.4\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\tmp\libigl-imgui-download-mkdirs.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/CMakeFiles/generate.stamp
+D:\CMake\bin\cmake.exe -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/libigl-imgui/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -940,7 +892,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\3.21.0-rc2\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\tmp\libigl-imgui-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\CMake\share\cmake-3.27\Modules\CMakeDetermineSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeGenericSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeInitializeConfigs.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystem.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInitialize.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject\PatchInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\RepositoryInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\UpdateInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\cfgcmd.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitclone.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitupdate.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\mkdirs.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\shared_internal_commands.cmake;D:\CMake\share\cmake-3.27\Modules\FindGit.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageHandleStandardArgs.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageMessage.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-Initialize.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\WindowsPaths.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\3.27.4\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\libigl-imgui-download-prefix\tmp\libigl-imgui-download-mkdirs.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
@@ -951,7 +903,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\libigl-imgui\ZERO_CHECK.vcxproj">
-      <Project>{96E9CB04-B5C2-32CC-ADFA-18132A89A60D}</Project>
+      <Project>{AF862EC5-5640-3D59-B036-4C0A83CA3DF8}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>

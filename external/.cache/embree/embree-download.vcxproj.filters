@@ -1,34 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\embree\CMakeFiles\0a46275fcae945d06f4372d9816fd051\embree-download-mkdir.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\embree\CMakeFiles\363640242fb8c7497cc9b2bc1b7cdc3b\embree-download-mkdir.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\embree\CMakeFiles\0a46275fcae945d06f4372d9816fd051\embree-download-download.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\embree\CMakeFiles\363640242fb8c7497cc9b2bc1b7cdc3b\embree-download-download.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\embree\CMakeFiles\0a46275fcae945d06f4372d9816fd051\embree-download-update.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\embree\CMakeFiles\363640242fb8c7497cc9b2bc1b7cdc3b\embree-download-update.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\embree\CMakeFiles\0a46275fcae945d06f4372d9816fd051\embree-download-patch.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\embree\CMakeFiles\363640242fb8c7497cc9b2bc1b7cdc3b\embree-download-patch.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\embree\CMakeFiles\0a46275fcae945d06f4372d9816fd051\embree-download-configure.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\embree\CMakeFiles\363640242fb8c7497cc9b2bc1b7cdc3b\embree-download-configure.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\embree\CMakeFiles\0a46275fcae945d06f4372d9816fd051\embree-download-build.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\embree\CMakeFiles\363640242fb8c7497cc9b2bc1b7cdc3b\embree-download-build.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\embree\CMakeFiles\0a46275fcae945d06f4372d9816fd051\embree-download-install.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\embree\CMakeFiles\363640242fb8c7497cc9b2bc1b7cdc3b\embree-download-install.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\embree\CMakeFiles\0a46275fcae945d06f4372d9816fd051\embree-download-test.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\embree\CMakeFiles\363640242fb8c7497cc9b2bc1b7cdc3b\embree-download-test.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\embree\CMakeFiles\b1f211f3b9939332cdf6484cc0cfea37\embree-download-complete.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\embree\CMakeFiles\da11a6dd4e2496dad1656ff5162b2ffa\embree-download-complete.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\embree\CMakeFiles\bf589cfdaf0bbd05010062fe1dcc95a8\embree-download.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\embree\CMakeFiles\76d812703f8289cc88864e92928b3306\embree-download.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
     <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\embree\CMakeLists.txt" />
@@ -38,7 +38,7 @@
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{19467DFF-ED9E-38AE-92E9-215A16D117FA}</UniqueIdentifier>
+      <UniqueIdentifier>{DFF8470C-4A3F-3DCA-AAD8-05B85C4DF7BA}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

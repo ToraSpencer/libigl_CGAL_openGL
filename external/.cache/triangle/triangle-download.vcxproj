@@ -22,9 +22,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{64A4A73D-A2F8-3646-B543-B9623B6CE188}</ProjectGuid>
-    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <ProjectGuid>{FB95F90C-7DAB-3887-AF2C-F4C57C17A4E4}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
     <Platform>x64</Platform>
     <ProjectName>triangle-download</ProjectName>
     <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
@@ -105,24 +105,12 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\358a3b9de55afa4a57195c369a6e4241\triangle-download-mkdir.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\6a6f2d280f1177ef302f7179281c10b0\triangle-download-mkdir.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Creating directories for 'triangle-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/triangle
+D:\CMake\bin\cmake.exe -Dcfgdir=/Debug -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/tmp/triangle-download-mkdirs.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/build/triangle-build
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/tmp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/$(Configuration)
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/$(Configuration)/triangle-download-mkdir
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/Debug/triangle-download-mkdir
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -131,25 +119,13 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-mkdir</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Debug\triangle-download-mkdir</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Creating directories for 'triangle-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/triangle
+D:\CMake\bin\cmake.exe -Dcfgdir=/Release -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/tmp/triangle-download-mkdirs.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/build/triangle-build
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/tmp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/$(Configuration)
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/$(Configuration)/triangle-download-mkdir
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/Release/triangle-download-mkdir
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -158,25 +134,13 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-mkdir</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Release\triangle-download-mkdir</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Creating directories for 'triangle-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/triangle
+D:\CMake\bin\cmake.exe -Dcfgdir=/MinSizeRel -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/tmp/triangle-download-mkdirs.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/build/triangle-build
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/tmp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/$(Configuration)
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/$(Configuration)/triangle-download-mkdir
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/MinSizeRel/triangle-download-mkdir
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -185,25 +149,13 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-mkdir</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\MinSizeRel\triangle-download-mkdir</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Creating directories for 'triangle-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/triangle
+D:\CMake\bin\cmake.exe -Dcfgdir=/RelWithDebInfo -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/tmp/triangle-download-mkdirs.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/build/triangle-build
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/tmp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/$(Configuration)
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/$(Configuration)/triangle-download-mkdir
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/RelWithDebInfo/triangle-download-mkdir
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -212,21 +164,21 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-mkdir</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\RelWithDebInfo\triangle-download-mkdir</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\358a3b9de55afa4a57195c369a6e4241\triangle-download-download.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\6a6f2d280f1177ef302f7179281c10b0\triangle-download-download.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing download step (git clone) for 'triangle-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
 cd G:\gitRepositories\libigl_CGAL_openGL\external
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/tmp/triangle-download-gitclone.cmake
+D:\CMake\bin\cmake.exe -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/tmp/triangle-download-gitclone.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/$(Configuration)/triangle-download-download
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/Debug/triangle-download-download
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -234,8 +186,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\triangle-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-download</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\triangle-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Debug\triangle-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Debug\triangle-download-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Performing download step (git clone) for 'triangle-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
@@ -243,9 +195,9 @@ cd G:\gitRepositories\libigl_CGAL_openGL\external
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/tmp/triangle-download-gitclone.cmake
+D:\CMake\bin\cmake.exe -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/tmp/triangle-download-gitclone.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/$(Configuration)/triangle-download-download
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/Release/triangle-download-download
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -253,8 +205,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\triangle-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-download</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\triangle-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Release\triangle-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Release\triangle-download-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Performing download step (git clone) for 'triangle-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
@@ -262,9 +214,9 @@ cd G:\gitRepositories\libigl_CGAL_openGL\external
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/tmp/triangle-download-gitclone.cmake
+D:\CMake\bin\cmake.exe -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/tmp/triangle-download-gitclone.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/$(Configuration)/triangle-download-download
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/MinSizeRel/triangle-download-download
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -272,8 +224,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\triangle-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-download</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\triangle-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\MinSizeRel\triangle-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\MinSizeRel\triangle-download-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Performing download step (git clone) for 'triangle-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
@@ -281,9 +233,9 @@ cd G:\gitRepositories\libigl_CGAL_openGL\external
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/tmp/triangle-download-gitclone.cmake
+D:\CMake\bin\cmake.exe -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/tmp/triangle-download-gitclone.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/$(Configuration)/triangle-download-download
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/RelWithDebInfo/triangle-download-download
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -291,20 +243,20 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\triangle-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-download</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\triangle-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\RelWithDebInfo\triangle-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\RelWithDebInfo\triangle-download-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\358a3b9de55afa4a57195c369a6e4241\triangle-download-update.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\6a6f2d280f1177ef302f7179281c10b0\triangle-download-update.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing update step for 'triangle-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
 cd G:\gitRepositories\libigl_CGAL_openGL\external\triangle
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/tmp/triangle-download-gitupdate.cmake
+D:\CMake\bin\cmake.exe -Dcan_fetch=YES -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/tmp/triangle-download-gitupdate.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -312,8 +264,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-download;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-update</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\tmp\triangle-download-gitupdate.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\triangle-download-update-info.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Debug\triangle-download-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Debug\triangle-download-update</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Performing update step for 'triangle-download'</Message>
@@ -322,7 +274,7 @@ cd G:\gitRepositories\libigl_CGAL_openGL\external\triangle
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/tmp/triangle-download-gitupdate.cmake
+D:\CMake\bin\cmake.exe -Dcan_fetch=YES -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/tmp/triangle-download-gitupdate.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -330,8 +282,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-download;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-update</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\tmp\triangle-download-gitupdate.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\triangle-download-update-info.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Release\triangle-download-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Release\triangle-download-update</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Performing update step for 'triangle-download'</Message>
@@ -340,7 +292,7 @@ cd G:\gitRepositories\libigl_CGAL_openGL\external\triangle
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/tmp/triangle-download-gitupdate.cmake
+D:\CMake\bin\cmake.exe -Dcan_fetch=YES -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/tmp/triangle-download-gitupdate.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -348,8 +300,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-download;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-update</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\tmp\triangle-download-gitupdate.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\triangle-download-update-info.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\MinSizeRel\triangle-download-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\MinSizeRel\triangle-download-update</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Performing update step for 'triangle-download'</Message>
@@ -358,7 +310,7 @@ cd G:\gitRepositories\libigl_CGAL_openGL\external\triangle
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/tmp/triangle-download-gitupdate.cmake
+D:\CMake\bin\cmake.exe -Dcan_fetch=YES -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/tmp/triangle-download-gitupdate.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -366,19 +318,19 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-download;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-update</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\tmp\triangle-download-gitupdate.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\triangle-download-update-info.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\RelWithDebInfo\triangle-download-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\RelWithDebInfo\triangle-download-update</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\358a3b9de55afa4a57195c369a6e4241\triangle-download-patch.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\6a6f2d280f1177ef302f7179281c10b0\triangle-download-patch.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No patch step for 'triangle-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/$(Configuration)/triangle-download-patch
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/Debug/triangle-download-patch
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -386,15 +338,15 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-update;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-patch</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\triangle-download-patch-info.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Debug\triangle-download-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Debug\triangle-download-patch</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No patch step for 'triangle-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/$(Configuration)/triangle-download-patch
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/Release/triangle-download-patch
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -402,15 +354,15 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-update;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-patch</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\triangle-download-patch-info.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Release\triangle-download-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Release\triangle-download-patch</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No patch step for 'triangle-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/$(Configuration)/triangle-download-patch
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/MinSizeRel/triangle-download-patch
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -418,15 +370,15 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-update;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-patch</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\triangle-download-patch-info.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\MinSizeRel\triangle-download-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\MinSizeRel\triangle-download-patch</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No patch step for 'triangle-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/$(Configuration)/triangle-download-patch
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/RelWithDebInfo/triangle-download-patch
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -434,23 +386,23 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-update;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-patch</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\triangle-download-patch-info.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\RelWithDebInfo\triangle-download-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\RelWithDebInfo\triangle-download-patch</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\358a3b9de55afa4a57195c369a6e4241\triangle-download-configure.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\6a6f2d280f1177ef302f7179281c10b0\triangle-download-configure.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No configure step for 'triangle-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\triangle-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\triangle-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/$(Configuration)/triangle-download-configure
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/Debug/triangle-download-configure
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -458,18 +410,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\tmp\triangle-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-patch;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-configure</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\tmp\triangle-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Debug\triangle-download-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Debug\triangle-download-configure</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No configure step for 'triangle-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\triangle-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\triangle-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/$(Configuration)/triangle-download-configure
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/Release/triangle-download-configure
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -477,18 +429,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\tmp\triangle-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-patch;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-configure</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\tmp\triangle-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Release\triangle-download-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Release\triangle-download-configure</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No configure step for 'triangle-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\triangle-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\triangle-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/$(Configuration)/triangle-download-configure
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/MinSizeRel/triangle-download-configure
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -496,18 +448,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\tmp\triangle-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-patch;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-configure</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\tmp\triangle-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\MinSizeRel\triangle-download-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\MinSizeRel\triangle-download-configure</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No configure step for 'triangle-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\triangle-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\triangle-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/$(Configuration)/triangle-download-configure
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/RelWithDebInfo/triangle-download-configure
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -515,22 +467,22 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\tmp\triangle-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-patch;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-configure</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\tmp\triangle-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\RelWithDebInfo\triangle-download-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\RelWithDebInfo\triangle-download-configure</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\358a3b9de55afa4a57195c369a6e4241\triangle-download-build.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\6a6f2d280f1177ef302f7179281c10b0\triangle-download-build.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No build step for 'triangle-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\triangle-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\triangle-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/$(Configuration)/triangle-download-build
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/Debug/triangle-download-build
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -538,18 +490,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-configure;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-build</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Debug\triangle-download-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Debug\triangle-download-build</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No build step for 'triangle-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\triangle-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\triangle-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/$(Configuration)/triangle-download-build
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/Release/triangle-download-build
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -557,18 +509,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-configure;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-build</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Release\triangle-download-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Release\triangle-download-build</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No build step for 'triangle-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\triangle-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\triangle-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/$(Configuration)/triangle-download-build
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/MinSizeRel/triangle-download-build
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -576,18 +528,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-configure;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-build</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\MinSizeRel\triangle-download-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\MinSizeRel\triangle-download-build</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No build step for 'triangle-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\triangle-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\triangle-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/$(Configuration)/triangle-download-build
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/RelWithDebInfo/triangle-download-build
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -595,22 +547,22 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-configure;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-build</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\RelWithDebInfo\triangle-download-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\RelWithDebInfo\triangle-download-build</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\358a3b9de55afa4a57195c369a6e4241\triangle-download-install.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\6a6f2d280f1177ef302f7179281c10b0\triangle-download-install.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No install step for 'triangle-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\triangle-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\triangle-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/$(Configuration)/triangle-download-install
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/Debug/triangle-download-install
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -618,18 +570,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-build;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-install</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Debug\triangle-download-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Debug\triangle-download-install</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No install step for 'triangle-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\triangle-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\triangle-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/$(Configuration)/triangle-download-install
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/Release/triangle-download-install
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -637,18 +589,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-build;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-install</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Release\triangle-download-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Release\triangle-download-install</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No install step for 'triangle-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\triangle-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\triangle-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/$(Configuration)/triangle-download-install
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/MinSizeRel/triangle-download-install
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -656,18 +608,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-build;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-install</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\MinSizeRel\triangle-download-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\MinSizeRel\triangle-download-install</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No install step for 'triangle-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\triangle-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\triangle-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/$(Configuration)/triangle-download-install
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/RelWithDebInfo/triangle-download-install
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -675,22 +627,22 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-build;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-install</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\RelWithDebInfo\triangle-download-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\RelWithDebInfo\triangle-download-install</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\358a3b9de55afa4a57195c369a6e4241\triangle-download-test.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\6a6f2d280f1177ef302f7179281c10b0\triangle-download-test.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No test step for 'triangle-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\triangle-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\triangle-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/$(Configuration)/triangle-download-test
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/Debug/triangle-download-test
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -698,18 +650,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-install;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-test</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Debug\triangle-download-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Debug\triangle-download-test</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No test step for 'triangle-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\triangle-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\triangle-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/$(Configuration)/triangle-download-test
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/Release/triangle-download-test
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -717,18 +669,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-install;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-test</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Release\triangle-download-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Release\triangle-download-test</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No test step for 'triangle-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\triangle-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\triangle-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/$(Configuration)/triangle-download-test
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/MinSizeRel/triangle-download-test
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -736,18 +688,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-install;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-test</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\MinSizeRel\triangle-download-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\MinSizeRel\triangle-download-test</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No test step for 'triangle-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\triangle-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\triangle-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/$(Configuration)/triangle-download-test
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/RelWithDebInfo/triangle-download-test
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -755,20 +707,20 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-install;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-test</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\RelWithDebInfo\triangle-download-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\RelWithDebInfo\triangle-download-test</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\7132278efbe911aef2be8e8e01024ff7\triangle-download-complete.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\b0fc074235e8e0ecf09c303313326b01\triangle-download-complete.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Completed 'triangle-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/CMakeFiles/$(Configuration)
+D:\CMake\bin\cmake.exe -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/CMakeFiles/Debug
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/CMakeFiles/$(Configuration)/triangle-download-complete
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/CMakeFiles/Debug/triangle-download-complete
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/$(Configuration)/triangle-download-done
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/Debug/triangle-download-done
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -776,17 +728,17 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-test;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\$(Configuration)\triangle-download-complete</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Debug\triangle-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Debug\triangle-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Debug\triangle-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Debug\triangle-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Debug\triangle-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Debug\triangle-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Debug\triangle-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Debug\triangle-download-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\Debug\triangle-download-complete</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Completed 'triangle-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/CMakeFiles/$(Configuration)
+D:\CMake\bin\cmake.exe -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/CMakeFiles/Release
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/CMakeFiles/$(Configuration)/triangle-download-complete
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/CMakeFiles/Release/triangle-download-complete
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/$(Configuration)/triangle-download-done
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/Release/triangle-download-done
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -794,17 +746,17 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-test;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\$(Configuration)\triangle-download-complete</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Release\triangle-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Release\triangle-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Release\triangle-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Release\triangle-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Release\triangle-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Release\triangle-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Release\triangle-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\Release\triangle-download-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\Release\triangle-download-complete</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Completed 'triangle-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/CMakeFiles/$(Configuration)
+D:\CMake\bin\cmake.exe -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/CMakeFiles/MinSizeRel
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/CMakeFiles/$(Configuration)/triangle-download-complete
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/CMakeFiles/MinSizeRel/triangle-download-complete
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/$(Configuration)/triangle-download-done
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/MinSizeRel/triangle-download-done
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -812,17 +764,17 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-test;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\$(Configuration)\triangle-download-complete</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\MinSizeRel\triangle-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\MinSizeRel\triangle-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\MinSizeRel\triangle-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\MinSizeRel\triangle-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\MinSizeRel\triangle-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\MinSizeRel\triangle-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\MinSizeRel\triangle-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\MinSizeRel\triangle-download-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\MinSizeRel\triangle-download-complete</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Completed 'triangle-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/CMakeFiles/$(Configuration)
+D:\CMake\bin\cmake.exe -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/CMakeFiles/RelWithDebInfo
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/CMakeFiles/$(Configuration)/triangle-download-complete
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/CMakeFiles/RelWithDebInfo/triangle-download-complete
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/$(Configuration)/triangle-download-done
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/triangle-download-prefix/src/triangle-download-stamp/RelWithDebInfo/triangle-download-done
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -830,14 +782,14 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\$(Configuration)\triangle-download-test;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\$(Configuration)\triangle-download-complete</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\RelWithDebInfo\triangle-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\RelWithDebInfo\triangle-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\RelWithDebInfo\triangle-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\RelWithDebInfo\triangle-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\RelWithDebInfo\triangle-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\RelWithDebInfo\triangle-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\RelWithDebInfo\triangle-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\src\triangle-download-stamp\RelWithDebInfo\triangle-download-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\RelWithDebInfo\triangle-download-complete</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\df0500e4ab1646a25c1dc030369384f6\triangle-download.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\5d9b6a1329aafe2f06dfa29f61c6f043\triangle-download.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"></Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
 :cmEnd
@@ -846,7 +798,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\$(Configuration)\triangle-download-complete;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\Debug\triangle-download-complete;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\triangle-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
@@ -858,7 +810,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\$(Configuration)\triangle-download-complete;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\Release\triangle-download-complete;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\triangle-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
@@ -870,7 +822,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\$(Configuration)\triangle-download-complete;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\MinSizeRel\triangle-download-complete;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\triangle-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
@@ -882,7 +834,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\$(Configuration)\triangle-download-complete;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\RelWithDebInfo\triangle-download-complete;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\triangle-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
@@ -893,7 +845,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <UseUtf8Encoding>Always</UseUtf8Encoding>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/CMakeFiles/generate.stamp
+D:\CMake\bin\cmake.exe -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -901,12 +853,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\3.21.0-rc2\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\tmp\triangle-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\CMake\share\cmake-3.27\Modules\CMakeDetermineSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeGenericSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeInitializeConfigs.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystem.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInitialize.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject\PatchInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\RepositoryInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\UpdateInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\cfgcmd.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitclone.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitupdate.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\mkdirs.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\shared_internal_commands.cmake;D:\CMake\share\cmake-3.27\Modules\FindGit.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageHandleStandardArgs.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageMessage.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-Initialize.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\WindowsPaths.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\3.27.4\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\tmp\triangle-download-mkdirs.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/CMakeFiles/generate.stamp
+D:\CMake\bin\cmake.exe -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -914,12 +866,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\3.21.0-rc2\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\tmp\triangle-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\CMake\share\cmake-3.27\Modules\CMakeDetermineSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeGenericSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeInitializeConfigs.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystem.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInitialize.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject\PatchInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\RepositoryInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\UpdateInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\cfgcmd.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitclone.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitupdate.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\mkdirs.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\shared_internal_commands.cmake;D:\CMake\share\cmake-3.27\Modules\FindGit.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageHandleStandardArgs.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageMessage.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-Initialize.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\WindowsPaths.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\3.27.4\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\tmp\triangle-download-mkdirs.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/CMakeFiles/generate.stamp
+D:\CMake\bin\cmake.exe -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -927,12 +879,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\3.21.0-rc2\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\tmp\triangle-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\CMake\share\cmake-3.27\Modules\CMakeDetermineSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeGenericSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeInitializeConfigs.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystem.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInitialize.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject\PatchInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\RepositoryInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\UpdateInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\cfgcmd.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitclone.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitupdate.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\mkdirs.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\shared_internal_commands.cmake;D:\CMake\share\cmake-3.27\Modules\FindGit.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageHandleStandardArgs.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageMessage.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-Initialize.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\WindowsPaths.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\3.27.4\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\tmp\triangle-download-mkdirs.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/CMakeFiles/generate.stamp
+D:\CMake\bin\cmake.exe -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/triangle/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -940,7 +892,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\3.21.0-rc2\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\tmp\triangle-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\CMake\share\cmake-3.27\Modules\CMakeDetermineSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeGenericSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeInitializeConfigs.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystem.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInitialize.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject\PatchInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\RepositoryInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\UpdateInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\cfgcmd.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitclone.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitupdate.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\mkdirs.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\shared_internal_commands.cmake;D:\CMake\share\cmake-3.27\Modules\FindGit.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageHandleStandardArgs.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageMessage.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-Initialize.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\WindowsPaths.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\3.27.4\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\triangle-download-prefix\tmp\triangle-download-mkdirs.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
@@ -951,7 +903,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\ZERO_CHECK.vcxproj">
-      <Project>{15C94F3B-1526-3F84-A42B-24FF456B7863}</Project>
+      <Project>{C2A2FB72-28E4-30CA-99C0-06A8A97163D4}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>

@@ -1,5 +1,12 @@
 // This file is part of Eigen, a lightweight C++ template library
-
+// for linear algebra.
+//
+// Copyright (C) 2006-2010 Benoit Jacob <jacob.benoit.1@gmail.com>
+// Copyright (C) 2008-2009 Gael Guennebaud <gael.guennebaud@inria.fr>
+//
+// This Source Code Form is subject to the terms of the Mozilla
+// Public License v. 2.0. If a copy of the MPL was not distributed
+// with this file, You can obtain one at http://mozilla.org/MPL/2.0/.
 
 #ifndef EIGEN_MATRIX_H
 #define EIGEN_MATRIX_H
@@ -23,32 +30,29 @@ private:
       packet_access_bit = (packet_traits<_Scalar>::Vectorizable && (EIGEN_UNALIGNED_VECTORIZE || (actual_alignment>=required_alignment))) ? PacketAccessBit : 0
     };
     
-    public:
-      typedef _Scalar Scalar;
-      typedef Dense StorageKind;
-      typedef Eigen::Index StorageIndex;
-      typedef MatrixXpr XprKind;
-
-      enum {
-        RowsAtCompileTime = _Rows,
-        ColsAtCompileTime = _Cols,
-        MaxRowsAtCompileTime = _MaxRows,
-        MaxColsAtCompileTime = _MaxCols,
-        Flags = compute_matrix_flags<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols>::ret,
-        Options = _Options,
-        InnerStrideAtCompileTime = 1,
-        OuterStrideAtCompileTime = (Options&RowMajor) ? ColsAtCompileTime : RowsAtCompileTime,
+public:
+  typedef _Scalar Scalar;
+  typedef Dense StorageKind;
+  typedef Eigen::Index StorageIndex;
+  typedef MatrixXpr XprKind;
+  enum {
+    RowsAtCompileTime = _Rows,
+    ColsAtCompileTime = _Cols,
+    MaxRowsAtCompileTime = _MaxRows,
+    MaxColsAtCompileTime = _MaxCols,
+    Flags = compute_matrix_flags<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols>::ret,
+    Options = _Options,
+    InnerStrideAtCompileTime = 1,
+    OuterStrideAtCompileTime = (Options&RowMajor) ? ColsAtCompileTime : RowsAtCompileTime,
     
-        // FIXME, the following flag in only used to define NeedsToAlign in PlainObjectBase
-        EvaluatorFlags = LinearAccessBit | DirectAccessBit | packet_access_bit | row_major_bit,
-        Alignment = actual_alignment
-      };
-    };
+    // FIXME, the following flag in only used to define NeedsToAlign in PlainObjectBase
+    EvaluatorFlags = LinearAccessBit | DirectAccessBit | packet_access_bit | row_major_bit,
+    Alignment = actual_alignment
+  };
+};
 }
 
-
-// class Matrix
-/**
+/** \class Matrix
   * \ingroup Core_Module
   *
   * \brief The matrix class, also used for vectors and row-vectors
@@ -175,6 +179,7 @@ class Matrix
   : public PlainObjectBase<Matrix<_Scalar, _Rows, _Cols, _Options, _MaxRows, _MaxCols> >
 {
   public:
+
     /** \brief Base class typedef.
       * \sa PlainObjectBase
       */
@@ -262,7 +267,6 @@ class Matrix
     explicit Matrix(internal::constructor_without_unaligned_array_assert)
       : Base(internal::constructor_without_unaligned_array_assert())
     { Base::_check_template_params(); EIGEN_INITIALIZE_COEFFS_IF_THAT_OPTION_IS_ENABLED }
-
 
 #if EIGEN_HAS_RVALUE_REFERENCES
     EIGEN_DEVICE_FUNC
@@ -397,9 +401,8 @@ class Matrix
     using Base::m_storage;
 };
 
-
-// Global matrix typedefs
-/** 
+/** \defgroup matrixtypedefs Global matrix typedefs
+  *
   * \ingroup Core_Module
   *
   * Eigen defines several typedef shortcuts for most common matrix and vector types.
@@ -451,6 +454,6 @@ EIGEN_MAKE_TYPEDEFS_ALL_SIZES(std::complex<double>, cd)
 #undef EIGEN_MAKE_TYPEDEFS
 #undef EIGEN_MAKE_FIXED_TYPEDEFS
 
-} 
+} // end namespace Eigen
 
-#endif  
+#endif // EIGEN_MATRIX_H

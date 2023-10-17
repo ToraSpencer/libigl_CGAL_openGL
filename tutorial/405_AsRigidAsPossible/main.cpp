@@ -101,6 +101,7 @@ int main(int argc, char *argv[])
   using namespace Eigen; 
   using namespace std; 
 
+
   igl::readOFF(TUTORIAL_SHARED_PATH "/decimated-knight.off", vers0, tris0); 
 
   vers = vers0; 
@@ -108,11 +109,21 @@ int main(int argc, char *argv[])
 
   // vertices in selection
   igl::colon<int>(0, vers0.rows()-1, b); 
-  b.conservativeResize(stable_partition( b.data(), b.data()+b.size(), \
+
+  auto tmp1 = stable_partition(b.data(), b.data() + b.size(), \
       [](int i)->bool
       {
-          return S(i)>=0; 
-      }) - b.data()); 
+          return S(i) >= 0;
+      });
+  auto tmp2 = b.data();
+  auto tmp = stable_partition(b.data(), b.data() + b.size(), \
+      [](int i)->bool
+      {
+          return S(i) >= 0;
+      }) - b.data();
+
+  b.conservativeResize(tmp); 
+  auto tmp3 = tmp1 + 1;
   
   // Centroid
   mid = 0.5*(vers0.colwise().maxCoeff() + vers0.colwise().minCoeff()); 

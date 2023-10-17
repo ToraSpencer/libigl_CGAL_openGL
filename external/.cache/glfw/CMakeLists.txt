@@ -9,7 +9,7 @@ include(ExternalProject)
 ExternalProject_Add(glfw-download
                     TLS_VERIFY;OFF;GIT_CONFIG;advice.detachedHead=false;GIT_REPOSITORY;https://github.com/glfw/glfw.git;GIT_TAG;3327050ca66ad34426a82c217c2d60ced61526b7
                     SOURCE_DIR          "G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/glfw"
-                    BINARY_DIR          "G:/gitRepositories/GAMES102Study/build/hw7_maxikai/build/glfw-build"
+                    BINARY_DIR          "G:/gitRepositories/libigl_CGAL_openGL/build32/glfw-build"
                     CONFIGURE_COMMAND   ""
                     BUILD_COMMAND       ""
                     INSTALL_COMMAND     ""

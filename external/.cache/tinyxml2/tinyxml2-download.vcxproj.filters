@@ -1,34 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\d8424e01458af3d9c7777ab5c0d42955\tinyxml2-download-mkdir.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\e5c92aae9ae62c7abdef599365f23bb1\tinyxml2-download-mkdir.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\d8424e01458af3d9c7777ab5c0d42955\tinyxml2-download-download.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\e5c92aae9ae62c7abdef599365f23bb1\tinyxml2-download-download.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\d8424e01458af3d9c7777ab5c0d42955\tinyxml2-download-update.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\e5c92aae9ae62c7abdef599365f23bb1\tinyxml2-download-update.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\d8424e01458af3d9c7777ab5c0d42955\tinyxml2-download-patch.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\e5c92aae9ae62c7abdef599365f23bb1\tinyxml2-download-patch.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\d8424e01458af3d9c7777ab5c0d42955\tinyxml2-download-configure.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\e5c92aae9ae62c7abdef599365f23bb1\tinyxml2-download-configure.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\d8424e01458af3d9c7777ab5c0d42955\tinyxml2-download-build.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\e5c92aae9ae62c7abdef599365f23bb1\tinyxml2-download-build.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\d8424e01458af3d9c7777ab5c0d42955\tinyxml2-download-install.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\e5c92aae9ae62c7abdef599365f23bb1\tinyxml2-download-install.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\d8424e01458af3d9c7777ab5c0d42955\tinyxml2-download-test.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\e5c92aae9ae62c7abdef599365f23bb1\tinyxml2-download-test.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\fb7a1d55ebf4130fd5a74977088f3d1a\tinyxml2-download-complete.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\be099debcefd9c5269feed0609c48c92\tinyxml2-download-complete.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\08d6ae4ce04fb435f46f7ec5e730d252\tinyxml2-download.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\ccdcf31ff565e7fd97234bd127fb82d2\tinyxml2-download.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
     <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeLists.txt" />
@@ -38,7 +38,7 @@
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{31688BFC-C1A1-3564-BCC0-9369153F903E}</UniqueIdentifier>
+      <UniqueIdentifier>{87B0AB12-67BC-387B-A55D-19DB713D3757}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

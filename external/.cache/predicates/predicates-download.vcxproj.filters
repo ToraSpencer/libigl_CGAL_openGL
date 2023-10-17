@@ -1,34 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\predicates\CMakeFiles\099fbfee28c5254753af721d4221bc79\predicates-download-mkdir.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\predicates\CMakeFiles\cc47fe0ee4316025d74d75366cf0de3b\predicates-download-mkdir.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\predicates\CMakeFiles\099fbfee28c5254753af721d4221bc79\predicates-download-download.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\predicates\CMakeFiles\cc47fe0ee4316025d74d75366cf0de3b\predicates-download-download.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\predicates\CMakeFiles\099fbfee28c5254753af721d4221bc79\predicates-download-update.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\predicates\CMakeFiles\cc47fe0ee4316025d74d75366cf0de3b\predicates-download-update.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\predicates\CMakeFiles\099fbfee28c5254753af721d4221bc79\predicates-download-patch.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\predicates\CMakeFiles\cc47fe0ee4316025d74d75366cf0de3b\predicates-download-patch.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\predicates\CMakeFiles\099fbfee28c5254753af721d4221bc79\predicates-download-configure.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\predicates\CMakeFiles\cc47fe0ee4316025d74d75366cf0de3b\predicates-download-configure.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\predicates\CMakeFiles\099fbfee28c5254753af721d4221bc79\predicates-download-build.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\predicates\CMakeFiles\cc47fe0ee4316025d74d75366cf0de3b\predicates-download-build.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\predicates\CMakeFiles\099fbfee28c5254753af721d4221bc79\predicates-download-install.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\predicates\CMakeFiles\cc47fe0ee4316025d74d75366cf0de3b\predicates-download-install.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\predicates\CMakeFiles\099fbfee28c5254753af721d4221bc79\predicates-download-test.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\predicates\CMakeFiles\cc47fe0ee4316025d74d75366cf0de3b\predicates-download-test.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\predicates\CMakeFiles\505b5c0804f1557bca99127a11679aa8\predicates-download-complete.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\predicates\CMakeFiles\5768e8ebde1b9af41f8c2936cf78ce6a\predicates-download-complete.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\predicates\CMakeFiles\9913f47fd36a8074db79d9f81a46d8d0\predicates-download.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\predicates\CMakeFiles\34fdf8eb52251534601926d5974dfafb\predicates-download.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
     <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\predicates\CMakeLists.txt" />
@@ -38,7 +38,7 @@
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{20EFAFA2-35D3-3594-A959-3B6554842D23}</UniqueIdentifier>
+      <UniqueIdentifier>{0C6F7B08-B23B-342D-AC5F-A9177F4B7FEA}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

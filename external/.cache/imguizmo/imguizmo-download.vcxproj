@@ -22,9 +22,9 @@
     </ProjectConfiguration>
   </ItemGroup>
   <PropertyGroup Label="Globals">
-    <ProjectGuid>{18983B10-4EB6-3EF2-872E-3317B445FB66}</ProjectGuid>
-    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <ProjectGuid>{9E903688-8EE6-336A-B1AE-AD9EE2A20DA3}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
     <Platform>x64</Platform>
     <ProjectName>imguizmo-download</ProjectName>
     <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
@@ -105,24 +105,12 @@
     </Midl>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\325ce9043c8b07ee81a9a469d89f8e42\imguizmo-download-mkdir.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\7ae03e704e8e13de95ece53eef9ca093\imguizmo-download-mkdir.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Creating directories for 'imguizmo-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/imguizmo
+D:\CMake\bin\cmake.exe -Dcfgdir=/Debug -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/tmp/imguizmo-download-mkdirs.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/build/imguizmo-build
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/tmp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/$(Configuration)
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/$(Configuration)/imguizmo-download-mkdir
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/Debug/imguizmo-download-mkdir
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -131,25 +119,13 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-mkdir</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Debug\imguizmo-download-mkdir</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Creating directories for 'imguizmo-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/imguizmo
+D:\CMake\bin\cmake.exe -Dcfgdir=/Release -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/tmp/imguizmo-download-mkdirs.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/build/imguizmo-build
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/tmp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/$(Configuration)
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/$(Configuration)/imguizmo-download-mkdir
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/Release/imguizmo-download-mkdir
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -158,25 +134,13 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-mkdir</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Release\imguizmo-download-mkdir</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Creating directories for 'imguizmo-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/imguizmo
+D:\CMake\bin\cmake.exe -Dcfgdir=/MinSizeRel -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/tmp/imguizmo-download-mkdirs.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/build/imguizmo-build
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/tmp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/$(Configuration)
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/$(Configuration)/imguizmo-download-mkdir
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/MinSizeRel/imguizmo-download-mkdir
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -185,25 +149,13 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-mkdir</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\MinSizeRel\imguizmo-download-mkdir</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Creating directories for 'imguizmo-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/imguizmo
+D:\CMake\bin\cmake.exe -Dcfgdir=/RelWithDebInfo -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/tmp/imguizmo-download-mkdirs.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/build/imguizmo-build
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/tmp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/$(Configuration)
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp
-if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/$(Configuration)/imguizmo-download-mkdir
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/RelWithDebInfo/imguizmo-download-mkdir
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -212,21 +164,21 @@ exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-mkdir</Outputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\RelWithDebInfo\imguizmo-download-mkdir</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\325ce9043c8b07ee81a9a469d89f8e42\imguizmo-download-download.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\7ae03e704e8e13de95ece53eef9ca093\imguizmo-download-download.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing download step (git clone) for 'imguizmo-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
 cd G:\gitRepositories\libigl_CGAL_openGL\external
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/tmp/imguizmo-download-gitclone.cmake
+D:\CMake\bin\cmake.exe -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/tmp/imguizmo-download-gitclone.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/$(Configuration)/imguizmo-download-download
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/Debug/imguizmo-download-download
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -234,8 +186,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\imguizmo-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-download</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\imguizmo-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Debug\imguizmo-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Debug\imguizmo-download-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Performing download step (git clone) for 'imguizmo-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
@@ -243,9 +195,9 @@ cd G:\gitRepositories\libigl_CGAL_openGL\external
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/tmp/imguizmo-download-gitclone.cmake
+D:\CMake\bin\cmake.exe -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/tmp/imguizmo-download-gitclone.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/$(Configuration)/imguizmo-download-download
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/Release/imguizmo-download-download
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -253,8 +205,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\imguizmo-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-download</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\imguizmo-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Release\imguizmo-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Release\imguizmo-download-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Performing download step (git clone) for 'imguizmo-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
@@ -262,9 +214,9 @@ cd G:\gitRepositories\libigl_CGAL_openGL\external
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/tmp/imguizmo-download-gitclone.cmake
+D:\CMake\bin\cmake.exe -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/tmp/imguizmo-download-gitclone.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/$(Configuration)/imguizmo-download-download
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/MinSizeRel/imguizmo-download-download
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -272,8 +224,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\imguizmo-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-download</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\imguizmo-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\MinSizeRel\imguizmo-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\MinSizeRel\imguizmo-download-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Performing download step (git clone) for 'imguizmo-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
@@ -281,9 +233,9 @@ cd G:\gitRepositories\libigl_CGAL_openGL\external
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/tmp/imguizmo-download-gitclone.cmake
+D:\CMake\bin\cmake.exe -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/tmp/imguizmo-download-gitclone.cmake
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/$(Configuration)/imguizmo-download-download
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/RelWithDebInfo/imguizmo-download-download
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -291,20 +243,20 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\imguizmo-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-download</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\imguizmo-download-gitinfo.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\RelWithDebInfo\imguizmo-download-mkdir;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\RelWithDebInfo\imguizmo-download-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\325ce9043c8b07ee81a9a469d89f8e42\imguizmo-download-update.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\7ae03e704e8e13de95ece53eef9ca093\imguizmo-download-update.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Performing update step for 'imguizmo-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
 cd G:\gitRepositories\libigl_CGAL_openGL\external\imguizmo
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/tmp/imguizmo-download-gitupdate.cmake
+D:\CMake\bin\cmake.exe -Dcan_fetch=YES -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/tmp/imguizmo-download-gitupdate.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -312,8 +264,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-download;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-update</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\tmp\imguizmo-download-gitupdate.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\imguizmo-download-update-info.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Debug\imguizmo-download-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Debug\imguizmo-download-update</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Performing update step for 'imguizmo-download'</Message>
@@ -322,7 +274,7 @@ cd G:\gitRepositories\libigl_CGAL_openGL\external\imguizmo
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/tmp/imguizmo-download-gitupdate.cmake
+D:\CMake\bin\cmake.exe -Dcan_fetch=YES -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/tmp/imguizmo-download-gitupdate.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -330,8 +282,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-download;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-update</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\tmp\imguizmo-download-gitupdate.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\imguizmo-download-update-info.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Release\imguizmo-download-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Release\imguizmo-download-update</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Performing update step for 'imguizmo-download'</Message>
@@ -340,7 +292,7 @@ cd G:\gitRepositories\libigl_CGAL_openGL\external\imguizmo
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/tmp/imguizmo-download-gitupdate.cmake
+D:\CMake\bin\cmake.exe -Dcan_fetch=YES -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/tmp/imguizmo-download-gitupdate.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -348,8 +300,8 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-download;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-update</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\tmp\imguizmo-download-gitupdate.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\imguizmo-download-update-info.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\MinSizeRel\imguizmo-download-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\MinSizeRel\imguizmo-download-update</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Performing update step for 'imguizmo-download'</Message>
@@ -358,7 +310,7 @@ cd G:\gitRepositories\libigl_CGAL_openGL\external\imguizmo
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/tmp/imguizmo-download-gitupdate.cmake
+D:\CMake\bin\cmake.exe -Dcan_fetch=YES -P G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/tmp/imguizmo-download-gitupdate.cmake
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -366,19 +318,19 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-download;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-update</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\tmp\imguizmo-download-gitupdate.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\imguizmo-download-update-info.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\RelWithDebInfo\imguizmo-download-download;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\RelWithDebInfo\imguizmo-download-update</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\325ce9043c8b07ee81a9a469d89f8e42\imguizmo-download-patch.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\7ae03e704e8e13de95ece53eef9ca093\imguizmo-download-patch.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No patch step for 'imguizmo-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/$(Configuration)/imguizmo-download-patch
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/Debug/imguizmo-download-patch
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -386,15 +338,15 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-update;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-patch</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\imguizmo-download-patch-info.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Debug\imguizmo-download-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Debug\imguizmo-download-patch</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No patch step for 'imguizmo-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/$(Configuration)/imguizmo-download-patch
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/Release/imguizmo-download-patch
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -402,15 +354,15 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-update;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-patch</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\imguizmo-download-patch-info.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Release\imguizmo-download-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Release\imguizmo-download-patch</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No patch step for 'imguizmo-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/$(Configuration)/imguizmo-download-patch
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/MinSizeRel/imguizmo-download-patch
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -418,15 +370,15 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-update;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-patch</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\imguizmo-download-patch-info.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\MinSizeRel\imguizmo-download-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\MinSizeRel\imguizmo-download-patch</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No patch step for 'imguizmo-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/$(Configuration)/imguizmo-download-patch
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/RelWithDebInfo/imguizmo-download-patch
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -434,23 +386,23 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-update;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-patch</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\imguizmo-download-patch-info.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\RelWithDebInfo\imguizmo-download-update;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\RelWithDebInfo\imguizmo-download-patch</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\325ce9043c8b07ee81a9a469d89f8e42\imguizmo-download-configure.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\7ae03e704e8e13de95ece53eef9ca093\imguizmo-download-configure.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No configure step for 'imguizmo-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\imguizmo-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\imguizmo-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/$(Configuration)/imguizmo-download-configure
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/Debug/imguizmo-download-configure
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -458,18 +410,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\tmp\imguizmo-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-patch;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-configure</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\tmp\imguizmo-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Debug\imguizmo-download-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Debug\imguizmo-download-configure</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No configure step for 'imguizmo-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\imguizmo-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\imguizmo-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/$(Configuration)/imguizmo-download-configure
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/Release/imguizmo-download-configure
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -477,18 +429,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\tmp\imguizmo-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-patch;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-configure</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\tmp\imguizmo-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Release\imguizmo-download-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Release\imguizmo-download-configure</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No configure step for 'imguizmo-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\imguizmo-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\imguizmo-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/$(Configuration)/imguizmo-download-configure
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/MinSizeRel/imguizmo-download-configure
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -496,18 +448,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\tmp\imguizmo-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-patch;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-configure</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\tmp\imguizmo-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\MinSizeRel\imguizmo-download-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\MinSizeRel\imguizmo-download-configure</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No configure step for 'imguizmo-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\imguizmo-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\imguizmo-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/$(Configuration)/imguizmo-download-configure
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/RelWithDebInfo/imguizmo-download-configure
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -515,22 +467,22 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\tmp\imguizmo-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-patch;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-configure</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\tmp\imguizmo-download-cfgcmd.txt;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\RelWithDebInfo\imguizmo-download-patch;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\RelWithDebInfo\imguizmo-download-configure</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\325ce9043c8b07ee81a9a469d89f8e42\imguizmo-download-build.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\7ae03e704e8e13de95ece53eef9ca093\imguizmo-download-build.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No build step for 'imguizmo-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\imguizmo-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\imguizmo-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/$(Configuration)/imguizmo-download-build
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/Debug/imguizmo-download-build
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -538,18 +490,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-configure;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-build</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Debug\imguizmo-download-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Debug\imguizmo-download-build</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No build step for 'imguizmo-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\imguizmo-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\imguizmo-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/$(Configuration)/imguizmo-download-build
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/Release/imguizmo-download-build
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -557,18 +509,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-configure;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-build</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Release\imguizmo-download-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Release\imguizmo-download-build</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No build step for 'imguizmo-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\imguizmo-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\imguizmo-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/$(Configuration)/imguizmo-download-build
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/MinSizeRel/imguizmo-download-build
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -576,18 +528,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-configure;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-build</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\MinSizeRel\imguizmo-download-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\MinSizeRel\imguizmo-download-build</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No build step for 'imguizmo-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\imguizmo-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\imguizmo-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/$(Configuration)/imguizmo-download-build
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/RelWithDebInfo/imguizmo-download-build
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -595,22 +547,22 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-configure;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-build</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\RelWithDebInfo\imguizmo-download-configure;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\RelWithDebInfo\imguizmo-download-build</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\325ce9043c8b07ee81a9a469d89f8e42\imguizmo-download-install.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\7ae03e704e8e13de95ece53eef9ca093\imguizmo-download-install.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No install step for 'imguizmo-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\imguizmo-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\imguizmo-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/$(Configuration)/imguizmo-download-install
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/Debug/imguizmo-download-install
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -618,18 +570,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-build;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-install</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Debug\imguizmo-download-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Debug\imguizmo-download-install</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No install step for 'imguizmo-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\imguizmo-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\imguizmo-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/$(Configuration)/imguizmo-download-install
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/Release/imguizmo-download-install
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -637,18 +589,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-build;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-install</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Release\imguizmo-download-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Release\imguizmo-download-install</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No install step for 'imguizmo-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\imguizmo-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\imguizmo-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/$(Configuration)/imguizmo-download-install
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/MinSizeRel/imguizmo-download-install
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -656,18 +608,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-build;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-install</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\MinSizeRel\imguizmo-download-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\MinSizeRel\imguizmo-download-install</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No install step for 'imguizmo-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\imguizmo-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\imguizmo-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/$(Configuration)/imguizmo-download-install
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/RelWithDebInfo/imguizmo-download-install
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -675,22 +627,22 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-build;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-install</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\RelWithDebInfo\imguizmo-download-build;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\RelWithDebInfo\imguizmo-download-install</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\325ce9043c8b07ee81a9a469d89f8e42\imguizmo-download-test.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\7ae03e704e8e13de95ece53eef9ca093\imguizmo-download-test.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">No test step for 'imguizmo-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\imguizmo-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\imguizmo-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/$(Configuration)/imguizmo-download-test
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/Debug/imguizmo-download-test
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -698,18 +650,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-install;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-test</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Debug\imguizmo-download-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Debug\imguizmo-download-test</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">No test step for 'imguizmo-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\imguizmo-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\imguizmo-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/$(Configuration)/imguizmo-download-test
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/Release/imguizmo-download-test
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -717,18 +669,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-install;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-test</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Release\imguizmo-download-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Release\imguizmo-download-test</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">No test step for 'imguizmo-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\imguizmo-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\imguizmo-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/$(Configuration)/imguizmo-download-test
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/MinSizeRel/imguizmo-download-test
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -736,18 +688,18 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-install;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-test</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\MinSizeRel\imguizmo-download-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\MinSizeRel\imguizmo-download-test</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">No test step for 'imguizmo-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-cd G:\gitRepositories\libigl_CGAL_openGL\build\imguizmo-build
+cd G:\gitRepositories\libigl_CGAL_openGL\build32\imguizmo-build
 if %errorlevel% neq 0 goto :cmEnd
 G:
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E echo_append
+D:\CMake\bin\cmake.exe -E echo_append
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/$(Configuration)/imguizmo-download-test
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/RelWithDebInfo/imguizmo-download-test
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -755,20 +707,20 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-install;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-test</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\RelWithDebInfo\imguizmo-download-install;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\RelWithDebInfo\imguizmo-download-test</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\40334f2f6378f0b12ef86dc06fc2e798\imguizmo-download-complete.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\4c54a6ad75abce6cae62b211a77cb294\imguizmo-download-complete.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Completed 'imguizmo-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/$(Configuration)
+D:\CMake\bin\cmake.exe -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/Debug
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/$(Configuration)/imguizmo-download-complete
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/Debug/imguizmo-download-complete
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/$(Configuration)/imguizmo-download-done
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/Debug/imguizmo-download-done
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -776,17 +728,17 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-test;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\$(Configuration)\imguizmo-download-complete</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Debug\imguizmo-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Debug\imguizmo-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Debug\imguizmo-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Debug\imguizmo-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Debug\imguizmo-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Debug\imguizmo-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Debug\imguizmo-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Debug\imguizmo-download-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\Debug\imguizmo-download-complete</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Completed 'imguizmo-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/$(Configuration)
+D:\CMake\bin\cmake.exe -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/Release
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/$(Configuration)/imguizmo-download-complete
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/Release/imguizmo-download-complete
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/$(Configuration)/imguizmo-download-done
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/Release/imguizmo-download-done
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -794,17 +746,17 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-test;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\$(Configuration)\imguizmo-download-complete</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Release\imguizmo-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Release\imguizmo-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Release\imguizmo-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Release\imguizmo-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Release\imguizmo-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Release\imguizmo-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Release\imguizmo-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\Release\imguizmo-download-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\Release\imguizmo-download-complete</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Completed 'imguizmo-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/$(Configuration)
+D:\CMake\bin\cmake.exe -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/MinSizeRel
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/$(Configuration)/imguizmo-download-complete
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/MinSizeRel/imguizmo-download-complete
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/$(Configuration)/imguizmo-download-done
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/MinSizeRel/imguizmo-download-done
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -812,17 +764,17 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-test;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\$(Configuration)\imguizmo-download-complete</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\MinSizeRel\imguizmo-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\MinSizeRel\imguizmo-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\MinSizeRel\imguizmo-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\MinSizeRel\imguizmo-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\MinSizeRel\imguizmo-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\MinSizeRel\imguizmo-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\MinSizeRel\imguizmo-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\MinSizeRel\imguizmo-download-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\MinSizeRel\imguizmo-download-complete</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Completed 'imguizmo-download'</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/$(Configuration)
+D:\CMake\bin\cmake.exe -E make_directory G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/RelWithDebInfo
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/$(Configuration)/imguizmo-download-complete
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/RelWithDebInfo/imguizmo-download-complete
 if %errorlevel% neq 0 goto :cmEnd
-"C:\Program Files\CMake\bin\cmake.exe" -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/$(Configuration)/imguizmo-download-done
+D:\CMake\bin\cmake.exe -E touch G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/imguizmo-download-prefix/src/imguizmo-download-stamp/RelWithDebInfo/imguizmo-download-done
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -830,14 +782,14 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\$(Configuration)\imguizmo-download-test;%(AdditionalInputs)</AdditionalInputs>
-      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\$(Configuration)\imguizmo-download-complete</Outputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\RelWithDebInfo\imguizmo-download-install;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\RelWithDebInfo\imguizmo-download-mkdir;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\RelWithDebInfo\imguizmo-download-download;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\RelWithDebInfo\imguizmo-download-update;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\RelWithDebInfo\imguizmo-download-patch;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\RelWithDebInfo\imguizmo-download-configure;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\RelWithDebInfo\imguizmo-download-build;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\src\imguizmo-download-stamp\RelWithDebInfo\imguizmo-download-test;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\RelWithDebInfo\imguizmo-download-complete</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\e31f8a303f306b61a33b18002779fe0d\imguizmo-download.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\685f910fe9f59cdcbc36e99cc60347e3\imguizmo-download.rule">
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'"></Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
 :cmEnd
@@ -846,7 +798,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\$(Configuration)\imguizmo-download-complete;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\Debug\imguizmo-download-complete;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\imguizmo-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</VerifyInputsAndOutputsExist>
@@ -858,7 +810,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\$(Configuration)\imguizmo-download-complete;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\Release\imguizmo-download-complete;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\imguizmo-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</VerifyInputsAndOutputsExist>
@@ -870,7 +822,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\$(Configuration)\imguizmo-download-complete;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\MinSizeRel\imguizmo-download-complete;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\imguizmo-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</VerifyInputsAndOutputsExist>
@@ -882,7 +834,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\$(Configuration)\imguizmo-download-complete;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\RelWithDebInfo\imguizmo-download-complete;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\imguizmo-download</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
       <VerifyInputsAndOutputsExist Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</VerifyInputsAndOutputsExist>
@@ -893,7 +845,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <UseUtf8Encoding>Always</UseUtf8Encoding>
       <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/generate.stamp
+D:\CMake\bin\cmake.exe -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -901,12 +853,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\3.21.0-rc2\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\tmp\imguizmo-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">D:\CMake\share\cmake-3.27\Modules\CMakeDetermineSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeGenericSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeInitializeConfigs.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystem.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInitialize.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject\PatchInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\RepositoryInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\UpdateInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\cfgcmd.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitclone.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitupdate.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\mkdirs.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\shared_internal_commands.cmake;D:\CMake\share\cmake-3.27\Modules\FindGit.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageHandleStandardArgs.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageMessage.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-Initialize.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\WindowsPaths.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\3.27.4\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\tmp\imguizmo-download-mkdirs.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/generate.stamp
+D:\CMake\bin\cmake.exe -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -914,12 +866,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\3.21.0-rc2\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\tmp\imguizmo-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">D:\CMake\share\cmake-3.27\Modules\CMakeDetermineSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeGenericSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeInitializeConfigs.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystem.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInitialize.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject\PatchInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\RepositoryInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\UpdateInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\cfgcmd.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitclone.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitupdate.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\mkdirs.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\shared_internal_commands.cmake;D:\CMake\share\cmake-3.27\Modules\FindGit.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageHandleStandardArgs.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageMessage.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-Initialize.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\WindowsPaths.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\3.27.4\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\tmp\imguizmo-download-mkdirs.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/generate.stamp
+D:\CMake\bin\cmake.exe -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -927,12 +879,12 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\3.21.0-rc2\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\tmp\imguizmo-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">D:\CMake\share\cmake-3.27\Modules\CMakeDetermineSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeGenericSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeInitializeConfigs.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystem.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInitialize.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject\PatchInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\RepositoryInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\UpdateInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\cfgcmd.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitclone.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitupdate.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\mkdirs.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\shared_internal_commands.cmake;D:\CMake\share\cmake-3.27\Modules\FindGit.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageHandleStandardArgs.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageMessage.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-Initialize.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\WindowsPaths.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\3.27.4\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\tmp\imguizmo-download-mkdirs.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
       <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeLists.txt</Message>
       <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
-"C:\Program Files\CMake\bin\cmake.exe" -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/generate.stamp
+D:\CMake\bin\cmake.exe -SG:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo -BG:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/external/.cache/imguizmo/CMakeFiles/generate.stamp
 if %errorlevel% neq 0 goto :cmEnd
 :cmEnd
 endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
@@ -940,7 +892,7 @@ endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
 exit /b %1
 :cmDone
 if %errorlevel% neq 0 goto :VCEnd</Command>
-      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeDetermineSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystem.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject-gitupdate.cmake.in;C:\Program Files\CMake\share\cmake-3.21\Modules\ExternalProject.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindGit.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-3.21\Modules\RepositoryInfo.txt.in;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\3.21.0-rc2\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\tmp\imguizmo-download-cfgcmd.txt.in;%(AdditionalInputs)</AdditionalInputs>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">D:\CMake\share\cmake-3.27\Modules\CMakeDetermineSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeGenericSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeInitializeConfigs.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystem.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInitialize.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject.cmake;D:\CMake\share\cmake-3.27\Modules\ExternalProject\PatchInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\RepositoryInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\UpdateInfo.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\cfgcmd.txt.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitclone.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\gitupdate.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\mkdirs.cmake.in;D:\CMake\share\cmake-3.27\Modules\ExternalProject\shared_internal_commands.cmake;D:\CMake\share\cmake-3.27\Modules\FindGit.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageHandleStandardArgs.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageMessage.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-Initialize.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\WindowsPaths.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\3.27.4\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\imguizmo-download-prefix\tmp\imguizmo-download-mkdirs.cmake;%(AdditionalInputs)</AdditionalInputs>
       <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\CMakeFiles\generate.stamp</Outputs>
       <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
     </CustomBuild>
@@ -951,7 +903,7 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\imguizmo\ZERO_CHECK.vcxproj">
-      <Project>{E0F957DA-1A19-3E86-B782-88A58BAFF6CE}</Project>
+      <Project>{E95C14C1-5311-37A2-A331-7F95933D4F25}</Project>
       <Name>ZERO_CHECK</Name>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>

@@ -58,7 +58,7 @@ int main(int argc, char *argv[])
 
   Eigen::MatrixXd vers3D;
   Eigen::MatrixXi tris;
-  igl::readOBJ("E:/circleVers.obj", vers3D, tris);
+  igl::readOBJ("E:/²ÄÁÏ/loop2D.obj", vers3D, tris);
   unsigned versCount = vers3D.rows();
 
   // Create the boundary of a square

@@ -119,6 +119,7 @@ namespace opengl
 namespace glfw
 {
 
+    // 打开窗口，进入渲染循环：
   IGL_INLINE int Viewer::launch(bool resizable /*= true*/, bool fullscreen /*= false*/,
     const std::string &name, int windowWidth /*= 0*/, int windowHeight /*= 0*/)
   {
@@ -129,21 +130,24 @@ namespace glfw
     return EXIT_SUCCESS;
   }
 
+
+  // 打开窗口，初始化：
   IGL_INLINE int  Viewer::launch_init(bool resizable, bool fullscreen,
     const std::string &name, int windowWidth, int windowHeight)
   {
     glfwSetErrorCallback(glfw_error_callback);
-    if (!glfwInit())
-    {
-      return EXIT_FAILURE;
-    }
+    if (!glfwInit()) 
+      return EXIT_FAILURE; 
+
     glfwWindowHint(GLFW_SAMPLES, 8);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+
     #ifdef __APPLE__
       glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
       glfwWindowHint(GLFW_OPENGL_FORWARD_COMPAT, GL_TRUE);
     #endif
+
     if(fullscreen)
     {
       GLFWmonitor *monitor = glfwGetPrimaryMonitor();
@@ -166,18 +170,21 @@ namespace glfw
         windowHeight = 800;
       window = glfwCreateWindow(windowWidth,windowHeight,name.c_str(),nullptr,nullptr);
     }
+
     if (!window)
     {
       glfwTerminate();
       return EXIT_FAILURE;
     }
     glfwMakeContextCurrent(window);
+
     // Load OpenGL and its extensions
     if (!gladLoadGLLoader((GLADloadproc) glfwGetProcAddress))
     {
       printf("Failed to load OpenGL and its extensions\n");
       return(-1);
     }
+
     #if defined(DEBUG) || defined(_DEBUG)
       printf("OpenGL Version %d.%d loaded\n", GLVersion.major, GLVersion.minor);
       int major, minor, rev;
@@ -188,9 +195,12 @@ namespace glfw
       printf("Supported OpenGL is %s\n", (const char*)glGetString(GL_VERSION));
       printf("Supported GLSL is %s\n", (const char*)glGetString(GL_SHADING_LANGUAGE_VERSION));
     #endif
+
     glfwSetInputMode(window,GLFW_CURSOR,GLFW_CURSOR_NORMAL);
+
     // Initialize FormScreen
     __viewer = this;
+
     // Register callbacks
     glfwSetKeyCallback(window, glfw_key_callback);
     glfwSetCursorPosCallback(window,glfw_mouse_move);
@@ -199,6 +209,7 @@ namespace glfw
     glfwSetScrollCallback(window,glfw_mouse_scroll);
     glfwSetCharModsCallback(window,glfw_char_mods_callback);
     glfwSetDropCallback(window,glfw_drop_callback);
+
     // Handle retina displays (windows and mac)
     int width, height;
     glfwGetFramebufferSize(window, &width, &height);
@@ -206,24 +217,22 @@ namespace glfw
     glfwGetWindowSize(window, &width_window, &height_window);
     highdpi = windowWidth/width_window;
     glfw_window_size(window,width_window,height_window);
+
     // Initialize IGL viewer
     init();
-    for(auto &core : this->core_list)
-    {
-      for(auto &data : this->data_list)
-      {
-        if(data.is_visible & core.id)
-        {
-          this->core(core.id).align_camera_center(data.vers, data.F);
-        }
-      }
-    }
+
+    for(auto &core : this->core_list) 
+        for(auto &data : this->data_list) 
+            if(data.is_visible & core.id) 
+                this->core(core.id).align_camera_center(data.vers, data.F); 
+
     return EXIT_SUCCESS;
   }
 
+
+  // 渲染循环；
   IGL_INLINE bool Viewer::launch_rendering(bool loop)
-  {
-    // glfwMakeContextCurrent(window);
+  { 
     // Rendering loop
     const int num_extra_frames = 5;
     int frame_counter = 0;
@@ -263,22 +272,24 @@ namespace glfw
     return EXIT_SUCCESS;
   }
 
+
+  // 关闭窗口；
   IGL_INLINE void Viewer::launch_shut()
   {
-    for(auto & data : data_list)
-    {
-      data.meshgl.free();
-    }
-    core().shut(); // Doesn't do anything
+    for(auto & data : data_list) 
+      data.meshgl.free(); 
+    core().shut();                   // Doesn't do anything
     shutdown_plugins();
     glfwDestroyWindow(window);
     glfwTerminate();
     return;
   }
 
+
+  // Initialize IGL viewer
   IGL_INLINE void Viewer::init()
   {
-    core().init(); // Doesn't do anything
+    core().init();          // Doesn't do anything
 
     if (callback_init)
       if (callback_init(*this))
@@ -287,14 +298,14 @@ namespace glfw
     init_plugins();
   }
 
+
   IGL_INLINE void Viewer::init_plugins()
   {
     // Init all plugins
-    for (unsigned int i = 0; i<plugins.size(); ++i)
-    {
-      plugins[i]->init(this);
-    }
+    for (unsigned int i = 0; i<plugins.size(); ++i) 
+      plugins[i]->init(this); 
   }
+
 
   IGL_INLINE void Viewer::shutdown_plugins()
   {
@@ -304,6 +315,11 @@ namespace glfw
     }
   }
 
+
+
+  //////////////////////////////////////////////////////////////////////////////////////////////// 构造、析构
+
+  // constructor:
   IGL_INLINE Viewer::Viewer():
     data_list(1),
     selected_data_index(0),
@@ -367,9 +383,11 @@ namespace glfw
 #endif
   }
 
+
   IGL_INLINE Viewer::~Viewer()
   {
   }
+
 
   IGL_INLINE bool Viewer::load_mesh_from_file(
       const std::string & mesh_file_name_string)
@@ -1131,6 +1149,6 @@ namespace glfw
     return core_list.back().id;
   }
 
-} // end namespace
-} // end namespace
+}  
+} 
 }

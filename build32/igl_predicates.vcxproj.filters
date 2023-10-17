@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\predicates\ear_clipping.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\predicates\point_inside_convex_polygon.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\predicates\polygons_to_triangles.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\predicates\predicates.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\predicates\segment_segment_intersect.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\predicates\ear_clipping.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\predicates\point_inside_convex_polygon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\predicates\polygons_to_triangles.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\predicates\predicates.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\predicates\segment_segment_intersect.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{66AF20FD-272D-32F7-A475-FF1FDC2024F6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{1D91E96C-42E1-360F-8903-7A4880F5F34A}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

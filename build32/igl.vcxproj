@@ -1,0 +1,1122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{5EC6C87F-5453-3D09-927E-159853A66291}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <Platform>Win32</Platform>
+    <ProjectName>igl</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\build32\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">igl.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">igl</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\build32\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">igl.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">igl</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\build32\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">igl.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">igl</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "G:/gitRepositories/libigl_CGAL_openGL/cmake/../include" /external:I "G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/eigen" /bigobj</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4267;4244;4018;4305;4667;4996;4804</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;IGL_STATIC_LIBRARY;NOMINMAX;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;IGL_STATIC_LIBRARY;NOMINMAX;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "G:/gitRepositories/libigl_CGAL_openGL/cmake/../include" /external:I "G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/eigen" /bigobj</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <DisableSpecificWarnings>4267;4244;4018;4305;4667;4996;4804</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;IGL_STATIC_LIBRARY;NOMINMAX;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;IGL_STATIC_LIBRARY;NOMINMAX;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <ClCompile>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "G:/gitRepositories/libigl_CGAL_openGL/cmake/../include" /external:I "G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/eigen" /bigobj</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4267;4244;4018;4305;4667;4996;4804</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;IGL_STATIC_LIBRARY;NOMINMAX;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;IGL_STATIC_LIBRARY;NOMINMAX;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+D:\CMake\bin\cmake.exe -SG:/gitRepositories/libigl_CGAL_openGL -BG:/gitRepositories/libigl_CGAL_openGL/build32 --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/build32/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\CMake\share\cmake-3.27\Modules\CMakeCCompiler.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeCCompilerABI.c;D:\CMake\share\cmake-3.27\Modules\CMakeCInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeCXXCompiler.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeCXXCompilerABI.cpp;D:\CMake\share\cmake-3.27\Modules\CMakeCXXInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeCommonLanguageInclude.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeCompilerIdDetection.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineCCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineCXXCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineCompileFeatures.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineCompilerABI.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineCompilerId.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineRCCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeFindBinUtils.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeGenericSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeInitializeConfigs.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeLanguageInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakePackageConfigHelpers.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeParseArguments.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeParseImplicitIncludeInfo.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeParseImplicitLinkInfo.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeParseLibraryArchitecture.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeRCCompiler.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeRCInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystem.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInitialize.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeTestCCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeTestCXXCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeTestCompilerCommon.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeTestRCCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CTest.cmake;D:\CMake\share\cmake-3.27\Modules\CTestTargets.cmake;D:\CMake\share\cmake-3.27\Modules\CTestUseLaunchers.cmake;D:\CMake\share\cmake-3.27\Modules\CheckCSourceCompiles.cmake;D:\CMake\share\cmake-3.27\Modules\CheckIncludeFile.cmake;D:\CMake\share\cmake-3.27\Modules\CheckLibraryExists.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\ADSP-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\ARMCC-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\ARMClang-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\AppleClang-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Borland-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Clang-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Cray-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\FujitsuClang-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\GHS-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\GNU-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\HP-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\IAR-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\IBMClang-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\IBMClang-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Intel-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\IntelLLVM-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\LCC-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\LCC-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\MSVC-C.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\MSVC-CXX.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\MSVC-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\MSVC.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\NVHPC-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\PGI-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\PathScale-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\SCO-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\TI-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Tasking-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Watcom-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\XL-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\XLClang-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\zOS-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CompilerId\VS-10.vcxproj.in;D:\CMake\share\cmake-3.27\Modules\DartConfiguration.tcl.in;D:\CMake\share\cmake-3.27\Modules\FindOpenGL.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageHandleStandardArgs.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageMessage.cmake;D:\CMake\share\cmake-3.27\Modules\FindThreads.cmake;D:\CMake\share\cmake-3.27\Modules\GNUInstallDirs.cmake;D:\CMake\share\cmake-3.27\Modules\Internal\CheckSourceCompiles.cmake;D:\CMake\share\cmake-3.27\Modules\Internal\FeatureTesting.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-Determine-CXX.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-Initialize.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-MSVC-C.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-MSVC-CXX.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-MSVC.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\WindowsPaths.cmake;D:\CMake\share\cmake-3.27\Modules\WriteBasicConfigVersionFile.cmake;G:\gitRepositories\libigl_CGAL_openGL\build32\CMakeFiles\3.27.4\CMakeCCompiler.cmake;G:\gitRepositories\libigl_CGAL_openGL\build32\CMakeFiles\3.27.4\CMakeCXXCompiler.cmake;G:\gitRepositories\libigl_CGAL_openGL\build32\CMakeFiles\3.27.4\CMakeRCCompiler.cmake;G:\gitRepositories\libigl_CGAL_openGL\build32\CMakeFiles\3.27.4\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\CXXFeatures.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\DownloadProject.CMakeLists.cmake.in;G:\gitRepositories\libigl_CGAL_openGL\cmake\DownloadProject.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\HunterGate.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\LibiglDownloadExternal.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\LibiglFolders.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\LibiglWindows.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\libigl-config.cmake.in;G:\gitRepositories\libigl_CGAL_openGL\cmake\libigl.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\build32\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+D:\CMake\bin\cmake.exe -SG:/gitRepositories/libigl_CGAL_openGL -BG:/gitRepositories/libigl_CGAL_openGL/build32 --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/build32/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\CMake\share\cmake-3.27\Modules\CMakeCCompiler.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeCCompilerABI.c;D:\CMake\share\cmake-3.27\Modules\CMakeCInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeCXXCompiler.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeCXXCompilerABI.cpp;D:\CMake\share\cmake-3.27\Modules\CMakeCXXInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeCommonLanguageInclude.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeCompilerIdDetection.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineCCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineCXXCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineCompileFeatures.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineCompilerABI.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineCompilerId.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineRCCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeFindBinUtils.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeGenericSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeInitializeConfigs.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeLanguageInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakePackageConfigHelpers.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeParseArguments.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeParseImplicitIncludeInfo.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeParseImplicitLinkInfo.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeParseLibraryArchitecture.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeRCCompiler.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeRCInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystem.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInitialize.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeTestCCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeTestCXXCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeTestCompilerCommon.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeTestRCCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CTest.cmake;D:\CMake\share\cmake-3.27\Modules\CTestTargets.cmake;D:\CMake\share\cmake-3.27\Modules\CTestUseLaunchers.cmake;D:\CMake\share\cmake-3.27\Modules\CheckCSourceCompiles.cmake;D:\CMake\share\cmake-3.27\Modules\CheckIncludeFile.cmake;D:\CMake\share\cmake-3.27\Modules\CheckLibraryExists.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\ADSP-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\ARMCC-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\ARMClang-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\AppleClang-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Borland-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Clang-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Cray-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\FujitsuClang-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\GHS-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\GNU-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\HP-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\IAR-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\IBMClang-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\IBMClang-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Intel-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\IntelLLVM-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\LCC-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\LCC-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\MSVC-C.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\MSVC-CXX.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\MSVC-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\MSVC.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\NVHPC-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\PGI-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\PathScale-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\SCO-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\TI-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Tasking-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Watcom-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\XL-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\XLClang-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\zOS-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CompilerId\VS-10.vcxproj.in;D:\CMake\share\cmake-3.27\Modules\DartConfiguration.tcl.in;D:\CMake\share\cmake-3.27\Modules\FindOpenGL.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageHandleStandardArgs.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageMessage.cmake;D:\CMake\share\cmake-3.27\Modules\FindThreads.cmake;D:\CMake\share\cmake-3.27\Modules\GNUInstallDirs.cmake;D:\CMake\share\cmake-3.27\Modules\Internal\CheckSourceCompiles.cmake;D:\CMake\share\cmake-3.27\Modules\Internal\FeatureTesting.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-Determine-CXX.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-Initialize.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-MSVC-C.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-MSVC-CXX.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-MSVC.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\WindowsPaths.cmake;D:\CMake\share\cmake-3.27\Modules\WriteBasicConfigVersionFile.cmake;G:\gitRepositories\libigl_CGAL_openGL\build32\CMakeFiles\3.27.4\CMakeCCompiler.cmake;G:\gitRepositories\libigl_CGAL_openGL\build32\CMakeFiles\3.27.4\CMakeCXXCompiler.cmake;G:\gitRepositories\libigl_CGAL_openGL\build32\CMakeFiles\3.27.4\CMakeRCCompiler.cmake;G:\gitRepositories\libigl_CGAL_openGL\build32\CMakeFiles\3.27.4\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\CXXFeatures.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\DownloadProject.CMakeLists.cmake.in;G:\gitRepositories\libigl_CGAL_openGL\cmake\DownloadProject.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\HunterGate.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\LibiglDownloadExternal.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\LibiglFolders.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\LibiglWindows.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\libigl-config.cmake.in;G:\gitRepositories\libigl_CGAL_openGL\cmake\libigl.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\build32\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+D:\CMake\bin\cmake.exe -SG:/gitRepositories/libigl_CGAL_openGL -BG:/gitRepositories/libigl_CGAL_openGL/build32 --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/build32/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:\CMake\share\cmake-3.27\Modules\CMakeCCompiler.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeCCompilerABI.c;D:\CMake\share\cmake-3.27\Modules\CMakeCInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeCXXCompiler.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeCXXCompilerABI.cpp;D:\CMake\share\cmake-3.27\Modules\CMakeCXXInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeCommonLanguageInclude.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeCompilerIdDetection.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineCCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineCXXCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineCompileFeatures.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineCompilerABI.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineCompilerId.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineRCCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeFindBinUtils.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeGenericSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeInitializeConfigs.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeLanguageInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakePackageConfigHelpers.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeParseArguments.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeParseImplicitIncludeInfo.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeParseImplicitLinkInfo.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeParseLibraryArchitecture.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeRCCompiler.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeRCInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystem.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInitialize.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeTestCCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeTestCXXCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeTestCompilerCommon.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeTestRCCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CTest.cmake;D:\CMake\share\cmake-3.27\Modules\CTestTargets.cmake;D:\CMake\share\cmake-3.27\Modules\CTestUseLaunchers.cmake;D:\CMake\share\cmake-3.27\Modules\CheckCSourceCompiles.cmake;D:\CMake\share\cmake-3.27\Modules\CheckIncludeFile.cmake;D:\CMake\share\cmake-3.27\Modules\CheckLibraryExists.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\ADSP-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\ARMCC-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\ARMClang-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\AppleClang-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Borland-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Clang-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Cray-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\FujitsuClang-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\GHS-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\GNU-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\HP-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\IAR-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\IBMClang-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\IBMClang-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Intel-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\IntelLLVM-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\LCC-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\LCC-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\MSVC-C.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\MSVC-CXX.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\MSVC-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\MSVC.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\NVHPC-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\PGI-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\PathScale-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\SCO-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\TI-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Tasking-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Watcom-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\XL-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\XLClang-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\zOS-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CompilerId\VS-10.vcxproj.in;D:\CMake\share\cmake-3.27\Modules\DartConfiguration.tcl.in;D:\CMake\share\cmake-3.27\Modules\FindOpenGL.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageHandleStandardArgs.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageMessage.cmake;D:\CMake\share\cmake-3.27\Modules\FindThreads.cmake;D:\CMake\share\cmake-3.27\Modules\GNUInstallDirs.cmake;D:\CMake\share\cmake-3.27\Modules\Internal\CheckSourceCompiles.cmake;D:\CMake\share\cmake-3.27\Modules\Internal\FeatureTesting.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-Determine-CXX.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-Initialize.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-MSVC-C.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-MSVC-CXX.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-MSVC.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\WindowsPaths.cmake;D:\CMake\share\cmake-3.27\Modules\WriteBasicConfigVersionFile.cmake;G:\gitRepositories\libigl_CGAL_openGL\build32\CMakeFiles\3.27.4\CMakeCCompiler.cmake;G:\gitRepositories\libigl_CGAL_openGL\build32\CMakeFiles\3.27.4\CMakeCXXCompiler.cmake;G:\gitRepositories\libigl_CGAL_openGL\build32\CMakeFiles\3.27.4\CMakeRCCompiler.cmake;G:\gitRepositories\libigl_CGAL_openGL\build32\CMakeFiles\3.27.4\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\CXXFeatures.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\DownloadProject.CMakeLists.cmake.in;G:\gitRepositories\libigl_CGAL_openGL\cmake\DownloadProject.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\HunterGate.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\LibiglDownloadExternal.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\LibiglFolders.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\LibiglWindows.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\libigl-config.cmake.in;G:\gitRepositories\libigl_CGAL_openGL\cmake\libigl.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\build32\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\AABB.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\AABB.h" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\ARAPEnergyType.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\AtA_cached.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\AtA_cached.h" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\C_STR.h" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\Camera.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\EPS.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\EPS.h" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\FastWindingNumberForSoups.h" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\FileEncoding.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\HalfEdgeIterator.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\HalfEdgeIterator.h" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\Hit.h" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\IndexComparison.h" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\LinSpaced.h" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\MappingEnergyType.h" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\MeshBooleanType.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\MshLoader.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\MshLoader.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\MshSaver.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\MshSaver.h" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\NormalType.h" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\ONE.h" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\PI.h" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\REDRUM.h" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\STR.h" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\Singular_Value_Decomposition_Givens_QR_Factorization_Kernel.hpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\Singular_Value_Decomposition_Jacobi_Conjugation_Kernel.hpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\Singular_Value_Decomposition_Kernel_Declarations.hpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\Singular_Value_Decomposition_Main_Kernel_Body.hpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\Singular_Value_Decomposition_Preamble.hpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\SolverStatus.h" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\SortableRow.h" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\Timer.h" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\Viewport.h" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\WindingNumberAABB.h" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\WindingNumberMethod.h" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\WindingNumberTree.h" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\ZERO.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\accumarray.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\accumarray.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\active_set.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\active_set.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\adjacency_list.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\adjacency_list.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\adjacency_matrix.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\adjacency_matrix.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\all.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\all.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\all_pairs_distances.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\all_pairs_distances.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\ambient_occlusion.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\ambient_occlusion.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\angular_distance.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\angular_distance.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\any.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\any.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\any_of.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\any_of.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\arap.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\arap.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\arap_dof.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\arap_dof.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\arap_linear_block.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\arap_linear_block.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\arap_rhs.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\arap_rhs.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\average_from_edges_onto_vertices.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\average_from_edges_onto_vertices.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\average_onto_faces.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\average_onto_faces.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\average_onto_vertices.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\average_onto_vertices.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\avg_edge_length.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\avg_edge_length.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\axis_angle_to_quat.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\axis_angle_to_quat.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\barycenter.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\barycenter.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\barycentric_coordinates.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\barycentric_coordinates.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\barycentric_interpolation.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\barycentric_interpolation.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\basename.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\basename.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\bbw.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\bbw.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\bezier.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\bezier.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\bfs.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\bfs.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\bfs_orient.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\bfs_orient.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\biharmonic_coordinates.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\biharmonic_coordinates.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\bijective_composite_harmonic_mapping.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\bijective_composite_harmonic_mapping.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\blkdiag.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\blkdiag.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\blue_noise.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\blue_noise.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\bone_parents.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\bone_parents.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\boundary_conditions.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\boundary_conditions.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\boundary_facets.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\boundary_facets.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\boundary_loop.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\boundary_loop.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\bounding_box.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\bounding_box.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\bounding_box_diagonal.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\bounding_box_diagonal.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\canonical_quaternions.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\canonical_quaternions.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\cat.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\cat.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\ceil.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\ceil.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\centroid.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\centroid.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\circulation.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\circulation.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\circumradius.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\circumradius.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\collapse_edge.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\collapse_edge.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\collapse_small_triangles.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\collapse_small_triangles.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\colon.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\colon.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\colormap.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\colormap.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\column_to_quats.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\column_to_quats.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\columnize.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\columnize.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\comb_cross_field.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\comb_cross_field.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\comb_frame_field.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\comb_frame_field.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\comb_line_field.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\comb_line_field.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\combine.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\combine.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\compute_frame_field_bisectors.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\compute_frame_field_bisectors.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\connect_boundary_to_infinity.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\connect_boundary_to_infinity.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\connected_components.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\connected_components.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\copyleft\marching_cubes.cpp">
+      <ObjectFileName>$(IntDir)/include/igl/copyleft/marching_cubes.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\copyleft\marching_cubes.h" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\copyleft\marching_cubes_tables.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\copyleft\progressive_hulls.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\copyleft\progressive_hulls.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\copyleft\progressive_hulls_cost_and_placement.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\copyleft\progressive_hulls_cost_and_placement.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\copyleft\quadprog.cpp">
+      <ObjectFileName>$(IntDir)/include/igl/copyleft/quadprog.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\copyleft\quadprog.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\cotmatrix.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\cotmatrix.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\cotmatrix_entries.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\cotmatrix_entries.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\cotmatrix_intrinsic.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\cotmatrix_intrinsic.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\count.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\count.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\covariance_scatter_matrix.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\covariance_scatter_matrix.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\cr_vector_curvature_correction.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\cr_vector_curvature_correction.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\cr_vector_laplacian.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\cr_vector_laplacian.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\cr_vector_mass.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\cr_vector_mass.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\cross.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\cross.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\cross_field_mismatch.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\cross_field_mismatch.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\crouzeix_raviart_cotmatrix.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\crouzeix_raviart_cotmatrix.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\crouzeix_raviart_massmatrix.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\crouzeix_raviart_massmatrix.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\cumprod.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\cumprod.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\cumsum.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\cumsum.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\curved_hessian_energy.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\curved_hessian_energy.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\cut_mesh.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\cut_mesh.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\cut_mesh_from_singularities.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\cut_mesh_from_singularities.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\cut_to_disk.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\cut_to_disk.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\cylinder.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\cylinder.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\dated_copy.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\dated_copy.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\decimate.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\decimate.h" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\decimate_callback_types.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\decimate_trivial_callbacks.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\decimate_trivial_callbacks.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\default_num_threads.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\default_num_threads.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\deform_skeleton.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\deform_skeleton.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\delaunay_triangulation.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\delaunay_triangulation.h" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\deprecated.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\dfs.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\dfs.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\diag.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\diag.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\dihedral_angles.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\dihedral_angles.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\dijkstra.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\dijkstra.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\direct_delta_mush.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\direct_delta_mush.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\directed_edge_orientations.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\directed_edge_orientations.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\directed_edge_parents.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\directed_edge_parents.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\dirname.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\dirname.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\dot.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\dot.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\dot_row.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\dot_row.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\doublearea.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\doublearea.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\dqs.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\dqs.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\dual_contouring.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\dual_contouring.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\ears.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\ears.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\edge_collapse_is_valid.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\edge_collapse_is_valid.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\edge_exists_near.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\edge_exists_near.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\edge_flaps.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\edge_flaps.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\edge_lengths.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\edge_lengths.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\edge_midpoints.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\edge_midpoints.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\edge_topology.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\edge_topology.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\edge_vectors.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\edge_vectors.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\edges.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\edges.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\edges_to_path.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\edges_to_path.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\eigs.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\eigs.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\euler_characteristic.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\euler_characteristic.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\exact_geodesic.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\exact_geodesic.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\example_fun.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\example_fun.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\exploded_view.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\exploded_view.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\extension.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\extension.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\exterior_edges.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\exterior_edges.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\extract_manifold_patches.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\extract_manifold_patches.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\extract_non_manifold_edge_curves.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\extract_non_manifold_edge_curves.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\face_areas.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\face_areas.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\face_occurrences.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\face_occurrences.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\faces_first.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\faces_first.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\facet_adjacency_matrix.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\facet_adjacency_matrix.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\facet_components.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\facet_components.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\false_barycentric_subdivision.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\false_barycentric_subdivision.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\fast_winding_number.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\fast_winding_number.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\file_contents_as_string.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\file_contents_as_string.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\file_dialog_open.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\file_dialog_open.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\file_dialog_save.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\file_dialog_save.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\file_exists.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\file_exists.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\file_utils.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\file_utils.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\find.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\find.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\find_cross_field_singularities.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\find_cross_field_singularities.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\find_zero.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\find_zero.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\fit_cubic_bezier.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\fit_cubic_bezier.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\fit_plane.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\fit_plane.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\fit_rotations.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\fit_rotations.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\flip_avoiding_line_search.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\flip_avoiding_line_search.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\flip_edge.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\flip_edge.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\flipped_triangles.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\flipped_triangles.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\flood_fill.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\flood_fill.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\floor.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\floor.h" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\for_each.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\forward_kinematics.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\forward_kinematics.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\frame_field_deformer.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\frame_field_deformer.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\frame_to_cross_field.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\frame_to_cross_field.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\frustum.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\frustum.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\gaussian_curvature.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\gaussian_curvature.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\get_seconds.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\get_seconds.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\get_seconds_hires.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\get_seconds_hires.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\grad.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\grad.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\grad_intrinsic.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\grad_intrinsic.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\grid.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\grid.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\grid_search.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\grid_search.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\group_sum_matrix.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\group_sum_matrix.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\guess_extension.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\guess_extension.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\harmonic.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\harmonic.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\harwell_boeing.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\harwell_boeing.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\hausdorff.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\hausdorff.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\heat_geodesics.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\heat_geodesics.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\hessian.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\hessian.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\hessian_energy.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\hessian_energy.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\histc.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\histc.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\hsv_to_rgb.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\hsv_to_rgb.h" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\igl_inline.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\in_element.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\in_element.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\infinite_cost_stopping_condition.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\infinite_cost_stopping_condition.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\inradius.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\inradius.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\internal_angles.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\internal_angles.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\intersect.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\intersect.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\intrinsic_delaunay_cotmatrix.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\intrinsic_delaunay_cotmatrix.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\intrinsic_delaunay_triangulation.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\intrinsic_delaunay_triangulation.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\invert_diag.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\invert_diag.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\is_border_vertex.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\is_border_vertex.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\is_boundary_edge.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\is_boundary_edge.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\is_delaunay.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\is_delaunay.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\is_dir.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\is_dir.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\is_edge_manifold.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\is_edge_manifold.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\is_file.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\is_file.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\is_intrinsic_delaunay.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\is_intrinsic_delaunay.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\is_irregular_vertex.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\is_irregular_vertex.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\is_planar.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\is_planar.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\is_readable.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\is_readable.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\is_sparse.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\is_sparse.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\is_stl.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\is_stl.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\is_symmetric.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\is_symmetric.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\is_vertex_manifold.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\is_vertex_manifold.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\is_writable.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\is_writable.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\isdiag.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\isdiag.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\ismember.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\ismember.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\isolines.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\isolines.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\isolines_map.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\isolines_map.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\iterative_closest_point.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\iterative_closest_point.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\jet.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\jet.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\kelvinlets.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\kelvinlets.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\kkt_inverse.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\kkt_inverse.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\knn.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\knn.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\launch_medit.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\launch_medit.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\lbs_matrix.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\lbs_matrix.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\lexicographic_triangulation.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\lexicographic_triangulation.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\limit_faces.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\limit_faces.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\line_field_mismatch.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\line_field_mismatch.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\line_search.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\line_search.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\line_segment_in_rectangle.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\line_segment_in_rectangle.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\linprog.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\linprog.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\list_to_matrix.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\list_to_matrix.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\local_basis.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\local_basis.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\look_at.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\look_at.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\loop.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\loop.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\lscm.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\lscm.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\map_vertices_to_circle.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\map_vertices_to_circle.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\mapping_energy_with_jacobians.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\mapping_energy_with_jacobians.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\march_cube.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\march_cube.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\marching_cubes.cpp">
+      <ObjectFileName>$(IntDir)/include/igl/marching_cubes.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\marching_cubes.h" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\marching_cubes_tables.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\marching_tets.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\marching_tets.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\massmatrix.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\massmatrix.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\massmatrix_intrinsic.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\massmatrix_intrinsic.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\mat_max.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\mat_max.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\mat_min.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\mat_min.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\mat_to_quat.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\mat_to_quat.h" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\material_colors.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\matlab_format.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\matlab_format.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\matrix_to_list.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\matrix_to_list.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\max.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\max.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\max_faces_stopping_condition.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\max_faces_stopping_condition.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\max_size.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\max_size.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\median.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\median.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\min.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\min.h" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\min_heap.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\min_quad_with_fixed.1.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\min_quad_with_fixed.2.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\min_quad_with_fixed.h" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\min_quad_with_fixed.impl.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\min_quad_with_fixed_precompute.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\min_quad_with_fixed_solve.cpp" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\min_size.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\min_size.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\mod.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\mod.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\mode.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\mode.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\mvc.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\mvc.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\nchoosek.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\nchoosek.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\next_filename.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\next_filename.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\normal_derivative.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\normal_derivative.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\normalize_quat.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\normalize_quat.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\normalize_row_lengths.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\normalize_row_lengths.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\normalize_row_sums.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\normalize_row_sums.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\null.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\null.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\octree.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\octree.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\offset_surface.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\offset_surface.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\on_boundary.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\on_boundary.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\orient_halfedges.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\orient_halfedges.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\orient_outward.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\orient_outward.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\orientable_patches.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\orientable_patches.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\oriented_facets.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\oriented_facets.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\orth.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\orth.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\ortho.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\ortho.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\outer_element.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\outer_element.h" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\parallel_for.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\parallel_transport_angles.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\parallel_transport_angles.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\partition.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\partition.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\parula.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\parula.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\path_to_edges.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\path_to_edges.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\path_to_executable.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\path_to_executable.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\pathinfo.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\pathinfo.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\per_corner_normals.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\per_corner_normals.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\per_edge_normals.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\per_edge_normals.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\per_face_normals.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\per_face_normals.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\per_vertex_attribute_smoothing.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\per_vertex_attribute_smoothing.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\per_vertex_normals.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\per_vertex_normals.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\per_vertex_point_to_plane_quadrics.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\per_vertex_point_to_plane_quadrics.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\piecewise_constant_winding_number.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\piecewise_constant_winding_number.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\pinv.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\pinv.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\planarize_quad_mesh.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\planarize_quad_mesh.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\point_in_circle.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\point_in_circle.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\point_mesh_squared_distance.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\point_mesh_squared_distance.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\point_simplex_squared_distance.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\point_simplex_squared_distance.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\polar_dec.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\polar_dec.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\polar_svd.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\polar_svd.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\polar_svd3x3.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\polar_svd3x3.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\polygon_corners.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\polygon_corners.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\polygons_to_triangles.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\polygons_to_triangles.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\principal_curvature.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\principal_curvature.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\print_ijv.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\print_ijv.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\print_vector.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\print_vector.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\procrustes.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\procrustes.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\project.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\project.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\project_isometrically_to_plane.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\project_isometrically_to_plane.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\project_to_line.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\project_to_line.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\project_to_line_segment.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\project_to_line_segment.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\projection_constraint.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\projection_constraint.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\pseudonormal_test.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\pseudonormal_test.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\pso.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\pso.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\qslim.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\qslim.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\qslim_optimal_collapse_edge_callbacks.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\qslim_optimal_collapse_edge_callbacks.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\quad_grid.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\quad_grid.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\quad_planarity.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\quad_planarity.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\quadprog.cpp">
+      <ObjectFileName>$(IntDir)/include/igl/quadprog.cpp.obj</ObjectFileName>
+    </ClCompile>
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\quadprog.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\quadric_binary_plus_operator.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\quadric_binary_plus_operator.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\quat_conjugate.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\quat_conjugate.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\quat_mult.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\quat_mult.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\quat_to_axis_angle.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\quat_to_axis_angle.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\quat_to_mat.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\quat_to_mat.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\quats_to_column.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\quats_to_column.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\ramer_douglas_peucker.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\ramer_douglas_peucker.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\random_dir.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\random_dir.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\random_points_on_mesh.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\random_points_on_mesh.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\random_quaternion.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\random_quaternion.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\random_search.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\random_search.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\randperm.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\randperm.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\ray_box_intersect.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\ray_box_intersect.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\ray_mesh_intersect.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\ray_mesh_intersect.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\ray_sphere_intersect.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\ray_sphere_intersect.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\readBF.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\readBF.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\readCSV.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\readCSV.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\readDMAT.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\readDMAT.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\readMESH.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\readMESH.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\readMSH.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\readMSH.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\readNODE.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\readNODE.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\readOBJ.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\readOBJ.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\readOFF.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\readOFF.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\readPLY.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\readPLY.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\readSTL.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\readSTL.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\readTGF.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\readTGF.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\readWRL.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\readWRL.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\read_triangle_mesh.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\read_triangle_mesh.h" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\redux.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\remesh_along_isoline.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\remesh_along_isoline.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\remove_duplicate_vertices.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\remove_duplicate_vertices.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\remove_unreferenced.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\remove_unreferenced.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\reorder.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\reorder.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\repdiag.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\repdiag.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\repmat.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\repmat.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\resolve_duplicated_faces.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\resolve_duplicated_faces.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\rgb_to_hsv.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\rgb_to_hsv.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\rigid_alignment.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\rigid_alignment.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\rotate_by_quat.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\rotate_by_quat.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\rotate_vectors.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\rotate_vectors.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\rotation_matrix_from_directions.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\rotation_matrix_from_directions.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\round.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\round.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\rows_to_matrix.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\rows_to_matrix.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\sample_edges.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\sample_edges.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\scalar_to_cr_vector_gradient.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\scalar_to_cr_vector_gradient.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\screen_space_selection.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\screen_space_selection.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\seam_edges.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\seam_edges.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\segment_segment_intersect.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\segment_segment_intersect.h" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\serialize.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\setdiff.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\setdiff.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\setunion.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\setunion.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\setxor.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\setxor.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\shape_diameter_function.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\shape_diameter_function.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\shapeup.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\shapeup.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\sharp_edges.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\sharp_edges.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\shortest_edge_and_midpoint.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\shortest_edge_and_midpoint.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\signed_angle.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\signed_angle.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\signed_distance.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\signed_distance.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\simplify_polyhedron.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\simplify_polyhedron.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\slice.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\slice.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\slice_cached.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\slice_cached.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\slice_into.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\slice_into.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\slice_mask.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\slice_mask.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\slice_sorted.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\slice_sorted.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\slim.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\slim.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\smooth_corner_adjacency.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\smooth_corner_adjacency.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\snap_points.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\snap_points.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\snap_to_canonical_view_quat.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\snap_to_canonical_view_quat.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\snap_to_fixed_up.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\snap_to_fixed_up.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\solid_angle.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\solid_angle.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\sort.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\sort.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\sort_angles.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\sort_angles.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\sort_triangles.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\sort_triangles.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\sort_vectors_ccw.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\sort_vectors_ccw.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\sortrows.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\sortrows.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\sparse.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\sparse.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\sparse_cached.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\sparse_cached.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\sparse_voxel_grid.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\sparse_voxel_grid.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\speye.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\speye.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\squared_edge_lengths.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\squared_edge_lengths.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\stdin_to_temp.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\stdin_to_temp.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\straighten_seams.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\straighten_seams.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\string_utils.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\string_utils.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\sum.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\sum.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\svd3x3.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\svd3x3.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\svd3x3_avx.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\svd3x3_avx.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\svd3x3_sse.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\svd3x3_sse.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\swept_volume.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\swept_volume.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\swept_volume_bounding_box.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\swept_volume_bounding_box.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\swept_volume_signed_distance.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\swept_volume_signed_distance.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\tan_half_angle.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\tan_half_angle.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\tet_tet_adjacency.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\tet_tet_adjacency.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\tetrahedralized_grid.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\tetrahedralized_grid.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\tinyply.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\tinyply.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\topological_hole_fill.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\topological_hole_fill.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\trackball.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\trackball.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\transpose_blocks.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\transpose_blocks.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\triangle_fan.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\triangle_fan.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\triangle_triangle_adjacency.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\triangle_triangle_adjacency.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\triangles_from_strip.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\triangles_from_strip.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\triangulated_grid.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\triangulated_grid.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\two_axis_valuator_fixed_up.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\two_axis_valuator_fixed_up.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\uniformly_sample_two_manifold.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\uniformly_sample_two_manifold.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\unique.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\unique.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\unique_edge_map.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\unique_edge_map.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\unique_rows.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\unique_rows.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\unique_simplices.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\unique_simplices.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\unproject.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\unproject.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\unproject_in_mesh.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\unproject_in_mesh.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\unproject_on_line.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\unproject_on_line.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\unproject_on_plane.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\unproject_on_plane.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\unproject_onto_mesh.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\unproject_onto_mesh.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\unproject_ray.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\unproject_ray.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\unzip_corners.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\unzip_corners.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\upsample.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\upsample.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\vector_area_matrix.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\vector_area_matrix.h" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\verbose.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\vertex_components.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\vertex_components.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\vertex_triangle_adjacency.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\vertex_triangle_adjacency.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\volume.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\volume.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\voxel_grid.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\voxel_grid.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\winding_number.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\winding_number.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\writeBF.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\writeBF.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\writeDMAT.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\writeDMAT.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\writeMESH.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\writeMESH.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\writeMSH.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\writeMSH.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\writeOBJ.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\writeOBJ.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\writeOFF.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\writeOFF.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\writePLY.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\writePLY.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\writeSTL.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\writeSTL.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\writeTGF.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\writeTGF.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\writeWRL.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\writeWRL.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\write_triangle_mesh.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\write_triangle_mesh.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\ZERO_CHECK.vcxproj">
+      <Project>{CBF727F8-FB59-30A7-975E-D8B00BADD442}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

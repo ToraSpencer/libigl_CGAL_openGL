@@ -1,0 +1,269 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{56B524B6-C361-327A-AA42-4CF7652A46ED}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <Platform>Win32</Platform>
+    <ProjectName>igl_opengl_glfw_imgui</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\build32\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">igl_opengl_glfw_imgui.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">igl_opengl_glfw_imgui</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\build32\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">igl_opengl_glfw_imgui.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">igl_opengl_glfw_imgui</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\build32\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">igl_opengl_glfw_imgui.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">igl_opengl_glfw_imgui</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\external\glad\include;G:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;G:\gitRepositories\libigl_CGAL_openGL\external\libigl-imgui\..\imgui;G:\gitRepositories\libigl_CGAL_openGL\external\libigl-imgui\.;G:\gitRepositories\libigl_CGAL_openGL\external\libigl-imgui\..;G:\gitRepositories\libigl_CGAL_openGL\external\libigl-imgui\..\imgui\backends;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "G:/gitRepositories/libigl_CGAL_openGL/cmake/../include" /external:I "G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/eigen" /bigobj</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4267;4244;4018;4305;4667;4996;4804</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;IGL_STATIC_LIBRARY;NOMINMAX;IMGUI_IMPL_OPENGL_LOADER_GLAD;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;IGL_STATIC_LIBRARY;NOMINMAX;IMGUI_IMPL_OPENGL_LOADER_GLAD;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\external\glad\include;G:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;G:\gitRepositories\libigl_CGAL_openGL\external\libigl-imgui\..\imgui;G:\gitRepositories\libigl_CGAL_openGL\external\libigl-imgui\.;G:\gitRepositories\libigl_CGAL_openGL\external\libigl-imgui\..;G:\gitRepositories\libigl_CGAL_openGL\external\libigl-imgui\..\imgui\backends;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\external\glad\include;G:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;G:\gitRepositories\libigl_CGAL_openGL\external\libigl-imgui\..\imgui;G:\gitRepositories\libigl_CGAL_openGL\external\libigl-imgui\.;G:\gitRepositories\libigl_CGAL_openGL\external\libigl-imgui\..;G:\gitRepositories\libigl_CGAL_openGL\external\libigl-imgui\..\imgui\backends;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\external\glad\include;G:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;G:\gitRepositories\libigl_CGAL_openGL\external\libigl-imgui\..\imgui;G:\gitRepositories\libigl_CGAL_openGL\external\libigl-imgui\.;G:\gitRepositories\libigl_CGAL_openGL\external\libigl-imgui\..;G:\gitRepositories\libigl_CGAL_openGL\external\libigl-imgui\..\imgui\backends;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "G:/gitRepositories/libigl_CGAL_openGL/cmake/../include" /external:I "G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/eigen" /bigobj</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <DisableSpecificWarnings>4267;4244;4018;4305;4667;4996;4804</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;IGL_STATIC_LIBRARY;NOMINMAX;IMGUI_IMPL_OPENGL_LOADER_GLAD;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;IGL_STATIC_LIBRARY;NOMINMAX;IMGUI_IMPL_OPENGL_LOADER_GLAD;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\external\glad\include;G:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;G:\gitRepositories\libigl_CGAL_openGL\external\libigl-imgui\..\imgui;G:\gitRepositories\libigl_CGAL_openGL\external\libigl-imgui\.;G:\gitRepositories\libigl_CGAL_openGL\external\libigl-imgui\..;G:\gitRepositories\libigl_CGAL_openGL\external\libigl-imgui\..\imgui\backends;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\external\glad\include;G:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;G:\gitRepositories\libigl_CGAL_openGL\external\libigl-imgui\..\imgui;G:\gitRepositories\libigl_CGAL_openGL\external\libigl-imgui\.;G:\gitRepositories\libigl_CGAL_openGL\external\libigl-imgui\..;G:\gitRepositories\libigl_CGAL_openGL\external\libigl-imgui\..\imgui\backends;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\external\glad\include;G:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;G:\gitRepositories\libigl_CGAL_openGL\external\libigl-imgui\..\imgui;G:\gitRepositories\libigl_CGAL_openGL\external\libigl-imgui\.;G:\gitRepositories\libigl_CGAL_openGL\external\libigl-imgui\..;G:\gitRepositories\libigl_CGAL_openGL\external\libigl-imgui\..\imgui\backends;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "G:/gitRepositories/libigl_CGAL_openGL/cmake/../include" /external:I "G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/eigen" /bigobj</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <DisableSpecificWarnings>4267;4244;4018;4305;4667;4996;4804</DisableSpecificWarnings>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <UseFullPaths>false</UseFullPaths>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;IGL_STATIC_LIBRARY;NOMINMAX;IMGUI_IMPL_OPENGL_LOADER_GLAD;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;IGL_STATIC_LIBRARY;NOMINMAX;IMGUI_IMPL_OPENGL_LOADER_GLAD;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\external\glad\include;G:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;G:\gitRepositories\libigl_CGAL_openGL\external\libigl-imgui\..\imgui;G:\gitRepositories\libigl_CGAL_openGL\external\libigl-imgui\.;G:\gitRepositories\libigl_CGAL_openGL\external\libigl-imgui\..;G:\gitRepositories\libigl_CGAL_openGL\external\libigl-imgui\..\imgui\backends;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>G:\gitRepositories\libigl_CGAL_openGL\external\glad\include;G:\gitRepositories\libigl_CGAL_openGL\external\glfw\include;G:\gitRepositories\libigl_CGAL_openGL\external\libigl-imgui\..\imgui;G:\gitRepositories\libigl_CGAL_openGL\external\libigl-imgui\.;G:\gitRepositories\libigl_CGAL_openGL\external\libigl-imgui\..;G:\gitRepositories\libigl_CGAL_openGL\external\libigl-imgui\..\imgui\backends;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\include;G:\gitRepositories\libigl_CGAL_openGL\cmake\..\external\eigen;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+D:\CMake\bin\cmake.exe -SG:/gitRepositories/libigl_CGAL_openGL -BG:/gitRepositories/libigl_CGAL_openGL/build32 --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/build32/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\CMake\share\cmake-3.27\Modules\CMakeCCompiler.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeCCompilerABI.c;D:\CMake\share\cmake-3.27\Modules\CMakeCInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeCXXCompiler.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeCXXCompilerABI.cpp;D:\CMake\share\cmake-3.27\Modules\CMakeCXXInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeCommonLanguageInclude.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeCompilerIdDetection.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineCCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineCXXCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineCompileFeatures.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineCompilerABI.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineCompilerId.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineRCCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeFindBinUtils.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeGenericSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeInitializeConfigs.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeLanguageInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakePackageConfigHelpers.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeParseArguments.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeParseImplicitIncludeInfo.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeParseImplicitLinkInfo.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeParseLibraryArchitecture.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeRCCompiler.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeRCInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystem.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInitialize.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeTestCCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeTestCXXCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeTestCompilerCommon.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeTestRCCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CTest.cmake;D:\CMake\share\cmake-3.27\Modules\CTestTargets.cmake;D:\CMake\share\cmake-3.27\Modules\CTestUseLaunchers.cmake;D:\CMake\share\cmake-3.27\Modules\CheckCSourceCompiles.cmake;D:\CMake\share\cmake-3.27\Modules\CheckIncludeFile.cmake;D:\CMake\share\cmake-3.27\Modules\CheckLibraryExists.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\ADSP-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\ARMCC-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\ARMClang-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\AppleClang-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Borland-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Clang-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Cray-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\FujitsuClang-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\GHS-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\GNU-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\HP-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\IAR-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\IBMClang-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\IBMClang-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Intel-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\IntelLLVM-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\LCC-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\LCC-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\MSVC-C.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\MSVC-CXX.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\MSVC-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\MSVC.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\NVHPC-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\PGI-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\PathScale-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\SCO-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\TI-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Tasking-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Watcom-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\XL-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\XLClang-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\zOS-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CompilerId\VS-10.vcxproj.in;D:\CMake\share\cmake-3.27\Modules\DartConfiguration.tcl.in;D:\CMake\share\cmake-3.27\Modules\FindOpenGL.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageHandleStandardArgs.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageMessage.cmake;D:\CMake\share\cmake-3.27\Modules\FindThreads.cmake;D:\CMake\share\cmake-3.27\Modules\GNUInstallDirs.cmake;D:\CMake\share\cmake-3.27\Modules\Internal\CheckSourceCompiles.cmake;D:\CMake\share\cmake-3.27\Modules\Internal\FeatureTesting.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-Determine-CXX.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-Initialize.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-MSVC-C.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-MSVC-CXX.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-MSVC.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\WindowsPaths.cmake;D:\CMake\share\cmake-3.27\Modules\WriteBasicConfigVersionFile.cmake;G:\gitRepositories\libigl_CGAL_openGL\build32\CMakeFiles\3.27.4\CMakeCCompiler.cmake;G:\gitRepositories\libigl_CGAL_openGL\build32\CMakeFiles\3.27.4\CMakeCXXCompiler.cmake;G:\gitRepositories\libigl_CGAL_openGL\build32\CMakeFiles\3.27.4\CMakeRCCompiler.cmake;G:\gitRepositories\libigl_CGAL_openGL\build32\CMakeFiles\3.27.4\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\CXXFeatures.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\DownloadProject.CMakeLists.cmake.in;G:\gitRepositories\libigl_CGAL_openGL\cmake\DownloadProject.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\HunterGate.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\LibiglDownloadExternal.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\LibiglFolders.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\LibiglWindows.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\libigl-config.cmake.in;G:\gitRepositories\libigl_CGAL_openGL\cmake\libigl.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\build32\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+D:\CMake\bin\cmake.exe -SG:/gitRepositories/libigl_CGAL_openGL -BG:/gitRepositories/libigl_CGAL_openGL/build32 --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/build32/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\CMake\share\cmake-3.27\Modules\CMakeCCompiler.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeCCompilerABI.c;D:\CMake\share\cmake-3.27\Modules\CMakeCInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeCXXCompiler.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeCXXCompilerABI.cpp;D:\CMake\share\cmake-3.27\Modules\CMakeCXXInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeCommonLanguageInclude.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeCompilerIdDetection.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineCCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineCXXCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineCompileFeatures.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineCompilerABI.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineCompilerId.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineRCCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeFindBinUtils.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeGenericSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeInitializeConfigs.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeLanguageInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakePackageConfigHelpers.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeParseArguments.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeParseImplicitIncludeInfo.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeParseImplicitLinkInfo.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeParseLibraryArchitecture.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeRCCompiler.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeRCInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystem.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInitialize.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeTestCCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeTestCXXCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeTestCompilerCommon.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeTestRCCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CTest.cmake;D:\CMake\share\cmake-3.27\Modules\CTestTargets.cmake;D:\CMake\share\cmake-3.27\Modules\CTestUseLaunchers.cmake;D:\CMake\share\cmake-3.27\Modules\CheckCSourceCompiles.cmake;D:\CMake\share\cmake-3.27\Modules\CheckIncludeFile.cmake;D:\CMake\share\cmake-3.27\Modules\CheckLibraryExists.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\ADSP-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\ARMCC-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\ARMClang-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\AppleClang-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Borland-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Clang-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Cray-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\FujitsuClang-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\GHS-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\GNU-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\HP-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\IAR-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\IBMClang-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\IBMClang-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Intel-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\IntelLLVM-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\LCC-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\LCC-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\MSVC-C.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\MSVC-CXX.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\MSVC-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\MSVC.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\NVHPC-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\PGI-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\PathScale-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\SCO-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\TI-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Tasking-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Watcom-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\XL-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\XLClang-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\zOS-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CompilerId\VS-10.vcxproj.in;D:\CMake\share\cmake-3.27\Modules\DartConfiguration.tcl.in;D:\CMake\share\cmake-3.27\Modules\FindOpenGL.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageHandleStandardArgs.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageMessage.cmake;D:\CMake\share\cmake-3.27\Modules\FindThreads.cmake;D:\CMake\share\cmake-3.27\Modules\GNUInstallDirs.cmake;D:\CMake\share\cmake-3.27\Modules\Internal\CheckSourceCompiles.cmake;D:\CMake\share\cmake-3.27\Modules\Internal\FeatureTesting.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-Determine-CXX.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-Initialize.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-MSVC-C.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-MSVC-CXX.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-MSVC.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\WindowsPaths.cmake;D:\CMake\share\cmake-3.27\Modules\WriteBasicConfigVersionFile.cmake;G:\gitRepositories\libigl_CGAL_openGL\build32\CMakeFiles\3.27.4\CMakeCCompiler.cmake;G:\gitRepositories\libigl_CGAL_openGL\build32\CMakeFiles\3.27.4\CMakeCXXCompiler.cmake;G:\gitRepositories\libigl_CGAL_openGL\build32\CMakeFiles\3.27.4\CMakeRCCompiler.cmake;G:\gitRepositories\libigl_CGAL_openGL\build32\CMakeFiles\3.27.4\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\CXXFeatures.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\DownloadProject.CMakeLists.cmake.in;G:\gitRepositories\libigl_CGAL_openGL\cmake\DownloadProject.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\HunterGate.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\LibiglDownloadExternal.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\LibiglFolders.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\LibiglWindows.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\libigl-config.cmake.in;G:\gitRepositories\libigl_CGAL_openGL\cmake\libigl.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\build32\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+D:\CMake\bin\cmake.exe -SG:/gitRepositories/libigl_CGAL_openGL -BG:/gitRepositories/libigl_CGAL_openGL/build32 --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/build32/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:\CMake\share\cmake-3.27\Modules\CMakeCCompiler.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeCCompilerABI.c;D:\CMake\share\cmake-3.27\Modules\CMakeCInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeCXXCompiler.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeCXXCompilerABI.cpp;D:\CMake\share\cmake-3.27\Modules\CMakeCXXInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeCommonLanguageInclude.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeCompilerIdDetection.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineCCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineCXXCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineCompileFeatures.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineCompilerABI.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineCompilerId.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineRCCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeDetermineSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeFindBinUtils.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeGenericSystem.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeInitializeConfigs.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeLanguageInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakePackageConfigHelpers.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeParseArguments.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeParseImplicitIncludeInfo.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeParseImplicitLinkInfo.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeParseLibraryArchitecture.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeRCCompiler.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeRCInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystem.cmake.in;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInformation.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeSystemSpecificInitialize.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeTestCCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeTestCXXCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeTestCompilerCommon.cmake;D:\CMake\share\cmake-3.27\Modules\CMakeTestRCCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CTest.cmake;D:\CMake\share\cmake-3.27\Modules\CTestTargets.cmake;D:\CMake\share\cmake-3.27\Modules\CTestUseLaunchers.cmake;D:\CMake\share\cmake-3.27\Modules\CheckCSourceCompiles.cmake;D:\CMake\share\cmake-3.27\Modules\CheckIncludeFile.cmake;D:\CMake\share\cmake-3.27\Modules\CheckLibraryExists.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\ADSP-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\ARMCC-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\ARMClang-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\AppleClang-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Borland-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Bruce-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\CMakeCommonCompilerMacros.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Clang-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Clang-DetermineCompilerInternal.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Comeau-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Compaq-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Compaq-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Cray-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Embarcadero-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Fujitsu-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\FujitsuClang-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\GHS-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\GNU-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\GNU-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\HP-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\HP-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\IAR-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\IBMCPP-C-DetermineVersionInternal.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\IBMCPP-CXX-DetermineVersionInternal.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\IBMClang-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\IBMClang-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Intel-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\IntelLLVM-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\LCC-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\LCC-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\MSVC-C.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\MSVC-CXX.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\MSVC-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\MSVC.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\NVHPC-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\NVIDIA-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\OpenWatcom-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\PGI-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\PathScale-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\SCO-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\SDCC-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\SunPro-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\SunPro-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\TI-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Tasking-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\TinyCC-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\VisualAge-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\VisualAge-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\Watcom-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\XL-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\XL-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\XLClang-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\XLClang-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\zOS-C-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\Compiler\zOS-CXX-DetermineCompiler.cmake;D:\CMake\share\cmake-3.27\Modules\CompilerId\VS-10.vcxproj.in;D:\CMake\share\cmake-3.27\Modules\DartConfiguration.tcl.in;D:\CMake\share\cmake-3.27\Modules\FindOpenGL.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageHandleStandardArgs.cmake;D:\CMake\share\cmake-3.27\Modules\FindPackageMessage.cmake;D:\CMake\share\cmake-3.27\Modules\FindThreads.cmake;D:\CMake\share\cmake-3.27\Modules\GNUInstallDirs.cmake;D:\CMake\share\cmake-3.27\Modules\Internal\CheckSourceCompiles.cmake;D:\CMake\share\cmake-3.27\Modules\Internal\FeatureTesting.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-Determine-CXX.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-Initialize.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-MSVC-C.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-MSVC-CXX.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows-MSVC.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\Windows.cmake;D:\CMake\share\cmake-3.27\Modules\Platform\WindowsPaths.cmake;D:\CMake\share\cmake-3.27\Modules\WriteBasicConfigVersionFile.cmake;G:\gitRepositories\libigl_CGAL_openGL\build32\CMakeFiles\3.27.4\CMakeCCompiler.cmake;G:\gitRepositories\libigl_CGAL_openGL\build32\CMakeFiles\3.27.4\CMakeCXXCompiler.cmake;G:\gitRepositories\libigl_CGAL_openGL\build32\CMakeFiles\3.27.4\CMakeRCCompiler.cmake;G:\gitRepositories\libigl_CGAL_openGL\build32\CMakeFiles\3.27.4\CMakeSystem.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\CXXFeatures.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\DownloadProject.CMakeLists.cmake.in;G:\gitRepositories\libigl_CGAL_openGL\cmake\DownloadProject.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\HunterGate.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\LibiglDownloadExternal.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\LibiglFolders.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\LibiglWindows.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\libigl-config.cmake.in;G:\gitRepositories\libigl_CGAL_openGL\cmake\libigl.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\build32\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\glfw\imgui\ImGuiHelpers.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\glfw\imgui\ImGuiMenu.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\glfw\imgui\ImGuiMenu.h" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\glfw\imgui\ImGuiTraits.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\glfw\imgui\ImGuizmoPlugin.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\glfw\imgui\ImGuizmoPlugin.h" />
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\glfw\imgui\SelectionPlugin.cpp" />
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\glfw\imgui\SelectionPlugin.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\ZERO_CHECK.vcxproj">
+      <Project>{CBF727F8-FB59-30A7-975E-D8B00BADD442}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\glad\glad.vcxproj">
+      <Project>{61D9E3E6-64A3-3700-B742-11174C44361F}</Project>
+      <Name>glad</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\glfw\src\glfw.vcxproj">
+      <Project>{7A6AB002-4970-3DA5-A87D-20E0192D8489}</Project>
+      <Name>glfw</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\igl.vcxproj">
+      <Project>{5EC6C87F-5453-3D09-927E-159853A66291}</Project>
+      <Name>igl</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\igl_opengl.vcxproj">
+      <Project>{1C0B3C75-A7A9-3088-BDBB-3E0D19BF9129}</Project>
+      <Name>igl_opengl</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\igl_opengl_glfw.vcxproj">
+      <Project>{8BA6EB8A-BDED-3F07-975E-D5F44B713F83}</Project>
+      <Name>igl_opengl_glfw</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\imgui\imgui.vcxproj">
+      <Project>{F871C048-CED0-3BD6-8955-EA46DB1E5080}</Project>
+      <Name>imgui</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\imguizmo.vcxproj">
+      <Project>{B3919223-6105-3D66-A2B3-4B8CEDD64794}</Project>
+      <Name>imguizmo</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

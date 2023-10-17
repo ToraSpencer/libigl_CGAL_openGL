@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\08d6ae4ce04fb435f46f7ec5e730d252\generate.stamp.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\tinyxml2\CMakeFiles\ccdcf31ff565e7fd97234bd127fb82d2\generate.stamp.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{31688BFC-C1A1-3564-BCC0-9369153F903E}</UniqueIdentifier>
+      <UniqueIdentifier>{87B0AB12-67BC-387B-A55D-19DB713D3757}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -1,0 +1,219 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\common\device.cpp">
+      <Filter>Source Files\common</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\common\stat.cpp">
+      <Filter>Source Files\common</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\common\acceln.cpp">
+      <Filter>Source Files\common</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\common\accelset.cpp">
+      <Filter>Source Files\common</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\common\state.cpp">
+      <Filter>Source Files\common</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\common\rtcore.cpp">
+      <Filter>Source Files\common</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\common\rtcore_builder.cpp">
+      <Filter>Source Files\common</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\common\scene.cpp">
+      <Filter>Source Files\common</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\common\alloc.cpp">
+      <Filter>Source Files\common</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\common\geometry.cpp">
+      <Filter>Source Files\common</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\common\scene_user_geometry.cpp">
+      <Filter>Source Files\common</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\common\scene_instance.cpp">
+      <Filter>Source Files\common</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\common\scene_triangle_mesh.cpp">
+      <Filter>Source Files\common</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\common\scene_quad_mesh.cpp">
+      <Filter>Source Files\common</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\common\scene_curves.cpp">
+      <Filter>Source Files\common</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\common\scene_line_segments.cpp">
+      <Filter>Source Files\common</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\common\scene_grid_mesh.cpp">
+      <Filter>Source Files\common</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\common\scene_points.cpp">
+      <Filter>Source Files\common</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\common\motion_derivative.cpp">
+      <Filter>Source Files\common</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\subdiv\bezier_curve.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\subdiv\bspline_curve.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\subdiv\catmullrom_curve.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\geometry\primitive4.cpp">
+      <Filter>Source Files\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\geometry\instance_intersector.cpp">
+      <Filter>Source Files\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\geometry\curve_intersector_virtual.cpp">
+      <Filter>Source Files\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\geometry\curve_intersector_virtual2.cpp">
+      <Filter>Source Files\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\builders\primrefgen.cpp">
+      <Filter>Source Files\builders</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\bvh\bvh.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\bvh\bvh_statistics.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\bvh\bvh4_factory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\bvh\bvh8_factory.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\bvh\bvh_collider.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\bvh\bvh_rotate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\bvh\bvh_refit.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\bvh\bvh_builder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\bvh\bvh_builder_hair.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\bvh\bvh_builder_hair_mb.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\bvh\bvh_builder_morton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\bvh\bvh_builder_sah.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\bvh\bvh_builder_sah_spatial.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\bvh\bvh_builder_sah_mb.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\bvh\bvh_builder_twolevel.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\bvh\bvh_intersector1_bvh4.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\common\scene_subdiv_mesh.cpp">
+      <Filter>Source Files\common</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\subdiv\tessellation_cache.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\subdiv\subdivpatch1base.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\subdiv\catmullclark_coefficients.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\geometry\grid_soa.cpp">
+      <Filter>Source Files\geometry</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\subdiv\subdivpatch1base_eval.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\bvh\bvh_builder_subdiv.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\bvh\bvh_intersector_hybrid4_bvh4.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\bvh\bvh_intersector_stream_bvh4.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\bvh\bvh_intersector_stream_filters.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Object Include="G:\gitRepositories\libigl_CGAL_openGL\build32\embree\common\algorithms\algorithms.dir\$(Configuration)\parallel_for.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="G:\gitRepositories\libigl_CGAL_openGL\build32\embree\common\algorithms\algorithms.dir\$(Configuration)\parallel_reduce.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="G:\gitRepositories\libigl_CGAL_openGL\build32\embree\common\algorithms\algorithms.dir\$(Configuration)\parallel_prefix_sum.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="G:\gitRepositories\libigl_CGAL_openGL\build32\embree\common\algorithms\algorithms.dir\$(Configuration)\parallel_for_for.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="G:\gitRepositories\libigl_CGAL_openGL\build32\embree\common\algorithms\algorithms.dir\$(Configuration)\parallel_for_for_prefix_sum.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="G:\gitRepositories\libigl_CGAL_openGL\build32\embree\common\algorithms\algorithms.dir\$(Configuration)\parallel_partition.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="G:\gitRepositories\libigl_CGAL_openGL\build32\embree\common\algorithms\algorithms.dir\$(Configuration)\parallel_sort.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="G:\gitRepositories\libigl_CGAL_openGL\build32\embree\common\algorithms\algorithms.dir\$(Configuration)\parallel_set.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="G:\gitRepositories\libigl_CGAL_openGL\build32\embree\common\algorithms\algorithms.dir\$(Configuration)\parallel_map.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+    <Object Include="G:\gitRepositories\libigl_CGAL_openGL\build32\embree\common\algorithms\algorithms.dir\$(Configuration)\parallel_filter.obj">
+      <Filter>Object Libraries</Filter>
+    </Object>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="G:\gitRepositories\libigl_CGAL_openGL\external\embree\kernels\embree.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Object Libraries">
+      <UniqueIdentifier>{47BEBAA3-B868-3D0E-B191-96692ADB20D0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{1D91E96C-42E1-360F-8903-7A4880F5F34A}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\builders">
+      <UniqueIdentifier>{0A3709A3-5EE5-3ED8-9B38-21D45DD79727}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\common">
+      <UniqueIdentifier>{BC507FCC-0EC4-341D-B653-328A5406B343}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\geometry">
+      <UniqueIdentifier>{9ABF9DAB-06CE-3CC5-B16B-661F223C0317}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

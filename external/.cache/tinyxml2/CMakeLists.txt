@@ -9,7 +9,7 @@ include(ExternalProject)
 ExternalProject_Add(tinyxml2-download
                     TLS_VERIFY;OFF;GIT_CONFIG;advice.detachedHead=false;GIT_REPOSITORY;https://github.com/leethomason/tinyxml2.git;GIT_TAG;d175e9de0be0d4db75d0a8cf065599a435a87eb6
                     SOURCE_DIR          "G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/tinyxml2"
-                    BINARY_DIR          "G:/gitRepositories/libigl_CGAL_openGL/build/tinyxml2-build"
+                    BINARY_DIR          "G:/gitRepositories/libigl_CGAL_openGL/build32/tinyxml2-build"
                     CONFIGURE_COMMAND   ""
                     BUILD_COMMAND       ""
                     INSTALL_COMMAND     ""

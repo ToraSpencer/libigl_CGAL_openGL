@@ -1,0 +1,419 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ResolveNugetPackages>false</ResolveNugetPackages>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{AD560ED3-79F1-3C96-A8D3-6DDCED198C63}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.19041.0</WindowsTargetPlatformVersion>
+    <Platform>Win32</Platform>
+    <ProjectName>ALL_BUILD</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>Utility</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v142</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">$(Platform)\$(Configuration)\$(ProjectName)\</IntDir>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <Midl>
+      <AdditionalIncludeDirectories>%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\tutorial\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/tutorial/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">setlocal
+D:\CMake\bin\cmake.exe -SG:/gitRepositories/libigl_CGAL_openGL -BG:/gitRepositories/libigl_CGAL_openGL/build32 --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/build32/tutorial/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\CMake\share\cmake-3.27\Modules\CMakeParseArguments.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\DownloadProject.CMakeLists.cmake.in;G:\gitRepositories\libigl_CGAL_openGL\cmake\DownloadProject.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\LibiglDownloadExternal.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/tutorial/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">setlocal
+D:\CMake\bin\cmake.exe -SG:/gitRepositories/libigl_CGAL_openGL -BG:/gitRepositories/libigl_CGAL_openGL/build32 --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/build32/tutorial/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\CMake\share\cmake-3.27\Modules\CMakeParseArguments.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\DownloadProject.CMakeLists.cmake.in;G:\gitRepositories\libigl_CGAL_openGL\cmake\DownloadProject.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\LibiglDownloadExternal.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">Building Custom Rule G:/gitRepositories/libigl_CGAL_openGL/tutorial/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">setlocal
+D:\CMake\bin\cmake.exe -SG:/gitRepositories/libigl_CGAL_openGL -BG:/gitRepositories/libigl_CGAL_openGL/build32 --check-stamp-file G:/gitRepositories/libigl_CGAL_openGL/build32/tutorial/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:\CMake\share\cmake-3.27\Modules\CMakeParseArguments.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\DownloadProject.CMakeLists.cmake.in;G:\gitRepositories\libigl_CGAL_openGL\cmake\DownloadProject.cmake;G:\gitRepositories\libigl_CGAL_openGL\cmake\LibiglDownloadExternal.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\ZERO_CHECK.vcxproj">
+      <Project>{CBF727F8-FB59-30A7-975E-D8B00BADD442}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\101_FileIO\101_FileIO.vcxproj">
+      <Project>{FD369DB3-BDC0-3664-8B96-B2F2DCEA58D2}</Project>
+      <Name>101_FileIO</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\102_DrawMesh\102_DrawMesh.vcxproj">
+      <Project>{3689B9C3-DA50-3BC1-8FFA-44B4BC7D64B2}</Project>
+      <Name>102_DrawMesh</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\103_Events\103_Events.vcxproj">
+      <Project>{366C1D44-2BDC-38C9-8DFE-47CE7F3665F4}</Project>
+      <Name>103_Events</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\104_Colors\104_Colors.vcxproj">
+      <Project>{B04994D1-9DC7-30CA-93CC-15CBD4782A74}</Project>
+      <Name>104_Colors</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\105_Overlays\105_Overlays.vcxproj">
+      <Project>{D0A18162-051F-3311-967F-9AD6B61A8483}</Project>
+      <Name>105_Overlays</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\106_ViewerMenu\106_ViewerMenu.vcxproj">
+      <Project>{24BB89FB-EF42-3758-8453-F2B8F4D7D5A8}</Project>
+      <Name>106_ViewerMenu</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\107_MultipleMeshes\107_MultipleMeshes.vcxproj">
+      <Project>{C300F6BC-536C-3428-AC2B-F62FFAADC8D1}</Project>
+      <Name>107_MultipleMeshes</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\108_MultipleViews\108_MultipleViews.vcxproj">
+      <Project>{084C4FA1-919D-34E7-A73F-F0C2D5A1BEF5}</Project>
+      <Name>108_MultipleViews</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\109_ImGuizmo\109_ImGuizmo.vcxproj">
+      <Project>{E4660398-551C-3E56-84F0-DE2EDB5CD318}</Project>
+      <Name>109_ImGuizmo</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\110_MshView\110_MshView.vcxproj">
+      <Project>{43F68A4A-4CFB-32DD-85DF-86B55EF57AA7}</Project>
+      <Name>110_MshView</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\111_MatCap\111_MatCap.vcxproj">
+      <Project>{98732D14-501E-3840-A9EF-92B4C55D2BC3}</Project>
+      <Name>111_MatCap</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\112_Selection\112_Selection.vcxproj">
+      <Project>{2E595FF2-CB64-35C4-AF79-80784410583A}</Project>
+      <Name>112_Selection</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\201_Normals\201_Normals.vcxproj">
+      <Project>{4E35161F-BE4C-335F-8237-CA0DEFDC8594}</Project>
+      <Name>201_Normals</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\202_GaussianCurvature\202_GaussianCurvature.vcxproj">
+      <Project>{F48EE3CB-EC9B-3129-B5E0-539C153E4B67}</Project>
+      <Name>202_GaussianCurvature</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\203_CurvatureDirections\203_CurvatureDirections.vcxproj">
+      <Project>{4F1BD685-A67D-3E63-9847-63BBB5A2FA0E}</Project>
+      <Name>203_CurvatureDirections</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\204_Gradient\204_Gradient.vcxproj">
+      <Project>{86DBA7F0-B059-3AE0-9CD1-DE82D19F6E4B}</Project>
+      <Name>204_Gradient</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\205_Laplacian\205_Laplacian.vcxproj">
+      <Project>{AD0AB3BE-9797-3BAB-A560-65FA54A5A083}</Project>
+      <Name>205_Laplacian</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\206_GeodesicDistance\206_GeodesicDistance.vcxproj">
+      <Project>{95480AA3-721F-3DEA-B989-D5061D2A1B7E}</Project>
+      <Name>206_GeodesicDistance</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\207_PolygonLaplacian\207_PolygonLaplacian.vcxproj">
+      <Project>{F8E00320-9841-35C9-82F1-FE50D5A7AEAC}</Project>
+      <Name>207_PolygonLaplacian</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\301_Slice\301_Slice.vcxproj">
+      <Project>{902A3CAF-87C6-314C-8681-90A7F0B9081F}</Project>
+      <Name>301_Slice</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\302_Sort\302_Sort.vcxproj">
+      <Project>{EC587BBF-A6DF-380D-A9C8-969BEB6963A4}</Project>
+      <Name>302_Sort</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\303_LaplaceEquation\303_LaplaceEquation.vcxproj">
+      <Project>{D44E356A-23BF-338C-B1E5-16D9F32C81D9}</Project>
+      <Name>303_LaplaceEquation</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\304_LinearEqualityConstraints\304_LinearEqualityConstraints.vcxproj">
+      <Project>{C27CA306-D047-383F-8467-E2FB85A89AE4}</Project>
+      <Name>304_LinearEqualityConstraints</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\305_QuadraticProgramming\305_QuadraticProgramming.vcxproj">
+      <Project>{A2A1E564-7E9B-34D2-9FC1-521C9CD11603}</Project>
+      <Name>305_QuadraticProgramming</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\306_EigenDecomposition\306_EigenDecomposition.vcxproj">
+      <Project>{05574E06-84B5-33E9-85C6-746DC98818E6}</Project>
+      <Name>306_EigenDecomposition</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\401_BiharmonicDeformation\401_BiharmonicDeformation.vcxproj">
+      <Project>{8CBBA24D-0327-3980-AF82-C0D809CA3604}</Project>
+      <Name>401_BiharmonicDeformation</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\402_PolyharmonicDeformation\402_PolyharmonicDeformation.vcxproj">
+      <Project>{63B0EBD1-E9D7-38FD-BFBD-1AEEA3B215F0}</Project>
+      <Name>402_PolyharmonicDeformation</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\403_BoundedBiharmonicWeights\403_BoundedBiharmonicWeights.vcxproj">
+      <Project>{E3029D7D-7451-3109-AECD-9A032AFAC0DD}</Project>
+      <Name>403_BoundedBiharmonicWeights</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\404_DualQuaternionSkinning\404_DualQuaternionSkinning.vcxproj">
+      <Project>{DFEA408C-BB6D-3863-8C48-24349504E0E6}</Project>
+      <Name>404_DualQuaternionSkinning</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\405_AsRigidAsPossible\405_AsRigidAsPossible.vcxproj">
+      <Project>{C9F11A2F-81C8-32D1-BA32-B7C4E583A782}</Project>
+      <Name>405_AsRigidAsPossible</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\406_FastAutomaticSkinningTransformations\406_FastAutomaticSkinningTransformations.vcxproj">
+      <Project>{1BA204E3-7865-382F-AF1B-7CA5917DC8B5}</Project>
+      <Name>406_FastAutomaticSkinningTransformations</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\407_BiharmonicCoordinates\407_BiharmonicCoordinates.vcxproj">
+      <Project>{B2502D90-8F2F-3189-BAC2-55F772D4A875}</Project>
+      <Name>407_BiharmonicCoordinates</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\408_DirectDeltaMush\408_DirectDeltaMush.vcxproj">
+      <Project>{B2DAC0B2-C533-381F-BEA2-55EDB38BA9B4}</Project>
+      <Name>408_DirectDeltaMush</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\409_Kelvinlets\409_Kelvinlets.vcxproj">
+      <Project>{572A0FC3-8CF8-33D7-95F9-B51905BE1B3C}</Project>
+      <Name>409_Kelvinlets</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\501_HarmonicParam\501_HarmonicParam.vcxproj">
+      <Project>{C0A9331B-1E26-3613-A15D-EA6A81E364AA}</Project>
+      <Name>501_HarmonicParam</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\502_LSCMParam\502_LSCMParam.vcxproj">
+      <Project>{95A7130E-8145-37A5-8967-FA8FA152A2AF}</Project>
+      <Name>502_LSCMParam</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\503_ARAPParam\503_ARAPParam.vcxproj">
+      <Project>{222EBC22-56CB-3F02-9FAD-7B90C98F33E8}</Project>
+      <Name>503_ARAPParam</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\504_NRosyDesign\504_NRosyDesign.vcxproj">
+      <Project>{B06AFB7C-97A1-3519-AA68-C70EB6B8B149}</Project>
+      <Name>504_NRosyDesign</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\505_MIQ\505_MIQ.vcxproj">
+      <Project>{F96EAEBF-189A-356B-A849-7896C5CFE5F8}</Project>
+      <Name>505_MIQ</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\506_FrameField\506_FrameField.vcxproj">
+      <Project>{BB029495-D922-3014-BA61-D490345D61A7}</Project>
+      <Name>506_FrameField</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\507_Planarization\507_Planarization.vcxproj">
+      <Project>{600359BD-0A35-32F4-A0E5-0E24CEC92E99}</Project>
+      <Name>507_Planarization</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\601_Serialization\601_Serialization.vcxproj">
+      <Project>{C22D1EB5-1AEC-3D88-875C-62DED75591FB}</Project>
+      <Name>601_Serialization</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\604_Triangle\604_Triangle.vcxproj">
+      <Project>{E7E6A8B8-B90B-3550-9491-D4DD26246AE5}</Project>
+      <Name>604_Triangle</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\605_Tetgen\605_Tetgen.vcxproj">
+      <Project>{37A6074B-A6D4-3AA6-9FFB-8DDA0B28DE78}</Project>
+      <Name>605_Tetgen</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\606_AmbientOcclusion\606_AmbientOcclusion.vcxproj">
+      <Project>{7F5B4868-7013-37E5-A53B-78BFDEF3ACCA}</Project>
+      <Name>606_AmbientOcclusion</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\607_ScreenCapture\607_ScreenCapture.vcxproj">
+      <Project>{DF49E09C-A65F-3D91-8480-367BBEE2660A}</Project>
+      <Name>607_ScreenCapture</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\608_RayTrace\608_RayTrace.vcxproj">
+      <Project>{DDCF8461-C739-34D5-A471-ADF2271CB24C}</Project>
+      <Name>608_RayTrace</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\701_Statistics\701_Statistics.vcxproj">
+      <Project>{E5F58B6B-A767-3620-B43D-415556A466D2}</Project>
+      <Name>701_Statistics</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\702_WindingNumber\702_WindingNumber.vcxproj">
+      <Project>{5744A5F3-2ED7-38B9-81F4-677A8C72AA17}</Project>
+      <Name>702_WindingNumber</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\703_Decimation\703_Decimation.vcxproj">
+      <Project>{F8E868ED-72F3-3C80-BF16-FD350B65251A}</Project>
+      <Name>703_Decimation</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\704_SignedDistance\704_SignedDistance.vcxproj">
+      <Project>{403D6027-8770-3B82-840E-7EEE85A8E67E}</Project>
+      <Name>704_SignedDistance</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\705_MarchingCubes\705_MarchingCubes.vcxproj">
+      <Project>{1630FDC0-9ED8-3CD1-91C2-844539214998}</Project>
+      <Name>705_MarchingCubes</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\706_FacetOrientation\706_FacetOrientation.vcxproj">
+      <Project>{E528E2BA-F2B5-3F93-B4C3-E5761D3B8A8F}</Project>
+      <Name>706_FacetOrientation</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\707_SweptVolume\707_SweptVolume.vcxproj">
+      <Project>{58E94513-C860-3482-96F3-432C085B160A}</Project>
+      <Name>707_SweptVolume</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\708_Picking\708_Picking.vcxproj">
+      <Project>{C1306FF2-F073-35E2-9384-E49F777C050E}</Project>
+      <Name>708_Picking</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\709_SLIM\709_SLIM.vcxproj">
+      <Project>{55E40C7C-E210-3B0A-B293-2F410A1782ED}</Project>
+      <Name>709_SLIM</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\710_SCAF\710_SCAF.vcxproj">
+      <Project>{AD9FE37C-3CF6-3B0A-8D2D-2721587FEB8E}</Project>
+      <Name>710_SCAF</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\711_Subdivision\711_Subdivision.vcxproj">
+      <Project>{3B452B07-D182-3666-82EA-89B7C2E11DDC}</Project>
+      <Name>711_Subdivision</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\712_DataSmoothing\712_DataSmoothing.vcxproj">
+      <Project>{E9D37387-9309-3B06-AC78-90117C108CB7}</Project>
+      <Name>712_DataSmoothing</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\713_ShapeUp\713_ShapeUp.vcxproj">
+      <Project>{922C07D9-5029-39CE-80A0-59D604375258}</Project>
+      <Name>713_ShapeUp</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\714_MarchingTets\714_MarchingTets.vcxproj">
+      <Project>{C7EE2798-E2C3-3D42-9DD7-F46DBA268E97}</Project>
+      <Name>714_MarchingTets</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\715_MeshImplicitFunction\715_MeshImplicitFunction.vcxproj">
+      <Project>{BB616499-203F-3520-84EB-898B12611FDC}</Project>
+      <Name>715_MeshImplicitFunction</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\716_HeatGeodesics\716_HeatGeodesics.vcxproj">
+      <Project>{07615DFE-1C6C-3307-BC1A-2422378C909D}</Project>
+      <Name>716_HeatGeodesics</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\718_IterativeClosestPoint\718_IterativeClosestPoint.vcxproj">
+      <Project>{3CE4DAC1-A7AD-33D1-8E5B-1A79F9333C55}</Project>
+      <Name>718_IterativeClosestPoint</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\719_ExplodedView\719_ExplodedView.vcxproj">
+      <Project>{E3E8E995-41E8-3CB7-8691-F3052D7EDC56}</Project>
+      <Name>719_ExplodedView</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\720_BlueNoise\720_BlueNoise.vcxproj">
+      <Project>{C8C0C446-590D-302F-889B-0D8CD0D75057}</Project>
+      <Name>720_BlueNoise</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\721_VectorFieldSmoothing\721_VectorFieldSmoothing_bin.vcxproj">
+      <Project>{B252EF7A-CE68-3977-AA65-DAE12DDE0E92}</Project>
+      <Name>721_VectorFieldSmoothing_bin</Name>
+    </ProjectReference>
+    <ProjectReference Include="G:\gitRepositories\libigl_CGAL_openGL\build32\tutorial\722_VectorParallelTransport\722_VectorParallelTransport_bin.vcxproj">
+      <Project>{BFF83E08-5AED-361C-9575-F4B61B5153AA}</Project>
+      <Name>722_VectorParallelTransport_bin</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

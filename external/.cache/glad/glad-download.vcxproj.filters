@@ -1,31 +1,31 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\d1126ef00c85487b63f4601f57879e1f\glad-download-mkdir.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\309e44445317496aff0cd027aab68f36\glad-download-mkdir.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\d1126ef00c85487b63f4601f57879e1f\glad-download-download.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\309e44445317496aff0cd027aab68f36\glad-download-download.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\d1126ef00c85487b63f4601f57879e1f\glad-download-update.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\309e44445317496aff0cd027aab68f36\glad-download-update.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\d1126ef00c85487b63f4601f57879e1f\glad-download-patch.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\309e44445317496aff0cd027aab68f36\glad-download-patch.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\d1126ef00c85487b63f4601f57879e1f\glad-download-configure.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\309e44445317496aff0cd027aab68f36\glad-download-configure.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\d1126ef00c85487b63f4601f57879e1f\glad-download-build.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\309e44445317496aff0cd027aab68f36\glad-download-build.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\d1126ef00c85487b63f4601f57879e1f\glad-download-install.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\309e44445317496aff0cd027aab68f36\glad-download-install.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\d1126ef00c85487b63f4601f57879e1f\glad-download-test.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\309e44445317496aff0cd027aab68f36\glad-download-test.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\6b767f3b678045862443aa05d16ad0fa\glad-download-complete.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\a54b2ecdc68a98317c246cd0026dcbc7\glad-download-complete.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
     <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\glad\CMakeFiles\a13773862b3b99db3328ff0ec56e26ab\glad-download.rule">

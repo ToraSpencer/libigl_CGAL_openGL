@@ -9,7 +9,7 @@ include(ExternalProject)
 ExternalProject_Add(libigl-imgui-download
                     TLS_VERIFY;OFF;GIT_CONFIG;advice.detachedHead=false;GIT_REPOSITORY;https://github.com/libigl/libigl-imgui.git;GIT_TAG;7e1053e750b0f4c129b046f4e455243cb7f804f3
                     SOURCE_DIR          "G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/libigl-imgui"
-                    BINARY_DIR          "G:/gitRepositories/libigl_CGAL_openGL/build/libigl-imgui-build"
+                    BINARY_DIR          "G:/gitRepositories/libigl_CGAL_openGL/build32/libigl-imgui-build"
                     CONFIGURE_COMMAND   ""
                     BUILD_COMMAND       ""
                     INSTALL_COMMAND     ""

@@ -1,34 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\test_data\CMakeFiles\6e1f363d772f7c632573d832f48f1bcb\test_data-download-mkdir.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\test_data\CMakeFiles\078c0cbcfab7012153d7a87686605e59\test_data-download-mkdir.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\test_data\CMakeFiles\6e1f363d772f7c632573d832f48f1bcb\test_data-download-download.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\test_data\CMakeFiles\078c0cbcfab7012153d7a87686605e59\test_data-download-download.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\test_data\CMakeFiles\6e1f363d772f7c632573d832f48f1bcb\test_data-download-update.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\test_data\CMakeFiles\078c0cbcfab7012153d7a87686605e59\test_data-download-update.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\test_data\CMakeFiles\6e1f363d772f7c632573d832f48f1bcb\test_data-download-patch.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\test_data\CMakeFiles\078c0cbcfab7012153d7a87686605e59\test_data-download-patch.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\test_data\CMakeFiles\6e1f363d772f7c632573d832f48f1bcb\test_data-download-configure.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\test_data\CMakeFiles\078c0cbcfab7012153d7a87686605e59\test_data-download-configure.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\test_data\CMakeFiles\6e1f363d772f7c632573d832f48f1bcb\test_data-download-build.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\test_data\CMakeFiles\078c0cbcfab7012153d7a87686605e59\test_data-download-build.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\test_data\CMakeFiles\6e1f363d772f7c632573d832f48f1bcb\test_data-download-install.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\test_data\CMakeFiles\078c0cbcfab7012153d7a87686605e59\test_data-download-install.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\test_data\CMakeFiles\6e1f363d772f7c632573d832f48f1bcb\test_data-download-test.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\test_data\CMakeFiles\078c0cbcfab7012153d7a87686605e59\test_data-download-test.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\test_data\CMakeFiles\8d90700cbee23eacbb68012817366c1e\test_data-download-complete.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\test_data\CMakeFiles\2846242a4ac9473d21a20b5316397b92\test_data-download-complete.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\test_data\CMakeFiles\2cfcc28f4ae642a9d35fa0841331248b\test_data-download.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\test_data\CMakeFiles\72f2890cfc7eee85ce1e96f233aa7949\test_data-download.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
     <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\test_data\CMakeLists.txt" />
@@ -38,7 +38,7 @@
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{ED2A2F90-4540-3010-B0E9-4E1771BF5A75}</UniqueIdentifier>
+      <UniqueIdentifier>{7D44A44F-7C01-348C-97CC-A3830D0E329D}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

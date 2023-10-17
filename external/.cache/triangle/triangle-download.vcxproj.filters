@@ -1,34 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\358a3b9de55afa4a57195c369a6e4241\triangle-download-mkdir.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\6a6f2d280f1177ef302f7179281c10b0\triangle-download-mkdir.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\358a3b9de55afa4a57195c369a6e4241\triangle-download-download.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\6a6f2d280f1177ef302f7179281c10b0\triangle-download-download.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\358a3b9de55afa4a57195c369a6e4241\triangle-download-update.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\6a6f2d280f1177ef302f7179281c10b0\triangle-download-update.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\358a3b9de55afa4a57195c369a6e4241\triangle-download-patch.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\6a6f2d280f1177ef302f7179281c10b0\triangle-download-patch.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\358a3b9de55afa4a57195c369a6e4241\triangle-download-configure.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\6a6f2d280f1177ef302f7179281c10b0\triangle-download-configure.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\358a3b9de55afa4a57195c369a6e4241\triangle-download-build.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\6a6f2d280f1177ef302f7179281c10b0\triangle-download-build.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\358a3b9de55afa4a57195c369a6e4241\triangle-download-install.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\6a6f2d280f1177ef302f7179281c10b0\triangle-download-install.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\358a3b9de55afa4a57195c369a6e4241\triangle-download-test.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\6a6f2d280f1177ef302f7179281c10b0\triangle-download-test.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\7132278efbe911aef2be8e8e01024ff7\triangle-download-complete.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\b0fc074235e8e0ecf09c303313326b01\triangle-download-complete.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
-    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\df0500e4ab1646a25c1dc030369384f6\triangle-download.rule">
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeFiles\5d9b6a1329aafe2f06dfa29f61c6f043\triangle-download.rule">
       <Filter>CMake Rules</Filter>
     </CustomBuild>
     <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\external\.cache\triangle\CMakeLists.txt" />
@@ -38,7 +38,7 @@
   </ItemGroup>
   <ItemGroup>
     <Filter Include="CMake Rules">
-      <UniqueIdentifier>{F9F89AA4-E0D0-3BFA-80E4-7D44B8D023D6}</UniqueIdentifier>
+      <UniqueIdentifier>{F050686C-F5ED-3EE5-B6B7-DB0BE0EFFC1F}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

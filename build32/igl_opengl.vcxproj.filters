@@ -1,0 +1,129 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="16.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\MeshGL.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\ViewerCore.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\ViewerData.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\bind_vertex_attrib_array.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\create_index_vbo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\create_mesh_vbo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\create_shader_program.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\create_vector_vbo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\destroy_shader_program.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\gl_type_size.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\init_render_to_texture.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\load_shader.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\print_program_info_log.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\print_shader_info_log.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\report_gl_error.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\uniform_type_to_string.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\verasansmono_compressed.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\vertex_array.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\MeshGL.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\ViewerCore.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\ViewerData.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\bind_vertex_attrib_array.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\create_index_vbo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\create_mesh_vbo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\create_shader_program.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\create_vector_vbo.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\destroy_shader_program.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\gl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\gl_type_size.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\init_render_to_texture.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\load_shader.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\print_program_info_log.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\print_shader_info_log.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\report_gl_error.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\uniform_type_to_string.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\verasansmono_compressed.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="G:\gitRepositories\libigl_CGAL_openGL\include\igl\opengl\vertex_array.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="G:\gitRepositories\libigl_CGAL_openGL\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{66AF20FD-272D-32F7-A475-FF1FDC2024F6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{1D91E96C-42E1-360F-8903-7A4880F5F34A}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

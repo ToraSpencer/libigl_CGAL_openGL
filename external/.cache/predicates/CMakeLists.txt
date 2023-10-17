@@ -9,7 +9,7 @@ include(ExternalProject)
 ExternalProject_Add(predicates-download
                     TLS_VERIFY;OFF;GIT_CONFIG;advice.detachedHead=false;GIT_REPOSITORY;https://github.com/libigl/libigl-predicates.git;GIT_TAG;488242fa2b1f98a9c5bd1441297fb4a99a6a9ae4
                     SOURCE_DIR          "G:/gitRepositories/libigl_CGAL_openGL/cmake/../external/predicates"
-                    BINARY_DIR          "G:/gitRepositories/libigl_CGAL_openGL/build/predicates-build"
+                    BINARY_DIR          "G:/gitRepositories/libigl_CGAL_openGL/build32/predicates-build"
                     CONFIGURE_COMMAND   ""
                     BUILD_COMMAND       ""
                     INSTALL_COMMAND     ""
